@@ -1,0 +1,1501 @@
+<apex:page standardController="Case" sidebar="false" showHeader="false" standardStylesheets="false"  applyBodyTag="false" docType="html-5.0" extensions="HandsFreeShoppingDashExtention">
+    
+            <apex:includeScript value="{!URLFOR($Resource.HFS_qrv5, '/instascan.js')}"/>
+            <apex:includeScript value="{!URLFOR($Resource.HFS_qrv5, '/adapter.min.js')}"/>
+            <apex:includeScript value="{!URLFOR($Resource.HFS_qrv5, '/jquery.min.js')}"/>
+
+    <html xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" ng-app="hfsApp" >    
+        <head>
+            <meta charset="utf-8" />
+            <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+            <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0" />
+            <meta name="apple-mobile-web-app-capable" content="yes"/>
+            <title>TIC Home Page</title>
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+            <link rel="stylesheet" href="{!URLFOR($Resource.NewTICStyles)}" />
+            <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular.min.js"></script>
+            <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+            
+            <apex:includeScript value="{!$Resource.Sorttable}" /> 
+            <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.10/vue.min.js"></script>
+
+
+                        
+                <style type="text/css">
+                    
+                    body{
+                        min-height: 100vh;     
+                        overflow: scroll; 
+                        background: url({!URLFOR($Resource.TICDashboard, 'HFshop.png')})
+                         no-repeat center center fixed; 
+                        -webkit-background-size: cover; 
+                        -moz-background-size: cover; 
+                        -o-background-size: cover; 
+                        background-size: cover;
+                        padding-bottom:200px;
+                    }
+
+                    #IntegrationErrors {
+                      background-color: red;
+                      border : red;
+                    }
+
+                    .collectionPointChanged {
+                    background-color: LightCyan;
+                    border: 0px solid;
+                    border-radius: .3em;
+                    padding: 0.2em;
+                    }
+
+                    .replenishBagsNow {
+                    background-color: red;
+                    border: 0px solid;
+                    border-radius: .4em;
+                    padding: 0.4em;
+                    }
+
+                    .replenishBagsLater {
+                    background-color: LimeGreen;
+                    border: 0px solid;
+                    border-radius: .4em;
+                    padding: 0.4em;
+                    }
+
+                    .table-fixed thead {
+                         width: 97%;
+                        }
+                    .table-fixed tbody {
+                      height: 400px;
+                      overflow-y: auto;
+                      width: 100%;
+                    }
+                    .table-fixed thead, .table-fixed tbody, .table-fixed tr, .table-fixed td, .table-fixed th {
+                      display: block;
+                    }
+                    .table-fixed tbody td, .table-fixed thead > tr> th {
+                      float: left;
+                      border-bottom-width: 0;
+                    }
+                    
+                    #ip1 {
+                        border-radius: 5px;
+                        padding: 5px; 
+                        width: 75px;
+                    }
+                    
+                    .modal {
+                        text-align: center;
+                        padding: 0!important;
+                    }
+        
+                 
+                    .modal:before {
+                        content: '';
+                        display: inline-block;
+                        height: 100%;
+                        vertical-align: middle;
+                        margin-right: -4px;
+                    }
+                    
+                    .modal-dialog {
+                        display: inline-block;
+                        text-align: left;
+                        vertical-align: middle;
+                    }
+
+					.spreadAlign td:first-child {
+						text-align: left;
+					}
+
+					.spreadAlign td:last-child {
+						text-align: right;		
+					}
+
+					.limitedCell {
+						max-width: 70px;
+					}
+
+                    @media (max-width: 900px)  {
+                        .limitedCell {
+                            max-width: none;
+                        }
+                    }
+
+					.reducedPadding th,td {
+						padding: 4px !important;
+					}
+
+                    .section-border-top {
+                        border-top: 1px solid #7070708a;
+                    }
+
+                    .section-heading {
+                        font-size: 1.1em;
+                    }
+
+                    .section-margin-top {
+                        margin-top: 0.8em;
+                    }
+
+
+
+            </style>
+            <script>
+                function isLightningRedirect(inUrl){
+                    if(  ('{!$User.UIThemeDisplayed}' == 'Theme4t' || '{!$User.UIThemeDisplayed}' == 'Theme4d' || '{!$User.UIThemeDisplayed}' == 'Theme4u') && (typeof sforce != 'undefined') && (sforce != null) ) {
+                        sforce.one.navigateToURL(inUrl);
+                    } else {
+                        window.location = inUrl;
+                    }
+                }
+            </script>
+            <script>
+                // define the app
+                var hfsApp = angular.module('hfsApp', []);
+            
+            //  $scope.GuestID_manual_input  = '';
+            // $scope.villagename = '{!JSENCODE(userVillage)}';
+
+            // add the controller
+            hfsApp.controller('CaseCtrl', function ($scope,$window,$interval,$log,$sce) {
+                $scope.errors = ('{!JSENCODE(errors)}' != '') ? JSON.parse('{!JSENCODE(errors)}') : null;
+               // $scope.VPS = [] ;
+                $scope.VPS = ('{!JSENCODE(VPS)}' != '') ? JSON.parse('{!JSENCODE(VPS)}') : null;
+                $scope.cases = ('{!JSENCODE(cases)}' != '') ? JSON.parse('{!JSENCODE(cases)}') : null;
+                $scope.clickCollectCaseDetails = ('{!JSENCODE(ClickCollectCases)}' != '') ? JSON.parse('{!JSENCODE(ClickCollectCases)}') : null;
+
+                $scope.clickCollectCaseDetails.brandsData.sort((a, b) => {
+                    if (a.totalBrandBagsValueNumeric > b.totalBrandBagsValueNumeric) return -1;
+                    if (a.totalBrandBagsValueNumeric < b.totalBrandBagsValueNumeric) return 1;
+                    if (a.totalBrandBagsValueNumeric === b.totalBrandBagsValueNumeric) return 0;
+                });
+
+                $scope.AllPickupLocations = ('{!JSENCODE(PickupLocations)}' != '') ? JSON.parse('{!JSENCODE(PickupLocations)}') : null;
+                $scope.GuestID_manual_input = '';
+                
+                $scope.showBrandListSearch  = false;
+                $scope.hasClickCollect = {!hasClickCollect};
+                
+                $scope.yesNoTypes = [
+                    { label: "<Is Actioned>", value: "<Is Actioned>"},
+                    { label: "Yes", value: "Yes"},
+                    { label: "No", value: "No"}               
+                ];                  
+                $scope.selectActionedyesNo = $scope.yesNoTypes[0];
+                
+                $scope.techSupportTypes = [
+                    { label: "<tech Support reqd>", value: "<tech Support reqd>"},
+                    { label: "Yes", value: "Yes"},
+                    { label: "No", value: "No"}               
+                ];                  
+                $scope.selectResolvedyesNo = $scope.techSupportTypes[0];
+                
+                $scope.categoryTypes = [
+                    { label: "<Select Category>", value: "<Select Category>"},
+                    { label: "System Error", value: "System Error"},
+                    { label: "Bag(s) already inserted", value: "Bag(s) already inserted"},
+                    { label: "Invalid Lease ID", value: "Invalid Lease ID"} ,
+                    { label: "Invalid QR Codes", value: "Invalid QR Codes"},
+                    { label: "Other", value: "Other"} 
+                ];                  
+                $scope.selectCategories = $scope.categoryTypes[0];
+
+                if('{!JSENCODE(IF(allErrorsResolved,"true", "false"))}' == 'true'){
+                    $j('#IntegrationErrors').css("background-color", "green");
+                }
+                
+                if('{!JSENCODE(IF(isHFSHistoric,"true", "false"))}' == 'true'){
+                    $j('#hfsH').show();         
+                }else{                    
+                    $j('#hfsH').hide();
+                }
+                
+                if('{!JSENCODE(IF(isNewHFSx,"true", "false"))}' == 'true'){
+                    $j('#addHFS').show();         
+                }else{                    
+                    $j('#addHFS').hide();
+                }
+                
+                if ('{!JSENCODE(IF(showClickCollect,"true", "false"))}' == 'true') {
+                    showClickCollect();
+                }
+                
+                
+                $scope.showCase = function(caseID) {
+                    
+                    if('{!JSENCODE(IF(isHFShost,"true", "false"))}' == 'true'){
+                        
+                    }else{                    
+                        isLightningRedirect('/apex/HFSGuestPage?ID=' + caseID);
+                    }
+                    
+                };
+
+                $scope.showErrorRecord = function(errorId) {                   
+                    if('{!JSENCODE(IF(isHFShost,"true", "false"))}' == 'true'){                        
+                    }else{       
+                        $window.open('/' + errorId, '_blank');
+                    }                 
+                };
+                
+                $scope.errorBackground = function(){
+                    return 'success';
+                };
+
+                $scope.whatClassIsRow = function(casevalue){
+                    
+                    if(casevalue.Payment_Status === 'Payment on Collection' || casevalue.Payment_Status === 'Payment on Collection [Store Activated]'){
+                        return 'danger';
+                    }
+                    else if(casevalue.Payment_Status === 'Paid' && casevalue.ItemsAwaiting != '0' ){
+                        return 'warning';
+                    }
+                        else if(casevalue.Payment_Status === 'Paid' && casevalue.ItemsAwaiting === '0'){
+                            return 'success';
+                        }
+                            else if(casevalue.Payment_Status === 'Paid' && casevalue.ItemCount === '0' ){
+                                return 'info';
+                            }
+                                else{
+                                    return 'active';
+                                }
+                    
+                };
+                
+                $scope.whatClassIabel = function(casevalue){
+                    
+                    if(casevalue.ItemsAwaiting != '0' ){
+                        return 'label label-danger';
+                    }
+                    else if(casevalue.ItemsCollected === '0' && casevalue.ItemsAwaiting === '0' ){
+                        return 'label label-info';
+                    }
+                        else if(casevalue.ItemsCollected != '0' && casevalue.ItemsAwaiting === '0' ){
+                            return 'label label-success';
+                        }                      
+                            else{
+                                return 'label label-default';
+                            }
+                };
+
+                $scope.whatClassIabel2 = function(casevalue){
+                    
+                    if(casevalue.CollectionPointhaschanged){
+                        return 'collectionPointChanged';
+                    }
+                };
+
+
+                $scope.whatClassIabel3 = function(vpvalue){
+                    
+                    if(vpvalue.Replenish__c){
+                        return 'replenishBagsNow';
+                    }
+                    else{
+                        return 'replenishBagsLater';
+                    }
+                };
+
+				$scope.getSpendColor = function (caseRecord) {
+					
+					var style = {};
+					style['font-weight'] = 'bold';
+					style['text-align'] = 'right';
+
+					if (caseRecord.spendLevel === 'HIGH') {
+						style.color = '#ceb017';
+					} else if (caseRecord.spendLevel === 'MEDIUM') {
+						style.color = '#de6a19';
+					}
+
+					return style;
+
+				};       
+                    
+                $scope.returnBagQRCodeArray = function(errorId, ListofBags){
+                    var returnString = '';
+                    angular.forEach(angular.fromJson(ListofBags), function(value, key){
+                        var bc = value.barcode__c.toString();
+                        returnString += '<output onclick="directToBagRecord(' + '\'' +bc+ '\'' + ')"><u>' + value.barcode__c + '</u></output> \n';
+                                   });
+
+                    return $sce.trustAsHtml(returnString);
+                    };
+                
+                $scope.GuestID_Search = function(){
+                    
+                    console.log('IN');
+                    $scope.contactList = [];
+                    
+                    
+                    if( $scope.GuestID_manual_input  != undefined && $scope.GuestID_manual_input.length > 0){
+                        
+                        Visualforce.remoting.Manager.invokeAction(
+                            '{!$RemoteAction.HandsFreeShoppingDashExtention.searchGuestID}',
+                            $scope.GuestID_manual_input , '{!JSENCODE(userVillage)}',
+                            function(result, event){
+                                console.log(result);
+                                if (event.status) {
+                                    $scope.showBrandListSearch  = true;
+                                    $j('#GuestIdModal').show();
+                                    $j('#preview').hide();
+                                    $scope.contactList = result;
+                                } else if (event.type === 'exception') {
+                                    $scope.message = event;
+                                } else {
+                                    $scope.message = event;
+                                }
+                                $scope.$apply();
+                            }, 
+                            {escape: true}
+                        );
+                        
+                    }else{
+                        $scope.showBrandListSearch  = false;
+                        $j('#preview').show();
+                    }
+                };
+                
+                $scope.techSupportRequired = function(errorid, RequiresTechnicalSupport, index){
+                    console.log('errorid: ' + errorid+ ' --- RequiresTechnicalSupport ' + RequiresTechnicalSupport);
+                    if(RequiresTechnicalSupport == true){
+                        alert('This error has already been sent to Technical Support');                        
+                        }else{
+                            console.log('error Id ' + errorid);
+                                Visualforce.remoting.Manager.invokeAction(
+                                    '{!$RemoteAction.HandsFreeShoppingDashExtention.techSupportRequired}',
+                                    errorid,
+                                    function(result, event){
+                                        console.log(result);
+                                        if (result.includes('Success')) {
+                                            $scope.errors[index].Requires_Technical_Support__c = true;                                 
+                                        }
+                                        else {
+                                            alert(result);                                       
+                                        }
+                                        $scope.$apply();
+                                    }, 
+                                    {escape: false}
+                                );                           
+                            }                                       
+                };
+                
+                $scope.resolveError = function(errorid, isresolved, index){
+                    // alert('inde ' + index);
+                    //$scope.errors[index].Is_Resolved__c = true;
+                    console.log('errorid: ' + errorid+ ' --- is resolved ' + isresolved);
+                      if(isresolved == true){
+                        alert('This error is already resolved');                        
+                        }else{
+                            console.log('error Id ' + errorid);
+                                Visualforce.remoting.Manager.invokeAction(
+                                    '{!$RemoteAction.HandsFreeShoppingDashExtention.resolveIntegrationError}',
+                                    errorid,
+                                    function(result, event){
+                                        console.log(result);
+                                        if (result.includes('Success')) {
+                                            $scope.errors[index].Is_Resolved__c = true;                                 
+                                        }
+                                        else {
+                                            alert(result);                                            
+                                        }
+                                        $scope.$apply();
+                                    }, 
+                                    {escape: false}
+                                );
+                            }                   					
+    			};
+                
+                $scope.massUpdateError = function(){
+                    alert('mass update');
+                    };
+                
+                
+                $scope.getfilterErrors = function(){
+                    
+                       var startDate = document.getElementById('startdatefield').value;  
+                       var endDate = document.getElementById('enddatefield').value;        
+                    
+                       var e = document.getElementById("techSupportPicklist");
+                       var techSupportreqd = e.options[e.selectedIndex].label;
+                    
+                       var f = document.getElementById("actionedPicklist");
+                       var actionedValue = f.options[f.selectedIndex].label;
+
+                      console.log('startDate ' + startDate + ' ---- ' + ' endDate ' + endDate);
+                                
+                        if( !startDate || !endDate  ){        
+                                        
+                            if(!startDate && endDate ){
+                                    alert('Please enter a start date');
+                                    document.getElementById('startdatefield').style.borderColor = "red";
+                            }
+                            
+                            if( startDate && !endDate ){
+                                    alert('Please enter an end date');
+                                    document.getElementById('enddatefield').style.borderColor = "red";
+                            }
+                               
+                            if( !startDate && !endDate ){
+                                    alert('please enter a start and an end date');
+                                    document.getElementById('startdatefield').style.borderColor = "red";
+                                    document.getElementById('enddatefield').style.borderColor = "red";
+                            }
+                                                                                                                                                                                               
+                        }
+                    else if( startDate > endDate){
+                        alert('please ensure the start date is before the end date');
+                    }
+                    else{
+                         Visualforce.remoting.Manager.invokeAction(
+                                    '{!$RemoteAction.HandsFreeShoppingDashExtention.filterErrors}',
+                                    startDate,endDate,actionedValue,techSupportreqd,
+                                    function(result, event){
+                                        console.log(result);
+                                        if (result.includes('An error occured')) {
+                                            alert(result);                                    
+                                        }
+                                        else {
+                                            //alert(result);   
+                                            $scope.errors = (angular.fromJson(result));
+                                        }
+                                        $scope.$apply();
+                                    }, 
+                                    {escape: false}
+                        );
+                    }
+                };
+                
+                			
+
+                $scope.showVP = function(vpid){
+
+                    console.log(vpid);
+                    isLightningRedirect('/' + vpid);
+
+                };
+                
+                // Selected Contact
+                $scope.SelectGuestID = function(GuestID){
+                    
+                    console.log(GuestID);
+                    
+                    Visualforce.remoting.Manager.invokeAction(
+                        '{!$RemoteAction.HandsFreeShoppingDashExtention.goToGuestPage}',
+                        GuestID,
+                        function(result, event){
+                            console.log(result);
+                            if (event.status) {
+                                isLightningRedirect('/apex/HFSGuestPage?ID=' + result);
+ 
+                            } else if (event.type === 'exception') {
+                                $scope.message = event;
+                            } else {
+                                $scope.message = event;
+                            }
+                            $scope.$apply();
+                        }, 
+                        {escape: true}
+                    );
+                    
+                    /*
+                    $scope.showBrandListSearch  = false;
+                    $scope.brandName  = brand.Name;
+                    $scope.brandid = brand.Id;
+                    $scope.contactList = [];
+                    */
+                };
+
+                
+            });
+            
+            </script>
+
+
+            <script type="text/javascript">
+
+            function makeTableScroll() {
+                    // Constant retrieved from server-side via JSP
+                    var maxRows = 15;
+
+                    var table = document.getElementById('replenishTable');
+                    var wrapper = table.parentNode;
+                    var rowsInTable = table.rows.length;
+                    var height = 0;
+                    if (rowsInTable > maxRows) {
+                        for (var i = 0; i < maxRows; i++) {
+                            height += table.rows[i].clientHeight;
+                        }
+                        //wrapper.style.height = height + "px";
+                        //alert( wrapper.style.height );
+                    }
+
+            }
+            
+            function directToBagRecord(barcode) {
+                    console.log('this barcode ' + typeof barcode );
+                var code = barcode.toString();
+
+                Visualforce.remoting.Manager.invokeAction(
+                            '{!$RemoteAction.HandsFreeShoppingDashExtention.getBagRecord}',
+                            code,
+                            function(result, event, scope) {  
+                                // send the details to the server
+                                console.log(result);                                       
+                                // now we need to redirect the user to the guest details screen
+                                if (result.indexOf('ERROR') > -1){
+                                    alert('\n ERROR --- An error has occured, please show the error below to your Salesforce Administrator\n' + '\n' + result); 
+                                    console.log(result);  
+                                     window.open('/' + result, '_blank');
+                                    // location.reload();                                                              
+                                } else {
+                                    if(result == 'There are no Bags with that Barcode being used in the system currently'){
+                                            alert('\nThere are no Bags with that Barcode being used in the system currently\n' + '\n');
+                                            console.log(result);  
+                                        }
+                                        else if(result == 'Bag Barcode used more than once, please search manually'){                                           
+                                            alert('Bag Barcode used more than once, please search manually');
+                                            console.log(result);
+                                        }else{
+                                            window.open('/' + result, '_blank');
+                                            }
+                                }
+                            }); 
+            }
+
+        </script>
+            
+            <script type="text/javascript">
+            
+            $j = jQuery.noConflict();
+            var homeUrl;
+            var contactList = [];
+            var scanner = '';
+            var isShow = false;
+            var fieldsAreEditable = false;
+            var clicks = 0;
+            // var showGuestListSearch = false;
+            
+
+            $j(document).ready(function() {
+                
+                let lugaggeAndLoansPermission = {!$Permission.LGL_Permission};
+        
+                if (lugaggeAndLoansPermission) {
+                    $j('#lgldash').show();
+                }
+                
+                 function setTodaysDate(fieldID) {
+                    
+                    var now = new Date();
+                    var day = ("0" + now.getDate()).slice(-2);
+                    var month = ("0" + (now.getMonth() + 1)).slice(-2);              
+                    var today = now.getFullYear()+"-"+(month)+"-"+(day) ;            
+                    $j('#'+fieldID+'').val(today);
+                                     
+                    }
+                      setTodaysDate('startdatefield');
+                        setTodaysDate('enddatefield');
+
+                makeTableScroll();
+                $j('#bagReplenishmentInfo').hide();
+                $j('#editableFieldBagsToAdd').css('visibility','hidden');
+                                
+                //startCamera();    
+                
+                //SCAN TEMPORAY RSILVA
+                if('{!JSENCODE(IF(showIntegrationErrors,"true", "false"))}' == 'true'){
+                    $j('#IntegrationErrors').show();
+                } else {
+                    $j('#IntegrationErrors').hide();
+                }
+                
+                if('{!JSENCODE(IF(isHFShost,"true", "false"))}' == 'true'){
+                    $j('#guestsearchB').hide();              
+                }else{
+                    $j('#guestsearchB').show();   
+                }
+                
+                
+                if( ('{!$User.UIThemeDisplayed}' == 'Theme4t' || '{!$User.UIThemeDisplayed}' == 'Theme4d' ) ) {
+                    // running in mobile
+                    homeUrl = '/_ui/core/chatter/ui/ChatterPage';
+                } else { //desktop
+                    homeUrl = '/home/home.jsp';
+                }                        
+                
+            });
+
+                
+                //SCAN TEMPORAY RSILVA                
+                function startCamera(){
+
+                    scanner = new Instascan.Scanner({ video: document.getElementById('preview'), mirror: false});
+                    scanner.addListener('scan', function (content) {
+                        consolelog(content);
+                    });
+            
+                    hasGetUserMedia();
+
+                      //alert('Almost camera.');
+                        Instascan.Camera.getCameras()
+                        //.then(cameras => cameras.filter(camera => camera.name.indexOf('back') !== -1))
+                        .then(function (cameras) {    
+                                // alert('Almost camera2.'); 
+                                 
+                                                   
+                            if (cameras.length > 0) {
+                                if( (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1)){
+                                    // running in mobile
+                                    //alert('VIP Mobile ..');
+                                 //   if(cameras[1].name == 'Back'){
+                                        scanner.start(cameras[1]);
+                                 //       alert(cameras[1].name);  
+                                //    }else{
+                                //        scanner.start(cameras[0]);
+                                //        alert(cameras[0].name); 
+                                //    }
+                                   
+                                } else { //Desktop
+                                    
+                                    scanner.start(cameras[0]);
+                                    //alert('VIP Desktop..');
+                                }    
+                                                      
+                                //consolelog();
+                            }else{
+                                alert('No cameras found.');
+                            }
+                        }).catch(function (e) {
+                             alert('No cameras catch.' + e.getMessage());
+                        });
+                    };
+                
+                function stopCamera(){
+                    scanner.stop();
+                };
+                
+                function consolelog(message){
+                    
+                    document.getElementById('GuestID_manual_input').value = message;
+                    this.HandsFreeShoppingDashExtention.getlocations(message, function(result){
+                        console.log(result);    
+                        if(result != null ){                          
+                            isLightningRedirect('/apex/HFSGuestPage?ID=' + result);
+                        }else{
+                            alert('Guest not found or QR code duplicated');
+                        }
+                        console.log('location2 ' +result );  
+                    });
+                };
+                
+                
+                function hasGetUserMedia() {
+                    //alert(navigator.mediaDevices);
+                    //alert(navigator.mediaDevices.getUserMedia);
+                    return !!(navigator.mediaDevices &&
+                              navigator.mediaDevices.getUserMedia);
+                };
+                  
+            
+            function cancelAction(){
+                isLightningRedirect(homeUrl);   
+            };
+            
+            
+            
+            
+            
+            
+                function showHideReplenishment(){
+                    $j('#bagReplenishmentInfo').toggle();   
+                };
+                
+                
+                function editTableCells(){
+                   fieldsAreEditable = true;   
+                   clicks ++;
+                   console.log(clicks);
+                   
+                   if(clicks == 1){
+                   
+                   $j('#editableFieldBagsToAdd').css('visibility','visible');
+                                                                     
+                   $j( "td[id*='editableFieldThreshold']" ).each(function() {
+                        var theValue = $j(this).text();
+                        $j( this ).data("oldVal",theValue );
+                        $j( this ).empty().prepend( "<input type='text' id='ip1' value='" + theValue + "'/>" );
+                    });
+                    
+                    $j( "td[id*='editableFieldBagsToAdd']" ).each(function() {
+                        var theValue = $j(this).text();
+                        $j( this ).data("oldVal",theValue );
+                        $j( this ).empty().prepend( "<input type='text' id='ip1' value='0'/>" );
+                    });
+                    }
+                    else{
+                    }
+                    
+                };
+                
+                
+                function cancelEditTableCells(){
+                    $j('#editableFieldBagsToAdd').css('visibility','hidden');
+                    clicks = 0;
+                   fieldsAreEditable = false;       
+                                              
+                   $j( "td[id*='editableField']" ).each(function() {
+                        var theValue = $j(this).data("oldVal");
+                        //alert('theValue : ' + theValue);
+                        $j( this ).children().remove();
+                        $j( this ).html(theValue);
+                    });
+                    
+                };
+                
+                               
+                
+                //------------------------------------
+                function saveReplenishments(){
+           
+                var vps =  [];
+                    
+                    if(fieldsAreEditable){
+                        
+                        $j('#loadingmodal').show();
+                    
+                        $j('.replenishTableRow').each(function() {
+                                                                        
+                            var vp = {
+                                "id" : $j(this).attr("id"),  
+                                "Threshold" : "" ,
+                                "bagsToAdd" : ""                    
+                            };
+                                
+                            $j(this).children().children("input[type=text]").each(function() {
+                                
+                                if($j(this).parent().attr("id") == 'editableFieldThreshold'){
+                                    vp.Threshold = $j(this).val();                  
+                                }
+                                else if( $j(this).parent().attr("id") == 'editableFieldBagsToAdd'){
+                                    vp.bagsToAdd = $j(this).val(); 
+                                }                                                       
+                            });
+
+                        vps.push(vp);
+    
+                        });
+                        
+                        var jsonString = JSON.stringify(vps);
+
+                              HandsFreeShoppingDashExtention.saveReplenishments( jsonString ,function(result, event) {
+                                  console.log(result + 'here');
+                                  if(result === 'Success') {
+                                      console.log("result = " + result);
+                                    alert("Village Presence records updated successfully");
+                                      $j('#loadingmodal').hide();
+                                      isLightningRedirect('/apex/HFSDash');
+                                  } 
+                                  else {
+                                      $j('#loadingmodal').hide();
+                                    alert(result);
+                                  }
+                                },
+                              );
+                    }
+                    else{
+                        alert('there are no changes');
+                    }
+                    
+                };
+                
+                
+                
+
+            function showIntegrationErrors(){
+                if('{!$Profile.Name}' == 'System Administrator' || '{!$Profile.Name}' == 'HFS Co-ordinator'){   
+                    var experienciesDiv = document.getElementById("hfsexperiences");
+                    var collectionsDiv = document.getElementById("shoppingcollections");
+                    var errorsDiv = document.getElementById("integrationErrorsList");
+                    collectionsDiv.style.display = "none";
+                    experienciesDiv.style.display = "none";
+                    errorsDiv.style.display = "block";
+                    $j("#ClickCollect").show();
+                    $j("#clickCollectExperiences").hide();
+                	$j("#clickCollectCollections").hide();
+                }
+
+
+            }
+
+            function showClickCollect(){
+                $j("#hfsexperiences").hide();
+                $j("#shoppingcollections").hide();
+                $j("#integrationErrorsList").hide();
+                $j("#ClickCollect").hide();
+                $j("#clickCollectExperiences").show();
+                $j("#clickCollectCollections").show();
+            }
+            
+            function gotoPage(pg){
+                isLightningRedirect('/apex/' + pg);
+            };
+            
+            function goToGuestPage(){
+                var inputManual = document.getElementById('input_manual').value;
+                
+                this.HandsFreeShoppingDashExtention.goToGuestPage(inputManual, function(result){                   
+                    isLightningRedirect('/apex/HFSGuestPage?ID=' + result);
+                });
+            };
+            
+            /*            function navigateto(message){
+
+                        this.HandsFreeShoppingDashExtention.getlocations(message, function(result){
+                            //window.location.href = '/apex/HFSGuestPage?ID=' + result;  '{!JSENCODE(userVillage)}'                         
+                            window.location.href = '/apex/HFSGuestPage?ID=' + result ;
+                            console.log('location2 ' +result );  
+                        });
+
+            }*/
+            
+            /*
+            function GuestID_Search(){
+                    
+                        
+                var GuestID = document.getElementById('GuestID_manual_input').value;
+                var Village = '{!JSENCODE(userVillage)}';
+
+                console.log('String ' + GuestID + ' ' + Village); 
+
+                if( GuestID  != undefined && GuestID.length > 0){
+
+                    this.HandsFreeShoppingDashExtention.searchGuestID(GuestID, Village, function(result){                      
+                           console.log('GuestIDs = ' + result);
+                           contactList = result;
+                           console.log('GuestIDs_Res = ' + contactList);
+                        
+                            $j('#GuestIdModal').show();
+
+                            
+                    });
+                }
+                  
+            }
+            */
+
+
+            // draw the pie chart
+
+ google.charts.load("current", {packages:["corechart"]});
+      google.charts.setOnLoadCallback(drawChart);
+      var bookingdatasummary = ('{!JSENCODE(hfsdashsummary)}' != '') ? JSON.parse('{!JSENCODE(hfsdashsummary)}') : null;
+      var newcount = parseInt(bookingdatasummary.statusnew,10);
+      var closedcount = parseInt(bookingdatasummary.closed,10);
+	  var didNotParticipateCount = parseInt(bookingdatasummary.didNotParticipate, 10);
+      var shoppingcount = parseInt(bookingdatasummary.shopping,10);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Status', 'Number'],
+          ['New',     newcount ],
+          ['Closed',      closedcount],
+          ['Shopping',  shoppingcount ],
+		  ['Did Not Participate', didNotParticipateCount]
+        ]);
+
+        var options = {
+          title: 'Current Guest Status',
+          is3D: true,
+          pieSliceText: 'value',
+          backgroundColor: '#f5f5f5',
+           pieSliceTextStyle: {
+            color: 'black',
+              width: '100%',
+        height: '100%',
+          },
+           slices: {
+            0: { color: '#faf2cc' },
+            1: { color: '#d0e9c6'},
+			2: { color: '#e8e8e8' },
+			3: { color: '#6b4bcd' }
+          }
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
+        chart.draw(data, options);
+      }
+
+            </script>
+            
+        </head>
+        <body>
+            <!-- Main Navigation -->
+            <div class="my-nav">
+                <div class="site-navbar navbar navbar-fixed-top" role="navigation">
+                    <div class="container">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+                            <a class="navbar-brand" onclick="gotoPage('TIC_Dashboard');">Tourist Information Center</a> 
+                        </div>
+                        <div id="navbar" class="navbar-collapse collapse">
+                            <ul class="nav navbar-nav navbar-right">
+                                <li> <a  href="#guest"  onclick="gotoPage('Promotion_Search');" >Guest Check In</a> </li>
+                                <li> <a  href="#search"  onclick="gotoPage('GuestSearch');">Guest Search</a> </li>
+                                <li> <a  href="#card"  onclick="gotoPage('VIPCardSearch');">Card Search</a> </li>
+                                <li> <a  href="#clean"  onclick="gotoPage('VIPCardCleardown');">VIP Card Cleanup</a> </li>
+                                <li> <a  href="#hfsH"  name="hfsH" id="hfsH" onclick="gotoPage('HFSHistoric');" >Historic HFS – Awaiting Collection</a> </li>
+                                <li> <a  href="#hfs"  onclick="gotoPage('HFSDash');" class="active">Hands Free Shopping</a> </li>
+                                <li id="lgldash" style="display: none;"> <a  href="#" name="lgldash" id="lgldash" onclick="gotoPage('LGL_Dash');">Luggage &amp; Loans</a> </li>
+                                <li> <a  href="#exit" onclick="cancelAction();" >Exit</a> </li>
+                            </ul>
+                        </div>
+                        <!--/.nav-collapse -->
+                    </div>
+                </div>
+            </div>
+            <!-- /.Main Navigation -->
+            <!-- Fullwidth Header -->
+            <!-- Intro Header -->
+            
+            
+            <div class="jumbotron text-center">
+                <h2>&nbsp;</h2>
+            </div>
+            
+            
+            <br/>
+            <br/>
+
+            
+            
+            <!-- main content -->
+            <div class="container" ng-controller="CaseCtrl">  
+                
+                 <div id="loadingmodal" name="loadingmodal" class="modal" role="dialog">
+                    <div class="modal-dialog">
+                        <div id="loader">
+                            <div class="dot"></div>
+                            <div class="dot"></div>
+                            <div class="dot"></div>
+                            <div class="dot"></div>
+                            <div class="dot"></div>
+                            <div class="dot"></div>
+                            <div class="dot"></div>
+                            <div class="dot"></div>
+                        </div>
+                    </div>
+                </div>
+
+            
+                
+                <a onclick="gotoPage('HFSDash');" class="btn btn-default"><i class="glyphicon glyphicon-home"></i></a>&nbsp;&nbsp;
+                <a href="#Add" class="btn btn-default" id="addHFS" name="addHFS" role="button" onclick="gotoPage('HFSAddService');">New HFS Experience</a>
+                
+                <a href="#CheckouScan" id="guestsearchB" name="guestsearchB" class="btn btn-default" role="button" data-toggle="modal" data-target="#guestscan" onclick="startCamera();">Guest Search</a>
+
+                <a href="#IntegrationErrors" id="IntegrationErrors" name="IntegrationErrors" class="btn btn-default" role="button" onclick="showIntegrationErrors();" style="display: none">({!totalErrors}) Integration Error(s)</a>
+
+                <a class="btn btn-default" role="button" onclick="showHideReplenishment();">Manage HFS Bags</a>
+                
+                <a class="btn btn-default" role="button" id="HousekeepingButton" onclick="gotoPage('HFSHousekeeping');">Housekeeping</a>
+                
+                <a class="btn btn-default" id="ClickCollect" name="ClickCollect" role="button" onclick="showClickCollect();" ng-show="hasClickCollect">Call &amp; Collect</a>
+
+                 
+                <br />
+                <br />
+                <div class="panel panel-primary" id="hfsexperiences">
+                    <!--DEV TEAM L -->
+                    <div class="panel-heading" style="background-color: #AFAFAF;" data-toggle="collapse" data-target="#demo1">On-Going HFS Experiences Summary: </div>  
+                    <div class="table-responsive" id="demo1" name="demo1" style="background-color: #F5F5F5;" >  
+                    
+             <div  class="row" style=" margin-left:auto; margin-right: auto;" >  
+                 <div class="col-md-6" ><br></br>
+						<table class="table table-hover sortable spreadAlign"  >
+                                                     
+                                <tr>
+                                    <td><b>Pickup Location</b></td>
+                                    <td><b>Number of Experiences</b></td>
+                                </tr>
+                            
+
+                                <tr ng-repeat="pl in AllPickupLocations" class="active"> 
+                                    <td>{{pl.Location_name}}:</td>
+                                    <td><b>{{pl.NumberHFS}}</b></td>
+								</tr>
+							</table>
+					</div>
+					<div class="col-md-6" >
+							<div id="piechart_3d" ></div>
+					</div>
+				</div>
+				 <!--    start   -->
+				 <div class="row" style=" margin-left:auto; margin-right: auto;">
+					<div class="col-md-6" >
+						<table class="table table-hover spreadAlign"  >	
+                          
+                            <tr style="background-color: #E2E2E2;">
+                                <td><b>Active Experiences:</b></td>
+                                <td><b>{!activeExperiences}</b></td>
+                            </tr>
+                            <tr style="background-color: #E2E2E2;">
+                                <td><b>Closed Experiences:</b></td>
+                                <td><b>{!closedExperiences}</b></td>
+                            </tr>
+                         <tr style="background-color: #E2E2E2;">
+									<td><b>Did Not Participate Experiences:</b></td>
+									<td><b>{!didNotParticipateExperiences}</b></td>
+								</tr>
+								<tr style="background-color: #E2E2E2;">
+                                <td><b>Live Experiences:</b></td>
+                                <td><b>{!liveExperiences}</b></td>
+                            </tr>
+                        </table>
+                 </div>
+                   <div class="col-md-6" >
+						<table class="table table-hover spreadAlign"  >                                              
+                            <tr style="background-color: #E2E2E2;">
+                                <td><b>Total Bags for the Day:</b></td>
+                                <td><b>{!totalBagsforDay}</b></td>
+                            </tr>
+                            <tr style="background-color: #E2E2E2;">
+                                <td><b>Total Collections for the Day:</b></td>
+                                <td><b>{!totalJobsforDay}</b></td>
+                            </tr>
+                         	<tr style="background-color: #E2E2E2;">
+                                <td><b>Total Experiences for the Day:</b></td>
+                                <td><b>{!totalExperiences}</b></td>
+							</tr>
+                         	<tr style="background-color: #E2E2E2;">
+                                <td><b>Total Tracked Spend:</b></td>
+                                <td><b>{!totalSpend}</b></td>
+                            </tr>
+                        </table>
+				 </div>
+				</div>
+				<!-- finish  -->
+</div></div>
+
+        <div class="panel panel-primary" id="clickCollectExperiences" style="display: none;">
+            <!--DEV TEAM L -->
+            <div class="panel-heading" style="background-color: #AFAFAF;" data-toggle="collapse" data-target="#demo1">Call &amp; Collect</div>
+            <div class="table-responsive" id="clickCollectDash" name="clickCollectDash" style="background-color: #F5F5F5;">
+
+                <div class="row" style=" margin-left:auto; margin-right: auto;">
+                    <div class="col-md-6 section-margin-top" style="text-align: left">
+                        <label class="section-heading">Today's Registrations</label>
+                        <div class="section-border-top">
+                            <table class="table table-hover spreadAlign">
+
+                                <tr style="background-color: #E2E2E2;">
+                                    <td>
+                                        Total Number of Call &amp; Collect Registrations
+                                    </td>
+                                    <td>
+                                        {{clickCollectCaseDetails.totalCasesToday}}
+                                    </td>
+                                </tr>
+                                <tr style="background-color: #E2E2E2;">
+                                    <td>
+                                        Total Number of Bags
+                                    </td>
+                                    <td>
+                                        {{clickCollectCaseDetails.totalBagsToday}}
+                                    </td>
+                                </tr>
+                                <tr style="background-color: #E2E2E2;">
+                                    <td>
+                                        Total Value of Bags
+                                    </td>
+                                    <td>
+                                        {{clickCollectCaseDetails.totalValueBagsToday}}
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="col-md-6 section-margin-top" style="text-align: left">
+                        <label class="section-heading">Today's Collections</label>
+                        <div class="section-border-top">
+                            <table class="table table-hover spreadAlign">
+
+                                <tr style="background-color: #E2E2E2;">
+                                    <td>
+                                        Total Number of Guests already Collected
+                                    </td>
+                                    <td>
+                                        {{clickCollectCaseDetails.totalGuestsCollected}}
+                                    </td>
+                                </tr>
+                                <tr style="background-color: #E2E2E2;">
+                                    <td>
+                                        Total Number of Bags already Collected
+                                    </td>
+                                    <td>
+                                        {{clickCollectCaseDetails.totalBagsCollected}}
+                                    </td>
+                                </tr>
+                                <tr style="background-color: #E2E2E2;">
+                                    <td>
+                                        Total Value of Bags Collected
+                                    </td>
+                                    <td>
+                                        {{clickCollectCaseDetails.totalValueBagsCollected}}
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <!--    start   -->
+                <div class="row" style=" margin-left:auto; margin-right: auto; margin-bottom: 10px;">
+                    <div class="col-md-6 section-margin-top" style="text-align: left;">
+                        <label class="section-heading">Today's Brands</label>
+                        <div style="max-height: 200px; overflow-y: scroll;">
+                            <table class="table table-hover spreadAlign">
+                                <tr>
+                                    <th style="padding-left: 0;">Brand Name</th>
+                                    <th style="text-align: center;">Total Bags</th>
+                                    <th style="padding-right: 0;text-align: right;">Total Spend</th>
+                                </tr>
+                                <tr style="background-color: #E2E2E2;" ng-repeat="brandDetail in clickCollectCaseDetails.brandsData">
+                                    <td>
+                                        {{brandDetail.brandName}}
+                                    </td>
+                                    <td style="text-align: center;">
+                                        {{brandDetail.totalBrandBags}}
+                                    </td>
+                                    <td style="text-align: right;">
+                                        {{brandDetail.totalBrandBagsValue}}
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="col-md-6 section-margin-top" style="text-align: left">
+                        <label class="section-heading">Storage Facility</label>
+                        <div class="section-border-top">
+
+                            <table class="table table-hover spreadAlign">
+
+                                <tr style="background-color: #E2E2E2;">
+                                    <td>
+                                       Total Number of Guests still waiting to Collect
+                                    </td>
+                                    <td>
+                                        {{clickCollectCaseDetails.totalGuestsPendingCollect}}
+                                    </td>
+                                </tr>
+                                <tr style="background-color: #E2E2E2;">
+                                    <td>
+                                        Total Number of Bags waiting to be Collected
+                                    </td>
+                                    <td>
+                                        {{clickCollectCaseDetails.totalBagsPendingCollect}}
+                                    </td>
+                                </tr>
+                                <tr style="background-color: #E2E2E2;">
+                                    <td>
+                                        Total Value of Bags waiting to be Collected
+                                    </td>
+                                    <td>
+                                        {{clickCollectCaseDetails.totalValueBagsPendingCollect}}
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <!-- finish  -->
+            </div>
+        </div>
+
+                <!-- bag replenishment stuff  editTableCells  -->
+            <!-- <div class="panel panel-primary" id="bagReplenishmentInfo" ng-show="isFormOpen"> -->
+            <!--  <div class="panel panel-primary" id="bagReplenishmentInfo" visible="isSHow" > -->
+                
+            <div class="panel panel-primary" id="bagReplenishmentInfo" >
+                
+                    <div class="panel-heading" style="background-color: #AFAFAF;" >HFS Bag Replenishment&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<a class="btn btn-default" role="button" onclick="editTableCells();">Edit Bags</a>&nbsp; &nbsp;<a class="btn btn-default" role="button" onclick="cancelEditTableCells();">Cancel</a>
+                    &nbsp; &nbsp;<a class="btn btn-default" role="button" onclick="saveReplenishments();">Save</a></div>               
+                    <div class="table-responsive" style="overflow-y: hidden;" >
+                        
+                    
+                        <table class="table table-fixed table-hover sortable" ID="replenishTable" style="background-color: #F5F5F5;">
+                            <thead>
+                                <tr class="active">
+                                    <th class="col-xs-2" >Village Presence</th>
+                                    <th class="col-xs-2">HFS Threshold</th>
+                                    <th class="col-xs-1">No. Bags At Brand</th>
+                                    <th class="col-xs-1" id="editableFieldBagsToAdd">HFS Bags to Add</th>
+                                    <th class="col-xs-2">HFS Bags <br/>Used Today</th>
+                                    <th class="col-xs-2">HFS Bags <br/>Left Today</th>       
+                                    <th class="col-xs-2">Replenish?</th>
+                                </tr>
+                            </thead>
+                            <tbody id="replenishTableBody">
+                   
+                                <!-- <tr ng-repeat="vp in VPS | filter:query" class="active" style="cursor: pointer;" ng-click="showVP(vp.Id) >   -->
+                                <tr ng-repeat="vp in VPS | filter:query" class="active replenishTableRow" style="cursor: pointer;" id="{{vp.Id}}" >
+                                    <td class="col-xs-2" height="48" id="vpName">{{vp.Name}}</td> 
+                                    <td class="col-xs-2" height="48" id="editableFieldThreshold">{{vp.HFS_Threshold__c}}</td>
+                                    <td class="col-xs-1" height="48" id="">{{vp.HFS_Bags_Received__c}}</td>
+                                    <td class="col-xs-1" height="48" id="editableFieldBagsToAdd"></td>
+                                    <td class="col-xs-2" height="48" id="">{{vp.HFS_Bags_Used__c}}</td>
+                                    <td class="col-xs-2" height="48" id="">{{vp.HFS_Bags_Left__c}}</td>
+                                    <td class="col-xs-2" height="48"><span ng-class="whatClassIabel3(vp)">{{vp.Replenish__c?'Y':'N'}}</span></td>
+                                </tr>
+                                <tr class="info" ng-hide="VPS.length" >
+                                    <td class="col-xs-12">No Data</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            <!--   //// -->
+                
+                
+         
+                <!-- select Scan Modal -->
+                <div id="guestscan" name="guestscan" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"   >
+                    
+                    <div class="modal-dialog modal-lg" role="document">
+                        
+                        <!-- Modal content-->
+                        <div class="modal-content" >   
+                            <div class="modal-header" style =" font-weight: bold; font-size: medium;"> Scan QR Code or insert Service Guest Number
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            </div>
+                            
+                            <div class="modal-body" >
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                    <input  id="GuestID_manual_input" class="form-control" type="text" name="GuestID_manual_input" ng-model="GuestID_manual_input" placeholder="Search for GuestID..." aria-autocomplete="list" ng-required="true" ng-keyup="GuestID_Search()"/> 
+                                </div>
+                                <br />
+                                <video id="preview"></video>
+                            
+                            </div>                                  
+                            <div id="GuestIdModal" name="GuestIdModal" role="dialog"  ng-show="showBrandListSearch">
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">GuestID</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>                      
+                                            <td>
+                                                <a class="list-group-item" ng-click="SelectGuestID(GuestID)" ng-repeat="GuestID in contactList">{{GuestID}}</a>
+                                            </td>
+                                        </tr>
+                                        <tr class="info" ng-hide="contactList.length || null" >
+                                            <td >No Guests ID found</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            
+                            
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal" onclick="stopCamera();">Close</button>
+                            </div>
+                            
+                        </div>
+                        
+                    </div>
+                </div>
+                <!--  select Scan MODAL END -->                
+                <div class="panel panel-primary" id="shoppingcollections">
+                    <div class="panel-heading" style="background-color: #AFAFAF;"  data-toggle="collapse" data-target="#demo2">Shopping Collections for {!HTMLENCODE(userVillage)} Today </div>  
+                    <div class="table-responsive" id="demo2" name="demo2" >
+                        <table class="table table-hover sortable reducedPadding" >
+                            <thead>
+                                <tr class="active">
+                                    <th>GuestID</th>
+                                    <th>Status</th>
+                                    <th>Name</th>
+                                    <th>Collections</th>
+                                    <th>Bags</th>       
+                                    <th class="limitedCell">Correct pickup?</th> 
+                                    <th class="limitedCell">Payment Status</th>
+                                    <th class="limitedCell">Collection Status</th>
+                                    <th>Collection Point</th>
+                                    <th class="limitedCell">Collection Time</th>
+                                    <th style="text-align: right;">Total Tracked Spend</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="case in cases | filter:query" ng-class="whatClassIsRow(case)" ng-click="showCase(case.ID)" style="cursor: pointer;">
+                                    <td>{{case.Service_Guest_Number}}</td> 
+                                    <td>{{case.Status}}</td>
+                                    <td>{{case.SuppliedName}}</td>
+                                    <td style="text-align: center;">{{case.ItemCount}}</td>
+                                    <td>{{case.ItemsBagCount}}</td>
+                                    <td>{{case.TotalBagsatwrongCollectionPoint}}</td>
+                                    <td>{{case.Payment_Status}}</td>
+                                    <td><span class="label label-default" ng-class="whatClassIabel(case)">{{case.ItemsCollected}} / {{case.ItemsAwaiting}}</span> </td>
+                                    <td><span ng-class="whatClassIabel2(case)">{{case.HFS_Collection_Location}}</span> </td>                 
+                                    <td style="text-align:center;">{{case.Guest30minutes | date:"h:mma"}}</td>
+									<td ng-style="getSpendColor(case)">{{case.totalSpendFormatted}}</td>
+                                </tr>
+                                <tr class="info" ng-hide="cases.length">
+                                    <td colspan="11">No Guests for today</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="panel panel-primary" id="clickCollectCollections" style="display: none;">
+                    <div class="panel-heading" style="background-color: #AFAFAF;"  data-toggle="collapse" data-target="#demo2">Call &amp; Collect Collections</div>  
+                    <div class="table-responsive" id="demo2" name="demo2" >
+                        <table class="table table-hover sortable reducedPadding" >
+                            <thead>
+                                <tr class="active">
+                                    <th>GuestID</th>
+                                    <th>Status</th>
+                                    <th>Name</th>
+                                    <th>Collections</th>
+                                    <th>Bags</th>       
+                                    <th class="limitedCell">Correct pickup?</th> 
+                                    <th class="limitedCell">Payment Status</th>
+                                    <th class="limitedCell">Collection Status</th>
+                                    <th>Collection Point</th>
+                                    <th class="limitedCell">Collection Time</th>
+                                    <th style="max-width: 60px;" ng-show="hasClickCollect">C&amp;C Date</th>
+                                    <th style="text-align: right;">Total Tracked Spend</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="case in clickCollectCaseDetails.clickCollectCases | filter:query" ng-class="whatClassIsRow(case)" ng-click="showCase(case.ID)" style="cursor: pointer;">
+                                    <td>{{case.Service_Guest_Number}}</td> 
+                                    <td>{{case.Status}}</td>
+                                    <td>{{case.SuppliedName}}</td>
+                                    <td style="text-align: center;">{{case.ItemCount}}</td>
+                                    <td>{{case.ItemsBagCount}}</td>
+                                    <td>{{case.TotalBagsatwrongCollectionPoint}}</td>
+                                    <td>{{case.Payment_Status}}</td>
+                                    <td><span class="label label-default" ng-class="whatClassIabel(case)">{{case.ItemsCollected}} / {{case.ItemsAwaiting}}</span> </td>
+                                    <td><span ng-class="whatClassIabel2(case)">{{case.HFS_Collection_Location}}</span> </td>                 
+                                    <td style="text-align:center;">{{case.Guest30minutes | date:"h:mma"}}</td>
+									<td ng-show="hasClickCollect">{{case.collectionDateClickAndCollect | date:"dd-MM"}}</td>
+									<td ng-style="getSpendColor(case)">{{case.totalSpendFormatted}}</td>
+                                </tr>
+                                <tr class="info" ng-hide="clickCollectCaseDetails.clickCollectCases.length">
+                                    <td colspan="12">No Guests for today</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            
+            
+
+                <div class="panel panel-primary" id="integrationErrorsList" style="display: none;">                    
+                <button id="go" type="button" class="btn btn-default" style=" float: right; margin-right:6px; margin-top:3px;" ng-click="getfilterErrors();">Go!</button>  
+                
+                <input ng-model="enddatefield" id="enddatefield" type="date" class="form-control" style="width:13%; float: right; margin-right:6px; margin-top:3px;" name="enddate"></input> 
+                <p style="float: right; margin-right:10px; margin-top:10px;">to</p>
+                <input  ng-model="startdatefield" id="startdatefield" type="date" class="form-control" style="width:13%; float: right; margin-right:6px; margin-top:3px;" name="startdate"></input> 
+                <p style="float: right; margin-right:10px; margin-top:10px;">from</p>
+        
+				<select id="techSupportPicklist"  class="form-control" style="width:13%; float: right; margin-right:10px; margin-top:3px;" ng-model="selectResolvedyesNo" ng-options="x.label for x in techSupportTypes" value="{{x.label}" >{{x.label}}</select>
+				<select id="actionedPicklist"  class="form-control" style="width:13%; float: right; margin-right:10px; margin-top:3px;" ng-model="selectActionedyesNo" ng-options="x.label for x in yesNoTypes" >{{x.label}}</select>
+       	<!--	<select id="categoriesPicklist"  class="form-control" style="width:15%; float: right; margin-right:10px; margin-top:3px;" ng-model="selectCategories" ng-options="x.label for x in categoryTypes" >{{x.label}}</select>
+-->
+                <div class="panel-heading" style="background-color: #AFAFAF;" data-target="#demo2">filters</div>   
+                <button id="showLateClosers" type="button" class="btn btn-default" style="float: right; margin-right:4px; margin-top:3px;" onclick="gotoPage('HFSDash');">Exit</button>  
+        	<!-- <button id="showLateClosers" type="button" class="btn btn-default" style="float: right; margin-right:4px; margin-top:3px;" ng-click="massUpdateError();">Mass Update</button>   -->
+                    <div class="panel-heading" style="background-color: #AFAFAF;"  data-toggle="collapse" data-target="#demo3">Integration Errors for {!HTMLENCODE(userVillage)}</div>  
+                    <div class="table-responsive" id="demo3" name="demo3" >
+                        <table class="table table-hover sortable" >
+                            <thead>
+                                <tr class="active">
+                                    <th>Name</th>
+                                    <th>Category</th>
+                                    <th>Guest ID</th>
+                                    <th>Guest Code</th>
+                                    <th>Brand</th>
+                                    <th>Brand Lease Id</th>
+                                    <th>Bag Barcodes</th>
+                                    <th>Creation Date</th>
+                                    <th>Actioned</th>
+                                    <th>Tech Sprt Req'd</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                              <!--  <tr ng-repeat="error in errors | filter:query" ng-class="errorBackground()" ng-click="showErrorRecord(error.Id)" style="cursor: pointer;">  -->
+                                <tr ng-repeat="error in errors | filter:query" ng-class="errorBackground()" style="cursor: pointer;">
+                                    <td ng-click="showErrorRecord(error.Id)"><u>{{error.Name.replace('IntegrationError-', '')}}</u></td>
+                                    <td>{{error.Error_Category__c}}</td>
+                                     <td>{{error.HFS_Guest_ID__c}}</td>
+                                    <td>{{error.Guest_Code__c}}</td>
+                                    <td>{{error.Brand_Location_Name__c}}</td>
+                                    <td>{{error.Brand_Lease_Id__c}}</td>
+                                    <td id="{{error.Id}}" ng-bind-html="returnBagQRCodeArray(error.Id,error.List_of_Bags__c)"></td>
+  
+                                    <td>{{error.CreatedDate | date:"yyyy-MM-dd HH:mm:ssa"}}</td>
+                                    
+                                    <td>
+                                        <div ng-if="error.Is_Resolved__c == true">
+                                            <div class="[ btn-group ]">
+                                                <label for="fancy-checkbox-success" class="[ btn btn-success ]">
+                                                    <span class="[ glyphicon glyphicon-ok ]" ng-click="resolveError(error.Id, error.Is_Resolved__c, $index)"></span>
+                                                    <span> </span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                            <div ng-if="error.Is_Resolved__c != true">
+                                                <div class="[ btn-group ]">
+                                                    <label for="fancy-checkbox-danger" class="[ btn btn-danger ]">
+                                                    <span class="[ glyphicon glyphicon-remove ]" ng-click="resolveError(error.Id, error.Is_Resolved__c, $index)"></span>
+                                                    <span> </span>
+                                                    </label>
+                                                </div>
+                                            </div>  
+                                    </td> 
+                                    
+                                    <td>
+                                        <div ng-if="error.Requires_Technical_Support__c == true">
+                                            <div class="[ btn-group ]">
+                                                <label for="fancy-checkbox-success" class="[ btn btn-success ]">
+                                                    <span class="[ glyphicon glyphicon-ok ]" ng-click="techSupportRequired(error.Id, error.Requires_Technical_Support__c, $index)"></span>
+                                                    <span> </span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                            <div ng-if="error.Requires_Technical_Support__c != true">
+                                                <div class="[ btn-group ]">
+                                                    <label for="fancy-checkbox-danger" class="[ btn btn-danger ]">
+                                                    <span class="[ glyphicon glyphicon-remove ]" ng-click="techSupportRequired(error.Id, error.Requires_Technical_Support__c, $index)"></span>
+                                                    <span> </span>
+                                                    </label>
+                                                </div>
+                                            </div>  
+                                    </td> 
+                                </tr>
+                                
+                                <tr class="info" ng-hide="errors.length" >
+                                    <td colspan="11">No errors </td>
+                                </tr>
+                                
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+
+                
+                
+                
+            </div>
+
+            <!-- Pending HFSx -->  
+            
+        </body>
+    </html>
+</apex:page>

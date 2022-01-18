@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>In_Store_Presentation__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>window display, VM guidelines, quality of shopfit etc</inlineHelpText>
+    <label>In Store Presentation</label>
+    <length>5000</length>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackTrending>false</trackTrending>
+    <type>LongTextArea</type>
+    <visibleLines>5</visibleLines>
+</CustomField>

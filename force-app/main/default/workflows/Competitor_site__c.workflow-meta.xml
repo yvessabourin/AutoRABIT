@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>Send_Competitor_Visit_Due_Reminder_Email</fullName>
+        <description>Send Competitor Visit Due Reminder Email..</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Additional_Site_Captain2__c</field>
+            <type>userLookup</type>
+        </recipients>
+        <recipients>
+            <field>Additional_Site_Captain3__c</field>
+            <type>userLookup</type>
+        </recipients>
+        <recipients>
+            <field>Additional_Site_Captain__c</field>
+            <type>userLookup</type>
+        </recipients>
+        <recipients>
+            <field>Site_Captain__c</field>
+            <type>userLookup</type>
+        </recipients>
+        <senderAddress>traveltrade@thebicestervillageshoppingcollection.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Retail_Email_Templates/Competitor_Site_Visit_Due_template</template>
+    </alerts>
+    <alerts>
+        <fullName>Send_Competitor_Visit_Overdue_Reminder_Email2</fullName>
+        <description>Send Competitor Visit Overdue Reminder Email</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderAddress>vr1@valueretail.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Retail_Email_Templates/Competitor_Site_Visit_Overdue_template</template>
+    </alerts>
+    <rules>
+        <fullName>Site Visit Overdue1</fullName>
+        <actions>
+            <name>Send_Competitor_Visit_Overdue_Reminder_Email2</name>
+            <type>Alert</type>
+        </actions>
+        <active>false</active>
+        <description>first reminder</description>
+        <formula>AND(Visit_Status__c = &apos;Overdue&apos;,  Next_On_Site_Visit__c - TODAY() = -1)</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Site Visit Overdue2</fullName>
+        <actions>
+            <name>Send_Competitor_Visit_Overdue_Reminder_Email2</name>
+            <type>Alert</type>
+        </actions>
+        <active>false</active>
+        <description>second reminder</description>
+        <formula>AND(Visit_Status__c = &apos;Overdue&apos;,  Next_On_Site_Visit__c - TODAY() = -7)</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+</Workflow>

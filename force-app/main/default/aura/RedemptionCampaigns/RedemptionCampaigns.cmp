@@ -1,0 +1,43 @@
+<aura:component controller="RedemptionSearchComponentController">
+
+    <aura:attribute name="campaigns" type="Campaign[]"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+	<aura:handler event="c:SearchKeyChange" action="{!c.searchKeyChange}"/>
+	<aura:handler event="aura:doneWaiting" action="{!c.hideSpinner}"/>
+
+    
+	<ul>        
+        <center><ui:spinner aura:id="spinner"/></center>
+        <aura:iteration items="{!v.campaigns}" var="campaign" >                        
+            <li onclick="{!c.listItemSelected}">
+             <!-- <a href="{! '#/sObject/' + campaign.Id + '/view'}"> -->
+                <a href = "{! '/apex/CampaignRedemptionAction2?id=' + campaign.Id}" style = "-webkit-tap-highlight-color:rgba(200,0,0,0.4);">
+                    <p>{!campaign.Name}</p>
+                    <p>{!campaign.Description}</p>
+                </a>                    
+            </li>
+               
+        </aura:iteration>
+    </ul>
+    
+<!--    
+  <uiExamples:mobileViewport>
+    <ui:scroller onPullToRefresh="{!c.handleRefresh}" onPullToShowMore="{!c.handleShowMore}">
+    
+      <ui:infiniteList aura:id="list" itemVar="item" enableRowSwipe="true">
+        
+        <aura:set attribute="itemTemplate">
+          <uiExamples:infiniteListRow item="{!item}"/>
+        </aura:set>  
+
+        <aura:set attribute="dataProvider">
+          <uiExamples:infiniteListDataProvider/>
+        </aura:set>
+
+      </ui:infiniteList>
+      
+    </ui:scroller>
+  </uiExamples:mobileViewport>    
+-->    
+        
+</aura:component>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VR_Rep_Office__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <externalId>false</externalId>
+    <inlineHelpText>Select the VR Rep responsible for this Activity</inlineHelpText>
+    <label>VR Rep Office</label>
+    <lookupFilter>
+        <active>true</active>
+        <errorMessage>The VR Rep Office must be an AVIA/GULF Rep</errorMessage>
+        <filterItems>
+            <field>User.Role_Name__c</field>
+            <operation>equals</operation>
+            <value>Tourism Consultant</value>
+        </filterItems>
+        <infoMessage>Please select a GULF/AVIA Rep</infoMessage>
+        <isOptional>false</isOptional>
+    </lookupFilter>
+    <referenceTo>User</referenceTo>
+    <relationshipName>Rep_Marketing_Activities</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

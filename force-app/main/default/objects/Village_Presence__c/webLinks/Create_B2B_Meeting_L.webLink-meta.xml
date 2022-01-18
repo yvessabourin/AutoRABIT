@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Create_B2B_Meeting_L</fullName>
+    <availability>online</availability>
+    <description>Create B2B Meeting (Lightning)</description>
+    <displayType>button</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <hasMenubar>false</hasMenubar>
+    <hasScrollbars>true</hasScrollbars>
+    <hasToolbar>false</hasToolbar>
+    <height>600</height>
+    <isResizable>true</isResizable>
+    <linkType>url</linkType>
+    <masterLabel>Create B2B Meeting</masterLabel>
+    <openType>newWindow</openType>
+    <position>none</position>
+    <protected>false</protected>
+    <showsLocation>false</showsLocation>
+    <showsStatus>false</showsStatus>
+    <url>/lightning/o/Event/new?retURL=%2F{!Village_Presence__c.Id}&amp;00Nb0000009Vb65={!Village_Presence__c.Village__c}&amp;defaultFieldValues=WhatId={!Village_Presence__c.Id}</url>
+</WebLink>

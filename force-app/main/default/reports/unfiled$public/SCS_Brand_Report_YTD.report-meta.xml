@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <aggregates>
+        <calculatedFormula>HFS_Item__c.Receipt_Amount__c:SUM</calculatedFormula>
+        <datatype>currency</datatype>
+        <developerName>FORMULA1</developerName>
+        <downGroupingContext>HFS_Item__c$Brand__c.Name</downGroupingContext>
+        <isActive>true</isActive>
+        <isCrossBlock>false</isCrossBlock>
+        <masterLabel>Receipt Total</masterLabel>
+        <reportType>SCS_Items__c</reportType>
+        <scale>2</scale>
+    </aggregates>
+    <aggregates>
+        <calculatedFormula>HFS_Item__c.Brand__c.Total_Rating__c:AVG</calculatedFormula>
+        <datatype>number</datatype>
+        <developerName>FORMULA2</developerName>
+        <downGroupingContext>HFS_Item__c$Brand__c.Name</downGroupingContext>
+        <isActive>true</isActive>
+        <isCrossBlock>false</isCrossBlock>
+        <masterLabel>Brand Rating</masterLabel>
+        <reportType>SCS_Items__c</reportType>
+        <scale>2</scale>
+    </aggregates>
+    <block>
+        <blockInfo>
+            <aggregateReferences>
+                <aggregate>FORMULA1</aggregate>
+            </aggregateReferences>
+            <blockId>B1</blockId>
+            <joinTable>HFS_Item__c</joinTable>
+        </blockInfo>
+        <columns>
+            <field>HFS_Item__c$Receipt_Amount__c</field>
+        </columns>
+        <format>Summary</format>
+        <name>SCS Items (+) block 1</name>
+        <params>
+            <name>co</name>
+            <value>1</value>
+        </params>
+        <reportType>SCS_Items__c</reportType>
+        <scope>organization</scope>
+        <showGrandTotal>true</showGrandTotal>
+        <showSubTotals>true</showSubTotals>
+        <timeFrameFilter>
+            <dateColumn>HFS_Item__c$CreatedDate</dateColumn>
+            <interval>INTERVAL_CURRENT</interval>
+        </timeFrameFilter>
+    </block>
+    <blockInfo>
+        <blockId xsi:nil="true"/>
+        <joinTable>HFS_Item__c</joinTable>
+    </blockInfo>
+    <chart>
+        <backgroundColor1>#FFFFFF</backgroundColor1>
+        <backgroundColor2>#FFFFFF</backgroundColor2>
+        <backgroundFadeDir>Diagonal</backgroundFadeDir>
+        <chartSummaries>
+            <axisBinding>y</axisBinding>
+            <column>B1#FORMULA1</column>
+        </chartSummaries>
+        <chartType>VerticalColumn</chartType>
+        <enableHoverLabels>false</enableHoverLabels>
+        <expandOthers>true</expandOthers>
+        <groupingColumn>HFS_Item__c$Brand__c.Name</groupingColumn>
+        <location>CHART_TOP</location>
+        <showAxisLabels>true</showAxisLabels>
+        <showPercentage>false</showPercentage>
+        <showTotal>false</showTotal>
+        <showValues>false</showValues>
+        <size>Huge</size>
+        <summaryAxisRange>Auto</summaryAxisRange>
+        <textColor>#000000</textColor>
+        <textSize>12</textSize>
+        <title>Sales Per Brand</title>
+        <titleColor>#000000</titleColor>
+        <titleSize>18</titleSize>
+    </chart>
+    <description>Brand Totals</description>
+    <format>MultiBlock</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>HFS_Item__c$Brand__c.Name</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>SCS Brand Report- YTD</name>
+    <params>
+        <name>lsk</name>
+        <value>1</value>
+    </params>
+    <reportType>SCS_Items__c</reportType>
+    <showDetails>true</showDetails>
+</Report>

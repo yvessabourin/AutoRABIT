@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <aggregateTypes>Sum</aggregateTypes>
+        <field>Marketing_Campaign__c.Marketing_Activities__r.Visits__r$Number_of_Guests__c</field>
+    </columns>
+    <columns>
+        <field>Marketing_Campaign__c.Marketing_Activities__r.Visits__r$Name</field>
+    </columns>
+    <currency>EUR</currency>
+    <filter>
+        <criteriaItems>
+            <column>Marketing_Campaign__c$Name</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Flying Blue / American Express Flying Blue Event</value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
+    <format>Matrix</format>
+    <groupingsAcross>
+        <dateGranularity>Day</dateGranularity>
+        <field>Marketing_Campaign__c.Marketing_Activities__r.Visits__r$Visit_Date_Time__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsAcross>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Marketing_Campaign__c$Name</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Marketing_Campaign__c.Marketing_Activities__r$Name</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>Amex FB registrations event</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Marketing_Campaigns_with_Marketing_Activities_VR__c</reportType>
+    <scope>organization</scope>
+    <showDetails>false</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>Marketing_Campaign__c.Marketing_Activities__r.Visits__r$Visit_Date_Time__c</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

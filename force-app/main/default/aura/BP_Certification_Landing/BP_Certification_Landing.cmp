@@ -1,0 +1,45 @@
+<aura:component controller="BP_Certification_Landing_Controller" implements="force:appHostable,flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes" access="global" >
+    
+    <aura:attribute name="outCertifications" type="List" />
+    <aura:attribute name="arrowDirection" type="string" default="arrowup" description="Use for change arrow sign direction on header based on click"/>
+    <aura:attribute name="isAsc" type="boolean" default="true" description="boolean flag for pass sorting condition to apex class"/> 
+    <aura:attribute name="selectedTabsoft" type="string" default="Certification_Submission_Deadline__c" description="Use for show/hide arraow sign on header based on conditions"/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.init}"/>  
+    
+    <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+        <thead>
+            <tr class="slds-line-height_reset slds-cell-wrap">
+                <th class="slds-text-title_caps slds-cell-wrap" scope="col">
+                    <div class="slds-truncate" title="{!$Label.c.BP_Brand_in_Village}">{!$Label.c.BP_Brand_in_Village}</div>
+                </th>
+                <th class="slds-text-title_caps slds-cell-wrap" scope="col">
+                    <div class="slds-truncate" title="{!$Label.c.BP_Certification_Open_Period}">{!$Label.c.BP_Certification_Open_Period}</div>
+                </th>
+                <th class="slds-text-title_caps slds-cell-wrap" scope="col">
+                    <div class="slds-truncate" title="{!$Label.c.BP_Certification_Close_Period}">{!$Label.c.BP_Certification_Close_Period}</div>
+                </th>
+                <th class="slds-text-title_caps slds-cell-wrap slds-is-sortable" scope="col">
+                    <a class="slds-truncate" title="{!$Label.c.BP_Certification_Deadline}" onclick="{!c.onColumnSortClick}">{!$Label.c.BP_Certification_Deadline}
+                    <aura:if isTrue="{!v.arrowDirection == 'arrowdown'}">&nbsp;  &#9660; </aura:if>  
+                    <aura:if isTrue="{!v.arrowDirection != 'arrowdown'}"> &nbsp;  &#9650; </aura:if>
+                    </a>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <aura:iteration items="{!v.outCertifications}" var="Cert">
+                <tr scope="row" class="slds-cell-wrap">
+                    <td class="slds-cell-buffer_right slds-size_1-of-3">
+                        <div style="width: 300px;" class="slds-cell-wrap">
+                            <a data-id="{!Cert.Id}" onclick="{!c.handleExportClick}" default="{!Cert.Name}">{!Cert.Name}</a>
+                        </div>
+                    </td>                       
+                    <td> <lightning:formattedDateTime value="{!Cert.Period_Start_Date__c}"  year="numeric" month="numeric" day="numeric"/> </td> 
+                    <td> <lightning:formattedDateTime value="{!Cert.Period_End_Date__c}"  year="numeric" month="numeric" day="numeric"/> </td>
+                    <td> <lightning:formattedDateTime value="{!Cert.Certification_Submission_Deadline__c}"  year="numeric" month="numeric" day="numeric"/> </td>
+                </tr>
+            </aura:iteration>
+        </tbody>
+    </table>
+</aura:component>

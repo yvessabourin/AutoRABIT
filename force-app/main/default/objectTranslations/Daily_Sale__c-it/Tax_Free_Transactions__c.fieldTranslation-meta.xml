@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help>Totale transazioni Tax Free</help>
+    <label>Transacioni Tax Free</label>
+    <name>Tax_Free_Transactions__c</name>
+</CustomFieldTranslation>

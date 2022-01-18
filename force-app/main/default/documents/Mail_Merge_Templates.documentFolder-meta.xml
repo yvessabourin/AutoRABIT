@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DocumentFolder xmlns="http://soap.sforce.com/2006/04/metadata">
+    <accessType>Shared</accessType>
+    <name>Mail Merge Templates</name>
+    <publicFolderAccess>ReadWrite</publicFolderAccess>
+    <sharedTo>
+        <group>LeaseFlow_All_Users</group>
+        <role>Bicester_Leasing</role>
+        <role>Business_Systems</role>
+        <role>EU_Leasing</role>
+        <role>Fidenza_Leasing</role>
+        <roleAndSubordinates>Group_Leasing</roleAndSubordinates>
+    </sharedTo>
+</DocumentFolder>

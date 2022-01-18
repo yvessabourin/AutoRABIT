@@ -1,0 +1,21 @@
+<apex:page controller="CreateHFSItemController">  
+  <apex:sectionHeader title="HFS Item" subtitle="Thank You"/>
+
+  <apex:form >
+    <apex:pageBlock title="HFS Item Info">
+
+    <apex:pageBlockButtons >
+        <apex:commandButton action="{!addAnother}" value="Add Another"/>
+    </apex:pageBlockButtons>
+
+      <apex:pageBlockSection showHeader="false" columns="2">
+        <apex:outputField value="{!hfsItem.HFS_Experience__c}" />
+        <apex:outputField value="{!hfsItem.Bag_ID__c}" />
+        <!-- <apex:inputField value = "{!hfsItem.uniquebrandpin}" /> -->
+        <apex:outputField value="{!hfsItem.Receipt_Amount__c}" />
+      </apex:pageBlockSection>
+
+    </apex:pageBlock>
+  </apex:form>
+
+</apex:page>

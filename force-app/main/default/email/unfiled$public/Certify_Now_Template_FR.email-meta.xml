@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Email used to warn the users that have a certification to be certified in French</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Certify Now Template FR</name>
+    <style>none</style>
+    <subject>La certification des ventes est requise (Value Retail)</subject>
+    <textOnly>Bonjour,
+
+Il est temps de certifier les ventes. La date limite de certification est le certificationDeadline.
+
+Veuillez vous connecter au &quot;Brand Portal&quot; en utilisant le lien ci-dessous afin d&apos;afficher toutes les déclarations en attente de certification.
+
+Brand Portal: website_here
+
+Veuillez noter que vous devrez vérifier / remplir à la fois les ventes (hors TVA) et les remises (hors TVA).
+
+Attention, les réductions suivantes doivent être déclarées en plus des ventes : les remises VIP de 10% ainsi que les éventuelles remises alouées au personnel interne.
+
+N&apos;hésitez pas à vous mettre en relation avec le service Financier de Value Retail pour toutes questions ou si vous rencontrez des difficultés.
+
+Bien cordialement,
+
+L&apos;équipe Value Retail
+
+Cet email a été généré automatiquement, merci de ne pas y répondre.</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

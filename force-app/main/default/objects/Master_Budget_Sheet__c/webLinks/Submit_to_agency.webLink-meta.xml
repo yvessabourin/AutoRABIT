@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Submit_to_agency</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <linkType>javascript</linkType>
+    <masterLabel>Submit to agency</masterLabel>
+    <openType>onClickJavaScript</openType>
+    <protected>false</protected>
+    <url>var ca1 = &quot;{!Master_Budget_Sheet__c.Creative_Agency_1__c}&quot;;
+var ca2 = &quot;{!Master_Budget_Sheet__c.Creative_Agency_2__c}&quot;;
+var ca3 = &quot;{!Master_Budget_Sheet__c.Creative_Agency_3__c}&quot;;
+var ca4 = &quot;{!Master_Budget_Sheet__c.Creative_Agency_4__c}&quot;;
+var ca5 = &quot;{!Master_Budget_Sheet__c.Creative_Agency_5__c}&quot;;
+var ca6 = &quot;{!Master_Budget_Sheet__c.Creative_Agency_6__c}&quot;;
+var ca7 = &quot;{!Master_Budget_Sheet__c.Creative_Agency_7__c}&quot;;
+var ca8 = &quot;{!Master_Budget_Sheet__c.Creative_Agency_8__c}&quot;;
+if (ca1 == &apos;&apos; &amp;&amp; ca2 == &apos;&apos; &amp;&amp; ca3 == &apos;&apos; &amp;&amp; ca4 == &apos;&apos; &amp;&amp; ca5 == &apos;&apos; &amp;&amp; ca6 == &apos;&apos; &amp;&amp; ca7 == &apos;&apos; &amp;&amp; ca8 == &apos;&apos;){
+    alert(&quot;You must select at least one user on the Creative Agency fields&quot;)}
+else {
+    window.location = &apos;apex/SubmitToAgencyMasterBudgetSheet?id={!Master_Budget_Sheet__c.Id}&apos;
+    }</url>
+</WebLink>

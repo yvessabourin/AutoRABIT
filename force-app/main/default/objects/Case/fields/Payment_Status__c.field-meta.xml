@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Payment_Status__c</fullName>
+    <description>the status of payment for the service</description>
+    <externalId>false</externalId>
+    <inlineHelpText>the status of payment for the service</inlineHelpText>
+    <label>Payment Status</label>
+    <required>true</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Paid</fullName>
+                <default>false</default>
+                <label>Paid</label>
+            </value>
+            <value>
+                <fullName>Payment on Collection</fullName>
+                <default>false</default>
+                <label>Payment on Collection</label>
+            </value>
+            <value>
+                <fullName>Free of charge (Valet)</fullName>
+                <default>false</default>
+                <label>Free of charge (Valet)</label>
+            </value>
+            <value>
+                <fullName>Free of charge (VIP)</fullName>
+                <default>false</default>
+                <label>Free of charge (VIP)</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

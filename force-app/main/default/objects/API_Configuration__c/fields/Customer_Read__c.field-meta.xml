@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Customer_Read__c</fullName>
+    <description>The URL suffix for the Customer Read by Reference service</description>
+    <externalId>false</externalId>
+    <inlineHelpText>The URL suffix for the User Read by Reference service</inlineHelpText>
+    <label>Customer Read</label>
+    <length>30</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

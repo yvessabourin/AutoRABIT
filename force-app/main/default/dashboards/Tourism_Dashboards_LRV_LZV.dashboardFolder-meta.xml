@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DashboardFolder xmlns="http://soap.sforce.com/2006/04/metadata">
+    <folderShares>
+        <accessLevel>EditAllContents</accessLevel>
+        <sharedTo>cizquierdo@valueretail.com</sharedTo>
+        <sharedToType>User</sharedToType>
+    </folderShares>
+    <folderShares>
+        <accessLevel>Manage</accessLevel>
+        <sharedTo>dchilds@valueretail.com</sharedTo>
+        <sharedToType>User</sharedToType>
+    </folderShares>
+    <folderShares>
+        <accessLevel>EditAllContents</accessLevel>
+        <sharedTo>mmacias@valueretail.com</sharedTo>
+        <sharedToType>User</sharedToType>
+    </folderShares>
+    <folderShares>
+        <accessLevel>EditAllContents</accessLevel>
+        <sharedTo>sprieto@valueretail.com</sharedTo>
+        <sharedToType>User</sharedToType>
+    </folderShares>
+    <folderShares>
+        <accessLevel>EditAllContents</accessLevel>
+        <sharedTo>vstellfeld@valueretail.com</sharedTo>
+        <sharedToType>User</sharedToType>
+    </folderShares>
+    <folderShares>
+        <accessLevel>EditAllContents</accessLevel>
+        <sharedTo>vbenitez@valueretail.com</sharedTo>
+        <sharedToType>User</sharedToType>
+    </folderShares>
+    <name>Tourism Dashboards LRV/LZV</name>
+</DashboardFolder>

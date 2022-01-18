@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <processMetadataValues>
+            <name>textJson</name>
+            <value>
+                <stringValue>{&quot;mentions&quot;:[],&quot;message&quot;:&quot;@[{![Event].CreatedById}] @[{![Event].OwnerId}]&lt;br style=\&quot;color: rgb(105, 110, 113);\&quot;&gt;&lt;br style=\&quot;color: rgb(105, 110, 113);\&quot;&gt;Your B2B Meeting \&quot;{![Event].Subject}\&quot; has not yet been shared across the business. Please complete the meeting details and tick \&quot;Share and Post\&quot; before saving the record. If the meeting did not take place please remove it from the system.&lt;br&gt;&lt;br&gt;B2B Meetings should be shared within 48 hours of the meeting taking place.&lt;br&gt;&lt;br&gt;Tip: If your meeting is specific to a Brand in a Village (e.g. a Village Performance Review) consider linking the meeting against the brand&apos;s Village Presence.&lt;br&gt;&quot;}</stringValue>
+            </value>
+        </processMetadataValues>
+        <name>myRule_1_A1</name>
+        <label>Remind User via Chatter</label>
+        <locationX>100</locationX>
+        <locationY>200</locationY>
+        <actionName>chatterPost</actionName>
+        <actionType>chatterPost</actionType>
+        <inputParameters>
+            <name>text</name>
+            <value>
+                <stringValue>@[{!myVariable_current.CreatedById}] @[{!myVariable_current.OwnerId}]
+
+Your B2B Meeting &quot;{!myVariable_current.Subject}&quot; has not yet been shared across the business. Please complete the meeting details and tick &quot;Share and Post&quot; before saving the record. If the meeting did not take place please remove it from the system.
+
+B2B Meetings should be shared within 48 hours of the meeting taking place.
+
+Tip: If your meeting is specific to a Brand in a Village (e.g. a Village Performance Review) consider linking the meeting against the brand&apos;s Village Presence.
+</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>type</name>
+        </inputParameters>
+        <inputParameters>
+            <name>subjectNameOrId</name>
+            <value>
+                <elementReference>myVariable_current.Id</elementReference>
+            </value>
+        </inputParameters>
+    </actionCalls>
+    <apiVersion>49.0</apiVersion>
+    <decisions>
+        <name>myDecision</name>
+        <label>Primary Decision</label>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <defaultConnectorLabel>default</defaultConnectorLabel>
+        <rules>
+            <name>myRule_1</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <processMetadataValues>
+                    <name>inputDataType</name>
+                    <value>
+                        <stringValue>Boolean</stringValue>
+                    </value>
+                </processMetadataValues>
+                <processMetadataValues>
+                    <name>leftHandSideType</name>
+                    <value>
+                        <stringValue>Boolean</stringValue>
+                    </value>
+                </processMetadataValues>
+                <processMetadataValues>
+                    <name>operatorDataType</name>
+                    <value>
+                        <stringValue>Boolean</stringValue>
+                    </value>
+                </processMetadataValues>
+                <processMetadataValues>
+                    <name>rightHandSideType</name>
+                    <value>
+                        <stringValue>Boolean</stringValue>
+                    </value>
+                </processMetadataValues>
+                <leftValueReference>myVariable_current.Late_Share__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>myRule_1_pmetdec</targetReference>
+            </connector>
+            <label>Late Share Ticked?</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>myRule_1_pmetdec</name>
+        <label>Previously Met Decision</label>
+        <locationX>100</locationX>
+        <locationY>100</locationY>
+        <defaultConnector>
+            <targetReference>myRule_1_A1</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Not Previously Met</defaultConnectorLabel>
+        <rules>
+            <name>myRule_1_pmetnullrule</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>myVariable_old</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>myRule_1_A1</targetReference>
+            </connector>
+            <label>Previously Met - Null</label>
+        </rules>
+        <rules>
+            <name>myRule_1_pmetrule</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <processMetadataValues>
+                    <name>inputDataType</name>
+                    <value>
+                        <stringValue>Boolean</stringValue>
+                    </value>
+                </processMetadataValues>
+                <processMetadataValues>
+                    <name>leftHandSideType</name>
+                    <value>
+                        <stringValue>Boolean</stringValue>
+                    </value>
+                </processMetadataValues>
+                <processMetadataValues>
+                    <name>operatorDataType</name>
+                    <value>
+                        <stringValue>Boolean</stringValue>
+                    </value>
+                </processMetadataValues>
+                <processMetadataValues>
+                    <name>rightHandSideType</name>
+                    <value>
+                        <stringValue>Boolean</stringValue>
+                    </value>
+                </processMetadataValues>
+                <leftValueReference>myVariable_old.Late_Share__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <label>Previously Met - Prev</label>
+        </rules>
+    </decisions>
+    <description>When the Late Share flag is set on a B2B meeting, Chatter message the created by and Assigned to</description>
+    <interviewLabel>Late_Share_of_B2B_Meeting-1_Event</interviewLabel>
+    <label>Late Share of B2B Meeting</label>
+    <processMetadataValues>
+        <name>ObjectType</name>
+        <value>
+            <stringValue>Event</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>ObjectVariable</name>
+        <value>
+            <elementReference>myVariable_current</elementReference>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OldObjectVariable</name>
+        <value>
+            <elementReference>myVariable_old</elementReference>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>TriggerType</name>
+        <value>
+            <stringValue>onAllChanges</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>Workflow</processType>
+    <startElementReference>myDecision</startElementReference>
+    <status>Active</status>
+    <variables>
+        <name>myVariable_current</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+        <objectType>Event</objectType>
+    </variables>
+    <variables>
+        <name>myVariable_old</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Event</objectType>
+    </variables>
+</Flow>

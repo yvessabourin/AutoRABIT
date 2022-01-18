@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Village_Presence_Contact_Role_Compact_Layout</fullName>
+    <fields>Retail_Role__c</fields>
+    <fields>Village_Presence__c</fields>
+    <fields>Contact__c</fields>
+    <label>Village Presence Contact Role Compact Layout</label>
+</CompactLayout>

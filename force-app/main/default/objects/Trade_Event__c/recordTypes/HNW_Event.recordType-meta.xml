@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>HNW_Event</fullName>
+    <active>true</active>
+    <description>Events for High Net Worth Guests</description>
+    <label>HNW Event</label>
+    <picklistValues>
+        <picklist>Category_Specification__c</picklist>
+        <values>
+            <fullName>Awards Night</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Conference</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Dinner</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fashion Show</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Music</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sport</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Theatre</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Trade Show</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Type__c</picklist>
+        <values>
+            <fullName>BV local village Brand event</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>BVSC Brand event</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>BVSC PR %2F new opening %2F new Brand event %2F partner event</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>HNW %28China %26 SE Asia%29 event</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>HNW %28ME%29 event</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>HNW %28domestic %26 non ME %26 Asia%29 event</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>HNW partner event</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Marketing event</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>New brand %2F Leasing event</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PR %26 Influencers event</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tourism partner event</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

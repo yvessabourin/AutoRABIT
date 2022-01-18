@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Africa</fullName>
+        <default>false</default>
+        <label>Africa</label>
+    </customValue>
+    <customValue>
+        <fullName>Europe</fullName>
+        <default>false</default>
+        <label>Europe</label>
+    </customValue>
+    <customValue>
+        <fullName>Greater China</fullName>
+        <default>false</default>
+        <label>Greater China</label>
+    </customValue>
+    <customValue>
+        <fullName>India</fullName>
+        <default>false</default>
+        <label>India</label>
+    </customValue>
+    <customValue>
+        <fullName>Japan</fullName>
+        <default>false</default>
+        <label>Japan</label>
+    </customValue>
+    <customValue>
+        <fullName>Korea</fullName>
+        <default>false</default>
+        <label>Korea</label>
+    </customValue>
+    <customValue>
+        <fullName>LATAM</fullName>
+        <default>false</default>
+        <label>LATAM</label>
+    </customValue>
+    <customValue>
+        <fullName>Middle East</fullName>
+        <default>false</default>
+        <label>Middle East</label>
+    </customValue>
+    <customValue>
+        <fullName>Not Applicable</fullName>
+        <default>false</default>
+        <label>Not Applicable</label>
+    </customValue>
+    <customValue>
+        <fullName>Oceania</fullName>
+        <default>false</default>
+        <label>Oceania</label>
+    </customValue>
+    <customValue>
+        <fullName>Rest of World</fullName>
+        <default>false</default>
+        <label>Rest of World</label>
+    </customValue>
+    <customValue>
+        <fullName>Russia &amp; CIS</fullName>
+        <default>false</default>
+        <label>Russia &amp; CIS</label>
+    </customValue>
+    <customValue>
+        <fullName>South East Asia</fullName>
+        <default>false</default>
+        <label>South East Asia</label>
+    </customValue>
+    <customValue>
+        <fullName>US</fullName>
+        <default>false</default>
+        <label>US</label>
+    </customValue>
+    <masterLabel>Region</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

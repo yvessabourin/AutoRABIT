@@ -1,0 +1,247 @@
+<apex:page standardController="Account" extensions="apiCustomerViewController" action="{!getReadOnlyItems}" standardStylesheets="false"  applyBodyTag="false" docType="html-5.0" lightningStylesheets="true" >
+
+   <html xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">       
+   <head>
+       <apex:stylesheet value="{!URLFOR($Resource.SLDS0121, 'assets/styles/salesforce-lightning-design-system-vf.css')}" />  
+   </head>
+   
+   <apex:includeScript value="https://code.jquery.com/jquery-1.9.1.min.js"/>
+   
+   <!-- custom scripts -->
+    <script>
+        $j = jQuery.noConflict();
+
+        var tags = new Array();
+        
+        $j(document).ready(function() {
+        
+          
+        })
+
+        function addLoadEvent(func) 
+        { 
+          var oldonload = window.onload; 
+          if (typeof window.onload != 'function') 
+          { 
+             window.onload = func; 
+          } 
+          else
+          { 
+              window.onload = function()  
+              { 
+                if (oldonload) 
+                { 
+                   oldonload(); 
+                } 
+                func(); 
+              } 
+           } 
+        } 
+   
+        addLoadEvent(function()  
+        { 
+
+console.log('{!Account.Customer_GUID__c}');
+
+            var readOnlyMap = '{!readOnlyMap}';
+
+            console.log(' @@@ readOnlyMap ' + readOnlyMap);
+            readOnlyMap = readOnlyMap.replace('{', '');
+            readOnlyMap = readOnlyMap.replace('}', '');    
+            var readOnlyMapArray = readOnlyMap.split(', ');
+            
+            // Iterate throught the Array and Push into map Object
+            for(var count=0;count<readOnlyMapArray.length;count++)
+            {
+                var item = readOnlyMapArray[count].split('=');
+                var label = item[0];
+                var id = item[1];
+                console.log(label + ' - ' + id);
+                
+                $j('#' + id).hide(); 
+                tags.push(id);         
+                
+            }
+            $j('#loading').show();
+            callReadService('{!Account.Customer_GUID__c}');
+
+      });
+
+       
+        Visualforce.remoting.timeout = 120000;
+        Visualforce.remoting.buffer = false;        
+        Visualforce.remoting.escape = false;
+        
+        function callReadService(guid){
+            
+            apiCustomerViewController.callReadOnlyService(guid, function(result, event) {
+                $j('#loading').hide();
+                var tag = '';
+                for (var i=0; i < tags.length; i++){
+                    tag = tags[i].replace(/ /g,'');
+                }
+                
+                $j(tag).hide();
+console.log('Tags ...  ' + tag + '  -  ' + tags);
+                obj = JSON.parse(result);
+console.log(obj);
+           
+                var html = '';
+                for (var key in obj) {
+                    if (key == 'Error'){
+                        html = "<p>Network Error - Please report issue if problem persists</p> <br/>" + obj[key];
+                    } else {
+                        if (obj.hasOwnProperty(key)) {
+                            console.log(key + " -> " + obj[key]);
+                            var readitems = obj[key];
+                            var recCount = readitems.length;
+                            var node = key;
+                            if (recCount > 0){
+                                var readitem = obj[key][0];
+
+                                node = readitem.name;
+                                var objkeylength = obj[key].length;
+                                  console.log(' obj[key]length #### ... ' + obj[key].length );   
+                                if (node)
+                                    node = node.replace(/ /g,'');
+                                var tableDisplay = readitem.tableDisplay;
+                          
+                                var flds = getFields(obj,key);                            
+                                if (tableDisplay){
+                                    html = buildTable(flds, readitems);
+                                                                   
+                                } else {
+                                    html = buildForm(flds, readitem);
+                                  
+                                }                            
+                            } else {
+                                html = "<p>No records returned.</p> <br/>"
+                            }
+                            $j( "div." + node).html(function() {
+                               return html;
+                            });
+                        }
+                    }                       
+               }
+
+
+                if(event.status) {
+
+                  /*
+                    $j( "div." + tag).html(function() {
+                       //return label + "<br/><textarea rows='10' cols='40' style='border:none;'>" + result + "</textarea>";
+                       return html;
+                    });
+                  */  
+
+                    
+                } else {
+                    $j( "div." + tag).html(function() {
+                       return "<p>Network Error - Please report issue if problem persists</p> <br/>" + result
+                       return label + "<br/><textarea rows='10' cols='40' style='border:none;'>" + event.status + "</textarea>";
+                    });
+
+                }
+
+            },{buffer: false, escape: false, timeout: 90000} );
+        
+        
+        
+        }
+
+
+        function getFields(obj,key) {
+            var cols = new Array();
+         
+                var objkeylength = obj[key].length;
+             for (var r=0; r < objkeylength; r++){
+                 console.log(' Doing Item ' + r ); 
+                 var index = parseInt(r);
+
+                for(var k in obj[key][index].attributes){
+                 console.log(' obj[key]... ' + key ); 
+                    if(cols.indexOf(k) < 0) {
+                        cols.push(k) ;
+                    }
+                }
+            }
+
+            cols.sort();            
+
+            return cols;
+        } 
+
+
+        function buildTable(flds, readitems){
+            var html = '<table class="slds-table slds-table--bordered">';
+            html += '<thead>';
+            html += '<tr class="slds-text-heading--label">';
+            for (var f=0; f < flds.length; f++){
+                html += '<th scope="col">';
+                html += '<span class="slds-truncate">' + flds[f] + '</span>';
+                html += '</th>';    
+            }     
+            
+            html += '</tr></thead><tbody>';
+            for (var r=0; r < readitems.length; r++){
+                var item = readitems[r];
+                html += '<tr class="slds-hint-parent">';
+                for (var f=0; f < flds.length; f++){
+                    html += '<td data-label=' + flds[f] + '>';
+                    html += '<span class="slds-truncate">' + item.attributes[flds[f]] + '</span>';
+                    html += '</td>';
+                }
+                html += '</tr>';
+            }
+            html += '</tbody></table>';
+            
+            return html;
+        }
+
+        function buildForm(flds, readitem){
+            var html = '<div class="slds-grid">';
+            
+            for (var f=0; f < flds.length; f++){
+                html += '<div class="slds-col">';
+                html += '<form class="slds-form--stacked">';
+                html += '<div class="slds-form-element slds-col--padded-small " style="padding-right:10px;">';
+                html += '<label class="slds-form-element__label" >' + flds[f] + '</label>';
+                html += '<div class="slds-form-element__control">';
+                html += readitem.attributes[flds[f]] ;
+                html += '</div>';
+                html += '</div>';
+                html += '</form>';
+                html += '</div>'; 
+            }
+            
+            html += '</div>';
+            
+            return html;
+        }
+        
+     
+        
+    </script>
+
+     <div class="slds">
+      
+     <div id="loading">Loading ...  <img src="{!$Resource.ajaxSpinner}"/></div>
+     
+     <apex:repeat value="{!sortedReadOnlyList}" var="key">
+        <apex:pageBlock title="{!key}">
+
+            
+    
+            <apex:pageBlockSection >       
+                <div class="{!SUBSTITUTE(readOnlyMap[key],' ', '')}">
+                </div>
+            </apex:pageBlockSection>
+     
+         </apex:pageBlock>
+          
+
+     </apex:repeat>
+    
+     </div> <!-- end of slds div -->
+    </html>     
+</apex:page>

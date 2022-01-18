@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Arrived_on_expected_day__c</fullName>
+    <description>Indicates that the visit was checked in on the expected day</description>
+    <externalId>false</externalId>
+    <formula>(DATEVALUE( Visit_Date_Time__c ) == DATEVALUE(Expected_Arrival_Date_Time__c ))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Indicates that the visit was checked in on the expected day</inlineHelpText>
+    <label>Arrived on expected day</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

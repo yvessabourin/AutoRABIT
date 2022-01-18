@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <aggregateTypes>Sum</aggregateTypes>
+        <field>Visit__c$Number_of_Guests__c</field>
+    </columns>
+    <columns>
+        <field>Visit__c$Name</field>
+    </columns>
+    <columns>
+        <field>Visit__c$Village__c</field>
+    </columns>
+    <currency>EUR</currency>
+    <description>Top FIT by Partnership and Country</description>
+    <filter>
+        <criteriaItems>
+            <column>Visit__c$Partnership_Promotion__c.RecordType</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>Marketing_Activity__c.Partnership_Promotion</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Visit__c$Village__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Las Rozas</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Visit__c$Country_of_Origin__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>China</value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <aggregateType>Sum</aggregateType>
+        <dateGranularity>Day</dateGranularity>
+        <field>Visit__c$Partnership_Promotion__c</field>
+        <sortByName>Visit__c$Number_of_Guests__c</sortByName>
+        <sortOrder>Desc</sortOrder>
+        <sortType>Aggregate</sortType>
+    </groupingsDown>
+    <name>LZV Top Partnership Promotions</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Partnership_Promotion_Visits__c</reportType>
+    <scope>organization</scope>
+    <showDetails>false</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>Visit__c$Visit_Date_Time__c</dateColumn>
+        <interval>INTERVAL_CURFY</interval>
+    </timeFrameFilter>
+</Report>

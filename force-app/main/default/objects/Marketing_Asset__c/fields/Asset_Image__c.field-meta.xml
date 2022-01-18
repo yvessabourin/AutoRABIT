@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Asset_Image__c</fullName>
+    <externalId>false</externalId>
+    <formula>IMAGE(&quot;http://apollo.valueretail.com/splash/servlets/download?attachment=false&amp;path=%2Fhome%2Fsplash%2FSource%2FWEB-INF%2FFiles%2FMediaFileRoot%2F1893%2F0000%2F&quot; &amp;  text(Asset_ID__c) &amp; &quot;%2F3948&amp;name=selectedPreview&amp;contenttype=image/jpeg&quot;, &quot;Image&quot; )</formula>
+    <label>Asset Image</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

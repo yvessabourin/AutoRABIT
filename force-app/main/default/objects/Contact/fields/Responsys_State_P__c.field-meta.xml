@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Responsys_State_P__c</fullName>
+    <description>(Tourism) Field used by Responsys for reporting</description>
+    <externalId>false</externalId>
+    <formula>IF( ISBLANK(MailingPostalCode), Account.BillingState  ,  MailingState )</formula>
+    <label>Responsys State/Province</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

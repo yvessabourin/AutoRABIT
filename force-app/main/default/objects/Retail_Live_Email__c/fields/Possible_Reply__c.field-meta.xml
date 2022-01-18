@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Possible_Reply__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Indicates whether communique could be a reply to another Retail LIVE. This is based on the subject containing email reply/forwarding attributes (eg. Fwd, Re ..etc)</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Indicates whether communique could be a reply to another Retail LIVE. This is based on the subject containing email reply/forwarding attributes (eg. Fwd, Re ..etc)</inlineHelpText>
+    <label>Possible Reply</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

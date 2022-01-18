@@ -1,0 +1,10 @@
+<template>
+	<div class="lgl-container slds-var-p-around_small">
+		<template for:each={totalsList} for:item="totalElement">
+			<div key={totalElement.label} class="slds-grid slds-grid_align-spread lgl-list-item">
+				<div>Total {totalElement.label}</div>
+				<div>{totalElement.total}</div>
+			</div>
+		</template>
+	</div>
+</template>

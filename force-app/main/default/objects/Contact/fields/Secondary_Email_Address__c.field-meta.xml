@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Secondary_Email_Address__c</fullName>
+    <description>Used for genuine secondary address fields OR generic email addresses, like info@company.com, since the email address field is a unique field (Tourism only) but two separate contacts may share an email address.
+
+This field will NOT be used by Responsys (only [Primary] email)</description>
+    <externalId>false</externalId>
+    <inlineHelpText>If a Contact is using a group email address (e.g. info@company.com) then please enter it here instead of the Primary email address field.</inlineHelpText>
+    <label>Secondary Email Address</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>Email</type>
+    <unique>false</unique>
+</CustomField>

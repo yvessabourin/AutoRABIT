@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Report$Name</field>
+    </columns>
+    <columns>
+        <field>Report.DashboardComponents$Dashboard</field>
+    </columns>
+    <columns>
+        <field>Report.DashboardComponents$Id</field>
+    </columns>
+    <columns>
+        <field>Report.DashboardComponents$CreatedBy</field>
+    </columns>
+    <currency>EUR</currency>
+    <filter>
+        <criteriaItems>
+            <column>Report$Name</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Anon Individuals Last Week,Guests by Group Booking Type +,Guest Country of Origin,Guests by Promotion name,Guest Mode of Transport,Guests by visit type last month,Shopping Express yesterday,Shopping Express incorrect mode of trans,FUNDING Program Groups entered Anonymous,Anonymous Groups not Visits notes,Anonymous Groups Last Week by Village,Anonymous Groups Last Week</value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
+    <format>Tabular</format>
+    <name>Reports w Dashboards</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Reports_Dashboards__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>Report$CreatedDate</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

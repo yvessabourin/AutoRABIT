@@ -1,0 +1,1778 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+    <labels>
+        <fullName>Adbuilder_Button_FieldId</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Adbuilder_Button_FieldId</shortDescription>
+        <value>CF00N0X00000DBKyd</value>
+    </labels>
+    <labels>
+        <fullName>Adbuilder_Button_Link</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Adbuilder_Button_Link</shortDescription>
+        <value>valueretail--lds.lightning.force.com</value>
+    </labels>
+    <labels>
+        <fullName>Adbuilder_Button_Link2</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Adbuilder_Button_Link2</shortDescription>
+        <value>a1C</value>
+    </labels>
+    <labels>
+        <fullName>Adbuilder_Button_RecordTypeId</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Adbuilder_Button_RecordTypeId</shortDescription>
+        <value>01I0X000000yund</value>
+    </labels>
+    <labels>
+        <fullName>Add</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Add</shortDescription>
+        <value>Add</value>
+    </labels>
+    <labels>
+        <fullName>AnonymizedString</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AnonymizedString</shortDescription>
+        <value>del</value>
+    </labels>
+    <labels>
+        <fullName>BP_Back</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BP_Back_Label</shortDescription>
+        <value>Back</value>
+    </labels>
+    <labels>
+        <fullName>BP_Back_Help</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BP_Back_Help_Label</shortDescription>
+        <value>Back to Sales Certification home page</value>
+    </labels>
+    <labels>
+        <fullName>BP_Brand_Sales</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BP_Brand_Sales_Label</shortDescription>
+        <value>Net Sales</value>
+    </labels>
+    <labels>
+        <fullName>BP_Brand_Sales_Help</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BP_Brand_Sales_Help_Label</shortDescription>
+        <value>The till reported Net Sales exclusive of VAT</value>
+    </labels>
+    <labels>
+        <fullName>BP_Brand_in_Village</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BP_Brand_in_Village_Label</shortDescription>
+        <value>Brand in Village</value>
+    </labels>
+    <labels>
+        <fullName>BP_Cancel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BP_Cancel_Label</shortDescription>
+        <value>Cancel</value>
+    </labels>
+    <labels>
+        <fullName>BP_Certification_Close_Period</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BP_Certification_Close_Period_Label</shortDescription>
+        <value>Certification Close Period</value>
+    </labels>
+    <labels>
+        <fullName>BP_Certification_Deadline</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BP_Certification_Deadline</shortDescription>
+        <value>Certification Deadline</value>
+    </labels>
+    <labels>
+        <fullName>BP_Certification_Open_Period</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BP_Certification_Open_Period_Label</shortDescription>
+        <value>Certification Open Period</value>
+    </labels>
+    <labels>
+        <fullName>BP_Certification_Period</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BP_Certification_Period_Label</shortDescription>
+        <value>Certification period</value>
+    </labels>
+    <labels>
+        <fullName>BP_Certification_Submit</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BP_Certification_Submit_Label</shortDescription>
+        <value>You are choosing to submit the Sales Certification data for this certification period. The data you are submitting should be excluding VAT.</value>
+    </labels>
+    <labels>
+        <fullName>BP_Certification_Submit_2</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BP_Certification_Submit_2_Label</shortDescription>
+        <value>This platform is subject to contractual obligations and confidentiality, and should only be used by the personnel expressly authorised. By selecting Submit and OK you are confirming that you are an authorised person.</value>
+    </labels>
+    <labels>
+        <fullName>BP_Certification_Success</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BP_Certification_Success_Label</shortDescription>
+        <value>You have successfully submitted your Certified Sales</value>
+    </labels>
+    <labels>
+        <fullName>BP_Certified_Amount</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BP_Certified_Amount_Label</shortDescription>
+        <value>Certified Amount</value>
+    </labels>
+    <labels>
+        <fullName>BP_Certified_Amount_Help</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BP_Certified_Amount_Help_Label</shortDescription>
+        <value>The certified amount (Total Net Sales + Total Net VIP/Staff Discounts)</value>
+    </labels>
+    <labels>
+        <fullName>BP_Comments</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BP_Comments_Label</shortDescription>
+        <value>Comments</value>
+    </labels>
+    <labels>
+        <fullName>BP_Comments_Help</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BP_Comments_Help_Label</shortDescription>
+        <value>Comments to explain any variance</value>
+    </labels>
+    <labels>
+        <fullName>BP_Confirm</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BP_Confirm_Label</shortDescription>
+        <value>Confirm</value>
+    </labels>
+    <labels>
+        <fullName>BP_Date</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BP_Date_label</shortDescription>
+        <value>Date</value>
+    </labels>
+    <labels>
+        <fullName>BP_Date_Help</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BP_Date_Help_Label</shortDescription>
+        <value>Trading date</value>
+    </labels>
+    <labels>
+        <fullName>BP_Enter_Certified_VIP_Amount</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BP_Enter_Certified_VIP_Amount_Label</shortDescription>
+        <value>Certified Net VIP/Staff Discounts</value>
+    </labels>
+    <labels>
+        <fullName>BP_Enter_Sales</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BP_Enter_Sales_Label</shortDescription>
+        <value>Certified Net Sales</value>
+    </labels>
+    <labels>
+        <fullName>BP_Enter_Sales_Help</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BP_Enter_Sales_Help_Label</shortDescription>
+        <value>The till reported Net Sales exclusive of VAT</value>
+    </labels>
+    <labels>
+        <fullName>BP_Enter_VIP_Amount</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BP_Enter_VIP_Amount_label</shortDescription>
+        <value>Net VIP/Staff Discounts</value>
+    </labels>
+    <labels>
+        <fullName>BP_Enter_VIP_Amount_Help</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BP_Enter_VIP_Amount_Help_Label</shortDescription>
+        <value>Total Net value of VIP and Staff discounts excluding VAT</value>
+    </labels>
+    <labels>
+        <fullName>BP_Error</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BP_Error_Label</shortDescription>
+        <value>Error</value>
+    </labels>
+    <labels>
+        <fullName>BP_Excluding_Warning</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BP_Excluding_Warning_Label</shortDescription>
+        <value>NET SALES &amp; NET DISCOUNTS EXCLUDING VAT</value>
+    </labels>
+    <labels>
+        <fullName>BP_Export_Help</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BP_Export_Help_Label</shortDescription>
+        <value>Export data to CSV file</value>
+    </labels>
+    <labels>
+        <fullName>BP_File_Not_Supported</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BP_File_Not_Supported_Label</shortDescription>
+        <value>File not supported!</value>
+    </labels>
+    <labels>
+        <fullName>BP_File_Success_Upload</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BP_File_Success_Upload_Label</shortDescription>
+        <value>File successfully uploaded!</value>
+    </labels>
+    <labels>
+        <fullName>BP_File_Upload_Size</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BP_File_Upload_Size_Label</shortDescription>
+        <value>The file must not be greater than 1 MB!</value>
+    </labels>
+    <labels>
+        <fullName>BP_Import_Help</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BP_Import_Help_Label</shortDescription>
+        <value>Import data from CSV file</value>
+    </labels>
+    <labels>
+        <fullName>BP_Mandatory_Certified_Amount</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BP_Mandatory_Certified_Amount_Label</shortDescription>
+        <value>The Certified Amount cannot be blank unless the store is closed for that date.  Either enter a value for the Certified Amount or mark the store as closed.</value>
+    </labels>
+    <labels>
+        <fullName>BP_Mandatory_Comment</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BP_Mandatory_Comment_Label</shortDescription>
+        <value>There is significant variance between the original Brand Reported Sales amount and the Certified Sales amount. Please provide an overall comment to explain the variance in the overall comment box on this page before you submit.</value>
+    </labels>
+    <labels>
+        <fullName>BP_Mandatory_Edit</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BP_Mandatory_Edit_Label</shortDescription>
+        <value>Please ensure you make a change to the sales certification data or add an overall comment</value>
+    </labels>
+    <labels>
+        <fullName>BP_Outstanding</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BP_Outstanding_Label</shortDescription>
+        <value>Outstanding</value>
+    </labels>
+    <labels>
+        <fullName>BP_Overall_Comment</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BP_Overall_Comment_Label</shortDescription>
+        <value>Overall Comment</value>
+    </labels>
+    <labels>
+        <fullName>BP_Overall_Comment_Help</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BP_Overall_Comment_Help_Label</shortDescription>
+        <value>Enter an overall comment to explain any variances</value>
+    </labels>
+    <labels>
+        <fullName>BP_PDF_CertifiedBy</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BP_PDF_CertifiedBy_Label</shortDescription>
+        <value>Certified by</value>
+    </labels>
+    <labels>
+        <fullName>BP_PDF_Confidential</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BP_PDF_Confidential_Label</shortDescription>
+        <value>Confidential - Internal Use Only</value>
+    </labels>
+    <labels>
+        <fullName>BP_PDF_Delimiter</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BP_PDF_Delimiter_Label</shortDescription>
+        <value>Your CSV file is not using the correct format. Please use a comma (,) or semicolon (;) to separate the columns of data.</value>
+    </labels>
+    <labels>
+        <fullName>BP_PDF_ForPeriodFrom</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BP_PDF_ForPeriodFrom_Label</shortDescription>
+        <value>for the period from</value>
+    </labels>
+    <labels>
+        <fullName>BP_PDF_OnBehalf</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BP_PDF_OnBehalf_Label</shortDescription>
+        <value>On behalf of</value>
+    </labels>
+    <labels>
+        <fullName>BP_PDF_Submitted</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BP_PDF_Submitted_Label</shortDescription>
+        <value>Submitted on</value>
+    </labels>
+    <labels>
+        <fullName>BP_PDF_To</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BP_PDF_To_Label</shortDescription>
+        <value>to</value>
+    </labels>
+    <labels>
+        <fullName>BP_PDF_Turn</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BP_PDF_Turn_Label</shortDescription>
+        <value>Turnover Certificate for</value>
+    </labels>
+    <labels>
+        <fullName>BP_Print_Report</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BP_Print_Report_Label</shortDescription>
+        <value>Print Report</value>
+    </labels>
+    <labels>
+        <fullName>BP_Records_Successfull_Updated</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BP_Records_Successfull_Updated_Label</shortDescription>
+        <value>Record successfully updated!</value>
+    </labels>
+    <labels>
+        <fullName>BP_Reported</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BP_Reported_Label</shortDescription>
+        <value>Reported Amount</value>
+    </labels>
+    <labels>
+        <fullName>BP_Reported_Help</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BP_Reported_Help_Label</shortDescription>
+        <value>The Store reported amount (Total Net Sales + Total Net VIP/Staff Discounts)</value>
+    </labels>
+    <labels>
+        <fullName>BP_Something_Went_Wrong</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BP_Something_Went_Wrong_Label</shortDescription>
+        <value>Something went wrong. Please notify your village contact.</value>
+    </labels>
+    <labels>
+        <fullName>BP_Store_Close</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BP_Store_Close_Label</shortDescription>
+        <value>Store Closed</value>
+    </labels>
+    <labels>
+        <fullName>BP_Store_Close_Help</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BP_Store_Close_Help_Label</shortDescription>
+        <value>Mark as Store Closed if the store was not trading</value>
+    </labels>
+    <labels>
+        <fullName>BP_Submit</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BP_Submit_Label</shortDescription>
+        <value>Submit</value>
+    </labels>
+    <labels>
+        <fullName>BP_Submit_Help</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BP_Submit_Help_Label</shortDescription>
+        <value>Submit Sales Certification</value>
+    </labels>
+    <labels>
+        <fullName>BP_Success</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BP_Success_Label</shortDescription>
+        <value>Success</value>
+    </labels>
+    <labels>
+        <fullName>BP_Template_Not_Supported</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BP_Template_Not_Supported_Label</shortDescription>
+        <value>Table format not supported!</value>
+    </labels>
+    <labels>
+        <fullName>BP_Total</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BP_Total_Label</shortDescription>
+        <value>Total</value>
+    </labels>
+    <labels>
+        <fullName>BP_Unit</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BP_Unit_Label</shortDescription>
+        <value>Unit</value>
+    </labels>
+    <labels>
+        <fullName>BP_Unit_Help</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BP_Unit_Help</shortDescription>
+        <value>Store unit</value>
+    </labels>
+    <labels>
+        <fullName>BP_Unsaved_Changes</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BP_Unsaved_Changes_Label</shortDescription>
+        <value>You need to save or cancel any changes before you can submit</value>
+    </labels>
+    <labels>
+        <fullName>BP_Upload_Sales_Data</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BP_Upload_Sales_Data_Label</shortDescription>
+        <value>Click the link to Upload the Sales Data.  Please note that:&lt;br/&gt;
+- The maximum file size you can upload is 1 MB.&lt;br/&gt;
+- The system does not accept commas in the file cells, please use dots to indicate decimals in numbers.</value>
+    </labels>
+    <labels>
+        <fullName>BP_VIP_Discount</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BP_VIP_Discount_Label</shortDescription>
+        <value>Net VIP/Staff Discounts</value>
+    </labels>
+    <labels>
+        <fullName>BP_VIP_Discount_Help</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BP_VIP_Discount_Help_Label</shortDescription>
+        <value>Total Net value of VIP and Staff discounts excluding VAT</value>
+    </labels>
+    <labels>
+        <fullName>BP_Variance</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BP_Variance_Label</shortDescription>
+        <value>Variance</value>
+    </labels>
+    <labels>
+        <fullName>BP_Variance_Help</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BP_Variance_Help_Label</shortDescription>
+        <value>Variance between the Certified Amount and the Reported Amount</value>
+    </labels>
+    <labels>
+        <fullName>BP_Warning</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BP_Warning_Label</shortDescription>
+        <value>Please note!</value>
+    </labels>
+    <labels>
+        <fullName>Campaign_Name</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Campaign Name</shortDescription>
+        <value>Campaign Name</value>
+    </labels>
+    <labels>
+        <fullName>Campaigns</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Campaigns</shortDescription>
+        <value>Campaigns</value>
+    </labels>
+    <labels>
+        <fullName>Campaigns_and_Activities</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Campaigns and Activities</shortDescription>
+        <value>Campaigns and Activities</value>
+    </labels>
+    <labels>
+        <fullName>Cancel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Cancel</shortDescription>
+        <value>Cancel</value>
+    </labels>
+    <labels>
+        <fullName>CommunityNameMBSAgency</fullName>
+        <categories>Constant</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Community Name Agency</shortDescription>
+        <value>3rdParty</value>
+    </labels>
+    <labels>
+        <fullName>Create_Colleagues</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Create Colleagues</shortDescription>
+        <value>Create Colleagues</value>
+    </labels>
+    <labels>
+        <fullName>Creative_Name</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Creative Name</shortDescription>
+        <value>Creative Name</value>
+    </labels>
+    <labels>
+        <fullName>DAILY_SALE</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>DAILY_SALE_LABEL</shortDescription>
+        <value>Daily Sale</value>
+    </labels>
+    <labels>
+        <fullName>DAILY_SALE_CANCEL_BTN</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>DAILY_SALE_CANCEL_BTN</shortDescription>
+        <value>Cancel</value>
+    </labels>
+    <labels>
+        <fullName>DAILY_SALE_CERTIFICATION</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>DAILY_SALE_CERTIFICATION</shortDescription>
+        <value>Sales Certification</value>
+    </labels>
+    <labels>
+        <fullName>DAILY_SALE_CLICK_TO_REFRESH</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>DAILY_SALE_CLICK_TO_REFRESH</shortDescription>
+        <value>Click chart to Refresh</value>
+    </labels>
+    <labels>
+        <fullName>DAILY_SALE_CONFIRM</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>DAILY_SALE_CONFIRM</shortDescription>
+        <value>Confirm Daily Sales</value>
+    </labels>
+    <labels>
+        <fullName>DAILY_SALE_CONFIRMED_HISTORY_LIST</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>DAILY_SALE_CONFIRMED_HISTORY_LIST</shortDescription>
+        <value>Confirmed History List</value>
+    </labels>
+    <labels>
+        <fullName>DAILY_SALE_CONFIRMED_RECORDS_3_MONTHS</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>DAILY_SALE_CONFIRMED_RECORDS_3_MONTHS</shortDescription>
+        <value>Daily Sales records in the past 3 months</value>
+    </labels>
+    <labels>
+        <fullName>DAILY_SALE_CONFIRM_INFO_1</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>DAILY_SALE_CONFIRM_INFO_1</shortDescription>
+        <value>Please Note</value>
+    </labels>
+    <labels>
+        <fullName>DAILY_SALE_CONFIRM_INFO_2</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>DAILY_SALE_CONFIRM_INFO_2</shortDescription>
+        <value>Only records that are valid for confirmation will be displayed</value>
+    </labels>
+    <labels>
+        <fullName>DAILY_SALE_CONFIRM_INFO_3</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>DAILY_SALE_CONFIRM_INFO_3</shortDescription>
+        <value>You will only see records that you have authority to confirm</value>
+    </labels>
+    <labels>
+        <fullName>DAILY_SALE_CONFIRM_INFO_4</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>DAILY_SALE_CONFIRM_INFO_4</shortDescription>
+        <value>Please contact your Retail Manager if you have any questions or issues.</value>
+    </labels>
+    <labels>
+        <fullName>DAILY_SALE_CONFIRM_REMINDER_EMAIL_BODY</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>DAILY_SALE_CONFIRM_REMINDER_EMAIL_BODY</shortDescription>
+        <value>There are unconfirmed Daily Sale records for your store, please confirm these records as soon as convenient.
+&lt;br/&gt;
+Should you require support, contact your village retail team coordinator.
+&lt;br/&gt;
+&lt;br/&gt;</value>
+    </labels>
+    <labels>
+        <fullName>DAILY_SALE_CONFIRM_REMINDER_EMAIL_SUBJECT</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>DAILY_SALE_CONFIRM_REMINDER_EMAIL_SUBJECT</shortDescription>
+        <value>Daily Sales - Confirm Records Reminder</value>
+    </labels>
+    <labels>
+        <fullName>DAILY_SALE_CONFIRM_SELECTED</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>DAILY_SALE_CONFIRM_SELECTED</shortDescription>
+        <value>Confirm Selected</value>
+    </labels>
+    <labels>
+        <fullName>DAILY_SALE_CONFIRM_SUCCESSFUL</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>DAILY_SALE_CONFIRM_SUCCESSFUL</shortDescription>
+        <value>Record(s) successfully confirmed.</value>
+    </labels>
+    <labels>
+        <fullName>DAILY_SALE_DESCRIPTION</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>DAILY_SALE_DESCRIPTION</shortDescription>
+        <value>Description</value>
+    </labels>
+    <labels>
+        <fullName>DAILY_SALE_DISABLE_USER_BTN</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>DAILY_SALE_DISABLE_USER_BTN</shortDescription>
+        <value>Disable Customer User</value>
+    </labels>
+    <labels>
+        <fullName>DAILY_SALE_DOCUMENT_NAME</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>DAILY_SALE_DOCUMENT_NAME</shortDescription>
+        <value>Document name</value>
+    </labels>
+    <labels>
+        <fullName>DAILY_SALE_EDIT</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>DAILY_SALE_EDIT</shortDescription>
+        <value>Edit</value>
+    </labels>
+    <labels>
+        <fullName>DAILY_SALE_ENTERED_SALES_AMOUNT_RPT</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>DAILY_SALE_ENTERED_SALES_AMOUNT_RPT</shortDescription>
+        <value>ENTERED SALES AMOUNT - 14 Days</value>
+    </labels>
+    <labels>
+        <fullName>DAILY_SALE_ENTRY</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>DAILY_SALE_ENTRY</shortDescription>
+        <value>Daily Sales Entry</value>
+    </labels>
+    <labels>
+        <fullName>DAILY_SALE_EXPORT</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>DAILY_SALE_EXPORT</shortDescription>
+        <value>Export</value>
+    </labels>
+    <labels>
+        <fullName>DAILY_SALE_FILTER_BY_STORE</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>DAILY_SALE_FILTER_BY_STORE</shortDescription>
+        <value>Filter By Store:</value>
+    </labels>
+    <labels>
+        <fullName>DAILY_SALE_HFS_BRAND_TERMS</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>DAILY_SALE_HFS_BRAND_TERMS</shortDescription>
+        <value>HFS Brand T&amp;Cs</value>
+    </labels>
+    <labels>
+        <fullName>DAILY_SALE_HFS_OPERATIONAL_GUIDES</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>DAILY_SALE_HFS_OPERATIONAL_GUIDES</shortDescription>
+        <value>HFS Operational Guides</value>
+    </labels>
+    <labels>
+        <fullName>DAILY_SALE_HOME</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>DAILY_SALE_HOME</shortDescription>
+        <value>Home</value>
+    </labels>
+    <labels>
+        <fullName>DAILY_SALE_IMPORT</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>DAILY_SALE_IMPORT</shortDescription>
+        <value>Import</value>
+    </labels>
+    <labels>
+        <fullName>DAILY_SALE_INVALID_USER</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>DAILY_SALE_INVALID_USER</shortDescription>
+        <value>Contact is not a valid user</value>
+    </labels>
+    <labels>
+        <fullName>DAILY_SALE_IN_PROGRESS_LIST</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>DAILY_SALE_IN_PROGRESS_LIST</shortDescription>
+        <value>Outstanding Records</value>
+    </labels>
+    <labels>
+        <fullName>DAILY_SALE_LAST_MODIFIED_BY</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>DAILY_SALE_LAST_MODIFIED_BY</shortDescription>
+        <value>Last modified by</value>
+    </labels>
+    <labels>
+        <fullName>DAILY_SALE_LOGOUT</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>DAILY_SALE_LOGOUT</shortDescription>
+        <value>Logout</value>
+    </labels>
+    <labels>
+        <fullName>DAILY_SALE_MY_PROFILE</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>DAILY_SALE_MY_PROFILE</shortDescription>
+        <value>My Profile</value>
+    </labels>
+    <labels>
+        <fullName>DAILY_SALE_MY_SETTINGS</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>DAILY_SALE_MY_SETTINGS</shortDescription>
+        <value>My Settings</value>
+    </labels>
+    <labels>
+        <fullName>DAILY_SALE_NO_CONFIRM_RECORDS</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>DAILY_SALE_NO_CONFIRM_RECORDS</shortDescription>
+        <value>There are no valid records you have authority to confirm at this present time</value>
+    </labels>
+    <labels>
+        <fullName>DAILY_SALE_PORTAL_URL</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>DAILY_SALE_PORTAL_URL</shortDescription>
+        <value>https://brandportal.valueretail.com</value>
+    </labels>
+    <labels>
+        <fullName>DAILY_SALE_RECORD_DETAIL</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Daily Sales Record Detail</shortDescription>
+        <value>Details</value>
+    </labels>
+    <labels>
+        <fullName>DAILY_SALE_RE_ENABLE_USER_BTN</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>DAILY_SALE_RE_ENABLE_USER_BTN</shortDescription>
+        <value>Re-enable Customer User</value>
+    </labels>
+    <labels>
+        <fullName>DAILY_SALE_SAVE_BTN</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>DAILY_SALE_SAVE_BTN</shortDescription>
+        <value>Save</value>
+    </labels>
+    <labels>
+        <fullName>DAILY_SALE_SAVE_CONFIRMATION</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>DAILY_SALE_SAVE_CONFIRMATION</shortDescription>
+        <value>Please save to confirm that you have read and understood the terms</value>
+    </labels>
+    <labels>
+        <fullName>DAILY_SALE_SELECT_LABEL</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>DAILY_SALE_SELECT_LABEL</shortDescription>
+        <value>Select</value>
+    </labels>
+    <labels>
+        <fullName>DAILY_SALE_SELECT_RECORDS_TO_CONFIRM</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>DAILY_SALE_SELECT_RECORDS_TO_CONFIRM</shortDescription>
+        <value>Select Records to Confirm</value>
+    </labels>
+    <labels>
+        <fullName>DAILY_SALE_TERMS_APPROVED_BY</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>DAILY_SALE_TERMS_APPROVED_BY</shortDescription>
+        <value>T&amp;Cs approved by:</value>
+    </labels>
+    <labels>
+        <fullName>DAILY_SALE_USER_ACTIVE</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>DAILY_SALE_USER_ACTIVE</shortDescription>
+        <value>Contact is currently an Active User</value>
+    </labels>
+    <labels>
+        <fullName>DAILY_SALE_USER_DISABLED</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>DAILY_SALE_USER_DISABLED</shortDescription>
+        <value>Contact User has been successfully disabled</value>
+    </labels>
+    <labels>
+        <fullName>DAILY_SALE_USER_ENABLED</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>DAILY_SALE_USER_ENABLED</shortDescription>
+        <value>Contact User has been successfully enabled</value>
+    </labels>
+    <labels>
+        <fullName>DAILY_SALE_USER_INACTIVE</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>DAILY_SALE_USER_INACTIVE</shortDescription>
+        <value>Contact is currently not an Active User</value>
+    </labels>
+    <labels>
+        <fullName>DAILY_SALE_USER_NOT_ENABLED</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>DAILY_SALE_USER_NOT_ENABLED</shortDescription>
+        <value>Contact is not currently a valid user. Please select the Enable Customer User option if you wish to provide portal access to this contact.</value>
+    </labels>
+    <labels>
+        <fullName>DAILY_SALE_VIEW_CONFIRM_LIST</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>DAILY_SALE_VIEW_CONFIRM_LIST</shortDescription>
+        <value>View Confirm List</value>
+    </labels>
+    <labels>
+        <fullName>DAILY_SALE_VIEW_HISTORY</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>DAILY_SALE_VIEW_HISTORY</shortDescription>
+        <value>View History</value>
+    </labels>
+    <labels>
+        <fullName>DAILY_SALE_WEEK_COMMENCING</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>DAILY_SALE_WEEK_COMMENCING</shortDescription>
+        <value>Week Commencing</value>
+    </labels>
+    <labels>
+        <fullName>DAILY_SALE_WELCOME</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>DAILY_SALE_WELCOME</shortDescription>
+        <value>Welcome to the brand portal!</value>
+    </labels>
+    <labels>
+        <fullName>DAILY_SALE_WELCOME_EMAIL</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>DAILY_SALE_WELCOME_EMAIL</shortDescription>
+        <value>Welcome to the Value Retail Brand Community</value>
+    </labels>
+    <labels>
+        <fullName>DAILY_SALE_WELCOME_EMAIL_TEXT1</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>DAILY_SALE_WELCOME_EMAIL_TEXT1</shortDescription>
+        <value>Hi</value>
+    </labels>
+    <labels>
+        <fullName>DAILY_SALE_WELCOME_EMAIL_TEXT2</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>DAILY_SALE_WELCOME_EMAIL_TEXT2</shortDescription>
+        <value>You have been activated as a user in the Value Retail Brand Community. To set up a password please go to</value>
+    </labels>
+    <labels>
+        <fullName>DAILY_SALE_WELCOME_EMAIL_TEXT3</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>DAILY_SALE_WELCOME_EMAIL_TEXT3</shortDescription>
+        <value>Once you have set a password you will be logged into the Brand Community. We recommend that you bookmark the website</value>
+    </labels>
+    <labels>
+        <fullName>DAILY_SALE_WELCOME_EMAIL_TEXT3a</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>DAILY_SALE_WELCOME_EMAIL_TEXT3a</shortDescription>
+        <value>address for your daily use.</value>
+    </labels>
+    <labels>
+        <fullName>DAILY_SALE_WELCOME_EMAIL_TEXT4</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>DAILY_SALE_WELCOME_EMAIL_TEXT4</shortDescription>
+        <value>You will need your username and password to login next time.  Make a note of your username for future reference.
+Username:</value>
+    </labels>
+    <labels>
+        <fullName>DAILY_SALE_WELCOME_EMAIL_TEXT4a</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>DAILY_SALE_WELCOME_EMAIL_TEXT4a</shortDescription>
+        <value>Brand Portal :</value>
+    </labels>
+    <labels>
+        <fullName>DAILY_SALE_WELCOME_EMAIL_TEXT5</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>DAILY_SALE_WELCOME_EMAIL_TEXT5</shortDescription>
+        <value>Best Regards,
+Value Retail Team</value>
+    </labels>
+    <labels>
+        <fullName>DETAILS</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>DETAILS</shortDescription>
+        <value>Details</value>
+    </labels>
+    <labels>
+        <fullName>DataIntegrationUser</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Integration Service</shortDescription>
+        <value>DataIntegration API</value>
+    </labels>
+    <labels>
+        <fullName>DeploymentUser</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>DeploymentUser</shortDescription>
+        <value>dchilds@valueretail.com.lds</value>
+    </labels>
+    <labels>
+        <fullName>DoW_Friday</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>DoW_Friday</shortDescription>
+        <value>Friday</value>
+    </labels>
+    <labels>
+        <fullName>DoW_Monday</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>DoW_Monday</shortDescription>
+        <value>Monday</value>
+    </labels>
+    <labels>
+        <fullName>DoW_Saturday</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>DoW_Saturday</shortDescription>
+        <value>Saturday</value>
+    </labels>
+    <labels>
+        <fullName>DoW_Sunday</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>DoW_Sunday</shortDescription>
+        <value>Sunday</value>
+    </labels>
+    <labels>
+        <fullName>DoW_Thursday</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>DoW_Thursday</shortDescription>
+        <value>Thursday</value>
+    </labels>
+    <labels>
+        <fullName>DoW_Tuesday</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>DoW_Tuesday</shortDescription>
+        <value>Tuesday</value>
+    </labels>
+    <labels>
+        <fullName>DoW_Wednesday</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>DoW_Wednesday</shortDescription>
+        <value>Wednesday</value>
+    </labels>
+    <labels>
+        <fullName>HFSJobWithoutLocationMessage</fullName>
+        <categories>Message</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>HFS Job Without Location</shortDescription>
+        <value>Location not defined</value>
+    </labels>
+    <labels>
+        <fullName>HFS_Code_Gen_URL</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>2D Code Generation URL</shortDescription>
+        <value>http://barcode.valueretail.com/gensvg</value>
+    </labels>
+    <labels>
+        <fullName>KPIFlow_Brand_Event_Footfall</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>KPIFlow Brand Event Footfall</shortDescription>
+        <value>Brand Event Footfall</value>
+    </labels>
+    <labels>
+        <fullName>KPIFlow_Brand_Event_FootfallHelpText</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>KPIFlow_Brand_Event_FootfallHelpText</shortDescription>
+        <value>Brand Event Footfall Helptext</value>
+    </labels>
+    <labels>
+        <fullName>KPIFlow_Brand_Event_Sales</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>KPIFlow Brand Event Sales</shortDescription>
+        <value>Brand Event Sales</value>
+    </labels>
+    <labels>
+        <fullName>KPIFlow_Brand_Event_SalesHelpText</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>KPIFlow_Brand_Event_SalesHelpText</shortDescription>
+        <value>Brand Event Sales HelpText</value>
+    </labels>
+    <labels>
+        <fullName>KPIFlow_Brand_Event_Transactions</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>KPIFlow Brand Event Transactions</shortDescription>
+        <value>Brand Event Transactions</value>
+    </labels>
+    <labels>
+        <fullName>KPIFlow_Brand_Event_TransactionsHelptext</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>KPIFlow Brand Event TransactionsHelptext</shortDescription>
+        <value>Transactions Help Text here</value>
+    </labels>
+    <labels>
+        <fullName>KPIFlow_Brand_Event_Units</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>KPIFlow Brand Event Units</shortDescription>
+        <value>Brand Event Units</value>
+    </labels>
+    <labels>
+        <fullName>KPIFlow_Brand_Event_UnitsHelptext</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>KPIFlow Brand Event UnitsHelptext</shortDescription>
+        <value>Brand Events Unit helptext</value>
+    </labels>
+    <labels>
+        <fullName>KPIFlow_CSB_Higher_Total_NET_Sales</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>KPIFlow CSB_Higher_Total_NET_Sales</shortDescription>
+        <value>The Current Season Bestsellers Sales cannot be higher than the Total Net Sales. The Total Net Sales should include all sales for the day.</value>
+    </labels>
+    <labels>
+        <fullName>KPIFlow_CSB_Higher_Total_Units</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>KPIFlow CSB_Higher_Total_Units</shortDescription>
+        <value>The Current Season Bestsellers Units cannot be higher than the total Units Sold for the day.</value>
+    </labels>
+    <labels>
+        <fullName>KPIFlow_Covers_Less_Transactions</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>KPIFlow_Covers_Less_Transactions</shortDescription>
+        <value>Number of covers cannot be less than the number of transactions.  Please set the &apos;Ignore Validations&apos; flag and add a note to this record if you believe the values are correct.</value>
+    </labels>
+    <labels>
+        <fullName>KPIFlow_Footfall_cannot_be_higher_than_the_total_Units_Sold_for_the_day</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>KPIFlow_Footfall_cannot_be_higher_than_the_total_Units_Sold_for_the_day</shortDescription>
+        <value>Footfall cannot be higher than the total Units Sold for the day.</value>
+    </labels>
+    <labels>
+        <fullName>KPIFlow_Header</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>KPIFlow Header</shortDescription>
+        <value>Enter All Figures</value>
+    </labels>
+    <labels>
+        <fullName>KPIFlow_HelpText_Brand_Note</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>KPIFlow HelpText Brand Note</shortDescription>
+        <value>If Ignore Validations selected, please confirm why, or add any other notes you believe are required</value>
+    </labels>
+    <labels>
+        <fullName>KPIFlow_HelpText_Brand_Private_Appointment_Sales</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>KPIFlow HelpText Brand Private Appointment Sales</shortDescription>
+        <value>Enter the amount of Brand Private Appointment sales, if there were no sales for the day enter 0.</value>
+    </labels>
+    <labels>
+        <fullName>KPIFlow_HelpText_Brand_Private_Appointment_Units</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>KPIFlow HelpText Brand Private Appointment Units</shortDescription>
+        <value>Enter the amount of Brand Private Appointment units, if there were no units sold for the day enter 0.</value>
+    </labels>
+    <labels>
+        <fullName>KPIFlow_HelpText_Brand_Private_Appointment_transactions</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>KPIFlow HelpText Brand Private Appointment transactions</shortDescription>
+        <value>Enter the amount of Brand Private Appointment transactions, if there were no transactions for the day enter 0.</value>
+    </labels>
+    <labels>
+        <fullName>KPIFlow_HelpText_Brand_Virtual_Shopping_Sales</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>KPIFlow HelpText Brand Virtual Shopping Sales</shortDescription>
+        <value>Enter the amount of Brand Virtual Shopping sales, if there were no sales for the day enter 0.</value>
+    </labels>
+    <labels>
+        <fullName>KPIFlow_HelpText_Brand_Virtual_Shopping_Transactions</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>KPIFlow HelpText Brand Virtual Shopping Transactions</shortDescription>
+        <value>Enter the amount of Brand Virtual Shopping transactions, if there were no transactions for the day enter 0.</value>
+    </labels>
+    <labels>
+        <fullName>KPIFlow_HelpText_Brand_Virtual_Shopping_Units</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>KPIFlow HelpText Brand Virtual Shopping Units</shortDescription>
+        <value>Enter the amount of Brand Virtual Shopping units, if there were no units sold for the day enter 0.</value>
+    </labels>
+    <labels>
+        <fullName>KPIFlow_HelpText_Covers</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>KPIFlow HelpText_Covers</shortDescription>
+        <value>Covers</value>
+    </labels>
+    <labels>
+        <fullName>KPIFlow_HelpText_Current_Season_Sales</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>KPIFlow HelpText Current Season Sales</shortDescription>
+        <value>Enter the amount of Current Season Bestseller sales. This is full price product from current season collection. If there were no full price sales for this day enter 0.</value>
+    </labels>
+    <labels>
+        <fullName>KPIFlow_HelpText_Current_Season_Units</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>KPIFlow HelpText Current Season Units</shortDescription>
+        <value>Enter the number of Current Season Bestseller units. This is full price product from current season collection. If there were no full price units sold for this day enter 0.</value>
+    </labels>
+    <labels>
+        <fullName>KPIFlow_HelpText_Footfall</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>KPIFlow HelpText Footfall</shortDescription>
+        <value>Enter the figure from the footfall counter.
+Please leave blank if you do not have a footfall counter or do not yet know the value.</value>
+    </labels>
+    <labels>
+        <fullName>KPIFlow_HelpText_Ignore_Validations</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>KPIFlow HelpText Ignore Validations</shortDescription>
+        <value>If when you try and save this record you get validation errors but believe the data to be correct, please tick this checkbox and complete the notes field with the reason.</value>
+    </labels>
+    <labels>
+        <fullName>KPIFlow_HelpText_NET_Value_Discounts</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>KPIFlow HelpText NET Value Discounts</shortDescription>
+        <value>NET Value of Discounts</value>
+    </labels>
+    <labels>
+        <fullName>KPIFlow_HelpText_Number_Transactions</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>KPIFlow HelpText Number Transactions</shortDescription>
+        <value>Enter the Number of Transactions</value>
+    </labels>
+    <labels>
+        <fullName>KPIFlow_HelpText_Special_Curated_Sales</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>KPIFlow HelpText Special Curated Sales</shortDescription>
+        <value>Enter the amount of Special Curated Selection sales, if there were no sales for the day enter 0. This is product recently discontinued at full price but not yet available at off-price. Product for TBVSC at a 10% discount off RRP.</value>
+    </labels>
+    <labels>
+        <fullName>KPIFlow_HelpText_Special_Curated_Units</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>KPIFlow HelpText Special Curated Units</shortDescription>
+        <value>Enter the number of Special Curated Selection units, if there were not units sold for the day enter 0. This is product recently discontinued at full price but not yet available at off-price. Product for TBVSC at a 10% discount off RRP.</value>
+    </labels>
+    <labels>
+        <fullName>KPIFlow_HelpText_Store_Closed</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>KPIFlow HelpText Store Closed</shortDescription>
+        <value>Select to indicate the store was closed on the trading date</value>
+    </labels>
+    <labels>
+        <fullName>KPIFlow_HelpText_Tax_Free_Sales_Amount</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>KPIFlow HelpText Tax Free Sales Amount</shortDescription>
+        <value>Tax Free Sales Amount</value>
+    </labels>
+    <labels>
+        <fullName>KPIFlow_HelpText_Tax_Free_Trans</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>KPIFlow HelpText Tax Free Trans</shortDescription>
+        <value>Tax Free Transactions</value>
+    </labels>
+    <labels>
+        <fullName>KPIFlow_HelpText_Total_NET_Sales</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>KPIFlow HelpText Total NET Sales</shortDescription>
+        <value>This is the total sales for the day including all types of sales (e.g. Special Curated Selection Sales, Current Season Bestsellers Sales)</value>
+    </labels>
+    <labels>
+        <fullName>KPIFlow_HelpText_Units_Sold</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>KPIFlow HelpText Units Sold</shortDescription>
+        <value>The number of units sold</value>
+    </labels>
+    <labels>
+        <fullName>KPIFlow_HelpText_VIP_Cards</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>KPIFlow HelpText VIP Cards</shortDescription>
+        <value>Number of transactions with a VIP card scanned</value>
+    </labels>
+    <labels>
+        <fullName>KPIFlow_Ignore_Without_Notes</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>KPIFlow Ignore Without Notes</shortDescription>
+        <value>Please enter a note in the notes field if you wish to ignore validations</value>
+    </labels>
+    <labels>
+        <fullName>KPIFlow_Label_BPASales</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>KPIFlow Label BPASales</shortDescription>
+        <value>Brand Private Appointment Sales</value>
+    </labels>
+    <labels>
+        <fullName>KPIFlow_Label_BPATransactions</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>KPIFlow Label BPATransactions</shortDescription>
+        <value>Brand Private Appointment Transactions</value>
+    </labels>
+    <labels>
+        <fullName>KPIFlow_Label_BPAUnits</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>KPIFlow Label BPAUnits</shortDescription>
+        <value>Brand Private Appointment Units</value>
+    </labels>
+    <labels>
+        <fullName>KPIFlow_Label_BVSSales</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>KPIFlow Label BVSSales</shortDescription>
+        <value>Brand Virtual Shopping Sales</value>
+    </labels>
+    <labels>
+        <fullName>KPIFlow_Label_BVSTrans</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>KPIFlow Label BVSTrans</shortDescription>
+        <value>Brand Virtual Shopping Transactions</value>
+    </labels>
+    <labels>
+        <fullName>KPIFlow_Label_BVSUnits</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>KPIFlow Label BVSUnits</shortDescription>
+        <value>Brand Virtual Shopping Units</value>
+    </labels>
+    <labels>
+        <fullName>KPIFlow_Label_Brand_Notes</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>KPIFlow Label Brand Notes</shortDescription>
+        <value>Comentario de la Marca</value>
+    </labels>
+    <labels>
+        <fullName>KPIFlow_Label_CSBsSales</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>KPIFlow Label CSBsSales</shortDescription>
+        <value>Current Season Bestseller Sales</value>
+    </labels>
+    <labels>
+        <fullName>KPIFlow_Label_CSBsUnits</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>KPIFlow Label CSBsUnits</shortDescription>
+        <value>Current Season Bestseller Units</value>
+    </labels>
+    <labels>
+        <fullName>KPIFlow_Label_Covers</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>KPIFlow Label Covers</shortDescription>
+        <value>Covers</value>
+    </labels>
+    <labels>
+        <fullName>KPIFlow_Label_Footfall</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>KPIFlow Label Footfall</shortDescription>
+        <value>Footfall</value>
+    </labels>
+    <labels>
+        <fullName>KPIFlow_Label_Ignore_Validations</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>KPIFlow Label Ignore Validations</shortDescription>
+        <value>Ignore Validations</value>
+    </labels>
+    <labels>
+        <fullName>KPIFlow_Label_NET_Value_of_Discounts</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>KPIFlow Label NET Value of Discounts</shortDescription>
+        <value>NET Value of Discounts</value>
+    </labels>
+    <labels>
+        <fullName>KPIFlow_Label_Num_Transactions</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>KPIFlow Label Num Transactions</shortDescription>
+        <value>Number of Transactions</value>
+    </labels>
+    <labels>
+        <fullName>KPIFlow_Label_SCSSales</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>KPIFlow Label SCSSales</shortDescription>
+        <value>Special Curated Selection Sales</value>
+    </labels>
+    <labels>
+        <fullName>KPIFlow_Label_SCSUnits</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>KPIFlow Label SCSUnits</shortDescription>
+        <value>Special Curated Selesction Units</value>
+    </labels>
+    <labels>
+        <fullName>KPIFlow_Label_Store_Closed</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>KPIFlow Label Store Closed</shortDescription>
+        <value>Store Closed</value>
+    </labels>
+    <labels>
+        <fullName>KPIFlow_Label_Tax_Free_Sales_Amount</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>KPIFlow Label Tax Free Sales Amount</shortDescription>
+        <value>Tax Free Sales Amount</value>
+    </labels>
+    <labels>
+        <fullName>KPIFlow_Label_Tax_Free_Transaction</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>KPIFlow Label Tax Free Transaction</shortDescription>
+        <value>Tax Free Transaction</value>
+    </labels>
+    <labels>
+        <fullName>KPIFlow_Label_Total_NET_Sales</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>KPIFlow Label Total NET Sales</shortDescription>
+        <value>Total NET Sales</value>
+    </labels>
+    <labels>
+        <fullName>KPIFlow_Label_Trading_Date</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>KPIFlow Label Trading Date</shortDescription>
+        <value>Trading Date</value>
+    </labels>
+    <labels>
+        <fullName>KPIFlow_Label_Units_Sold</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>KPIFlow Label Units Sold</shortDescription>
+        <value>Units Sold</value>
+    </labels>
+    <labels>
+        <fullName>KPIFlow_Label_VIPCards</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>KPIFlow Label VIPCards</shortDescription>
+        <value>VIP Cards</value>
+    </labels>
+    <labels>
+        <fullName>KPIFlow_Net_Val_of_Discounts_greater_than_Sales</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>KPIFlow Net_Val_of_Discounts_greater_than_Sales</shortDescription>
+        <value>The Net Value of Discounts amount cannot be greater than the total net sales. Please set the &apos;Ignore Validations&apos; flag and add a note to this record if you believe the values are correct.</value>
+    </labels>
+    <labels>
+        <fullName>KPIFlow_No_of_VIPs_gtr_than_no_of_transactions</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>KPIFlow No_of_VIPs_gtr_than_no_of_transactions</shortDescription>
+        <value>Number of VIP cards should not be greater than the number of transactions.  Please set the &apos;Ignore Validations&apos; flag and add a note to this record if you believe the values are correct.</value>
+    </labels>
+    <labels>
+        <fullName>KPIFlow_No_of_VIPs_gtr_than_no_of_units_sold</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>KPIFlow No_of_VIPs_gtr_than_no_of_units_sold</shortDescription>
+        <value>Number of VIP cards should not be greater than the number of units sold.  Please set the &apos;Ignore Validations&apos; flag and add a note to this record if you believe the values are correct.</value>
+    </labels>
+    <labels>
+        <fullName>KPIFlow_No_of_transactions_not_gtr_NET_Sales</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>KPIFlow No_of_transactions_not_gtr_NET_Sales</shortDescription>
+        <value>The number of transactions should not be greater than the total NET sales.  Please check your figures.  Please set the &apos;Ignore Validations&apos; flag and add a note to this record if you believe the values are correct.</value>
+    </labels>
+    <labels>
+        <fullName>KPIFlow_Number_of_units_must_be_gtr_than_transac</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>KPIFlow Number_of_units_must_be_gtr_than_transac</shortDescription>
+        <value>The number of  transactions cannot be greater than the units sold.  Please set the &apos;Ignore Validations&apos; flag and add a note to this record if you believe the values are correct.</value>
+    </labels>
+    <labels>
+        <fullName>KPIFlow_Pop_Up_Boutique_Footfall</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>KPIFlow Pop-Up Boutique Footfall</shortDescription>
+        <value>Pop-Up Boutique Footfall</value>
+    </labels>
+    <labels>
+        <fullName>KPIFlow_Pop_Up_Boutique_FootfallHelptext</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>KPIFlow Pop Up Boutique FootfallHelptext</shortDescription>
+        <value>Footfall Help Text here</value>
+    </labels>
+    <labels>
+        <fullName>KPIFlow_Pop_up_Boutique_Sales</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>KPIFlow Pop-up_Boutique_Sales</shortDescription>
+        <value>Pop-up Boutique Sales</value>
+    </labels>
+    <labels>
+        <fullName>KPIFlow_Pop_up_Boutique_SalesHelptext</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>KPIFlow Pop up Boutique SalesHelptext</shortDescription>
+        <value>KPIFlow_Pop_up_Boutique_Sales HELP TEXT here</value>
+    </labels>
+    <labels>
+        <fullName>KPIFlow_Pop_up_Boutique_Transaction</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>KPIFlow Pop-up Boutique Transaction</shortDescription>
+        <value>Pop-up Boutique Transactions</value>
+    </labels>
+    <labels>
+        <fullName>KPIFlow_Pop_up_Boutique_TransactionHelptext</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>KPIFlow Pop up Boutique TransactionHelptext</shortDescription>
+        <value>KPIFlow_Pop_up_Boutique_Transaction help text here</value>
+    </labels>
+    <labels>
+        <fullName>KPIFlow_Pop_up_Boutique_Units</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>KPIFlow Pop-up Boutique Units</shortDescription>
+        <value>Pop-up Boutique Units</value>
+    </labels>
+    <labels>
+        <fullName>KPIFlow_Pop_up_Boutique_UnitsHelptext</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>KPIFlow Pop up Boutique UnitsHelptext</shortDescription>
+        <value>KPIFlow_Pop_up_Boutique_Units help text here</value>
+    </labels>
+    <labels>
+        <fullName>KPIFlow_Priv_App_Sales_Higher_Total_Net_Sales</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>KPIFlow Priv_App_Sales_Higher_Total_Net_Sales</shortDescription>
+        <value>The Brand Private Appointment Sales cannot be higher than the Total Net Sales. The Total Net Sales should include all sales for the day.</value>
+    </labels>
+    <labels>
+        <fullName>KPIFlow_Priv_App_Sales_Higher_Total_Units</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>KPIFlow Priv_App_Sales_Higher_Total_Units</shortDescription>
+        <value>The Brand Private Appointment Units cannot be higher than the total Units Sold for the day.</value>
+    </labels>
+    <labels>
+        <fullName>KPIFlow_Priv_App_Sales_Higher_Transactions</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>KPIFlow Priv_App_Sales_Higher_Transactions</shortDescription>
+        <value>The Brand Private Appointment Transactions cannot be higher than the total number of transactions for the day.</value>
+    </labels>
+    <labels>
+        <fullName>KPIFlow_Reported_amount_gtr_than_tax_amt_NET</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>KPIFlow Reported_amount_gtr_than_tax_amt_NET</shortDescription>
+        <value>The Tax free Sales Amount cannot be greater than the Brand Reported Amount.  Please check your figures.  Please set the &apos;Ignore Validations&apos; flag and add a note to this record if you believe the values are correct.</value>
+    </labels>
+    <labels>
+        <fullName>KPIFlow_Reported_transactions_gtr_than_tax_trans</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>KPIFlow Reported_transactions_gtr_than_tax_trans</shortDescription>
+        <value>The number of Tax Free Transactions cannot be greater than the number of transactions.  Please check your figures.  Please set the &apos;Ignore Validations&apos; flag and add a note to this record if you believe the values are correct.</value>
+    </labels>
+    <labels>
+        <fullName>KPIFlow_SCS_Higher_Total_Net_Sales</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>KPIFlow SCS_Higher_Total_Net_Sales</shortDescription>
+        <value>The Special Curated Selection Sales cannot be higher than the Total Net Sales. The Total Net Sales should include all sales for the day.</value>
+    </labels>
+    <labels>
+        <fullName>KPIFlow_SCS_Higher_Total_Units</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>KPIFlow SCS_Higher_Total_Units</shortDescription>
+        <value>The Special Curated Selection Units cannot be higher than the total Units Sold for the day.</value>
+    </labels>
+    <labels>
+        <fullName>KPIFlow_Sales_cannot_be_higher_than_the_Total_Net_Sales</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>KPIFlow_Sales_cannot_be_higher_than_the_Total_Net_Sales</shortDescription>
+        <value>Sales cannot be higher than the Total Net Sales.  The Total Net Sales should include all sales for the day.</value>
+    </labels>
+    <labels>
+        <fullName>KPIFlow_Store_Closed</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>KPIFlow Store Closed</shortDescription>
+        <value>Store has been recorded as closed and therefore cannot have any sales figures entered.  If the Store has been wrongly marked as closed, please remove the store closed flag.  If the store is closed, please ensure no sales figures have been entered.</value>
+    </labels>
+    <labels>
+        <fullName>KPIFlow_Total_net_sales_too_high</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>KPIFlow Total_net_sales_too_high</shortDescription>
+        <value>You have entered a very large Sales figure, please verify the values entered. Please set the &apos;Ignore Validations&apos; flag and add a note to this record if you believe the values are correct.</value>
+    </labels>
+    <labels>
+        <fullName>KPIFlow_Transactions_cannot_be_higher_than_the_total_Transactions</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>KPIFlow_Transactions_cannot_be_higher_than_the_total_Transactions</shortDescription>
+        <value>Transactions cannot be higher than the total Transactions.</value>
+    </labels>
+    <labels>
+        <fullName>KPIFlow_Units_cannot_be_higher_than_the_total_Units_Sold</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>KPIFlow_Units_cannot_be_higher_than_the_total_Units_Sold</shortDescription>
+        <value>Units cannot be higher than the total Units Sold.</value>
+    </labels>
+    <labels>
+        <fullName>KPIFlow_Virtual_Sales_Higher_Total_Net_Sales</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>KPIFlow_Virtual_Sales_Higher_Total_Net_Sales</shortDescription>
+        <value>The Brand Virtual Shopping Sales cannot be higher than the Total Net Sales. The Total Net Sales should include all sales for the day.</value>
+    </labels>
+    <labels>
+        <fullName>KPIFlow_Virtual_Sales_Higher_Total_Units</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>KPIFlow Virtual_Sales_Higher_Total_Units</shortDescription>
+        <value>The Brand Virtual Shopping Units cannot be higher than the total Units Sold for the day.</value>
+    </labels>
+    <labels>
+        <fullName>KPIFlow_Virtual_Sales_Higher_Transactions</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>KPIFlow Virtual_Sales_Higher_Transactions</shortDescription>
+        <value>The Brand Virtual Shopping Transactions cannot be higher than the total number of transactions for the day.</value>
+    </labels>
+    <labels>
+        <fullName>KPIFlow_footfall_must_be_gtr_than_transactions</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>KPIFlow footfall_must_be_gtr_than_transactions</shortDescription>
+        <value>The number of transactions should not be greater than the footfall. Also the footfall should not be zero. Please set the &apos;Ignore Validations&apos; flag and add a note to this record if you believe the values are correct.</value>
+    </labels>
+    <labels>
+        <fullName>MarketingActivityDIEndPoint</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MarketingActivityDIEndPoint</shortDescription>
+        <value>https://test.salesforce.com</value>
+    </labels>
+    <labels>
+        <fullName>MarketingCampaignDIEndPoint</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MarketingCampaignDIEndPoint</shortDescription>
+        <value>https://login.salesforce.com</value>
+    </labels>
+    <labels>
+        <fullName>MarketingFinanceIntegrationAPIMKey</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MarketingFinanceIntegrationAPIMKey</shortDescription>
+        <value>9d201d73f6584c91aba322bd797e6f59</value>
+    </labels>
+    <labels>
+        <fullName>Marketing_Partner</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Marketing Partner</shortDescription>
+        <value>Marketing Partner</value>
+    </labels>
+    <labels>
+        <fullName>Master_Budget_Sheet</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Master Budget Sheet</shortDescription>
+        <value>Master Budget Sheet</value>
+    </labels>
+    <labels>
+        <fullName>Master_Budget_Sheet_Item_Name</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Master Budget Sheet Item Name</shortDescription>
+        <value>Master Budget Sheet Item Name</value>
+    </labels>
+    <labels>
+        <fullName>NO_VILLAGE_TEXT</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>NO_VILLAGE_TEXT</shortDescription>
+        <value>Group/Brand - No Village Specified</value>
+    </labels>
+    <labels>
+        <fullName>NoConfirmDailySaleRecords</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>NoConfirmDailySaleRecords</shortDescription>
+        <value>There are no valid records you have authority to confirm at this present time</value>
+    </labels>
+    <labels>
+        <fullName>No_Master_Budget_Sheet</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>No Master Budget Sheet</shortDescription>
+        <value>There are no Master Budget Sheets available for selection</value>
+    </labels>
+    <labels>
+        <fullName>No_Master_Budget_Sheet_Items</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>No Master Budget Sheet Items</shortDescription>
+        <value>There are no Master Budget Sheet Items available for selection</value>
+    </labels>
+    <labels>
+        <fullName>PostalCode</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Postal Code</shortDescription>
+        <value>Post Code</value>
+    </labels>
+    <labels>
+        <fullName>Select_Master_Budget_Sheet_Item</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Select Master Budget Sheet Item</shortDescription>
+        <value>You must select at least one Master Budget Sheet Item</value>
+    </labels>
+    <labels>
+        <fullName>Toast_Message_Migration_LC</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Toast Message Migration LC</shortDescription>
+        <value>Please select the Media Agency  Access To Salesforce</value>
+    </labels>
+</CustomLabels>

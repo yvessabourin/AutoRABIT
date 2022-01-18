@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Create_B2B_Meeting</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <linkType>url</linkType>
+    <masterLabel>Create B2B Meeting</masterLabel>
+    <openType>replace</openType>
+    <protected>false</protected>
+    <url>/00U/e?what_id={!Opportunity.Id}&amp;retURL=%2F{!Opportunity.Id}&amp;00Nb0000009Vb65={!Opportunity.Village__c}</url>
+</WebLink>

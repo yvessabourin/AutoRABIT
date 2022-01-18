@@ -1,0 +1,26 @@
+<messaging:emailTemplate subject="{!$Label.DAILY_SALE_CONFIRM_REMINDER_EMAIL_SUBJECT}" 
+                            recipientType="User" 
+                            relatedToType="Daily_Sale__c"
+                            language="{!recipient.LanguageLocaleKey}"
+                            >
+<messaging:htmlEmailBody >
+
+    <apex:outputText escape="false" value="{!$Label.DAILY_SALE_CONFIRM_REMINDER_EMAIL_BODY}" />
+    
+    <br/>
+    <br/>
+         
+    
+    <c:Unconfirmed_Daily_Sales usrId="{!recipient.ID}" />
+    
+    <br/>
+    <br/>
+    
+    
+    {!$Label.DAILY_SALE_WELCOME_EMAIL_TEXT5}
+
+
+</messaging:htmlEmailBody>
+
+
+</messaging:emailTemplate>

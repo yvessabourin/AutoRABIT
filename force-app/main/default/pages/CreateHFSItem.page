@@ -1,0 +1,55 @@
+<apex:page controller="CreateHFSItemController">
+
+    <script type="text/javascript">
+        var __sfdcSessionId = '{!GETSESSIONID()}';
+    </script>
+    <script src="/soap/ajax/28.0/connection.js" type="text/javascript"></script>
+    <script src="/soap/ajax/28.0/apex.js" type="text/javascript"></script>
+    
+    <script type="text/javascript">
+
+        function queryBrandName(){
+
+            soql = "SELECT Id, Name from Village_Presence__c where ID = '" + "{!JSENCODE($CurrentPage.parameters.brandid)}" + "'";
+            result = sforce.connection.query(soql);
+            records = result.getArray("records");
+            if (records.length == 0){
+                alert('Brand cannot be found');
+            } else {
+                var accountName = records[0].Name; 
+    
+                var output = document.getElementById('output');
+                output.innerHTML = '<h4> Welcome ' + accountName + '</h4>';     
+            }
+        }
+    
+    </script>
+    <center>
+        <div id="output"></div>
+        <script>
+            queryBrandName();    
+        </script>
+        <br/><br/>
+        <apex:form >
+            <apex:pageMessages /> 
+            <apex:pageBlock title="HFS Item Info">
+        
+                <apex:pageBlockButtons >
+                    <apex:commandButton action="{!save}" value="Save"/>
+                </apex:pageBlockButtons>
+                
+                <apex:pageBlockSection showHeader="false" columns="1">
+                    <apex:inputField value="{!hfsItem.HFS_Experience__c}" />
+                    <apex:inputField value="{!hfsItem.Bag_ID__c}" />
+                    <!-- <apex:inputField value = "{!hfsItem.uniquebrandpin}" /> -->
+                    <apex:inputField value="{!hfsItem.Receipt_Amount__c}" />
+                </apex:pageBlockSection>
+                
+                
+            </apex:pageBlock>
+        </apex:form>
+    </center>
+    
+    
+
+</apex:page>

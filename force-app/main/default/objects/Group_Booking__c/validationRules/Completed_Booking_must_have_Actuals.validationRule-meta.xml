@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Completed_Booking_must_have_Actuals</fullName>
+    <active>false</active>
+    <description>Any booking that is in the completed state must have Actual number of visitors and actual revenue fields entered</description>
+    <errorConditionFormula>TEXT(Status__c) = &quot;completed&quot;
+&amp;&amp;  OR(ISBLANK(Actual_Revenue__c), 
+ISBLANK( Number_of_Visitors__c ),
+ISBLANK(  Arrival_Date__c ))</errorConditionFormula>
+    <errorMessage>You must enter the Actual Number of Visitors, Actual Revenue and Arrival date before setting the booking to Completed</errorMessage>
+</ValidationRule>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Total_NET_SALES__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>This is the total sales for the day including all types of sales (e.g. Special Curated Selection Sales, Current Season Bestsellers Sales)</inlineHelpText>
+    <label>Total NET SALES</label>
+    <precision>9</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

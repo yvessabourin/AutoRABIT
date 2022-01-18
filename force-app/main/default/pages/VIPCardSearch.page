@@ -1,0 +1,252 @@
+<apex:page showHeader="false" standardStylesheets="false" sidebar="false" applyHtmlTag="false"  applyBodyTag="false" docType="html-5.0">
+
+    <html xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">    
+
+        <!-- Remote Objects declaration -->
+        <apex:remoteObjects jsNamespace="RemoteObjectModel">
+            <apex:remoteObjectModel name="VIP_Card_Exchange__c" jsShorthand="VIPCard" fields="Id,Name">
+                 <apex:remoteObjectField name="VIP_Card_Code__c" jsShorthand="VIPCard"/>
+            </apex:remoteObjectModel>
+        </apex:remoteObjects>
+    
+    <head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>TIC Home Page</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></link>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+ <link rel="stylesheet" href="{!URLFOR($Resource.NewTICStyles)}"></link>
+
+    <script src="{!URLFOR($Resource.NewTICScripts)}"></script>
+
+<style type="text/css">
+
+body{
+    background: url({!URLFOR($Resource.TICDashboard, 'BVWalk.jpg')}) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+        </style>
+        </head>
+
+        <body>
+
+          <!-- Main Navigation -->
+      <div class="my-nav">
+         <div class="site-navbar navbar navbar-fixed-top" role="navigation">
+            <div class="container">
+               <div class="navbar-header">
+                  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+                  <a class="navbar-brand" href="#"  onclick="gotoPage('TIC_Dashboard');">Tourist Information Center</a> 
+               </div>
+               <div id="navbar" class="navbar-collapse collapse">
+                  <ul class="nav navbar-nav navbar-right">
+                   <li> <a  href="#group"  onclick="gotoPage('GroupBooking_Search');" >Group Check In</a> </li>
+                     <li> <a  href="#guest"  onclick="gotoPage('Promotion_Search');" >Guest Check In</a> </li>
+                     <li> <a  href="#search"  onclick="gotoPage('GuestSearch');">Guest Search</a> </li>
+                     <li> <a  href="#card"  onclick="gotoPage('VIPCardSearch');">Card Search</a> </li>
+                     <li> <a  href="#clean"  onclick="gotoPage('VIPCardCleardown');">VIP Card Cleanup</a> </li>
+                     <li id="hfslistitem" name="hfslistitem"> <a  href="#hfs"  onclick="gotoPage('HFSDash');">Hands Free Shopping</a> </li>
+                     <li> <a  href="#exit" onclick="cancelAction();" >Exit</a> </li>
+                  </ul>
+               </div>
+               <!--/.nav-collapse -->
+            </div>
+         </div>
+      </div>
+      <!-- /.Main Navigation -->
+      <!-- Fullwidth Header -->
+      <!-- Intro Header -->
+
+      
+<div class="jumbotron text-center">
+  <h2>&nbsp;</h2>
+</div>
+<!-- main content -->
+<div class="container">  
+
+ <div id="searching"  name="searching" class="modal" role="dialog">
+      <div class="modal-dialog">
+        <div id="loader">
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="input-group">
+        <a onclick="gotoPage('Promotion_Search');" class="btn btn-default"><i class="glyphicon glyphicon-home"></i></a>
+    </div>
+
+        <br/><br/>
+<div class="panel panel-default">        
+  <div class="panel-heading">Card Search</div>
+  <div class="panel-body">
+                <div class="row">
+        <div class="col-lg-12">
+        <div class="input-group"> 
+         <span class="tooltiptext">Email Address</span>
+           <span class="input-group-addon"><i class="fa fa-qrcode"></i></span>       
+                <input id="card" class="form-control"  type="email" placeholder="Scan here ..." oninput="DelayedCallMe(250);" />           
+        </div>
+        </div>
+        </div>
+
+        </div>
+     
+        
+        </div>
+
+        </div>
+        </body>
+ 
+            <script>
+                    
+      
+        $j = jQuery.noConflict();
+            var homeUrl;
+                                
+            $j(document).ready(function() {
+                
+                $j('#searching').hide();
+
+                if( (typeof sforce != 'undefined') && (sforce != null) ) {
+                 // running in mobile
+                    homeUrl = '/apex/TIC_Dashboard';
+                } else { //desktop
+                    homeUrl = '/apex/TIC_Dashboard';
+                }                             
+               
+               
+                $j("#card").focus();                
+            });        
+
+            function searchCard() {
+                // Create a new Remote Object
+
+                var vipCardCode = $j('#card').val(); 
+
+                console.log(vipCardCode);
+                
+                if (vipCardCode) { 
+                    var crd = new RemoteObjectModel.VIPCard();
+                    
+                    var query = '{ "where": { ';
+                    if(vipCardCode) 
+                        query +=  '"VIPCard": {"eq": ' + '"' + vipCardCode + '"' + '}';
+                    query +=  ' }}';
+                    console.log(query);                
+                    var qryObj = JSON.parse(query);                      
+                    console.log(qryObj);                        
+                             
+                    // Use the Remote Object to query for 20 guest records
+                    crd.retrieve(qryObj,                         
+                    function(err, records, event){
+                        if(err) {
+                            alert(err.message);
+                        }
+                        else {
+                        
+                            if (records.length > 0) {    
+                                records.forEach(function(record) {
+                                    var recId = record.get("Id");
+                                    var url =  encodeURI('/' + recId);
+                                    if( (typeof sforce != 'undefined') && (sforce != null) ) {
+                                     // running in mobile
+                                        sforce.one.navigateToURL(url);
+                                    } else { //desktop
+                                        window.location.href = url;
+                                    }                                 
+        
+                                });                            
+                                
+        
+                            
+                            } else {
+                                //alert('No records found!');
+                            $j('#openModal').modal('show');
+;                               
+                            }
+                       }
+                       
+                    });
+                
+                }
+            }
+                
+            <!-- custom scripts functions to handle the ";" in the textbox --> 
+            var _timer = 0;
+            
+            function callMe() {
+                $j('#searching').show();
+                searchCard();
+                $j('#searching').hide();
+            }
+
+            
+            
+            function DelayedCallMe(num) {
+                
+                if (_timer)
+                    window.clearTimeout(_timer);
+                    
+                _timer = window.setTimeout(function() { callMe(); }, 250);
+            }
+               
+            <!--  END OF functions to handle the ";"  --> 
+
+
+            function cancelAction(){
+            
+                if(  ('{!$User.UIThemeDisplayed}' == 'Theme4t' || '{!$User.UIThemeDisplayed}' == 'Theme4d') ) {
+                 // running in mobile
+                    console.log('VIP Mobile ..');
+                    sforce.one.navigateToURL(homeUrl);
+                } else { //desktop
+                    console.log('VIP Desktop..');
+                    window.location.href = homeUrl;
+                }     
+            
+            
+            }
+       </script>
+    <style>
+
+        </style>
+           <!-- Modal Lightning migration -->
+<div class="modal fade" id="openModal" tabindex="-1" role="dialog" aria-labelledby="openModal" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="openModal"></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" style="width: 100%; height: 80%; overflow-y: scroll;">      
+      <div id="termsdiv" style="margin-right: auto;margin-left: auto;">
+          No records found!    
+       </div>
+       
+      </div>
+      <div class="modal-footer">
+         <a href="#" style="float: right;" role="button" class="btn btn-default" data-dismiss="modal">Close</a>
+      </div>
+    </div>
+  </div>
+</div>
+    </html>
+
+</apex:page>

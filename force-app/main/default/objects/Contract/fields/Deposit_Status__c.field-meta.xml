@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Deposit_Status__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Use this field to track the request and collection of deposits</inlineHelpText>
+    <label>Deposit Status</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>1st Deposit requested</fullName>
+                <default>false</default>
+                <label>1st Deposit requested</label>
+            </value>
+            <value>
+                <fullName>1st Deposit received</fullName>
+                <default>false</default>
+                <label>1st Deposit received</label>
+            </value>
+            <value>
+                <fullName>2nd Deposit requested</fullName>
+                <default>false</default>
+                <label>2nd Deposit requested</label>
+            </value>
+            <value>
+                <fullName>2nd Deposit received</fullName>
+                <default>false</default>
+                <label>2nd Deposit received</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

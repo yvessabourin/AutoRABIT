@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CTA_Call_To_Action_Image_9__c</fullName>
+    <externalId>false</externalId>
+    <label>CTA (Call To Action) 9</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Request Now</fullName>
+                <default>false</default>
+                <label>Request Now</label>
+            </value>
+            <value>
+                <fullName>Book Now</fullName>
+                <default>false</default>
+                <label>Book Now</label>
+            </value>
+            <value>
+                <fullName>Call Now</fullName>
+                <default>false</default>
+                <label>Call Now</label>
+            </value>
+            <value>
+                <fullName>Contact</fullName>
+                <default>false</default>
+                <label>Contact</label>
+            </value>
+            <value>
+                <fullName>Download</fullName>
+                <default>false</default>
+                <label>Download</label>
+            </value>
+            <value>
+                <fullName>Directions</fullName>
+                <default>false</default>
+                <label>Directions</label>
+            </value>
+            <value>
+                <fullName>Find out More</fullName>
+                <default>false</default>
+                <label>Find out More</label>
+            </value>
+            <value>
+                <fullName>Send a Message</fullName>
+                <default>false</default>
+                <label>Send a Message</label>
+            </value>
+            <value>
+                <fullName>Request a timetable</fullName>
+                <default>false</default>
+                <label>Request a timetable</label>
+            </value>
+            <value>
+                <fullName>Save</fullName>
+                <default>false</default>
+                <label>Save</label>
+            </value>
+            <value>
+                <fullName>See the menu</fullName>
+                <default>false</default>
+                <label>See the menu</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

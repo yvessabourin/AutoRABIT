@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Paid_Social_Media_IV_new_structure</fullName>
+    <columns>NAME</columns>
+    <columns>Budget__c</columns>
+    <columns>Start_Date__c</columns>
+    <columns>End_Date__c</columns>
+    <columns>Reach__c</columns>
+    <columns>Channel__c</columns>
+    <columns>Activity_Cost__c</columns>
+    <columns>Sub_Channel__c</columns>
+    <columns>Marketing_Campaign__c</columns>
+    <columns>Marketing_Campaign_Village__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Channel__c</field>
+        <operation>contains</operation>
+        <value>Media</value>
+    </filters>
+    <filters>
+        <field>Marketing_Campaign_Village__c</field>
+        <operation>equals</operation>
+        <value>Ingolstadt</value>
+    </filters>
+    <filters>
+        <field>Start_Date__c</field>
+        <operation>greaterOrEqual</operation>
+        <value>6/1/2019</value>
+    </filters>
+    <filters>
+        <field>Sub_Channel__c</field>
+        <operation>contains</operation>
+        <value>Paid Social,Video</value>
+    </filters>
+    <filters>
+        <field>Status__c</field>
+        <operation>notContain</operation>
+        <value>removed</value>
+    </filters>
+    <label>Paid Social Media IV (new structure)</label>
+    <language>en_US</language>
+    <sharedTo>
+        <roleAndSubordinates>German_Marketing</roleAndSubordinates>
+    </sharedTo>
+</ListView>

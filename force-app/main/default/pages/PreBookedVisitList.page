@@ -1,0 +1,557 @@
+<apex:page controller="VisitRedemptionsHelper" sidebar="false" showHeader="false" standardStylesheets="false"  applyBodyTag="false" docType="html-5.0" action="{!getVisitList}">    
+    
+
+
+    <html xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" ng-app="ticApp" >    
+    <head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>TIC Home Page</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></link>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+ <link rel="stylesheet" href="{!URLFOR($Resource.NewTICStyles)}"></link>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.11/angular.min.js"></script>
+
+ <apex:includeScript value="{!$Resource.Sorttable}"></apex:includeScript> 
+    <script src="{!URLFOR($Resource.NewTICScripts)}"></script>
+
+<style type="text/css">
+
+body{
+    background: url({!URLFOR($Resource.TICDashboard, 'BVWalk.jpg')}) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+
+.Thumbnail {
+    width: 40px;
+    height: 40px;
+    background: #2c3e50;
+    border-radius: 100px;
+}
+
+/*Business Card Css */
+.business-card {
+  border: 1px solid #cccccc;
+  background: #f8f8f8;
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+.profile-img {
+  height: 120px;
+  background: white;
+}
+
+</style>
+
+    <!-- ------------------------------------ -->
+</head>
+<body>
+      <!-- Main Navigation -->
+      <div class="my-nav">
+         <div class="site-navbar navbar navbar-fixed-top" role="navigation">
+            <div class="container">
+               <div class="navbar-header">
+                  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+                   <a class="navbar-brand" onclick="gotoPage('TIC_Dashboard');">Tourist Information Center</a> 
+               </div>
+               <div id="navbar" class="navbar-collapse collapse">
+                  <ul class="nav navbar-nav navbar-right">
+                     <li> <a  href="#group" class="active"  onclick="gotoPage('GroupBooking_Search');" >Group Check In</a> </li>
+                     <li> <a  href="#guest"  onclick="gotoPage('Promotion_Search');" >Guest Check In</a> </li>
+                     <li> <a  href="#search"  onclick="gotoPage('GuestSearch');">Guest Search</a> </li>
+                     <li> <a  href="#card"  onclick="gotoPage('VIPCardSearch');">Card Search</a> </li>
+                     <li> <a  href="#clean"  onclick="gotoPage('VIPCardCleardown');">VIP Card Cleanup</a> </li>
+                      <li id="hfslistitem" name="hfslistitem"> <a  href="#hfs"  onclick="gotoPage('HFSDash');">Hands Free Shopping</a> </li>
+                     <li> <a  href="#exit" onclick="cancelAction();" >Exit</a> </li>
+                  </ul>
+               </div>
+               <!--/.nav-collapse -->
+            </div>
+         </div>
+      </div>
+      <!-- /.Main Navigation -->
+      <!-- Fullwidth Header -->
+      <!-- Intro Header -->
+
+      
+<div class="jumbotron text-center">
+  <h2>&nbsp;</h2>
+</div>
+<!-- main content -->
+<div class="container" ng-controller="GroupCtrl">  
+
+ <div id="loadingmodal" name="loadingmodal" class="modal" role="dialog">
+      <div class="modal-dialog">
+        <div id="loader">
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="input-group">
+              <a onclick="gotoPage('GroupBooking_Search');" class="btn btn-default"><i class="glyphicon glyphicon-home"></i></a> 
+    </div>
+
+        <br/><br/>
+ <div class="panel panel-primary">
+        <div class="panel-heading" id="gbTableHeading" name="gbTableHeading">
+            <div id="bookingHeader" style="font-size: 18px;">
+            </div>
+        </div> 
+   <div class="panel-body default" style="color:#FFF;">
+   
+    <div id="bookingDetails" class="slds-text-align--center">
+    </div>
+    <br/>
+    Please select an existing visit or create a new one
+<br/><button id="newButton" class="btn btn-default" onclick="skip();">New Visit</button>
+   </div>
+  <div id="searchResults" class="slds-p-vertical--medium slds-cell-wrap"></div>
+
+</div> 
+
+</div>
+
+      <script>
+            function isLightningRedirect(inUrl){
+                if ('{!$User.UITheme}' === 'Theme4d' || '{!$User.UITheme}' === 'Theme4t' || '{!$User.UITheme}' === 'Theme4u') {
+                    sforce.one.navigateToURL(inUrl);
+                } else {
+                    window.location = inUrl;
+                }
+            }
+        </script>
+
+       <script>
+       
+            Number.prototype.padLeft = function(base,chr){
+               var  len = (String(base || 10).length - String(this).length)+1;
+               return len > 0? new Array(len).join(chr || '0')+this : this;
+            }
+
+            var records = $j.parseJSON('{!JSENCODE(visitList)}');
+               
+            
+            $j = jQuery.noConflict();
+            var homeUrl;
+            var promoId = '{!$CurrentPage.parameters.promoId}';
+            var prescan = '{!$CurrentPage.parameters.prescan}';
+            var promoName = '{!JSENCODE($CurrentPage.parameters.promoName)}';
+            var bookingTransport = '';
+            var bookingLocation = '';
+            var bookingType = '';
+            var bookingCountry = '';            
+            var outputDiv = document.getElementById("searchResults");
+            var bookingDiv = document.getElementById("bookingDetails");
+            var disableNew = false;
+            
+            $j(document).ready(function() {
+                $j('#searching').hide();
+
+                if( (typeof sforce != 'undefined') && (sforce != null) ) {
+                 // running in mobile
+                    //homeUrl = '/_ui/core/chatter/ui/ChatterPage';
+                    homeUrl = '/apex/GroupBooking_Search';
+                } else { //desktop
+                    //homeUrl = '/home/home.jsp';
+                    homeUrl = '/apex/GroupBooking_Search';
+                }                 
+                $j('#home').attr('href', homeUrl);
+
+                               
+                buildBookingHtml();
+                buildHtml();       
+
+            $j(".clickable-row").click(function() {
+                window.location = $j(this).data("href");
+
+            });
+            })       
+                        
+            
+
+            function cancelAction(){
+                isLightningRedirect(homeUrl);
+            }
+
+            function skip(){
+                
+                // lets look at the list of visits first
+                var createvisit = false;
+                var recCount = records.length;
+                if(recCount > 0){
+                    if(confirm('A visit already exists for this booking. Are you sure you wish to create another visit?')){
+                        createvisit = true;
+                    }
+                    else
+                    {
+                        createvisit = false;
+                    }
+                }
+                else
+                {
+                    // means the visit list is empty, and we can create a visit
+                    createvisit = true;
+                }
+                if(createvisit){
+                    var guestRecType = '{!$CurrentPage.parameters.recTypeId}';
+                    var url =  encodeURI('/apex/VisitRedemptionGuest?promoId=' + promoId + '&promoName=' + promoName + '&location=' + bookingLocation + '&modeOfTransport=' + bookingTransport + '&country=' + bookingCountry  + '&type=' + bookingType + '&recTypeId='+guestRecType);
+                    isLightningRedirect(url);
+                }     
+
+            }
+
+            function gotoBooking(bkId){
+                var url = '/' + bkId;
+                isLightningRedirect(url);
+            }
+            
+            function undefinedToEmptyString(v){
+            
+                if (typeof(v) == 'undefined' || v == null){
+                    return '';
+                } else {
+                    return v;
+                }
+            }
+            
+            function truncateString(s){
+                
+                var x = '';
+                if (s.length > 100){
+                    x = s.substring(0, 99) + ' ...';
+                    return x;
+                } else {
+                    return s;
+                }
+            }
+
+/*
+            function parseTheDate(dateString) {
+    
+                //Input format .. 2016-09-04T21:49:00.000+0000
+                var dtime = dateString.split('T');
+                var dte = dtime[0].split('-');
+                var dtt = dtime[1].split(':');
+     
+                var date = new Date(dte[0],(dte[1]-1),dte[2],dtt[0],dtt[1],'00'); 
+        
+                return date;
+            }
+
+*/                        
+            function buildBookingHtml(){
+
+               var records = $j.parseJSON('{!JSENCODE(visitList)}');                
+               var recCount = records.length;
+               
+               var html = '';
+               var htmlHeader = '';              
+
+                if (recCount > 0) {
+                     records = records[1];    
+                     for (var r=0; r < records.length; r++){
+                         var record = records[r]; 
+                         var eventName = undefinedToEmptyString(record.Name_of_Event__c);
+                         var visitClassification = undefinedToEmptyString(record.Group_Type__c);
+                         var groupRecType = undefinedToEmptyString(record.RecordType.Name);
+                         var partnerName =  '';
+                         if (record.Organisation__r != null) partnerName = undefinedToEmptyString(record.Organisation__r.Name);
+                         var groupContact = '';
+                         if (record.Contact__r != null) groupContact = undefinedToEmptyString(record.Contact__r.Name);
+                         var country = undefinedToEmptyString(record.Visitors_Country_of_Origin__c);
+                         var numberOfVisitors = undefinedToEmptyString(record.Number_of_Visitors_Expected__c);
+                         var expectedArrival =  undefinedToEmptyString(record.Expected_Arrival__c);
+                         var transport = undefinedToEmptyString(record.Expected_Mode_of_Transport__c);
+                         var checkInLocation = undefinedToEmptyString(record.Requested_Check_In_Location__c);
+                         var notes = undefinedToEmptyString(record.Notes_and_Additional_Comments__c);
+                         
+                         if (groupRecType == 'Group Booking'){
+                             disableNew = true;
+                         }
+                         if (!htmlHeader){
+                             htmlHeader = '<a onclick="gotoBooking(promoId);">';
+                             htmlHeader += 'Booking Details For - ';
+                             htmlHeader +=  '<span><b>' + partnerName + ' </b> - ' + eventName +  ' (' + groupRecType + ') </span>'; 
+                             htmlHeader += '</a>';
+                             
+                             bookingCountry = country;
+                             bookingTransport = transport;
+                             bookingLocation = checkInLocation; 
+                             bookingType = visitClassification; 
+                         }                          
+                         if (expectedArrival) {
+                            // Salesforce returns yyyy-mm-ddThh:mm:ss .. eg.2016-04-13T16:07:00.000+0000
+                            // for IOS, date string needs to be in format mm/dd/yyyy hh:mm
+                            if (navigator.userAgent.match(/(iPhone|iPod|iPad)/) != null) {
+                                var sfd = expectedArrival.split('T');
+                                var sft = sfd[1];
+                                console.log(sfd);
+                                console.log(sft);
+                                sfd = sfd[0].split('-');
+                                var sfday = sfd[1];
+                                console.log('SFD ..... ' + sfd);
+                                var sfmonth = sfd[0];
+                                var sfyear = sfd[2];
+                                sft = sft.split(':');
+                                var hh = sft[0];
+                                var mm = sft[1];
+                                expectedArrival = sfmonth +'/' + sfday + '/' + sfyear + ' ' + hh + ':' + mm;
+                            }
+                          
+                            var d = new Date(expectedArrival);
+                            var day = d.getDate();
+                            var month = d.getMonth() + 1;
+                            var year = d.getFullYear();
+                            var min = d.getMinutes();
+                            var hours = d.getHours();
+                            expectedArrival = day.padLeft() + '/' + month.padLeft() + '/' + year + ' ' + hours.padLeft() + ':'+ min.padLeft();
+                         }
+                     
+
+
+                        html += '<div class="panel panel-default"><div class="panel-body" style="background-color: rgba(10, 10, 10, 0.6);">';
+                        html += '<div class="row">';
+                        html += '<div class="col-sm-4"><b> Country of Residence : ' + country + '</b></div>';
+                        html += '<div class="col-sm-4"><b> Group Type : ' + visitClassification + '</b></div>';
+                        html += '<div class="col-sm-4"><b> Group Contact : ' + groupContact + '</b></div>';
+                        html += '</div><div class="row">';
+                        html += '<div class="col-sm-4"><b> Number of Visitors Expected : ' + numberOfVisitors + '</b></div>';
+                        html += '<div class="col-sm-4"><b> Requested Check-In Location : ' + checkInLocation + '</b></div>';
+                        html += '<div class="col-sm-4"><b> Expected Arrival : ' + expectedArrival + '</b></div>';
+                        html += '</div><div class="row">';
+                        html += '<div class="col-sm-4"><b> Expected Mode of Transport : ' + transport + '</b> </div>';
+                        html += '<div class="col-sm-4"><b> Notes and Additional Comments : ' + notes + '</b></div>';
+                        html += '</div></div>';
+
+
+                     }
+                     
+                     
+                     
+                 }               
+
+                                        
+                bookingDiv.innerHTML = html;
+                bookingHeader.innerHTML = htmlHeader;
+            }
+
+
+
+            function parseTheDate(dateString) {
+    
+                // UTC date is returned by Salesforce apex JSON.serialize method
+                // therefore convert date to local timezone
+                var date = new Date(dateString);
+                var hh = date.getHours(); // returns local timezone hour
+ 
+    
+                //Input format .. 2016-09-04T21:49:00.000+0000
+                var dtime = dateString.split('T');
+                var dte = dtime[0].split('-');
+                var dtt = dtime[1].split(':');
+     
+                //var date = new Date(dte[0],(dte[1]-1),dte[2],dtt[0],dtt[1],'00'); 
+                var date = new Date(dte[0],(dte[1]-1),dte[2],hh,dtt[1],'00'); 
+                 
+                return date;
+            }
+            
+                         
+            function buildHtml() {
+
+                /*
+                Visit Reference (Visit Name)
+                Location
+                Number of guests
+                Number of pre scanned VIP cards
+                Check in Date/Time
+                Check out Date/Time
+                Country of Origin
+                Visit Notes
+                */ 
+                
+
+                console.log(records);
+                
+                var recCount = records.length;
+                var html = ' <div class="table-responsive"><table class="table table-hover">';    
+    
+                html += '<thead>';
+                html += '<tr class="active"><th scope="col">Ref.</th>';
+                html += '<th scope="col">Location</th>';
+                html += '<th scope="col" class="slds-cell-wrap">No. of Guests</th>';
+                html += '<th scope="col" class="slds-cell-wrap">Scanned Cards</th>';
+                html += '<th scope="col" class="slds-cell-wrap">Check-In Time</th>';
+                html += '<th scope="col" class="slds-cell-wrap">Check-Out Time</th>';             
+                html += '<th scope="col" class="slds-cell-wrap">Country of Origin</th>';                             
+                html += '<th scope="col" class="slds-cell-wrap">Visit Notes</th>';
+                html += '</tr>';
+                html += '</thead><tbody>';    
+                if (recCount > 0) {
+                     records = records[0];
+                     if (records.length == 0){
+                         html += '<tr class="active"><td colspan="9">No valid Visit records found</td></tr>';
+                         html = html + '</tbody></table>';
+                        //html = '<div align="center"><p>No valid Visit records found</p></div>';
+                        disableNew = false;
+                        outputDiv.innerHTML = html;                     
+                     } else {    
+                         for (var r=0; r < records.length; r++){ 
+                            var record = records[r]; 
+                            var name = undefinedToEmptyString(record.Name);                          
+                            var visitDate = undefinedToEmptyString(record.Visit_Date_Time__c);                            
+                            var numberOfGuests = undefinedToEmptyString(record.Number_of_Guests__c);
+                            var numberOfChildren = undefinedToEmptyString(record.Number_of_Children__c);
+                            var location =  undefinedToEmptyString(record.Location__c);
+                            var modeOfTransport = undefinedToEmptyString(record.Mode_of_Transport__c);
+                            var countryOfOrigin = undefinedToEmptyString(record.Country_of_Origin__c);
+                            var checkOutTime = undefinedToEmptyString(record.Check_Out_Date_Time__c);
+                            var recId = record.Id;
+                            var vType = record.Type__c;
+                            var visitNotes = undefinedToEmptyString(record.Visit_Notes__c);
+                            var vehiclereg = undefinedToEmptyString(record.Vehicle_Registration_Number__c);
+                            var visitNotesDisplay = truncateString(visitNotes);
+                            var vipCards = undefinedToEmptyString(record.VIP_Cards_Exchanged__c);
+                            var parentRecType = record.Group_Booking__r.RecordType.Name;
+    console.log(' 1 ' + visitDate + ' - Booking Rec Type .. ' + parentRecType);                        
+                            if (visitDate) {
+                                // Salesforce returns yyyy-mm-ddThh:mm:ss .. eg.2016-04-13T16:07:00.000+0000
+                                // for IOS, date string needs to be in format mm/dd/yyyy hh:mm
+                                if (navigator.userAgent.match(/(iPhone|iPod|iPad)/) != null) {
+                                    var sfd = visitDate.split('T');
+                                    var sft = sfd[1];
+                                    console.log(sfd);
+                                    console.log(sft);
+                                    sfd = sfd[0].split('-');
+                                    var sfday = sfd[1];
+                                    console.log('SFD ..... ' + sfd);
+                                    var sfmonth = sfd[0];
+                                    var sfyear = sfd[2];
+                                    sft = sft.split(':');
+                                    var hh = sft[0];
+                                    var mm = sft[1];
+                                    visitDate = sfmonth +'/' + sfday + '/' + sfyear + ' ' + hh + ':' + mm;
+                                }
+
+                                var d = parseTheDate(visitDate);  //for IE fix                             
+                                //var d = new Date(visitDate);                          
+
+                                var day = d.getDate();                                                           
+                                var month = d.getMonth() + 1;                                                           
+                                var year = d.getFullYear();
+                                var min = d.getMinutes();
+                                var hours = d.getHours();
+                                visitDate = day.padLeft() + '/' + month.padLeft() + '/' + year + ' ' + hours.padLeft() + ':'+ min.padLeft();
+                                console.log(' 3 ' + visitDate);   
+                            }
+                            
+                            if (checkOutTime) {
+                            
+                                // Salesforce returns yyyy-mm-ddThh:mm:ss .. eg.2016-04-13T16:07:00.000+0000
+                                // for IOS, date string needs to be in format mm/dd/yyyy hh:mm
+                                if (navigator.userAgent.match(/(iPhone|iPod|iPad)/) != null) {
+                                    var sfd = checkOutTime.split('T');
+                                    var sft = sfd[1];
+                                    console.log(sfd);
+                                    console.log(sft);
+                                    sfd = sfd[0].split('-');
+                                    var sfday = sfd[1];
+                                    console.log('SFD ..... ' + sfd);
+                                    var sfmonth = sfd[0];
+                                    var sfyear = sfd[2];
+                                    sft = sft.split(':');
+                                    var hh = sft[0];
+                                    var mm = sft[1];
+                                    checkOutTime= sfmonth +'/' + sfday + '/' + sfyear + ' ' + hh + ':' + mm;
+                                }
+                                                        
+                                //var d = new Date(checkOutTime);
+                                var d = parseTheDate(checkOutTime);  //for IE fix 
+                                var day = d.getDate();
+                                var month = d.getMonth() + 1;
+                                var year = d.getFullYear();
+                                var min = d.getMinutes();
+                                var hours = d.getHours();
+                                checkOutTime = day.padLeft() + '/' + month.padLeft() + '/' + year + ' ' + hours.padLeft() + ':'+ min.padLeft();
+                            }
+                            
+                            if (!vipCards){
+                                vipCards = 0;
+                            }
+                            if (!checkOutTime){
+                                checkOutTime = '';
+                            }
+                            if (disableNew == true && visitDate){
+                                disableNew = false;
+                            }
+                            if (parentRecType != 'Individuals Partnership') {
+                                // need to build something here for prescanning
+                                    let link = '';
+                                    if(prescan == 'true'){
+                                        link = '/apex/PrescanGroupBooking?visitId=' + recId;
+                                        html += '<tr class="active clickable-row" onclick="isLightningRedirect(\'' + link + '\');" >';
+                                    } else {
+                                        link = '/apex/VisitVIPCardIssue?visitId=' + recId + '&visitDate='+visitDate + '&checkOut='+checkOutTime +'&promoId=' + promoId + '&promoName=' + promoName + '&location=' + location + '&modeOfTransport=' + modeOfTransport + '&country=' + countryOfOrigin  + '&type=' + vType + '&guestNumber=' + numberOfGuests  + '&visitNotes=' + visitNotes +'&vipCards=' + vipCards + '&childNumber=' + numberOfChildren + '&vehiclereg=' + vehiclereg;
+                                        html += '<tr class="active clickable-row" onclick="isLightningRedirect(\'' + link + '\');" >';
+                                    }
+                            }
+                            else
+                            {
+                                html += '<tr class="active" >';
+                            }
+                            html += '<td>' + name + '</td>';
+                            html += '<td style="vertical-align: top;">' + location + '</td>';
+                            html += '<td style="vertical-align: top;">' + numberOfGuests + '</td>';
+                            html += '<td style="vertical-align: top;">' + vipCards + '</td>';
+                            html += '<td style="vertical-align: top;">' + visitDate + '</td>';
+                            html += '<td style="vertical-align: top;">' + checkOutTime + '</td>';                        
+                            html += '<td style="vertical-align: top;">' + countryOfOrigin + '</td>';                        
+                            html += '<td style="vertical-align: top;"  class="slds-cell-wrap">' + visitNotesDisplay + '</td>';
+                            //   
+                                                                                    
+                            html += '</tr>';
+                        };
+                        html = html + '</tbody></table>';
+    
+                        outputDiv.innerHTML = html;
+                    }
+                } else {
+                    html = '<div align="center"><p>No records found</p></div>';
+                    disableNew = false;
+                    outputDiv.innerHTML = html;
+                }
+                
+                if (disableNew == true){
+                    $j('#newButton').prop('disabled',true);
+                }
+                
+            }
+
+
+                        
+        </script>
+          
+        
+
+    </body>
+    </html>
+                
+</apex:page>

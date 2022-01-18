@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Mis_empleados</fullName>
+    <columns>FULL_NAME</columns>
+    <columns>Village_Presence__c</columns>
+    <columns>CONTACT.TITLE</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CONTACT.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Contact.Brand_Contact</value>
+    </filters>
+    <filters>
+        <field>Show_in_Community__c</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <label>Mis empleados</label>
+    <language>en_US</language>
+    <sharedTo>
+        <allCustomerPortalUsers></allCustomerPortalUsers>
+    </sharedTo>
+</ListView>

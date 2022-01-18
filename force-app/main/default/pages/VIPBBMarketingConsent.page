@@ -1,0 +1,461 @@
+<apex:page standardController="Account" extensions="VIPBBMarketingConsentExtension"  sidebar="false" showHeader="false">
+    <html lang="en" ng-app="vipApp">
+    <head>
+
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+
+        <title>The VIP Black Book Consent Page</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></link>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.9/angular.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/3.2.1/css/font-awesome.min.css" />
+        <link rel="stylesheet" href="{!URLFOR($Resource.NewTICStyles)}"></link>
+        <script src="{!URLFOR($Resource.NewTICScripts)}"></script>
+
+        <script>
+            function isLightningRedirect(inUrl){
+                if ('{!$User.UITheme}' === 'Theme4d' || '{!$User.UITheme}' === 'Theme4t' || '{!$User.UITheme}' === 'Theme4u') {
+                    sforce.one.navigateToURL(inUrl);
+                } else {
+                    window.location = inUrl;
+                }
+            }
+        </script>
+
+        <style type="text/css">
+                @font-face { font-family: BauerBodoni; src: url("{!URLFOR($Resource.FontBauerBodoni)}"); }
+                @font-face { font-family: SangBleuRegular; src: url("{!URLFOR($Resource.SangBleuKingdom, 'SangBleuKingdom-Regular.otf')}"); }
+                @font-face { font-family: SangBleuLight; src: url("{!URLFOR($Resource.SangBleuKingdom, 'SangBleuKingdom-Light.otf')}"); }
+                @font-face { font-family: SangBleuBold; src: url("{!URLFOR($Resource.SangBleuKingdom, 'SangBleuKingdom-Bold.otf')}"); }
+                @font-face { font-family: BrownStdRegular; src: url("{!URLFOR($Resource.BrownStdAll, 'BrownStd-Regular.otf')}"); }
+                @font-face { font-family: BrownStdLight; src: url("{!URLFOR($Resource.BrownStdAll, 'BrownStd-Light.otf')}"); }
+                @font-face { font-family: BrownStdBold; src: url("{!URLFOR($Resource.BrownStdAll, 'BrownStd-Bold.otf')}"); }
+                @font-face { font-family: BrownStdThin; src: url("{!URLFOR($Resource.BrownStdAll, 'BrownStd-Thin.otf')}"); }
+
+                body{
+                background-color: #FFF;
+                margin-top: 20px;
+                font-family: BrownStdLight;
+                color: #123e6c;
+                }
+
+                .inputbox {
+                height: 40px;
+                width: 100%;
+                /*border-radius: 3px;*/
+                /* border: 1px solid transparent;*/
+                border-top: none !important;
+                border-left: none !important;
+                border-right:none !important;
+                border-bottom: 1px solid #123e6c !important;
+                border-radius: 0px !important;
+                background-color: #fff;
+                padding-left: 15px;
+                padding-right:15px;
+                font-size: 20px;
+                float:right;
+                box-shadow: none !important;
+                font-family:BrownStdThin;
+                }
+
+                .submitbutton
+                {
+
+                border: none;
+                color: #fff;
+                background-color: #123e6c;
+                //box-shadow: 0px 0px 6px 4px rgba(0,0,0,.19);
+                /* background-color: #FAFAFA;*/
+                padding-left: 15px;
+                padding-right:15px;
+                /*float: right;*/
+                display:block;
+                //margin-left: 10px;
+                font-size: 22px;
+                margin-top: 40px;
+                margin-bottom: 10px;
+                padding-top: 10px;
+                padding-bottom: 10px;
+                text-decoration: none !important;
+                text-transform: uppercase;
+                font-family: BrownStdLight;
+                }
+
+
+                .tablebutton {
+                height: 50px;
+                border: none;
+                background-color: #FFFFFF;
+                box-shadow: 0px 0px 6px 4px rgba(0,0,0,.19);
+                /* background-color: #FAFAFA;*/
+                padding-left: 15px;
+                padding-right:15px;
+                float: right;
+                display:block;
+                margin-left: 5px;
+                }
+
+                .alignbuttontext {
+                position: relative;
+                float: left;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                margin:auto;
+                }
+
+
+
+                .overlayimage {
+                /*  background: url("{!URLFOR($Resource.VIPDesignImages, 'MothersdayWide.jpg')}") no-repeat center top fixed;
+                width: 100%;*/
+                margin-left: auto;
+                margin-right: auto;
+                display: block;
+                z-index: 1;
+
+                }
+                /* override some of the bootstrap styled */
+                .panel-heading {
+                box-shadow: inset 0px 0px 12px 4px rgba(246,169,55,.29);
+                border-top-left-radius: 0px;
+                border-top-right-radius: 0px;
+                background-color: #F6A937 !important ;
+                text-align: center;
+                font-size: 22px;
+                }
+                .panel {
+                border-top-left-radius: 0px;
+                border-top-right-radius: 0px;
+                border-top-width: 0px;
+                border-left-width: 0px;
+                border-right-width: 0px;
+                border-bottom-width: 0px;
+                box-shadow: 0px 0px 6px 4px rgba(0,0,0,.19);
+                padding-bottom: 2px;
+                }
+
+                .borderless td, .borderless th {
+                border: 0 !important;
+                }
+
+                h2 {
+                padding-top: 20px;
+                font-size: 50px;
+                /*font-weight: bold;
+                color: #007B8D;*/
+                }
+
+                .jumbotron {
+                margin: 200px 0px 0px 0px;
+                font-family: SangBleuLight;
+                padding: 0px 0px 40px 0px;
+
+                }
+
+                p ,ul , li{
+                font-size: 18px;
+                font-family:BrownStdRegular;
+                margin-bottom: 25px;
+                }
+
+                a:link{
+                color:#fff !important;
+                }
+                a:visited{
+                color:#fff !important;
+                }
+                a:hover{
+                color:#fff !important;
+                }
+                a:active{
+                color:#fff !important;
+                }
+
+                .checklabel {
+                font-size: 20px;
+                text-transform: uppercase;
+                vertical-align: super;
+                }
+
+
+                input.largerCheckbox
+                {
+                width: 25px;
+                height: 25px;
+                }
+
+                ::placeholder {
+                text-transform: uppercase;
+                font-family: BrownStdThin;
+                color: #123e6c;
+                }
+
+
+            </style>
+
+        <script>
+            $j = jQuery.noConflict();
+
+
+            // define the app
+            var VIPBBApp = angular.module('vipApp', []);
+            // add an app factory
+
+            // add the controller
+            VIPBBApp.controller('VIPBBServiceCtrl',['$log','$scope','$window','$sce',function($log,$scope,$window,$sce){
+                //  $scope.guestdata = '{id:"{!JSENCODE(Account.Id)}", firstname:"{!JSENCODE(Account.FirstName)}",lastname:"{!JSENCODE(Account.LastName)}" ,email:"{!JSENCODE(Account.PersonEmail)}", telephone:"{!JSENCODE(Account.PersonMobilePhone)}" }' ;
+                /*{   ID: '{!JSENCODE(Account.Id)}"',
+     	Street: '{!JSENCODE(Account.PersonMailingStreet)}',
+     	City: '{!JSENCODE(Account.PersonMailingCity)}',
+     	PostCode: '{!JSENCODE(Account.PersonMailingPostalCode)}',
+     	MailingCountry: '{!JSENCODE(Account.PersonMailingCountry)}',
+     	Email: '{!JSENCODE(Account.PersonEmail)}',
+     	Phone: '{!JSENCODE(Account.PersonMobilePhone)}',
+     	ConsentPhone: '{!Account.Marketing_Consent_Phone__c}', // false/positive
+     	ConsentEmail: '{!Account.Marketing_Consent_Email__c}',// false/positive
+     	ConsentPost: '{!Account.Marketing_Consent_Post__c}', // false/positive
+     	};*/
+
+         $scope.guestdata = JSON.parse('{!JSENCODE(guestJson)}');
+         $scope.languagelabels = JSON.parse('{!JSENCODE(languagelabels)}');
+         $scope.selectedlanguage = '{!JSENCODE(lang)}';
+         $scope.accID = '{!JSENCODE(Account.Id)}';
+
+         $scope.gotoTerms = function(accID){
+
+             $scope.emailstyle = '';
+             $scope.telstyle = '';
+             $scope.poststyle = '';
+
+             $scope.validationfailColor = '#FF6961';
+             var validated = true;
+             // lets do validation
+             var mobileRegex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+             $log.log('$scope.guestdata.Marketing_Consent_Email__c....' + $scope.guestdata.Marketing_Consent_Email__c);
+             if($scope.guestdata.Marketing_Consent_Email__c ){
+                 $log.log('email is checked');
+                 if($scope.guestdata.PersonEmail){
+                     $log.log('email has a value' + $scope.guestdata.PersonEmail);
+                     if(!mobileRegex.test($scope.guestdata.PersonEmail) ){
+                         $log.log('email is invalid' + $scope.guestdata.PersonEmail);
+                         $scope.emailstyle = {'background-color': $scope.validationfailColor};
+                         $scope.warningtext = 'Email invalid ';
+                         validated = false;
+                     }
+
+                 }
+                 else
+                 {
+                     $log.log('email is doesnt have a value');
+                     $scope.emailstyle = {'background-color': $scope.validationfailColor};
+                     validated = false;
+                 }
+             }
+             if($scope.guestdata.Marketing_Consent_Phone__c ){
+                 if(!$scope.guestdata.PersonMobilePhone || $scope.guestdata.PersonMobilePhone == ''){
+
+                     validated = false;
+                     $scope.emailstyle = {'background-color': $scope.validationfailColor};
+                 }
+             }
+             // post validation is more complex...
+             if($scope.guestdata.Marketing_Consent_Post__c ){
+                 if(!$scope.guestdata.PersonMailingStreet || $scope.guestdata.PersonMailingStreet == ''){
+                     validated = false;
+                     $scope.poststyle = {'background-color': $scope.validationfailColor};
+                 }
+             }
+
+             // need to save the data first
+             $log.log('Details: ' + $scope.guestdata.Id+ ' -- ' +  $scope.guestdata.PersonEmail+ ' -- ' +  $scope.guestdata.PersonMobilePhone+ ' -- ' +  $scope.guestdata.PersonMailingStreet+ ' -- ' + $scope.guestdata.PersonMailingCity+ ' -- ' + $scope.guestdata.PersonMailingPostalCode+ ' -- ' + $scope.guestdata.PersonMailingCountry + ' -- ' +  $scope.guestdata.Marketing_Consent_Email__c+ ' -- ' +  $scope.guestdata.Marketing_Consent_Phone__c+ ' -- ' +  $scope.guestdata.Marketing_Consent_Post__c);
+             if(validated){
+                 //  ($scope.guestdata.Id ? $scope.guestdata.Id : '')
+                 Visualforce.remoting.Manager.invokeAction(
+                     '{!$RemoteAction.VIPBBMarketingConsentExtension.saveMarketingConsent}',
+                     $scope.guestdata.Id,  ($scope.guestdata.PersonEmail ? $scope.guestdata.PersonEmail : ''),  ($scope.guestdata.PersonMobilePhone ? $scope.guestdata.PersonMobilePhone : ''),  ($scope.guestdata.PersonMailingStreet? $scope.guestdata.PersonMailingStreet : ''), ($scope.guestdata.PersonMailingCity ? $scope.guestdata.PersonMailingCity : ''), ($scope.guestdata.PersonMailingPostalCode ? $scope.guestdata.PersonMailingPostalCode : ''), ($scope.guestdata.PersonMailingCountry ? $scope.guestdata.PersonMailingCountry  : ''),  ($scope.guestdata.Marketing_Consent_Email__c ? $scope.guestdata.Marketing_Consent_Email__c : ''),  ($scope.guestdata.Marketing_Consent_Phone__c ? $scope.guestdata.Marketing_Consent_Phone__c : ''),  ($scope.guestdata.Marketing_Consent_Post__c ? $scope.guestdata.Marketing_Consent_Post__c : ''),
+                     function(result, event){
+                         $log.log('about to call result....' + result);
+                         //debugger;
+                         if (event.status) {
+                             if(result.startsWith("ERROR") ){
+                                 // means something couldnt save :(
+                                 $scope.message = result;
+                             }
+                             else if(result.startsWith("SAVEDID") )
+                             {
+                                 // means no error, and exsisting guest was saved
+                                 //$window.location.href = '/apex/VIPBBThankYou?ID=' + result.substring(7) + '&lang=' + $scope.selectedlanguage;
+                                 isLightningRedirect('/apex/VIPBBThankYou?ID=' + result.substring(7) + '&lang=' + $scope.selectedlanguage);
+
+                             }
+                         } else if (event.type === 'exception') {
+                             $scope.message = event;
+                         } else {
+                             $scope.message = event;
+                         }
+                         $scope.$apply();
+                     },
+                     {escape: true}
+                 );
+             }
+
+
+         }
+
+         $scope.gotoDecline = function() {
+             //$window.location.href = '/apex/VIPBBDecline?ID=' + $scope.accID + '&lang=' + $scope.selectedlanguage;
+             isLightningRedirect('/apex/VIPBBDecline?ID=' + $scope.accID + '&lang=' + $scope.selectedlanguage);
+         }
+
+         $scope.updateLanguage = function() {
+             // this isnt working very well, so im going to just reload the page, with a new language
+             //   $log.log('aChanged Language .... ' + $scope.selectedlanguage );
+             if($scope.accID != ''){
+                 //$window.location.href = '/apex/VIPBBMarketingConsent?ID=' + $scope.accID + '&lang=' + $scope.selectedlanguage;
+                 isLightningRedirect('/apex/VIPBBMarketingConsent?ID=' + $scope.accID + '&lang=' + $scope.selectedlanguage);
+             }
+
+         }
+
+         $scope.labelvalue = function(labelname){
+             var returnval = '';
+             for (x in $scope.languagelabels) {
+
+                 if($scope.languagelabels[x].LabelName == labelname){
+                     returnval = $scope.languagelabels[x].LabelValue;
+                     $log.log('Label name .... ' + $scope.languagelabels[x].LabelName  );
+                     $log.log('Label value .... ' + $scope.languagelabels[x].LabelValue );
+                 }
+             }
+             return  $sce.trustAsHtml(returnval);
+         };
+
+     }]);
+    </script>
+    </head>
+    <body>
+    <div  ng-controller="VIPBBServiceCtrl">
+        <div class="full-width">{{labelvalue('VIPMarketingTopHeading')}}
+            <div style="float:right;">
+                <select class="selectlanguagelist" name="language" ng-model="selectedlanguage" ng-change="updateLanguage(this)">
+                    <option value="en">English</option>
+                    <option value="fr">Français</option>
+                    <option value="es">Español</option>
+                    <option value="ca">Català</option>
+                    <option value="de">Deutsch</option>
+                    <option value="nl">Nederlands</option>
+                    <option value="it">Italiano</option>
+                </select>
+            </div>
+        </div>
+        <br/>
+        <div class="jumbotron text-center">
+            <h2>{{labelvalue('MarketingHeading')}}</h2>
+        </div>
+        <div class="container" style="margin-left: auto; margin-right: auto; z-index: 100; position: relative;padding:0px">
+
+            <div class="container py-5" style="font-size: 18px">
+                <div class="form-group row">
+                    <div class="col-sm-12">
+                        <span ng-bind-html="labelvalue('MarketingContent')" ></span>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-4">
+
+                        <input type="checkbox" name="emailconsent" ng-model="guestdata.Marketing_Consent_Email__c" class="largerCheckbox"/>
+                        <label class="checklabel">{{labelvalue('Email')}}</label>
+                    </div>
+                    <div class="col-sm-4">
+
+                        <input type="checkbox" name="phoneconsent" ng-model="guestdata.Marketing_Consent_Phone__c" class="largerCheckbox" />
+                        <label class="checklabel">{{labelvalue('Tel')}}</label>
+                    </div>
+                    <div class="col-sm-4">
+
+                        <input type="checkbox" name="postconsent" ng-model="guestdata.Marketing_Consent_Post__c" class="largerCheckbox" />
+                        <label class="checklabel">{{labelvalue('PostLabel')}}</label>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-4" >
+                        <div ng-show="guestdata.Marketing_Consent_Email__c == true">
+                            <input type="text" name="emailconsenttxt"  ng-model="guestdata.PersonEmail" class="form-control inputbox" ng-style="emailstyle" placeholder="{{labelvalue('Email')}}"/>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-4">
+                        <div ng-show="guestdata.Marketing_Consent_Phone__c == true">
+                            <input type="text" name="phoneconsenttxt" ng-model="guestdata.PersonMobilePhone" class="form-control inputbox" ng-style="phonestyle" placeholder="{{labelvalue('Tel')}}" />
+                        </div>
+                    </div>
+                    <div class="col-sm-4" >
+                        <div ng-show="guestdata.Marketing_Consent_Post__c == true" class="input-group" style="float:right;" >
+                            <input type="text" name="postconsenttxt1" ng-model="guestdata.PersonMailingStreet" class="form-control inputbox" ng-style="poststyle" placeholder="{{labelvalue('StreetLabel')}}" />
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row" ng-show="guestdata.Marketing_Consent_Post__c == true">
+                    <div class="col-sm-4" >
+
+                    </div>
+
+                    <div class="col-sm-4">
+
+                    </div>
+                    <div class="col-sm-4" >
+                        <div  class="input-group" style="float:right;" >
+                            <input type="text" name="postconsenttxt3" ng-model="guestdata.PersonMailingCity" class="form-control inputbox" style="margin-top: 5px;" placeholder="{{labelvalue('CityLabel')}}"/><br/>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row" ng-show="guestdata.Marketing_Consent_Post__c == true">
+                    <div class="col-sm-4" >
+
+                    </div>
+
+                    <div class="col-sm-4">
+
+                    </div>
+                    <div class="col-sm-4" >
+                        <div  class="input-group" style="float:right;" >
+                            <input type="text" name="postconsenttxt3" ng-model="guestdata.PersonMailingPostalCode" class="form-control inputbox" style="margin-top: 5px;" placeholder="{{labelvalue('PostCodeLabel')}}"/><br/>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row" ng-show="guestdata.Marketing_Consent_Post__c == true">
+                    <div class="col-sm-4" >
+
+                    </div>
+
+                    <div class="col-sm-4">
+
+                    </div>
+                    <div class="col-sm-4" >
+                        <div  class="input-group" style="float:right;" >
+                            <input type="text" name="postconsenttxt3" ng-model="guestdata.PersonMailingCountry" class="form-control inputbox" style="margin-top: 5px;" placeholder="{{labelvalue('CountryLabel')}}"/><br/>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-6">
+                        <a href="#" class="submitbutton"  ng-click="gotoDecline('{!Account.Id}')" >{{labelvalue('DeclineButton')}}</a>
+                    </div>
+                    <div class="col-sm-6">
+                        <a href="#" class="submitbutton"  ng-click="gotoTerms('{!Account.Id}')"  >{{labelvalue('SaveNextButton')}}</a>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+    </body>
+
+    </html>
+</apex:page>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Marketing_Activity__c</fullName>
+    <externalId>false</externalId>
+    <label>Activity Name</label>
+    <lookupFilter>
+        <active>true</active>
+        <errorMessage>Participating Brands can only be associated with Village Campaign Activities</errorMessage>
+        <filterItems>
+            <field>Marketing_Activity__c.Group_or_Village_Activity__c</field>
+            <operation>equals</operation>
+            <value>Village Activity</value>
+        </filterItems>
+        <infoMessage>Please select a Village Activity</infoMessage>
+        <isOptional>false</isOptional>
+    </lookupFilter>
+    <referenceTo>Marketing_Activity__c</referenceTo>
+    <relationshipLabel>Participating Brands (in Village)</relationshipLabel>
+    <relationshipName>Participating_Brands</relationshipName>
+    <relationshipOrder>0</relationshipOrder>
+    <reparentableMasterDetail>false</reparentableMasterDetail>
+    <trackTrending>false</trackTrending>
+    <type>MasterDetail</type>
+    <writeRequiresMasterRead>true</writeRequiresMasterRead>
+</CustomField>

@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>TBVSC_Brand_Campaign</fullName>
+    <active>true</active>
+    <compactLayoutAssignment>Marketing_Campaign_Compact_Layout</compactLayoutAssignment>
+    <description>TBVSC Brand Campaign: A Marketing Theme or Campaign set at TBVSC Brand level..</description>
+    <label>TBVSC Brand Campaign</label>
+    <picklistValues>
+        <picklist>Campaign_Focus__c</picklist>
+        <values>
+            <fullName>Awareness and Positioning</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>BAU</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Destination Marketing Moments</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>International Always On</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>International Moments</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Local Moments</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Non-Campaigns</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Promotional Moments</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Retail Brand Moments</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tactical Product Focus</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Theme</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Campaign_Level__c</picklist>
+        <values>
+            <fullName>BAU Campaign</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Lead Moment</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Local Moment</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Non-Campaign</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Integration_Status__c</picklist>
+        <values>
+            <fullName>confirmed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>error</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>sending</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>waiting</fullName>
+            <default>true</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Recurring_Campaign_Type__c</picklist>
+        <values>
+            <fullName>CNY</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Chapter 1</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Chapter 2</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Chapter 3</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Chapter 4</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Eid</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Private Sale</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SE Asia</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>The Extraordinary Sale</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Status__c</picklist>
+        <values>
+            <fullName>Approved</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cancelled</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>On Hold</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>To Be Approved</fullName>
+            <default>true</default>
+        </values>
+    </picklistValues>
+</RecordType>

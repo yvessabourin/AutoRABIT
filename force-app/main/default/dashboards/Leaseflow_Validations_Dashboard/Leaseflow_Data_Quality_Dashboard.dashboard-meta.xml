@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Dashboard xmlns="http://soap.sforce.com/2006/04/metadata">
+    <backgroundEndColor>#FFFFFF</backgroundEndColor>
+    <backgroundFadeDirection>Diagonal</backgroundFadeDirection>
+    <backgroundStartColor>#FFFFFF</backgroundStartColor>
+    <dashboardType>LoggedInUser</dashboardType>
+    <isGridLayout>false</isGridLayout>
+    <leftSection>
+        <columnSize>Wide</columnSize>
+        <components>
+            <autoselectColumnsFromReport>true</autoselectColumnsFromReport>
+            <chartAxisRange>Auto</chartAxisRange>
+            <componentType>Pie</componentType>
+            <displayUnits>Auto</displayUnits>
+            <drillEnabled>false</drillEnabled>
+            <drillToDetailEnabled>false</drillToDetailEnabled>
+            <enableHover>false</enableHover>
+            <expandOthers>false</expandOthers>
+            <groupingSortProperties/>
+            <header>Deals Post-Opening</header>
+            <legendPosition>Bottom</legendPosition>
+            <report>Leaseflow_Validations/Deal_Validations_Post_Opening</report>
+            <showPercentage>false</showPercentage>
+            <showValues>true</showValues>
+            <sortBy>RowLabelAscending</sortBy>
+            <title>Actual Open Date or Signed Date missing</title>
+            <useReportChart>false</useReportChart>
+        </components>
+        <components>
+            <autoselectColumnsFromReport>true</autoselectColumnsFromReport>
+            <chartAxisRange>Auto</chartAxisRange>
+            <componentType>Pie</componentType>
+            <displayUnits>Auto</displayUnits>
+            <drillEnabled>false</drillEnabled>
+            <drillToDetailEnabled>false</drillToDetailEnabled>
+            <enableHover>false</enableHover>
+            <expandOthers>false</expandOthers>
+            <groupingSortProperties/>
+            <header>Deals with Budget Type</header>
+            <legendPosition>Bottom</legendPosition>
+            <report>Leaseflow_Validations/Deal_Validations_Budget_Type</report>
+            <showPercentage>false</showPercentage>
+            <showValues>true</showValues>
+            <sortBy>RowLabelAscending</sortBy>
+            <title>Budget details missing</title>
+            <useReportChart>false</useReportChart>
+        </components>
+    </leftSection>
+    <rightSection>
+        <columnSize>Wide</columnSize>
+        <components>
+            <autoselectColumnsFromReport>true</autoselectColumnsFromReport>
+            <chartAxisRange>Auto</chartAxisRange>
+            <componentType>Pie</componentType>
+            <displayUnits>Auto</displayUnits>
+            <drillEnabled>false</drillEnabled>
+            <drillToDetailEnabled>false</drillToDetailEnabled>
+            <enableHover>false</enableHover>
+            <expandOthers>false</expandOthers>
+            <groupingSortProperties/>
+            <header>Deals Pre-Opening</header>
+            <legendPosition>Bottom</legendPosition>
+            <report>Leaseflow_Validations/Deal_Validations_Pre_Opening</report>
+            <showPercentage>false</showPercentage>
+            <showValues>true</showValues>
+            <sortBy>RowLabelAscending</sortBy>
+            <title>Expected Open Date or Unit missing</title>
+            <useReportChart>false</useReportChart>
+        </components>
+        <components>
+            <autoselectColumnsFromReport>true</autoselectColumnsFromReport>
+            <chartAxisRange>Auto</chartAxisRange>
+            <componentType>Pie</componentType>
+            <displayUnits>Auto</displayUnits>
+            <drillEnabled>false</drillEnabled>
+            <drillToDetailEnabled>false</drillToDetailEnabled>
+            <enableHover>false</enableHover>
+            <expandOthers>false</expandOthers>
+            <groupingSortProperties/>
+            <header>Potentially Active Deals</header>
+            <legendPosition>Bottom</legendPosition>
+            <report>Leaseflow_Validations/Deal_Validations_Actual_Open_date</report>
+            <showPercentage>false</showPercentage>
+            <showValues>true</showValues>
+            <sortBy>RowLabelAscending</sortBy>
+            <title>Incorrect Budget Status</title>
+            <useReportChart>false</useReportChart>
+        </components>
+    </rightSection>
+    <runningUser>iburton@valueretail.com</runningUser>
+    <textColor>#000000</textColor>
+    <title>Leaseflow Data Quality Dashboard</title>
+    <titleColor>#000000</titleColor>
+    <titleSize>12</titleSize>
+</Dashboard>

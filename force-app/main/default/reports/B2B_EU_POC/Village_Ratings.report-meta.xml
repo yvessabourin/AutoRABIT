@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>CHILD_NAME</field>
+    </columns>
+    <columns>
+        <field>Village_Rating__c.Year__c</field>
+    </columns>
+    <columns>
+        <field>Village_Rating__c.Yield_Classification__c</field>
+    </columns>
+    <columns>
+        <field>Village_Rating__c.Rating__c</field>
+    </columns>
+    <columns>
+        <field>Village_Rating__c.Range_Minimum__c</field>
+    </columns>
+    <columns>
+        <field>Village_Rating__c.Range_Maximum__c</field>
+    </columns>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>CUST_NAME</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>Village Ratings</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CustomEntityCustomEntity$Village__c$Village_Rating__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <sortColumn>Village_Rating__c.Yield_Classification__c</sortColumn>
+    <sortOrder>Asc</sortOrder>
+    <timeFrameFilter>
+        <dateColumn>CUST_CREATED_DATE</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

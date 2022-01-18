@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <aggregateTypes>Sum</aggregateTypes>
+        <field>Visit__c$Number_of_Guests__c</field>
+    </columns>
+    <currency>EUR</currency>
+    <filter>
+        <criteriaItems>
+            <column>Visit__c$Village__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Las Rozas</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Visit__c$Partnership_Promotion__c.RecordType</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Marketing_Activity__c.Partnership_Promotion</value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
+    <format>Matrix</format>
+    <groupingsAcross>
+        <dateGranularity>Week</dateGranularity>
+        <field>Visit__c$Visit_Date_Time__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsAcross>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Visit__c$Partnership_Promotion__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Visit__c$Country_of_Origin__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>LZV FITs - Campaign Results</name>
+    <params>
+        <name>co</name>
+        <value>0</value>
+    </params>
+    <reportType>Partnership_Promotion_Visits__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>Visit__c$Visit_Date_Time__c</dateColumn>
+        <endDate>2017-10-17</endDate>
+        <interval>INTERVAL_CUSTOM</interval>
+        <startDate>2017-07-15</startDate>
+    </timeFrameFilter>
+</Report>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Operational_Incident_Compact_Layouts</fullName>
+    <fields>Name</fields>
+    <fields>Status__c</fields>
+    <fields>Category__c</fields>
+    <fields>Priority__c</fields>
+    <fields>Location__c</fields>
+    <label>Operational Incident Compact Layouts</label>
+</CompactLayout>

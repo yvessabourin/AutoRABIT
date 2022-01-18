@@ -1,0 +1,38 @@
+.THIS h2, .THIS h3{
+    color: rgb(22, 50, 92);
+}
+.THIS h3{
+    background: #F3F2F2;
+}
+
+.THIS .small_combobox{
+    max-width: 80px;
+}
+
+.THIS .small_input{
+    max-width: 120px;
+}
+
+.THIS .big_input{
+    max-width: 210px;
+}
+
+.THIS .slds-show_inline-block {
+    display: inline-block !important;
+}
+
+.THIS .backgroundCellChanged{
+    background-color: rgb(250, 255, 189);
+}
+
+.THIS .slds-button_icon-bare{
+    display: none;
+}
+
+.THIS #datatable_container .slds-button.slds-button_neutral, .THIS #datatable_container .slds-button.slds-button_brand{
+    width:175px;
+}
+
+.THIS .slds-form-element__label{
+    white-space: nowrap;
+}

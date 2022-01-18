@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Brand_Closed_Days__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>The number of days the brand will be closed in the current year when the village is open</inlineHelpText>
+    <label>Brand Closed Days</label>
+    <summarizedField>Brand_Closed_Period__c.Brand_Closed_Days__c</summarizedField>
+    <summaryFilterItems>
+        <field>Brand_Closed_Period__c.Active__c</field>
+        <operation>equals</operation>
+        <value>True</value>
+    </summaryFilterItems>
+    <summaryForeignKey>Brand_Closed_Period__c.Opportunity__c</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

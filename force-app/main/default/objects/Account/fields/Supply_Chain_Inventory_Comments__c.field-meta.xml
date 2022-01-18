@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Supply_Chain_Inventory_Comments__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Enter any comments related to the brands supply chain/inventory</inlineHelpText>
+    <label>Supply Chain/Inventory Comments</label>
+    <length>2000</length>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>LongTextArea</type>
+    <visibleLines>2</visibleLines>
+</CustomField>

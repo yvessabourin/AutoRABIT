@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AccountId</fullName>
+    <lookupFilter>
+        <active>true</active>
+        <errorMessage>Deals must be linked to a Brand, not a Group. Please contact Chris Gregory who will be able to assist you.</errorMessage>
+        <filterItems>
+            <field>Account.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Brand</value>
+        </filterItems>
+        <infoMessage>Please select  a Brand (Group accounts are hidden)</infoMessage>
+        <isOptional>false</isOptional>
+    </lookupFilter>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

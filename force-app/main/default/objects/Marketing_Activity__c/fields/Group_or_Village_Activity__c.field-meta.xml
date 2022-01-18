@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Group_or_Village_Activity__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(Marketing_Campaign__r.RecordType.Name = &quot;Village Campaign&quot;, &quot;Village Activity&quot;, &quot;TBVSC Brand Activity&quot;)</formula>
+    <label>TBVSC Brand or Village Activity</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

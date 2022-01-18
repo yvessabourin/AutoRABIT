@@ -1,0 +1,68 @@
+<apex:component >
+    
+            <apex:includeScript value="{!URLFOR($Resource.HFS_qrv5, '/instascan.js')}"/>
+            <apex:includeScript value="{!URLFOR($Resource.HFS_qrv5, '/adapter.min.js')}"/>
+            <apex:includeScript value="{!URLFOR($Resource.HFS_qrv5, '/jquery.min.js')}"/>
+    
+    <p><b>Storage Location QRCode:</b> (For manual entry ensure all digits are entered)</p><input id="output" style="width:60%;"></input><br/>
+    <button onclick="getManuallyQRCode();">Confirm</button>
+    <br/>
+    <br/>
+    <video id="preview"></video>
+
+    <script type="text/javascript">
+
+    let scanner = new Instascan.Scanner({ video: document.getElementById('preview'), mirror: false});
+    scanner.addListener('scan', function (content) {
+        consolelog(content);
+    });
+
+    hasGetUserMedia();
+
+    function startCamera(){
+        Instascan.Camera.getCameras()
+        //.then(cameras => cameras.filter(camera => camera.name.indexOf('back') !== -1))
+        .then(function (cameras) {
+            if (cameras.length > 0) {
+
+
+                if( (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1)){
+                    // running in mobile
+                    console.log('VIP Mobile ..');
+                    scanner.start(cameras[1]);
+                } else { //Desktop
+                    console.log('VIP Desktop..');
+                    scanner.start(cameras[0]);
+                }       
+                
+                //consolelog(JSON.stringify(cameras));
+            } else {
+                //consolelog('No cameras found.');
+            }
+        }).catch(function (e) {
+            //consolelog(e);
+        });
+    };
+
+    function stopCamera(){
+        scanner.stop();
+    };
+
+    function consolelog(message){
+
+        document.getElementById('output').value = message;
+        console.log(message);
+    };
+
+    function hasGetUserMedia() {
+        //consolelog(navigator.mediaDevices);
+        //consolelog(navigator.mediaDevices.getUserMedia);
+        return !!(navigator.mediaDevices &&
+                  navigator.mediaDevices.getUserMedia);
+    }
+    
+                                           
+    startCamera();                                                              
+                                                                       
+    </script>
+</apex:component>

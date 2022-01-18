@@ -1,0 +1,67 @@
+<apex:page controller="AddMasterBudgetSheetItemController" lightningStylesheets="true">
+
+    <style type="text/css">
+        .small{width: 30px}
+        .medium{width: 350px}
+        .big{width: 700px}
+    </style> 
+    
+    <script>
+    function checkSelectedItems()
+    {
+        CheckSelectedItemsApex();
+    }
+    </script>
+
+    <apex:form >
+        <apex:actionFunction name="CheckSelectedItemsApex" action="{!checkSelected}"/>
+        <apex:pageBlock >
+            
+            <apex:pageMessages id="message" />
+
+            <apex:pageBlockButtons >
+                    <apex:commandButton action="{!save}" value="{!$Label.Add}" disabled="disableSave" />
+                    <apex:commandButton action="{!returnToPage}" value="{!$Label.Cancel}"/>
+            </apex:pageBlockButtons>
+            
+            <apex:pageBlockSection >
+                <apex:pageBlockSectionItem rendered="{!renderMBSPicklist}">
+                    <apex:outputLabel value="{!$Label.Master_Budget_Sheet}" style="font-size:13px;color:black" for="masterBudgetSheet" styleClass="labelCol vfLabelColTextWrap"/>
+                    <apex:selectList id="mbsSelectList" value="{!masterBudgetsheetValue}" size="1" required="true">
+                        <apex:actionSupport event="onchange" action="{!queryMasterBudgetSheetItems}" rerender="mbsiTable,message"/>
+                        <apex:selectOptions value="{!MBSSelections}"/>
+                    </apex:selectList>
+                </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>
+
+            <apex:pageBlockSection id="mbsiTable" columns="1">
+                <apex:pageBlockTable value="{!MasterBudgetSheetItemList}" var="MBSI" rendered="{!renderTable}">
+                    <apex:column styleClass="small">
+                        <apex:facet name="header">  
+                            <apex:inputCheckbox value="{!allSelected}">
+                                <apex:actionSupport event="onchange" action="{!checkAll}" reRender="mbsiTable,message"/>
+                            </apex:inputCheckbox>
+                        </apex:facet>
+                        <apex:inputCheckbox value="{!MBSI.isSelected}" onchange="checkSelectedItems()" />
+                    </apex:column>
+                    <apex:column styleClass="big">
+                        <apex:facet name="header"> {!$Label.Master_Budget_Sheet_Item_Name} </apex:facet>
+                        <apex:outputText > {!MBSI.itemName} </apex:outputText>
+                    </apex:column>
+                    <apex:column styleClass="medium">
+                        <apex:facet name="header"> {!$Label.Creative_Name} </apex:facet>
+                        <apex:outputText > {!MBSI.creativeName} </apex:outputText>
+                    </apex:column>
+                    <apex:column styleClass="medium">
+                        <apex:facet name="header"> {!$Label.Marketing_Partner} </apex:facet>
+                        <apex:outputText > {!MBSI.marketingPartner} </apex:outputText>
+                    </apex:column>
+                    <apex:column styleClass="medium">
+                        <apex:facet name="header"> {!$Label.Campaign_Name} </apex:facet>
+                        <apex:outputText > {!MBSI.campaignName} </apex:outputText>
+                    </apex:column>
+                </apex:pageBlockTable>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

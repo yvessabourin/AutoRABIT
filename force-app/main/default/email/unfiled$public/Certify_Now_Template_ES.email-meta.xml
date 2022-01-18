@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Email used to warn the users that have a certification to be certified in Spanish</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Certify Now Template ES</name>
+    <style>none</style>
+    <subject>Certificación de ventas (Value Retail)</subject>
+    <textOnly>Hola UserName,
+
+Ha llegado el momento de certificar las ventas del trimestre. La fecha límite para ello es el certificationDeadline.
+
+Por favor, conéctese al Brand Portal usando el link de debajo para poder acceder a los registros que están pendientes de Certificar.
+
+Brand Portal: website_here
+
+Por favor, tenga en cuenta que tendrá que revisar/rellenar tanto las VENTAS NETAS (EXCLUYENDO IVA) como los DESCUENTOS NETOS (EXCLUYENDO IVA).
+
+Estos DESCUENTOS NETOS deben incluir los importes de descuentos VIP del 10% así como los descuentos al staff del Village o descuentos internos de su firma.
+
+Si tiene cualquier problema o consulta, por favor póngase en contacto con su contacto del departamento Financiero de Value Retail.
+
+Saludos,
+
+Equipo de Value Retail</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

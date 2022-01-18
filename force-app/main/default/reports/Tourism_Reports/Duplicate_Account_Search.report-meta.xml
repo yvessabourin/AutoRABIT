@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>ACCOUNT_ID</field>
+    </columns>
+    <columns>
+        <field>USERS.NAME</field>
+    </columns>
+    <columns>
+        <field>ACCOUNT.NAME</field>
+    </columns>
+    <columns>
+        <field>Account.Account_Name_unique__c</field>
+    </columns>
+    <columns>
+        <field>LAST_UPDATE</field>
+    </columns>
+    <columns>
+        <field>LAST_UPDATE_BY</field>
+    </columns>
+    <description>Export to Excel and run a COUNTIF() to locate duplicates</description>
+    <filter>
+        <criteriaItems>
+            <column>RECORDTYPE</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>Account.Tourism</value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
+    <format>Tabular</format>
+    <name>Duplicate Account Search</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>AccountList</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>CREATED_DATE</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+        <startDate>2014-02-02</startDate>
+    </timeFrameFilter>
+</Report>

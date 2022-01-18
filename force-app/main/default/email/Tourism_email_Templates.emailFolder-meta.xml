@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailFolder xmlns="http://soap.sforce.com/2006/04/metadata">
+    <accessType>Shared</accessType>
+    <name>Tourism email Templates</name>
+    <publicFolderAccess>ReadOnly</publicFolderAccess>
+    <sharedTo>
+        <group>VIP_Bicester</group>
+        <group>VIP_Fidenza</group>
+        <group>VIP_Ingolstadt</group>
+        <group>VIP_Kildare</group>
+        <group>VIP_LaRoca</group>
+        <group>VIP_La_Vallee</group>
+        <group>VIP_Las_Rozas</group>
+        <group>VIP_Maasmechelen</group>
+        <group>VIP_Wertheim</group>
+        <role>Bicester_TIC</role>
+        <role>Bicester_Tourism</role>
+        <role>Fidenza_TIC</role>
+        <role>Fidenza_Tourism</role>
+        <role>German_TICs</role>
+        <role>German_Tourism</role>
+        <role>Group_TIC</role>
+        <role>Ingolstadt_TIC</role>
+        <role>Kildare_Marketing</role>
+        <role>Kildare_TIC</role>
+        <role>Kildare_Tourism</role>
+        <role>La_Roca_TIC</role>
+        <role>La_Roca_Tourism</role>
+        <role>La_Vall_e_Tourism</role>
+        <role>La_Vallee_TIC</role>
+        <role>Las_Rozas_TIC</role>
+        <role>Las_Rozas_Tourism</role>
+        <role>Maasmechelen_TIC</role>
+        <role>Maasmechelen_Tourism</role>
+        <role>Spanish_TICs</role>
+        <role>Spanish_Tourism</role>
+        <role>VIP_Guest_Management</role>
+        <role>VIP_Retail_Manager</role>
+        <role>VIP_Retail_User</role>
+        <role>VIP_Tourism_Manager</role>
+        <role>VIP_Tourism_User</role>
+        <role>Wertheim_TIC</role>
+        <roleAndSubordinates>Group_Tourism</roleAndSubordinates>
+    </sharedTo>
+</EmailFolder>

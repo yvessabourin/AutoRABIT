@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Village__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <externalId>false</externalId>
+    <inlineHelpText>If this focus setting is to be village specific then associate it with the appropriate village</inlineHelpText>
+    <label>Village</label>
+    <referenceTo>Village__c</referenceTo>
+    <relationshipLabel>Opportunity Focus</relationshipLabel>
+    <relationshipName>Opportunity_Focus</relationshipName>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

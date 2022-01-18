@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Email</fullName>
+    <inlineHelpText>Please enter a unique email address. If the email address is already associated with another contact (Error: Duplicate value on record) then please enter the address into the &quot;Secondary Email Address&quot; field,and leave this field empty</inlineHelpText>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+</CustomField>

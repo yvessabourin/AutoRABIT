@@ -1,0 +1,595 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Brand_Subsegment__c</fullName>
+    <description>The secondary market segment</description>
+    <externalId>false</externalId>
+    <inlineHelpText>The secondary market segment</inlineHelpText>
+    <label>Brand Subsegment</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Brand_Segment__c</controllingField>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Books &amp; Stationary</fullName>
+                <default>false</default>
+                <label>Books &amp; Stationary</label>
+            </value>
+            <value>
+                <fullName>Accessories</fullName>
+                <default>false</default>
+                <label>Accessories</label>
+            </value>
+            <value>
+                <fullName>Baby &amp; Toddler Apparel</fullName>
+                <default>false</default>
+                <label>Baby &amp; Toddler Apparel</label>
+            </value>
+            <value>
+                <fullName>Beauty Services</fullName>
+                <default>false</default>
+                <label>Beauty Services</label>
+            </value>
+            <value>
+                <fullName>Glasses</fullName>
+                <default>false</default>
+                <label>Glasses</label>
+            </value>
+            <value>
+                <fullName>Fast Food</fullName>
+                <default>false</default>
+                <label>Fast Food</label>
+            </value>
+            <value>
+                <fullName>Casual Footwear</fullName>
+                <default>false</default>
+                <label>Casual Footwear</label>
+            </value>
+            <value>
+                <fullName>Books &amp; Stationery</fullName>
+                <default>false</default>
+                <label>Books &amp; Stationery</label>
+            </value>
+            <value>
+                <fullName>Classroom Space</fullName>
+                <default>false</default>
+                <label>Classroom Space</label>
+            </value>
+            <value>
+                <fullName>Pyjamas and Loungewear</fullName>
+                <default>false</default>
+                <label>Pyjamas and Loungewear</label>
+            </value>
+            <value>
+                <fullName>Leather Goods</fullName>
+                <default>false</default>
+                <label>Leather Goods</label>
+            </value>
+            <value>
+                <fullName>Sports Apparel</fullName>
+                <default>false</default>
+                <label>Sports Apparel</label>
+            </value>
+            <value>
+                <fullName>Beachwear</fullName>
+                <default>false</default>
+                <label>Beachwear</label>
+            </value>
+            <value>
+                <fullName>Home Tech</fullName>
+                <default>false</default>
+                <label>Home Tech</label>
+            </value>
+            <value>
+                <fullName>Travel &amp; Luggage</fullName>
+                <default>false</default>
+                <label>Travel &amp; Luggage</label>
+            </value>
+            <value>
+                <fullName>Jewellery</fullName>
+                <default>false</default>
+                <label>Jewellery</label>
+            </value>
+            <value>
+                <fullName>Children&apos;s Apparel</fullName>
+                <default>false</default>
+                <label>Children&apos;s Apparel</label>
+            </value>
+            <value>
+                <fullName>Colour Cosmetics</fullName>
+                <default>false</default>
+                <label>Colour Cosmetics</label>
+            </value>
+            <value>
+                <fullName>Sunglasses</fullName>
+                <default>false</default>
+                <label>Sunglasses</label>
+            </value>
+            <value>
+                <fullName>Kiosk</fullName>
+                <default>false</default>
+                <label>Kiosk</label>
+            </value>
+            <value>
+                <fullName>Children&apos;s Footwear</fullName>
+                <default>false</default>
+                <label>Children&apos;s Footwear</label>
+            </value>
+            <value>
+                <fullName>Cookware</fullName>
+                <default>false</default>
+                <label>Cookware</label>
+            </value>
+            <value>
+                <fullName>Concept Store</fullName>
+                <default>false</default>
+                <label>Concept Store</label>
+            </value>
+            <value>
+                <fullName>Socks and Hosiery</fullName>
+                <default>false</default>
+                <label>Socks and Hosiery</label>
+            </value>
+            <value>
+                <fullName>Sports Footwear</fullName>
+                <default>false</default>
+                <label>Sports Footwear</label>
+            </value>
+            <value>
+                <fullName>Swimsuits</fullName>
+                <default>false</default>
+                <label>Swimsuits</label>
+            </value>
+            <value>
+                <fullName>Personal Tech</fullName>
+                <default>false</default>
+                <label>Personal Tech</label>
+            </value>
+            <value>
+                <fullName>Watches</fullName>
+                <default>false</default>
+                <label>Watches</label>
+            </value>
+            <value>
+                <fullName>Denim</fullName>
+                <default>false</default>
+                <label>Denim</label>
+            </value>
+            <value>
+                <fullName>Fragrance</fullName>
+                <default>false</default>
+                <label>Fragrance</label>
+            </value>
+            <value>
+                <fullName>Eyewear</fullName>
+                <default>false</default>
+                <label>Eyewear</label>
+            </value>
+            <value>
+                <fullName>Packaged Products</fullName>
+                <default>false</default>
+                <label>Packaged Products</label>
+            </value>
+            <value>
+                <fullName>Classic Footwear</fullName>
+                <default>false</default>
+                <label>Classic Footwear</label>
+            </value>
+            <value>
+                <fullName>Home Décor</fullName>
+                <default>false</default>
+                <label>Home Décor</label>
+            </value>
+            <value>
+                <fullName>Event/Experiential Space</fullName>
+                <default>false</default>
+                <label>Event/Experiential Space</label>
+            </value>
+            <value>
+                <fullName>Underwear and Lingerie</fullName>
+                <default>false</default>
+                <label>Underwear and Lingerie</label>
+            </value>
+            <value>
+                <fullName>Outdoor</fullName>
+                <default>false</default>
+                <label>Outdoor</label>
+            </value>
+            <value>
+                <fullName>Swimwear</fullName>
+                <default>false</default>
+                <label>Swimwear</label>
+            </value>
+            <value>
+                <fullName>Tech</fullName>
+                <default>false</default>
+                <label>Tech</label>
+            </value>
+            <value>
+                <fullName>Watches &amp; Jewellery</fullName>
+                <default>false</default>
+                <label>Watches &amp; Jewellery</label>
+            </value>
+            <value>
+                <fullName>Fashion Apparel</fullName>
+                <default>false</default>
+                <label>Fashion Apparel</label>
+            </value>
+            <value>
+                <fullName>Haircare</fullName>
+                <default>false</default>
+                <label>Haircare</label>
+            </value>
+            <value>
+                <fullName>Restaurant</fullName>
+                <default>false</default>
+                <label>Restaurant</label>
+            </value>
+            <value>
+                <fullName>Fashion Footwear</fullName>
+                <default>false</default>
+                <label>Fashion Footwear</label>
+            </value>
+            <value>
+                <fullName>Linens &amp; Towels</fullName>
+                <default>false</default>
+                <label>Linens &amp; Towels</label>
+            </value>
+            <value>
+                <fullName>Personalisation Space</fullName>
+                <default>false</default>
+                <label>Personalisation Space</label>
+            </value>
+            <value>
+                <fullName>Intimates &amp; Hosiery</fullName>
+                <default>false</default>
+                <label>Intimates &amp; Hosiery</label>
+            </value>
+            <value>
+                <fullName>Sports &amp; Active</fullName>
+                <default>false</default>
+                <label>Sports &amp; Active</label>
+            </value>
+            <value>
+                <fullName>Formal Apparel</fullName>
+                <default>false</default>
+                <label>Formal Apparel</label>
+            </value>
+            <value>
+                <fullName>Skincare</fullName>
+                <default>false</default>
+                <label>Skincare</label>
+            </value>
+            <value>
+                <fullName>Food &amp; Drink</fullName>
+                <default>false</default>
+                <label>Food &amp; Drink</label>
+            </value>
+            <value>
+                <fullName>Footwear</fullName>
+                <default>false</default>
+                <label>Footwear</label>
+            </value>
+            <value>
+                <fullName>Toys</fullName>
+                <default>false</default>
+                <label>Toys</label>
+            </value>
+            <value>
+                <fullName>Rental</fullName>
+                <default>false</default>
+                <label>Rental</label>
+            </value>
+            <value>
+                <fullName>Knitwear</fullName>
+                <default>false</default>
+                <label>Knitwear</label>
+            </value>
+            <value>
+                <fullName>Beauty &amp; Skincare</fullName>
+                <default>false</default>
+                <label>Beauty &amp; Skincare</label>
+            </value>
+            <value>
+                <fullName>Homewares</fullName>
+                <default>false</default>
+                <label>Homewares</label>
+            </value>
+            <value>
+                <fullName>Resale</fullName>
+                <default>false</default>
+                <label>Resale</label>
+            </value>
+            <value>
+                <fullName>Lifestyle Apparel</fullName>
+                <default>false</default>
+                <label>Lifestyle Apparel</label>
+            </value>
+            <value>
+                <fullName>Showrooming (full price/online sales)</fullName>
+                <default>false</default>
+                <label>Showrooming (full price/online sales)</label>
+            </value>
+            <value>
+                <fullName>Outerwear</fullName>
+                <default>false</default>
+                <label>Outerwear</label>
+            </value>
+            <value>
+                <fullName>White Box Space (rotating pop ups)</fullName>
+                <default>false</default>
+                <label>White Box Space (rotating pop ups)</label>
+            </value>
+            <value>
+                <fullName>Apparel</fullName>
+                <default>false</default>
+                <label>Apparel</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Sports &amp; Active</controllingFieldValue>
+            <valueName>Sports Apparel</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Sports &amp; Active</controllingFieldValue>
+            <controllingFieldValue>Footwear</controllingFieldValue>
+            <valueName>Sports Footwear</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Sports &amp; Active</controllingFieldValue>
+            <valueName>Outdoor</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Sports &amp; Active</controllingFieldValue>
+            <valueName>Sports &amp; Active</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Swimwear</controllingFieldValue>
+            <valueName>Beachwear</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Swimwear</controllingFieldValue>
+            <valueName>Swimsuits</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Swimwear</controllingFieldValue>
+            <valueName>Swimwear</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Tech</controllingFieldValue>
+            <valueName>Home Tech</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Tech</controllingFieldValue>
+            <valueName>Personal Tech</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Tech</controllingFieldValue>
+            <valueName>Tech</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Travel &amp; Luggage</controllingFieldValue>
+            <valueName>Travel &amp; Luggage</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Watches &amp; Jewellery</controllingFieldValue>
+            <valueName>Jewellery</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Watches &amp; Jewellery</controllingFieldValue>
+            <valueName>Watches</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Watches &amp; Jewellery</controllingFieldValue>
+            <valueName>Watches &amp; Jewellery</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Accessories</controllingFieldValue>
+            <valueName>Accessories</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Apparel</controllingFieldValue>
+            <valueName>Baby &amp; Toddler Apparel</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Apparel</controllingFieldValue>
+            <valueName>Children&apos;s Apparel</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Apparel</controllingFieldValue>
+            <valueName>Denim</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Apparel</controllingFieldValue>
+            <valueName>Fashion Apparel</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Apparel</controllingFieldValue>
+            <valueName>Formal Apparel</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Apparel</controllingFieldValue>
+            <valueName>Knitwear</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Apparel</controllingFieldValue>
+            <valueName>Lifestyle Apparel</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Apparel</controllingFieldValue>
+            <valueName>Outerwear</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Apparel</controllingFieldValue>
+            <valueName>Apparel</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Beauty &amp; Skincare</controllingFieldValue>
+            <valueName>Beauty Services</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Beauty &amp; Skincare</controllingFieldValue>
+            <valueName>Colour Cosmetics</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Beauty &amp; Skincare</controllingFieldValue>
+            <valueName>Fragrance</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Beauty &amp; Skincare</controllingFieldValue>
+            <valueName>Haircare</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Beauty &amp; Skincare</controllingFieldValue>
+            <valueName>Skincare</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Beauty &amp; Skincare</controllingFieldValue>
+            <valueName>Beauty &amp; Skincare</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Eyewear</controllingFieldValue>
+            <valueName>Glasses</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Eyewear</controllingFieldValue>
+            <valueName>Sunglasses</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Eyewear</controllingFieldValue>
+            <valueName>Eyewear</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Food &amp; Drink</controllingFieldValue>
+            <valueName>Fast Food</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Food &amp; Drink</controllingFieldValue>
+            <valueName>Kiosk</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Food &amp; Drink</controllingFieldValue>
+            <valueName>Packaged Products</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Food &amp; Drink</controllingFieldValue>
+            <valueName>Restaurant</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Food &amp; Drink</controllingFieldValue>
+            <valueName>Food &amp; Drink</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Footwear</controllingFieldValue>
+            <valueName>Casual Footwear</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Footwear</controllingFieldValue>
+            <valueName>Children&apos;s Footwear</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Footwear</controllingFieldValue>
+            <valueName>Classic Footwear</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Footwear</controllingFieldValue>
+            <valueName>Fashion Footwear</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Footwear</controllingFieldValue>
+            <valueName>Footwear</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Homewares</controllingFieldValue>
+            <valueName>Books &amp; Stationary</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Homewares</controllingFieldValue>
+            <valueName>Books &amp; Stationery</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Homewares</controllingFieldValue>
+            <valueName>Cookware</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Homewares</controllingFieldValue>
+            <valueName>Home Décor</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Homewares</controllingFieldValue>
+            <valueName>Linens &amp; Towels</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Homewares</controllingFieldValue>
+            <valueName>Toys</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Homewares</controllingFieldValue>
+            <valueName>Homewares</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Innovative Concepts</controllingFieldValue>
+            <valueName>Classroom Space</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Innovative Concepts</controllingFieldValue>
+            <valueName>Concept Store</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Innovative Concepts</controllingFieldValue>
+            <valueName>Event/Experiential Space</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Innovative Concepts</controllingFieldValue>
+            <valueName>Personalisation Space</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Innovative Concepts</controllingFieldValue>
+            <valueName>Rental</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Innovative Concepts</controllingFieldValue>
+            <valueName>Resale</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Innovative Concepts</controllingFieldValue>
+            <valueName>Showrooming (full price/online sales)</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Innovative Concepts</controllingFieldValue>
+            <valueName>White Box Space (rotating pop ups)</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Innovative Concepts</controllingFieldValue>
+            <valueName>Other</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Intimates &amp; Hosiery</controllingFieldValue>
+            <valueName>Pyjamas and Loungewear</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Intimates &amp; Hosiery</controllingFieldValue>
+            <valueName>Socks and Hosiery</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Intimates &amp; Hosiery</controllingFieldValue>
+            <valueName>Underwear and Lingerie</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Intimates &amp; Hosiery</controllingFieldValue>
+            <valueName>Intimates &amp; Hosiery</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Leather Goods</controllingFieldValue>
+            <valueName>Leather Goods</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

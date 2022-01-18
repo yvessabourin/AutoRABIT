@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help>Saisir le montant des ventes de la collection actuelle. Si aucun produit n&apos;a été vendu, merci de saisir 0.</help>
+    <label>€ HT de ventes de la collection actuelle</label>
+    <name>Full_Price_Sales__c</name>
+</CustomFieldTranslation>

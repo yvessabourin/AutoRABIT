@@ -1,0 +1,11 @@
+<design:component label="Daily Sales List Display">
+	<design:attribute name="tableTitle" label="Table Title" description="List header text, to use custom label, use syntax .. $Label.name"/>
+	<design:attribute name="fieldSetName" label="Field Set Name (API Name)"  description="API Name of predefined Field Set which defines the columns to display"/>
+    <design:attribute name="listViewName" label="List View Name (Display Name)" description="Display name of predefined List View containing the data to display"/>
+    <design:attribute name="confirmList" label="Confirm List Override" description="Override List view name and display list in accordance with Daily Sale confirm list logic" />
+    <design:attribute name="storeFilter" label="Show Store Filter Dropdown" description="Display a dropdown to allow table to be filtered by Store name" />
+
+    <design:attribute name="sortColumn" label="Default Sort Column" description="API Name of column to initially sort the list by" />
+    <design:attribute name="sortDirection" label="Sort Direction" datasource="ASC,DESC" default="DESC" description="Initial sort direction" />
+    
+</design:component>

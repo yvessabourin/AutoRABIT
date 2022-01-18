@@ -1,0 +1,96 @@
+<template>
+	<c-lgl-lock-screen></c-lgl-lock-screen>
+
+	<lightning-spinner
+		class="slds-is-fixed"
+		if:true={loading}
+		alternative-text="Loading"
+		size="large"
+	></lightning-spinner>
+	<div>
+		<c-lgl-card title="Summary">
+			<c-lgl-table
+				slot="bodyContent"
+				columns={serviceItemsTableFields}
+				rows={checkoutItems}
+				table-key="Id"
+				empty-table-text="No Service Items for this Service Type"
+				show-total
+				total-label="Total Items"
+			>
+			</c-lgl-table>
+		</c-lgl-card>
+	</div>
+
+	<div class="slds-var-m-top_large">
+		<c-lgl-card title="Guest Handover">
+			<div slot="bodyContent">
+				<template if:true={showAcceptCheckbox}>
+					<lightning-input
+						type="checkbox"
+						label={checkoutCheckboxLabel}
+						name="agreeCheckbox"
+						required
+					></lightning-input>
+				</template>
+
+				<div class="slds-grid slds-var-m-top_medium">
+					<div class="slds-size_3-of-8">
+						<c-lgl-rating-component
+							label="How likely are you to recommend the service?"
+							min-value-label="Not likely at all"
+							max-value-label="Very likely"
+							min-value="0"
+							max-value="10"
+							required
+							radio-group-name="LGL_Likely_To_Recommend__c"
+							onchange={handleRadioChange}
+						>
+						</c-lgl-rating-component>
+					</div>
+					<div class="slds-size_3-of-8 slds-var-p-left_medium">
+						<c-lgl-rating-component
+							label="What is your level of satisfaction with the service?"
+							min-value-label="Highly dissatisfied"
+							max-value-label="Highly satisfied"
+							min-value="1"
+							max-value="5"
+							required
+							radio-group-name="LGL_Satisfaction_Level__c"
+							onchange={handleRadioChange}
+						>
+						</c-lgl-rating-component>
+					</div>
+					<div if:true={showTextArea} class="slds-size_2-of-8 slds-var-p-left_medium">
+						<textarea
+							name="LGL_Improve_Comments__c"
+							placeholder="What could we improve?"
+							class="slds-textarea"
+							onchange={handleTextAreaChange}
+						>
+						</textarea>
+					</div>
+				</div>
+
+				<div class="slds-var-m-top_medium">
+					<c-lgl-signature-canvas></c-lgl-signature-canvas>
+				</div>
+			</div>
+		</c-lgl-card>
+	</div>
+
+	<div class="slds-var-m-top_medium lgl-action-panel">
+		<button type="button" onclick={handleCloseServices}>Confirm Checkout</button>
+		<button type="button" onclick={handleCancel}>Cancel</button>
+	</div>
+
+	<c-lgl-modal>
+		<p slot="modalBody">
+			Would you like to re-open the left luggage now that space is available?
+		</p>
+		<div slot="modalFooter" class="lgl-action-panel">
+			<button type="button" value="yes" onclick={handleUnlockingRequestModal}>Yes</button>
+			<button type="button" value="no" onclick={handleUnlockingRequestModal}>No</button>
+		</div>
+	</c-lgl-modal>
+</template>

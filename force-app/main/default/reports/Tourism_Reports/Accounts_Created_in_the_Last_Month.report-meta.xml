@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Lists the number of accounts created in the last 30 days, by Account Owner</description>
+    <filter>
+        <criteriaItems>
+            <column>RECORDTYPE</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>Account.Tourism</value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
+    <format>Matrix</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>USERS.NAME</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>Accounts Created in the Last Month</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>AccountList</reportType>
+    <scope>organization</scope>
+    <showDetails>false</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>CREATED_DATE</dateColumn>
+        <interval>INTERVAL_LAST30</interval>
+    </timeFrameFilter>
+</Report>

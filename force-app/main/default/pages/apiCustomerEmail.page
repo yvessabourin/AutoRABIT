@@ -1,0 +1,60 @@
+<apex:page StandardController="Account" extensions="apiCustomerController" docType="html-5.0" lightningStylesheets="true">
+<apex:pageMessages id="pgMsgs"/>
+   
+   <head>
+       <apex:stylesheet value="{!URLFOR($Resource.SLDS0121, 'assets/styles/salesforce-lightning-design-system-vf.css')}" />  
+   </head>
+   
+   <script>
+       function processResult(){
+           var result = emailResult.value;
+           alert(result);
+           window.location.href = '/{!Account.Id}';
+       }
+   
+   </script>
+
+    <script type="text/javascript">
+        if ({!showMessagePersonEmail}) {
+            confirm('{!alertMessagePersonEmail}');
+            window.location = '/{!Account.Id}';
+        }
+    </script>
+
+    <apex:form >
+         <div class="slds">
+         <c:ProcessSpinner2 MessageText="Saving, please wait ...." />
+         <apex:actionfunction name="saveEmail" action="{!saveEmail}" oncomplete="processResult();" status="processingStatus" reRender="pbs1,emailResult" />
+         <div class="slds-grid">
+         <div class="slds-col">
+             <apex:pageBlock id="pb1">
+                <apex:pageBlockButtons location="both"  >
+                    <apex:commandButton oncomplete="saveEmail();" value="Save"   />
+                    <apex:commandButton action="{!Cancel}" value="Cancel" html-formnovalidate="formnovalidate" />
+                </apex:pageBlockButtons>
+                <apex:pageBlockSection id="pbs1" columns="1"  collapsible="false">
+                <div class="slds-page-header" role="banner">                            
+                    <h1 class="slds-text-heading--small slds-m-bottom--small slds-align-middle">
+                        Guest Email
+                    </h1>
+                </div>
+                <apex:inputHidden value="{!emailResult}" id="emailResult" />
+                <script>
+                    var emailResult = document.getElementById('{!$Component.emailResult}');
+                </script>
+                <apex:outputText id="current" value="{!$CurrentPage.parameters.currentEmail}" label="Current Email" /> 
+                <apex:input id="email" value="{!newEmail}" label="New Email" type="auto"
+                                    html-pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,63}$"
+                                    html-placeholder="you@example.com"                                
+                                    title="Please enter a valid email address"
+                                    />  
+                </apex:pageBlockSection>
+            </apex:pageBlock>
+              
+        </div>
+        </div>                          
+              
+              
+        </div>
+    </apex:form>                                            
+</apex:page>

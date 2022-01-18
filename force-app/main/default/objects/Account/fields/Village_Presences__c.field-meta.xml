@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Village_Presences__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>The number of villages where this brand is present</inlineHelpText>
+    <label>Village Presences</label>
+    <summaryFilterItems>
+        <field>Village_Presence__c.Status__c</field>
+        <operation>equals</operation>
+        <value>Trading</value>
+    </summaryFilterItems>
+    <summaryForeignKey>Village_Presence__c.Brand__c</summaryForeignKey>
+    <summaryOperation>count</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <type>Summary</type>
+</CustomField>

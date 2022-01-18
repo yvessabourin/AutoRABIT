@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Bicester</fullName>
+        <default>false</default>
+        <label>Bicester</label>
+    </customValue>
+    <customValue>
+        <fullName>Fidenza</fullName>
+        <default>false</default>
+        <label>Fidenza</label>
+    </customValue>
+    <customValue>
+        <fullName>Ingolstadt</fullName>
+        <default>false</default>
+        <label>Ingolstadt</label>
+    </customValue>
+    <customValue>
+        <fullName>Kildare</fullName>
+        <default>false</default>
+        <label>Kildare</label>
+    </customValue>
+    <customValue>
+        <fullName>La Roca</fullName>
+        <default>false</default>
+        <label>La Roca</label>
+    </customValue>
+    <customValue>
+        <fullName>Las Rozas</fullName>
+        <default>false</default>
+        <label>Las Rozas</label>
+    </customValue>
+    <customValue>
+        <fullName>La Vallée</fullName>
+        <default>false</default>
+        <label>La Vallée</label>
+    </customValue>
+    <customValue>
+        <fullName>Maasmechelen</fullName>
+        <default>false</default>
+        <label>Maasmechelen</label>
+    </customValue>
+    <customValue>
+        <fullName>Shanghai</fullName>
+        <default>false</default>
+        <label>Shanghai</label>
+    </customValue>
+    <customValue>
+        <fullName>Suzhou</fullName>
+        <default>false</default>
+        <label>Suzhou</label>
+    </customValue>
+    <customValue>
+        <fullName>Wertheim</fullName>
+        <default>false</default>
+        <label>Wertheim</label>
+    </customValue>
+    <description>A list of all the villages</description>
+    <masterLabel>Village</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

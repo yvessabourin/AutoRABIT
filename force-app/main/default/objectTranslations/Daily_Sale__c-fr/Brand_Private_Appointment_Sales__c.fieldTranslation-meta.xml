@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help>Saisir le montant HT des ventes des rdv privés en boutique. Si aucun produit n&apos;a été vendu merci de saisir 0.</help>
+    <label>Total HT ventes rdv privés en boutique</label>
+    <name>Brand_Private_Appointment_Sales__c</name>
+</CustomFieldTranslation>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Cant_collect_exp_with_outstanding_bags2</fullName>
+    <active>true</active>
+    <errorConditionFormula>ISCHANGED(Status__c ) &amp;&amp; Requested_Items__c &gt; 0 &amp;&amp;   OR(ISPICKVAL(Status__c , &quot;Customer Collected&quot;), ISPICKVAL(Status__c , &quot;Customer Requested&quot;))</errorConditionFormula>
+    <errorDisplayField>Status__c</errorDisplayField>
+    <errorMessage>There are outstanding items that have not been checked into storage. Please check items before closing this HFS Experience.</errorMessage>
+</ValidationRule>

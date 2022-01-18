@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>From_date_AND_To_date_in_same_Year</fullName>
+    <active>true</active>
+    <errorConditionFormula>YEAR(Active_From_Date__c) &lt;&gt; YEAR(Active_To_Date__c)</errorConditionFormula>
+    <errorMessage>The Active From date and Active To Date must be in the same year.</errorMessage>
+</ValidationRule>

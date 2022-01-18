@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fieldUpdates>
+        <fullName>MICE_Unique_Field_on_Redeemable_Camp</fullName>
+        <field>Unique_Redeemable_Campaign_Field__c</field>
+        <formula>Group_Booking__r.Id</formula>
+        <name>MICE Unique Field on Redeemable Camp</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Populate_Unique_Field_on_Redeemable_Camp</fullName>
+        <description>Populate Unique Field on Redeemable Camp to ensure it is unique</description>
+        <field>Unique_Redeemable_Campaign_Field__c</field>
+        <formula>Parent.X18_digit_id__c &amp;  Village__c &amp;
+
+
+IF(INCLUDES(Communication_Channel__c, &quot;Email&quot;),&quot;Email&quot;, &quot;&quot;)
+&amp;IF(INCLUDES( Communication_Channel__c, &quot;Publication&quot;),&quot;Publication&quot;,&quot;&quot;)
+&amp;IF(INCLUDES(Communication_Channel__c, &quot;SMS&quot;),&quot;SMS&quot;, &quot;&quot;)
+&amp;IF(INCLUDES(Communication_Channel__c, &quot;Postal&quot;),&quot;Postal&quot;, &quot;&quot;)
+&amp;IF(INCLUDES(Communication_Channel__c, &quot;Website&quot;),&quot;Website&quot;, &quot;&quot;)
+&amp;IF(INCLUDES(Communication_Channel__c, &quot;Leaflet/Coupon&quot;),&quot;Leaflet/Coupon&quot;, &quot;&quot;)
+&amp;IF(INCLUDES(Communication_Channel__c, &quot;Social Media&quot;),&quot;Social Media&quot;, &quot;&quot;)
+&amp;IF(INCLUDES(Communication_Channel__c, &quot;Face-to-face&quot;),&quot;Face-to-face&quot;, &quot;&quot;)
+&amp;IF(INCLUDES(Communication_Channel__c, &quot;Other Media (TV/Radio)&quot;),&quot;Other Media (TV/Radio)&quot;, &quot;&quot;)
+&amp;IF(INCLUDES(Communication_Channel__c, &quot;Telephone&quot;),&quot;Telephone&quot;, &quot;&quot;)</formula>
+        <name>Populate Unique Field on Redeemable Camp</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Group_Campaign_Name</fullName>
+        <field>Name</field>
+        <formula>&quot;VR&quot; &amp;   RIGHT(TEXT(YEAR(StartDate)),2) &amp; &quot; - &quot; &amp;  Name</formula>
+        <name>Update Group Campaign Name</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>populate_18_digit_Campaign_ID</fullName>
+        <field>X18_digit_id__c</field>
+        <formula>CASESAFEID(Id)</formula>
+        <name>populate 18 digit Campaign ID</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <outboundMessages>
+        <fullName>ObmCampaign</fullName>
+        <apiVersion>32.0</apiVersion>
+        <endpointUrl>https://api.valueretail.com/sf/campaign/v1.0/ObmCampaign.asmx</endpointUrl>
+        <fields>ActualCost</fields>
+        <fields>AmountAllOpportunities</fields>
+        <fields>AmountWonOpportunities</fields>
+        <fields>BudgetedCost</fields>
+        <fields>COS_Campaign__c</fields>
+        <fields>Calculated_Status__c</fields>
+        <fields>CampaignMemberRecordTypeId</fields>
+        <fields>Campaign_Category__c</fields>
+        <fields>Communication_Channel__c</fields>
+        <fields>Contact_Details_Required__c</fields>
+        <fields>CreatedById</fields>
+        <fields>CreatedDate</fields>
+        <fields>Description</fields>
+        <fields>EndDate</fields>
+        <fields>ExpectedResponse</fields>
+        <fields>ExpectedRevenue</fields>
+        <fields>Group_Booking__c</fields>
+        <fields>HierarchyActualCost</fields>
+        <fields>HierarchyAmountAllOpportunities</fields>
+        <fields>HierarchyAmountWonOpportunities</fields>
+        <fields>HierarchyBudgetedCost</fields>
+        <fields>HierarchyExpectedRevenue</fields>
+        <fields>HierarchyNumberOfContacts</fields>
+        <fields>HierarchyNumberOfConvertedLeads</fields>
+        <fields>HierarchyNumberOfLeads</fields>
+        <fields>HierarchyNumberOfOpportunities</fields>
+        <fields>HierarchyNumberOfResponses</fields>
+        <fields>HierarchyNumberOfWonOpportunities</fields>
+        <fields>HierarchyNumberSent</fields>
+        <fields>Id</fields>
+        <fields>Incentive__c</fields>
+        <fields>IsActive</fields>
+        <fields>IsDeleted</fields>
+        <fields>LastActivityDate</fields>
+        <fields>LastModifiedById</fields>
+        <fields>LastModifiedDate</fields>
+        <fields>LastReferencedDate</fields>
+        <fields>LastViewedDate</fields>
+        <fields>Multi_Channel_Campaign__c</fields>
+        <fields>Multi_Village_Campaign__c</fields>
+        <fields>Name</fields>
+        <fields>NumberOfContacts</fields>
+        <fields>NumberOfConvertedLeads</fields>
+        <fields>NumberOfLeads</fields>
+        <fields>NumberOfOpportunities</fields>
+        <fields>NumberOfResponses</fields>
+        <fields>NumberOfWonOpportunities</fields>
+        <fields>NumberSent</fields>
+        <fields>Old_Instance_Id__c</fields>
+        <fields>OwnerId</fields>
+        <fields>ParentId</fields>
+        <fields>Parent_Campaign_ID__c</fields>
+        <fields>Partner__c</fields>
+        <fields>QR_Code_Image__c</fields>
+        <fields>RecordTypeId</fields>
+        <fields>StartDate</fields>
+        <fields>Status</fields>
+        <fields>SystemModstamp</fields>
+        <fields>Target_Audience__c</fields>
+        <fields>Test_Campaign__c</fields>
+        <fields>Total_Redemptions__c</fields>
+        <fields>Type</fields>
+        <fields>Unique_Redeemable_Campaign_Field__c</fields>
+        <fields>Village__c</fields>
+        <fields>Villages__c</fields>
+        <fields>X18_digit_id__c</fields>
+        <fields>campaignID__c</fields>
+        <includeSessionId>true</includeSessionId>
+        <integrationUser>b2capi@valueretail.com</integrationUser>
+        <name>ObmCampaign</name>
+        <protected>false</protected>
+        <useDeadLetterQueue>false</useDeadLetterQueue>
+    </outboundMessages>
+    <rules>
+        <fullName>Populate MICE Unique Field on Redeemable Camp</fullName>
+        <actions>
+            <name>MICE_Unique_Field_on_Redeemable_Camp</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Campaign.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>MICE Redeemable Campaign</value>
+        </criteriaItems>
+        <description>This workflow rule ensures a Group booking can only have one MICE campaign registered against it</description>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Populate Unique Field on Redeemable Camp</fullName>
+        <actions>
+            <name>Populate_Unique_Field_on_Redeemable_Camp</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>false</active>
+        <criteriaItems>
+            <field>Campaign.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Redeemable Campaign</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Campaign.Description</field>
+            <operation>notContain</operation>
+            <value>group</value>
+        </criteriaItems>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Sync Campaigns with B2C Customer ODS</fullName>
+        <actions>
+            <name>ObmCampaign</name>
+            <type>OutboundMessage</type>
+        </actions>
+        <active>false</active>
+        <criteriaItems>
+            <field>Campaign.CreatedDate</field>
+            <operation>greaterThan</operation>
+            <value>1/1/1900</value>
+        </criteriaItems>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Update Group Campaign Name</fullName>
+        <actions>
+            <name>Update_Group_Campaign_Name</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Campaign.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Group Campaign</value>
+        </criteriaItems>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>populate 18 digit Campaign ID</fullName>
+        <actions>
+            <name>populate_18_digit_Campaign_ID</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Campaign.X18_digit_id__c</field>
+            <operation>equals</operation>
+        </criteriaItems>
+        <description>referenced by the QR code (casesafeid() uses too many characters)</description>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+</Workflow>

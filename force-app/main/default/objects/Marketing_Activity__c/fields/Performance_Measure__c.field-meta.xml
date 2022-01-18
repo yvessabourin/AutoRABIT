@@ -1,0 +1,1337 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Performance_Measure__c</fullName>
+    <description>.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>How to measure activity</inlineHelpText>
+    <label>Performance Measure</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <controllingField>Sub_Channel__c</controllingField>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName># Actual Cost</fullName>
+                <default>false</default>
+                <label># Actual Cost</label>
+            </value>
+            <value>
+                <fullName># Actual Participants</fullName>
+                <default>false</default>
+                <label># Actual Participants</label>
+            </value>
+            <value>
+                <fullName># Articles (print, online, social media)</fullName>
+                <default>false</default>
+                <label># Articles (print, online, social media)</label>
+            </value>
+            <value>
+                <fullName># Bounce Rate</fullName>
+                <default>false</default>
+                <label># Bounce Rate</label>
+            </value>
+            <value>
+                <fullName># Brand Mentions</fullName>
+                <default>false</default>
+                <label># Brand Mentions</label>
+            </value>
+            <value>
+                <fullName># Brands engagement</fullName>
+                <default>false</default>
+                <label># Brands engagement</label>
+            </value>
+            <value>
+                <fullName># Budget Cost</fullName>
+                <default>false</default>
+                <label># Budget Cost</label>
+            </value>
+            <value>
+                <fullName># Contracts</fullName>
+                <default>false</default>
+                <label># Contracts</label>
+            </value>
+            <value>
+                <fullName># Cost</fullName>
+                <default>false</default>
+                <label># Cost</label>
+            </value>
+            <value>
+                <fullName># Emails Bounced</fullName>
+                <default>false</default>
+                <label># Emails Bounced</label>
+            </value>
+            <value>
+                <fullName># Emails Clicked</fullName>
+                <default>false</default>
+                <label># Emails Clicked</label>
+            </value>
+            <value>
+                <fullName># Emails Opened</fullName>
+                <default>false</default>
+                <label># Emails Opened</label>
+            </value>
+            <value>
+                <fullName># Emails Opted Out</fullName>
+                <default>false</default>
+                <label># Emails Opted Out</label>
+            </value>
+            <value>
+                <fullName># Emails Sent</fullName>
+                <default>false</default>
+                <label># Emails Sent</label>
+            </value>
+            <value>
+                <fullName># Emails Skipped</fullName>
+                <default>false</default>
+                <label># Emails Skipped</label>
+            </value>
+            <value>
+                <fullName># Expected Participants</fullName>
+                <default>false</default>
+                <label># Expected Participants</label>
+            </value>
+            <value>
+                <fullName># Footfall</fullName>
+                <default>false</default>
+                <label># Footfall</label>
+            </value>
+            <value>
+                <fullName># Group Bookings</fullName>
+                <default>false</default>
+                <label># Group Bookings</label>
+            </value>
+            <value>
+                <fullName># Guests attended</fullName>
+                <default>false</default>
+                <label># Guests attended</label>
+            </value>
+            <value>
+                <fullName>#Hashtag Mentions</fullName>
+                <default>false</default>
+                <label>#Hashtag Mentions</label>
+            </value>
+            <value>
+                <fullName># Hashtag Mentions</fullName>
+                <default>false</default>
+                <label># Hashtag Mentions</label>
+            </value>
+            <value>
+                <fullName># Interviews</fullName>
+                <default>false</default>
+                <label># Interviews</label>
+            </value>
+            <value>
+                <fullName># Invitations Sent</fullName>
+                <default>false</default>
+                <label># Invitations Sent</label>
+            </value>
+            <value>
+                <fullName># Leads</fullName>
+                <default>false</default>
+                <label># Leads</label>
+            </value>
+            <value>
+                <fullName># Mails Sent</fullName>
+                <default>false</default>
+                <label># Mails Sent</label>
+            </value>
+            <value>
+                <fullName># New Followers</fullName>
+                <default>false</default>
+                <label># New Followers</label>
+            </value>
+            <value>
+                <fullName># New Partners</fullName>
+                <default>false</default>
+                <label># New Partners</label>
+            </value>
+            <value>
+                <fullName># New Sign Ups</fullName>
+                <default>false</default>
+                <label># New Sign Ups</label>
+            </value>
+            <value>
+                <fullName># New Subscribers</fullName>
+                <default>false</default>
+                <label># New Subscribers</label>
+            </value>
+            <value>
+                <fullName># New Users</fullName>
+                <default>false</default>
+                <label># New Users</label>
+            </value>
+            <value>
+                <fullName># of Inserts in literature</fullName>
+                <default>false</default>
+                <label># of Inserts in literature</label>
+            </value>
+            <value>
+                <fullName># Outbound Links</fullName>
+                <default>false</default>
+                <label># Outbound Links</label>
+            </value>
+            <value>
+                <fullName># Pageviews</fullName>
+                <default>false</default>
+                <label># Pageviews</label>
+            </value>
+            <value>
+                <fullName># Partners</fullName>
+                <default>false</default>
+                <label># Partners</label>
+            </value>
+            <value>
+                <fullName># Partners/ Organisations</fullName>
+                <default>false</default>
+                <label># Partners/ Organisations</label>
+            </value>
+            <value>
+                <fullName># Points redeemed</fullName>
+                <default>false</default>
+                <label># Points redeemed</label>
+            </value>
+            <value>
+                <fullName># Promo code redemptions</fullName>
+                <default>false</default>
+                <label># Promo code redemptions</label>
+            </value>
+            <value>
+                <fullName># Reach</fullName>
+                <default>false</default>
+                <label># Reach</label>
+            </value>
+            <value>
+                <fullName># Registrations</fullName>
+                <default>false</default>
+                <label># Registrations</label>
+            </value>
+            <value>
+                <fullName># Sales</fullName>
+                <default>false</default>
+                <label># Sales</label>
+            </value>
+            <value>
+                <fullName># Sessions</fullName>
+                <default>false</default>
+                <label># Sessions</label>
+            </value>
+            <value>
+                <fullName># SMS Clicked</fullName>
+                <default>false</default>
+                <label># SMS Clicked</label>
+            </value>
+            <value>
+                <fullName># SMS Opened</fullName>
+                <default>false</default>
+                <label># SMS Opened</label>
+            </value>
+            <value>
+                <fullName># SMS Sent</fullName>
+                <default>false</default>
+                <label># SMS Sent</label>
+            </value>
+            <value>
+                <fullName># Subscribers</fullName>
+                <default>false</default>
+                <label># Subscribers</label>
+            </value>
+            <value>
+                <fullName># Tracked QR Codes</fullName>
+                <default>false</default>
+                <label># Tracked QR Codes</label>
+            </value>
+            <value>
+                <fullName># Unique Sessions</fullName>
+                <default>false</default>
+                <label># Unique Sessions</label>
+            </value>
+            <value>
+                <fullName># Unique Visitor Sessions</fullName>
+                <default>false</default>
+                <label># Unique Visitor Sessions</label>
+            </value>
+            <value>
+                <fullName># Views</fullName>
+                <default>false</default>
+                <label># Views</label>
+            </value>
+            <value>
+                <fullName># Village and Hashtag Mentions</fullName>
+                <default>false</default>
+                <label># Village and Hashtag Mentions</label>
+            </value>
+            <value>
+                <fullName># Village mentions</fullName>
+                <default>false</default>
+                <label># Village mentions</label>
+            </value>
+            <value>
+                <fullName># Villages featured</fullName>
+                <default>false</default>
+                <label># Villages featured</label>
+            </value>
+            <value>
+                <fullName># VIP Card Exchange</fullName>
+                <default>false</default>
+                <label># VIP Card Exchange</label>
+            </value>
+            <value>
+                <fullName># Website Registrations</fullName>
+                <default>false</default>
+                <label># Website Registrations</label>
+            </value>
+            <value>
+                <fullName>% Awareness</fullName>
+                <default>false</default>
+                <label>% Awareness</label>
+            </value>
+            <value>
+                <fullName>% Bounce Rate</fullName>
+                <default>false</default>
+                <label>% Bounce Rate</label>
+            </value>
+            <value>
+                <fullName>% Click through Rate to website</fullName>
+                <default>false</default>
+                <label>% Click through Rate to website</label>
+            </value>
+            <value>
+                <fullName>% Favourability scale (Gorkana)</fullName>
+                <default>false</default>
+                <label>% Favourability scale (Gorkana)</label>
+            </value>
+            <value>
+                <fullName>% Impact - growth</fullName>
+                <default>false</default>
+                <label>% Impact - growth</label>
+            </value>
+            <value>
+                <fullName>% Message penetration</fullName>
+                <default>false</default>
+                <label>% Message penetration</label>
+            </value>
+            <value>
+                <fullName>% Open Rate</fullName>
+                <default>false</default>
+                <label>% Open Rate</label>
+            </value>
+            <value>
+                <fullName>% Share of voice</fullName>
+                <default>false</default>
+                <label>% Share of voice</label>
+            </value>
+            <value>
+                <fullName>Engagement Rate - Comments</fullName>
+                <default>false</default>
+                <label>Engagement Rate - Comments</label>
+            </value>
+            <value>
+                <fullName>Engagement Rate - Likes</fullName>
+                <default>false</default>
+                <label>Engagement Rate - Likes</label>
+            </value>
+            <value>
+                <fullName>Engagement Rate - Replies</fullName>
+                <default>false</default>
+                <label>Engagement Rate - Replies</label>
+            </value>
+            <value>
+                <fullName>Engagement Rate - Retweets</fullName>
+                <default>false</default>
+                <label>Engagement Rate - Retweets</label>
+            </value>
+            <value>
+                <fullName>Engagement Rate - Shares</fullName>
+                <default>false</default>
+                <label>Engagement Rate - Shares</label>
+            </value>
+            <value>
+                <fullName>Engagement Rate - Views</fullName>
+                <default>false</default>
+                <label>Engagement Rate - Views</label>
+            </value>
+            <value>
+                <fullName>Impact</fullName>
+                <default>false</default>
+                <label>Impact</label>
+            </value>
+            <value>
+                <fullName>Reach - Followers</fullName>
+                <default>false</default>
+                <label>Reach - Followers</label>
+            </value>
+            <value>
+                <fullName>Reach - New Followers</fullName>
+                <default>false</default>
+                <label>Reach - New Followers</label>
+            </value>
+            <value>
+                <fullName>Reach - New Subscribers</fullName>
+                <default>false</default>
+                <label>Reach - New Subscribers</label>
+            </value>
+            <value>
+                <fullName>Reach - Subscribers</fullName>
+                <default>false</default>
+                <label>Reach - Subscribers</label>
+            </value>
+            <value>
+                <fullName>Time spent in a session</fullName>
+                <default>false</default>
+                <label>Time spent in a session</label>
+            </value>
+            <value>
+                <fullName>Campaign Support</fullName>
+                <default>false</default>
+                <label>Campaign Support</label>
+            </value>
+            <value>
+                <fullName># Surveys</fullName>
+                <default>false</default>
+                <label># Surveys</label>
+            </value>
+            <value>
+                <fullName>#Spend Per Visit</fullName>
+                <default>false</default>
+                <label>#Spend Per Visit</label>
+            </value>
+            <value>
+                <fullName>#Transactions</fullName>
+                <default>false</default>
+                <label>#Transactions</label>
+            </value>
+            <value>
+                <fullName>#Tracked Unique Barcodes</fullName>
+                <default>false</default>
+                <label>#Tracked Unique Barcodes</label>
+            </value>
+            <value>
+                <fullName>#Website Logins</fullName>
+                <default>false</default>
+                <label>#Website Logins</label>
+            </value>
+            <value>
+                <fullName>#New Members</fullName>
+                <default>false</default>
+                <label>#New Members</label>
+            </value>
+            <value>
+                <fullName>#Impressions</fullName>
+                <default>false</default>
+                <label>#Impressions</label>
+            </value>
+            <value>
+                <fullName>#Clicks</fullName>
+                <default>false</default>
+                <label>#Clicks</label>
+            </value>
+            <value>
+                <fullName>#Click through rate</fullName>
+                <default>false</default>
+                <label>#Click through rate</label>
+            </value>
+            <value>
+                <fullName># ATV</fullName>
+                <default>false</default>
+                <label># ATV</label>
+            </value>
+            <value>
+                <fullName># New Contacts</fullName>
+                <default>false</default>
+                <label># New Contacts</label>
+            </value>
+            <value>
+                <fullName># Number of Events</fullName>
+                <default>false</default>
+                <label># Number of Events</label>
+            </value>
+            <value>
+                <fullName># Number of Opportunities</fullName>
+                <default>false</default>
+                <label># Number of Opportunities</label>
+            </value>
+            <value>
+                <fullName># Number of Guests</fullName>
+                <default>false</default>
+                <label># Number of Guests</label>
+            </value>
+            <value>
+                <fullName># Number of Group Bookings</fullName>
+                <default>false</default>
+                <label># Number of Group Bookings</label>
+            </value>
+            <value>
+                <fullName># Points Earned</fullName>
+                <default>false</default>
+                <label># Points Earned</label>
+            </value>
+            <value>
+                <fullName># Number of VIP Cards Exchanged</fullName>
+                <default>false</default>
+                <label># Number of VIP Cards Exchanged</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Display: Biddable</controllingFieldValue>
+            <controllingFieldValue>Corporate Event</controllingFieldValue>
+            <controllingFieldValue>Display: Non - Biddable</controllingFieldValue>
+            <controllingFieldValue>Display</controllingFieldValue>
+            <controllingFieldValue>Familiarisation Trips</controllingFieldValue>
+            <controllingFieldValue>Inflight Magazine</controllingFieldValue>
+            <controllingFieldValue>Partners Website</controllingFieldValue>
+            <controllingFieldValue>MICE Event</controllingFieldValue>
+            <controllingFieldValue>Facebook</controllingFieldValue>
+            <controllingFieldValue>Foursquare</controllingFieldValue>
+            <controllingFieldValue>Google+</controllingFieldValue>
+            <controllingFieldValue>New Store Openings</controllingFieldValue>
+            <controllingFieldValue>Online Advertorial</controllingFieldValue>
+            <controllingFieldValue>Online Video</controllingFieldValue>
+            <controllingFieldValue>Paid Search</controllingFieldValue>
+            <controllingFieldValue>Brochure</controllingFieldValue>
+            <controllingFieldValue>Instagram</controllingFieldValue>
+            <controllingFieldValue>LinkedIn</controllingFieldValue>
+            <controllingFieldValue>Mobile App</controllingFieldValue>
+            <controllingFieldValue>Unit Vinyls</controllingFieldValue>
+            <controllingFieldValue>Out of Home</controllingFieldValue>
+            <controllingFieldValue>Pinterest</controllingFieldValue>
+            <controllingFieldValue>Cinema/Theatre</controllingFieldValue>
+            <controllingFieldValue>Brand Events</controllingFieldValue>
+            <controllingFieldValue>In-Village Events</controllingFieldValue>
+            <controllingFieldValue>Radio</controllingFieldValue>
+            <controllingFieldValue>Sales Mission</controllingFieldValue>
+            <controllingFieldValue>SnapChat</controllingFieldValue>
+            <controllingFieldValue>Sponsorship</controllingFieldValue>
+            <controllingFieldValue>Trade Event</controllingFieldValue>
+            <controllingFieldValue>TV</controllingFieldValue>
+            <controllingFieldValue>Partner Events</controllingFieldValue>
+            <controllingFieldValue>Twitter</controllingFieldValue>
+            <controllingFieldValue>Video</controllingFieldValue>
+            <controllingFieldValue>VK</controllingFieldValue>
+            <controllingFieldValue>WeChat</controllingFieldValue>
+            <controllingFieldValue>Weibo</controllingFieldValue>
+            <controllingFieldValue>YouTube</controllingFieldValue>
+            <controllingFieldValue>Facebook &amp; Instagram (Organic)</controllingFieldValue>
+            <controllingFieldValue>Facebook &amp; Instagram (Paid Social)</controllingFieldValue>
+            <controllingFieldValue>Magazine (Print)</controllingFieldValue>
+            <controllingFieldValue>Newspaper (Print)</controllingFieldValue>
+            <controllingFieldValue>PPC</controllingFieldValue>
+            <controllingFieldValue>Radio/ Audio Digital</controllingFieldValue>
+            <controllingFieldValue>Transport</controllingFieldValue>
+            <controllingFieldValue>Mall Animations</controllingFieldValue>
+            <controllingFieldValue>Signage</controllingFieldValue>
+            <controllingFieldValue>Instagram Stories</controllingFieldValue>
+            <controllingFieldValue>PR Events</controllingFieldValue>
+            <controllingFieldValue>PR Partnerships</controllingFieldValue>
+            <valueName># Brand Mentions</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Display: Biddable</controllingFieldValue>
+            <controllingFieldValue>Corporate Event</controllingFieldValue>
+            <controllingFieldValue>Display: Non - Biddable</controllingFieldValue>
+            <controllingFieldValue>Direct Mail</controllingFieldValue>
+            <controllingFieldValue>Display</controllingFieldValue>
+            <controllingFieldValue>Familiarisation Trips</controllingFieldValue>
+            <controllingFieldValue>Inflight Magazine</controllingFieldValue>
+            <controllingFieldValue>Partners Website</controllingFieldValue>
+            <controllingFieldValue>MICE Event</controllingFieldValue>
+            <controllingFieldValue>Printed Survey</controllingFieldValue>
+            <controllingFieldValue>SMS</controllingFieldValue>
+            <controllingFieldValue>Email</controllingFieldValue>
+            <controllingFieldValue>Facebook</controllingFieldValue>
+            <controllingFieldValue>Foursquare</controllingFieldValue>
+            <controllingFieldValue>Google+</controllingFieldValue>
+            <controllingFieldValue>New Store Openings</controllingFieldValue>
+            <controllingFieldValue>Online Advertorial</controllingFieldValue>
+            <controllingFieldValue>Online Video</controllingFieldValue>
+            <controllingFieldValue>Paid Search</controllingFieldValue>
+            <controllingFieldValue>Brochure</controllingFieldValue>
+            <controllingFieldValue>Registration Card</controllingFieldValue>
+            <controllingFieldValue>Instagram</controllingFieldValue>
+            <controllingFieldValue>LinkedIn</controllingFieldValue>
+            <controllingFieldValue>Mobile App</controllingFieldValue>
+            <controllingFieldValue>Unit Vinyls</controllingFieldValue>
+            <controllingFieldValue>Village Website</controllingFieldValue>
+            <controllingFieldValue>VIP Event</controllingFieldValue>
+            <controllingFieldValue>VIP Invitation</controllingFieldValue>
+            <controllingFieldValue>Out of Home</controllingFieldValue>
+            <controllingFieldValue>Pinterest</controllingFieldValue>
+            <controllingFieldValue>Privilege Treats Portal</controllingFieldValue>
+            <controllingFieldValue>Cinema/Theatre</controllingFieldValue>
+            <controllingFieldValue>Brand Events</controllingFieldValue>
+            <controllingFieldValue>In-Village Events</controllingFieldValue>
+            <controllingFieldValue>Radio</controllingFieldValue>
+            <controllingFieldValue>Sales Mission</controllingFieldValue>
+            <controllingFieldValue>SnapChat</controllingFieldValue>
+            <controllingFieldValue>Sponsorship</controllingFieldValue>
+            <controllingFieldValue>Trade Event</controllingFieldValue>
+            <controllingFieldValue>TV</controllingFieldValue>
+            <controllingFieldValue>Partner Events</controllingFieldValue>
+            <controllingFieldValue>Twitter</controllingFieldValue>
+            <controllingFieldValue>Video</controllingFieldValue>
+            <controllingFieldValue>VK</controllingFieldValue>
+            <controllingFieldValue>Website</controllingFieldValue>
+            <controllingFieldValue>WeChat</controllingFieldValue>
+            <controllingFieldValue>Weibo</controllingFieldValue>
+            <controllingFieldValue>YouTube</controllingFieldValue>
+            <controllingFieldValue>Facebook &amp; Instagram (Organic)</controllingFieldValue>
+            <controllingFieldValue>Facebook &amp; Instagram (Paid Social)</controllingFieldValue>
+            <controllingFieldValue>Magazine (Print)</controllingFieldValue>
+            <controllingFieldValue>Newspaper (Print)</controllingFieldValue>
+            <controllingFieldValue>PPC</controllingFieldValue>
+            <controllingFieldValue>Radio/ Audio Digital</controllingFieldValue>
+            <controllingFieldValue>Partnership Other</controllingFieldValue>
+            <controllingFieldValue>Transport</controllingFieldValue>
+            <controllingFieldValue>Mall Animations</controllingFieldValue>
+            <controllingFieldValue>Online Travel Agent</controllingFieldValue>
+            <controllingFieldValue>Signage</controllingFieldValue>
+            <controllingFieldValue>Instagram Stories</controllingFieldValue>
+            <controllingFieldValue>PR Events</controllingFieldValue>
+            <controllingFieldValue>PR Partnerships</controllingFieldValue>
+            <valueName># Footfall</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Display: Biddable</controllingFieldValue>
+            <controllingFieldValue>Corporate Event</controllingFieldValue>
+            <controllingFieldValue>Display: Non - Biddable</controllingFieldValue>
+            <controllingFieldValue>Direct Mail</controllingFieldValue>
+            <controllingFieldValue>Display</controllingFieldValue>
+            <controllingFieldValue>Familiarisation Trips</controllingFieldValue>
+            <controllingFieldValue>Inflight Magazine</controllingFieldValue>
+            <controllingFieldValue>Partners Website</controllingFieldValue>
+            <controllingFieldValue>MICE Event</controllingFieldValue>
+            <controllingFieldValue>Printed Survey</controllingFieldValue>
+            <controllingFieldValue>New Store Openings</controllingFieldValue>
+            <controllingFieldValue>Online Advertorial</controllingFieldValue>
+            <controllingFieldValue>Online Video</controllingFieldValue>
+            <controllingFieldValue>Paid Search</controllingFieldValue>
+            <controllingFieldValue>Brochure</controllingFieldValue>
+            <controllingFieldValue>Registration Card</controllingFieldValue>
+            <controllingFieldValue>Mobile App</controllingFieldValue>
+            <controllingFieldValue>Unit Vinyls</controllingFieldValue>
+            <controllingFieldValue>VIP Invitation</controllingFieldValue>
+            <controllingFieldValue>Out of Home</controllingFieldValue>
+            <controllingFieldValue>Privilege Treats Portal</controllingFieldValue>
+            <controllingFieldValue>Cinema/Theatre</controllingFieldValue>
+            <controllingFieldValue>Brand Events</controllingFieldValue>
+            <controllingFieldValue>In-Village Events</controllingFieldValue>
+            <controllingFieldValue>Radio</controllingFieldValue>
+            <controllingFieldValue>Sales Mission</controllingFieldValue>
+            <controllingFieldValue>Sponsorship</controllingFieldValue>
+            <controllingFieldValue>Trade Event</controllingFieldValue>
+            <controllingFieldValue>TV</controllingFieldValue>
+            <controllingFieldValue>Partner Events</controllingFieldValue>
+            <controllingFieldValue>Video</controllingFieldValue>
+            <controllingFieldValue>Magazine (Print)</controllingFieldValue>
+            <controllingFieldValue>Newspaper (Print)</controllingFieldValue>
+            <controllingFieldValue>PPC</controllingFieldValue>
+            <controllingFieldValue>Radio/ Audio Digital</controllingFieldValue>
+            <controllingFieldValue>Loyalty costs</controllingFieldValue>
+            <controllingFieldValue>Partnership Other</controllingFieldValue>
+            <controllingFieldValue>Transport</controllingFieldValue>
+            <controllingFieldValue>Mall Animations</controllingFieldValue>
+            <controllingFieldValue>Online Travel Agent</controllingFieldValue>
+            <controllingFieldValue>Signage</controllingFieldValue>
+            <controllingFieldValue>PR Events</controllingFieldValue>
+            <controllingFieldValue>PR Partnerships</controllingFieldValue>
+            <valueName># Reach</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Display: Biddable</controllingFieldValue>
+            <controllingFieldValue>Corporate Event</controllingFieldValue>
+            <controllingFieldValue>Display: Non - Biddable</controllingFieldValue>
+            <controllingFieldValue>Direct Mail</controllingFieldValue>
+            <controllingFieldValue>Display</controllingFieldValue>
+            <controllingFieldValue>Familiarisation Trips</controllingFieldValue>
+            <controllingFieldValue>Inflight Magazine</controllingFieldValue>
+            <controllingFieldValue>Partners Website</controllingFieldValue>
+            <controllingFieldValue>MICE Event</controllingFieldValue>
+            <controllingFieldValue>Printed Survey</controllingFieldValue>
+            <controllingFieldValue>SMS</controllingFieldValue>
+            <controllingFieldValue>Email</controllingFieldValue>
+            <controllingFieldValue>Facebook</controllingFieldValue>
+            <controllingFieldValue>Foursquare</controllingFieldValue>
+            <controllingFieldValue>Google+</controllingFieldValue>
+            <controllingFieldValue>New Store Openings</controllingFieldValue>
+            <controllingFieldValue>Online Advertorial</controllingFieldValue>
+            <controllingFieldValue>Online Video</controllingFieldValue>
+            <controllingFieldValue>Paid Search</controllingFieldValue>
+            <controllingFieldValue>Brochure</controllingFieldValue>
+            <controllingFieldValue>Registration Card</controllingFieldValue>
+            <controllingFieldValue>Instagram</controllingFieldValue>
+            <controllingFieldValue>LinkedIn</controllingFieldValue>
+            <controllingFieldValue>Mobile App</controllingFieldValue>
+            <controllingFieldValue>Unit Vinyls</controllingFieldValue>
+            <controllingFieldValue>Village Website</controllingFieldValue>
+            <controllingFieldValue>VIP Event</controllingFieldValue>
+            <controllingFieldValue>VIP Invitation</controllingFieldValue>
+            <controllingFieldValue>Out of Home</controllingFieldValue>
+            <controllingFieldValue>Pinterest</controllingFieldValue>
+            <controllingFieldValue>Privilege Treats Portal</controllingFieldValue>
+            <controllingFieldValue>Cinema/Theatre</controllingFieldValue>
+            <controllingFieldValue>Brand Events</controllingFieldValue>
+            <controllingFieldValue>In-Village Events</controllingFieldValue>
+            <controllingFieldValue>Radio</controllingFieldValue>
+            <controllingFieldValue>Sales Mission</controllingFieldValue>
+            <controllingFieldValue>SnapChat</controllingFieldValue>
+            <controllingFieldValue>Sponsorship</controllingFieldValue>
+            <controllingFieldValue>Trade Event</controllingFieldValue>
+            <controllingFieldValue>TV</controllingFieldValue>
+            <controllingFieldValue>Partner Events</controllingFieldValue>
+            <controllingFieldValue>Twitter</controllingFieldValue>
+            <controllingFieldValue>Video</controllingFieldValue>
+            <controllingFieldValue>VK</controllingFieldValue>
+            <controllingFieldValue>Website</controllingFieldValue>
+            <controllingFieldValue>WeChat</controllingFieldValue>
+            <controllingFieldValue>Weibo</controllingFieldValue>
+            <controllingFieldValue>YouTube</controllingFieldValue>
+            <controllingFieldValue>Funding Programme</controllingFieldValue>
+            <controllingFieldValue>Facebook &amp; Instagram (Organic)</controllingFieldValue>
+            <controllingFieldValue>Facebook &amp; Instagram (Paid Social)</controllingFieldValue>
+            <controllingFieldValue>Magazine (Print)</controllingFieldValue>
+            <controllingFieldValue>Newspaper (Print)</controllingFieldValue>
+            <controllingFieldValue>PPC</controllingFieldValue>
+            <controllingFieldValue>Radio/ Audio Digital</controllingFieldValue>
+            <controllingFieldValue>Loyalty costs</controllingFieldValue>
+            <controllingFieldValue>Partnership Other</controllingFieldValue>
+            <controllingFieldValue>Transport</controllingFieldValue>
+            <controllingFieldValue>Mall Animations</controllingFieldValue>
+            <controllingFieldValue>Signage</controllingFieldValue>
+            <controllingFieldValue>Instagram Stories</controllingFieldValue>
+            <controllingFieldValue>PR Events</controllingFieldValue>
+            <controllingFieldValue>PR Partnerships</controllingFieldValue>
+            <valueName># Sales</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Display: Biddable</controllingFieldValue>
+            <controllingFieldValue>Display: Non - Biddable</controllingFieldValue>
+            <controllingFieldValue>Display</controllingFieldValue>
+            <controllingFieldValue>New Store Openings</controllingFieldValue>
+            <controllingFieldValue>Online Advertorial</controllingFieldValue>
+            <controllingFieldValue>Online Video</controllingFieldValue>
+            <controllingFieldValue>Paid Search</controllingFieldValue>
+            <controllingFieldValue>Brochure</controllingFieldValue>
+            <controllingFieldValue>TV</controllingFieldValue>
+            <controllingFieldValue>Video</controllingFieldValue>
+            <controllingFieldValue>PPC</controllingFieldValue>
+            <controllingFieldValue>Transport</controllingFieldValue>
+            <controllingFieldValue>Signage</controllingFieldValue>
+            <valueName># Views</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Display: Biddable</controllingFieldValue>
+            <controllingFieldValue>Display: Non - Biddable</controllingFieldValue>
+            <controllingFieldValue>Display</controllingFieldValue>
+            <controllingFieldValue>Inflight Magazine</controllingFieldValue>
+            <controllingFieldValue>Partners Website</controllingFieldValue>
+            <controllingFieldValue>Online Advertorial</controllingFieldValue>
+            <controllingFieldValue>Online Video</controllingFieldValue>
+            <controllingFieldValue>Paid Search</controllingFieldValue>
+            <controllingFieldValue>Brochure</controllingFieldValue>
+            <controllingFieldValue>Mobile App</controllingFieldValue>
+            <controllingFieldValue>Unit Vinyls</controllingFieldValue>
+            <controllingFieldValue>Out of Home</controllingFieldValue>
+            <controllingFieldValue>Cinema/Theatre</controllingFieldValue>
+            <controllingFieldValue>Radio</controllingFieldValue>
+            <controllingFieldValue>TV</controllingFieldValue>
+            <controllingFieldValue>Video</controllingFieldValue>
+            <controllingFieldValue>Magazine (Print)</controllingFieldValue>
+            <controllingFieldValue>Newspaper (Print)</controllingFieldValue>
+            <controllingFieldValue>PPC</controllingFieldValue>
+            <controllingFieldValue>Radio/ Audio Digital</controllingFieldValue>
+            <controllingFieldValue>Transport</controllingFieldValue>
+            <controllingFieldValue>Mall Animations</controllingFieldValue>
+            <controllingFieldValue>PR Events</controllingFieldValue>
+            <controllingFieldValue>PR Partnerships</controllingFieldValue>
+            <valueName># Villages featured</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Display: Biddable</controllingFieldValue>
+            <controllingFieldValue>Display: Non - Biddable</controllingFieldValue>
+            <controllingFieldValue>Partners Website</controllingFieldValue>
+            <controllingFieldValue>Village Website</controllingFieldValue>
+            <valueName># Website Registrations</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Display: Biddable</controllingFieldValue>
+            <controllingFieldValue>Display: Non - Biddable</controllingFieldValue>
+            <controllingFieldValue>Partners Website</controllingFieldValue>
+            <controllingFieldValue>SMS</controllingFieldValue>
+            <controllingFieldValue>Email</controllingFieldValue>
+            <controllingFieldValue>Facebook</controllingFieldValue>
+            <controllingFieldValue>Foursquare</controllingFieldValue>
+            <controllingFieldValue>Google+</controllingFieldValue>
+            <controllingFieldValue>Brochure</controllingFieldValue>
+            <controllingFieldValue>Instagram</controllingFieldValue>
+            <controllingFieldValue>LinkedIn</controllingFieldValue>
+            <controllingFieldValue>Mobile App</controllingFieldValue>
+            <controllingFieldValue>Pinterest</controllingFieldValue>
+            <controllingFieldValue>SnapChat</controllingFieldValue>
+            <controllingFieldValue>Twitter</controllingFieldValue>
+            <controllingFieldValue>VK</controllingFieldValue>
+            <controllingFieldValue>WeChat</controllingFieldValue>
+            <controllingFieldValue>Weibo</controllingFieldValue>
+            <controllingFieldValue>YouTube</controllingFieldValue>
+            <controllingFieldValue>Facebook &amp; Instagram (Organic)</controllingFieldValue>
+            <controllingFieldValue>Facebook &amp; Instagram (Paid Social)</controllingFieldValue>
+            <controllingFieldValue>Instagram Stories</controllingFieldValue>
+            <valueName>% Click through Rate to website</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Corporate Event</controllingFieldValue>
+            <controllingFieldValue>Familiarisation Trips</controllingFieldValue>
+            <controllingFieldValue>MICE Event</controllingFieldValue>
+            <controllingFieldValue>Brand Events</controllingFieldValue>
+            <controllingFieldValue>In-Village Events</controllingFieldValue>
+            <controllingFieldValue>Sales Mission</controllingFieldValue>
+            <controllingFieldValue>Sponsorship</controllingFieldValue>
+            <controllingFieldValue>Trade Event</controllingFieldValue>
+            <controllingFieldValue>Partner Events</controllingFieldValue>
+            <valueName># Articles (print, online, social media)</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Corporate Event</controllingFieldValue>
+            <controllingFieldValue>Familiarisation Trips</controllingFieldValue>
+            <controllingFieldValue>MICE Event</controllingFieldValue>
+            <controllingFieldValue>Brand Events</controllingFieldValue>
+            <controllingFieldValue>In-Village Events</controllingFieldValue>
+            <controllingFieldValue>Sales Mission</controllingFieldValue>
+            <controllingFieldValue>Sponsorship</controllingFieldValue>
+            <controllingFieldValue>Trade Event</controllingFieldValue>
+            <controllingFieldValue>Partner Events</controllingFieldValue>
+            <valueName># Contracts</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Corporate Event</controllingFieldValue>
+            <controllingFieldValue>Familiarisation Trips</controllingFieldValue>
+            <controllingFieldValue>MICE Event</controllingFieldValue>
+            <controllingFieldValue>Brand Events</controllingFieldValue>
+            <controllingFieldValue>In-Village Events</controllingFieldValue>
+            <controllingFieldValue>Sales Mission</controllingFieldValue>
+            <controllingFieldValue>Sponsorship</controllingFieldValue>
+            <controllingFieldValue>Trade Event</controllingFieldValue>
+            <controllingFieldValue>Partner Events</controllingFieldValue>
+            <valueName># Group Bookings</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Corporate Event</controllingFieldValue>
+            <controllingFieldValue>Familiarisation Trips</controllingFieldValue>
+            <controllingFieldValue>MICE Event</controllingFieldValue>
+            <controllingFieldValue>VIP Event</controllingFieldValue>
+            <controllingFieldValue>Brand Events</controllingFieldValue>
+            <controllingFieldValue>In-Village Events</controllingFieldValue>
+            <controllingFieldValue>Sales Mission</controllingFieldValue>
+            <controllingFieldValue>Sponsorship</controllingFieldValue>
+            <controllingFieldValue>Trade Event</controllingFieldValue>
+            <controllingFieldValue>Partner Events</controllingFieldValue>
+            <controllingFieldValue>Website</controllingFieldValue>
+            <valueName># Guests attended</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Corporate Event</controllingFieldValue>
+            <controllingFieldValue>Familiarisation Trips</controllingFieldValue>
+            <controllingFieldValue>MICE Event</controllingFieldValue>
+            <controllingFieldValue>New Store Openings</controllingFieldValue>
+            <controllingFieldValue>VIP Event</controllingFieldValue>
+            <controllingFieldValue>Brand Events</controllingFieldValue>
+            <controllingFieldValue>In-Village Events</controllingFieldValue>
+            <controllingFieldValue>Sales Mission</controllingFieldValue>
+            <controllingFieldValue>Sponsorship</controllingFieldValue>
+            <controllingFieldValue>Trade Event</controllingFieldValue>
+            <controllingFieldValue>Partner Events</controllingFieldValue>
+            <controllingFieldValue>Website</controllingFieldValue>
+            <valueName># Invitations Sent</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Corporate Event</controllingFieldValue>
+            <controllingFieldValue>Familiarisation Trips</controllingFieldValue>
+            <controllingFieldValue>MICE Event</controllingFieldValue>
+            <controllingFieldValue>VIP Event</controllingFieldValue>
+            <controllingFieldValue>Brand Events</controllingFieldValue>
+            <controllingFieldValue>In-Village Events</controllingFieldValue>
+            <controllingFieldValue>Sales Mission</controllingFieldValue>
+            <controllingFieldValue>Sponsorship</controllingFieldValue>
+            <controllingFieldValue>Trade Event</controllingFieldValue>
+            <controllingFieldValue>Partner Events</controllingFieldValue>
+            <controllingFieldValue>Website</controllingFieldValue>
+            <valueName># New Partners</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Corporate Event</controllingFieldValue>
+            <controllingFieldValue>Familiarisation Trips</controllingFieldValue>
+            <controllingFieldValue>MICE Event</controllingFieldValue>
+            <controllingFieldValue>VIP Event</controllingFieldValue>
+            <controllingFieldValue>Brand Events</controllingFieldValue>
+            <controllingFieldValue>In-Village Events</controllingFieldValue>
+            <controllingFieldValue>Sales Mission</controllingFieldValue>
+            <controllingFieldValue>Sponsorship</controllingFieldValue>
+            <controllingFieldValue>Trade Event</controllingFieldValue>
+            <controllingFieldValue>Partner Events</controllingFieldValue>
+            <controllingFieldValue>Website</controllingFieldValue>
+            <valueName># Partners/ Organisations</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Corporate Event</controllingFieldValue>
+            <controllingFieldValue>Direct Mail</controllingFieldValue>
+            <controllingFieldValue>Familiarisation Trips</controllingFieldValue>
+            <controllingFieldValue>Inflight Magazine</controllingFieldValue>
+            <controllingFieldValue>MICE Event</controllingFieldValue>
+            <controllingFieldValue>New Store Openings</controllingFieldValue>
+            <controllingFieldValue>Brochure</controllingFieldValue>
+            <controllingFieldValue>VIP Event</controllingFieldValue>
+            <controllingFieldValue>VIP Invitation</controllingFieldValue>
+            <controllingFieldValue>Out of Home</controllingFieldValue>
+            <controllingFieldValue>Cinema/Theatre</controllingFieldValue>
+            <controllingFieldValue>Brand Events</controllingFieldValue>
+            <controllingFieldValue>In-Village Events</controllingFieldValue>
+            <controllingFieldValue>Sales Mission</controllingFieldValue>
+            <controllingFieldValue>Sponsorship</controllingFieldValue>
+            <controllingFieldValue>Trade Event</controllingFieldValue>
+            <controllingFieldValue>Partner Events</controllingFieldValue>
+            <controllingFieldValue>Website</controllingFieldValue>
+            <controllingFieldValue>Magazine (Print)</controllingFieldValue>
+            <controllingFieldValue>Newspaper (Print)</controllingFieldValue>
+            <valueName># Tracked QR Codes</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Corporate Event</controllingFieldValue>
+            <controllingFieldValue>Familiarisation Trips</controllingFieldValue>
+            <controllingFieldValue>MICE Event</controllingFieldValue>
+            <controllingFieldValue>Brand Events</controllingFieldValue>
+            <controllingFieldValue>In-Village Events</controllingFieldValue>
+            <controllingFieldValue>Sales Mission</controllingFieldValue>
+            <controllingFieldValue>Sponsorship</controllingFieldValue>
+            <controllingFieldValue>Trade Event</controllingFieldValue>
+            <valueName># Village mentions</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Corporate Event</controllingFieldValue>
+            <controllingFieldValue>Direct Mail</controllingFieldValue>
+            <controllingFieldValue>Familiarisation Trips</controllingFieldValue>
+            <controllingFieldValue>Inflight Magazine</controllingFieldValue>
+            <controllingFieldValue>MICE Event</controllingFieldValue>
+            <controllingFieldValue>New Store Openings</controllingFieldValue>
+            <controllingFieldValue>Brochure</controllingFieldValue>
+            <controllingFieldValue>VIP Event</controllingFieldValue>
+            <controllingFieldValue>VIP Invitation</controllingFieldValue>
+            <controllingFieldValue>Out of Home</controllingFieldValue>
+            <controllingFieldValue>Cinema/Theatre</controllingFieldValue>
+            <controllingFieldValue>Brand Events</controllingFieldValue>
+            <controllingFieldValue>In-Village Events</controllingFieldValue>
+            <controllingFieldValue>Sales Mission</controllingFieldValue>
+            <controllingFieldValue>Sponsorship</controllingFieldValue>
+            <controllingFieldValue>Trade Event</controllingFieldValue>
+            <controllingFieldValue>Partner Events</controllingFieldValue>
+            <controllingFieldValue>Website</controllingFieldValue>
+            <controllingFieldValue>Magazine (Print)</controllingFieldValue>
+            <controllingFieldValue>Newspaper (Print)</controllingFieldValue>
+            <valueName># VIP Card Exchange</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Direct Mail</controllingFieldValue>
+            <valueName># Mails Sent</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Direct Mail</controllingFieldValue>
+            <controllingFieldValue>Printed Survey</controllingFieldValue>
+            <controllingFieldValue>Facebook</controllingFieldValue>
+            <controllingFieldValue>Foursquare</controllingFieldValue>
+            <controllingFieldValue>Google+</controllingFieldValue>
+            <controllingFieldValue>Registration Card</controllingFieldValue>
+            <controllingFieldValue>Instagram</controllingFieldValue>
+            <controllingFieldValue>LinkedIn</controllingFieldValue>
+            <controllingFieldValue>Pinterest</controllingFieldValue>
+            <controllingFieldValue>SnapChat</controllingFieldValue>
+            <controllingFieldValue>Twitter</controllingFieldValue>
+            <controllingFieldValue>VK</controllingFieldValue>
+            <controllingFieldValue>WeChat</controllingFieldValue>
+            <controllingFieldValue>Weibo</controllingFieldValue>
+            <controllingFieldValue>YouTube</controllingFieldValue>
+            <controllingFieldValue>Facebook &amp; Instagram (Organic)</controllingFieldValue>
+            <controllingFieldValue>Facebook &amp; Instagram (Paid Social)</controllingFieldValue>
+            <controllingFieldValue>Instagram Stories</controllingFieldValue>
+            <valueName># Registrations</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Display</controllingFieldValue>
+            <controllingFieldValue>Inflight Magazine</controllingFieldValue>
+            <controllingFieldValue>New Store Openings</controllingFieldValue>
+            <controllingFieldValue>Online Advertorial</controllingFieldValue>
+            <controllingFieldValue>Online Video</controllingFieldValue>
+            <controllingFieldValue>Paid Search</controllingFieldValue>
+            <controllingFieldValue>Brochure</controllingFieldValue>
+            <controllingFieldValue>Mobile App</controllingFieldValue>
+            <controllingFieldValue>Unit Vinyls</controllingFieldValue>
+            <controllingFieldValue>VIP Invitation</controllingFieldValue>
+            <controllingFieldValue>Out of Home</controllingFieldValue>
+            <controllingFieldValue>Cinema/Theatre</controllingFieldValue>
+            <controllingFieldValue>Radio</controllingFieldValue>
+            <controllingFieldValue>TV</controllingFieldValue>
+            <controllingFieldValue>Video</controllingFieldValue>
+            <controllingFieldValue>Magazine (Print)</controllingFieldValue>
+            <controllingFieldValue>Newspaper (Print)</controllingFieldValue>
+            <controllingFieldValue>PPC</controllingFieldValue>
+            <controllingFieldValue>Radio/ Audio Digital</controllingFieldValue>
+            <controllingFieldValue>Transport</controllingFieldValue>
+            <controllingFieldValue>Mall Animations</controllingFieldValue>
+            <controllingFieldValue>Signage</controllingFieldValue>
+            <valueName>% Awareness</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Printed Survey</controllingFieldValue>
+            <valueName># Surveys</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SMS</controllingFieldValue>
+            <valueName># SMS Clicked</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SMS</controllingFieldValue>
+            <valueName># SMS Opened</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SMS</controllingFieldValue>
+            <valueName># SMS Sent</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Email</controllingFieldValue>
+            <valueName># Emails Bounced</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Email</controllingFieldValue>
+            <valueName># Emails Clicked</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Email</controllingFieldValue>
+            <valueName># Emails Opened</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Email</controllingFieldValue>
+            <valueName># Emails Opted Out</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Email</controllingFieldValue>
+            <valueName># Emails Sent</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Email</controllingFieldValue>
+            <valueName># Emails Skipped</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Email</controllingFieldValue>
+            <valueName>% Bounce Rate</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Facebook</controllingFieldValue>
+            <controllingFieldValue>Foursquare</controllingFieldValue>
+            <controllingFieldValue>Google+</controllingFieldValue>
+            <controllingFieldValue>Instagram</controllingFieldValue>
+            <controllingFieldValue>LinkedIn</controllingFieldValue>
+            <controllingFieldValue>Pinterest</controllingFieldValue>
+            <controllingFieldValue>SnapChat</controllingFieldValue>
+            <controllingFieldValue>Twitter</controllingFieldValue>
+            <controllingFieldValue>VK</controllingFieldValue>
+            <controllingFieldValue>Weibo</controllingFieldValue>
+            <controllingFieldValue>YouTube</controllingFieldValue>
+            <controllingFieldValue>Facebook &amp; Instagram (Organic)</controllingFieldValue>
+            <controllingFieldValue>Facebook &amp; Instagram (Paid Social)</controllingFieldValue>
+            <controllingFieldValue>Instagram Stories</controllingFieldValue>
+            <valueName># Village and Hashtag Mentions</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Facebook</controllingFieldValue>
+            <controllingFieldValue>Foursquare</controllingFieldValue>
+            <controllingFieldValue>Google+</controllingFieldValue>
+            <controllingFieldValue>Instagram</controllingFieldValue>
+            <controllingFieldValue>LinkedIn</controllingFieldValue>
+            <controllingFieldValue>Pinterest</controllingFieldValue>
+            <controllingFieldValue>SnapChat</controllingFieldValue>
+            <controllingFieldValue>VK</controllingFieldValue>
+            <controllingFieldValue>WeChat</controllingFieldValue>
+            <controllingFieldValue>Weibo</controllingFieldValue>
+            <controllingFieldValue>YouTube</controllingFieldValue>
+            <controllingFieldValue>Facebook &amp; Instagram (Organic)</controllingFieldValue>
+            <controllingFieldValue>Facebook &amp; Instagram (Paid Social)</controllingFieldValue>
+            <controllingFieldValue>Instagram Stories</controllingFieldValue>
+            <valueName>Engagement Rate - Comments</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Facebook</controllingFieldValue>
+            <controllingFieldValue>Foursquare</controllingFieldValue>
+            <controllingFieldValue>Google+</controllingFieldValue>
+            <controllingFieldValue>Instagram</controllingFieldValue>
+            <controllingFieldValue>LinkedIn</controllingFieldValue>
+            <controllingFieldValue>Pinterest</controllingFieldValue>
+            <controllingFieldValue>SnapChat</controllingFieldValue>
+            <controllingFieldValue>Twitter</controllingFieldValue>
+            <controllingFieldValue>VK</controllingFieldValue>
+            <controllingFieldValue>WeChat</controllingFieldValue>
+            <controllingFieldValue>Weibo</controllingFieldValue>
+            <controllingFieldValue>YouTube</controllingFieldValue>
+            <controllingFieldValue>Facebook &amp; Instagram (Organic)</controllingFieldValue>
+            <controllingFieldValue>Facebook &amp; Instagram (Paid Social)</controllingFieldValue>
+            <controllingFieldValue>Instagram Stories</controllingFieldValue>
+            <valueName>Engagement Rate - Likes</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Facebook</controllingFieldValue>
+            <controllingFieldValue>Facebook &amp; Instagram (Organic)</controllingFieldValue>
+            <controllingFieldValue>Facebook &amp; Instagram (Paid Social)</controllingFieldValue>
+            <valueName>Engagement Rate - Shares</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Facebook</controllingFieldValue>
+            <controllingFieldValue>Foursquare</controllingFieldValue>
+            <controllingFieldValue>Google+</controllingFieldValue>
+            <controllingFieldValue>Instagram</controllingFieldValue>
+            <controllingFieldValue>LinkedIn</controllingFieldValue>
+            <controllingFieldValue>Pinterest</controllingFieldValue>
+            <controllingFieldValue>SnapChat</controllingFieldValue>
+            <controllingFieldValue>Twitter</controllingFieldValue>
+            <controllingFieldValue>VK</controllingFieldValue>
+            <controllingFieldValue>WeChat</controllingFieldValue>
+            <controllingFieldValue>Weibo</controllingFieldValue>
+            <controllingFieldValue>YouTube</controllingFieldValue>
+            <controllingFieldValue>Facebook &amp; Instagram (Organic)</controllingFieldValue>
+            <controllingFieldValue>Facebook &amp; Instagram (Paid Social)</controllingFieldValue>
+            <controllingFieldValue>Instagram Stories</controllingFieldValue>
+            <valueName>Impact</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Facebook</controllingFieldValue>
+            <controllingFieldValue>Foursquare</controllingFieldValue>
+            <controllingFieldValue>Google+</controllingFieldValue>
+            <controllingFieldValue>Instagram</controllingFieldValue>
+            <controllingFieldValue>LinkedIn</controllingFieldValue>
+            <controllingFieldValue>Pinterest</controllingFieldValue>
+            <controllingFieldValue>SnapChat</controllingFieldValue>
+            <controllingFieldValue>Twitter</controllingFieldValue>
+            <controllingFieldValue>VK</controllingFieldValue>
+            <controllingFieldValue>WeChat</controllingFieldValue>
+            <controllingFieldValue>Weibo</controllingFieldValue>
+            <controllingFieldValue>Facebook &amp; Instagram (Organic)</controllingFieldValue>
+            <controllingFieldValue>Facebook &amp; Instagram (Paid Social)</controllingFieldValue>
+            <controllingFieldValue>Instagram Stories</controllingFieldValue>
+            <valueName>Reach - Followers</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Facebook</controllingFieldValue>
+            <controllingFieldValue>Foursquare</controllingFieldValue>
+            <controllingFieldValue>Google+</controllingFieldValue>
+            <controllingFieldValue>Instagram</controllingFieldValue>
+            <controllingFieldValue>LinkedIn</controllingFieldValue>
+            <controllingFieldValue>Pinterest</controllingFieldValue>
+            <controllingFieldValue>SnapChat</controllingFieldValue>
+            <controllingFieldValue>Twitter</controllingFieldValue>
+            <controllingFieldValue>VK</controllingFieldValue>
+            <controllingFieldValue>WeChat</controllingFieldValue>
+            <controllingFieldValue>Weibo</controllingFieldValue>
+            <controllingFieldValue>Facebook &amp; Instagram (Organic)</controllingFieldValue>
+            <controllingFieldValue>Facebook &amp; Instagram (Paid Social)</controllingFieldValue>
+            <controllingFieldValue>Instagram Stories</controllingFieldValue>
+            <valueName>Reach - New Followers</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Foursquare</controllingFieldValue>
+            <controllingFieldValue>Google+</controllingFieldValue>
+            <controllingFieldValue>LinkedIn</controllingFieldValue>
+            <controllingFieldValue>Pinterest</controllingFieldValue>
+            <controllingFieldValue>SnapChat</controllingFieldValue>
+            <controllingFieldValue>VK</controllingFieldValue>
+            <controllingFieldValue>WeChat</controllingFieldValue>
+            <controllingFieldValue>Weibo</controllingFieldValue>
+            <controllingFieldValue>YouTube</controllingFieldValue>
+            <valueName>Engagement Rate - Views</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>New Store Openings</controllingFieldValue>
+            <controllingFieldValue>Brochure</controllingFieldValue>
+            <valueName># Promo code redemptions</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Registration Card</controllingFieldValue>
+            <controllingFieldValue>Mobile App</controllingFieldValue>
+            <valueName># New Sign Ups</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Registration Card</controllingFieldValue>
+            <valueName># New Subscribers</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Unit Vinyls</controllingFieldValue>
+            <controllingFieldValue>Mall Animations</controllingFieldValue>
+            <valueName># New Followers</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Village Website</controllingFieldValue>
+            <valueName># Bounce Rate</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Village Website</controllingFieldValue>
+            <valueName># New Users</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Village Website</controllingFieldValue>
+            <valueName># Outbound Links</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Village Website</controllingFieldValue>
+            <controllingFieldValue>Privilege Treats Portal</controllingFieldValue>
+            <valueName># Pageviews</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Village Website</controllingFieldValue>
+            <valueName># Sessions</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Village Website</controllingFieldValue>
+            <valueName># Unique Sessions</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Village Website</controllingFieldValue>
+            <valueName># Unique Visitor Sessions</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Village Website</controllingFieldValue>
+            <valueName>Time spent in a session</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>VIP Event</controllingFieldValue>
+            <controllingFieldValue>Website</controllingFieldValue>
+            <valueName># Brands engagement</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>VIP Event</controllingFieldValue>
+            <controllingFieldValue>Website</controllingFieldValue>
+            <valueName># Hashtag Mentions</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Privilege Treats Portal</controllingFieldValue>
+            <valueName>#Spend Per Visit</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Privilege Treats Portal</controllingFieldValue>
+            <valueName>#Transactions</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Privilege Treats Portal</controllingFieldValue>
+            <valueName>#Tracked Unique Barcodes</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Privilege Treats Portal</controllingFieldValue>
+            <valueName>#Website Logins</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Privilege Treats Portal</controllingFieldValue>
+            <valueName>#New Members</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Radio</controllingFieldValue>
+            <controllingFieldValue>Radio/ Audio Digital</controllingFieldValue>
+            <valueName>% Impact - growth</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Trade Event</controllingFieldValue>
+            <valueName># Leads</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Partner Events</controllingFieldValue>
+            <valueName># Partners</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Twitter</controllingFieldValue>
+            <valueName>Engagement Rate - Replies</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Twitter</controllingFieldValue>
+            <valueName>Engagement Rate - Retweets</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>YouTube</controllingFieldValue>
+            <valueName>Reach - New Subscribers</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>YouTube</controllingFieldValue>
+            <valueName>Reach - Subscribers</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Funding Programme</controllingFieldValue>
+            <valueName># Number of Guests</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Funding Programme</controllingFieldValue>
+            <controllingFieldValue>Partnership Other</controllingFieldValue>
+            <valueName># Number of Group Bookings</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>PPC</controllingFieldValue>
+            <valueName>#Impressions</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>PPC</controllingFieldValue>
+            <valueName>#Clicks</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>PPC</controllingFieldValue>
+            <valueName>#Click through rate</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Loyalty costs</controllingFieldValue>
+            <controllingFieldValue>Partnership Other</controllingFieldValue>
+            <controllingFieldValue>Online Travel Agent</controllingFieldValue>
+            <valueName># ATV</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Loyalty costs</controllingFieldValue>
+            <valueName># Points Earned</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Membership Fees/Subscriptions</controllingFieldValue>
+            <valueName># New Contacts</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Membership Fees/Subscriptions</controllingFieldValue>
+            <valueName># Number of Events</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Membership Fees/Subscriptions</controllingFieldValue>
+            <valueName># Number of Opportunities</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Partnership Other</controllingFieldValue>
+            <valueName># Number of VIP Cards Exchanged</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Push Notes</controllingFieldValue>
+            <valueName>% Open Rate</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>PR Events</controllingFieldValue>
+            <controllingFieldValue>PR Partnerships</controllingFieldValue>
+            <valueName>#Hashtag Mentions</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>PR Events</controllingFieldValue>
+            <controllingFieldValue>PR Partnerships</controllingFieldValue>
+            <valueName># Interviews</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>PR Events</controllingFieldValue>
+            <controllingFieldValue>PR Partnerships</controllingFieldValue>
+            <valueName>% Share of voice</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>PR Partnerships</controllingFieldValue>
+            <valueName>% Favourability scale (Gorkana)</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>PR Partnerships</controllingFieldValue>
+            <valueName>% Message penetration</valueName>
+        </valueSettings>
+    </valueSet>
+    <visibleLines>10</visibleLines>
+</CustomField>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <aggregateTypes>Sum</aggregateTypes>
+        <field>Group_Booking__c.Reporting_Visitors__c</field>
+    </columns>
+    <columns>
+        <aggregateTypes>Sum</aggregateTypes>
+        <field>Group_Booking__c.Reporting_Revenue__c</field>
+    </columns>
+    <columns>
+        <field>CUST_NAME</field>
+    </columns>
+    <filter>
+        <criteriaItems>
+            <column>Group_Booking__c.Status__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>false</isUnlocked>
+            <operator>notEqual</operator>
+            <value>Cancelled,No Show</value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
+    <format>Matrix</format>
+    <groupingsAcross>
+        <dateGranularity>Month</dateGranularity>
+        <field>Group_Booking__c.Reporting_Arrival_Date__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsAcross>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Group_Booking__c.Village_of_Visit__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>All Groups Report (MICE &amp; Leisure) SB</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CustomEntity$Group_Booking__c</reportType>
+    <scope>organization</scope>
+    <showDetails>false</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>Group_Booking__c.Reporting_Arrival_Date__c</dateColumn>
+        <endDate>2016-05-31</endDate>
+        <interval>INTERVAL_CUSTOM</interval>
+        <startDate>2016-01-01</startDate>
+    </timeFrameFilter>
+</Report>

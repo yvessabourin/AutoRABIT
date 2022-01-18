@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Sales_Certification_Submission</fullName>
+    <active>true</active>
+    <description>Sales Certification Submission occurs then the associated Daily Sales records will no longer be editable by the Brand Store User who completes entry/confirmation processes in the Brand Portal.</description>
+    <errorConditionFormula>($Setup.DailySales_Validation_Override__c.DailySales_Override__c = false )&amp;&amp;(!(ISPICKVAL(Status__c,&quot;Reported Confirmed&quot;)))&amp;&amp;(!(ISPICKVAL(Status__c,&quot;Created&quot;)))&amp;&amp;(!(ISPICKVAL(Status__c,&quot;Reported Incomplete&quot;)))&amp;&amp;(Certification_Batch__r.BP_Validation_Context_Override__c = false)</errorConditionFormula>
+    <errorMessage>Sales Certification Submission already submitted!</errorMessage>
+</ValidationRule>

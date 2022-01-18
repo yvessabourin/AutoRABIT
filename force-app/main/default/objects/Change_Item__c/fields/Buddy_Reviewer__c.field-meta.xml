@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Buddy_Reviewer__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>Who Buddy Reviewed this Change for the Developer</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Who Buddy Reviewed this Change for the Developer?</inlineHelpText>
+    <label>Buddy Reviewer</label>
+    <referenceTo>User</referenceTo>
+    <relationshipName>Change_Items_Reviewed</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

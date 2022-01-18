@@ -1,0 +1,5 @@
+<CustomerPreferences>
+  <CustomerPreference Group="contactmodes" Key="post" Value="true" />
+  <CustomerPreference Group="contactmodes" Key="email" Value="true" />
+  <CustomerPreference Group="contactmodes" Key="mobile" Value="false" />
+</CustomerPreferences>

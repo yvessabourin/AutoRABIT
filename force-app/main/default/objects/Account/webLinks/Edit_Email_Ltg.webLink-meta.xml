@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Edit_Email_Ltg</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <height>600</height>
+    <linkType>url</linkType>
+    <masterLabel>Edit Email</masterLabel>
+    <openType>sidebar</openType>
+    <protected>false</protected>
+    <url>{!URLFOR(&apos;/apex/apiCustomerEmail&apos;, null, 
+	[
+		Id = Account.Id,
+		guid = Account.Customer_GUID__c,
+		currentEmail = SUBSTITUTE(Account.PersonEmail, &quot;+&quot;, &quot;%2B&quot;),
+		retURL = Account.Id,
+		alertMessage = IF(ISBLANK(Account.PersonEmail), &apos;Guest had no current Email address. Please use the Edit Guest button to add an Email address&apos;, &apos;&apos;) 
+	]
+)}</url>
+</WebLink>

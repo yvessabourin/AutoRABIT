@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sharingCriteriaRules>
+        <fullName>Visits_shared_will_all</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>non VIP Visits, will be shared with everyone (giving effective view all data access, to all but VIP Visits)</description>
+        <label>Visits shared will all</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>CEO</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>notEqual</operation>
+            <value>VIP Visit</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Visits_shared_will_integration</fullName>
+        <accessLevel>Read</accessLevel>
+        <description>non VIP Visits, will be shared with everyone (giving effective view all data access, to all but VIP Visits)</description>
+        <label>Visits shared will integration</label>
+        <sharedTo>
+            <roleAndSubordinates>Global_API_Access</roleAndSubordinates>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>notEqual</operation>
+            <value>VIP Visit</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingOwnerRules>
+        <fullName>HFS_Visit_Sharing</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Sharing the visits created by HFS profiles with the VIP group</description>
+        <label>HFS Visit Sharing</label>
+        <sharedTo>
+            <group>VIP_Global</group>
+        </sharedTo>
+        <sharedFrom>
+            <group>All_HFS</group>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>VIP_Global_Guest_Access_Visit</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>All Personal Shopping and Private Client users can access Guest Records from across all villages.</description>
+        <label>VIP Global Guest Access</label>
+        <sharedTo>
+            <group>VIP_Global</group>
+        </sharedTo>
+        <sharedFrom>
+            <group>VIP_Global</group>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>VIP_Visit_Sharing_BV</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Shares all VIP visits with Bicester Group</description>
+        <label>VIP Visit Sharing BV</label>
+        <sharedTo>
+            <group>VIP_Bicester</group>
+        </sharedTo>
+        <sharedFrom>
+            <group>VIP_Bicester</group>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>VIP_Visit_Sharing_FV</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>VIP Visit Sharing for Fidenza</description>
+        <label>VIP Visit Sharing FV</label>
+        <sharedTo>
+            <group>VIP_Fidenza</group>
+        </sharedTo>
+        <sharedFrom>
+            <group>VIP_Fidenza</group>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>VIP_Visit_Sharing_IV</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>VIP Visit Sharing with Ingolstadt</description>
+        <label>VIP Visit Sharing IV</label>
+        <sharedTo>
+            <group>VIP_Ingolstadt</group>
+        </sharedTo>
+        <sharedFrom>
+            <group>VIP_Ingolstadt</group>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>VIP_Visit_Sharing_KV</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>VIP Visit sharing for Kildare</description>
+        <label>VIP Visit Sharing KV</label>
+        <sharedTo>
+            <group>VIP_Kildare</group>
+        </sharedTo>
+        <sharedFrom>
+            <group>VIP_Kildare</group>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>VIP_Visit_Sharing_LRV</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>VIP Visit sharing for LaRoca</description>
+        <label>VIP Visit Sharing LRV</label>
+        <sharedTo>
+            <group>VIP_LaRoca</group>
+        </sharedTo>
+        <sharedFrom>
+            <group>VIP_LaRoca</group>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>VIP_Visit_Sharing_LVV</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>VIP Sharing Visits for LaVallee</description>
+        <label>VIP Visit Sharing LVV</label>
+        <sharedTo>
+            <group>VIP_La_Vallee</group>
+        </sharedTo>
+        <sharedFrom>
+            <group>VIP_La_Vallee</group>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>VIP_Visit_Sharing_LZV</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>VIP Visits sharing for LasRozas</description>
+        <label>VIP Visit Sharing LZV</label>
+        <sharedTo>
+            <group>VIP_Las_Rozas</group>
+        </sharedTo>
+        <sharedFrom>
+            <group>VIP_Las_Rozas</group>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>VIP_Visit_Sharing_MMV</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>VIP Visits sharing for Maasmechelen</description>
+        <label>VIP Visit Sharing MMV</label>
+        <sharedTo>
+            <group>VIP_Maasmechelen</group>
+        </sharedTo>
+        <sharedFrom>
+            <group>VIP_Maasmechelen</group>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>VIP_Visit_Sharing_WV</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>VIP Visit Sharing for Wertheim</description>
+        <label>VIP Visit Sharing WV</label>
+        <sharedTo>
+            <group>VIP_Wertheim</group>
+        </sharedTo>
+        <sharedFrom>
+            <group>VIP_Wertheim</group>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>VIP_Visit_permissions</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>VIP Visit permissions</label>
+        <sharedTo>
+            <group>All_BV_HFS</group>
+        </sharedTo>
+        <sharedFrom>
+            <group>All_BV_HFS</group>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>VIP_Visit_permissions_LV</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>VIP Visit permissions LV</label>
+        <sharedTo>
+            <group>All_LV_HFS</group>
+        </sharedTo>
+        <sharedFrom>
+            <group>All_LV_HFS</group>
+        </sharedFrom>
+    </sharingOwnerRules>
+</SharingRules>

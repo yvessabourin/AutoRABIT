@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VIP_Cards_No_Guests__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF( VIP_Cards_Exchanged__c &gt;  Number_of_Guests__c , true, false)</formula>
+    <label>VIP Cards &gt; No. Guests</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

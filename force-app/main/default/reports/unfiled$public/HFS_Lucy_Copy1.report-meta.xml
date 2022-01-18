@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <buckets>
+        <bucketType>number</bucketType>
+        <developerName>BucketField_4544277</developerName>
+        <masterLabel>With/Without Collections</masterLabel>
+        <nullTreatment>z</nullTreatment>
+        <sourceColumnName>Case.HFS_Collection_Count__c</sourceColumnName>
+        <useOther>false</useOther>
+        <values>
+            <sourceValues>
+                <to>0</to>
+            </sourceValues>
+            <value>Without Collections</value>
+        </values>
+        <values>
+            <sourceValues>
+                <from>0</from>
+            </sourceValues>
+            <value>With Collections</value>
+        </values>
+    </buckets>
+    <columns>
+        <aggregateTypes>Sum</aggregateTypes>
+        <field>Case.HFS_Case_Count__c</field>
+    </columns>
+    <columns>
+        <aggregateTypes>Sum</aggregateTypes>
+        <field>Case.Total_Bags_of_the_Guest__c</field>
+    </columns>
+    <columns>
+        <aggregateTypes>Sum</aggregateTypes>
+        <field>Case.Total_Jobs__c</field>
+    </columns>
+    <columns>
+        <aggregateTypes>Sum</aggregateTypes>
+        <field>Case_Item__c.Estimated_Spend__c.CONVERT</field>
+    </columns>
+    <currency>GBP</currency>
+    <description>HFS - Lucy Copy</description>
+    <filter>
+        <criteriaItems>
+            <column>Case.Village__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Bicester</value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
+    <format>Matrix</format>
+    <groupingsAcross>
+        <dateGranularity>Day</dateGranularity>
+        <field>Case.Service_Date__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsAcross>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>BucketField_4544277</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Case.Service_Guest_ID__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>HFS - Lucy Copy</name>
+    <params>
+        <name>units</name>
+        <value>h</value>
+    </params>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CaseCustomEntity$Case_Item__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>Case.Service_Date__c</dateColumn>
+        <interval>INTERVAL_TODAY</interval>
+    </timeFrameFilter>
+</Report>

@@ -1,0 +1,8 @@
+<apex:page standardController="HFS_Job__c" lightningStylesheets="true">
+	<apex:map width="100%" height="200px" mapType="roadmap" zoomLevel="17"
+    center="{latitude: {!HFS_Job__c.Latitude__c}, longitude: {!HFS_Job__c.Longitude__c}}" >
+    	<apex:repeat value="{!HFS_Job__c}" var="location">
+	    	<apex:mapMarker title="{!location.Brand_Name__c}" position="{latitude: {!location.Latitude__c}, longitude:{!location.Longitude__c}}" />
+	    </apex:repeat>
+    </apex:map>
+</apex:page>

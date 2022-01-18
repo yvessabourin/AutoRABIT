@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>Fidenza</label>
+    <protected>false</protected>
+    <values>
+        <field>Brand_Capture__c</field>
+        <value xsi:type="xsd:boolean">true</value>
+    </values>
+    <values>
+        <field>Click_And_Collect__c</field>
+        <value xsi:type="xsd:boolean">false</value>
+    </values>
+    <values>
+        <field>Collect_Email_Recipients__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Default_Lang__c</field>
+        <value xsi:type="xsd:string">en</value>
+    </values>
+    <values>
+        <field>Person_Registering__c</field>
+        <value xsi:type="xsd:boolean">false</value>
+    </values>
+    <values>
+        <field>Privilege_Terms_Condition__c</field>
+        <value xsi:type="xsd:boolean">false</value>
+    </values>
+    <values>
+        <field>Promo_Code__c</field>
+        <value xsi:type="xsd:boolean">false</value>
+    </values>
+    <values>
+        <field>Registration_Email_Sender__c</field>
+        <value xsi:type="xsd:string">traveltrade@thebicestervillageshoppingcollection.com</value>
+    </values>
+    <values>
+        <field>Registration_Location__c</field>
+        <value xsi:type="xsd:boolean">false</value>
+    </values>
+</CustomMetadata>

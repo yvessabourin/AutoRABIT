@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Department__c</fullName>
+    <externalId>false</externalId>
+    <label>Primary Category</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>true</sorted>
+            <value>
+                <fullName>Leather Goods &amp; Accessories</fullName>
+                <default>false</default>
+                <label>Accessories</label>
+            </value>
+            <value>
+                <fullName>Apparel</fullName>
+                <default>false</default>
+                <label>Apparel</label>
+            </value>
+            <value>
+                <fullName>Beauty &amp; Skincare</fullName>
+                <default>false</default>
+                <label>Beauty &amp; Skincare</label>
+            </value>
+            <value>
+                <fullName>Eyewear</fullName>
+                <default>false</default>
+                <label>Eyewear</label>
+            </value>
+            <value>
+                <fullName>Food And Drink</fullName>
+                <default>false</default>
+                <label>Food And Drink</label>
+            </value>
+            <value>
+                <fullName>Footwear</fullName>
+                <default>false</default>
+                <label>Footwear</label>
+            </value>
+            <value>
+                <fullName>Homewares</fullName>
+                <default>false</default>
+                <label>Homewares</label>
+            </value>
+            <value>
+                <fullName>Innovative Concepts</fullName>
+                <default>false</default>
+                <label>Innovative Concepts</label>
+            </value>
+            <value>
+                <fullName>Intimates And Hosiery</fullName>
+                <default>false</default>
+                <label>Intimates And Hosiery</label>
+            </value>
+            <value>
+                <fullName>Leather Goods</fullName>
+                <default>false</default>
+                <label>Leather Goods</label>
+            </value>
+            <value>
+                <fullName>Sports / Active</fullName>
+                <default>false</default>
+                <label>Sports / Active</label>
+            </value>
+            <value>
+                <fullName>Swimwear</fullName>
+                <default>false</default>
+                <label>Swimwear</label>
+            </value>
+            <value>
+                <fullName>Tech</fullName>
+                <default>false</default>
+                <label>Tech</label>
+            </value>
+            <value>
+                <fullName>Travel / Luggage</fullName>
+                <default>false</default>
+                <label>Travel / Luggage</label>
+            </value>
+            <value>
+                <fullName>Watches &amp; Jewellery</fullName>
+                <default>false</default>
+                <label>Watches &amp; Jewellery</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

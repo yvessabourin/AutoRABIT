@@ -1,0 +1,23 @@
+<messaging:emailTemplate subject="Competitor Site Visit Overdue Reminder for {!relatedTo.name}, Due Date:- {!relatedTo.Next_On_Site_Visit__c} " recipientType="User" relatedToType="Competitor_site__c">
+<messaging:htmlEmailBody >
+
+        <html>
+
+            <body>      
+            <B>Site Visit Overdue.</B>
+            <br></br>
+            <p>Dear Site Captains and Business Director,</p>
+            
+            
+            Please note your Competitor Site Visit is overdue. The visit was to be completed by {!relatedTo.Next_On_Site_Visit__c}. Please confirm the date you are visiting the site. 
+            <br></br>
+           
+            <a href="{!LEFT($Api.Partner_Server_URL_140, FIND('.com/',$Api.Partner_Server_URL_140)+3)}/{!relatedTo.id}">Use this link to view and add your Site Visit information.</a>
+            
+            </body>
+        </html>
+        
+        <p>Below is a list of previous visits related to {!relatedTo.name}.</p>   
+            <c:CompetitorVisitList siteId="{!relatedTo.Id}" />
+    </messaging:htmlEmailBody>
+</messaging:emailTemplate>

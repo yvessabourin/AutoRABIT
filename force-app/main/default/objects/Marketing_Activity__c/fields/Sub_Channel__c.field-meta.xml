@@ -1,0 +1,1101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Sub_Channel__c</fullName>
+    <description>..</description>
+    <externalId>false</externalId>
+    <label>Sub Channel</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Channel__c</controllingField>
+        <valueSetDefinition>
+            <sorted>true</sorted>
+            <value>
+                <fullName>Accommodation</fullName>
+                <default>false</default>
+                <label>Accommodation</label>
+            </value>
+            <value>
+                <fullName>Agency Fee</fullName>
+                <default>false</default>
+                <label>Agency Fee</label>
+            </value>
+            <value>
+                <fullName>App Innovations</fullName>
+                <default>false</default>
+                <label>App Development</label>
+            </value>
+            <value>
+                <fullName>Books/Magazines</fullName>
+                <default>false</default>
+                <label>Books/Magazines</label>
+            </value>
+            <value>
+                <fullName>Brand Events</fullName>
+                <default>false</default>
+                <label>Brand Events</label>
+            </value>
+            <value>
+                <fullName>Brochure</fullName>
+                <default>false</default>
+                <label>Brochure/Leaflet</label>
+            </value>
+            <value>
+                <fullName>Catering</fullName>
+                <default>false</default>
+                <label>Catering</label>
+            </value>
+            <value>
+                <fullName>Christmas Lights</fullName>
+                <default>false</default>
+                <label>Christmas Lights</label>
+            </value>
+            <value>
+                <fullName>Cinema/Theatre</fullName>
+                <default>false</default>
+                <label>Cinema/Theatre</label>
+            </value>
+            <value>
+                <fullName>Community Marketing</fullName>
+                <default>false</default>
+                <label>Community Marketing</label>
+            </value>
+            <value>
+                <fullName>Contracts</fullName>
+                <default>false</default>
+                <label>Contracts</label>
+            </value>
+            <value>
+                <fullName>Copywriting</fullName>
+                <default>false</default>
+                <label>Copywriting</label>
+            </value>
+            <value>
+                <fullName>Corporate</fullName>
+                <default>false</default>
+                <label>Corporate</label>
+            </value>
+            <value>
+                <fullName>Corporate Event</fullName>
+                <default>false</default>
+                <label>Corporate Event</label>
+            </value>
+            <value>
+                <fullName>Digital Travel Platforms</fullName>
+                <default>false</default>
+                <label>Digital Travel Platforms</label>
+            </value>
+            <value>
+                <fullName>Direct Mail</fullName>
+                <default>false</default>
+                <label>Direct Mail</label>
+            </value>
+            <value>
+                <fullName>Display</fullName>
+                <default>false</default>
+                <label>Display</label>
+            </value>
+            <value>
+                <fullName>Display: Biddable</fullName>
+                <default>false</default>
+                <label>Display: Biddable</label>
+            </value>
+            <value>
+                <fullName>Display: Non - Biddable</fullName>
+                <default>false</default>
+                <label>Display: Non - Biddable</label>
+            </value>
+            <value>
+                <fullName>Donations - Not Tax-Deductible</fullName>
+                <default>false</default>
+                <label>Donations - Not Tax-Deductible</label>
+            </value>
+            <value>
+                <fullName>Donations - Tax Deductible</fullName>
+                <default>false</default>
+                <label>Donations - Tax Deductible</label>
+            </value>
+            <value>
+                <fullName>Email</fullName>
+                <default>false</default>
+                <label>Email</label>
+            </value>
+            <value>
+                <fullName>Entertaining Staff Only</fullName>
+                <default>false</default>
+                <label>Entertaining Staff Only</label>
+            </value>
+            <value>
+                <fullName>Entertaining Third Parties/Mixed</fullName>
+                <default>false</default>
+                <label>Entertaining Third Parties/Mixed</label>
+            </value>
+            <value>
+                <fullName>Expats</fullName>
+                <default>false</default>
+                <label>Expats</label>
+            </value>
+            <value>
+                <fullName>Facebook</fullName>
+                <default>false</default>
+                <label>Facebook</label>
+            </value>
+            <value>
+                <fullName>Facebook &amp; Instagram (Organic)</fullName>
+                <default>false</default>
+                <label>Facebook &amp; Instagram (Owned)</label>
+            </value>
+            <value>
+                <fullName>Facebook &amp; Instagram (Paid Social)</fullName>
+                <default>false</default>
+                <label>Facebook &amp; Instagram (Paid Social)</label>
+            </value>
+            <value>
+                <fullName>Familiarisation Trips</fullName>
+                <default>false</default>
+                <label>Familiarisation Trips</label>
+            </value>
+            <value>
+                <fullName>Financial Partnerships</fullName>
+                <default>false</default>
+                <label>Financial Partnerships</label>
+            </value>
+            <value>
+                <fullName>Foursquare</fullName>
+                <default>false</default>
+                <label>Foursquare</label>
+            </value>
+            <value>
+                <fullName>Funding Programme</fullName>
+                <default>false</default>
+                <label>Funding Programme</label>
+            </value>
+            <value>
+                <fullName>Gift Card Expense</fullName>
+                <default>false</default>
+                <label>Gift Card Expense</label>
+            </value>
+            <value>
+                <fullName>Google+</fullName>
+                <default>false</default>
+                <label>Google+</label>
+            </value>
+            <value>
+                <fullName>Google Local</fullName>
+                <default>false</default>
+                <label>Google Local</label>
+            </value>
+            <value>
+                <fullName>Hardware</fullName>
+                <default>false</default>
+                <label>Hardware</label>
+            </value>
+            <value>
+                <fullName>Inflight Magazine</fullName>
+                <default>false</default>
+                <label>Inflight Magazine</label>
+            </value>
+            <value>
+                <fullName>Inflight Media</fullName>
+                <default>false</default>
+                <label>Inflight Media</label>
+            </value>
+            <value>
+                <fullName>Influencer/Blogger</fullName>
+                <default>false</default>
+                <label>Influencer/Blogger</label>
+            </value>
+            <value>
+                <fullName>Instagram</fullName>
+                <default>false</default>
+                <label>Instagram</label>
+            </value>
+            <value>
+                <fullName>Instagram Stories</fullName>
+                <default>false</default>
+                <label>Instagram Stories</label>
+            </value>
+            <value>
+                <fullName>Installations</fullName>
+                <default>false</default>
+                <label>Installations</label>
+            </value>
+            <value>
+                <fullName>In-Village Events</fullName>
+                <default>false</default>
+                <label>In-Village Events</label>
+            </value>
+            <value>
+                <fullName>Legal Advice</fullName>
+                <default>false</default>
+                <label>Legal Advice</label>
+            </value>
+            <value>
+                <fullName>Licences &amp; Support</fullName>
+                <default>false</default>
+                <label>Licences &amp; Support</label>
+            </value>
+            <value>
+                <fullName>LinkedIn</fullName>
+                <default>false</default>
+                <label>LinkedIn</label>
+            </value>
+            <value>
+                <fullName>Loyalty costs</fullName>
+                <default>false</default>
+                <label>Loyalty costs</label>
+            </value>
+            <value>
+                <fullName>Magazine (Print)</fullName>
+                <default>false</default>
+                <label>Magazine (Print)</label>
+            </value>
+            <value>
+                <fullName>Mall Animations</fullName>
+                <default>false</default>
+                <label>Mall Animations</label>
+            </value>
+            <value>
+                <fullName>Member - Limited Edition Offer</fullName>
+                <default>false</default>
+                <label>Member - Limited Edition Offer</label>
+            </value>
+            <value>
+                <fullName>Membership Fees/Subscriptions</fullName>
+                <default>false</default>
+                <label>Membership Fees/Subscriptions</label>
+            </value>
+            <value>
+                <fullName>Member - Spend-based Reward</fullName>
+                <default>false</default>
+                <label>Member - Spend-based Reward</label>
+            </value>
+            <value>
+                <fullName>Privilege Treats Portal</fullName>
+                <default>false</default>
+                <label>Member - Tier-based Reward</label>
+            </value>
+            <value>
+                <fullName>Merchandising</fullName>
+                <default>false</default>
+                <label>Merchandising</label>
+            </value>
+            <value>
+                <fullName>MICE Event</fullName>
+                <default>false</default>
+                <label>MICE Event</label>
+            </value>
+            <value>
+                <fullName>Mileage/Kilometeur Costs</fullName>
+                <default>false</default>
+                <label>Mileage/Kilometeur Costs</label>
+            </value>
+            <value>
+                <fullName>Mobile App</fullName>
+                <default>false</default>
+                <label>Mobile App</label>
+            </value>
+            <value>
+                <fullName>Mobility</fullName>
+                <default>false</default>
+                <label>Mobility</label>
+            </value>
+            <value>
+                <fullName>Newspaper (Print)</fullName>
+                <default>false</default>
+                <label>Newspaper (Print)</label>
+            </value>
+            <value>
+                <fullName>New Store Openings</fullName>
+                <default>false</default>
+                <label>New Store Openings</label>
+            </value>
+            <value>
+                <fullName>Online Advertorial</fullName>
+                <default>false</default>
+                <label>Online Advertorial</label>
+            </value>
+            <value>
+                <fullName>Online Travel Agent</fullName>
+                <default>false</default>
+                <label>Online Travel Agent</label>
+            </value>
+            <value>
+                <fullName>Online Video</fullName>
+                <default>false</default>
+                <label>Online Video</label>
+            </value>
+            <value>
+                <fullName>Out of Home</fullName>
+                <default>false</default>
+                <label>Out of Home</label>
+            </value>
+            <value>
+                <fullName>Paid Search</fullName>
+                <default>false</default>
+                <label>Paid Search</label>
+            </value>
+            <value>
+                <fullName>Paid Social</fullName>
+                <default>false</default>
+                <label>Paid Social</label>
+            </value>
+            <value>
+                <fullName>Participating Brands</fullName>
+                <default>false</default>
+                <label>Participating Brands</label>
+            </value>
+            <value>
+                <fullName>Partner Events</fullName>
+                <default>false</default>
+                <label>Partner Events</label>
+            </value>
+            <value>
+                <fullName>Partnership Other</fullName>
+                <default>false</default>
+                <label>Partnership Other</label>
+            </value>
+            <value>
+                <fullName>Partners Website</fullName>
+                <default>false</default>
+                <label>Partner Website</label>
+            </value>
+            <value>
+                <fullName>Photoshoot/ Videos Editing</fullName>
+                <default>false</default>
+                <label>Photoshoot/ Videos Editing</label>
+            </value>
+            <value>
+                <fullName>Pinterest</fullName>
+                <default>false</default>
+                <label>Pinterest</label>
+            </value>
+            <value>
+                <fullName>Portacabin / Storage Hire</fullName>
+                <default>false</default>
+                <label>Portacabin / Storage Hire</label>
+            </value>
+            <value>
+                <fullName>Postage/Courier</fullName>
+                <default>false</default>
+                <label>Postage/Courier</label>
+            </value>
+            <value>
+                <fullName>PPC</fullName>
+                <default>false</default>
+                <label>PPC</label>
+            </value>
+            <value>
+                <fullName>Press Partnerships</fullName>
+                <default>false</default>
+                <label>Press Partnerships</label>
+            </value>
+            <value>
+                <fullName>PR Events</fullName>
+                <default>false</default>
+                <label>PR Events</label>
+            </value>
+            <value>
+                <fullName>Printed Survey</fullName>
+                <default>false</default>
+                <label>Printed Survey</label>
+            </value>
+            <value>
+                <fullName>Printing costs</fullName>
+                <default>false</default>
+                <label>Printing costs</label>
+            </value>
+            <value>
+                <fullName>Prize</fullName>
+                <default>false</default>
+                <label>Prize</label>
+            </value>
+            <value>
+                <fullName>Professional Fees</fullName>
+                <default>false</default>
+                <label>Professional Fees</label>
+            </value>
+            <value>
+                <fullName>PR Partnerships</fullName>
+                <default>false</default>
+                <label>PR Partnerships</label>
+            </value>
+            <value>
+                <fullName>Push Notes</fullName>
+                <default>false</default>
+                <label>Push Notes</label>
+            </value>
+            <value>
+                <fullName>Radio</fullName>
+                <default>false</default>
+                <label>Radio</label>
+            </value>
+            <value>
+                <fullName>Radio/ Audio Digital</fullName>
+                <default>false</default>
+                <label>Radio/ Audio Digital</label>
+            </value>
+            <value>
+                <fullName>Radio Production</fullName>
+                <default>false</default>
+                <label>Radio Production</label>
+            </value>
+            <value>
+                <fullName>Registration Card</fullName>
+                <default>false</default>
+                <label>Registration Card</label>
+            </value>
+            <value>
+                <fullName>Rep Fee</fullName>
+                <default>false</default>
+                <label>Rep Fee</label>
+            </value>
+            <value>
+                <fullName>Research</fullName>
+                <default>false</default>
+                <label>Research</label>
+            </value>
+            <value>
+                <fullName>Room hire</fullName>
+                <default>false</default>
+                <label>Room hire</label>
+            </value>
+            <value>
+                <fullName>Sales Mission</fullName>
+                <default>false</default>
+                <label>Sales Mission</label>
+            </value>
+            <value>
+                <fullName>Shopping Express Expense</fullName>
+                <default>false</default>
+                <label>Shopping Express Expense</label>
+            </value>
+            <value>
+                <fullName>Shopping Express Income</fullName>
+                <default>false</default>
+                <label>Shopping Express Income</label>
+            </value>
+            <value>
+                <fullName>Shuttle Bus Expenses</fullName>
+                <default>false</default>
+                <label>Shuttle Bus Expenses</label>
+            </value>
+            <value>
+                <fullName>Shuttle Bus Income</fullName>
+                <default>false</default>
+                <label>Shuttle Bus Income</label>
+            </value>
+            <value>
+                <fullName>Signage</fullName>
+                <default>false</default>
+                <label>Signage</label>
+            </value>
+            <value>
+                <fullName>SMS</fullName>
+                <default>false</default>
+                <label>SMS</label>
+            </value>
+            <value>
+                <fullName>SnapChat</fullName>
+                <default>false</default>
+                <label>SnapChat</label>
+            </value>
+            <value>
+                <fullName>Sponsorship</fullName>
+                <default>false</default>
+                <label>Sponsorship</label>
+            </value>
+            <value>
+                <fullName>Stationery</fullName>
+                <default>false</default>
+                <label>Stationery</label>
+            </value>
+            <value>
+                <fullName>Technical/ Job-specific Training</fullName>
+                <default>false</default>
+                <label>Technical/ Job-specific Training</label>
+            </value>
+            <value>
+                <fullName>Third Party training</fullName>
+                <default>false</default>
+                <label>Third Party training</label>
+            </value>
+            <value>
+                <fullName>Trade Event</fullName>
+                <default>false</default>
+                <label>Trade Event</label>
+            </value>
+            <value>
+                <fullName>Translation/ Transcreation</fullName>
+                <default>false</default>
+                <label>Translation/ Transcreation</label>
+            </value>
+            <value>
+                <fullName>Transport</fullName>
+                <default>false</default>
+                <label>Transport</label>
+            </value>
+            <value>
+                <fullName>Travel, Accommodation &amp; Meals - non employees</fullName>
+                <default>false</default>
+                <label>Travel, Accommodation &amp; Meals - non employees</label>
+            </value>
+            <value>
+                <fullName>Travel &amp; Accommodation - Other</fullName>
+                <default>false</default>
+                <label>Travel &amp; Accommodation - Other</label>
+            </value>
+            <value>
+                <fullName>TV</fullName>
+                <default>false</default>
+                <label>TV</label>
+            </value>
+            <value>
+                <fullName>Twitter</fullName>
+                <default>false</default>
+                <label>Twitter</label>
+            </value>
+            <value>
+                <fullName>Unit Vinyls</fullName>
+                <default>false</default>
+                <label>Unit Vinyls</label>
+            </value>
+            <value>
+                <fullName>Video</fullName>
+                <default>false</default>
+                <label>Video</label>
+            </value>
+            <value>
+                <fullName>Village Services</fullName>
+                <default>false</default>
+                <label>Village Services</label>
+            </value>
+            <value>
+                <fullName>Village Website</fullName>
+                <default>false</default>
+                <label>Village Website</label>
+            </value>
+            <value>
+                <fullName>VIP Event</fullName>
+                <default>false</default>
+                <label>VIP Event</label>
+            </value>
+            <value>
+                <fullName>VIP Invitation</fullName>
+                <default>false</default>
+                <label>VIP Invitation</label>
+            </value>
+            <value>
+                <fullName>VK</fullName>
+                <default>false</default>
+                <label>VK</label>
+            </value>
+            <value>
+                <fullName>Website</fullName>
+                <default>false</default>
+                <label>Website</label>
+            </value>
+            <value>
+                <fullName>Website Enhancements</fullName>
+                <default>false</default>
+                <label>Website Development</label>
+            </value>
+            <value>
+                <fullName>WeChat</fullName>
+                <default>false</default>
+                <label>WeChat</label>
+            </value>
+            <value>
+                <fullName>Weibo</fullName>
+                <default>false</default>
+                <label>Weibo</label>
+            </value>
+            <value>
+                <fullName>Window Props</fullName>
+                <default>false</default>
+                <label>Window Props</label>
+            </value>
+            <value>
+                <fullName>YouTube</fullName>
+                <default>false</default>
+                <label>YouTube</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Partnerships</controllingFieldValue>
+            <valueName>Accommodation</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Partnerships</controllingFieldValue>
+            <valueName>Corporate</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Partnerships</controllingFieldValue>
+            <valueName>Digital Travel Platforms</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Partnerships</controllingFieldValue>
+            <valueName>Expats</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Partnerships</controllingFieldValue>
+            <valueName>Financial Partnerships</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Partnerships</controllingFieldValue>
+            <valueName>Funding Programme</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Partnerships</controllingFieldValue>
+            <valueName>Loyalty costs</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Partnerships</controllingFieldValue>
+            <valueName>Mobility</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Partnerships</controllingFieldValue>
+            <valueName>Partnership Other</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Partnerships</controllingFieldValue>
+            <valueName>Press Partnerships</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Partnerships</controllingFieldValue>
+            <valueName>PR Partnerships</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Village Services</controllingFieldValue>
+            <valueName>Gift Card Expense</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Village Services</controllingFieldValue>
+            <valueName>Shopping Express Expense</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Village Services</controllingFieldValue>
+            <valueName>Shopping Express Income</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Village Services</controllingFieldValue>
+            <valueName>Shuttle Bus Expenses</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Village Services</controllingFieldValue>
+            <valueName>Shuttle Bus Income</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Media</controllingFieldValue>
+            <valueName>Cinema/Theatre</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Media</controllingFieldValue>
+            <valueName>Display</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Media</controllingFieldValue>
+            <valueName>Display: Biddable</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Media</controllingFieldValue>
+            <valueName>Display: Non - Biddable</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Media</controllingFieldValue>
+            <valueName>Facebook &amp; Instagram (Organic)</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Media</controllingFieldValue>
+            <valueName>Facebook &amp; Instagram (Paid Social)</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Media</controllingFieldValue>
+            <valueName>Google Local</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Media</controllingFieldValue>
+            <valueName>Inflight Magazine</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Media</controllingFieldValue>
+            <valueName>Inflight Media</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Media</controllingFieldValue>
+            <valueName>Influencer/Blogger</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Media</controllingFieldValue>
+            <valueName>Magazine (Print)</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Media</controllingFieldValue>
+            <valueName>Mobile App</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Media</controllingFieldValue>
+            <valueName>Newspaper (Print)</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Media</controllingFieldValue>
+            <valueName>Online Advertorial</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Media</controllingFieldValue>
+            <valueName>Online Travel Agent</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Media</controllingFieldValue>
+            <valueName>Online Video</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Media</controllingFieldValue>
+            <valueName>Out of Home</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Media</controllingFieldValue>
+            <valueName>Paid Search</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Media</controllingFieldValue>
+            <valueName>Paid Social</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Media</controllingFieldValue>
+            <valueName>Radio</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Media</controllingFieldValue>
+            <valueName>Radio/ Audio Digital</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Media</controllingFieldValue>
+            <valueName>SnapChat</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Media</controllingFieldValue>
+            <valueName>Transport</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Media</controllingFieldValue>
+            <valueName>TV</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Media</controllingFieldValue>
+            <valueName>Twitter</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Media</controllingFieldValue>
+            <valueName>Video</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Media</controllingFieldValue>
+            <valueName>Website</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Media</controllingFieldValue>
+            <valueName>WeChat</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Media</controllingFieldValue>
+            <valueName>Weibo</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Campaign Support</controllingFieldValue>
+            <valueName>App Innovations</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Campaign Support</controllingFieldValue>
+            <valueName>Copywriting</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Campaign Support</controllingFieldValue>
+            <valueName>Participating Brands</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Campaign Support</controllingFieldValue>
+            <valueName>Photoshoot/ Videos Editing</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Campaign Support</controllingFieldValue>
+            <valueName>Radio Production</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Campaign Support</controllingFieldValue>
+            <valueName>Rep Fee</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Campaign Support</controllingFieldValue>
+            <valueName>Translation/ Transcreation</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Campaign Support</controllingFieldValue>
+            <valueName>Website Enhancements</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Collateral</controllingFieldValue>
+            <valueName>Brochure</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Collateral</controllingFieldValue>
+            <controllingFieldValue>Visual Merchandising</controllingFieldValue>
+            <valueName>Signage</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Digital</controllingFieldValue>
+            <valueName>Partners Website</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Digital</controllingFieldValue>
+            <valueName>Village Website</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Events</controllingFieldValue>
+            <valueName>Brand Events</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Events</controllingFieldValue>
+            <valueName>Corporate Event</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Events</controllingFieldValue>
+            <valueName>Familiarisation Trips</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Events</controllingFieldValue>
+            <valueName>In-Village Events</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Events</controllingFieldValue>
+            <valueName>MICE Event</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Events</controllingFieldValue>
+            <valueName>New Store Openings</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Events</controllingFieldValue>
+            <valueName>Partner Events</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Events</controllingFieldValue>
+            <valueName>PR Events</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Events</controllingFieldValue>
+            <valueName>Sales Mission</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Events</controllingFieldValue>
+            <valueName>Sponsorship</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Events</controllingFieldValue>
+            <valueName>Trade Event</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Events</controllingFieldValue>
+            <valueName>VIP Event</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>VIP</controllingFieldValue>
+            <valueName>VIP Invitation</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>CRM</controllingFieldValue>
+            <valueName>Direct Mail</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>CRM</controllingFieldValue>
+            <valueName>Email</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>CRM</controllingFieldValue>
+            <valueName>Member - Limited Edition Offer</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>CRM</controllingFieldValue>
+            <valueName>Member - Spend-based Reward</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>CRM</controllingFieldValue>
+            <valueName>Privilege Treats Portal</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>CRM</controllingFieldValue>
+            <valueName>Printed Survey</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>CRM</controllingFieldValue>
+            <valueName>Push Notes</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>CRM</controllingFieldValue>
+            <valueName>Registration Card</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>CRM</controllingFieldValue>
+            <valueName>SMS</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Social Media</controllingFieldValue>
+            <valueName>Facebook</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Social Media</controllingFieldValue>
+            <valueName>Foursquare</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Social Media</controllingFieldValue>
+            <valueName>Google+</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Social Media</controllingFieldValue>
+            <valueName>Instagram</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Social Media</controllingFieldValue>
+            <valueName>Instagram Stories</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Social Media</controllingFieldValue>
+            <valueName>LinkedIn</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Social Media</controllingFieldValue>
+            <valueName>Pinterest</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Social Media</controllingFieldValue>
+            <valueName>VK</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Social Media</controllingFieldValue>
+            <valueName>YouTube</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Visual Merchandising</controllingFieldValue>
+            <valueName>Christmas Lights</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Visual Merchandising</controllingFieldValue>
+            <valueName>Mall Animations</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Visual Merchandising</controllingFieldValue>
+            <valueName>Unit Vinyls</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Visual Merchandising</controllingFieldValue>
+            <valueName>Window Props</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Non-campaign</controllingFieldValue>
+            <valueName>Agency Fee</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Non-campaign</controllingFieldValue>
+            <valueName>Books/Magazines</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Non-campaign</controllingFieldValue>
+            <valueName>Catering</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Non-campaign</controllingFieldValue>
+            <valueName>Community Marketing</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Non-campaign</controllingFieldValue>
+            <valueName>Contracts</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Non-campaign</controllingFieldValue>
+            <valueName>Donations - Not Tax-Deductible</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Non-campaign</controllingFieldValue>
+            <valueName>Donations - Tax Deductible</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Non-campaign</controllingFieldValue>
+            <valueName>Entertaining Staff Only</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Non-campaign</controllingFieldValue>
+            <valueName>Entertaining Third Parties/Mixed</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Non-campaign</controllingFieldValue>
+            <valueName>Hardware</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Non-campaign</controllingFieldValue>
+            <valueName>Legal Advice</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Non-campaign</controllingFieldValue>
+            <valueName>Licences &amp; Support</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Non-campaign</controllingFieldValue>
+            <valueName>Membership Fees/Subscriptions</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Non-campaign</controllingFieldValue>
+            <valueName>Merchandising</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Non-campaign</controllingFieldValue>
+            <valueName>Portacabin / Storage Hire</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Non-campaign</controllingFieldValue>
+            <valueName>Postage/Courier</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Non-campaign</controllingFieldValue>
+            <valueName>Printing costs</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Non-campaign</controllingFieldValue>
+            <valueName>Prize</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Non-campaign</controllingFieldValue>
+            <valueName>Professional Fees</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Non-campaign</controllingFieldValue>
+            <valueName>Research</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Non-campaign</controllingFieldValue>
+            <valueName>Room hire</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Non-campaign</controllingFieldValue>
+            <valueName>Stationery</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Non-campaign</controllingFieldValue>
+            <valueName>Technical/ Job-specific Training</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Non-campaign</controllingFieldValue>
+            <valueName>Third Party training</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Non-campaign</controllingFieldValue>
+            <valueName>Travel, Accommodation &amp; Meals - non employees</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Non-campaign</controllingFieldValue>
+            <valueName>Travel &amp; Accommodation - Other</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

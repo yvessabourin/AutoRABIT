@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Unique_Store__c</fullName>
+    <caseSensitive>true</caseSensitive>
+    <description>a unique field to ensure the store is unique in VR1</description>
+    <externalId>false</externalId>
+    <label>Unique Store</label>
+    <length>55</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>true</unique>
+</CustomField>

@@ -1,0 +1,12 @@
+<template>
+	<div class={containerClass}>
+		<label class="slds-text-body_small slds-m-bottom_none" for="selectField">{label}</label>
+		<select id="selectField" onchange={handleChange}>
+			<option value="-">{placeholder}</option>
+			<template for:each={options} for:item="option">
+				<option key={option.value} value={option.value}>{option.label}</option>
+			</template>
+		</select>
+		<span if:false={valid} class="slds-form-element__help">{errorMessage}</span>
+	</div>
+</template>

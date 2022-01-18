@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fieldUpdates>
+        <fullName>Clear_Bag_Barcode</fullName>
+        <description>Clears the barcode field so that a bag barcode can be re-used again</description>
+        <field>Barcode__c</field>
+        <formula>&quot;000000000&quot;</formula>
+        <name>Clear Bag Barcode</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>HFS_Bag_at_Correct_Storage_Location</fullName>
+        <field>At_InCorrect_Storage_Location__c</field>
+        <literalValue>0</literalValue>
+        <name>HFS Bag at Correct Storage Location</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>HFS_Bag_at_InCorrect_Storage_Location</fullName>
+        <field>At_InCorrect_Storage_Location__c</field>
+        <literalValue>1</literalValue>
+        <name>HFS Bag at InCorrect Storage Location</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <rules>
+        <fullName>HFS Bag Collected</fullName>
+        <active>true</active>
+        <criteriaItems>
+            <field>HFS_Bag__c.Status__c</field>
+            <operation>equals</operation>
+            <value>Checked Out,Collected</value>
+        </criteriaItems>
+        <description>When an HFS Bag is collected, or guest has checked out.</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Clear_Bag_Barcode</name>
+                <type>FieldUpdate</type>
+            </actions>
+            <timeLength>10</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>HFS Bag at Correct Storage Location</fullName>
+        <actions>
+            <name>HFS_Bag_at_Correct_Storage_Location</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>CONTAINS( HFS_Storage_Location__r.HFS_Storage_Point__r.For_Collection_Point__c , HFS_Purchase__r.Case__r.HFS_Collection_Location__c) &amp;&amp; In_Storage_Point__c = true  /*HFS_Storage_Location__r.HFS_Storage_Point__r.For_Collection_Point__c = HFS_Purchase__r.Case__r.HFS_Collection_Location__c &amp;&amp; In_Storage_Point__c = true*/</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>HFS Bag at InCorrect Storage Location</fullName>
+        <actions>
+            <name>HFS_Bag_at_InCorrect_Storage_Location</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>NOT(CONTAINS( HFS_Storage_Location__r.HFS_Storage_Point__r.For_Collection_Point__c , HFS_Purchase__r.Case__r.HFS_Collection_Location__c)) &amp;&amp; In_Storage_Point__c = true  /*HFS_Storage_Location__r.HFS_Storage_Point__r.For_Collection_Point__c != HFS_Purchase__r.Case__r.HFS_Collection_Location__c &amp;&amp;  In_Storage_Point__c = true*/</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+</Workflow>

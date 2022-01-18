@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Participating_Brand__c$Name</field>
+    </columns>
+    <columns>
+        <field>Participating_Brand__c$Village_Presence__c</field>
+    </columns>
+    <columns>
+        <field>Participating_Brand__c$Village_Presence__c.Village__c</field>
+    </columns>
+    <columns>
+        <field>Participating_Brand__c$Feature_Details__c</field>
+    </columns>
+    <columns>
+        <field>Participating_Brand__c$Status__c</field>
+    </columns>
+    <currency>GBP</currency>
+    <filter>
+        <criteriaItems>
+            <column>Participating_Brand__c$Marketing_Activity__c.Marketing_Campaign_Village__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Kildare</value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
+    <format>Tabular</format>
+    <name>Participating Brand Report</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Participating_Brands__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>Participating_Brand__c$CreatedDate</dateColumn>
+        <interval>INTERVAL_CURRENT</interval>
+    </timeFrameFilter>
+</Report>

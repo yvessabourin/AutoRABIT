@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Std_Non_Compete_Distance__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Enter the distance to be used in the standard non-compete clause</inlineHelpText>
+    <label>Std Non Compete Distance</label>
+    <precision>9</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

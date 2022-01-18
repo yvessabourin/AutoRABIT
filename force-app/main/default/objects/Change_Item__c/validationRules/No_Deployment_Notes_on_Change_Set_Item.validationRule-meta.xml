@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>No_Deployment_Notes_on_Change_Set_Item</fullName>
+    <active>true</active>
+    <description>Block deployment notes on Change Set deployable item</description>
+    <errorConditionFormula>ISPICKVAL( Deployment_Method__c , &quot;Change Set&quot;) 
+&amp;&amp;
+ LEN( Deployment_Instructions__c ) &gt; 0</errorConditionFormula>
+    <errorDisplayField>Deployment_Instructions__c</errorDisplayField>
+    <errorMessage>You cannot have Deployment Instructions for a component that is set for automatic deployment (Deployment Method = &quot;Change Set&quot;)</errorMessage>
+</ValidationRule>

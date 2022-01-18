@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Item_Label__c</fullName>
+    <description>Label to appear as section title for the particular API call</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Label to appear as section title for the particular API call</inlineHelpText>
+    <label>Item Label</label>
+    <length>50</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

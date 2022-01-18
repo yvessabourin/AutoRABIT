@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MMV_Budget_RFC_Contract_Change</fullName>
+    <columns>Primary_Deal__c</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>OPPORTUNITY.STAGE_NAME</columns>
+    <columns>Lease_Type__c</columns>
+    <columns>Unit__c</columns>
+    <columns>Next_Step_Update_Description__c</columns>
+    <columns>Access_Date_Expected__c</columns>
+    <columns>Budget_Open_Date__c</columns>
+    <columns>Expected_Open_Date__c</columns>
+    <columns>Expected_Exit_Date__c</columns>
+    <columns>Projected_Sales_Yield_Local__c</columns>
+    <columns>Projected_Return_Local__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Budget_Open_Date__c</field>
+        <operation>greaterOrEqual</operation>
+        <value>1/1/2021</value>
+    </filters>
+    <filters>
+        <field>Budget_Open_Date__c</field>
+        <operation>lessOrEqual</operation>
+        <value>12/31/2021</value>
+    </filters>
+    <filters>
+        <field>OPPORTUNITY.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Opportunity.Contract_Change</value>
+    </filters>
+    <filters>
+        <field>Village__c</field>
+        <operation>equals</operation>
+        <value>Maasmechelen</value>
+    </filters>
+    <filters>
+        <field>OPPORTUNITY.STAGE_NAME</field>
+        <operation>notContain</operation>
+        <value>No Village Interest,Stuck,On hold,Trading,Closed,Terminated,Completed - New Brand opened in Village,Finished - Deal Failed,Completed - Brand Exited,Completed - Brand Relocated,Completed - Brand Refitted,Completed - Contract Updated</value>
+    </filters>
+    <label>MMV - Budget/RFC (Contract Change)</label>
+</ListView>

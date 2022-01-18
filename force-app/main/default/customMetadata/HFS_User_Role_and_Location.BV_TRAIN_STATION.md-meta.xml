@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>BV TRAIN STATION</label>
+    <protected>false</protected>
+    <values>
+        <field>GSA_Role_and_Location__c</field>
+        <value xsi:type="xsd:string">HFS CO BV TRAIN STATION</value>
+    </values>
+    <values>
+        <field>Runner_Role_and_Location__c</field>
+        <value xsi:type="xsd:string">HFS RUNNER BV TRAIN STATION</value>
+    </values>
+    <values>
+        <field>Village__c</field>
+        <value xsi:type="xsd:string">Bicester</value>
+    </values>
+</CustomMetadata>

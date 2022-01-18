@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Used_in_App__c</fullName>
+    <externalId>false</externalId>
+    <label>Used in App</label>
+    <required>true</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>HFS</fullName>
+                <default>false</default>
+                <label>HFS</label>
+            </value>
+            <value>
+                <fullName>Brand Portal</fullName>
+                <default>false</default>
+                <label>Brand Portal</label>
+            </value>
+            <value>
+                <fullName>Daily Sales</fullName>
+                <default>false</default>
+                <label>Daily Sales</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

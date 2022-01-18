@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Edit_custom</fullName>
+    <availability>online</availability>
+    <description>Directs the user to change their record type</description>
+    <displayType>button</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <linkType>url</linkType>
+    <masterLabel>Edit (-)</masterLabel>
+    <openType>replace</openType>
+    <protected>false</protected>
+    <url>{!
+IF(CONTAINS($User.UIThemeDisplayed, &apos;Theme4&apos;)
+,
+URLFOR(&quot;/lightning/o/Opportunity/new?useRecordTypeCheck=1&quot;)
+,
+URLFOR(&quot;/setup/ui/recordtypeselect.jsp?id=&quot; &amp; Opportunity.Id &amp;
+&quot;&amp;retURL=%2F&quot; &amp; Opportunity.Id)
+)}</url>
+</WebLink>

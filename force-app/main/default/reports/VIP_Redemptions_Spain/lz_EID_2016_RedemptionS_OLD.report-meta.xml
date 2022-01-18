@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <filter>
+        <criteriaItems>
+            <column>CAMPAIGN_NAME</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>LZ16 - EID Campaign 2016,LZ16- EID Campaign No invitation,LZ16 - EID Campaign 2016 - Website</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Campaign.Village__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>Las Rozas</value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
+    <format>Matrix</format>
+    <groupingsAcross>
+        <dateGranularity>Day</dateGranularity>
+        <field>CUST_CREATED_DATE</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsAcross>
+    <groupingsAcross>
+        <dateGranularity>Day</dateGranularity>
+        <field>Promotion_Redemption__c.Country_of_Origin__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsAcross>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>CAMPAIGN_NAME</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>LZ - EID 2016 Redemptions OLD</name>
+    <params>
+        <name>scopeid</name>
+        <value></value>
+    </params>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CampaignCustomEntity$Promotion_Redemption__c</reportType>
+    <scope>orgAll</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+</Report>

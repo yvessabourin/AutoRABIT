@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Head_Office_Accounts</fullName>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>PC_DEPARTMENT</columns>
+    <columns>PARENT_NAME</columns>
+    <columns>Department__c</columns>
+    <columns>Gender_Classification__c</columns>
+    <columns>GRS_Category__c</columns>
+    <columns>Market_Position__c</columns>
+    <columns>Price_Point__c</columns>
+    <columns>Segment__c</columns>
+    <columns>ACCOUNT.PHONE1</columns>
+    <columns>Watch_Listed__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>ACCOUNT.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Account.Group</value>
+    </filters>
+    <label>Head Office Accounts</label>
+    <sharedTo>
+        <group>LeaseFlow_All_Users</group>
+    </sharedTo>
+</ListView>

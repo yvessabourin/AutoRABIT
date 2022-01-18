@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <aggregateTypes>Average</aggregateTypes>
+        <field>Case.Case_Items__r.HFS_Tasks__r$Delivering_Time__c</field>
+    </columns>
+    <columns>
+        <field>Case$CaseNumber</field>
+    </columns>
+    <columns>
+        <field>Case.Case_Items__r$Name</field>
+    </columns>
+    <columns>
+        <field>Case.Case_Items__r.HFS_Tasks__r$Name</field>
+    </columns>
+    <currency>GBP</currency>
+    <description>HFS Average Delivering time</description>
+    <filter>
+        <criteriaItems>
+            <column>Case.Case_Items__r.HFS_Tasks__r$Delivering_Time__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>notEqual</operator>
+            <value>0</value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
+    <format>Matrix</format>
+    <groupingsAcross>
+        <dateGranularity>Day</dateGranularity>
+        <field>Case$Service_Date__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsAcross>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Case.Case_Items__r.HFS_Tasks__r$HFS_Runner__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>HFS Average Delivering time</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>HFS_Case_Pur_Job__c</reportType>
+    <scope>organization</scope>
+    <showDetails>false</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>Case$Service_Date__c</dateColumn>
+        <interval>INTERVAL_CURFY</interval>
+    </timeFrameFilter>
+</Report>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>must_have_old_redemptionID_to_transfer</fullName>
+    <active>true</active>
+    <errorConditionFormula>OR(LEN(Old_Redemption_Campaign_ID__c) &lt;&gt; 18 
+, 
+LEFT(Old_Redemption_Campaign_ID__c, 3) &lt;&gt; &quot;701&quot; ) 
+&amp;&amp; 
+OR( Transfer_Redemptions_Now__c , Transfer_Redemptions_on_Go_Live__c )</errorConditionFormula>
+    <errorDisplayField>Old_Redemption_Campaign_ID__c</errorDisplayField>
+    <errorMessage>You must enter the Transfer Code from the redeemable Campaign before you can migrate the redemptions to this Booking/Partnership. The Transfer Code can be found on the Redeemable Campaign</errorMessage>
+</ValidationRule>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Redeemable_Campaigns_must_link_to_Villag</fullName>
+    <active>true</active>
+    <description>Redeemable Campaigns must link to Village record</description>
+    <errorConditionFormula>AND( RecordType.DeveloperName = &quot;Redeemable_Campaign&quot; ,  Village__r.Name = &quot;&quot; )</errorConditionFormula>
+    <errorDisplayField>Village__c</errorDisplayField>
+    <errorMessage>Redeemable Campaigns must have an associated Village or they will not show up in the village search results</errorMessage>
+</ValidationRule>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Data_Label__c</fullName>
+    <description>a screen friendly name for this data item (will appear in a drop down list)</description>
+    <externalId>true</externalId>
+    <inlineHelpText>a screen friendly name for this data item (will appear in a drop down list)</inlineHelpText>
+    <label>Data Label</label>
+    <length>100</length>
+    <required>true</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

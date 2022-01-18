@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Guest_Feedback_Survey__c$Name</field>
+    </columns>
+    <columns>
+        <field>Guest_Feedback_Survey__c$Likely_to_recommend__c</field>
+    </columns>
+    <columns>
+        <field>Guest_Feedback_Survey__c$Satisfaction_level__c</field>
+    </columns>
+    <columns>
+        <field>Guest_Feedback_Survey__c$What_could_we_improve__c</field>
+    </columns>
+    <currency>GBP</currency>
+    <format>Tabular</format>
+    <name>Guest Feedback Survey - comments</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Guest_Feedback_Survey_s__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <sortColumn>Guest_Feedback_Survey__c$What_could_we_improve__c</sortColumn>
+    <sortOrder>Desc</sortOrder>
+    <timeFrameFilter>
+        <dateColumn>Guest_Feedback_Survey__c$CreatedDate</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

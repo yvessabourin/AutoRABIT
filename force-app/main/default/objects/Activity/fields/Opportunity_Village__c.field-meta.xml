@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Opportunity_Village__c</fullName>
+    <description>When an Event is created from an Opportunity, the associated village is stamped onto the Event using a trigger. This field is purely for technical processing and not exposed on the UI.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>When an Event is created from an Opportunity, the associated village is stamped onto the Event using a trigger. This field is purely for technical processing and not exposed on the UI.</inlineHelpText>
+    <label>Opportunity Village</label>
+    <length>100</length>
+    <required>false</required>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Queue xmlns="http://soap.sforce.com/2006/04/metadata">
+    <doesSendEmailToMembers>true</doesSendEmailToMembers>
+    <email>bookings.laroca@valueretail.com</email>
+    <name>MICE Lead Queue - La Roca</name>
+    <queueMembers>
+        <users>
+            <user>csalazar@valueretail.com</user>
+            <user>cizquierdo@valueretail.com</user>
+            <user>jcervantes@valueretail.com</user>
+            <user>kjojriakova@valueretail.com</user>
+            <user>ticteamlrv@valueretail.com</user>
+            <user>sfontana@valueretail.com</user>
+        </users>
+    </queueMembers>
+    <queueSobject>
+        <sobjectType>Lead</sobjectType>
+    </queueSobject>
+</Queue>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Proportion__c</fullName>
+    <externalId>false</externalId>
+    <formula>Opportunity__r.Unit__r.Proportion__c</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>This is the percentage of the total village GEA that this lease will occupy</inlineHelpText>
+    <label>Proportion</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <type>Percent</type>
+</CustomField>

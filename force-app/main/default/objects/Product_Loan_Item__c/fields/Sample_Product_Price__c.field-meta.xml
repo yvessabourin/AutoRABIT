@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Sample_Product_Price__c</fullName>
+    <description>The price of the sample product</description>
+    <externalId>false</externalId>
+    <inlineHelpText>The price of the sample product</inlineHelpText>
+    <label>Sample Product Price</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

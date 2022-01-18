@@ -1,0 +1,75 @@
+<apex:page title="Campaign Wizard" controller="RedeemableCampaignWizardController" id="thewholepage" showHeader="false" sidebar="false">
+ 
+  <h2>Campaign Creation Wizard for {!GroupCampaignName}.</h2>
+  <p></p>
+  <apex:pagemessages id="messages" /> 
+  <apex:form >
+   <apex:pageBlock title="Select which Redeemable Campaigns you want to create for the '{!GroupCampaignName}' Group Campaign" rendered="{!errorsonInsert=false}" >
+       <apex:actionFunction action="{!refreshPage}" id="refreshPage" name="refreshPage" reRender="messages,errortablecontainer"/>
+       <apex:pageBlockButtons >
+               <apex:commandButton id="cancel" value="Cancel" action="{!Cancel2}"/>
+               <apex:commandButton id="submit" value="Create Selected Campaigns" action="{!SubmitCampaigns}"  onclick="refreshPage();" />
+       </apex:pageBlockButtons>
+
+        <apex:pageBlockSection columns="1">
+
+        <apex:pageBlockTable value="{!Campaigns}" var="cCampaign" >
+                <apex:column headerValue="Create Campaign?" width="20">
+                    <apex:inputCheckbox value="{!cCampaign.selected}"/>
+                </apex:column>
+               <!-- <apex:column headerValue="Group Campaign Name">
+                    <apex:outputText value="{!cCampaign.ParentCampaignName}"/>
+                </apex:column> -->
+                <apex:column headerValue="Village">
+                    <apex:outputText value="{!cCampaign.Village.name}"/>
+                </apex:column>
+
+                <apex:column headerValue="Channel(s)">
+                    <apex:outputText value="{!cCampaign.Channels}"/>
+                </apex:column>
+                <apex:column headerValue="Contact Details Required?" >
+                    <apex:inputCheckbox value="{!cCampaign.ContactDetailsRequired}" disabled="false" />
+                </apex:column>
+                
+                
+            </apex:pageBlockTable>
+           
+
+        </apex:pageBlockSection>
+    </apex:pageBlock>
+    
+ 
+   
+    <apex:outputPanel id="errortablecontainer" rendered="{!errorsonInsert}">
+     <apex:outputPanel id="errortable" >
+     <apex:pageBlock title="Some campaigns were not created because they already exist"> 
+         <apex:pageBlockButtons >
+                   <apex:commandButton id="cancel" value="Back to Group Campaign" action="{!Cancel2}"/>       
+          </apex:pageBlockButtons>
+
+     
+      <apex:pageBlockSection id="abc">
+        
+        <apex:pageBlockTable value="{!DuplicateCampaigns}" var="cCampaign" >  
+                <apex:column headerValue="Name">
+                    <apex:outputLink value="/{!cCampaign.Id}"> {!cCampaign.name} </apex:outputLink> 
+                </apex:column>
+                <apex:column headerValue="Village">
+                    <apex:outputText value="{!cCampaign.Village__r.name }"/>
+                </apex:column>
+                <apex:column headerValue="Channel(s)">
+                    <apex:outputText value="{!cCampaign.Communication_Channel__c }"/>
+                </apex:column>
+
+            </apex:pageBlockTable>
+           
+     </apex:pageBlockSection>
+     </apex:pageBlock> 
+    </apex:outputPanel>
+   </apex:outputPanel>
+ 
+    
+ </apex:form>
+
+
+</apex:page>

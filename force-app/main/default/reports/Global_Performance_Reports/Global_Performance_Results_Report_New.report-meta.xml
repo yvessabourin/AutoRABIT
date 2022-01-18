@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>CUST_NAME</field>
+    </columns>
+    <columns>
+        <field>Marketing_Campaign__c.Number_of_Activities__c</field>
+    </columns>
+    <columns>
+        <field>Marketing_Campaign__c.Start_Date__c</field>
+    </columns>
+    <columns>
+        <field>Marketing_Campaign__c.End_Date__c</field>
+    </columns>
+    <columns>
+        <field>Marketing_Campaign__c.Parent_Marketing_Campaign__c</field>
+    </columns>
+    <columns>
+        <field>Marketing_Campaign__c.Campaign_Focus__c</field>
+    </columns>
+    <columns>
+        <field>Marketing_Campaign__c.Village_Accumulated_Budget__c</field>
+    </columns>
+    <currency>EUR</currency>
+    <filter>
+        <criteriaItems>
+            <column>Marketing_Campaign__c.Status__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>To Be Approved,Approved</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Marketing_Campaign__c.Campaign_Focus__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Theme,Promotional Moments,Tactical Product Focus,International Moments,Retail Brand Moments,Local Moments</value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Marketing_Campaign__c.Village__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>Global Performance Results Report_New</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CustomEntity$Marketing_Campaign__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <sortColumn>Marketing_Campaign__c.Campaign_Focus__c</sortColumn>
+    <sortOrder>Asc</sortOrder>
+    <timeFrameFilter>
+        <dateColumn>Marketing_Campaign__c.Start_Date__c</dateColumn>
+        <endDate>2020-06-30</endDate>
+        <interval>INTERVAL_CUSTOM</interval>
+        <startDate>2020-03-30</startDate>
+    </timeFrameFilter>
+</Report>

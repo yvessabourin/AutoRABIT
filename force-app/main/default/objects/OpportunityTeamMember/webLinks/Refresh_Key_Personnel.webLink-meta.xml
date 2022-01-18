@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Refresh_Key_Personnel</fullName>
+    <availability>online</availability>
+    <displayType>massActionButton</displayType>
+    <linkType>javascript</linkType>
+    <masterLabel>Refresh Key Personnel</masterLabel>
+    <openType>onClickJavaScript</openType>
+    <protected>false</protected>
+    <requireRowSelection>false</requireRowSelection>
+    <url>{!REQUIRESCRIPT(&quot;/soap/ajax/10.0/connection.js&quot;)}
+{!REQUIRESCRIPT(&quot;/soap/ajax/10.0/apex.js&quot;)}
+
+sforce.apex.execute(
+    &quot;OpportunityTeamMemberSync&quot;,  //class name    
+    &quot;syncOpportunityRecordPersonnel&quot;,  //method name        
+     {oppId:&apos;{!Opportunity.Id}&apos;});
+
+window.location.reload();</url>
+</WebLink>

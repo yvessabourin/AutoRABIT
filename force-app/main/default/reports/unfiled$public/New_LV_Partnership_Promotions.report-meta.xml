@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Marketing_Activity__c$Name</field>
+    </columns>
+    <columns>
+        <field>Marketing_Activity__c$Partner__c</field>
+    </columns>
+    <columns>
+        <field>Marketing_Activity__c$Responsible_Person__c</field>
+    </columns>
+    <filter>
+        <criteriaItems>
+            <column>Marketing_Activity__c$RecordType</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>Marketing_Activity__c.Partnership_Promotion</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Marketing_Activity__c$Marketing_Campaign__c.Village__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>La Vallée</value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
+    <format>Tabular</format>
+    <name>New LV Partnership Promotions</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Marketing_Activities__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>Marketing_Activity__c$CreatedDate</dateColumn>
+        <interval>INTERVAL_TODAY</interval>
+    </timeFrameFilter>
+</Report>

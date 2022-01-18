@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Tourism_Lead_Queue_All_Tourism_Leads</fullName>
+    <columns>FULL_NAME</columns>
+    <columns>LEAD.COMPANY</columns>
+    <columns>LEAD.STATE</columns>
+    <columns>LEAD.EMAIL</columns>
+    <columns>LEAD.STATUS</columns>
+    <columns>LEAD.CREATED_DATE</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>LEAD.UNREAD</columns>
+    <columns>Lead_Country__c</columns>
+    <filterScope>Queue</filterScope>
+    <label>Tourism Lead Queue - All Tourism Leads</label>
+    <language>en_US</language>
+    <queue>Tourism_Lead_Queue_All_Tourism_Leads</queue>
+    <sharedTo>
+        <role>Group_Tourism</role>
+    </sharedTo>
+</ListView>

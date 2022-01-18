@@ -1,0 +1,30 @@
+<apex:page standardController="Lead" showHeader="False" sidebar="False" extensions="LeadActionsController">
+    <apex:form >
+        <div style="width:100%;text-align:center" >
+        
+            <APEX:commandButton id="quickconvert" value="Quick Convert" action="{!QuickConvert}" rendered="{!showbutton}" rerender="redirectPanel"/> 
+    
+            <apex:pageMessage id="emailpagemessage" rendered="{!IF(displayEmailError == NULL, False, True)}" severity="Warning"  summary="{!displayEmailError}" strength="1"/>
+            <apex:pageMessage id="companyemailpagemessage" rendered="{!IF(displayEmailError == NULL, False, True)}" severity="Warning"  summary="{!displayEmailError}" strength="1"/>         
+            <apex:pageMessage id="ActRefpagemessage" rendered="{!IF(displayAccountRefError == NULL, False, True)}" severity="Warning"  summary="{!displayAccountRefError}" strength="1"/>
+            <apex:pageMessage id="villagemessage" rendered="{!IF(displayEmailCompanyError == NULL, False, True)}" severity="Warning"  summary="{!displayEmailCompanyError}" strength="1"/>
+                
+                <apex:outputPanel id="redirectPanel" >
+                
+                        <apex:outputText rendered="{!shouldRedirect}">
+                            <script type="text/javascript">
+                              window.top.location.href = '{!JSENCODE(redirectUrl)}';
+                            </script>
+                        </apex:outputText>
+                        
+                        <apex:outputText rendered="{!showerror}">
+                            <script type="text/javascript">
+                             alert('{!JSENCODE(errormessage)}');
+                            </script>
+                        </apex:outputText>
+                    
+                </apex:outputPanel>
+                
+        </div>
+    </apex:form>
+</apex:page>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All</fullName>
+    <columns>NAME</columns>
+    <columns>Department__c</columns>
+    <columns>Village__c</columns>
+    <columns>Escalation_point_1__c</columns>
+    <columns>Escalation_point_2__c</columns>
+    <columns>OWNER.ALIAS</columns>
+    <columns>P1_Offset_Days__c</columns>
+    <columns>P2_Offset_Days__c</columns>
+    <columns>P3_Offset_Days__c</columns>
+    <filterScope>Everything</filterScope>
+    <label>All</label>
+</ListView>

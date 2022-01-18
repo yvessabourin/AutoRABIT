@@ -1,0 +1,13 @@
+<Enumeration Type="Villages">
+	<Item Key="BV" Language="">Bicester Village</Item>
+	<Item Key="FV" Language="">Fidenza Village</Item>
+	<Item Key="LZ" Language="">Las Rozas Village</Item>
+	<Item Key="IV" Language="">Ingolstadt Village</Item>
+	<Item Key="LV" Language="">La Vallée Village</Item>
+	<Item Key="MV" Language="">Maasmechelen Village</Item>
+	<Item Key="LR" Language="">La Roca Village</Item>
+	<Item Key="WV" Language="">Wertheim Village</Item>
+	<Item Key="SV" Language="zh-cn">Suzhou Village</Item>
+	<Item Key="KV" Language="">Kildare Village</Item>
+	<Item Key="ZV" Language="en-gb">IMG Test Village</Item>
+</Enumeration>

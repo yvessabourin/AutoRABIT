@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <chart>
+        <backgroundColor1>#FFFFFF</backgroundColor1>
+        <backgroundColor2>#FFFFFF</backgroundColor2>
+        <backgroundFadeDir>Diagonal</backgroundFadeDir>
+        <chartSummaries>
+            <axisBinding>y</axisBinding>
+            <column>RowCount</column>
+        </chartSummaries>
+        <chartType>HorizontalBar</chartType>
+        <enableHoverLabels>false</enableHoverLabels>
+        <expandOthers>true</expandOthers>
+        <groupingColumn>FK_NAME</groupingColumn>
+        <location>CHART_TOP</location>
+        <showAxisLabels>true</showAxisLabels>
+        <showPercentage>false</showPercentage>
+        <showTotal>false</showTotal>
+        <showValues>false</showValues>
+        <size>Medium</size>
+        <summaryAxisRange>Auto</summaryAxisRange>
+        <textColor>#000000</textColor>
+        <textSize>12</textSize>
+        <title>Brands not confirming data</title>
+        <titleColor>#000000</titleColor>
+        <titleSize>18</titleSize>
+    </chart>
+    <columns>
+        <field>CUST_NAME</field>
+    </columns>
+    <columns>
+        <field>Daily_Sale__c.Trading_Day_with_date__c</field>
+    </columns>
+    <columns>
+        <field>Daily_Sale__c.Status__c</field>
+    </columns>
+    <columns>
+        <field>Daily_Sale__c.Valid_for_Confirmation__c</field>
+    </columns>
+    <currency>EUR</currency>
+    <description>This report is used to check to see any Daily Sales records that are still to be confirmed (records with a status of Created or Reported Incomplete).</description>
+    <filter>
+        <criteriaItems>
+            <column>Daily_Sale__c.Trading_Date__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>lessThan</operator>
+            <value>TODAY</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Daily_Sale__c.Status__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>notEqual</operator>
+            <value>Reported Confirmed</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>FK_$Village_Presence__c.Village__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>La Roca</value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
+    <format>Matrix</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>FK_NAME</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>LR Created Records Data Not Confirmed</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CustomEntity$Daily_Sale__c@Daily_Sale__c.Store__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>Daily_Sale__c.Trading_Date__c</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

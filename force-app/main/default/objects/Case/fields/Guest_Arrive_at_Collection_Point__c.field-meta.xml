@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Guest_Arrive_at_Collection_Point__c</fullName>
+    <description>Guest Arrive to the Collection Point. Indicates the hour (now) + 30 minutes indicated by Guest when he calls to inform that will be at CP in 30 minutes.</description>
+    <externalId>false</externalId>
+    <label>Guest Arrive at Collection Point</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>DateTime</type>
+</CustomField>

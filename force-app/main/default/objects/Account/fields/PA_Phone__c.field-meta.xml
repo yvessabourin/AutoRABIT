@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PA_Phone__c</fullName>
+    <description>The phone number for the guests PA.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>The phone number of the Private Client’s PA</inlineHelpText>
+    <label>PA Phone</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Phone</type>
+</CustomField>

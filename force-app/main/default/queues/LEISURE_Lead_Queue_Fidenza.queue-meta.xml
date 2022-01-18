@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Queue xmlns="http://soap.sforce.com/2006/04/metadata">
+    <doesSendEmailToMembers>true</doesSendEmailToMembers>
+    <email>tourism@fidenzavillage.com</email>
+    <name>LEISURE Lead Queue - Fidenza</name>
+    <queueMembers>
+        <users>
+            <user>conciergefv@valueretail.com</user>
+            <user>ticteamfv@valueretail.com</user>
+            <user>sespinosa@valueretail.com</user>
+        </users>
+    </queueMembers>
+    <queueSobject>
+        <sobjectType>Lead</sobjectType>
+    </queueSobject>
+</Queue>

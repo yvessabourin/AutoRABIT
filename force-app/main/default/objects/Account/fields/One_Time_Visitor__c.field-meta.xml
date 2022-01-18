@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>One_Time_Visitor__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Automated field to show if Private Client has only visited a village once</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Automated field to show if Private Client has only visited a village once</inlineHelpText>
+    <label>One-Time Visitor</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

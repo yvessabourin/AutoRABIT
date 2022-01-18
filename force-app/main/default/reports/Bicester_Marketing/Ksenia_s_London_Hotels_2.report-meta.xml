@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Promotion_Redemption__c$Name</field>
+    </columns>
+    <filter>
+        <criteriaItems>
+            <column>Promotion_Redemption__c$Redeemable_Campaign__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>false</isUnlocked>
+            <operator>contains</operator>
+            <value>London-Marriott-County-Hall,Corus-Hyde-Park,Rosewood-Hotel,Park-Plaza-County-Hall,Hotel-Indigo-London-Paddington,The-Grosvenor,MillenniumLondonMayfair,Hilton-Green-Park,NovotelPaddington,Rocco-Forte-Browns-Hotel,The-Royal-Horseguards,The-Blandford,LondonMarriottGrosvenorSquare,DoubleTree-Hilton-London-Hyde-Park,LondonMarriottRegentsPark,The-Lanesborough,Paddington-Court,London Marriott Park Lane,The-Strand-Palace,Radisson-Blu-Edwardian-Mercer-Street,The-Beaumont-Hotel,Shangri-La-at-The-Shard,Norfolk-Plaza,Park-Plaza-Sherlock-Holmes,MercureLondonPaddington,The-Rembrandt-Hotel,Jumeirah-Lowndes,The-Belgrave-Hotel,Alexandra-Hotel-Paddington,The Ritz,The-Wellesley-Hotel,Paddington-Court-Rooms,The-Paddington-Hotel,The-Goring,The-Connaught,Mandarin-Oriental,The-Savoy,Corinthia-Hotel,Claridges,Amba Hotel Charing Cross,Metropolitan-by-COMO,Bulgari,Flemings Hotel</value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
+    <format>Matrix</format>
+    <groupingsAcross>
+        <dateGranularity>Month</dateGranularity>
+        <field>Promotion_Redemption__c$Redeem_Date__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsAcross>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Promotion_Redemption__c$Redeemable_Campaign__c.Total_Redemptions__c</field>
+        <sortOrder>Desc</sortOrder>
+    </groupingsDown>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Promotion_Redemption__c$Redeemable_Campaign__c.Partner__c.TextName</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>Ksenia&apos;s London Hotels 2</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>VIP_Redemptions__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>Promotion_Redemption__c$Redeem_Date__c</dateColumn>
+        <endDate>2016-06-30</endDate>
+        <interval>INTERVAL_CUSTOM</interval>
+        <startDate>2016-01-01</startDate>
+    </timeFrameFilter>
+</Report>

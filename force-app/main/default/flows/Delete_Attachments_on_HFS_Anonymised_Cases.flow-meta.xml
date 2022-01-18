@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>49.0</apiVersion>
+    <interviewLabel>Delete Attachments on HFS Anonymised Cases {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Delete Attachments on HFS Anonymised Cases</label>
+    <loops>
+        <name>foreach_Content_Version</name>
+        <label>foreach Content Version</label>
+        <locationX>176</locationX>
+        <locationY>278</locationY>
+        <collectionReference>List_Content_Versions</collectionReference>
+        <iterationOrder>Asc</iterationOrder>
+        <nextValueConnector>
+            <targetReference>Delete_Attachment</targetReference>
+        </nextValueConnector>
+    </loops>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordDeletes>
+        <name>Delete_Attachment</name>
+        <label>Delete Attachment</label>
+        <locationX>264</locationX>
+        <locationY>398</locationY>
+        <connector>
+            <targetReference>foreach_Content_Version</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>foreach_Content_Version.ContentDocumentId</elementReference>
+            </value>
+        </filters>
+        <object>ContentDocument</object>
+    </recordDeletes>
+    <recordLookups>
+        <description>Get Content Versions to identify Content Document ID</description>
+        <name>get_Content_Versions</name>
+        <label>get Content Versions</label>
+        <locationX>176</locationX>
+        <locationY>158</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>foreach_Content_Version</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>FirstPublishLocationId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>HFSId</elementReference>
+            </value>
+        </filters>
+        <object>ContentVersion</object>
+        <outputReference>List_Content_Versions</outputReference>
+        <queriedFields>Id</queriedFields>
+        <queriedFields>ContentDocumentId</queriedFields>
+    </recordLookups>
+    <startElementReference>get_Content_Versions</startElementReference>
+    <status>Active</status>
+    <variables>
+        <name>HFSId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <name>List_Content_Versions</name>
+        <dataType>SObject</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>ContentVersion</objectType>
+    </variables>
+</Flow>

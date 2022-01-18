@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <aggregateTypes>Sum</aggregateTypes>
+        <field>Group_Booking__c.Reporting_Visitors__c</field>
+    </columns>
+    <columns>
+        <aggregateTypes>Sum</aggregateTypes>
+        <field>Group_Booking__c.Reporting_Revenue__c</field>
+    </columns>
+    <filter>
+        <criteriaItems>
+            <column>Group_Booking__c.Status__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>Completed</value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
+    <format>Matrix</format>
+    <groupingsAcross>
+        <dateGranularity>Week</dateGranularity>
+        <field>Group_Booking__c.Reporting_Arrival_Date__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsAcross>
+    <name>Revenue Report by Week</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CustomEntity$Group_Booking__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>Group_Booking__c.Expected_Arrival__c</dateColumn>
+        <interval>INTERVAL_CURY</interval>
+    </timeFrameFilter>
+</Report>

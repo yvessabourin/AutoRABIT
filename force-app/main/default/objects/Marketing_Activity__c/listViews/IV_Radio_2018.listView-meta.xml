@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>IV_Radio_2018</fullName>
+    <columns>NAME</columns>
+    <columns>Start_Date__c</columns>
+    <columns>Budget__c</columns>
+    <columns>Business_Function__c</columns>
+    <columns>Marketing_Campaign__c</columns>
+    <columns>Reach__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Marketing_Campaign_Village__c</field>
+        <operation>contains</operation>
+        <value>Ingolstadt</value>
+    </filters>
+    <filters>
+        <field>Sub_Channel__c</field>
+        <operation>equals</operation>
+        <value>Radio</value>
+    </filters>
+    <filters>
+        <field>Start_Date__c</field>
+        <operation>greaterOrEqual</operation>
+        <value>1/1/2018</value>
+    </filters>
+    <filters>
+        <field>End_Date__c</field>
+        <operation>lessOrEqual</operation>
+        <value>12/31/2018</value>
+    </filters>
+    <label>IV Radio 2018</label>
+    <language>en_US</language>
+</ListView>

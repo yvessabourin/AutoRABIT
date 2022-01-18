@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Brand__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>This field exists purely to provide a relationship between &quot;In_Village_Brand_Activity__c&quot; - Account - &quot;Marketing_Activity__c&quot;, this allows the related marketing Activty to be shown on the Account layout in a related list.
+It is populated by a process builder workflow - &quot;In Village Brand Activity Set Brand__c&quot;, a process invoked by insert or update of an &quot;In_Village_Brand_Activity__c&quot; record.</description>
+    <externalId>false</externalId>
+    <label>Brand</label>
+    <referenceTo>Account</referenceTo>
+    <relationshipLabel>Marketing Activities (Brand)</relationshipLabel>
+    <relationshipName>Marketing_Activities_Brand</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

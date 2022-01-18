@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help>In caso di errore nel salvataggio dei dati, nonostante questi siano corretti, si prega di spuntare questa casella e di mettere una spiegazione nelle note.</help>
+    <label>Ignora convalida</label>
+    <name>Ignore_Validations__c</name>
+</CustomFieldTranslation>

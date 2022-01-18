@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MICE_Lead_Queue_La_Vall_e</fullName>
+    <filterScope>Queue</filterScope>
+    <label>MICE Lead Queue - La Vallée</label>
+    <queue>MICE_Lead_Queue_La_Valle</queue>
+    <sharedTo>
+        <group>Location_La_Vallee</group>
+    </sharedTo>
+</ListView>

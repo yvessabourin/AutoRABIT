@@ -1,0 +1,24 @@
+<apex:page standardController="Brand_Activity__c" extensions="massCloneBrandActivities" recordSetVar="bas" action="{!cloneBrandActs}" lightningStylesheets="true">
+
+    <apex:pageMessage id="emailpagemessage" rendered="{!IF(errorMessage == NULL, False, True)}" severity="Warning"  summary="{!errorMessage}" strength="1"/>
+
+    <apex:form >
+        <apex:pageBlock id="thepageblock">
+            <apex:pageBlockTable value="{!BAMap}" var="key" id="thepageblocktable" columns="8">
+                <apex:column headerValue="Original Brand Activity" >
+                    <a href="/{!key.id}"><apex:outputField value="{!key.name}" /></a>
+                </apex:column>
+
+                <apex:column headerValue="Cloned Brand Activity" >
+                    <a href="/{!BAMap[key].id}"><apex:outputField value="{!BAMap[key].Name}" /></a>
+                </apex:column>
+            </apex:pageBlockTable>
+
+            <br/>
+
+            <apex:commandButton action="{!returntoOrigin}" value="Return"/>
+
+        </apex:pageBlock>
+    </apex:form>
+
+</apex:page>

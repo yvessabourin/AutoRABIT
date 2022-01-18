@@ -1,0 +1,758 @@
+<apex:page sidebar="false" controller="GroupSearchController" showHeader="false" standardStylesheets="false"  applyBodyTag="false" docType="html-5.0">
+	
+
+    <html xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" ng-app="ticApp" >    
+    <head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>TIC Home Page</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></link>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment-with-locales.js"></script>
+ <link rel="stylesheet" href="{!URLFOR($Resource.NewTICStyles)}"></link>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.11/angular.min.js"></script>
+
+ <apex:includeScript value="{!$Resource.Sorttable}"></apex:includeScript> 
+
+<style type="text/css">
+
+body{
+    background: url({!URLFOR($Resource.TICDashboard, 'BVWalk.jpg')}) no-repeat center center fixed !important;
+    -webkit-background-size: cover !important;
+    -moz-background-size: cover !important;
+    -o-background-size: cover !important;
+    background-size: cover !important;
+}
+
+#footer {
+   margin: auto;
+    width: 50%;
+
+   bottom:0;
+   height:20px;   /* Height of the footer */
+  
+  /* background-color: #282828;
+   opacity: 0.3;*/
+  
+  background-color:rgba(40,40,40,0.3)
+}
+
+#imagecredit {
+   text-align: center;
+    color: #FFFFFF;
+}
+
+#imagecredit a {
+
+  color: #FFFFFF;
+}
+
+.Thumbnail {
+    width: 40px;
+    height: 40px;
+    background: #6c7e90;
+    border-radius: 100px;
+}
+
+/*Business Card Css */
+.business-card {
+  border: 1px solid #cccccc;
+  background: #f8f8f8;
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+.profile-img {
+  height: 120px;
+  background: white;
+}
+
+</style>
+
+        <script>
+            function isLightningRedirect(inUrl){
+                if ('{!$User.UITheme}' === 'Theme4d' || '{!$User.UITheme}' === 'Theme4t' || '{!$User.UITheme}' === 'Theme4u') {
+                    sforce.one.navigateToURL(inUrl);
+                } else {
+                    window.location = inUrl;
+                }
+            }
+        </script>
+
+<script>
+// draw the pie chart
+
+ google.charts.load("current", {packages:["corechart"]});
+      google.charts.setOnLoadCallback(drawChart);
+      var bookingdatasummary = {!summary};
+      var awaitingcount = parseInt(bookingdatasummary.awaiting,10);
+      var arrivedcount = parseInt(bookingdatasummary.arrived,10);
+      var checkedoutcount = parseInt(bookingdatasummary.checkedout,10);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Status', 'Number'],
+          ['Awaiting Arrival',     awaitingcount ],
+          ['Arrived in Village',      arrivedcount],
+          ['Checked Out',  checkedoutcount ]
+        ]);
+
+        var options = {
+          title: 'Bookings for the day',
+          is3D: true,
+          pieSliceText: 'value',
+          backgroundColor: '#f5f5f5',
+           pieSliceTextStyle: {
+            color: 'black',
+              width: '100%',
+        height: '100%',
+          },
+           slices: {
+            0: { color: '#faf2cc' },
+            1: { color: '#d0e9c6'},
+            2: { color: '#e8e8e8' }
+          }
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
+        chart.draw(data, options);
+      }
+
+      // and then draw the bar chart
+
+      google.charts.load('current', {packages: ['corechart', 'bar']});
+      google.charts.setOnLoadCallback(drawBasic);
+      var guestdatasummary = {!guestsumm};
+      var gawaitingcount = parseInt(guestdatasummary.awaiting,10);
+      var garrivedcount = parseInt(guestdatasummary.arrived,10);
+      var gcheckedoutcount = parseInt(guestdatasummary.checkedout,10);
+      function drawBasic() {
+
+      var data = google.visualization.arrayToDataTable([
+         ['Status', 'Number Of Guests', { role: 'style' }, { role: 'annotation' } ],
+         ['Awaiting Arrival', gawaitingcount, '#faf2cc',gawaitingcount],           
+         ['Arrived in Village', garrivedcount, '#d0e9c6',garrivedcount],            
+         ['Checked Out', gcheckedoutcount, '#e8e8e8',gcheckedoutcount],
+      ]);
+
+      var options = {
+        title: 'Number of Guests expected today',
+         legend: { position: 'none' },
+         backgroundColor: '#f5f5f5',
+           width: '100%',
+        height: '100%',
+        hAxis: {
+          title: 'Guests',          
+          minValue: 0
+        },
+        vAxis: {
+          title: 'Status'
+        }
+      };
+
+      var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+
+      chart.draw(data, options);
+    }
+
+     // define the app
+     var GroupTICApp = angular.module('ticApp', []);
+     // add an app factory
+
+     // add the controller
+     GroupTICApp.controller('GroupCtrl',['$log','$scope','$window',function($log,$scope,$window){
+        $scope.bookingdata = {!groupBookings} ;
+        $scope.grpBookings = $scope.bookingdata;   
+        $scope.gbTableHeadlineNormal = 'Group Bookings for {!usersVillage} Today';
+		    $scope.gbTableHeadline = $scope.gbTableHeadlineNormal;
+        $log.log('$scope.grpBookings === ' + $scope.grpBookings);
+        $scope.searchvalue = '';    
+		    $log.log('$scope.searchvalue === ' + $scope.searchvalue);
+		
+        $scope.booksummary = {!summary};
+        $scope.earlyorlate = "";
+        $scope.manydaybookingtimingHeader = "";
+        $scope.onedaybookingtimingHeader = "";
+
+         $scope.showCase = function(caseID) {
+            // Before
+           //$window.location.href = '/apex/HFSGuestPage?ID=' + caseID;
+           // After
+           isLightningRedirect('/apex/HFSGuestPage?ID=' + caseID);
+        };
+
+ 		 $scope.searchBookings = function(){
+                 	$log.log('about to call searchBookings....');
+               // $scope.contactList = [];
+                  $log.log('about to call $scope.searchvalue....' + $scope.searchvalue);
+                if( $scope.searchvalue  != undefined && $scope.searchvalue.length > 2){
+                $log.log('about to call $scope.searchvalue....' + $scope.searchvalue);
+                $scope.grpBookings = [];    
+                      Visualforce.remoting.Manager.invokeAction(
+                                    '{!$RemoteAction.GroupSearchController.searchActivities}',
+                                    $scope.searchvalue ,
+                                    function(result, event){
+                                      $log.log('about to call result....' + result);
+                                        if (event.status) {                                          
+                                             $scope.grpBookings = result;  
+                                             $scope.gbTableHeadline = 'Search Results';
+                                        } else if (event.type === 'exception') {
+                                          $scope.message = event;
+                                        } else {
+                                              $scope.message = event;
+                                        }
+                                        $scope.$apply();
+                                    }, 
+                                    {escape: true}
+                        );
+                           
+                }else{
+                    //  $scope.showBrandListSearch  = false;
+                      $scope.grpBookings = $scope.bookingdata; 
+                      $scope.gbTableHeadline = $scope.gbTableHeadlineNormal;
+                }
+            }
+
+        $scope.whatClassIsRow = function(statusvalue){
+
+          if(statusvalue.statusText === 'Awaiting Arrival'){
+            return 'warning';
+            }
+            else if(statusvalue.statusText === 'Arrived at Village' ){
+              return 'success';
+            }            
+            else{
+              return 'active';
+            }
+
+        }
+        $scope.whatClassIabel = function(casevalue){
+
+          if(casevalue.ItemsAwaiting != '0' ){
+            return 'label label-danger';
+            }
+            else if(casevalue.ItemsCollected === '0' && casevalue.ItemsAwaiting === '0' ){
+              return 'label label-info';
+            }
+            else if(casevalue.ItemsCollected != '0' && casevalue.ItemsAwaiting === '0' ){
+              return 'label label-success';
+            }                      
+            else{
+              return 'label label-default';
+            }
+
+        }
+
+         $scope.showGroupBooking = function(promoid, promoname,expecteddate,rectype) {         	
+
+          // lets check the date first.... maybe its late or early
+          // if the expected date is blank, it means that the booking could be a groups partnership, and as such we can treat it like am on-time booking
+          if(expecteddate == '' && rectype == 'Groups Partnership'){
+                isLightningRedirect(encodeURI('/apex/PreBookedVisitList?promoId=' + promoid + '&promoName=' + promoname +'&recTypeId={!guestRecType}'));
+          }
+          else
+          {
+            var date = expecteddate.split(" ")[0],
+            time = expecteddate.split(" ")[1];
+
+            var day = date.split("/")[0],          
+            month = date.split("/")[1],
+            year = date.split("/")[2];
+            //-------
+            // trying with moment
+            var a = moment(year + '/' + month +'/' + day  , 'YYYY/MM/DD');
+            var b = moment().startOf('day');   // todays date
+            
+            var daysb = b.diff(a, 'days'); // equivalent to b - a 
+           // alert (a + ' - ' + b + ' = ' + daysb);
+            // ok, so days betwwen should be 0 if its today 
+            // 1 = yesterday
+            // -1 = tomorrow
+            // 2 = day before yesterday
+            // -2 = day after tomorrow
+
+            // 1 or -1 if its yesterday or tomorrow
+            // 2 (or more) or -2 (or less) if its longer period ago/ahead
+     
+
+            // the rules are:
+            // if its ahead by 1 day, then allow checkin, or prescan
+            // if its ahead by man days, allow checkin
+            if(daysb != 0){
+              if(daysb >= 1 && daysb <= 7){
+                // then its yesterday
+                // the people are a day late
+               // alert('booking for yesterday');
+                 $j('#oneDayBookingModal').modal('show');
+                  $j('#prescanBookingButton').hide();
+                  $scope.earlyorlate = "late";
+                  $scope.onedaybookingtimingHeader = "Booking late";
+                  $j('#continueBooking').click(function (){
+                      isLightningRedirect(encodeURI('/apex/PreBookedVisitList?promoId=' + promoid + '&promoName=' + promoname +'&recTypeId={!guestRecType}'));
+                  });
+              }
+              if(daysb <= (-1) && daysb >= (-7)){
+                // then its tomorrow
+                // they are early and can checkin, or we want to pre-scan
+               // alert('booking a day early');
+                $j('#oneDayBookingModal').modal('show');
+                $scope.earlyorlate = "early";
+                  $scope.onedaybookingtimingHeader = "Booking early";
+                   $j('#1dayearlyprescanBookingButton').show();
+                   $j('#1dayearlyprescanBookingButton').click(function (){
+                        // Before
+                        //$window.location.href = encodeURI('/apex/PreBookedVisitList?promoId=' + promoid + '&promoName=' + promoname +'&recTypeId={!guestRecType}&prescan=true');
+                        // After
+                        isLightningRedirect(encodeURI('/apex/PreBookedVisitList?promoId=' + promoid + '&promoName=' + promoname +'&recTypeId={!guestRecType}&prescan=true'));
+                    });
+                $j('#continueBooking').click(function (){
+                    isLightningRedirect(encodeURI('/apex/PreBookedVisitList?promoId=' + promoid + '&promoName=' + promoname +'&recTypeId={!guestRecType}'));
+                  });
+              }
+              if(daysb < (-7)){
+                // then they are very early, and could checkin??, or prescan
+               // alert('booking very early');
+                 $scope.earlyorlate = "early";
+                   $scope.manydaybookingtimingHeader = "Booking is very early";
+                    $j('#manyDayBookingModal').modal('show');
+                    $j('#prescanBookingButton').show();
+                    $j('#prescanBookingButton').click(function (){
+                        // Before
+                        // $window.location.href = encodeURI('/apex/PreBookedVisitList?promoId=' + promoid + '&promoName=' + promoname +'&recTypeId={!guestRecType}&prescan=true');
+                        // After
+                        isLightningRedirect(encodeURI('/apex/PreBookedVisitList?promoId=' + promoid + '&promoName=' + promoname +'&recTypeId={!guestRecType}&prescan=true'));
+                    });
+                  $j('#cloneBookingButton').click(function (){
+                    // $window.location.href = encodeURI('/apex/PreBookedVisitList?promoId=' + promoid + '&promoName=' + promoname +'&recTypeId={!guestRecType}');   
+                       Visualforce.remoting.Manager.invokeAction(
+                                      '{!$RemoteAction.GroupSearchController.clonebooking}',
+                                      promoid ,
+                                      function(result, event){
+                                        $log.log('about to call result....' + result);
+                                          if (event.status) {                                          
+                                              if(result.includes('ERROR')){
+                                                 $log.log('ERROR ==== ' + result);
+                                                 alert('Im sorry, but an error has occurred. Please contact support. ' + result);
+                                              }
+                                              else
+                                              {
+                                                    // Before
+                                                    // $window.location.href = encodeURI('/apex/PreBookedVisitList?promoId=' + result + '&promoName=&recTypeId={!guestRecType}');
+                                                    // After
+                                                    isLightningRedirect(encodeURI('/apex/PreBookedVisitList?promoId=' + result + '&promoName=&recTypeId={!guestRecType}'));
+                                              }
+                                          } else if (event.type === 'exception') {
+                                            $scope.message = event;
+                                          } else {
+                                                $scope.message = event;
+                                          }
+                                      }, 
+                                      {escape: true}
+                          );
+                 });
+
+              }
+              if(daysb > 7){
+                // then they are very late, and cannot prescan, and have to clone booking
+               // alert('booking very late');
+                 $scope.earlyorlate = "late";
+                $scope.manydaybookingtimingHeader = "Booking is very late";
+                 $j('#manyDayBookingModal').modal('show');
+                     $j('#prescanBookingButton').hide();
+                 $j('#cloneBookingButton').click(function (){
+
+                    
+                       Visualforce.remoting.Manager.invokeAction(
+                                      '{!$RemoteAction.GroupSearchController.clonebooking}',
+                                      promoid ,
+                                      function(result, event){
+                                        $log.log('about to call result....' + result);
+                                          if (event.status) {                                          
+                                              if(result.includes('ERROR')){
+                                                 $log.log('ERROR ==== ' + result);
+                                                 alert('Im sorry, but an error has occurred. Please contact support. ' + result);
+                                              }
+                                              else
+                                              {
+                                                    // Before
+                                                    // $window.location.href = encodeURI('/apex/PreBookedVisitList?promoId=' + result + '&promoName=&recTypeId={!guestRecType}');
+                                                    // After
+                                                    isLightningRedirect(encodeURI('/apex/PreBookedVisitList?promoId=' + result + '&promoName=&recTypeId={!guestRecType}'));
+                                              }
+                                          } else if (event.type === 'exception') {
+                                            $scope.message = event;
+                                          } else {
+                                                $scope.message = event;
+                                          }
+                                      }, 
+                                      {escape: true}
+                          );
+                 });
+              }
+
+            }
+            else
+            {
+              // means they are on time, and we can just carry on :)
+                isLightningRedirect(encodeURI('/apex/PreBookedVisitList?promoId=' + promoid + '&promoName=' + promoname +'&recTypeId={!guestRecType}'));
+            }
+          }
+        }
+
+         $scope.quickcheckout = function(visitid) {           
+        if(confirm("Are you sure you want to checkout?")){
+           // push visit checkout date/time as now, and save, and re-load page.
+            Visualforce.remoting.Manager.invokeAction(
+                                    '{!$RemoteAction.GroupSearchController.quickCheckout}',
+                                    visitid ,
+                                    function(result, event){
+                                      $log.log('about to call result....' + result);
+                                        if (event.status) {                                          
+                                            if(result.includes('ERROR')){
+                                               $log.log('ERROR ==== ' + result);
+                                            }
+                                            else
+                                            {
+                                                isLightningRedirect(encodeURI('/apex/GroupBooking_Search'));
+                                               //$window.location.href = encodeURI('/apex/GroupBooking_Search');
+                                            }
+                                        } else if (event.type === 'exception') {
+                                          $scope.message = event;
+                                        } else {
+                                              $scope.message = event;
+                                        }
+                                    }, 
+                                    {escape: true}
+                        );
+            
+         }      
+        }
+
+     }]);
+   </script>
+    <script>
+   
+        $j = jQuery.noConflict();
+        var homeUrl;
+        
+
+        $j(document).ready(function() {
+
+ 		if({!showHFSButton}){
+             $j('#hfsbutton').show();
+              $j('#hfslistitem').show();
+             
+          }
+          else
+          {
+            $j('#hfsbutton').hide();
+             $j('#hfslistitem').hide();
+          }
+     
+            if( ('{!$User.UIThemeDisplayed}' == 'Theme4t' || '{!$User.UIThemeDisplayed}' == 'Theme4d' ) ) {
+             // running in mobile
+                homeUrl = '/_ui/core/chatter/ui/ChatterPage';
+            } else { //desktop
+                homeUrl = '/home/home.jsp';
+            }                        
+          
+        })
+
+        function cancelAction(){
+            isLightningRedirect(homeUrl);
+        }
+
+        function gotoPage(pg){
+            isLightningRedirect('/apex/' + pg);
+        }
+
+           var timer;
+        function delayedSearch(searchString){
+
+            clearTimeout(timer);
+            timer = setTimeout(function (event) {
+                searchPromotions(searchString);        
+
+            }, 1000);        
+        
+        }
+       
+        function searchPromotions(searchString){
+                
+            //var searchString = $j('#searchText').val();
+            console.log('searchString = ' + searchString);    
+            var search = false;
+            
+            if (searchString.length > 0){
+                if (searchString.length > 2){                               
+                    search = true;
+                        
+                    if (searchString.substring(0,3) == 'a0y' || searchString.substring(0,3) == 'a0U' || searchString.substring(0,3) == '701'){
+                        if (searchString.length < 15){
+                            // do nothing
+                            search = false;
+                        } else {
+                            search = true;
+                        }
+                    } 
+                } else {
+                    getTrendingItems();
+                }
+            } else {
+                getTrendingItems();
+            }
+            
+            
+            if (search){
+                 $j('#searching').show();
+                 VisitRedemptionsHelper.searchActivities(searchString, function(result, event) {
+                
+                        console.log(result);
+                        $j('#searching').hide();
+                        
+                        var html = buildHTML(result, 'Promotion');
+        
+                        if(event.status) {
+                          
+                            $j( "ul.promoItems").html(function() {
+                               return html;
+                            });
+                            
+        
+                            
+                        } else {
+                            $j( "ul.promoItems").html(function() {
+                               return "<p>Network Error - Please report issue if problem persists</p> <br/>" + result
+                            });
+        
+                        }
+        
+                        var html2 = buildHTML(result, 'Booking');
+
+                        if(event.status) {
+                          
+                            $j( "ul.bookingItems").html(function() {
+                               //return label + "<br/><textarea rows='10' cols='40' style='border:none;'>" + result + "</textarea>";
+                               return html2;
+                            });
+                            
+        
+                            
+                        } else {
+                            $j( "ul.bookingItems").html(function() {
+                               return "<p>Network Error - Please report issue if problem persists</p> <br/>" + result
+                               return label + "<br/><textarea rows='10' cols='40' style='border:none;'>" + event.status + "</textarea>";
+                            });
+        
+                        }
+
+                    },{buffer: false, escape: true, timeout: 30000} );            
+            
+            }
+            
+        
+        }
+    
+        
+    </script>
+
+
+</head>
+<body>
+      <!-- Main Navigation -->
+      <div class="my-nav">
+         <div class="site-navbar navbar navbar-fixed-top" role="navigation">
+            <div class="container">
+               <div class="navbar-header">
+                  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+                   <a class="navbar-brand" onclick="gotoPage('TIC_Dashboard');">Tourist Information Center</a> 
+               </div>
+               <div id="navbar" class="navbar-collapse collapse">
+                  <ul class="nav navbar-nav navbar-right">
+                     <li> <a  href="#group" class="active"  onclick="gotoPage('GroupBooking_Search');" >Group Check In</a> </li>
+                     <li> <a  href="#guest"  onclick="gotoPage('Promotion_Search');" >Guest Check In</a> </li>
+                     <li> <a  href="#search"  onclick="gotoPage('GuestSearch');">Guest Search</a> </li>
+                     <li> <a  href="#card"  onclick="gotoPage('VIPCardSearch');">Card Search</a> </li>
+                     <li> <a  href="#clean"  onclick="gotoPage('VIPCardCleardown');">VIP Card Cleanup</a> </li>
+                      <li id="hfslistitem" name="hfslistitem"> <a  href="#hfs"  onclick="gotoPage('HFSDash');">Hands Free Shopping</a> </li>
+                     <li> <a  href="#exit" onclick="cancelAction();" >Exit</a> </li>
+                  </ul>
+               </div>
+               <!--/.nav-collapse -->
+            </div>
+         </div>
+      </div>
+      <!-- /.Main Navigation -->
+      <!-- Fullwidth Header -->
+      <!-- Intro Header -->
+
+      
+<div class="jumbotron text-center">
+  <h2>&nbsp;</h2>
+</div>
+
+<!-- main content -->
+<div class="container" ng-controller="GroupCtrl">  
+
+ <div id="loadingmodal" name="loadingmodal" class="modal" role="dialog">
+      <div class="modal-dialog">
+        <div id="loader">
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+        </div>
+      </div>
+    </div>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="oneDayBookingModal" tabindex="-1" role="dialog" aria-labelledby="oneDayBookingModal" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="oneDayBookingModalLabel">{{onedaybookingtimingHeader}}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" style="width: 100%; height: 80%; overflow-y: scroll;">      
+      <div id="termsdiv" style="margin-right: auto;margin-left: auto;">
+      Please note this booking is {{earlyorlate}} 
+      <br/>
+     Are you sure you would like to check them in?
+       </div>
+       
+      </div>
+      <div class="modal-footer">
+       <button style="float: left;" role="button" class="btn btn-default" id="continueBooking" >Continue</button>&nbsp;  
+        <button style="float: left;" role="button" class="btn btn-default" id="1dayearlyprescanBookingButton" >Prescan Booking</button>&nbsp;     
+         <a href="#" style="float: right;" role="button" class="btn btn-default" data-dismiss="modal">Close</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="manyDayBookingModal" tabindex="-1" role="dialog" aria-labelledby="manyDayBookingModal" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="manyDayBookingModal">{{manydaybookingtimingHeader}}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" style="width: 100%; height: 80%; overflow-y: scroll;">      
+      <div id="termsdiv" style="margin-right: auto;margin-left: auto;">
+      Please note this booking is very {{earlyorlate}} 
+      <br/>
+     The booking will marked as closed, and a new booking will be created with the same details.
+     <br />
+     Would you like to proceed?
+       </div>
+       
+      </div>
+      <div class="modal-footer">
+       <button style="float: left;" role="button" class="btn btn-default" id="cloneBookingButton" >Clone Booking</button>&nbsp;&nbsp;
+       <button style="float: left;" role="button" class="btn btn-default" id="prescanBookingButton" >Prescan Booking</button>&nbsp; 
+         <a href="#" style="float: right;" role="button" class="btn btn-default" data-dismiss="modal">Close</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+          <div class="input-group" id="guestSearchbox" name="guestSearchbox">
+            <span class="input-group-addon"><i class="fa fa-users"></i></span>
+              <input type="text" class="form-control" placeholder="Group Search" name="searchText" id="searchText" ng-model="searchvalue"  ng-keyup="searchBookings()" />
+              <div class="input-group-btn">
+                <button id="searchBtn" name="searchBtn" class="btn btn-default" ng-click=" $j('#loadingmodal').show(); searchBookings();"><i class="glyphicon glyphicon-search"></i></button>
+              </div>
+        </div>
+        <br/>
+         <div class="input-group">
+              <a onclick="gotoPage('GroupBooking_Search');" class="btn btn-default"><i class="glyphicon glyphicon-home"></i></a>
+              </div>
+        <br/><br/>
+         <div class="panel panel-primary" style="background-color: #f5f5f5;">
+        <div class="panel-heading" id="gbTableHeading" name="gbTableHeading">Booking Summary</div>
+             <div  class="row" >  
+                 <div class="col-md-6" style="text-align: center;">
+ <div id="chart_div" style=" margin:auto;"></div>
+                 </div>
+                   <div class="col-md-6" style="text-align: center;">
+<div id="piechart_3d" style=" margin:auto;"></div>
+                 </div>
+            </div>
+              <div  class="row" >  
+                 <div class="col-md-12">
+ <b>Total Number of VIP cards Exchanged today:&nbsp;{!VIPCardCount}</b><br /><br />
+                 </div>
+                   
+            </div>
+
+        </div>
+ <div class="panel panel-primary">
+        <div class="panel-heading" id="gbTableHeading" name="gbTableHeading">{{gbTableHeadline}}</div> 
+    <div class="table-responsive">
+<table class="table table-hover sortable" >
+<tr class="active">
+<th></th>
+<th>Partner</th>
+<th>Booking ref</th>
+<th>Name</th>
+<th class="sorttable_numeric">Expected Visitors</th>
+<th class="sorttable_numeric">Actual Visitors</th>
+<th>Expected Arrival</th>
+<th></th>
+<th>Status</th>
+</tr>
+<tr  ng-repeat="grbook in grpBookings" ng-class="whatClassIsRow(grbook)" >
+<td ng-click="showGroupBooking(grbook.Id, grbook.campaignName,grbook.arrivalTime,grbook.recType)"><img src="{{grbook.imageUrl}}" alt="" class="media-object profile-img" style="max-height: 40px;" /></td>
+<td ng-click="showGroupBooking(grbook.Id, grbook.campaignName,grbook.arrivalTime,grbook.recType)">{{grbook.Partner}}<div style="color:#FF0000;"  ng-if="grbook.fundingProgram != ''">{{grbook.fundingProgram}}</div></td>
+<td ng-click="showGroupBooking(grbook.Id, grbook.campaignName,grbook.arrivalTime,grbook.recType)">{{grbook.Name}}</td>
+<td ng-click="showGroupBooking(grbook.Id, grbook.campaignName,grbook.arrivalTime,grbook.recType)">{{grbook.campaignName}}<div style="font-weight: bold;" ng-if="grbook.recType == 'Groups Partnership'">({{grbook.recType}})</div></td>
+<td ng-click="showGroupBooking(grbook.Id, grbook.campaignName,grbook.arrivalTime,grbook.recType)">{{grbook.numberOfVisitors}}</td>
+<td ng-click="showGroupBooking(grbook.Id, grbook.campaignName,grbook.arrivalTime,grbook.recType)">{{grbook.actualnumberOfVisitors}}</td>
+<td ng-click="showGroupBooking(grbook.Id, grbook.campaignName,grbook.arrivalTime,grbook.recType)" sorttable_customkey="{{grbook.arrivalTimeSort}}">{{grbook.arrivalTime}}</td>
+<td >
+    <div class="Thumbnail" ng-if="grbook.statusText == 'Arrived at Village' && grbook.visitId != ''" >
+        <img src="{{grbook.checkoutimageUrl}}" ng-click="quickcheckout(grbook.visitId)" style="max-height: 25px; margin:7px; cursor: pointer; " title="Quick Checkout" />
+    </div>
+    <!-- div class="Thumbnail" ng-if="grbook.statusText != 'Arrived at Village' && grbook.visitId != '' && grbook.cardsscanned != '0'" >
+        <img src="{{grbook.cardsImageURL}}" style="max-height: 33px; margin:3px; " title="VIP Cards Scanned" />
+    </div -->
+</td>
+<td sorttable_customkey="{{grbook.statusText}}">
+    <div class="Thumbnail">
+        <img src="{{grbook.statusimageUrl}}" ng-if="grbook.statusimageUrl != ''" alt="{{grbook.statusText}}" style="max-height: 25px; margin:7px;" title="{{grbook.statusText}}" />
+    </div>
+</td>
+</tr>
+ <tr class="info" ng-hide="grpBookings.length" >
+      <td colspan="7">No Bookings for today</td>
+      </tr>    
+</table>
+</div>
+</div>
+
+<div id="footer"><div id="imagecredit">Icons made by <a href="https://www.freepik.com/?__hstc=57440181.613f8fdd64d1004282dd4638f2c11b05.1559051988119.1559051988119.1559051988119.1&__hssc=57440181.3.1559051988120&__hsfp=3089269932" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/"           title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/"          title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div></div>
+
+
+
+</div>
+  </body>
+    </html>
+
+</apex:page>

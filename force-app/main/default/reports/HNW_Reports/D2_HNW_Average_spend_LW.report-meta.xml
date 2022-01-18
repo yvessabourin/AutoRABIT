@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>CUST_NAME</field>
+    </columns>
+    <columns>
+        <aggregateTypes>Average</aggregateTypes>
+        <field>Visit__c.Total_Spend__c</field>
+    </columns>
+    <currency>EUR</currency>
+    <filter>
+        <criteriaItems>
+            <column>CUST_RECORDTYPE</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Visit__c.VIP_Visit</value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Visit__c.Village__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>D2 HNW Average spend LW</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CustomEntity$Visit__c@Visit__c.Account__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>Visit__c.Visit_Date_Time__c</dateColumn>
+        <interval>INTERVAL_LASTWEEK</interval>
+    </timeFrameFilter>
+</Report>

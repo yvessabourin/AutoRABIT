@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Village_Specific__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Enter name of Village incentive that resulted in this VIP Account being created.</inlineHelpText>
+    <label>Village Specific</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>LVV Prestige</fullName>
+                <default>false</default>
+                <label>LVV Prestige</label>
+            </value>
+            <value>
+                <fullName>FV Exclusive</fullName>
+                <default>false</default>
+                <label>FV Exclusive</label>
+            </value>
+            <value>
+                <fullName>Membership</fullName>
+                <default>false</default>
+                <label>Membership</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

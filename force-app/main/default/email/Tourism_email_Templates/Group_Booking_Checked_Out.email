@@ -1,0 +1,32 @@
+<messaging:emailTemplate subject="Group Booking Check-Out Confirmation" recipientType="Contact" relatedToType="Visit__c">
+<messaging:htmlEmailBody >
+
+<p align="center" style='text-align:center'><apex:image id="theImage" 
+value="{!LEFT($Api.Partner_Server_URL_140, FIND('.com/',$Api.Partner_Server_URL_140)+3)}/servlet/servlet.ImageServer?id=015b0000003CczW&oid={!$Organization.Id}" /></p>
+<br/>
+<p align="center" style='text-align:center;background:white; font-family:Arial,sans-serif'>Dear Partner,</p> 
+
+<p align="center" style='text-align:center;background:white; font-family:Arial,sans-serif'>Thank you for <u>Checking out</u> your group booking (<b>{!relatedTo.Group_Booking__r.Name}</b>)</p> 
+<p align="center" style='text-align:center;background:white; font-family:Arial,sans-serif'>Please see below confirmation of your visit details.</p>
+<p align="center" style='text-align:center;background:white; font-family:Arial,sans-serif'>Arrival Time: {!relatedTo.Visit_Date_Time__c}  </p>
+<p align="center" style='text-align:center;background:white; font-family:Arial,sans-serif'>Departure Time: {!relatedTo.Check_Out_Date_Time__c}  </p>
+<p align="center" style='text-align:center;background:white; font-family:Arial,sans-serif'>Dwell Time: {!relatedTo.Hours_in_Village__c}  </p>
+<p align="center" style='text-align:center;background:white; font-family:Arial,sans-serif'>Number of Adults: {!FLOOR(relatedTo.Number_Of_Guests__c)} </p>
+<p align="center" style='text-align:center;background:white; font-family:Arial,sans-serif'>Number of Children: {!FLOOR(relatedTo.Number_of_Children__c)} </p>
+<p align="center" style='text-align:center;background:white; font-family:Arial,sans-serif'>Village Visited: {!relatedTo.Village__r.Name} </p>
+<apex:outputpanel rendered="{!NOT(isBlank(relatedTo.Group_Booking__r.Name_of_Event__c))}">
+<p align="center" style='text-align:center;background:white; font-family:Arial,sans-serif'>Booking Name: {!relatedTo.Group_Booking__r.Name_of_Event__c} </p>
+</apex:outputpanel>
+<p></p>
+<p align="center" style='text-align:center;background:white; font-family:Arial,sans-serif'>You can book your next visit <a href="https://www.thebicestervillageshoppingcollection.com/en/group-bookings-and-events/make-a-booking/" >here.</a> </p>
+<p align="center" style='text-align:center;background:white; font-family:Arial,sans-serif'>With kind regards, </p>
+
+<p align="center" style='text-align:center;background:white; font-family:Arial,sans-serif'>The Bicester Village Shopping Collection team</p><br/>
+
+<p align="center" style='text-align:center;background:white; font-family:Arial,sans-serif;color:#999999'>ref: {!relatedTo.Name} </p>
+
+<p align="center" style='text-align:center;background:white; font-family:Arial,sans-serif;color:#999999'>This arrival confirmation email is only valid for one group booking. Please make additional bookings for further group visits.</p>
+<p>
+</p>
+</messaging:htmlEmailBody>
+</messaging:emailTemplate>

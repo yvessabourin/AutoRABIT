@@ -1,0 +1,1682 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Exit</fullName>
+    <active>true</active>
+    <businessProcess>Exit Process</businessProcess>
+    <description>Deals for Brands that are exiting the village</description>
+    <label>Exit</label>
+    <picklistValues>
+        <picklist>Bank_Consent__c</picklist>
+        <values>
+            <fullName>No- Tier 1</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes - Tier 4</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes - Tier 4b</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Bank_Guarantee_Tier_Level__c</picklist>
+        <values>
+            <fullName>Tier 1</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tier 2a</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tier 2b</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tier 2c</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tier 4</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tier 4*</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Base_Rent_Tier_Level__c</picklist>
+        <values>
+            <fullName>Tier 1</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tier 2a</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tier 2b</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tier 2c</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tier 4</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tier 4*</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Brand_In_Approved_Remerchandising_Plan__c</picklist>
+        <values>
+            <fullName>No - Tier 2a</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No - Tier 2c</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No - Tier 3a</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No - Tier 3b</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No - Tier 4</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes- Tier 1</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Brand_Outside_of_Remerchandising_Plan__c</picklist>
+        <values>
+            <fullName>No- Tier 1</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes - Tier 2a</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes - Tier 2c</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes - Tier 3a</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes - Tier 3b</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes - Tier 4</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Brand_in_4th_Quartile__c</picklist>
+        <values>
+            <fullName>No - Tier 4</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes - Tier 1</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Budget_Type__c</picklist>
+        <values>
+            <fullName>Termination</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Budget_Year__c</picklist>
+        <values>
+            <fullName>2014</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>2015</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>2016</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>2017</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>2018</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>2019</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>2020</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>2021</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>2022</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>2023</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>2024</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>2025</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Compensation__c</picklist>
+        <values>
+            <fullName>Tier 1</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tier 2a</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tier 2b</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tier 2c</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tier 4</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tier 4*</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Currency__c</picklist>
+        <values>
+            <fullName>EUR</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>GBP</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>RMB</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>USD</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Deliverability__c</picklist>
+        <values>
+            <fullName>High</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Low</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Medium</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Department__c</picklist>
+        <values>
+            <fullName>Apparel</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Beauty</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Eyewear</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Food And Drink</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Footwear</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Handbags And Accessories</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Homewares</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Intimates And Hosiery</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Jewellery And Watches</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Kids</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sports And Leisure</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Travel</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Deposit_Tier_Level__c</picklist>
+        <values>
+            <fullName>Tier 1</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tier 2a</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tier 2b</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tier 2c</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tier 4</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tier 4*</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>ForecastCategoryName</picklist>
+        <values>
+            <fullName>Best Case</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Closed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Commit</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Omitted</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pipeline</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Gift_Status__c</picklist>
+        <values>
+            <fullName>Gift Recorded</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No Gift Given</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Group_Deal__c</picklist>
+        <values>
+            <fullName>No- Tier 1</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes - Tier 4*</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>In_Budget__c</picklist>
+        <values>
+            <fullName>Budgeted</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reforecast</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Launch_Rate_Tier_Level__c</picklist>
+        <values>
+            <fullName>Tier 1</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tier 2a</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tier 2b</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tier 2c</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tier 4</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tier 4*</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>LeadSource</picklist>
+        <values>
+            <fullName>BVGoogle2008</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Bahamas08</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CGtE2008</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>COS Summer Shopping Break Summer 2008</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Clicktools web survey</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Database Hire</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Database Purchase</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Ecard Registration</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Elle2007</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FVGoogle2008</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Google2008</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LRCVGoogle2008</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LRZVGoogle2008</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LVGoogle2008</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LastMinute2008</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>MMVGoogle2008</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Men%27s Health BV 06%2F06</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Partner database swap</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>RET00MC</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Resort Hoppa</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SAIMINICT</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SHG2007</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Shopaholic%27s Guide 2006</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Shopping Express</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Village registration</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Web BVGoogle2008</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Web Bahamas08</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Web COS Summer Shopping Break Summer 08</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Web Ecard Registration</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Web FVGoogle2008</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Web Google2008</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Web LRCVGoogle2008</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Web LRZVGoogle2008</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Web LVGoogle2008</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Web LastMinute2008</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Web MMVGoogle2008</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Web WindowShoppingViral2008</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Web registration</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>WindowShoppingViral2008</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Lease_Type__c</picklist>
+        <values>
+            <fullName>Permanent</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Temporary</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Legal_Sensitivity__c</picklist>
+        <values>
+            <fullName>High</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Low</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Medium</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Multiple_Brands_in_Unit__c</picklist>
+        <values>
+            <fullName>No - Tier 2a</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No - Tier 2b</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No - Tier 2c</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No - Tier 4</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No - Tier 4*</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No- Tier 1</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes - Tier 2a</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes - Tier 2b</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes - Tier 2c</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes - Tier 4</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes - Tier 4*</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes- Tier 1</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Non_Competition_Clause_Tier_Level__c</picklist>
+        <values>
+            <fullName>Tier 1</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tier 2a</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tier 2b</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tier 2c</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tier 4</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tier 4*</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Opportunity_Characteristics__c</picklist>
+        <values>
+            <fullName>2nd Tier Brands</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Asked to Reserve Space</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Brands to push%2C other brands to sign 1st</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Deals to accelerate forward</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Focus Brands %2831%2F07%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Follow-up Meetings</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Global Brand</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Gucci %26 Prada</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Not on Dream Plan</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>On Dream Plan</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Positioning</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Power Brand - Anchor</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Power Brand - Flagship</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Priority meetings</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Site Visit Planned</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Top 6</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Top Brands</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Unit Reserved</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Unlikely for 2012</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Opportunity_Introduction__c</picklist>
+        <values>
+            <fullName>Agent %28Commission%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Consultant</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>VR Internal</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Opportunity_Priority__c</picklist>
+        <values>
+            <fullName>1</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>2</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>3</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>4</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>5</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Planning_Consent__c</picklist>
+        <values>
+            <fullName>No - Tier 2a</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No - Tier 2b</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No - Tier 2c</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No - Tier 4</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No - Tier 4*</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No- Tier 1</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes - Tier 2a</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes - Tier 2b</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes - Tier 2c</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes - Tier 4</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes - Tier 4*</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes - Tier 4b</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes- Tier 1</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Pop_Up_Type__c</picklist>
+        <values>
+            <fullName>Brand Test</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Flexible Space</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pop-Up</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Refit</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Seasonal Pop-Up</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Price_Point__c</picklist>
+        <values>
+            <fullName>Best above %E2%82%AC100</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Better %E2%82%AC50 to %E2%82%AC100</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Good under %E2%82%AC50</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Priority__c</picklist>
+        <values>
+            <fullName>High</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Low</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Med</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Ratchet_Tier_Level__c</picklist>
+        <values>
+            <fullName>Tier 1</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tier 2a</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tier 2b</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tier 2c</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tier 4</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tier 4*</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Segment__c</picklist>
+        <values>
+            <fullName>Activewear</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Beauty</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Bed and Bath</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Books and Stationery</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Casualwear</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>China and Glass</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Chocolatier</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cookware</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Denim and Streetwear</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Electronics</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Evening Wear</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Eyewear</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Formal and Eveningwear</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>General Fashion</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Handbags and Accessories</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Headwear</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Home and Gifts</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Intimates and Hosiery</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Jewellery and Watches</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Kids</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Restaurants</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Shirting</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Shoes</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Snack Bar</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sports Shoes</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sportswear</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Suiting</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Swimwear</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Toys</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Travel</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Service_Charge_Tier_Level__c</picklist>
+        <values>
+            <fullName>Tier 1</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tier 2a</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tier 2b</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tier 2c</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tier 4</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tier 4*</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Standard_Terms__c</picklist>
+        <values>
+            <fullName>Matures</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Threshold</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Sub_Category__c</picklist>
+        <values>
+            <fullName>Bakery café</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cafe</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Café %26 Tea</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cart</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Casual Asian</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Casual Western</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Chocolate%2FPop Up</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Convenience Store</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Dessert Snack</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Formal Asian</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Formal Western</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Restaurant</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Snack Bar</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Surge_Status__c</picklist>
+        <values>
+            <fullName>BV Phase 4</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>China</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>EU</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Village</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>TI_Budget_15__c</picklist>
+        <values>
+            <fullName>No - Tier 2a</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No - Tier 2b</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No - Tier 2c</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No - Tier 4</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No - Tier 4*</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No- Tier 1</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes - Tier 2a</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes - Tier 2b</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes - Tier 2c</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes - Tier 4</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes - Tier 4*</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes- Tier 1</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>TI_Village_Budget__c</picklist>
+        <values>
+            <fullName>No - Tier 2a</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No - Tier 2b</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No - Tier 2c</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No - Tier 4</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No - Tier 4*</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No - Tier 4a</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No- Tier 1</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes - Tier 2a</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes - Tier 2b</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes - Tier 2c</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes - Tier 4</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes - Tier 4*</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes - Tier 4a</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes- Tier 1</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Tenant_Break_Tier_Level__c</picklist>
+        <values>
+            <fullName>No - Tier 2</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No - Tier 2a</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No - Tier 2b</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No - Tier 2c</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No - Tier 3a</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No - Tier 3b</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No - Tier 4</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No - Tier 4*</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No - Tier 5</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No- Tier 1</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes - Tier 2</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes - Tier 2a</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes - Tier 2b</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes - Tier 2c</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes - Tier 3a</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes - Tier 3b</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes - Tier 4</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes - Tier 4*</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes - Tier 5</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes- Tier 1</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Term_Tier_Level__c</picklist>
+        <values>
+            <fullName>Tier 1</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tier 2a</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tier 2b</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tier 2c</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tier 4</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tier 4*</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tier 4a</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tier 4b</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Termination_Period_Tier_Level__c</picklist>
+        <values>
+            <fullName>Tier 1</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tier 2a</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tier 2b</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tier 2c</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tier 4</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tier 4*</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Terms_Guidlines__c</picklist>
+        <values>
+            <fullName>No - Tier 2a</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No - Tier 2b</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No - Tier 2c</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No - Tier 4</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No - Tier 4*</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No- Tier 1</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes - Tier 2a</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes - Tier 2b</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes - Tier 2c</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes - Tier 4</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes - Tier 4*</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes- Tier 1</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Terms_Plan__c</picklist>
+        <values>
+            <fullName>No - Tier 2a</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No - Tier 2b</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No - Tier 2c</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No - Tier 4</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No - Tier 4*</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No- Tier 1</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes - Tier 2a</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes - Tier 2b</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes - Tier 2c</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes - Tier 4</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes - Tier 4*</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes- Tier 1</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Terms_Strategy__c</picklist>
+        <values>
+            <fullName>Keep the same</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Renegotiate</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Tier_Level__c</picklist>
+        <values>
+            <fullName>Tier 1</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tier 2</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tier 2a</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tier 2b</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tier 2c</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tier 3a</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tier 3b</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tier 4</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tier 4*</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tier 4L</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tier 4a</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tier 4b</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tier 5</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Turnover_Rent_Tier_Level__c</picklist>
+        <values>
+            <fullName>Tier 1</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tier 2a</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tier 2b</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tier 2c</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tier 4</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tier 4*</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Type</picklist>
+        <values>
+            <fullName>Expiry</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Non-Renewal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Termination</fullName>
+            <default>true</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>bt_stripe__Billing_Method__c</picklist>
+        <values>
+            <fullName>charge_automatically</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>send_invoice</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>bt_stripe__Prorate__c</picklist>
+        <values>
+            <fullName>No</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>bt_stripe__Proration_Behavior__c</picklist>
+        <values>
+            <fullName>Create Prorations</fullName>
+            <default>true</default>
+        </values>
+    </picklistValues>
+</RecordType>

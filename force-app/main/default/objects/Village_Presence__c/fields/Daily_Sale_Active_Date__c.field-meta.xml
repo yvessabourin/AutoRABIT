@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Daily_Sale_Active_Date__c</fullName>
+    <defaultValue>Today()</defaultValue>
+    <description>Specify a future date if the store should not be made active for Daily Sales immediately. Daily Sale records will be created from midday (GMT) of the date specified. If value is left blank, it is assumed the store is immediately active.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Specify a future date if the store should not be made active for Daily Sales immediately. Daily Sale records will be created from midday (GMT) of the date specified. If value is left blank, it is assumed the store is immediately active.</inlineHelpText>
+    <label>Daily Sale Active Date</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+</CustomField>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>FK_CNTC_FIRST_NAME</field>
+    </columns>
+    <columns>
+        <field>FK_NAME</field>
+    </columns>
+    <columns>
+        <field>FK_CNTC_TITLE</field>
+    </columns>
+    <columns>
+        <field>FK_ACC_NAME</field>
+    </columns>
+    <columns>
+        <field>FK_CNTC_EMAIL</field>
+    </columns>
+    <columns>
+        <field>Trade_Event_Attendee__c.Followed_Up__c</field>
+    </columns>
+    <columns>
+        <field>Trade_Event_Attendee__c.Attendee_Notes__c</field>
+    </columns>
+    <currency>EUR</currency>
+    <description>invitees to the KV Webinar (hotels)</description>
+    <filter>
+        <criteriaItems>
+            <column>CUST_NAME</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>KV Webinar</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Trade_Event_Attendee__c.Followed_Up__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>0</value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
+    <format>Summary</format>
+    <name>KV Webinar</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CustomEntityCustomEntity$Trade_Event__c$Trade_Event_Attendee__c@Trade_Event_Attendee__c.Contact__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>Trade_Event__c.End_Time__c</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

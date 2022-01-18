@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Stage_Value__c</fullName>
+    <externalId>false</externalId>
+    <formula>CASE(StageName, 
+&quot;Pipeline&quot;,  0,
+&quot;In discussion&quot;,  1,
+&quot;Negotiations&quot;,  2,
+&quot;Advanced Negotiation&quot;,  3,
+&quot;Agreed in Principle&quot;,  4,
+&quot;Out for Signature&quot;,  5,
+&quot;Heads of Terms Signed&quot;,  6,
+&quot;Lease Signed Awaiting Unit&quot;,  7,
+&quot;Shopfitting&quot;,  8,
+&quot;Stuck&quot;,  0,
+&quot;On hold&quot;,  0,
+&quot;Completed - New Brand opened in Village&quot;,  100,
+&quot;Finished - Deal Failed&quot;,  0,
+&quot;Completed - Brand Exited&quot;,  100,
+&quot;Completed - Brand Relocated&quot;,  100,
+&quot;Completed - Brand Refitted&quot;,  100,
+&quot;Completed - Contract Updated&quot;,  100,
+
+
+
+0)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Stage_Value</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

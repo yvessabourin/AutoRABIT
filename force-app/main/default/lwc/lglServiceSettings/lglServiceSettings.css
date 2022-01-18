@@ -1,0 +1,12 @@
+.lgl-service-items-list {
+	margin-top: 0.5rem;
+}
+
+.lgl-max-size_small {
+	max-width: 160px;
+}
+
+.lgl-error-text{
+	font-size: 0.75rem;
+	color: var(--lwc-colorTextError,rgb(194, 57, 52));
+}

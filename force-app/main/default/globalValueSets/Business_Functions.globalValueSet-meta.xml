@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Local Tourism</fullName>
+        <default>false</default>
+        <label>Local Tourism</label>
+    </customValue>
+    <customValue>
+        <fullName>Local Tourism Services</fullName>
+        <default>false</default>
+        <label>Local Tourism Services</label>
+    </customValue>
+    <customValue>
+        <fullName>Local Brand &amp; Communications</fullName>
+        <default>false</default>
+        <label>Local Brand &amp; Communications</label>
+    </customValue>
+    <customValue>
+        <fullName>Local Brand &amp; Communications - Creative</fullName>
+        <default>false</default>
+        <label>Local Brand &amp; Communications - Creative</label>
+    </customValue>
+    <customValue>
+        <fullName>Local Digital</fullName>
+        <default>false</default>
+        <label>Local Digital</label>
+    </customValue>
+    <customValue>
+        <fullName>Local PR</fullName>
+        <default>false</default>
+        <label>Local PR</label>
+    </customValue>
+    <customValue>
+        <fullName>Local Retail Marketing</fullName>
+        <default>false</default>
+        <label>Local Retail Marketing</label>
+    </customValue>
+    <customValue>
+        <fullName>Local Marketing Procurement</fullName>
+        <default>false</default>
+        <label>Local Marketing Procurement</label>
+    </customValue>
+    <customValue>
+        <fullName>Local Customer</fullName>
+        <default>false</default>
+        <label>Local Customer</label>
+    </customValue>
+    <customValue>
+        <fullName>Local Community Marketing</fullName>
+        <default>false</default>
+        <label>Local Community Marketing</label>
+    </customValue>
+    <customValue>
+        <fullName>Central B2B Partnerships</fullName>
+        <default>false</default>
+        <label>Central B2B Partnerships</label>
+    </customValue>
+    <customValue>
+        <fullName>Central Communications Strategy</fullName>
+        <default>false</default>
+        <label>Central Communications Strategy</label>
+    </customValue>
+    <customValue>
+        <fullName>Central Content Centre</fullName>
+        <default>false</default>
+        <label>Central Content Centre</label>
+    </customValue>
+    <customValue>
+        <fullName>Central Creative B2B</fullName>
+        <default>false</default>
+        <label>Central Creative B2B</label>
+    </customValue>
+    <customValue>
+        <fullName>Central Brand Identity</fullName>
+        <default>false</default>
+        <label>Central Brand Identity</label>
+    </customValue>
+    <customValue>
+        <fullName>Central PR</fullName>
+        <default>false</default>
+        <label>Central PR</label>
+    </customValue>
+    <customValue>
+        <fullName>Central Guest Engagement</fullName>
+        <default>false</default>
+        <label>Central Guest Engagement</label>
+    </customValue>
+    <customValue>
+        <fullName>Central Brand Engagement</fullName>
+        <default>false</default>
+        <label>Central Brand Engagement</label>
+    </customValue>
+    <customValue>
+        <fullName>Central Asset Production</fullName>
+        <default>false</default>
+        <label>Central Asset Production</label>
+    </customValue>
+    <customValue>
+        <fullName>Central Visual Merchandising</fullName>
+        <default>false</default>
+        <label>Central Visual Merchandising</label>
+    </customValue>
+    <customValue>
+        <fullName>Central Guest Acquisition</fullName>
+        <default>false</default>
+        <label>Central Guest Acquisition</label>
+    </customValue>
+    <customValue>
+        <fullName>Central Village Engagement</fullName>
+        <default>false</default>
+        <label>Central Village Engagement</label>
+    </customValue>
+    <customValue>
+        <fullName>Central International Markets</fullName>
+        <default>false</default>
+        <label>Central International Markets</label>
+    </customValue>
+    <customValue>
+        <fullName>Brand &amp; Communications</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Brand &amp; Communications</label>
+    </customValue>
+    <customValue>
+        <fullName>Digital</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Digital</label>
+    </customValue>
+    <customValue>
+        <fullName>PR</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>PR</label>
+    </customValue>
+    <customValue>
+        <fullName>Retail Marketing</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Retail Marketing</label>
+    </customValue>
+    <customValue>
+        <fullName>Marketing Procurement</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Marketing Procurement</label>
+    </customValue>
+    <customValue>
+        <fullName>Customer</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Customer</label>
+    </customValue>
+    <customValue>
+        <fullName>Community Marketing</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Community Marketing</label>
+    </customValue>
+    <customValue>
+        <fullName>Digital Transformations</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Digital Transformations</label>
+    </customValue>
+    <customValue>
+        <fullName>Art</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Art</label>
+    </customValue>
+    <customValue>
+        <fullName>Content Centre</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Content Centre</label>
+    </customValue>
+    <customValue>
+        <fullName>Brand &amp; Communications - Creative</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Brand &amp; Communications - Creative</label>
+    </customValue>
+    <customValue>
+        <fullName>Group Digital Transformation</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Group Digital Transformation</label>
+    </customValue>
+    <customValue>
+        <fullName>Group Art B2C</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Group Art B2C</label>
+    </customValue>
+    <customValue>
+        <fullName>Group Content Centre B2C</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Group Content Centre B2C</label>
+    </customValue>
+    <customValue>
+        <fullName>Group Strategy &amp; Planning</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Group Strategy &amp; Planning</label>
+    </customValue>
+    <customValue>
+        <fullName>Group Community Marketing</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Group Community Marketing</label>
+    </customValue>
+    <customValue>
+        <fullName>Group Customer</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Group Customer</label>
+    </customValue>
+    <customValue>
+        <fullName>Group Marketing Procurement</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Group Marketing Procurement</label>
+    </customValue>
+    <customValue>
+        <fullName>Group Retail Marketing</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Group Retail Marketing</label>
+    </customValue>
+    <customValue>
+        <fullName>Group PR</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Group PR</label>
+    </customValue>
+    <customValue>
+        <fullName>Group Digital</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Group Digital</label>
+    </customValue>
+    <customValue>
+        <fullName>Group Brand &amp; Communications - Creative</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Group Brand &amp; Communications - Creative</label>
+    </customValue>
+    <customValue>
+        <fullName>Group Brand &amp; Communications</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Group Brand &amp; Communications</label>
+    </customValue>
+    <customValue>
+        <fullName>Group Tourism</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Group Tourism</label>
+    </customValue>
+    <customValue>
+        <fullName>Group Visual Merchandising</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Group Visual Merchandising</label>
+    </customValue>
+    <customValue>
+        <fullName>Group Crisis &amp; Reputation</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Group Crisis &amp; Reputation</label>
+    </customValue>
+    <customValue>
+        <fullName>Group Customer &amp; Business Insights</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Group Customer &amp; Business Insights</label>
+    </customValue>
+    <customValue>
+        <fullName>Group Asset Production</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Group Asset Production</label>
+    </customValue>
+    <customValue>
+        <fullName>Group Campaign Implementation</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Group Campaign Implementation</label>
+    </customValue>
+    <customValue>
+        <fullName>Group Digital Transformations</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Group Digital Transformations</label>
+    </customValue>
+    <customValue>
+        <fullName>Group Global PR</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Group Global PR</label>
+    </customValue>
+    <customValue>
+        <fullName>Group Brand Identity</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Group Brand Identity</label>
+    </customValue>
+    <customValue>
+        <fullName>Group Content Centre</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Group Content Centre</label>
+    </customValue>
+    <customValue>
+        <fullName>Group Art</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Group Art</label>
+    </customValue>
+    <description>A list of the different business departments related to Finance...</description>
+    <masterLabel>Business Functions</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

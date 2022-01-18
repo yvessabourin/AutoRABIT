@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Product_Conversation__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Enter any details you have regarding Full Price or Discretionary Discount products following conversations you have had with the Brand</inlineHelpText>
+    <label>Full Price Product Conversation</label>
+    <length>2000</length>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>LongTextArea</type>
+    <visibleLines>2</visibleLines>
+</CustomField>

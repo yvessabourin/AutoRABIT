@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Corporate_Brand_Events</fullName>
+    <columns>NAME</columns>
+    <columns>CREATED_DATE</columns>
+    <columns>Registered_Attendees__c</columns>
+    <columns>Category_Specification__c</columns>
+    <columns>Description__c</columns>
+    <columns>Location__c</columns>
+    <columns>Start_Time__c</columns>
+    <columns>End_Time__c</columns>
+    <columns>VR_Host_s_Remerch__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Trade_Event__c.Brand_Entertainment,Trade_Event__c.Corporate_Event</value>
+    </filters>
+    <label>Corporate &amp; Brand Events</label>
+    <language>en_US</language>
+    <sharedTo>
+        <roleAndSubordinatesInternal>Group_Leasing</roleAndSubordinatesInternal>
+    </sharedTo>
+</ListView>

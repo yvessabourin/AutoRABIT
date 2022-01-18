@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Account.Visits__r$Visit_Date_Time__c</field>
+    </columns>
+    <columns>
+        <field>Account$Name</field>
+    </columns>
+    <columns>
+        <field>Account.Visits__r$Total_Visit_Spend__c</field>
+    </columns>
+    <columns>
+        <field>Account$Domestic_or_International__c</field>
+    </columns>
+    <columns>
+        <field>Account$Country_of_Residence__c</field>
+    </columns>
+    <currency>EUR</currency>
+    <format>Summary</format>
+    <name>Personal Shopping: Tax Free Sales</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Accounts_with_visits_with_brand_purchase__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>Account$CreatedDate</dateColumn>
+        <interval>INTERVAL_CURFY</interval>
+    </timeFrameFilter>
+</Report>

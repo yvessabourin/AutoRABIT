@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Email sent out if a RL email is created that does not map to a brand or Village</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Retail_LIVE</letterhead>
+    <name>Retail LIVE Mapping Error</name>
+    <style>freeForm</style>
+    <subject>Retail LIVE email created with issues</subject>
+    <textOnly>Hello {!Retail_Live_Email__c.OwnerFirstName},
+
+You have successfully created a Retail LIVE email but there was an issue mapping it to either a BRAND or a VILLAGE using hashtag #, or your VR user record does not have an associated Department.
+
+
+Brand: {!Retail_Live_Email__c.Brand_Reference__c}
+Village: {!Retail_Live_Email__c.Village__c}
+Department: {!Retail_Live_Email__c.Department__c}
+
+Please amend this Retail LIVE email by clicking the link below
+
+https://valueretail.my.salesforce.com/{!Retail_Live_Email__c.Id}
+
+
+How Tagging works
+
+To automatically associate Retail LIVE emails to Villages &amp; Brands you must include 2 tag references in the body of your Retail LIVE email.
+
+
+In this order
+
+# followed by your 2-digit Village code:  BV, LR, LZ, LV, FV, MV, WV, IV, KV
+
+# followed by the Brand name, no spaces
+
+
+Example, to associate a Retail LIVE email with Bicester &amp; Ted Baker you must enter the following in the body of the email.
+
+
+#BV
+
+#TedBaker
+
+
+Tip!
+
+Add  &quot;+++&quot; to remove all signature information from the Retail LIVE email so this information does not get posted to the dashboard keeping everything neat and tidy.
+
+
+#BV
+
+#TedBaker
+
++++
+
+
+
+Thank you,
+
+Retail LIVE Team</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

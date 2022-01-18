@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>CUST_NAME</field>
+    </columns>
+    <columns>
+        <field>Points_Transaction__c.Transaction_Reference__c</field>
+    </columns>
+    <columns>
+        <aggregateTypes>Sum</aggregateTypes>
+        <field>Points_Transaction__c.Points_Value__c</field>
+    </columns>
+    <columns>
+        <field>Points_Transaction__c.Transaction_Date__c</field>
+    </columns>
+    <columns>
+        <field>Points_Transaction__c.Transaction_Type__c</field>
+    </columns>
+    <columns>
+        <field>Points_Transaction__c.Transact_Quantity__c</field>
+    </columns>
+    <currency>EUR</currency>
+    <description>Lists out all Transactions, grouped by customer ID</description>
+    <filter>
+        <criteriaItems>
+            <column>Points_Transaction__c.Village_Code__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>FV</value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Points_Transaction__c.Customer_Card_Number__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>Alitalia Transaction Summary Report</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CustomEntity$Points_Transaction__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <sortColumn>CUST_NAME</sortColumn>
+    <sortOrder>Asc</sortOrder>
+    <timeFrameFilter>
+        <dateColumn>Points_Transaction__c.Activity_Date__c</dateColumn>
+        <interval>INTERVAL_LASTTHISMONTH</interval>
+    </timeFrameFilter>
+</Report>

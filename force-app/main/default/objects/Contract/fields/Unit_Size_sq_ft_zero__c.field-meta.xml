@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Unit_Size_sq_ft_zero__c</fullName>
+    <externalId>false</externalId>
+    <formula>Opportunity__r.Unit__r.GEA_sq_ft_zero__c * 1</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Unit Size in square feet with the decimal places suppressed</inlineHelpText>
+    <label>Unit_Size_sq.ft zero</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

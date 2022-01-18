@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Method_of_Transport__c</fullName>
+    <externalId>false</externalId>
+    <label>Mode of Transport</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Train</fullName>
+                <default>false</default>
+                <label>Train</label>
+            </value>
+            <value>
+                <fullName>Car</fullName>
+                <default>false</default>
+                <label>Car</label>
+            </value>
+            <value>
+                <fullName>Large Coach</fullName>
+                <default>false</default>
+                <label>Large Coach</label>
+            </value>
+            <value>
+                <fullName>Small Coach</fullName>
+                <default>false</default>
+                <label>Small Coach</label>
+            </value>
+            <value>
+                <fullName>Taxi</fullName>
+                <default>false</default>
+                <label>Taxi</label>
+            </value>
+            <value>
+                <fullName>Private Hire</fullName>
+                <default>false</default>
+                <label>Private Hire</label>
+            </value>
+            <value>
+                <fullName>Public Bus</fullName>
+                <default>false</default>
+                <label>Public Bus</label>
+            </value>
+            <value>
+                <fullName>Prefer not to say</fullName>
+                <default>false</default>
+                <label>Prefer not to say</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

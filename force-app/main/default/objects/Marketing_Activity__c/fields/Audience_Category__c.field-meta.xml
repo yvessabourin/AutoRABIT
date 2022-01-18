@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Audience_Category__c</fullName>
+    <description>Audience Category</description>
+    <externalId>false</externalId>
+    <label>Audience Category</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Channel__c</controllingField>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Domestic Local</fullName>
+                <default>false</default>
+                <label>Domestic Local</label>
+            </value>
+            <value>
+                <fullName>Non-Domestic - Tourist</fullName>
+                <default>false</default>
+                <label>Non-Domestic - Tourist</label>
+            </value>
+            <value>
+                <fullName>Domestic Expat Student</fullName>
+                <default>false</default>
+                <label>Domestic Expat Student</label>
+            </value>
+            <value>
+                <fullName>Domestic Expat Other</fullName>
+                <default>false</default>
+                <label>Domestic Expat Other</label>
+            </value>
+            <value>
+                <fullName>Domestic - Tourist</fullName>
+                <default>false</default>
+                <label>Domestic - Tourist</label>
+            </value>
+            <value>
+                <fullName>Tourist - Not Specified</fullName>
+                <default>false</default>
+                <label>Tourist - Not Specified</label>
+            </value>
+            <value>
+                <fullName>Domestic - Virtual Shopping</fullName>
+                <default>false</default>
+                <label>Domestic - Virtual Shopping</label>
+            </value>
+            <value>
+                <fullName>Non-Domestic - Virtual Shopping</fullName>
+                <default>false</default>
+                <label>Non-Domestic - Virtual Shopping</label>
+            </value>
+            <value>
+                <fullName>Not Applicable</fullName>
+                <default>false</default>
+                <label>Not Applicable</label>
+            </value>
+            <value>
+                <fullName>0</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>0</label>
+            </value>
+            <value>
+                <fullName>B2B</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>B2B</label>
+            </value>
+            <value>
+                <fullName>B2C Brand Database</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>B2C Brand Database</label>
+            </value>
+            <value>
+                <fullName>B2C Database</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>B2C Database</label>
+            </value>
+            <value>
+                <fullName>B2C Partner Database</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>B2C Partner Database</label>
+            </value>
+            <value>
+                <fullName>B2C Partner Database]</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>B2C Partner Database]</label>
+            </value>
+            <value>
+                <fullName>B2C VR Database</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>B2C VR Database</label>
+            </value>
+            <value>
+                <fullName>Domestic</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Domestic</label>
+            </value>
+            <value>
+                <fullName>Expats</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Expats</label>
+            </value>
+            <value>
+                <fullName>Tourism Nationals</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Tourism Nationals</label>
+            </value>
+            <value>
+                <fullName>Tourism Nationals]</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Tourism Nationals]</label>
+            </value>
+            <value>
+                <fullName>Tourist-EU</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Tourist-EU</label>
+            </value>
+            <value>
+                <fullName>Tourist-NonEU</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Tourist-NonEU</label>
+            </value>
+            <value>
+                <fullName>Tourist-NonEU]</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Tourist-NonEU]</label>
+            </value>
+            <value>
+                <fullName>VIP Database</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>VIP Database</label>
+            </value>
+            <value>
+                <fullName>VIP Database]</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>VIP Database]</label>
+            </value>
+            <value>
+                <fullName>[B2B]</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>[B2B]</label>
+            </value>
+            <value>
+                <fullName>[Domestic</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>[Domestic</label>
+            </value>
+            <value>
+                <fullName>[Tourist-NonEU</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>[Tourist-NonEU</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Partnerships</controllingFieldValue>
+            <controllingFieldValue>CRM</controllingFieldValue>
+            <controllingFieldValue>Village Services</controllingFieldValue>
+            <controllingFieldValue>Media</controllingFieldValue>
+            <controllingFieldValue>Campaign Support</controllingFieldValue>
+            <controllingFieldValue>Collateral</controllingFieldValue>
+            <controllingFieldValue>Digital</controllingFieldValue>
+            <controllingFieldValue>Events</controllingFieldValue>
+            <controllingFieldValue>Social Media</controllingFieldValue>
+            <controllingFieldValue>VIP</controllingFieldValue>
+            <controllingFieldValue>Visual Merchandising</controllingFieldValue>
+            <valueName>Domestic Local</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Partnerships</controllingFieldValue>
+            <controllingFieldValue>CRM</controllingFieldValue>
+            <controllingFieldValue>Village Services</controllingFieldValue>
+            <controllingFieldValue>Media</controllingFieldValue>
+            <controllingFieldValue>Campaign Support</controllingFieldValue>
+            <controllingFieldValue>Collateral</controllingFieldValue>
+            <controllingFieldValue>Digital</controllingFieldValue>
+            <controllingFieldValue>Events</controllingFieldValue>
+            <controllingFieldValue>Social Media</controllingFieldValue>
+            <controllingFieldValue>VIP</controllingFieldValue>
+            <controllingFieldValue>Visual Merchandising</controllingFieldValue>
+            <valueName>Non-Domestic - Tourist</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Partnerships</controllingFieldValue>
+            <controllingFieldValue>CRM</controllingFieldValue>
+            <controllingFieldValue>Village Services</controllingFieldValue>
+            <controllingFieldValue>Media</controllingFieldValue>
+            <controllingFieldValue>Campaign Support</controllingFieldValue>
+            <controllingFieldValue>Collateral</controllingFieldValue>
+            <controllingFieldValue>Digital</controllingFieldValue>
+            <controllingFieldValue>Events</controllingFieldValue>
+            <controllingFieldValue>Social Media</controllingFieldValue>
+            <controllingFieldValue>VIP</controllingFieldValue>
+            <controllingFieldValue>Visual Merchandising</controllingFieldValue>
+            <valueName>Domestic Expat Student</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Partnerships</controllingFieldValue>
+            <controllingFieldValue>CRM</controllingFieldValue>
+            <controllingFieldValue>Village Services</controllingFieldValue>
+            <controllingFieldValue>Media</controllingFieldValue>
+            <controllingFieldValue>Campaign Support</controllingFieldValue>
+            <controllingFieldValue>Collateral</controllingFieldValue>
+            <controllingFieldValue>Digital</controllingFieldValue>
+            <controllingFieldValue>Events</controllingFieldValue>
+            <controllingFieldValue>Social Media</controllingFieldValue>
+            <controllingFieldValue>VIP</controllingFieldValue>
+            <controllingFieldValue>Visual Merchandising</controllingFieldValue>
+            <valueName>Domestic Expat Other</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Partnerships</controllingFieldValue>
+            <controllingFieldValue>CRM</controllingFieldValue>
+            <controllingFieldValue>Village Services</controllingFieldValue>
+            <controllingFieldValue>Media</controllingFieldValue>
+            <controllingFieldValue>Campaign Support</controllingFieldValue>
+            <controllingFieldValue>Collateral</controllingFieldValue>
+            <controllingFieldValue>Digital</controllingFieldValue>
+            <controllingFieldValue>Events</controllingFieldValue>
+            <controllingFieldValue>Social Media</controllingFieldValue>
+            <controllingFieldValue>VIP</controllingFieldValue>
+            <controllingFieldValue>Visual Merchandising</controllingFieldValue>
+            <valueName>Domestic - Tourist</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Partnerships</controllingFieldValue>
+            <controllingFieldValue>CRM</controllingFieldValue>
+            <controllingFieldValue>Village Services</controllingFieldValue>
+            <controllingFieldValue>Media</controllingFieldValue>
+            <controllingFieldValue>Campaign Support</controllingFieldValue>
+            <controllingFieldValue>Collateral</controllingFieldValue>
+            <controllingFieldValue>Digital</controllingFieldValue>
+            <controllingFieldValue>Events</controllingFieldValue>
+            <controllingFieldValue>Social Media</controllingFieldValue>
+            <controllingFieldValue>VIP</controllingFieldValue>
+            <controllingFieldValue>Visual Merchandising</controllingFieldValue>
+            <valueName>Tourist - Not Specified</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Partnerships</controllingFieldValue>
+            <controllingFieldValue>CRM</controllingFieldValue>
+            <controllingFieldValue>Village Services</controllingFieldValue>
+            <controllingFieldValue>Media</controllingFieldValue>
+            <controllingFieldValue>Campaign Support</controllingFieldValue>
+            <controllingFieldValue>Collateral</controllingFieldValue>
+            <controllingFieldValue>Digital</controllingFieldValue>
+            <controllingFieldValue>Events</controllingFieldValue>
+            <controllingFieldValue>Social Media</controllingFieldValue>
+            <controllingFieldValue>VIP</controllingFieldValue>
+            <controllingFieldValue>Visual Merchandising</controllingFieldValue>
+            <valueName>Domestic - Virtual Shopping</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Partnerships</controllingFieldValue>
+            <controllingFieldValue>CRM</controllingFieldValue>
+            <controllingFieldValue>Village Services</controllingFieldValue>
+            <controllingFieldValue>Media</controllingFieldValue>
+            <controllingFieldValue>Campaign Support</controllingFieldValue>
+            <controllingFieldValue>Collateral</controllingFieldValue>
+            <controllingFieldValue>Digital</controllingFieldValue>
+            <controllingFieldValue>Events</controllingFieldValue>
+            <controllingFieldValue>Social Media</controllingFieldValue>
+            <controllingFieldValue>VIP</controllingFieldValue>
+            <controllingFieldValue>Visual Merchandising</controllingFieldValue>
+            <valueName>Non-Domestic - Virtual Shopping</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Partnerships</controllingFieldValue>
+            <controllingFieldValue>CRM</controllingFieldValue>
+            <controllingFieldValue>Village Services</controllingFieldValue>
+            <controllingFieldValue>Media</controllingFieldValue>
+            <controllingFieldValue>Campaign Support</controllingFieldValue>
+            <controllingFieldValue>Collateral</controllingFieldValue>
+            <controllingFieldValue>Digital</controllingFieldValue>
+            <controllingFieldValue>Events</controllingFieldValue>
+            <controllingFieldValue>Social Media</controllingFieldValue>
+            <controllingFieldValue>VIP</controllingFieldValue>
+            <controllingFieldValue>Visual Merchandising</controllingFieldValue>
+            <controllingFieldValue>Non-campaign</controllingFieldValue>
+            <valueName>Not Applicable</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

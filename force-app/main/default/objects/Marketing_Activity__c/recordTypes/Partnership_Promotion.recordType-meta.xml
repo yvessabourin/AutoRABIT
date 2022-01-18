@@ -1,0 +1,2420 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Partnership_Promotion</fullName>
+    <active>true</active>
+    <compactLayoutAssignment>Marketing_Activity_Compact_Layout</compactLayoutAssignment>
+    <description>QR Code...</description>
+    <label>Partnership Promotion</label>
+    <picklistValues>
+        <picklist>Audience_Category__c</picklist>
+        <values>
+            <fullName>Domestic - Tourist</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Domestic - Virtual Shopping</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Domestic Expat Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Domestic Expat Student</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Domestic Local</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Non-Domestic - Tourist</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Non-Domestic - Virtual Shopping</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Not Applicable</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tourist - Not Specified</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>BAU_Boost__c</picklist>
+        <values>
+            <fullName>BAU</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Boost</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Behaviour_Segment__c</picklist>
+        <values>
+            <fullName>1%2E New</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>2%2E Active</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>3%2E Lapsing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>4%2E Passive</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>5%2E Dormant</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Business_Function__c</picklist>
+        <values>
+            <fullName>Central Asset Production</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Central B2B Partnerships</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Central Brand Engagement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Central Brand Identity</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Central Communications Strategy</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Central Content Centre</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Central Creative B2B</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Central Guest Acquisition</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Central Guest Engagement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Central International Markets</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Central PR</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Central Village Engagement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Central Visual Merchandising</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Local Brand %26 Communications</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Local Brand %26 Communications - Creative</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Local Community Marketing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Local Customer</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Local Digital</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Local Marketing Procurement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Local PR</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Local Retail Marketing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Local Tourism</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Local Tourism Services</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Category__c</picklist>
+        <values>
+            <fullName>CRM</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Hospitality</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Hotel</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>In Village</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Media</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PR</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Partnership</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Shuttles</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Social Media</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Travel Trade</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Village online</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Channel__c</picklist>
+        <values>
+            <fullName>CRM</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Campaign Support</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Collateral</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Events</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Media</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Non-campaign</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Partnerships</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>VIP</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Village Services</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Visual Merchandising</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Coniq_ID_Entered__c</picklist>
+        <values>
+            <fullName>No</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Customer_Dimension__c</picklist>
+        <values>
+            <fullName>Brand</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Experience</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Value</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Email_Type__c</picklist>
+        <values>
+            <fullName>Offer - Short Template</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Offer- Long Template</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Function__c</picklist>
+        <values>
+            <fullName>TBD</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Integration_Status__c</picklist>
+        <values>
+            <fullName>confirmed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>error</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>sending</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>waiting</fullName>
+            <default>true</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Market__c</picklist>
+        <values>
+            <fullName>Africa - other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Algeria</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Argentina</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Australia</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Austria</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Belgium</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Brazil</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cambodia</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cameroon</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Canada</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Chile</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>China</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Colombia</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Costa Rica</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Côte d%27Ivoire</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Egypt</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Europe - other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>France</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Georgia</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Germany</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Ghana</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Greater China - other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Hong Kong</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>India</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>India - other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Indonesia</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Iran%2C Islamic Republic of</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Ireland</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Israel</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Italy</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Japan</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Japan - other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Jordan</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Kazakhstan</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Korea</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Korea - other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Kuwait</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Kyrgyzstan</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LATAM - other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Lebanon</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Macao</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Mexico</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Middle East - other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Morocco</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Netherlands</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Nigeria</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Northern Ireland</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Not Applicable</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Oceania - other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Oman</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pakistan</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Peru</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Portugal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Qatar</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Rest of World - other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Russia</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Russia %26 CIS - other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Saudi Arabia</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Senegal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Singapore</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>South Africa</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>South East Asia - other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Spain</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Switzerland</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Taiwan</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tajikistan</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Thailand</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tunisia</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Turkey</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Turkmenistan</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>UAE</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>US - other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Ukraine</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>United Kingdom</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>United States</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Uzbekistan</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Venuzuela%2C Bolivarian Republic of</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Vietnam</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yemen</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Performance_Measure__c</picklist>
+        <values>
+            <fullName>%23 ATV</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>%23 Articles %28print%2C online%2C social media%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>%23 Bounce Rate</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>%23 Brand Mentions</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>%23 Brands engagement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>%23 Budget Cost</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>%23 Contracts</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>%23 Cost</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>%23 Emails Bounced</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>%23 Emails Clicked</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>%23 Emails Opened</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>%23 Emails Opted Out</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>%23 Emails Sent</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>%23 Emails Skipped</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>%23 Expected Participants</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>%23 Footfall</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>%23 Group Bookings</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>%23 Guests attended</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>%23 Hashtag Mentions</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>%23 Interviews</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>%23 Invitations Sent</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>%23 Leads</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>%23 Mails Sent</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>%23 New Contacts</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>%23 New Followers</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>%23 New Partners</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>%23 New Sign Ups</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>%23 New Subscribers</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>%23 New Users</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>%23 Number of Events</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>%23 Number of Group Bookings</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>%23 Number of Guests</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>%23 Number of Opportunities</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>%23 Number of VIP Cards Exchanged</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>%23 Outbound Links</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>%23 Pageviews</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>%23 Partners</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>%23 Partners%2F Organisations</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>%23 Points Earned</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>%23 Points redeemed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>%23 Promo code redemptions</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>%23 Reach</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>%23 Registrations</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>%23 SMS Clicked</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>%23 SMS Opened</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>%23 SMS Sent</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>%23 Sales</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>%23 Sessions</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>%23 Subscribers</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>%23 Surveys</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>%23 Tracked QR Codes</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>%23 Unique Sessions</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>%23 Unique Visitor Sessions</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>%23 VIP Card Exchange</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>%23 Views</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>%23 Village and Hashtag Mentions</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>%23 Village mentions</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>%23 Villages featured</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>%23 Website Registrations</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>%23 of Inserts in literature</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>%23Click through rate</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>%23Clicks</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>%23Hashtag Mentions</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>%23Impressions</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>%23New Members</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>%23Spend Per Visit</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>%23Tracked Unique Barcodes</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>%23Transactions</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>%23Website Logins</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>%25 Awareness</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>%25 Bounce Rate</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>%25 Click through Rate to website</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>%25 Favourability scale %28Gorkana%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>%25 Impact - growth</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>%25 Message penetration</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>%25 Open Rate</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>%25 Share of voice</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Campaign Support</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Engagement Rate - Comments</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Engagement Rate - Likes</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Engagement Rate - Replies</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Engagement Rate - Retweets</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Engagement Rate - Shares</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Engagement Rate - Views</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Impact</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reach - Followers</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reach - New Followers</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reach - New Subscribers</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reach - Subscribers</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Time spent in a session</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Picklist_Multi_Select__c</picklist>
+        <values>
+            <fullName>Bicester</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fidenza</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Inglostadt</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Kildare</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>La Roca</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>La Vallee</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Las Rozas</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Maasmechelen</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TBVSC Brand</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Wertheim</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Region__c</picklist>
+        <values>
+            <fullName>Africa</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Europe</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Greater China</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>India</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Japan</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Korea</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LATAM</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Middle East</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Not Applicable</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Oceania</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Rest of World</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Russia %26 CIS</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>South East Asia</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>US</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Responsys_ID_Entered__c</picklist>
+        <values>
+            <fullName>No</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Segment_Name__c</picklist>
+        <values>
+            <fullName>Eight Star</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Eleven Star</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Five Star</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Four Star</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Nine Star</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>One Star</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Seven Star</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Six Star</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Ten Star</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Three Star</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Twelve Star</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Two Star</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Segmentation__c</picklist>
+        <values>
+            <fullName>Member - Tier 2 %28Medium Spend%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Member - Tier 3 %28High Spend%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Member Private Client Services</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Non-Member High Spend</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Non-Member Low Spend</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Non-Member Medium Spend</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Non-Member Private Client Services</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Not Applicable</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Source_Market__c</picklist>
+        <values>
+            <fullName>Argentina</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Australia</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Belgium</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Brazil</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Canada</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>China</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Columbia</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Egypt</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>France</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Germany</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Hong Kong</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>India</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Indonesia</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Ireland</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Italy</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Japan</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Korea</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Kuwait</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Lebanon</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Malaysia</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Mexico</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Morocco</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Netherlands</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Northern Ireland</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Philippines</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Qatar</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Russia</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Saudi Arabia</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Singapore</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Spain</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Switzerland</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Taiwan</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Thailand</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>UAE</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>UK</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>USA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Ukraine</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Vietnam</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Split_Type__c</picklist>
+        <values>
+            <fullName>Manual</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Weekly</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Status__c</picklist>
+        <values>
+            <fullName>Approved</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cancelled</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Completed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>On Hold</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>To Be Approved</fullName>
+            <default>true</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Sub_Category__c</picklist>
+        <values>
+            <fullName>Aboards%C2%A0</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Art gallery</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Billboards%2Fposters</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Brochure</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Brochure%2Fmagazine</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Brochures</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Bus cover</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Digital media</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>E-newsletter%2Fdatabase</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Emailing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Empty units vinyls</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Enewsletter</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Event</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Facebook</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Facebook ads</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fam trips</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Foursquare</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Google ads</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>HFS</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Home delivery</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Hotel invites</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>In store signage</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Influencers communication</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Instagram</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Ipad</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Mobile app</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Mobile display</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Newsletter</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Olapic</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>On board brochures</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>On board video</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Online registration form</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Paid search</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Personal Shopper</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pinterest</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Postal mailing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Press event</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Press release</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Press visit</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Print</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Print media</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Print registration form%2Fcompetition</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Radio</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sales mission</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Segmentation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Shuttle drop off area</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sina Weibo</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Social media</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Store vinyls</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TIC</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TV</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Twitter</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Twitter ads</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>VIP lounge</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Valet parking</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Video</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Web display</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Website</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Welcome emailing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Youtube</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Sub_Channel_Type__c</picklist>
+        <values>
+            <fullName>Aboard</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Art Gallery</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Blog Post</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Brand</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Bus Cover</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Campaign</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Chic Travel</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cinema</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Competition</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Digital</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Digital Media</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Display</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Domestic</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Email</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Empty Unit Vinyls</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Event</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fam Trip</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Gift Card</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Gifting</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Google%2B</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Guest Welcome Centre</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Home</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>In Store Signage</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Inflight Magazine Advertising</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Inflight Magazine Advertorial</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Inflight Video</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Installations</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Interview</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>KOL</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Magazine Advertising</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Magazine Advertorial</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Mobile App</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Newsletter</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Newspaper Advertising</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Newspaper Advertorial</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Offer</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Olapic</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>On Board Brochure</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>On Board Video</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Organic</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Organic - UGC</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Out of Home</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PPC</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Paid</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Paid - UGC</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Partners</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Photo Shoot</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Press Release</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Print</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Print Media</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Printed Material</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Printed Registration Form</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Printed Survey</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Private Sale</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Privilege</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Product</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Radio</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Radio Advertising</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Radio Advertorial</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Round Table</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Seasonal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Shuttle Drop Off Area</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SnapChat</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Social Media</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Source</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sponsoring</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Stakla</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Store Vinyls</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Style Notes</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Survey</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TV</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TV Broadcast</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Trade Event</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Unpaid</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>VIP Lounge</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Video</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Video Shoot</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Village Leaflet</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Visit</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Website</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Welcome</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Sub_Channel__c</picklist>
+        <values>
+            <fullName>Accommodation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Agency Fee</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>App Innovations</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Books%2FMagazines</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Brand Events</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Brochure</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Catering</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Christmas Lights</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cinema%2FTheatre</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Community Marketing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Contracts</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Copywriting</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Corporate</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Corporate Event</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Digital Travel Platforms</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Direct Mail</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Display%3A Biddable</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Display%3A Non - Biddable</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Donations - Not Tax-Deductible</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Donations - Tax Deductible</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Email</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Entertaining Staff Only</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Entertaining Third Parties%2FMixed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Expats</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Facebook</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Facebook %26 Instagram %28Organic%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Facebook %26 Instagram %28Paid Social%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Familiarisation Trips</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Financial Partnerships</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Foursquare</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Funding Programme</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Gift Card Expense</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Google Local</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Google%2B</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Hardware</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>In-Village Events</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Inflight Media</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Influencer%2FBlogger</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Instagram</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Instagram Stories</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Installations</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Legal Advice</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Licences %26 Support</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LinkedIn</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Loyalty costs</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>MICE Event</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Magazine %28Print%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Mall Animations</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Member - Limited Edition Offer</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Member - Spend-based Reward</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Membership Fees%2FSubscriptions</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Merchandising</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Mileage%2FKilometeur Costs</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Mobile App</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Mobility</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>New Store Openings</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Newspaper %28Print%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Online Travel Agent</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Out of Home</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PR Events</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PR Partnerships</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Paid Search</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Participating Brands</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Partner Events</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Partnership Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Photoshoot%2F Videos Editing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pinterest</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Portacabin %2F Storage Hire</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Press Partnerships</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Printed Survey</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Printing costs</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Privilege Treats Portal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Prize</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Professional Fees</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Push Notes</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Radio Production</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Radio%2F Audio Digital</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Registration Card</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Rep Fee</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Research</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Room hire</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SMS</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sales Mission</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Shopping Express Expense</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Shopping Express Income</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Shuttle Bus Expenses</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Shuttle Bus Income</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Signage</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SnapChat</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sponsorship</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Stationery</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TV</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Technical%2F Job-specific Training</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Third Party training</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Trade Event</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Translation%2F Transcreation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Transport</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Travel %26 Accommodation - Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Travel%2C Accommodation %26 Meals - non employees</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Twitter</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Unit Vinyls</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>VIP Event</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>VIP Invitation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>VK</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Video</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Village Services</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>WeChat</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Website</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Website Enhancements</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Weibo</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Window Props</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>YouTube</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

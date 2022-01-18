@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <aggregateTypes>Sum</aggregateTypes>
+        <field>Visit__c.Number_of_Guests__c</field>
+    </columns>
+    <currency>EUR</currency>
+    <filter>
+        <booleanFilter>(1 AND 2)</booleanFilter>
+        <criteriaItems>
+            <column>Visit__c.Village__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>La Roca</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Visit__c.Partner_Account_Name__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>contains</operator>
+            <value>Union Pay,Aeroflot,Iberia,Ctrip,Miles &amp; More,Flying,ANA All Nippon,Vueling - Global,China Eastern</value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
+    <format>Matrix</format>
+    <groupingsAcross>
+        <dateGranularity>Month</dateGranularity>
+        <field>Visit__c.Visit_Date_Time__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsAcross>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Visit__c.Partner_Account_Name__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>FK_NAME</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>LRV_Campañas Global Partners</name>
+    <params>
+        <name>co</name>
+        <value>0</value>
+    </params>
+    <reportType>CustomEntity$Visit__c@Visit__c.Partnership_Promotion__c</reportType>
+    <scope>organization</scope>
+    <showDetails>false</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>Visit__c.Visit_Date_Time__c</dateColumn>
+        <endDate>2018-06-03</endDate>
+        <interval>INTERVAL_CUSTOM</interval>
+        <startDate>2018-01-01</startDate>
+    </timeFrameFilter>
+</Report>

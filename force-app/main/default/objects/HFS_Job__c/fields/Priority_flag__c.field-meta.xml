@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Priority_flag__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF( (Guest_Arrival_30_minutes__c = TRUE),&apos; Guest Arrives in 30 minutes!&apos;,
+IF( (Time_Since_Created__c &gt; 45 * 60),&apos; Timeout&apos;,
+IF( (Number_Reject__c &gt;= 2),&apos; Rejected multiple times&apos;,
+			
+IF( ISPICKVAL(Job_Status__c,&apos;Delivered&apos;), &apos; Delivered&apos;,
+IF( ISPICKVAL(Job_Status__c,&apos;Delivering&apos;),&apos; Delivering&apos;,
+IF( ISPICKVAL(Job_Status__c,&apos;Assigned&apos;),&apos; Assigned&apos;,			
+IF( ISPICKVAL(Job_Status__c,&apos;Accepted&apos;),&apos; Accepted&apos;,			
+IF( ISPICKVAL(Job_Status__c,&apos;New&apos;),&apos; New&apos;,		
+IF( ISPICKVAL(Job_Status__c,&apos;Rejected&apos;),&apos; Not accepted&apos;,			
+IF( ISPICKVAL(Job_Status__c,&apos;Bags Putaway&apos;),&apos; Bags Putaway&apos;,			
+IF( ISPICKVAL(Job_Status__c,&apos;Cancelled&apos;),&apos; Cancelled&apos;,			
+IF( ISPICKVAL(Job_Status__c,&apos;Started&apos;),&apos; Started&apos;,&apos;&apos;	
+			
+	))))))))))))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Priority flag</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

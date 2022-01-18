@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <aggregates>
+        <calculatedFormula>Opportunity.Total_Rating__c:AVG</calculatedFormula>
+        <datatype>number</datatype>
+        <developerName>FORMULA1</developerName>
+        <downGroupingContext>BucketField_5753007</downGroupingContext>
+        <isActive>true</isActive>
+        <isCrossBlock>false</isCrossBlock>
+        <masterLabel>Average Rating</masterLabel>
+        <scale>1</scale>
+    </aggregates>
+    <buckets>
+        <bucketType>picklist</bucketType>
+        <developerName>BucketField_5753007</developerName>
+        <masterLabel>Opening or Closing</masterLabel>
+        <nullTreatment>n</nullTreatment>
+        <sourceColumnName>STAGE_NAME</sourceColumnName>
+        <useOther>false</useOther>
+        <values>
+            <sourceValues>
+                <sourceValue>Pipeline</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>In discussion</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Advanced Negotiation</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Agreed in Principle</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Out for Signature</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Heads of Terms Signed</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Lease Signed Awaiting Unit</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Shopfitting</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Trading</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Stuck</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>On hold</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>No Village Interest</sourceValue>
+            </sourceValues>
+            <value>Opening</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>Closed</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Terminated</sourceValue>
+            </sourceValues>
+            <value>Closing</value>
+        </values>
+    </buckets>
+    <columns>
+        <field>OPPORTUNITY_NAME</field>
+    </columns>
+    <columns>
+        <field>Opportunity.Total_Rating__c</field>
+    </columns>
+    <columns>
+        <field>Opportunity.Open_Date__c</field>
+    </columns>
+    <columns>
+        <field>Opportunity.Exit_Date__c</field>
+    </columns>
+    <columns>
+        <field>TYPE</field>
+    </columns>
+    <columns>
+        <field>STAGE_NAME</field>
+    </columns>
+    <filter>
+        <booleanFilter>(((1 AND 2 AND 3) or (4 AND 5 AND 6)) )</booleanFilter>
+        <criteriaItems>
+            <column>Opportunity.Open_Date__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>false</isUnlocked>
+            <operator>lessOrEqual</operator>
+            <value>TODAY</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>TYPE</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>New Contract</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Opportunity.Open_Date__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>THIS_YEAR</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>STAGE_NAME</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>Closed,Terminated</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Opportunity.Exit_Date__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>false</isUnlocked>
+            <operator>lessOrEqual</operator>
+            <value>TODAY</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Opportunity.Exit_Date__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>THIS_YEAR</value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Opportunity.Village__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>BucketField_5753007</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>Average Deal Ratings</name>
+    <params>
+        <name>open</name>
+        <value>all</value>
+    </params>
+    <params>
+        <name>probability</name>
+        <value>&gt;0</value>
+    </params>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Opportunity</reportType>
+    <roleHierarchyFilter>CEO</roleHierarchyFilter>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>Opportunity.Signed_Date__c</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

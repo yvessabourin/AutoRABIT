@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Service_Charge_Amount__c</fullName>
+    <externalId>false</externalId>
+    <formula>(  SC__c  *  CB_Factor__c  )  /  BF_Factor__c</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>The amount of the Management Fee/Service Charge based on the billing frequency</inlineHelpText>
+    <label>Service Charge Amount</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

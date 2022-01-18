@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Average_Visits_Per_Year__c</fullName>
+    <description>Average Visits Per Year</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Average Visits Per Year</inlineHelpText>
+    <label>Average Visits Per Year</label>
+    <length>10000</length>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>LongTextArea</type>
+    <visibleLines>5</visibleLines>
+</CustomField>

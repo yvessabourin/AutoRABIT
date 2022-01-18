@@ -1,0 +1,34 @@
+<apex:page standardcontroller="Opportunity" applyHtmlTag="true"   >
+  
+  
+  <apex:pageMessage severity="warning"  strength="3"><b>Deals can now only be created from a Village Presence record</b></apex:pageMessage>
+  
+  
+ <br/><br/>   
+
+A <b>Deal</b> now represents a remerchandising <i>process</i> and a <b>Village Presence</b> record represents the current state of a brand in the village. The two are related as follows:
+
+
+<br/><br/>
+
+ <apex:pageMessage severity="info" strength="3">The outcome of a <b>Deal</b> (process) is that the <b>Village Presence</b> record will be updated to reflect the current trading status of the Brand
+               <br/> e.g. What Unit is the Brand trading in?, what is the contract expiry date, etc.
+</apex:pageMessage>
+
+<br/><br/>
+
+  Before you create a Deal you should therefore create the Village Presence (VP) record. This can be done from the Brand/Account page:
+<br/><br/>
+<apex:image url="{!$Resource.NewVPScreenshot}" width="800" height="524"/>
+
+<br/><br/>
+All you need to set is the Village in the lookup field; the default trading status for a VP is Not Trading.
+<br/><br/><br/>
+
+From the new Village Presence record you can create a <b>Deal</b> where you can record the process (approvals, steps, Negotiators, ratings, etc.). When the process is completed (closing the Deal) the Village Presence will be updated with all the relavent information.
+
+
+
+
+
+</apex:page>

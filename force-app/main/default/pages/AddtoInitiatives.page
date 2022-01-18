@@ -1,0 +1,19 @@
+<apex:page standardController="Opportunity" recordSetVar="Deals" extensions="addtoInitiativiesController" >
+  <apex:form >
+  <apex:message id="errormsgs"/>
+  <apex:pageBlock title="Add Deals to Initiative">
+  <apex:pageBlockSection columns="1">
+  <apex:inputfield value="{!initMem.Initiative__c}" id="initiative" />
+  </apex:pageBlockSection>
+  
+  <apex:pageblockSection columns="1" title="Deals to be added" collapsible="false">
+  <apex:repeat value="{!deals}" var="deal"  >
+  {!deal.Name}
+  <br/>
+  </apex:repeat>
+  </apex:pageblockSection>
+  <apex:commandButton action="{!Save}" value="Save"/>
+  <apex:commandButton action="{!Cancel}" value="Cancel"/>
+  </apex:pageBlock>
+  </apex:form>
+</apex:page>

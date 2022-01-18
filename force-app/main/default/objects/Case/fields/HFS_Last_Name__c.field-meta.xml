@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>HFS_Last_Name__c</fullName>
+    <description>Field to store the First Name when an HFS Case is registered. The SuppliedName stores at this moment the Salutation + First Name + Last Name and a First Name separated field is required to preload HFS Experiences values when registering from the Black Book</description>
+    <externalId>false</externalId>
+    <label>Display Last Name</label>
+    <length>40</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

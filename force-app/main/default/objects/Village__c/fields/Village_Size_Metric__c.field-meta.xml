@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Village_Size_Metric__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Select the metric for size measurements in this village</inlineHelpText>
+    <label>Village Size Metric</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>sq.m</fullName>
+                <default>true</default>
+                <label>sq.m</label>
+            </value>
+            <value>
+                <fullName>sq.ft</fullName>
+                <default>false</default>
+                <label>sq.ft</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

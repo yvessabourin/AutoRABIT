@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Consolidated_Strategic_Brand_Mix</fullName>
+    <availability>online</availability>
+    <description>Links to a report with a default Filter</description>
+    <displayType>link</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <linkType>url</linkType>
+    <masterLabel>Consolidated Strategic Brand Mix</masterLabel>
+    <openType>replace</openType>
+    <protected>false</protected>
+    <url>/00Ob0000003tVs4?pv0={!Village__c.Name}</url>
+</WebLink>

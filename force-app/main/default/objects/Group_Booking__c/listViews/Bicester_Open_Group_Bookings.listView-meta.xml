@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Bicester_Open_Group_Bookings</fullName>
+    <columns>NAME</columns>
+    <columns>Name_of_Event__c</columns>
+    <columns>Arrival_Date__c</columns>
+    <columns>Group_Type__c</columns>
+    <columns>Number_of_Visitors_Expected__c</columns>
+    <columns>Visitors_Country_of_Origin__c</columns>
+    <columns>Expected_Arrival__c</columns>
+    <columns>Status__c</columns>
+    <columns>Secondary_MICE_Org_or_Agency_name__c</columns>
+    <columns>VR_Representative__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>VR_Representative__c</field>
+        <operation>equals</operation>
+    </filters>
+    <filters>
+        <field>Secondary_MICE_Org_or_Agency_name__c</field>
+        <operation>notEqual</operation>
+    </filters>
+    <label>Missing VR Rep Group Bookings</label>
+    <language>en_US</language>
+    <sharedTo>
+        <group>Location_Bicester</group>
+    </sharedTo>
+</ListView>

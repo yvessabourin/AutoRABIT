@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>No_date_where_Standard_Term_matures</fullName>
+    <active>true</active>
+    <description>Date must be entered where Standard Term matures.</description>
+    <errorConditionFormula>$Setup.Global_Object_Validation__c.Deal_Validations_Active__c 
+&amp;&amp; TEXT(Standard_Terms__c)  = &quot;Matures&quot;
+&amp;&amp; ISNULL( Matures_to_Standard_On__c ) 
+&amp;&amp; NOT( RecordTypeName__c = &quot;Exit&quot; ) 
+&amp;&amp; NOT( RecordTypeName__c = &quot;ShopRefit&quot; )</errorConditionFormula>
+    <errorDisplayField>Matures_to_Standard_On__c</errorDisplayField>
+    <errorMessage>Date must be entered where Standard Term matures.</errorMessage>
+</ValidationRule>

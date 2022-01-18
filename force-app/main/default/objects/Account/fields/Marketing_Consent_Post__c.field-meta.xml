@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Marketing_Consent_Post__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Consent to send marketing information by post</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Consent to send marketing information by post</inlineHelpText>
+    <label>Old Marketing Consent Post</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Unit_Required</fullName>
+    <active>true</active>
+    <description>There must be a unit populated from &apos;Advanced negotiation&apos; stage and subsequent stages</description>
+    <errorConditionFormula>$Setup.Global_Object_Validation__c.Deal_Validations_Active__c 
+&amp;&amp; Stage_Value__c &gt; 2
+&amp;&amp;  ISBLANK(  Unit__c ) 
+&amp;&amp; NOT( RecordTypeName__c = &quot;Exit&quot; )</errorConditionFormula>
+    <errorDisplayField>Unit__c</errorDisplayField>
+    <errorMessage>You must enter a unit before the deal can progress to the &apos;Advanced negotiation&apos;  and subsequent stages</errorMessage>
+</ValidationRule>

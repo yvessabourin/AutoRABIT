@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Ideal_size_required</fullName>
+    <active>true</active>
+    <description>On any deal record type (except exit and shop refit) once the &apos;in discussion stage&apos; or subsequent stages are reached the &apos;Ideal size&apos; field, must be populated</description>
+    <errorConditionFormula>$Setup.Global_Object_Validation__c.Deal_Validations_Active__c 
+&amp;&amp; Stage_Value__c &gt;= 1
+&amp;&amp; ISBLANK(Ideal_Size__c)
+&amp;&amp; OR( RecordTypeName__c = &quot;New Brand&quot; ,
+TEXT(Type) = &quot;Upsize&quot;, TEXT(Type) = &quot;Downsize&quot;,TEXT(Type) = &quot;Relocation&quot;)</errorConditionFormula>
+    <errorDisplayField>Ideal_Size__c</errorDisplayField>
+    <errorMessage>You must enter an &apos;Ideal size&apos; before the deal can progress to the &apos;in discussion&apos; stage and subsequent stages</errorMessage>
+</ValidationRule>

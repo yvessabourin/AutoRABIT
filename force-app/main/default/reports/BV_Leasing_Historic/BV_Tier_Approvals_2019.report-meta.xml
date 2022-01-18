@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Opportunity$Name</field>
+    </columns>
+    <columns>
+        <field>Opportunity$Approved_Date__c</field>
+    </columns>
+    <columns>
+        <field>Opportunity$Tier_Level__c</field>
+    </columns>
+    <columns>
+        <field>Opportunity$Tier_Level_Rationale__c</field>
+    </columns>
+    <currency>EUR</currency>
+    <filter>
+        <criteriaItems>
+            <column>Opportunity$Village__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>BIcester</value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
+    <format>Tabular</format>
+    <name>BV Tier Approvals 2019</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Deals__c</reportType>
+    <roleHierarchyFilter>CEO</roleHierarchyFilter>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>Opportunity$Approved_Date__c</dateColumn>
+        <interval>INTERVAL_CURFY</interval>
+    </timeFrameFilter>
+</Report>

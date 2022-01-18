@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Visit__c.Village__c</field>
+    </columns>
+    <columns>
+        <field>Visit__c.Visit_Date_Time__c</field>
+    </columns>
+    <columns>
+        <field>Visit__c.Total_Spend__c</field>
+    </columns>
+    <currency>EUR</currency>
+    <description>Weekly export for Tom Holiday</description>
+    <filter>
+        <criteriaItems>
+            <column>Visit__c.Type__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>notEqual</operator>
+            <value>VIP Shopping Day</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>CUST_RECORDTYPE</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Visit__c.VIP_Visit</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>FK_$Account.Guest_Source__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>notEqual</operator>
+            <value></value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>FK_$Account.Guest_Segment__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>notEqual</operator>
+            <value>Value Hungry</value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
+    <format>Tabular</format>
+    <name>PCS - All Visits w/ total spend LW</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CustomEntity$Visit__c@Visit__c.Account__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>Visit__c.Arrival_Date__c</dateColumn>
+        <endDate>2021-02-28</endDate>
+        <interval>INTERVAL_CUSTOM</interval>
+        <startDate>2021-01-04</startDate>
+    </timeFrameFilter>
+</Report>

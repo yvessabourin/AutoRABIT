@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Opt_Out_Campaign_String__c</fullName>
+    <description>If the Response from the Campaign was one that deems the contact to be opted out of future campaigns, this field captures the campaign that provoked the response</description>
+    <externalId>false</externalId>
+    <inlineHelpText>This is the Campaign ID from which the Contact opted out from email marketing</inlineHelpText>
+    <label>Opt Out Campaign String</label>
+    <length>80</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

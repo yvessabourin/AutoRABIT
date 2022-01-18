@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Las_Rozas_Brands</fullName>
+    <columns>NAME</columns>
+    <columns>Brand__c</columns>
+    <columns>Unit__c</columns>
+    <columns>Status__c</columns>
+    <columns>Daily_Sales_Active__c</columns>
+    <columns>Village__c</columns>
+    <columns>CertSales_Active__c</columns>
+    <columns>CertSales_CertPeriod_Type__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Village__c</field>
+        <operation>equals</operation>
+        <value>Las Rozas</value>
+    </filters>
+    <filters>
+        <field>Status__c</field>
+        <operation>equals</operation>
+        <value>Trading</value>
+    </filters>
+    <label>Las Rozas Brands</label>
+    <language>en_US</language>
+</ListView>

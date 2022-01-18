@@ -1,0 +1,72 @@
+<apex:page doctype="html-5.0" controller="CampaignSearchController" sidebar="false" showHeader="false" action="{!Init}" lightningStylesheets="true">
+
+    <apex:form >
+        <apex:outputLink value="{!IF($User.UITheme == 'Theme4d' || $User.UITheme == 'Theme4u', '/lightning/page/home', LEFT(URLFOR($CurrentPage.URL),(FIND('/apex', URLFOR($CurrentPage.URL)))))}" id="theLink" >Back to VR1</apex:outputLink>
+
+        <p style="text-align:center"><apex:image url="{!$Resource.VR1WhiteLogo}" style="position:centre" width="100"/>
+            <br/>
+            <font size="4" face="Palatino Linotype" color="Black">Search Promotions</font>
+            <br/>
+
+            <apex:outputLabel value="Please enter your Search Criteria for the Campaign " for="Searchbox" style="" />
+            <apex:input type="text"  id="Searchbox" value="{!SearchString}" />
+            <apex:commandButton id="SubmitSearch"  value="Search" action="{!SubmitSearch}" reRender="searchresults, messages, pageblock1"/>
+            <apex:commandButton id="ResetSearch"  value="Reset" action="{!ResetSearch}" reRender="searchresults, Searchbox, messages, pageblock1"/>
+        </p>
+        <br/>
+
+        <apex:pagemessages id="messages" />
+
+        <br/><br/>
+
+    </apex:form>
+
+    <apex:pageBlock id="pageblock1" title="{!SearchHeaderMessage}">
+        <apex:pageBlockTable id="searchresults" value="{!VillageCampaigns}" var="campaign"  >
+
+            <apex:column headerValue="Redeem">
+                <apex:outputLink target="_self" value="{!IF(campaign.recordtypeid==RedeemableCampRecordTypeId,
+                        'multiaddredemptions?id='+campaign.id +
+                                '&redeemCode=' + $CurrentPage.parameters.redeemCode +
+                                '&addCustomer=' + $CurrentPage.parameters.addCustomer +
+                                '&visitType=' + $CurrentPage.parameters.visitType +
+                                '&location=' + $CurrentPage.parameters.location +
+                                '&transport=' + $CurrentPage.parameters.transport +
+                                '&country=' + $CurrentPage.parameters.country +
+                                '&uiMode=false', '/' +campaign.Group_Booking__c)}">
+                    <apex:outputText value="{!IF(campaign.recordtypeid==RedeemableCampRecordTypeId,'Redeem','Go to Group Booking')}" escape="false" style="font-weight: bold;"/>
+                </apex:outputLink>
+            </apex:column>
+
+            <apex:column headerValue="Redeem Promotion">
+                 <apex:outputLink target="_self" value="{!IF(campaign.recordtypeid==RedeemableCampRecordTypeId,
+                         'apex/multiaddredemptions?id='+campaign.id +
+                                 '&redeemCode=' + $CurrentPage.parameters.redeemCode +
+                                 '&addCustomer=' + $CurrentPage.parameters.addCustomer +
+                                 '&visitType=' + $CurrentPage.parameters.visitType +
+                                 '&location=' + $CurrentPage.parameters.location +
+                                 '&transport=' + $CurrentPage.parameters.transport +
+                                 '&country=' + $CurrentPage.parameters.country +
+                                 '&uiMode=false', '/' +campaign.Group_Booking__c)}">
+
+                    <apex:outputText value="{!campaign.QR_Code_Image__c}" escape="false" title="Click to Redeem" />
+                </apex:outputLink>
+            </apex:column>
+                     
+
+            <apex:column headerValue="Campaign Name">
+                <apex:outputLink target="_parent" value="/{!campaign.id}">{!campaign.name}</apex:outputLink>
+                <br/>{!campaign.description}
+            </apex:column>
+            <apex:column headerValue="Village" value="{!campaign.Village__r.Name}"/>
+            <apex:column headerValue="Valid Identification" value="{!campaign.Communication_Channel__c}"/>
+            <apex:column headerValue="Campaign Partner" value="{!campaign.Partner__r.Name}"/>
+            <apex:column headerValue="Redemptions" value="{!campaign.Total_Redemptions__c}"/>
+            <apex:column headerValue="Parent Campaign" value="{!campaign.Parent.Name}"/>
+            <apex:column headerValue="Status" value="{!campaign.Calculated_Status__c}"/>
+            <apex:column headerValue="COS Campaign" value="{!campaign.COS_Campaign__c}"/>
+
+        </apex:pageBlockTable>
+    </Apex:pageBlock>
+
+</apex:page>

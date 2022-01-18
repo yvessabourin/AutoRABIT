@@ -1,0 +1,381 @@
+<apex:page controller="VisitRedemptionsHelper" sidebar="false" showHeader="false" standardStylesheets="false"  applyBodyTag="false" docType="html-5.0">
+
+
+    <html xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" ng-app="ticApp" >
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>TIC Guest Checkin</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></link>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+        <link rel="stylesheet" href="{!URLFOR($Resource.NewTICStyles)}"></link>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.11/angular.min.js"></script>
+
+        <apex:includeScript value="{!$Resource.Sorttable}"></apex:includeScript>
+
+        <style type="text/css">
+
+body{
+    background: url({!URLFOR($Resource.TICDashboard, 'BVWalk.jpg')}) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+
+.Thumbnail {
+    width: 40px;
+    height: 40px;
+    background: #2c3e50;
+    border-radius: 100px;
+}
+
+/*Business Card Css */
+.business-card {
+  border: 1px solid #cccccc;
+  background: #f8f8f8;
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+.profile-img {
+  height: 120px;
+  background: white;
+}
+
+</style>
+
+        <script>
+            function isLightningRedirect(inUrl){
+                if ('{!$User.UITheme}' === 'Theme4d' || '{!$User.UITheme}' === 'Theme4t' || '{!$User.UITheme}' === 'Theme4u') {
+                    sforce.one.navigateToURL(inUrl);
+                } else {
+                    window.location = inUrl;
+                }
+            }
+        </script>
+
+        <script>
+     // define the app
+     var GroupTICApp = angular.module('ticApp', []);
+     // add an app factory
+
+     // add the controller
+     GroupTICApp.controller('GroupCtrl',['$log','$scope','$window',function($log,$scope,$window,$location){
+        $scope.bookingdata = {!promotions} ;
+        $scope.grpBookings = $scope.bookingdata;
+        $scope.gbTableHeadlineNormal = 'Partnership Promotions for {!usersVillage} ';
+        $scope.gbTableHeadline = $scope.gbTableHeadlineNormal;
+        $log.log('$scope.grpBookings === ' + $scope.grpBookings);
+        $scope.searchvalue = '';
+        $log.log('$scope.searchvalue === ' + $scope.searchvalue);
+
+
+         $scope.showCase = function(caseID) {
+            let url = '/apex/HFSGuestPage?ID=' + caseID;
+             isLightningRedirect(url);
+        };
+
+         $scope.searchBookings = function(){
+                    $log.log('about to call searchBookings....');
+               // $scope.contactList = [];
+                  $log.log('about to call $scope.searchvalue....' + $scope.searchvalue);
+                if( $scope.searchvalue  != undefined && $scope.searchvalue.length > 2){
+                $log.log('about to call $scope.searchvalue....' + $scope.searchvalue);
+                $scope.grpBookings = [];
+                      Visualforce.remoting.Manager.invokeAction(
+                                    '{!$RemoteAction.VisitRedemptionsHelper.searchActivities}',
+                                    $scope.searchvalue ,
+                                    function(result, event){
+                                      $log.log('about to call result....');
+                                      $log.log(result);
+                                        if (event.status) {
+                                             $scope.grpBookings = result;
+                                             $scope.gbTableHeadline = 'Search Results';
+                                             $j('#loadingmodal').hide();
+                                        } else if (event.type === 'exception') {
+                                          $scope.message = event;
+                                        } else {
+                                              $scope.message = event;
+                                        }
+                                        $scope.$apply();
+                                    },
+                                    {escape: true}
+                        );
+
+                }else{
+                    //  $scope.showBrandListSearch  = false;
+                      $scope.grpBookings = $scope.bookingdata;
+                      $scope.gbTableHeadline = $scope.gbTableHeadlineNormal;
+                }
+            }
+
+        $scope.whatClassIsRow = function(statusvalue){
+
+          if(statusvalue.statusText === 'Awaiting Arrival'){
+            return 'warning';
+            }
+            else if(statusvalue.statusText === 'Arrived at Village' ){
+              return 'success';
+            }
+            else{
+              return 'active';
+            }
+
+        }
+        $scope.whatClassIabel = function(casevalue){
+
+          if(casevalue.ItemsAwaiting != '0' ){
+            return 'label label-danger';
+            }
+            else if(casevalue.ItemsCollected === '0' && casevalue.ItemsAwaiting === '0' ){
+              return 'label label-info';
+            }
+            else if(casevalue.ItemsCollected != '0' && casevalue.ItemsAwaiting === '0' ){
+              return 'label label-success';
+            }
+            else{
+              return 'label label-default';
+            }
+
+        }
+
+         $scope.showPromotion = function(promoid, promoname,notes) {
+             $log.log('promoid, promoname,notes' + promoid + promoname + notes);
+          //  $location.path('/apex/VisitRedemptionGuest?promoId=' + promoid + '&promoName=' + promoname +'&recTypeId={!guestRecType}&notes=' + notes,false);
+          // removing the 'notes' part, because its just bloating the page
+          // Before
+          //$window.location.href = encodeURI('/apex/VisitRedemptionGuest?promoId=' + promoid + '&promoName=' + promoname +'&recTypeId={!guestRecType}&notes=');
+          // After
+          isLightningRedirect(encodeURI('/apex/VisitRedemptionGuest?promoId=' + promoid + '&promoName=' + promoname +'&recTypeId={!guestRecType}&notes='));
+        }
+
+
+     }]);
+   </script>
+        <script>
+
+        $j = jQuery.noConflict();
+        var homeUrl;
+
+
+        $j(document).ready(function() {
+
+        if({!showHFSButton}){
+             $j('#hfsbutton').show();
+              $j('#hfslistitem').show();
+
+          }
+          else
+          {
+            $j('#hfsbutton').hide();
+             $j('#hfslistitem').hide();
+          }
+
+            if( ('{!$User.UIThemeDisplayed}' == 'Theme4t' || '{!$User.UIThemeDisplayed}' == 'Theme4d' ) ) {
+             // running in mobile
+                homeUrl = '/_ui/core/chatter/ui/ChatterPage';
+            } else { //desktop
+                homeUrl = '/home/home.jsp';
+            }
+
+        })
+
+        function cancelAction(){
+            isLightningRedirect(homeUrl);
+        }
+
+
+        function gotoPage(pg){
+            isLightningRedirect('/apex/' + pg);
+        }
+
+           var timer;
+        function delayedSearch(searchString){
+
+            clearTimeout(timer);
+            timer = setTimeout(function (event) {
+                searchPromotions(searchString);
+
+            }, 1000);
+
+        }
+
+        function searchPromotions(searchString){
+
+            //var searchString = $j('#searchText').val();
+            console.log('searchString = ' + searchString);
+            var search = false;
+
+            if (searchString.length > 0){
+                if (searchString.length > 2){
+                    search = true;
+
+                    if (searchString.substring(0,3) == 'a0y' || searchString.substring(0,3) == 'a0U' || searchString.substring(0,3) == '701'){
+                        if (searchString.length < 15){
+                            // do nothing
+                            search = false;
+                        } else {
+                            search = true;
+                        }
+                    }
+                } else {
+                    getTrendingItems();
+                }
+            } else {
+                getTrendingItems();
+            }
+
+
+            if (search){
+                 $j('#searching').show();
+                 VisitRedemptionsHelper.searchActivities(searchString, function(result, event) {
+
+                        console.log(result);
+                        $j('#searching').hide();
+
+                        var html = buildHTML(result, 'Promotion');
+
+                        if(event.status) {
+
+                            $j( "ul.promoItems").html(function() {
+                               return html;
+                            });
+
+
+
+                        } else {
+                            $j( "ul.promoItems").html(function() {
+                               return "<p>Network Error - Please report issue if problem persists</p> <br/>" + result
+                            });
+
+                        }
+
+                        var html2 = buildHTML(result, 'Booking');
+
+                        if(event.status) {
+
+                            $j( "ul.bookingItems").html(function() {
+                               //return label + "<br/><textarea rows='10' cols='40' style='border:none;'>" + result + "</textarea>";
+                               return html2;
+                            });
+
+
+
+                        } else {
+                            $j( "ul.bookingItems").html(function() {
+                               return "<p>Network Error - Please report issue if problem persists</p> <br/>" + result
+                               return label + "<br/><textarea rows='10' cols='40' style='border:none;'>" + event.status + "</textarea>";
+                            });
+
+                        }
+
+                    },{buffer: false, escape: true, timeout: 30000} );
+
+            }
+
+
+        }
+
+
+    </script>
+
+
+    </head>
+    <body>
+    <!-- Main Navigation -->
+    <div class="my-nav">
+        <div class="site-navbar navbar navbar-fixed-top" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+                    <a class="navbar-brand" onclick="gotoPage('TIC_Dashboard');">Tourist Information Center</a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li> <a  href="#group" onclick="gotoPage('GroupBooking_Search');" >Group Check In</a> </li>
+                        <li> <a  href="#guest" class="active"  onclick="gotoPage('Promotion_Search');" >Guest Check In</a> </li>
+                        <li> <a  href="#search"  onclick="gotoPage('GuestSearch');">Guest Search</a> </li>
+                        <li> <a  href="#card"  onclick="gotoPage('VIPCardSearch');">Card Search</a> </li>
+                        <li> <a  href="#clean"  onclick="gotoPage('VIPCardCleardown');">VIP Card Cleanup</a> </li>
+                        <li id="hfslistitem" name="hfslistitem"> <a  href="#hfs"  onclick="gotoPage('HFSDash');">Hands Free Shopping</a> </li>
+                        <li> <a  href="#exit" onclick="cancelAction();" >Exit</a> </li>
+                    </ul>
+                </div>
+                <!--/.nav-collapse -->
+            </div>
+        </div>
+    </div>
+    <!-- /.Main Navigation -->
+    <!-- Fullwidth Header -->
+    <!-- Intro Header -->
+
+
+    <div class="jumbotron text-center">
+        <h2>&nbsp;</h2>
+    </div>
+
+    <!-- main content -->
+    <div class="container" ng-controller="GroupCtrl">
+
+        <div id="loadingmodal" name="loadingmodal" class="modal" role="dialog">
+            <div class="modal-dialog">
+                <div id="loader">
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="input-group" id="guestSearchbox" name="guestSearchbox">
+            <span class="input-group-addon"><i class="fa fa-users"></i></span>
+            <input type="text" class="form-control" placeholder="Promotion Search" name="searchText" id="searchText" ng-model="searchvalue"  ng-keyup="searchBookings()" />
+            <div class="input-group-btn">
+                <button id="searchBtn" name="searchBtn" class="btn btn-default" onclick=" $j('#loadingmodal').show();" ng-click="searchBookings()"><i class="glyphicon glyphicon-search"></i></button>
+            </div>
+        </div>
+        <br/>
+        <div class="input-group">
+            <a onclick="gotoPage('GroupBooking_Search');" class="btn btn-default"><i class="glyphicon glyphicon-home"></i></a>
+        </div>
+        <br/><br/>
+        <div class="panel panel-primary">
+            <div class="panel-heading" id="gbTableHeading" name="gbTableHeading">{{gbTableHeadline}}</div>
+            <div class="table-responsive">
+                <table class="table table-hover sortable" >
+                    <tr class="active">
+                        <th></th>
+                        <th>Partner</th>
+                        <th>Campaign</th>
+                        <th>Name</th>
+                    </tr>
+                    <tr  ng-repeat="grbook in grpBookings" ng-class="whatClassIsRow(grbook)" ng-click="showPromotion(grbook.Id, grbook.Name,'blank')">
+                        <td><img src="{{grbook.imageUrl}}" alt="" class="media-object profile-img" style="max-height: 40px;" /></td>
+                        <td >{{grbook.Partner}}<div style="color:#FF0000;"  ng-if="grbook.recType != ''">{{grbook.recType}}</div></td>
+                        <td >{{grbook.campaignName}}</td>
+                        <td >{{grbook.Name}}</td>
+                    </tr>
+                    <tr class="info" ng-hide="grpBookings.length" >
+                        <td colspan="4">No Results</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+    </div>
+    </body>
+    </html>
+
+</apex:page>

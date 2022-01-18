@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>LogFile__c$Name</field>
+    </columns>
+    <columns>
+        <field>LogFile__c$CreatedDate</field>
+    </columns>
+    <columns>
+        <field>LogFile__c$Body__c</field>
+    </columns>
+    <columns>
+        <field>LogFile__c$Body2__c</field>
+    </columns>
+    <columns>
+        <field>LogFile__c$Body3__c</field>
+    </columns>
+    <columns>
+        <field>LogFile__c$Body4__c</field>
+    </columns>
+    <columns>
+        <field>LogFile__c$Body5__c</field>
+    </columns>
+    <currency>GBP</currency>
+    <description>Shows Logfile errors for repeated bags</description>
+    <filter>
+        <criteriaItems>
+            <column>LogFile__c$Type__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>contains</operator>
+            <value>Hands Free Shopping</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>LogFile__c$Body2__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>contains</operator>
+            <value>repeated</value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
+    <format>Tabular</format>
+    <name>Repeated Bags Errors</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Logfiles__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>LogFile__c$CreatedDate</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

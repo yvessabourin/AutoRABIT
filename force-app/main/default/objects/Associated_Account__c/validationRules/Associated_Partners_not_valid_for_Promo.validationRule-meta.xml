@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Associated_Partners_not_valid_for_Promo</fullName>
+    <active>true</active>
+    <description>Blocks the creation of Associated accounts against Tourism partners when the marketing activity is a partnership promotion</description>
+    <errorConditionFormula>Partner_Brand_Account__r.RecordType.DeveloperName = &quot;Tourism&quot; 
+&amp;&amp; Marketing_Activity__r.RecordType.DeveloperName = &quot;Partnership_Promotion&quot;</errorConditionFormula>
+    <errorDisplayField>Partner_Brand_Account__c</errorDisplayField>
+    <errorMessage>(Tourism) Partners cannot be associated to Partnership Promotions, you can only associate Brands. To link a Partner to the Partnership Promotion use the Partner lookup on the Marketing Activity screen.</errorMessage>
+</ValidationRule>

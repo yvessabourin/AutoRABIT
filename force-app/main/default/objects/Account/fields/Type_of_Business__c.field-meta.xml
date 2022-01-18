@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Type_of_Business__c</fullName>
+    <description>...</description>
+    <externalId>false</externalId>
+    <inlineHelpText>This field is for reference only</inlineHelpText>
+    <label>OLD Type of Business</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Airline</fullName>
+                <default>false</default>
+                <label>Airline</label>
+            </value>
+            <value>
+                <fullName>Diplomatic</fullName>
+                <default>false</default>
+                <label>Diplomatic</label>
+            </value>
+            <value>
+                <fullName>Association</fullName>
+                <default>false</default>
+                <label>Association</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+            <value>
+                <fullName>Transport</fullName>
+                <default>false</default>
+                <label>Transport</label>
+            </value>
+            <value>
+                <fullName>Financial</fullName>
+                <default>false</default>
+                <label>Financial</label>
+            </value>
+            <value>
+                <fullName>Travel Agent/OTA</fullName>
+                <default>false</default>
+                <label>Travel Agent/OTA</label>
+            </value>
+            <value>
+                <fullName>Hotel</fullName>
+                <default>false</default>
+                <label>Hotel</label>
+            </value>
+            <value>
+                <fullName>MICE Organisation/DMC</fullName>
+                <default>false</default>
+                <label>MICE Organisation/DMC</label>
+            </value>
+            <value>
+                <fullName>DMO/Tourism Board</fullName>
+                <default>false</default>
+                <label>DMO/Tourism Board</label>
+            </value>
+            <value>
+                <fullName>Tour Operator/Wholesaler</fullName>
+                <default>false</default>
+                <label>Tour Operator/Wholesaler</label>
+            </value>
+            <value>
+                <fullName>Travel Agent</fullName>
+                <default>false</default>
+                <label>Travel Agent</label>
+            </value>
+            <value>
+                <fullName>Corporate</fullName>
+                <default>false</default>
+                <label>Corporate</label>
+            </value>
+            <value>
+                <fullName>Education</fullName>
+                <default>false</default>
+                <label>Education</label>
+            </value>
+            <value>
+                <fullName>Influencer/Blogger</fullName>
+                <default>false</default>
+                <label>Influencer/Blogger</label>
+            </value>
+            <value>
+                <fullName>Media Agency</fullName>
+                <default>false</default>
+                <label>Media Agency</label>
+            </value>
+            <value>
+                <fullName>Media House</fullName>
+                <default>false</default>
+                <label>Media House</label>
+            </value>
+            <value>
+                <fullName>Photographer</fullName>
+                <default>false</default>
+                <label>Photographer</label>
+            </value>
+            <value>
+                <fullName>Corporate Partner</fullName>
+                <default>false</default>
+                <label>Corporate Partner</label>
+            </value>
+            <value>
+                <fullName>Event Management Company</fullName>
+                <default>false</default>
+                <label>Event Management Company</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>3</visibleLines>
+</CustomField>

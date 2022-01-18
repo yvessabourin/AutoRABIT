@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Store_Not_Editable</fullName>
+    <active>true</active>
+    <description>Store lookup field cannot be changed after the Daily Sale being created for a determined Village Presence.</description>
+    <errorConditionFormula>ISCHANGED(Store__c)</errorConditionFormula>
+    <errorMessage>You can&apos;t edit Store field</errorMessage>
+</ValidationRule>

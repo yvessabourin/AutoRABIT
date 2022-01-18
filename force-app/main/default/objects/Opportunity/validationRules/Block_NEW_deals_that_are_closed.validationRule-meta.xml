@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Block_NEW_deals_that_are_closed</fullName>
+    <active>true</active>
+    <description>users were retro- creating Deals and setting them to closed upon creation, bypassing the VF code for progressing deals. This validation rule should block that</description>
+    <errorConditionFormula>IsClosed &amp;&amp; ISNEW()</errorConditionFormula>
+    <errorDisplayField>StageName</errorDisplayField>
+    <errorMessage>You cannot create a deal that is already closed. Please set the Stage to &quot;pipeline&quot; and use the Progress Deal button to close the deal</errorMessage>
+</ValidationRule>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>HFS_Transport_Converted__c</fullName>
+    <description>Report purposes. Changing the Refuse to Aswer for Privilege and VIP Accounts to &quot;Not Recorded / Regular Guest&quot;</description>
+    <externalId>false</externalId>
+    <formula>IF(NOT(ISBLANK(AccountId)) &amp;&amp; (ISPICKVAL(Mode_of_Transport__c, &apos;Refuse to Answer&apos;) || ISBLANK(TEXT(Mode_of_Transport__c))), IF(Account.RecordType.DeveloperName == &apos;VIP_Guest&apos;, &apos;Not Recorded / VIP Guest&apos;, &apos;Not Recorded / Privilege Guest&apos;), TEXT(Mode_of_Transport__c))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Transport</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

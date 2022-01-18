@@ -1,0 +1,173 @@
+<apex:page showHeader="true" sidebar="false" controller="MarketingCalendarExportController" docType="html-5.0">
+
+        <html xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+            <head>
+        
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></link>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        
+           <style>
+           .campaignCell {
+            border-radius: 10px;
+           }
+        
+           .leftHeading {
+        
+           }
+        
+            .buttonHidden { 
+             visibility: hidden;
+            }
+        
+            .divHidden { 
+             visibility: hidden;
+            }
+        
+            .highlightredborder {
+            border: 5px solid red;
+            }
+        
+            table#my-table-id,table#my-table-id tr, table#my-table-id th, table#my-table-id td  {
+            /*border: 1px solid black; */
+            padding: 3px;
+            table-layout: fixed;
+            width: 140px;
+          
+            }
+            th, tr, td {
+            text-align: center;
+            vertical-align: middle;
+            }  
+            </style> 
+        
+            <script type="text/javascript">
+        
+        
+                function ExportToExcel(){
+                   var htmltable = document.getElementById('my-table-id');
+                   var html = htmltable.outerHTML;
+                   window.open('data:application/vnd.ms-excel,' + encodeURIComponent(html));
+                }
+        
+        
+                function runFocusQuery(){
+                    var theQuarter = document.getElementById('quarterSelection').value;
+                    console.log('theQuarter alert' + theQuarter);
+                    var theYear = document.getElementById('year').value;
+                    console.log('theYear alert' + theYear);
+                    if(theYear == "" && theQuarter != "NA"){
+                        window.alert("You must specify a Year in order to select a Quarter");
+                    	return null;
+                    }
+                    var inputVillage = document.getElementById('villageSelectionFocus').value;
+                    
+                    MarketingCalendarExportController.readThemeandCampaignsbyFocus(inputVillage,theYear,theQuarter, function(result, event) {
+                                console.log('readThemeandCampaignsbyFocus fired');
+                                if(event.status) {
+                                    jQuery(function($j) {
+                                        var decoded = $j("<div/>").html(result).text();
+                                        $j('#thediv').html(decoded);
+                                        $j('#ExportButtonFocus').css("visibility", "visible");
+                                        $j('.td1').css('background-color', '#8DE6E9');
+                                        $j('.td2').css('background-color', '#E9CD8D');
+                                    });
+                                }
+                            });
+                }
+            function navigateToVFPage(){
+            var calendarChoice = document.getElementById('calendarSelectOptions').value;
+            if (calendarChoice == 'Campaign Calendar'){
+                window.location = "VillageCalendarExcelReport_View";
+            }
+            else{
+                return null;
+            }
+        }
+        
+        
+            </script>
+        
+            </head>
+        
+            <body>
+            <center>
+            <table width="1500">
+            <caption><center><b>Retail Marketing Calendar</b><br></br><br></br></center></caption>
+        
+        
+               <tr>
+        <td align="center" colspan="1">
+            <label>Calendar: </label>
+            <select name="calendarSelection" id="calendarSelectOptions" sixe="1" onchange="navigateToVFPage()">
+                <option> Retail Marketing Calendar </option>
+                <option> Campaign Calendar </option>
+            </select>
+            <p/>
+        </td>
+    </tr>
+                
+            <tr>
+        
+        
+                <td align="center">
+                    <label >Select a Village (Required) : </label>
+                    <select name="villageSelection" id="villageSelectionFocus" size="1">
+                        <option>All Villages</option>
+                        <option>Bicester</option>
+                        <option>Fidenza</option>
+                        <option>Ingolstadt</option>
+                        <option>Kildare</option>
+                        <option>La Roca</option>
+                        <option>La Vallée</option>
+                        <option>Las Rozas</option>
+                        <option>Maasmechelen</option>
+                        <option>Wertheim</option>
+                    </select>
+                    <p/>
+                </td>
+        
+                <td align="center" bgcolor="#ffe1b3">
+                    <label >Please enter a Year : </label>
+                    <input type="text" required="true" name="year" id="year"></input>
+                </td>
+        
+                <td align="center" bgcolor="#ffe1b3">
+                    <label >Select a Quarter (Optional) : </label>
+                    <select name="quarterSelection" id="quarterSelection" size="1">
+                        <option>NA</option>
+                        <option>Q1</option>
+                        <option>Q2</option>
+                        <option>Q3</option>
+                        <option>Q4</option>
+                        <option>Q1-Q2</option>
+                        <option>Q2-Q3</option>
+                        <option>Q3-Q4</option>
+                    </select>
+                </td>
+        
+            </tr>
+            </table>
+            </center>
+        
+            <br></br>
+            <br></br>
+        
+            <center>
+                <button id="Querybuttonrolling" onclick="runFocusQuery();" rerender="cenas">Run Report</button><br></br><br></br>
+                <button id="ExportButtonFocus" class="buttonHidden" onclick="ExportToExcel();">Export to Excel</button>
+            </center>
+            <apex:pageMessages id="cenas"></apex:pageMessages>   
+        
+            <br></br>
+            <br></br>
+        
+            <center>
+            <div id="thediv" >
+            </div>
+            </center>
+         
+            </body>
+         </html>    
+
+</apex:page>

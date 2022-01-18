@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Brand_Discussions</fullName>
+    <availability>online</availability>
+    <displayType>link</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <linkType>url</linkType>
+    <masterLabel>Brand Discussions</masterLabel>
+    <openType>replace</openType>
+    <protected>false</protected>
+    <url>/00O0X000005wV5O?pv0={!Account.Id}</url>
+</WebLink>

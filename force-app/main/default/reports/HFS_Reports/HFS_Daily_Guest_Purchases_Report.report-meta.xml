@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <aggregateTypes>Sum</aggregateTypes>
+        <field>Case_Item__c.Estimated_Spend__c</field>
+    </columns>
+    <columns>
+        <field>Case_Item__c.HFS_Brand_Name__c</field>
+    </columns>
+    <currency>EUR</currency>
+    <description>Daily report for purchases for La Vallée</description>
+    <filter>
+        <criteriaItems>
+            <column>Case.Village__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>La Vallée</value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <aggregateType>Sum</aggregateType>
+        <dateGranularity>Day</dateGranularity>
+        <field>Case.Service_Guest_Number__c</field>
+        <sortByName>Case_Item__c.Estimated_Spend__c</sortByName>
+        <sortOrder>Desc</sortOrder>
+        <sortType>Aggregate</sortType>
+    </groupingsDown>
+    <name>HFS Daily Guest Purchases Report</name>
+    <params>
+        <name>units</name>
+        <value>h</value>
+    </params>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CaseCustomEntity$Case_Item__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <sortColumn>Case_Item__c.Estimated_Spend__c</sortColumn>
+    <sortOrder>Desc</sortOrder>
+    <timeFrameFilter>
+        <dateColumn>Case.Experience_Start__c</dateColumn>
+        <interval>INTERVAL_TODAY</interval>
+    </timeFrameFilter>
+</Report>

@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Dashboard xmlns="http://soap.sforce.com/2006/04/metadata">
+    <backgroundEndColor>#FFFFFF</backgroundEndColor>
+    <backgroundFadeDirection>Diagonal</backgroundFadeDirection>
+    <backgroundStartColor>#FFFFFF</backgroundStartColor>
+    <dashboardType>SpecifiedUser</dashboardType>
+    <description>BV Train Dashboard - All data from Previous Week and Earlier.</description>
+    <isGridLayout>false</isGridLayout>
+    <leftSection>
+        <columnSize>Wide</columnSize>
+        <components>
+            <autoselectColumnsFromReport>true</autoselectColumnsFromReport>
+            <chartAxisRange>Auto</chartAxisRange>
+            <componentType>Line</componentType>
+            <displayUnits>Auto</displayUnits>
+            <drillEnabled>false</drillEnabled>
+            <drillToDetailEnabled>false</drillToDetailEnabled>
+            <enableHover>true</enableHover>
+            <expandOthers>false</expandOthers>
+            <groupingSortProperties/>
+            <legendPosition>Bottom</legendPosition>
+            <report>BV_VIP_Dashboard_Reports/Train_MoT_By_Week</report>
+            <showPercentage>false</showPercentage>
+            <showValues>true</showValues>
+            <sortBy>RowLabelAscending</sortBy>
+            <title>Train MoT: Weekly Figures</title>
+            <useReportChart>false</useReportChart>
+        </components>
+        <components>
+            <autoselectColumnsFromReport>true</autoselectColumnsFromReport>
+            <chartAxisRange>Auto</chartAxisRange>
+            <componentType>Donut</componentType>
+            <displayUnits>Integer</displayUnits>
+            <drillEnabled>false</drillEnabled>
+            <drillToDetailEnabled>false</drillToDetailEnabled>
+            <enableHover>true</enableHover>
+            <expandOthers>true</expandOthers>
+            <groupingSortProperties/>
+            <legendPosition>Bottom</legendPosition>
+            <report>BV_VIP_Dashboard_Reports/Train_MoT_By_Location</report>
+            <showPercentage>true</showPercentage>
+            <showTotal>true</showTotal>
+            <showValues>false</showValues>
+            <sortBy>RowLabelAscending</sortBy>
+            <title>Train MoT: Redemption Location</title>
+            <useReportChart>false</useReportChart>
+        </components>
+        <components>
+            <autoselectColumnsFromReport>true</autoselectColumnsFromReport>
+            <componentType>Table</componentType>
+            <displayUnits>Integer</displayUnits>
+            <drillEnabled>false</drillEnabled>
+            <drillToDetailEnabled>false</drillToDetailEnabled>
+            <groupingSortProperties/>
+            <indicatorHighColor>#54C254</indicatorHighColor>
+            <indicatorLowColor>#C25454</indicatorLowColor>
+            <indicatorMiddleColor>#C2C254</indicatorMiddleColor>
+            <maxValuesDisplayed>10</maxValuesDisplayed>
+            <report>BV_VIP_Dashboard_Reports/Top_Partnerships_for_Train_MoT</report>
+            <showPicturesOnTables>false</showPicturesOnTables>
+            <sortBy>RowValueDescending</sortBy>
+            <title>Train MoT: Top 10 Partnerships</title>
+        </components>
+        <components>
+            <autoselectColumnsFromReport>true</autoselectColumnsFromReport>
+            <chartAxisRange>Auto</chartAxisRange>
+            <componentType>Column</componentType>
+            <displayUnits>Integer</displayUnits>
+            <drillEnabled>false</drillEnabled>
+            <drillToDetailEnabled>false</drillToDetailEnabled>
+            <enableHover>true</enableHover>
+            <expandOthers>false</expandOthers>
+            <groupingSortProperties/>
+            <legendPosition>Bottom</legendPosition>
+            <maxValuesDisplayed>6</maxValuesDisplayed>
+            <report>BV_VIP_Dashboard_Reports/Country_of_Residence_Split_Train_MoT</report>
+            <showPercentage>false</showPercentage>
+            <showValues>true</showValues>
+            <sortBy>RowValueDescending</sortBy>
+            <title>Train MoT: Country of Residence</title>
+            <useReportChart>false</useReportChart>
+        </components>
+    </leftSection>
+    <middleSection>
+        <columnSize>Wide</columnSize>
+        <components>
+            <autoselectColumnsFromReport>true</autoselectColumnsFromReport>
+            <componentType>Table</componentType>
+            <displayUnits>Integer</displayUnits>
+            <drillEnabled>false</drillEnabled>
+            <drillToDetailEnabled>false</drillToDetailEnabled>
+            <groupingSortProperties/>
+            <header>Train Station TIC: Top 10 Partnerships</header>
+            <indicatorHighColor>#54C254</indicatorHighColor>
+            <indicatorLowColor>#C25454</indicatorLowColor>
+            <indicatorMiddleColor>#C2C254</indicatorMiddleColor>
+            <maxValuesDisplayed>10</maxValuesDisplayed>
+            <report>BV_VIP_Dashboard_Reports/Top_Partnerships_for_Train_TIC1</report>
+            <showPicturesOnTables>false</showPicturesOnTables>
+            <sortBy>RowValueDescending</sortBy>
+            <title>Train MoT ONLY</title>
+        </components>
+        <components>
+            <autoselectColumnsFromReport>true</autoselectColumnsFromReport>
+            <componentType>Table</componentType>
+            <displayUnits>Integer</displayUnits>
+            <drillEnabled>false</drillEnabled>
+            <drillToDetailEnabled>false</drillToDetailEnabled>
+            <groupingSortProperties/>
+            <header>Train Station TIC: Top 10 Partnerships</header>
+            <indicatorHighColor>#54C254</indicatorHighColor>
+            <indicatorLowColor>#C25454</indicatorLowColor>
+            <indicatorMiddleColor>#C2C254</indicatorMiddleColor>
+            <maxValuesDisplayed>10</maxValuesDisplayed>
+            <report>BV_VIP_Dashboard_Reports/Top_Partnerships_for_Train_TIC</report>
+            <showPicturesOnTables>false</showPicturesOnTables>
+            <sortBy>RowValueDescending</sortBy>
+            <title>ALL MoT</title>
+        </components>
+        <components>
+            <autoselectColumnsFromReport>true</autoselectColumnsFromReport>
+            <chartAxisRange>Auto</chartAxisRange>
+            <componentType>Column</componentType>
+            <displayUnits>Integer</displayUnits>
+            <drillEnabled>false</drillEnabled>
+            <drillToDetailEnabled>false</drillToDetailEnabled>
+            <enableHover>true</enableHover>
+            <expandOthers>false</expandOthers>
+            <groupingSortProperties/>
+            <header>Train Station TIC: Country of Residence</header>
+            <legendPosition>Bottom</legendPosition>
+            <maxValuesDisplayed>6</maxValuesDisplayed>
+            <report>BV_VIP_Dashboard_Reports/Country_of_Residence_Split_Train_TIC1</report>
+            <showPercentage>false</showPercentage>
+            <showValues>true</showValues>
+            <sortBy>RowValueDescending</sortBy>
+            <title>Train MoT ONLY</title>
+            <useReportChart>false</useReportChart>
+        </components>
+        <components>
+            <autoselectColumnsFromReport>true</autoselectColumnsFromReport>
+            <chartAxisRange>Auto</chartAxisRange>
+            <componentType>Column</componentType>
+            <displayUnits>Integer</displayUnits>
+            <drillEnabled>false</drillEnabled>
+            <drillToDetailEnabled>false</drillToDetailEnabled>
+            <enableHover>true</enableHover>
+            <expandOthers>false</expandOthers>
+            <groupingSortProperties/>
+            <header>Train Station TIC: Country of Residence</header>
+            <legendPosition>Bottom</legendPosition>
+            <maxValuesDisplayed>6</maxValuesDisplayed>
+            <report>BV_VIP_Dashboard_Reports/Country_of_Residence_Split_Train_TIC</report>
+            <showPercentage>false</showPercentage>
+            <showValues>true</showValues>
+            <sortBy>RowValueDescending</sortBy>
+            <title>ALL MoT</title>
+            <useReportChart>false</useReportChart>
+        </components>
+    </middleSection>
+    <rightSection>
+        <columnSize>Wide</columnSize>
+        <components>
+            <autoselectColumnsFromReport>true</autoselectColumnsFromReport>
+            <chartAxisRange>Auto</chartAxisRange>
+            <componentType>Donut</componentType>
+            <displayUnits>Auto</displayUnits>
+            <drillEnabled>false</drillEnabled>
+            <drillToDetailEnabled>false</drillToDetailEnabled>
+            <enableHover>true</enableHover>
+            <expandOthers>true</expandOthers>
+            <groupingSortProperties/>
+            <legendPosition>Bottom</legendPosition>
+            <report>BV_VIP_Dashboard_Reports/MoT_at_Train_TIC</report>
+            <showPercentage>true</showPercentage>
+            <showTotal>true</showTotal>
+            <showValues>false</showValues>
+            <sortBy>RowLabelAscending</sortBy>
+            <title>MoT in Train Station TIC</title>
+            <useReportChart>false</useReportChart>
+        </components>
+        <components>
+            <autoselectColumnsFromReport>true</autoselectColumnsFromReport>
+            <componentType>Table</componentType>
+            <displayUnits>Integer</displayUnits>
+            <drillEnabled>false</drillEnabled>
+            <drillToDetailEnabled>false</drillToDetailEnabled>
+            <groupingSortProperties/>
+            <header>Car MoT: Top 10 Partnerships</header>
+            <indicatorHighColor>#54C254</indicatorHighColor>
+            <indicatorLowColor>#C25454</indicatorLowColor>
+            <indicatorMiddleColor>#C2C254</indicatorMiddleColor>
+            <maxValuesDisplayed>10</maxValuesDisplayed>
+            <report>BV_VIP_Dashboard_Reports/Top_Partnership_for_Car_MoT</report>
+            <showPicturesOnTables>true</showPicturesOnTables>
+            <sortBy>RowValueDescending</sortBy>
+            <title>All TIC Locations</title>
+        </components>
+        <components>
+            <autoselectColumnsFromReport>true</autoselectColumnsFromReport>
+            <chartAxisRange>Auto</chartAxisRange>
+            <componentType>Column</componentType>
+            <displayUnits>Integer</displayUnits>
+            <drillEnabled>false</drillEnabled>
+            <drillToDetailEnabled>false</drillToDetailEnabled>
+            <enableHover>true</enableHover>
+            <expandOthers>false</expandOthers>
+            <groupingSortProperties/>
+            <header>BVC: Country of Residence</header>
+            <legendPosition>Bottom</legendPosition>
+            <maxValuesDisplayed>6</maxValuesDisplayed>
+            <report>BV_VIP_Dashboard_Reports/Country_of_Residence_Split_BVC</report>
+            <showPercentage>false</showPercentage>
+            <showValues>true</showValues>
+            <sortBy>RowValueDescending</sortBy>
+            <title>Train MoT ONLY</title>
+            <useReportChart>false</useReportChart>
+        </components>
+        <components>
+            <autoselectColumnsFromReport>true</autoselectColumnsFromReport>
+            <componentType>Table</componentType>
+            <displayUnits>Integer</displayUnits>
+            <drillEnabled>false</drillEnabled>
+            <drillToDetailEnabled>false</drillToDetailEnabled>
+            <groupingSortProperties/>
+            <header>BVC: Top 10 Partnerships</header>
+            <indicatorHighColor>#54C254</indicatorHighColor>
+            <indicatorLowColor>#C25454</indicatorLowColor>
+            <indicatorMiddleColor>#C2C254</indicatorMiddleColor>
+            <maxValuesDisplayed>10</maxValuesDisplayed>
+            <report>BV_VIP_Dashboard_Reports/Top_Partnerships_for_BVC</report>
+            <showPicturesOnTables>false</showPicturesOnTables>
+            <sortBy>RowValueDescending</sortBy>
+            <title>Train MoT ONLY</title>
+        </components>
+    </rightSection>
+    <runningUser>soster@valueretail.com</runningUser>
+    <textColor>#000000</textColor>
+    <title>BV Train Dashboard</title>
+    <titleColor>#000000</titleColor>
+    <titleSize>12</titleSize>
+</Dashboard>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DE_2014_Ratings</fullName>
+    <booleanFilter>(1 OR 2) AND 3</booleanFilter>
+    <columns>Village__c</columns>
+    <columns>NAME</columns>
+    <columns>Year__c</columns>
+    <columns>Yield_Classification__c</columns>
+    <columns>Rating__c</columns>
+    <columns>Range_Minimum__c</columns>
+    <columns>Range_Maximum__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Village__c</field>
+        <operation>equals</operation>
+        <value>Ingolstadt</value>
+    </filters>
+    <filters>
+        <field>Village__c</field>
+        <operation>equals</operation>
+        <value>Wertheim</value>
+    </filters>
+    <filters>
+        <field>Year__c</field>
+        <operation>equals</operation>
+        <value>2014</value>
+    </filters>
+    <label>DE 2014 Ratings</label>
+    <sharedTo>
+        <group>LeaseFlow_All_Users</group>
+    </sharedTo>
+</ListView>

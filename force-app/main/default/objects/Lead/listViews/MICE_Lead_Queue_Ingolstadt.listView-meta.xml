@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MICE_Lead_Queue_Ingolstadt</fullName>
+    <filterScope>Queue</filterScope>
+    <label>MICE Lead Queue - Ingolstadt</label>
+    <queue>MICE_Lead_Queue_Ingolstadt</queue>
+    <sharedTo>
+        <group>Location_Ingolstadt</group>
+        <role>Group_Tourism</role>
+    </sharedTo>
+</ListView>

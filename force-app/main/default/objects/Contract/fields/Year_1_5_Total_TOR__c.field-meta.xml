@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Year_1_5_Total_TOR__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>The Accumulated Turnover Rents for Years 1-5</inlineHelpText>
+    <label>Year 1-5 Total TOR</label>
+    <summarizedField>Term_Increments__c.ToR_Percentage__c</summarizedField>
+    <summaryFilterItems>
+        <field>Term_Increments__c.Year__c</field>
+        <operation>lessOrEqual</operation>
+        <value>5</value>
+    </summaryFilterItems>
+    <summaryForeignKey>Term_Increments__c.Contract__c</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <type>Summary</type>
+</CustomField>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Dashboard xmlns="http://soap.sforce.com/2006/04/metadata">
+    <backgroundEndColor>#FFFFFF</backgroundEndColor>
+    <backgroundFadeDirection>Diagonal</backgroundFadeDirection>
+    <backgroundStartColor>#FFFFFF</backgroundStartColor>
+    <dashboardType>SpecifiedUser</dashboardType>
+    <isGridLayout>false</isGridLayout>
+    <leftSection>
+        <columnSize>Wide</columnSize>
+        <components>
+            <autoselectColumnsFromReport>false</autoselectColumnsFromReport>
+            <chartAxisRange>Auto</chartAxisRange>
+            <chartSummary>
+                <axisBinding>y</axisBinding>
+                <column>RowCount</column>
+            </chartSummary>
+            <componentType>BarStacked</componentType>
+            <displayUnits>Auto</displayUnits>
+            <drillEnabled>false</drillEnabled>
+            <drillToDetailEnabled>false</drillToDetailEnabled>
+            <enableHover>false</enableHover>
+            <expandOthers>false</expandOthers>
+            <groupingColumn>Marketing_Campaign__c.Marketing_Activities__r$Status__c</groupingColumn>
+            <groupingColumn>Marketing_Campaign__c$Village__c</groupingColumn>
+            <groupingSortProperties/>
+            <header>Village Activities by Status</header>
+            <legendPosition>Bottom</legendPosition>
+            <report>unfiled$public/Make_it_Yours_Act_Status</report>
+            <showPercentage>false</showPercentage>
+            <showValues>false</showValues>
+            <sortBy>RowLabelAscending</sortBy>
+            <title>Make It Yours</title>
+            <useReportChart>false</useReportChart>
+        </components>
+    </leftSection>
+    <middleSection>
+        <columnSize>Wide</columnSize>
+    </middleSection>
+    <rightSection>
+        <columnSize>Wide</columnSize>
+    </rightSection>
+    <runningUser>chewitt@valueretail.com</runningUser>
+    <textColor>#000000</textColor>
+    <title>Make It Yours Campaign</title>
+    <titleColor>#000000</titleColor>
+    <titleSize>12</titleSize>
+</Dashboard>

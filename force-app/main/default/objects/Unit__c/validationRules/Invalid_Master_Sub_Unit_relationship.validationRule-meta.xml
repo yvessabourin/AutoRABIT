@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Invalid_Master_Sub_Unit_relationship</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(Master_Unit__c  &lt;&gt; &quot;&quot; , Composite__c  = true)</errorConditionFormula>
+    <errorDisplayField>Master_Unit__c</errorDisplayField>
+    <errorMessage>A composite or master unit cannot have a master unit</errorMessage>
+</ValidationRule>

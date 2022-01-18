@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Group_Campaigns</fullName>
+    <columns>CAMPAIGN.NAME</columns>
+    <columns>CAMPAIGN.START_DATE</columns>
+    <columns>CAMPAIGN.END_DATE</columns>
+    <columns>Calculated_Status__c</columns>
+    <columns>Villages__c</columns>
+    <columns>Partner__c</columns>
+    <columns>PARENT_NAME</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CAMPAIGN.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Campaign.Group_Campaign</value>
+    </filters>
+    <label>Group Campaigns</label>
+    <sharedTo>
+        <roleAndSubordinates>Group_TIC</roleAndSubordinates>
+        <roleAndSubordinates>Group_Tourism</roleAndSubordinates>
+    </sharedTo>
+</ListView>

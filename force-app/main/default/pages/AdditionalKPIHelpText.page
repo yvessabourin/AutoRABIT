@@ -1,0 +1,17 @@
+<apex:page standardController="Daily_Sale__c" sidebar="false" lightningStylesheets="true" showHeader="false" applyBodyTag="false" docType="html-5.0">
+           <c:AdditionalKPIHelpText myValue="If you select any of the below 'Active' checkboxes then the data fields that are related will display to the Brand users in the Brand Portal.  If 'F&B Covers' is selected the Covers data field will display and the Tax Free data fields will be hidden." borderColor="black" />
+ 
+    <style type="text/css">
+        @font-face { font-family: BauerBodoni; src: url("/resource/1524133530000/FontBauerBodoni"); } 
+        
+        h1 {color:Red;
+        font-family:sans-serif;
+        font-size:13px;
+        text-align:justify;
+        font-weight:bold;
+        line-height:25px;
+        }
+        
+    </style>
+ 
+</apex:page>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ReportFolder xmlns="http://soap.sforce.com/2006/04/metadata">
+    <folderShares>
+        <accessLevel>View</accessLevel>
+        <sharedTo>sbelaliat@valueretail.com</sharedTo>
+        <sharedToType>User</sharedToType>
+    </folderShares>
+    <folderShares>
+        <accessLevel>View</accessLevel>
+        <sharedTo>sburton@valueretail.com</sharedTo>
+        <sharedToType>User</sharedToType>
+    </folderShares>
+    <folderShares>
+        <accessLevel>View</accessLevel>
+        <sharedTo>Group_Marketing</sharedTo>
+        <sharedToType>RoleAndSubordinates</sharedToType>
+    </folderShares>
+    <folderShares>
+        <accessLevel>View</accessLevel>
+        <sharedTo>Group_TIC</sharedTo>
+        <sharedToType>RoleAndSubordinates</sharedToType>
+    </folderShares>
+    <folderShares>
+        <accessLevel>View</accessLevel>
+        <sharedTo>Group_Tourism</sharedTo>
+        <sharedToType>RoleAndSubordinates</sharedToType>
+    </folderShares>
+    <name>VIP 2.0 Fixed Reports</name>
+</ReportFolder>

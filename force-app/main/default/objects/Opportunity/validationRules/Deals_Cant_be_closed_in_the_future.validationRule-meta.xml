@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Deals_Cant_be_closed_in_the_future</fullName>
+    <active>true</active>
+    <errorConditionFormula>$Setup.Global_Object_Validation__c.Deal_Validations_Active__c 
+&amp;&amp; ISCHANGED( StageName )
+&amp;&amp;  IsWon
+&amp;&amp;  CloseDate &gt;   DATEVALUE(NOW())  + 2</errorConditionFormula>
+    <errorDisplayField>Expected_Open_Date__c</errorDisplayField>
+    <errorMessage>You can only close this deal 2 days ahead of the expected deal completion date</errorMessage>
+</ValidationRule>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Cannot_update_Confirmed_records</fullName>
+    <active>false</active>
+    <errorConditionFormula>$Setup.Global_Object_Validation__c.Daily_Sales_Validations_Active__c &amp;&amp;
+ISPICKVAL(Brand_Status__c , &quot;Confirmed&quot;) &amp;&amp;
+TEXT(PRIORVALUE(Brand_Status__c)) &lt;&gt; &quot;Not Confirmed&quot;</errorConditionFormula>
+    <errorMessage>You cannot update a Confirmed record in Salesforce. Confirmed records are Read-Only in Salesforce and must be updated in MRI</errorMessage>
+</ValidationRule>

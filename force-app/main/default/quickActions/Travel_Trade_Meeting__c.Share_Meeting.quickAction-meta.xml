@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QuickAction xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>This Action will update the Share__c Flag on the Meeting Record that trigger a chatter post.</description>
+    <fieldOverrides>
+        <field>Share__c</field>
+        <formula>true</formula>
+    </fieldOverrides>
+    <label>Share Meeting</label>
+    <optionsCreateFeedItem>false</optionsCreateFeedItem>
+    <quickActionLayout>
+        <layoutSectionStyle>TwoColumnsLeftToRight</layoutSectionStyle>
+        <quickActionLayoutColumns>
+            <quickActionLayoutItems>
+                <emptySpace>false</emptySpace>
+                <field>Sharing_Notes__c</field>
+                <uiBehavior>Edit</uiBehavior>
+            </quickActionLayoutItems>
+        </quickActionLayoutColumns>
+        <quickActionLayoutColumns/>
+    </quickActionLayout>
+    <type>Update</type>
+</QuickAction>

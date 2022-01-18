@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Campaign__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>If the SCS is linked to a campaign, select it here</description>
+    <externalId>false</externalId>
+    <label>Campaign</label>
+    <lookupFilter>
+        <active>false</active>
+        <filterItems>
+            <field>Campaign.Village__c</field>
+            <operation>equals</operation>
+            <valueField>$Source.Village__c</valueField>
+        </filterItems>
+        <filterItems>
+            <field>Campaign.Includes_SCS_Experience__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </filterItems>
+        <infoMessage>SCS enabled campaign</infoMessage>
+        <isOptional>true</isOptional>
+    </lookupFilter>
+    <referenceTo>Campaign</referenceTo>
+    <relationshipLabel>SCS Experiences</relationshipLabel>
+    <relationshipName>SCS_Experiences</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

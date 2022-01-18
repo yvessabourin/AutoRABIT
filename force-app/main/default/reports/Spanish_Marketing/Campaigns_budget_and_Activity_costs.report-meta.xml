@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Marketing_Campaign__c.Marketing_Activities__r$Name</field>
+    </columns>
+    <columns>
+        <field>Marketing_Campaign__c$Start_Date__c</field>
+    </columns>
+    <columns>
+        <field>Marketing_Campaign__c$End_Date__c</field>
+    </columns>
+    <columns>
+        <aggregateTypes>Sum</aggregateTypes>
+        <field>Marketing_Campaign__c$Village_Accumulated_Budget__c</field>
+    </columns>
+    <columns>
+        <aggregateTypes>Sum</aggregateTypes>
+        <field>Marketing_Campaign__c.Marketing_Activities__r$Budget__c</field>
+    </columns>
+    <currency>EUR</currency>
+    <description>Report showing all campaigns for LR with the budget and the accumulated activity costs for the activities associated to the campaign</description>
+    <filter>
+        <criteriaItems>
+            <column>Marketing_Campaign__c$Village__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>La Roca</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Marketing_Campaign__c.Marketing_Activities__r$Status__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Cancelled</value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Marketing_Campaign__c$Name</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>Campaigns &amp; budget and Activity costs</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Marketing_Campaigns_with_Marketing_Activities__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <sortColumn>Marketing_Campaign__c.Marketing_Activities__r$Budget__c</sortColumn>
+    <sortOrder>Asc</sortOrder>
+    <timeFrameFilter>
+        <dateColumn>Marketing_Campaign__c$Start_Date__c</dateColumn>
+        <endDate>2018-12-31</endDate>
+        <interval>INTERVAL_CUSTOM</interval>
+        <startDate>2018-01-01</startDate>
+    </timeFrameFilter>
+</Report>

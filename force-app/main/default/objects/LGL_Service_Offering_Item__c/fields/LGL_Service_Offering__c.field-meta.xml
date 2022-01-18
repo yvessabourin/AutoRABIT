@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LGL_Service_Offering__c</fullName>
+    <description>The Service Offering to which the particular item/asset belongs to</description>
+    <externalId>false</externalId>
+    <label>Service Offering</label>
+    <referenceTo>LGL_Service_Offering__c</referenceTo>
+    <relationshipLabel>Service Offering Items</relationshipLabel>
+    <relationshipName>Service_Offering_Items</relationshipName>
+    <relationshipOrder>0</relationshipOrder>
+    <reparentableMasterDetail>true</reparentableMasterDetail>
+    <trackTrending>false</trackTrending>
+    <type>MasterDetail</type>
+    <writeRequiresMasterRead>false</writeRequiresMasterRead>
+</CustomField>

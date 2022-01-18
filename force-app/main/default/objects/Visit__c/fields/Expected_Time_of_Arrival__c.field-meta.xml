@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Expected_Time_of_Arrival__c</fullName>
+    <description>Field to be used for advanced bookings only.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Field to be used for advanced bookings only.</inlineHelpText>
+    <label>Expected Time of Arrival</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Time</type>
+</CustomField>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Activity$ActivityDate</field>
+    </columns>
+    <columns>
+        <field>Activity$Account</field>
+    </columns>
+    <columns>
+        <field>Activity$Who</field>
+    </columns>
+    <columns>
+        <field>Activity$Owner</field>
+    </columns>
+    <columns>
+        <field>Activity$Reason__c</field>
+    </columns>
+    <columns>
+        <field>Activity$Event_Department__c</field>
+    </columns>
+    <columns>
+        <field>Activity$Event_Status__c</field>
+    </columns>
+    <columns>
+        <field>Activity$Meeting_Status__c</field>
+    </columns>
+    <description>All brand facing meetings including Retail/Remerchandising/Marketing</description>
+    <format>Tabular</format>
+    <name>LV B2B Brand Meetings</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>B2B_Meetings__c</reportType>
+    <roleHierarchyFilter>La_Vallee_Retail</roleHierarchyFilter>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <sortColumn>Activity$ActivityDate</sortColumn>
+    <sortOrder>Asc</sortOrder>
+    <timeFrameFilter>
+        <dateColumn>Activity$ActivityDate</dateColumn>
+        <endDate>2016-09-30</endDate>
+        <interval>INTERVAL_CUSTOM</interval>
+        <startDate>2016-01-01</startDate>
+    </timeFrameFilter>
+</Report>

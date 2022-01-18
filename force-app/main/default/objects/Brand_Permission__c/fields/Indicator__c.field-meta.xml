@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Indicator__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF( RecordType.Name = &quot;Group-led Annual&quot; ,IMAGE(&quot;/img/icon/custom51_100/globe32.png&quot; , &quot;Group-led Annual&quot;) ,    
+IF( RecordType.Name = &quot;Lease-led Annual&quot; ,IMAGE(&quot;/img/icon/custom51_100/keys32.png&quot;  , &quot;Lease-led Annual&quot;) ,    
+IF( RecordType.Name = &quot;Ad-hoc&quot; ,IMAGE(&quot;/img/icon/custom51_100/gears32.png&quot;   , &quot;Ad-hoc&quot;) ,    
+&quot;Unknown&quot;
+)
+)
+)
+
+/*http://blogforce9dev-developer-edition.ap1.force.com/salesforceicons*/</formula>
+    <label>Indicator</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

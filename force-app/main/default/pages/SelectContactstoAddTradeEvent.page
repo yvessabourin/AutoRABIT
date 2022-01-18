@@ -1,0 +1,46 @@
+<apex:page standardController="Trade_Event__c" extensions="addtotradeEventController" lightningStylesheets="true">
+
+<!-- test -->
+    <apex:form >
+        <apex:pageMessage id="pagemessage" rendered="{!hideErrorandButton}" severity="Warning"  summary="All Brand contacts have been added to this Trade Event for the Account selected" strength="1"/>
+            
+        <apex:pageBlock >
+
+            <apex:pageBlockTable value="{!consToSelect}" var="select">
+                <apex:column headerValue="Selected" >
+                <!-- This is our selected Boolean property in our wrapper class -->
+                <apex:inputCheckbox value="{!select.selected}" />
+                </apex:column>
+
+                <apex:column headerValue="First Name" >
+                <!-- This is our selected Boolean property in our wrapper class -->
+                <apex:outputField value="{!select.con.firstname}"/>
+                </apex:column>
+
+                <apex:column headerValue="Last Name" >
+                <!-- This is our selected Boolean property in our wrapper class -->
+                <apex:outputField value="{!select.con.lastname}"/>
+                </apex:column>
+
+                <apex:column headerValue="Title" >
+                <!-- This is our selected Boolean property in our wrapper class -->
+                <apex:outputField value="{!select.con.title}"/>
+                </apex:column>
+
+                <apex:column headerValue="Contact Type" >
+                <!-- This is our selected Boolean property in our wrapper class -->
+                <apex:outputField value="{!select.con.recordtype.name}"/>
+                </apex:column>
+
+            </apex:pageBlockTable>
+
+        </apex:pageBlock>
+
+        <apex:commandButton action="{!processSelected}" value="Add Selected Contacts to the Trade Event" rendered="{!NOT(hideErrorandButton)}"/>
+        <apex:commandButton action="{!cancel}" value="Return to Trade Event"/>
+    </apex:form>
+
+    <!-- <button type="button" onclick="window.open('', '_self', ''); window.close();">Close Window</button> -->
+
+    
+</apex:page>

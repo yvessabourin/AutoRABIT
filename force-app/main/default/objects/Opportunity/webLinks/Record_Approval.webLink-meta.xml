@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Record_Approval</fullName>
+    <availability>online</availability>
+    <description>Button to take a snapshot of the Tier 4 Approval fields at point of approval.</description>
+    <displayType>button</displayType>
+    <linkType>javascript</linkType>
+    <masterLabel>Record Approval</masterLabel>
+    <openType>onClickJavaScript</openType>
+    <protected>false</protected>
+    <url>userConsent = confirm( 
+&apos;This will create a Deal Business History record and record a Deal approval, Continue ? &apos; 
+); 
+if(userConsent == true) 
+{ 
+window.location.href = &quot;/a13/e?CF00Nb0000009uota_lkid={!Opportunity.Id}&amp;CF00Nb0000009uota={!Opportunity.Name}&amp;retURL=%2F{!Opportunity.Id}&quot;;
+}</url>
+</WebLink>

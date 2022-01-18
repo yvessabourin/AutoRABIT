@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ConnectedApp xmlns="http://soap.sforce.com/2006/04/metadata">
+    <contactEmail>iburton@valueretail.com</contactEmail>
+    <description>A JWT enabled app to allow authorised access to salesforce Hands Free Shopping platform events from Azure APIM. Renewal Certificate to be supplied by Hitachi</description>
+    <label>HFS Service Connect</label>
+    <oauthConfig>
+        <callbackUrl>https://login.salesforce.com</callbackUrl>
+        <certificate>MIIDbTCCAlWgAwIBAgIQ3AOTl4CtqbZHq/MwCxi3CjANBgkqhkiG9w0BAQsFADAzMTEwLwYDVQQDEyhIaXRhY2hpIENvbnN1bHRpbmcgSEZTIFNpZ25pbmcgQ2VydCBQUk9EMB4XDTE5MDExMTE3MzA1NFoXDTM5MTIzMTIzNTk1OVowMzExMC8GA1UEAxMoSGl0YWNoaSBDb25zdWx0aW5nIEhGUyBTaWduaW5nIENlcnQgUFJPRDCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBALf9pdb8ZHyOzNxjSNsU3bTh6NXqdQKeOZqWz9LY/X0t1Po48kPIfUsfneWXD0k+yIUxXUHDNacFbA9Jp3oB/mBQz8wVAFWMWtUqeM1Jqf1LSFthEpkj0zw+NSqSZp8R5fX9flVISwv2xZuw06AwzhSVZ1PVf4iv/Uai2XU6CLvOexy3GQQalLWPIoxJYx5CoQz+IIfIDLcF4zjjpirPQWU1dmoNs2gnL7gRk+cKvRo6QPtiGZ7A5DMxCWJL5VVtKmPxq8MYpqbFKkJArkpESKycKYGLqkzNBbsw8lfOOCLk9S4Ac1m3+6FRnM9wHRq0rRdBb32tn0bUPFR/UG3Qf/ECAwEAAaN9MHswEwYDVR0lBAwwCgYIKwYBBQUHAwMwZAYDVR0BBF0wW4AQBLRPG21smfBGHeVgyRgVmqE1MDMxMTAvBgNVBAMTKEhpdGFjaGkgQ29uc3VsdGluZyBIRlMgU2lnbmluZyBDZXJ0IFBST0SCENwDk5eAram2R6vzMAsYtwowDQYJKoZIhvcNAQELBQADggEBALQNw+//tT3ItZfbfDdOMhq9sPc2wOOQGJaJuqaJ9zwMtPKzBHi4nxm+ggz5j3wGaAyKglqNst7gZYCXBFViIjJCj884sKg8W48eVuT8jxlTf6X97fZSz/jrF946/f4fieuwxW38nE4flZmV+abrCp8TgJuIUMdi0c+XUvm20TFz7eMmr5+4nBtZ2ArOKfkUB4sE+kxi13Lu/kSRFUY3v9QZexo94W752qqDnelqNrZDFPx06XKb6YYY5SUX7TMxkFnKo/3r0UKzHLFL47czOuDkitRjKSlx9DmOTlibH5HpcM0BKcOGPJOPpji8BG5G2Tg3tpIR29mkmC6rGMs5JJY=</certificate>
+        <consumerKey>3MVG9sSN_PMn8tjSodyD28jSJp3cRlddnsI8wAlPjd5wEXcVqTUGavGcsDRn3TXX9.UVQ3XsEfyKVVNnc959R</consumerKey>
+        <isAdminApproved>true</isAdminApproved>
+        <isConsumerSecretOptional>false</isConsumerSecretOptional>
+        <isIntrospectAllTokens>false</isIntrospectAllTokens>
+        <isSecretRequiredForRefreshToken>false</isSecretRequiredForRefreshToken>
+        <scopes>Api</scopes>
+        <scopes>Web</scopes>
+        <scopes>RefreshToken</scopes>
+    </oauthConfig>
+    <oauthPolicy>
+        <ipRelaxation>ENFORCE</ipRelaxation>
+        <refreshTokenPolicy>infinite</refreshTokenPolicy>
+    </oauthPolicy>
+    <permissionSetName>HFS API Management</permissionSetName>
+    <profileName>Admin Backup Recovery</profileName>
+</ConnectedApp>

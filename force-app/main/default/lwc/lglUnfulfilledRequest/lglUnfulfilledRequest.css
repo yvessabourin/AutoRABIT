@@ -1,0 +1,12 @@
+:host {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+	color: #333;
+}
+
+.lgl-form-field {
+	margin-top: 0.5rem;
+}
+
+.lgl-form-field:first-child {
+	margin-top: 0;
+}

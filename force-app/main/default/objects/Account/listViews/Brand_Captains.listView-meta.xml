@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Brand_Captains</fullName>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>EU_Brand_Captain__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>ACCOUNT.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Account.Brand</value>
+    </filters>
+    <label>Brand Captains</label>
+    <language>en_US</language>
+    <sharedTo>
+        <role>Group_Leasing</role>
+    </sharedTo>
+</ListView>

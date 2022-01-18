@@ -1,0 +1,14 @@
+<aura:component controller="RichTextDisplayController" implements="flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes" access="global" >
+
+    <aura:attribute name="textSource" type="String" default="" access="global" />
+    <aura:attribute name="runningUser" type="RichTextDisplayController.userVillage" />
+    <aura:attribute name="tempLabelAttr" type="String" />
+    <aura:attribute name="useVillage" type="Boolean" default="false" access="global" />    
+    
+    <aura:handler event="c:dsListEvent" action="{!c.handle_dsListEvent}"/>
+    <aura:handler name="init" action="{!c.doInit}" value="{!this}" /> 
+    
+    <ui:outputRichText aura:id="richTxt" value="{!v.textSource}" />
+    
+    
+</aura:component>

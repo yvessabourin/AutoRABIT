@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Village_Presence__c.Coniq_Last_Review_Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Village_Presence__c.Coniq_Next_Review_Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Village_Presence__c.Coniq_No_of_Actual_Scanners__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Village_Presence__c.Coniq_No_of_Planned_Scanners__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Village_Presence__c.Coniq_No_of_Tills__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Village_Presence__c.Coniq_Scanner_ids__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>Edit Coniq Device Info on Village Presence - App</label>
+    <license>Force.com - App Subscription</license>
+</PermissionSet>

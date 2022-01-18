@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Market_Position__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Select the position that best describes the brand</inlineHelpText>
+    <label>Price Positioning</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Accessible</fullName>
+                <default>false</default>
+                <label>Accessible</label>
+            </value>
+            <value>
+                <fullName>Premium</fullName>
+                <default>false</default>
+                <label>Premium</label>
+            </value>
+            <value>
+                <fullName>Luxury</fullName>
+                <default>false</default>
+                <label>Luxury</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

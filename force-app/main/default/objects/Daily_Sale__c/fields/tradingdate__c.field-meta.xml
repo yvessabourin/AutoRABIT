@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>tradingdate__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(  Trading_Date__c  &lt; DATEVALUE(LastModifiedDate) , true , false)</formula>
+    <label>Trading Date before Last Modified</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

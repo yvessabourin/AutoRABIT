@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>IW_Looking_for_double_replies_with_debug</fullName>
+    <columns>NAME</columns>
+    <columns>Reply_Count__c</columns>
+    <columns>From__c</columns>
+    <columns>Village_Presence__c</columns>
+    <columns>Sent_from_App__c</columns>
+    <columns>CREATED_DATE</columns>
+    <columns>LAST_UPDATE</columns>
+    <columns>LAST_ACTIVITY</columns>
+    <columns>CREATEDBY_USER</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Reply_Count__c</field>
+        <operation>greaterOrEqual</operation>
+        <value>0</value>
+    </filters>
+    <filters>
+        <field>LAST_ACTIVITY</field>
+        <operation>greaterOrEqual</operation>
+        <value>8/18/2016</value>
+    </filters>
+    <label>IW Looking for double replies with debug</label>
+    <language>en_US</language>
+    <sharedTo>
+        <role>Business_Systems</role>
+        <role>IT</role>
+    </sharedTo>
+</ListView>

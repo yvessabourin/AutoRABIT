@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Promotion_Product__c</fullName>
+    <description>The product chosen to be part of this Promotion</description>
+    <externalId>false</externalId>
+    <inlineHelpText>The product chosen to be part of this Promotion</inlineHelpText>
+    <label>Promotion Product</label>
+    <required>true</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Air Miles or points</fullName>
+                <default>false</default>
+                <label>Air Miles or points</label>
+            </value>
+            <value>
+                <fullName>VIP Card</fullName>
+                <default>false</default>
+                <label>VIP Card</label>
+            </value>
+            <value>
+                <fullName>VIP Lounge access</fullName>
+                <default>false</default>
+                <label>VIP Lounge access</label>
+            </value>
+            <value>
+                <fullName>Food &amp; Beverage Voucher</fullName>
+                <default>false</default>
+                <label>Food &amp; Beverage Voucher</label>
+            </value>
+            <value>
+                <fullName>Shopping Express</fullName>
+                <default>false</default>
+                <label>Shopping Express</label>
+            </value>
+            <value>
+                <fullName>Shopping Packages</fullName>
+                <default>false</default>
+                <label>Shopping Packages</label>
+            </value>
+            <value>
+                <fullName>Chauffeur Services</fullName>
+                <default>false</default>
+                <label>Chauffeur Services</label>
+            </value>
+            <value>
+                <fullName>Hands-free Shopping</fullName>
+                <default>false</default>
+                <label>Hands-free Shopping</label>
+            </value>
+            <value>
+                <fullName>Valet Parking</fullName>
+                <default>false</default>
+                <label>Valet Parking</label>
+            </value>
+            <value>
+                <fullName>Gift Card</fullName>
+                <default>false</default>
+                <label>Gift Card</label>
+            </value>
+            <value>
+                <fullName>Welcome gift</fullName>
+                <default>false</default>
+                <label>Welcome gift</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

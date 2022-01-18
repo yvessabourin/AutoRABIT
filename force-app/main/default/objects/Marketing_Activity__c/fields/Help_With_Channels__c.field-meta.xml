@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Help_With_Channels__c</fullName>
+    <externalId>false</externalId>
+    <formula>HYPERLINK(&quot;https://valueretail1.sharepoint.com/:x:/r/teams/Marketing/themarketinghub/salesforce/_layouts/15/Doc.aspx?sourcedoc=%7BD9076FA7-47C8-4EE8-B77B-71D6A8DD2406%7D&amp;file=Salesforce%20Channels%20%26%20Sub%20Channels%20Mapping.xlsx&amp;action=default&amp;mobileredirect=t&amp;cid=314888a2-41d7-43d5-8387-e9367cb52e81&quot;, &quot;Download Channel Help Document&quot;)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Download the Help file here</inlineHelpText>
+    <label>Help With Channels</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

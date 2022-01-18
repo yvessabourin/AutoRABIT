@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>HFS_Experience__c$Name</field>
+    </columns>
+    <filter>
+        <criteriaItems>
+            <column>HFS_Experience__c$Hours_in_Village__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>false</isUnlocked>
+            <operator>notEqual</operator>
+            <value></value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>HFS_Experience__c$Village__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>HFS_Experience__c$Hours_in_Village__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>DB-Stats-Village-By Hours in Village</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>SCS__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>HFS_Experience__c$Experience_Date_Time__c</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

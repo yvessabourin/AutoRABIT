@@ -1,0 +1,49 @@
+<apex:page standardcontroller="HFS_Item__c" extensions="SCSItemMapController">
+
+<apex:map width="1000px" height="600px" mapType="roadmap" zoomLevel="17"
+    showOnlyActiveInfoWindow="false" center="{!homeVillageGeoLocation}">
+
+
+             <apex:repeat value="{! myMapPoints  }" var="MapPoint">
+                 
+                   <apex:mapMarker title="{! MapPoint.BrandName }" position="{latitude: {!MapPoint.Lat} , longitude: {!MapPoint.Lng}}" icon="{!URLFOR($Resource.markers, MapPoint.marker )}" > 
+             
+            
+             
+                         <apex:mapInfoWindow >
+                                <apex:outputPanel layout="block" style="font-weight: bold; font-size: 200%; background-color: black; color: white">
+                                
+                               <!-- <apex:outputLink value="/{!MapPoint.vpid}">
+                                      {! MapPoint.BrandName }
+                                </apex:outputLink>
+                                -->
+                                   {! MapPoint.BrandName }
+                                </apex:outputPanel>
+                                
+                                <apex:outputPanel layout="block" >
+                                <br/>
+                                      <apex:repeat value="{! MapPoint.scsrequests}" var="Request">
+                                                <apex:outputLink value="/{!Request.requestid}">
+                                                        {!Request.droplocation}
+                                               </apex:outputLink>
+                                          <br/> <br/>
+                                       </apex:repeat>
+                                </apex:outputPanel>  
+                                
+                                
+                                <apex:outputPanel layout="block">
+                                                
+                                <apex:outputLink value="comgooglemaps://?saddr=&daddr={!MapPoint.Lat},{!MapPoint.Lng}&directionsmode=walking">  
+                                             <p/>Navigate!!
+                                </apex:outputLink>  
+                              
+                                    </apex:outputPanel>               
+                            </apex:mapInfoWindow>
+                          </apex:mapMarker>
+             
+             </apex:repeat>
+
+</apex:map>
+
+
+</apex:page>

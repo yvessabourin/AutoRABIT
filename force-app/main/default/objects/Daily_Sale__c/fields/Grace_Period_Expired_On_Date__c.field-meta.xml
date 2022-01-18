@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Grace_Period_Expired_On_Date__c</fullName>
+    <description>Daily Sales Calculated Expiry Date</description>
+    <externalId>false</externalId>
+    <inlineHelpText>The date when the Grace Period expired for this Daily Sales record</inlineHelpText>
+    <label>Grace Period Expired On Date</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+</CustomField>

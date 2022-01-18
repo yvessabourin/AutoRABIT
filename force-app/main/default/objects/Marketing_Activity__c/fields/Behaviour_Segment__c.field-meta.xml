@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Behaviour_Segment__c</fullName>
+    <externalId>false</externalId>
+    <label>Behaviour Segment</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>1. New</fullName>
+                <default>false</default>
+                <label>1. New</label>
+            </value>
+            <value>
+                <fullName>2. Active</fullName>
+                <default>false</default>
+                <label>2. Active</label>
+            </value>
+            <value>
+                <fullName>3. Lapsing</fullName>
+                <default>false</default>
+                <label>3. Lapsing</label>
+            </value>
+            <value>
+                <fullName>4. Passive</fullName>
+                <default>false</default>
+                <label>4. Passive</label>
+            </value>
+            <value>
+                <fullName>5. Dormant</fullName>
+                <default>false</default>
+                <label>5. Dormant</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>5</visibleLines>
+</CustomField>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Trade_Events_Declined__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>No of Trade Events with Status Declined</inlineHelpText>
+    <label>Trade Events Declined</label>
+    <summaryFilterItems>
+        <field>Trade_Event_Attendee__c.Invite_Status__c</field>
+        <operation>equals</operation>
+        <value>Declined</value>
+    </summaryFilterItems>
+    <summaryForeignKey>Trade_Event_Attendee__c.Contact__c</summaryForeignKey>
+    <summaryOperation>count</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <type>Summary</type>
+</CustomField>

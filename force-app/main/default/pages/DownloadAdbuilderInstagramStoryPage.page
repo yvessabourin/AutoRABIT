@@ -1,0 +1,49 @@
+<apex:page standardController="Adbuilder__c" extensions="DownloadAdbuilderController" contentType="application/vnd.ms-excel#Adbuilder.xls" standardstylesheets="false"   cache="true">
+    
+    <apex:outputText value="{!xlsHeader}" escape="false"/>
+    <Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet" xmlns:html="http://www.w3.org/TR/REC-html40">
+        <apex:pageBlock title="Information Adbuilder" > 
+            
+            <apex:pageBlockTable value="{!Adbuilder__c}" var="adb"  cellPadding="4" border="1">
+                
+                <apex:column headerValue="Format" style="text-align:center">
+                    {!adb.Format__c}
+                </apex:column>
+            </apex:pageBlockTable>            
+            <apex:pageBlockTable value="{!Adbuilder__c}" var="adb" cellPadding="4" border="1">            
+                <apex:column headerValue="Adbuilder Name" style="text-align:center">
+                    {!adb.Name}
+                </apex:column>
+                <apex:column headerValue="Language" style="text-align:center">
+                    {!adb.Language__c}
+                </apex:column> 
+                <apex:column headerValue="Target Audience" style="text-align:center">
+                    {!adb.Target_Audience__c}
+                </apex:column> 
+                <apex:column headerValue="Device" style="text-align:center">
+                    {!adb.Device__c}
+                </apex:column> 
+                <apex:column headerValue="Main Copy/Description" style="text-align:center">
+                    {!adb.Main_Copy_Description__c}
+                </apex:column> 
+                <apex:column headerValue="Live from" style="text-align:center">
+                    {!adb.Live_from__c}
+                </apex:column> 
+                <apex:column headerValue="Live to" style="text-align:center">
+                    {!adb.Live_to__c}
+                </apex:column> 
+                <apex:column headerValue="Live to" style="text-align:center">
+                    {!adb.Marketing_Activity__c}
+                </apex:column>
+                <apex:column headerValue="PO number" style="text-align:center">
+                    {!adb.PO_number__c}
+                </apex:column>
+                
+            </apex:pageBlockTable> 
+            
+        </apex:pageBlock>
+        
+        
+    </Workbook>
+    
+</apex:page>

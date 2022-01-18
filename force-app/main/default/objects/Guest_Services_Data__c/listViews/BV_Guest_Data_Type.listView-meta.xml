@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>BV_Guest_Data_Type</fullName>
+    <columns>NAME</columns>
+    <columns>Data_Code__c</columns>
+    <columns>Data_Label__c</columns>
+    <columns>Service_Data_Type__c</columns>
+    <columns>Village__c</columns>
+    <columns>LAST_UPDATE</columns>
+    <columns>UPDATEDBY_USER</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Village__c</field>
+        <operation>equals</operation>
+        <value>Bicester</value>
+    </filters>
+    <label>BV Guest Data Type</label>
+    <language>en_US</language>
+</ListView>

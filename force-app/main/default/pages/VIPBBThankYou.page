@@ -1,0 +1,478 @@
+<apex:page standardController="Account" extensions="VIPBBDeclineExtension"  sidebar="false" showHeader="false">
+   
+    
+    <html lang="en" ng-app="vipApp">
+        <head>
+            
+            <meta charset="utf-8" />
+            <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+            <meta name="viewport" content="width=device-width, initial-scale=1" />
+            
+            <title>The VIP Black Book Consent Page</title>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></link>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+            <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.9/angular.min.js"></script>
+            <link rel="stylesheet" href="{!URLFOR($Resource.NewTICStyles)}"></link>
+            
+            <script src="{!URLFOR($Resource.NewTICScripts)}"></script>
+            
+            <script>
+            function isLightningRedirect(inUrl){
+                if ('{!$User.UITheme}' === 'Theme4d' || '{!$User.UITheme}' === 'Theme4t' || '{!$User.UITheme}' === 'Theme4u') {
+                    sforce.one.navigateToURL(inUrl);
+                } else {
+                    window.location = inUrl;
+                }
+            }
+            </script>
+            
+            <style type="text/css">
+                @font-face { font-family: BauerBodoni; src: url("{!URLFOR($Resource.FontBauerBodoni)}"); }
+                @font-face { font-family: SangBleuRegular; src: url("{!URLFOR($Resource.SangBleuKingdom, 'SangBleuKingdom-Regular.otf')}"); }
+                @font-face { font-family: SangBleuLight; src: url("{!URLFOR($Resource.SangBleuKingdom, 'SangBleuKingdom-Light.otf')}"); }
+                @font-face { font-family: SangBleuBold; src: url("{!URLFOR($Resource.SangBleuKingdom, 'SangBleuKingdom-Bold.otf')}"); }
+                @font-face { font-family: SangBleuAir; src: url("{!URLFOR($Resource.SangBleuKingdom, 'SangBleuKingdom-Air.otf')}"); }
+                @font-face { font-family: BrownStdRegular; src: url("{!URLFOR($Resource.BrownStdAll, 'BrownStd-Regular.otf')}"); }
+                @font-face { font-family: BrownStdLight; src: url("{!URLFOR($Resource.BrownStdAll, 'BrownStd-Light.otf')}"); }
+                @font-face { font-family: BrownStdBold; src: url("{!URLFOR($Resource.BrownStdAll, 'BrownStd-Bold.otf')}"); }
+                @font-face { font-family: BrownStdThin; src: url("{!URLFOR($Resource.BrownStdAll, 'BrownStd-Thin.otf')}"); }
+                
+                body{
+                background-color: #FFF;
+                margin-top: 20px;
+                font-family: BrownStdThin;
+                background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ),url({!URLFOR($Resource.VIPRedesignImages, 'ApartmentLaVallee.jpg')}) no-repeat center center fixed !important;
+                -webkit-background-size: cover;
+                -moz-background-size: cover;
+                -o-background-size: cover;
+                background-size: cover;
+                height:100%;
+                }
+                
+                .inputbox {
+                height: 50px;
+                
+                /*border-radius: 3px;*/
+                /* border: 1px solid transparent;*/
+                /* border-top: none; */
+                /* border-bottom: 1px solid #DDD;*/
+                /* box-shadow: inset 0 1px 2px rgba(0,0,0,.39), 0 -1px 1px #FFF, 0 1px 0 #FFF;*/
+                /* box-shadow: horizontal-length vertical-length blur-radius spread-radius colour; */
+                border: none;
+                box-shadow: inset 0px 0px 12px 4px rgba(0,0,0,.19);
+                background-color: #FAFAFA;
+                padding-left: 15px;
+                padding-right:15px;
+                font-size: 20px;
+                }
+                
+                .submitbutton
+                {
+                
+                border: none;
+                background-color: #FFFFFF;
+                box-shadow: 0px 0px 6px 4px rgba(0,0,0,.19);
+                /* background-color: #FAFAFA;*/
+                padding-left: 15px;
+                padding-right:15px;
+                /*float: right;*/
+                display:block;
+                margin-left: 10px;
+                font-size: 22px;
+                margin-top: 10px;
+                margin-bottom: 10px;
+                padding-top: 10px;
+                padding-bottom: 10px;
+                text-decoration: none !important;
+                }
+                
+                .tablebutton {
+                height: 50px;
+                border: none;
+                background-color: #FFFFFF;
+                box-shadow: 0px 0px 6px 4px rgba(0,0,0,.19);
+                /* background-color: #FAFAFA;*/
+                padding-left: 15px;
+                padding-right:15px;
+                float: right;
+                display:block;
+                margin-left: 5px;
+                }
+                
+                 .modalbutton {
+                height: 50px;
+                border: none;
+                background-color: #123e6c;
+                color: #fff;
+                /*box-shadow: 0px 0px 6px 4px rgba(0,0,0,.19);*/
+                /* background-color: #FAFAFA;*/
+                padding-left: 15px;
+                padding-right:15px;
+                float: right;
+                display:block;
+                margin-left: 35px;
+                margin-right:35px;
+                font-family: BrownStdLight;
+                font-size: 20px;
+                }
+                
+                .alignbuttontext {
+                position: relative;
+                float: left;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                margin:auto;
+                }
+                
+                .overlayimage {
+                /*  background: url("{!URLFOR($Resource.VIPDesignImages, 'MothersdayWide.jpg')}") no-repeat center top fixed;
+                width: 100%;*/
+                margin-left: auto;
+                margin-right: auto;
+                display: block;
+                z-index: 1;
+                
+                }
+                /* override some of the bootstrap styled */
+                .panel-heading {
+                box-shadow: inset 0px 0px 12px 4px rgba(246,169,55,.29);
+                border-top-left-radius: 0px;
+                border-top-right-radius: 0px;
+                background-color: #F6A937 !important ;
+                text-align: center;
+                font-size: 22px;
+                }
+                .panel {
+                border-top-left-radius: 0px;
+                border-top-right-radius: 0px;
+                border-top-width: 0px;
+                border-left-width: 0px;
+                border-right-width: 0px;
+                border-bottom-width: 0px;
+                box-shadow: 0px 0px 6px 4px rgba(0,0,0,.19);
+                padding-bottom: 2px;
+                }
+                
+                .borderless td, .borderless th {
+                border: 0 !important;
+                }
+                h2 {
+                padding-top: 20px;
+                color: #fff;
+                font-family: SangBleuLight;
+                font-size: 70px;
+                }
+                h3 {
+                color: #fff;
+                font-family: SangBleuLight;
+                font-size: 20px;
+                }
+                .jumbotron {
+                //margin-top: 20%;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                display: flex;
+                height: 90vh;
+                }
+                
+                p {
+                font-size: 20px;
+                font-family: BauerBodoni;
+                }
+                
+                
+                .modal{
+                position: absolute;
+                top: 25%;
+                }
+                
+                .modal-content{
+                border: 5px solid #123e6c;
+                width: auto;
+                height: auto;
+                top: auto;
+                margin-left: auto;
+                margin-right: auto;
+                
+                }
+                
+                .modal-header{
+                border-bottom: none;
+                }
+                
+                .modal-body{
+                margin-right: 20px;
+                margin-left: 20px
+                }
+                
+                .modal-footer{
+                margin-bottom: 50px;
+                float: none;
+                border-top: none;
+                }
+                
+                #GuestModal .modal-dialog  .modalbutton{
+                float: none;
+                margin-bottom: 15px;
+                }
+                
+                .two-col {
+                overflow: hidden;/* Makes this div contain its floats */
+                }
+                
+                .two-col .col1,
+                .two-col .col2 {
+                width: 49%;
+                }
+                
+                .two-col .col1 {
+                float: left;
+                }
+                
+                .two-col .col2 {
+                float: right;
+                }
+                
+                .two-col label {
+                display: block;
+                }
+                
+                
+                .modal-backdrop{
+                display: none;
+                
+                }
+                
+              
+            </style>
+            
+            
+            <script>
+            function handleRedirect()
+            {
+                isLightningRedirect('/apex/VIPBBSearch');
+            }
+            </script>
+            
+            <script>
+            
+            function redirectToUrl(url){
+            if(  ('{!$User.UIThemeDisplayed}' == 'Theme4t' || '{!$User.UIThemeDisplayed}' == 'Theme4d' || '{!$User.UIThemeDisplayed}' == 'Theme4u') || ((typeof sforce != 'undefined') && (sforce != null)) ) {
+                // running in mobile
+                console.log('VIP Mobile ..');
+                sforce.one.navigateToURL(url);
+            } else { //desktop
+                console.log('VIP Desktop..');                
+                window.location.href = url;                    
+            }  
+        }
+        
+        function gotoPage(pg){               
+            var url = '/apex/' + pg;               
+            redirectToUrl(url);
+        };
+
+           
+            </script>
+
+             
+            
+            
+            <script>
+            // define the app
+            var VIPBBApp = angular.module('vipApp', []);
+            // add an app factory
+            
+            // add the controller
+            VIPBBApp.controller('VIPBBServiceCtrl',['$log','$scope','$window','$sce',function($log,$scope,$window,$sce){
+                $scope.guestdata = '{id:"{!JSENCODE(Account.Id)}", firstname:"{!JSENCODE(Account.FirstName)}",lastname:"{!JSENCODE(Account.LastName)}" ,email:"{!JSENCODE(Account.PersonEmail)}", telephone:"{!JSENCODE(Account.PersonMobilePhone)}" }' ;
+                
+                $scope.languagelabels = JSON.parse('{!JSENCODE(languagelabels)}');
+                $scope.selectedlanguage = '{!JSENCODE(lang)}';
+                $scope.accID = '{!JSENCODE(Account.Id)}';
+                
+                $scope.gotoSearch = function() {
+                    //$window.location.href = '/apex/VIPBBSearch';
+                    isLightningRedirect('/apex/VIPBBSearch');
+                };
+                
+                $scope.labelvalue = function(labelname){
+                    var returnval = '';
+                    for (x in $scope.languagelabels) {
+                        
+                        if($scope.languagelabels[x].LabelName == labelname){
+                            returnval = $scope.languagelabels[x].LabelValue;
+                            $log.log('Label name .... ' + $scope.languagelabels[x].LabelName  );
+                            $log.log('Label value .... ' + $scope.languagelabels[x].LabelValue );
+                        }
+                    }
+                    return  $sce.trustAsHtml(returnval);
+                };
+                $scope.updateLanguage = function() {
+                    // this isnt working very well, so im going to just reload the page, with a new language
+                    //   $log.log('aChanged Language .... ' + $scope.selectedlanguage );
+                    if($scope.accID != ''){
+                        //$window.location.href = '/apex/VIPBBThankYou?ID=' + $scope.accID + '&lang=' + $scope.selectedlanguage;
+                        isLightningRedirect('/apex/VIPBBThankYou?ID=' + $scope.accID + '&lang=' + $scope.selectedlanguage);
+                    }
+                }
+                
+                setTimeout(function(){
+                    //window.location.href = '/apex/VIPBBSearch';
+                    $j('#GuestModal').modal('show');
+                }, 5000)
+            }]);
+            
+            	 function closeJourney(){
+                     redirectToUrl('/apex/VIPBBSearch');
+                }
+            
+           
+            </script>
+        </head>
+        <body>
+            <div ng-controller="VIPBBServiceCtrl" >
+                <div class="full-width">{{labelvalue('ThankyouTopHeader')}}
+                    <!--<div style="float:right;">
+<select class="selectlanguagelist" name="language" ng-model="selectedlanguage" ng-change="updateLanguage(this)">
+<option value="en">English</option>
+<option value="fr">Français</option>
+<option value="es">Español</option>
+<option value="ca">Català</option>
+<option value="de">Deutsch</option>
+<option value="nl">Nederlands</option>
+<option value="it">Italiano</option>
+</select>
+</div>-->
+                </div>
+                <br/>
+                <div class="jumbotron text-center">
+                    <h2>{{labelvalue('ThankyouHeader')}}</h2>
+                    <h3>{{labelvalue('ThankYouBelowContent')}}</h3>
+                </div>
+                <!--<div class="container" style="margin-left: auto; margin-right: auto; z-index: 100; position: relative;" >
+
+<div class="container py-5">
+
+<div class="form-group row">
+<div class="col-sm-12">
+<p>{!Account.Name}</p>
+<span ng-bind-html="labelvalue('ThankYouContent')" ></span>
+
+
+</div>
+
+</div>
+<div class="form-group row">
+<div class="col-sm-4">
+</div>
+<div class="col-sm-4">
+<a href="#" class="submitbutton"  ng-click="gotoSearch()" >{{labelvalue('OKButton')}}</a>
+
+</div>
+<div class="col-sm-4">
+</div>
+</div>
+</div>
+</div>-->
+                
+                
+                <div id="GuestModal" class="modal fade" role="dialog" tabindex="-1" aria-labelledby="myModalLabel" >
+                    <div class="modal-dialog modal-lg" style="overflow-y: scroll; max-height:85%;  margin-top: 50px; margin-bottom:50px;"   >
+                        <div class="modal-content" >
+                            <div class="modal-header" style =" font-weight: bold; font-size: medium;">
+                                <button name="close" type="button" class="close" data-dismiss="modal" >&times;</button>
+                                <p align="center">Add Guest Information</p>
+                            </div>
+                            <apex:form >
+                                <div id="mainPanel" class="modal-header">
+                                    <div id="mainPanel" class="two-col">
+                                        <div class="col1" >  
+                                            <label for="fname"> Country Of Residence:</label>
+                                            <apex:inputField id="accountCountryOfResidence"  value="{!accountRecordInfo.Country_of_Residence__c}" /><br/>
+                                        </div>
+                                        <div class="col2" >  
+                                            <label for="fname"> Preferred Language :</label>
+                                            <apex:inputField id="accountPreferredLanguage"  value="{!accountRecordInfo.Preferred_Language__c}" /><br/>
+                                        </div>
+                                        <div class="col1" > 
+                                            <label for="fname">Company Name / Job Title :</label>
+                                            <apex:inputField id="accountCompanyName"  value="{!accountRecordInfo.Company_Name__c}" /><br/>    
+                                        </div>
+                                        <div class="col2" >  
+                                            <label for="fname"> Private Client Notes :</label>
+                                            <apex:inputField id="accountPrivateClientNotes"  value="{!accountRecordInfo.Private_Client_Notes__c}" /><br/> 
+                                        </div>
+                                        <div class="col1" >
+                                             <label for="fname"> Car Registration :</label>
+                                            <apex:inputField id="accountCarRegistration"  value="{!accountRecordInfo.Car_Registration__c}" /><br/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="mainPanel" class="modal-header">                           
+                                    <label for="fname"> Professional Buyer :</label>
+                                    <apex:inputField id="accountProfessionalBuyer"  value="{!accountRecordInfo.Professional_Buyer__c}" /><br/> 
+                                </div>
+                                
+                                <div id="mainPanel" class="modal-header">
+                                    <div id="mainPanel" class="two-col">
+                                        <div class="col1" >  
+                                            <label for="fname"> Guest Source :</label>
+                                            <apex:inputField id="accountGuestSource"  value="{!accountRecordInfo.Guest_Source__c}" /><br/> 
+                                        </div>
+                                        <div class="col2" >  
+                                            <label for="fname">Village Specific :</label>
+                                            <apex:inputField id="accountVillageSpecific"  value="{!accountRecordInfo.Village_Specific__c}" /><br/> 
+                                        </div>  
+                                        <div class="col1" >  
+                                            <label for="fname"> Partner name :</label>
+                                            <apex:inputField id="accountPartnername"  value="{!accountRecordInfo.Partner_Program_Membership_1__c}" /><br/> 
+                                        </div>
+                                        <div class="col2" >  
+                                            <label for="fname">Guest Source Notes :</label>
+                                            <apex:inputField id="accountGuestSourceNotes"  value="{!accountRecordInfo.Guest_Source_Notes__c}" /><br/>    
+                                        </div>
+                                        <div class="col1" >  
+                                            <label for="fname">Brand Event :</label>
+                                            <apex:inputField id="accountBrandEvent"  value="{!accountRecordInfo.Brand_Event__c}" /><br/>    
+                                        </div>
+                                        <div class="col2" >  
+                                            <label for="fname">Brand Referral :</label>
+                                            <apex:inputField id="accountBrandReferral"  value="{!accountRecordInfo.Brand_Referral__c}" /><br/>    
+                                        </div>
+                                        <div class="col1" >  
+                                            <label for="fname">Private Client Team :</label>
+                                            <apex:inputField id="accountPrivateClientTeam"  value="{!accountRecordInfo.Private_Client_Team__c}" /><br/> 
+                                        </div>
+                                        <div class="col2" >  
+                                            <label for="fname">Marketing Activity :</label>
+                                            <apex:inputField id="accountMarketingActivity"  value="{!accountRecordInfo.Marketing_Activity__c}" /><br/>    
+                                        </div>
+                                        <div class="col1" >  
+                                            <label for="fname"> Domestic or International Partner :</label>
+                                            <apex:inputField id="accountDomesticorInternationalPartner"  value="{!accountRecordInfo.Domestic_International_Partner__c}" /><br/> 
+                                        </div>
+                                        <div class="col2" >  
+                                            <label for="fname">Personal Shopper :</label>
+                                            <apex:inputField id="accountPersonalShopper"  value="{!accountRecordInfo.Personal_Shopper__c}" /><br/> 
+                                        </div>                   
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <div align="center">
+                                        <apex:commandButton action="{!saveAccountInfo}" style="color:#fff;width:600px;background:#123e6c;padding-top: 10px;padding-bottom: 10px;font-size: 20px;"  value="Save" oncomplete="handleRedirect()"/><br/>
+                                        <button id="card_btn_no4" class="modalbutton" style="color:#fff;width:600px;background:#123e6c;padding-top: 10px;padding-bottom: 10px;font-size: 20px;" data-dismiss="modal" aria-hidden="true" onclick="closeJourney();">Close</button>
+                                    </div>
+                                </div> 
+                            </apex:form>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </body>
+    </html>
+</apex:page>

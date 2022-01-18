@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Deposit_on_Signing_HoT__c</fullName>
+    <externalId>false</externalId>
+    <formula>( ( (  ABR__c )  / 12 )  *  Deposit_Period_months__c  )  *  Deposit_Payment_Split__c</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>The calculated amount of deposit payable on signing the HoT</inlineHelpText>
+    <label>Deposit on Signing HoT</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

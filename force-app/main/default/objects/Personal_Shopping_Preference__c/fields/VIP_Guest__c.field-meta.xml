@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VIP_Guest__c</fullName>
+    <deleteConstraint>Restrict</deleteConstraint>
+    <description>The VIP guest that is making use of the Personal shopping service</description>
+    <externalId>false</externalId>
+    <inlineHelpText>The VIP guest that is making use of the Personal shopping service</inlineHelpText>
+    <label>VIP Guest</label>
+    <lookupFilter>
+        <active>true</active>
+        <errorMessage>Only VIP guests can have Personal Shopping preferences</errorMessage>
+        <filterItems>
+            <field>Account.RecordType.Name</field>
+            <operation>equals</operation>
+            <value>VIP Guest</value>
+        </filterItems>
+        <isOptional>false</isOptional>
+    </lookupFilter>
+    <referenceTo>Account</referenceTo>
+    <relationshipLabel>Personal Shopping Preferences</relationshipLabel>
+    <relationshipName>Personal_Shopping_Preferences</relationshipName>
+    <required>true</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

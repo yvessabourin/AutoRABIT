@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>How_did_you_hear_about_us__c</fullName>
+    <externalId>false</externalId>
+    <label>How did you hear about us</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Website</fullName>
+                <default>false</default>
+                <label>Website</label>
+            </value>
+            <value>
+                <fullName>PCS</fullName>
+                <default>false</default>
+                <label>PCS</label>
+            </value>
+            <value>
+                <fullName>Partnership – Domestic</fullName>
+                <default>false</default>
+                <label>Partnership – Domestic</label>
+            </value>
+            <value>
+                <fullName>Partnership – International</fullName>
+                <default>false</default>
+                <label>Partnership – International</label>
+            </value>
+            <value>
+                <fullName>Personal Shopping</fullName>
+                <default>false</default>
+                <label>Personal Shopping</label>
+            </value>
+            <value>
+                <fullName>WeChat</fullName>
+                <default>false</default>
+                <label>WeChat</label>
+            </value>
+            <value>
+                <fullName>Brand Support</fullName>
+                <default>false</default>
+                <label>Brand Support</label>
+            </value>
+            <value>
+                <fullName>Client Referral</fullName>
+                <default>false</default>
+                <label>Client Referral</label>
+            </value>
+            <value>
+                <fullName>other</fullName>
+                <default>false</default>
+                <label>other</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

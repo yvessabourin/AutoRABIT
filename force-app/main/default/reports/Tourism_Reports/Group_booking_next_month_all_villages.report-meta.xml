@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <aggregateTypes>Sum</aggregateTypes>
+        <field>Visit__c$Group_Booking__c.Number_of_Visitors_Expected__c</field>
+    </columns>
+    <currency>EUR</currency>
+    <filter>
+        <criteriaItems>
+            <column>Visit__c$Group_Booking__c.Organisation__c.In_Funding_Program__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>1</value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
+    <format>Matrix</format>
+    <groupingsAcross>
+        <dateGranularity>Week</dateGranularity>
+        <field>Visit__c$Group_Booking__c.Expected_Arrival__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsAcross>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Visit__c$Village__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>Group booking - next month, all villages</name>
+    <params>
+        <name>co</name>
+        <value>0</value>
+    </params>
+    <reportType>Bookings_Partnerships_Visits__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>Visit__c$Group_Booking__c.Expected_Arrival__c</dateColumn>
+        <interval>INTERVAL_NEXTMONTH</interval>
+    </timeFrameFilter>
+</Report>

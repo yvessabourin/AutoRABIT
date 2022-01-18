@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Anonymous_Guest__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Tells if a guest is anonymous or not.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Tells if a guest is anonymous or not.</inlineHelpText>
+    <label>Anonymous Guest</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

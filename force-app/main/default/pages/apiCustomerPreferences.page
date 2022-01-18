@@ -1,0 +1,25 @@
+<apex:page StandardController="Account" extensions="apiCustomerPreferenceController" docType="html-5.0">
+    <apex:pageBlock >
+    
+        <apex:pageMessages id="prefMsgs"/>
+        <!-- <apex:pageBlockSection id="pbs" columns="2"  collapsible="false" title="" >  -->            
+
+            
+            <apex:form >
+                <apex:actionFunction action="{!savePreference}" reRender="pbs,prefMsgs"  name="savePreference" status="processingStatus">
+                    <apex:param id="preference" name="preference" assignTo="{!preference}" value=""/>
+                </apex:actionFunction>
+                <c:ProcessSpinner2 MessageText="Saving, please wait ...." />
+                <apex:repeat value="{!customer.preferenceMap}" var="key">               
+                    {!key}<div style="float:right"> <apex:selectList value="{!customer.preferenceMap[key]}" multiselect="false" label="{!key}" size="1" readonly="false" onchange="savePreference('{!key}');" >
+                        <apex:selectOptions value="{!PreferenceOptions}"/>
+                    </apex:selectList> </div>
+                    <br/><hr/>
+                    <!-- <apex:commandButton oncomplete="savePreference('{!key}');" value="Save"/>  -->                  
+                </apex:repeat>                                       
+            </apex:form>
+            
+     <!--  </apex:pageBlockSection>  -->
+         
+    </apex:pageBlock>
+</apex:page>

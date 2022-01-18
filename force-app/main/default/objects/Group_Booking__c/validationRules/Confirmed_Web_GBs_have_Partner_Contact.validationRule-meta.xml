@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Confirmed_Web_GBs_have_Partner_Contact</fullName>
+    <active>true</active>
+    <description>When the GB gets set to Confirmed and its source is from the Website then it must have a Partner Contact entered to send an email confirmation to.</description>
+    <errorConditionFormula>AND( TEXT(Status__c) == &apos;Confirmed&apos;,  TEXT(Group_Booking_Source__c) != &apos;Salesforce Front End&apos;,  Contact__c = NULL)</errorConditionFormula>
+    <errorDisplayField>Contact__c</errorDisplayField>
+    <errorMessage>All Confirmed Web Leads must have a Partner Contact associated to them</errorMessage>
+</ValidationRule>

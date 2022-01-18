@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>My_Pending_Collections</fullName>
+    <columns>NAME</columns>
+    <columns>Bag_ID__c</columns>
+    <columns>Status__c</columns>
+    <columns>Brand__c</columns>
+    <columns>HFS_Experience__c</columns>
+    <columns>Request_Date_Time__c</columns>
+    <columns>Runner__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>My_Item_Runner__c</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <filters>
+        <field>Status__c</field>
+        <operation>equals</operation>
+        <value>Requested,Runner On Way,With Runner</value>
+    </filters>
+    <label>My Pending Collections</label>
+</ListView>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>New_Budget_Total__c</fullName>
+    <externalId>false</externalId>
+    <label>New Budget Total</label>
+    <summarizedField>Master_Budget_Sheet_Item__c.New_Budget__c</summarizedField>
+    <summaryForeignKey>Master_Budget_Sheet_Item__c.Master_Budget_Sheet__c</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

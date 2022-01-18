@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Recalibrate_Deal_Ratings</fullName>
+    <availability>online</availability>
+    <displayType>massActionButton</displayType>
+    <linkType>javascript</linkType>
+    <masterLabel>Recalibrate Deal Ratings</masterLabel>
+    <openType>onClickJavaScript</openType>
+    <protected>false</protected>
+    <requireRowSelection>false</requireRowSelection>
+    <url>{!REQUIRESCRIPT(&quot;/soap/ajax/10.0/connection.js&quot;)}
+{!REQUIRESCRIPT(&quot;/soap/ajax/10.0/apex.js&quot;)}
+
+userConsent = confirm( 
+&apos;This will recalibrate the sales and income yield ratings for all deals associated with the village. Are you sure you wish to continue ? &apos; 
+); 
+if(userConsent == true) 
+{ 
+var returnVal = sforce.apex.execute(
+&quot;OpportunityRatingCalculator&quot;, //class name 
+&quot;calculateRatingsForVillage&quot;, //method name 
+{villageId:&apos;{!Village__c.Id}&apos;}); //parameter
+
+alert(&apos;Recalibration process started. This is a background task, please check records in a few minutes to verify completion&apos;);
+}</url>
+</WebLink>

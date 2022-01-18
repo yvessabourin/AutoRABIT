@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Bags_to_collect__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(ISPICKVAL(Job_Type__c,&apos;Bag Transfer&apos;),HFS_Purchase__r.Case__r.Total_Bags_at_wrong_Collection_Point__c   , HFS_Purchase__r.Remaining_Bags_to_Pickup__c)
+
+
+/*IF(ISPICKVAL(Job_Type__c,&apos;Bag Transfer&apos;), HFS_Purchase__r.Case__r.Total_Bags_of_the_Guest__c -  HFS_Purchase__r.Case__r.Total_Scanned_Bags_of_Guest__c  , HFS_Purchase__r.Remaining_Bags_to_Pickup__c)*/</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Bags to collect</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

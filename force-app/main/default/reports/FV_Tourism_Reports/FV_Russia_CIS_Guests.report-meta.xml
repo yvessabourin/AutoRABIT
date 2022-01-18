@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <aggregateTypes>Sum</aggregateTypes>
+        <field>Visit__c$VIP_Cards_Exchanged__c</field>
+    </columns>
+    <columns>
+        <aggregateTypes>Sum</aggregateTypes>
+        <field>Visit__c$Number_of_Guests__c</field>
+    </columns>
+    <currency>GBP</currency>
+    <filter>
+        <booleanFilter>1 AND 2</booleanFilter>
+        <criteriaItems>
+            <column>Visit__c$Village__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Fidenza</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Visit__c$Country_of_Origin__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Russian Federation,Armenia,Azerbaijan,Belarus,Georgia,Kazakhstan,Ukraine</value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
+    <format>Matrix</format>
+    <groupingsAcross>
+        <dateGranularity>Day</dateGranularity>
+        <field>Visit__c$Visit_Date_Time__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsAcross>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Visit__c$Partner_Account_Name__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Visit__c$Country_of_Origin__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>FV - Russia &amp; CIS Guests</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Visits_With_OR_Without_VIP_Cards__c</reportType>
+    <scope>organization</scope>
+    <showDetails>false</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>Visit__c$Visit_Date_Time__c</dateColumn>
+        <interval>INTERVAL_CURFY</interval>
+    </timeFrameFilter>
+</Report>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Participating_Brand__c$Name</field>
+    </columns>
+    <columns>
+        <field>Participating_Brand__c$Village_Presence__c</field>
+    </columns>
+    <columns>
+        <field>Participating_Brand__c$Feature_Details__c</field>
+    </columns>
+    <columns>
+        <field>Participating_Brand__c$Status__c</field>
+    </columns>
+    <columns>
+        <field>Participating_Brand__c$Campaign__c</field>
+    </columns>
+    <columns>
+        <field>Participating_Brand__c$Retail_Manager__c</field>
+    </columns>
+    <currency>EUR</currency>
+    <description>WV brand participation Corporate VIP YES</description>
+    <filter>
+        <criteriaItems>
+            <column>Participating_Brand__c$Status__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Yes</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Participating_Brand__c$Marketing_Activity__c.Name</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>contains</operator>
+            <value>Corporate VIP 2017 - participating brands</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Participating_Brand__c$Village_Presence__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>contains</operator>
+            <value>Wertheim</value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
+    <format>Summary</format>
+    <name>WV BRAND Corporate 2017 VIP WV</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Participating_Brands__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>Participating_Brand__c$LastModifiedDate</dateColumn>
+        <endDate>2017-03-31</endDate>
+        <interval>INTERVAL_CUSTOM</interval>
+        <startDate>2016-12-01</startDate>
+    </timeFrameFilter>
+</Report>

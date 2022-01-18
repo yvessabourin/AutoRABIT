@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Visit__c$Partner_Account_Name__c</field>
+    </columns>
+    <columns>
+        <field>Visit__c$Name</field>
+    </columns>
+    <columns>
+        <field>Visit__c$Village__c</field>
+    </columns>
+    <columns>
+        <field>Visit__c$Visit_Date_Time__c</field>
+    </columns>
+    <columns>
+        <field>Visit__c$Total_Spend__c</field>
+    </columns>
+    <columns>
+        <field>Visit__c$Number_of_Visit_Guests__c</field>
+    </columns>
+    <currency>EUR</currency>
+    <filter>
+        <criteriaItems>
+            <column>Visit__c$RecordType</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Visit__c.Personal_Shopping_Visit,Visit__c.VIP_Visit</value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
+    <format>Tabular</format>
+    <name>PCS export for weekly 1 pager</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Visits_w_OR_w_out_VIP_Accounts__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>Visit__c$Visit_Date_Time__c</dateColumn>
+        <interval>INTERVAL_CURFY</interval>
+    </timeFrameFilter>
+</Report>

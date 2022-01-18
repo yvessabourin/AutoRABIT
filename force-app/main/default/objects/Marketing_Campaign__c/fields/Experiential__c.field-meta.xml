@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Experiential__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Component of the campaign that will allow us to deliver against our ‘Luxury shopping and Tourism destination’ objective</inlineHelpText>
+    <label>Experiential</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>TextArea</type>
+</CustomField>

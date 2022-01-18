@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Incident_Reason__c</fullName>
+    <externalId>false</externalId>
+    <label>Incident Reason</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Bags given to another Guest</fullName>
+                <default>false</default>
+                <label>Bags given to another Guest</label>
+            </value>
+            <value>
+                <fullName>Bag(s) at Brand but not picked up</fullName>
+                <default>false</default>
+                <label>Bag(s) at Brand but not picked up</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+            <value>
+                <fullName>Technical Fault</fullName>
+                <default>false</default>
+                <label>Technical Fault</label>
+            </value>
+            <value>
+                <fullName>Brand was really busy</fullName>
+                <default>false</default>
+                <label>Brand was really busy</label>
+            </value>
+            <value>
+                <fullName>Lacking Knowledge / Experience of HFS</fullName>
+                <default>false</default>
+                <label>Lacking Knowledge / Experience of HFS</label>
+            </value>
+            <value>
+                <fullName>Brand said they didn&apos;t refuse when asked</fullName>
+                <default>false</default>
+                <label>Brand said they didn&apos;t refuse when asked</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

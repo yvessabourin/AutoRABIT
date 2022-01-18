@@ -1,0 +1,41 @@
+<apex:page lightningStylesheets="true">
+  <p style="font-size: 20px">Scan a HFS Bag</p>
+  <c:HFS_Barcode_Scanner />
+  <audio id="audio" src="{!URLFOR($Resource.HFS_beep, '/beep-06.wav')}" autostart="false"></audio>
+
+      <script>
+          function isLightningRedirect(inUrl){
+            if(  ('{!$User.UIThemeDisplayed}' == 'Theme4t' || '{!$User.UIThemeDisplayed}' == 'Theme4d' || '{!$User.UIThemeDisplayed}' == 'Theme4u') && (typeof sforce != 'undefined') && (sforce != null) ) {
+                  sforce.one.navigateToURL(inUrl);
+              } else {
+                  window.location = inUrl;
+              }
+          }
+      </script>
+
+  <script type="text/javascript">
+
+    function PlaySound() {
+      var sound = document.getElementById("audio");
+      sound.play()
+    }
+
+    function getManuallyBarcode() {
+      var barCodeBag = document.getElementById('result_c').value;
+
+      if(barCodeBag){
+        isLightningRedirect('/apex/HFSFindHelper?bagBarcode=' + barCodeBag);
+      }
+    }
+
+    Quagga.onDetected(function(result) {
+      var code = result.codeResult.code;
+      var barCodeBag = document.getElementById('result_c').value = code;
+
+      if(barCodeBag){
+        PlaySound();
+        isLightningRedirect('/apex/HFSFindHelper?bagBarcode=' + barCodeBag);
+          }
+        });
+  </script>
+</apex:page>

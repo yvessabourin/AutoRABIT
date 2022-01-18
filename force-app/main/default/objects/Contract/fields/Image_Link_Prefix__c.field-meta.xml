@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Image_Link_Prefix__c</fullName>
+    <externalId>false</externalId>
+    <formula>&quot;https://c.cs4.content.force.com/servlet/servlet.FileDownload?&quot;</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Standard prefix to the Document Library for Village Images</inlineHelpText>
+    <label>Image Link Prefix</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ReportFolder xmlns="http://soap.sforce.com/2006/04/metadata">
+    <folderShares>
+        <accessLevel>EditAllContents</accessLevel>
+        <sharedTo>AllInternalUsers</sharedTo>
+        <sharedToType>Organization</sharedToType>
+    </folderShares>
+    <folderShares>
+        <accessLevel>View</accessLevel>
+        <sharedTo>All_Users</sharedTo>
+        <sharedToType>Group</sharedToType>
+    </folderShares>
+    <folderShares>
+        <accessLevel>EditAllContents</accessLevel>
+        <sharedTo>B2BChina</sharedTo>
+        <sharedToType>Group</sharedToType>
+    </folderShares>
+    <folderShares>
+        <accessLevel>Manage</accessLevel>
+        <sharedTo>Location_Shanghai</sharedTo>
+        <sharedToType>Group</sharedToType>
+    </folderShares>
+    <folderShares>
+        <accessLevel>EditAllContents</accessLevel>
+        <sharedTo>Location_Suzhou</sharedTo>
+        <sharedToType>Group</sharedToType>
+    </folderShares>
+    <folderShares>
+        <accessLevel>View</accessLevel>
+        <sharedTo>Share_Tourism_Accounts</sharedTo>
+        <sharedToType>Group</sharedToType>
+    </folderShares>
+    <name>China Marketing</name>
+</ReportFolder>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Communication_Channel__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Select which channels the Campaign will be distributed</inlineHelpText>
+    <label>Communication Channel</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Email</fullName>
+                <default>false</default>
+                <label>Email</label>
+            </value>
+            <value>
+                <fullName>Publication</fullName>
+                <default>false</default>
+                <label>Publication</label>
+            </value>
+            <value>
+                <fullName>SMS</fullName>
+                <default>false</default>
+                <label>SMS</label>
+            </value>
+            <value>
+                <fullName>Postal</fullName>
+                <default>false</default>
+                <label>Postal</label>
+            </value>
+            <value>
+                <fullName>Website</fullName>
+                <default>false</default>
+                <label>Website</label>
+            </value>
+            <value>
+                <fullName>Leaflet/Coupon</fullName>
+                <default>false</default>
+                <label>Leaflet/Coupon</label>
+            </value>
+            <value>
+                <fullName>Social Media</fullName>
+                <default>false</default>
+                <label>Social Media</label>
+            </value>
+            <value>
+                <fullName>Face-to-face</fullName>
+                <default>false</default>
+                <label>Face-to-face</label>
+            </value>
+            <value>
+                <fullName>Telephone</fullName>
+                <default>false</default>
+                <label>Telephone</label>
+            </value>
+            <value>
+                <fullName>Other Media (TV/Radio)</fullName>
+                <default>false</default>
+                <label>Other Media (TV/Radio)</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

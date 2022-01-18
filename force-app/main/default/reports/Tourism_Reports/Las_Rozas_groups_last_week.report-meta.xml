@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <aggregateTypes>Sum</aggregateTypes>
+        <field>Visit__c$Number_of_Guests__c</field>
+    </columns>
+    <currency>EUR</currency>
+    <description>By Country of Residence</description>
+    <filter>
+        <criteriaItems>
+            <column>Visit__c$Group_Booking__c.Status__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Completed</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Visit__c$Village__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>las rozas</value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
+    <format>Matrix</format>
+    <groupingsAcross>
+        <dateGranularity>Day</dateGranularity>
+        <field>Visit__c$Visit_Date_Time__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsAcross>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Visit__c$Country_of_Origin__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>Las Rozas - groups last week</name>
+    <params>
+        <name>co</name>
+        <value>0</value>
+    </params>
+    <reportType>Bookings_Partnerships_Visits__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>Visit__c$Visit_Date_Time__c</dateColumn>
+        <interval>INTERVAL_LASTWEEK</interval>
+    </timeFrameFilter>
+</Report>

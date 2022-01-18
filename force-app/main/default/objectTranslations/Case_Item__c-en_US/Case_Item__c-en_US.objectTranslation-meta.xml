@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>HFS Purchase</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>HFS Purchases</value>
+    </caseValues>
+    <nameFieldLabel>HFS Item Name</nameFieldLabel>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Bag_Count_CANNOT_be_Greater_than_Spend</name>
+    </validationRules>
+</CustomObjectTranslation>

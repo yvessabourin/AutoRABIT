@@ -1,0 +1,19 @@
+<apex:page showHeader="false" showChat="false" standardController="Village_Presence__c">
+<apex:includeScript value="{!URLFOR($Resource.SLCA2__ca3)}/plugin/jquery-1.8.0.min.js" />
+<script>
+jQuery(document).on('ready', function(){
+    console.log('a');
+    jQuery.ajaxSetup({"crossDomain" : true});
+});
+</script>
+
+{!id}
+ <SLCA2:calendar namespace="SLCA2" calendar="Participating_Village_Presence" settings="['r_d','r_y','r_c','r_s']" urlparams="l_ds=1&sb=1&v=g&pv1={!id}"> 
+
+</SLCA2:calendar>
+
+
+ 
+ 
+ 
+</apex:page>

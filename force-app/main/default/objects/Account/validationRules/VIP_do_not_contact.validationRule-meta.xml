@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VIP_do_not_contact</fullName>
+    <active>true</active>
+    <errorConditionFormula>IF(AND($RecordType.DeveloperName = &quot;VIP_Guest&quot;, DO_NOT_CONTACT__c, Account_Manager_Contact_Only__c), 
+			true, 
+			false)</errorConditionFormula>
+    <errorDisplayField>Account_Manager_Contact_Only__c</errorDisplayField>
+    <errorMessage>The guest does not wish to be contacted.</errorMessage>
+</ValidationRule>

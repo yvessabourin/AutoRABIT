@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Certification_Active</fullName>
+    <active>true</active>
+    <description>The certification is only active if the certification type have any value.</description>
+    <errorConditionFormula>IF(AND(ISBLANK(TEXT(CertSales_CertPeriod_Type__c)),CertSales_Active__c == true), true, false)</errorConditionFormula>
+    <errorDisplayField>CertSales_CertPeriod_Type__c</errorDisplayField>
+    <errorMessage>You set certification sales as true, you need to set the certification type.</errorMessage>
+</ValidationRule>

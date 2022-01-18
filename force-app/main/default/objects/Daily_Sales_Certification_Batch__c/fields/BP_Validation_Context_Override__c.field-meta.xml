@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>BP_Validation_Context_Override__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>This fields is used to do an override on a specific validation Rule (Store_Closed_with_Sales) in order to enable the editing of fields. The context varies between Daily Sales Entry and Certification tiles.</description>
+    <externalId>false</externalId>
+    <label>Validation Context Override</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

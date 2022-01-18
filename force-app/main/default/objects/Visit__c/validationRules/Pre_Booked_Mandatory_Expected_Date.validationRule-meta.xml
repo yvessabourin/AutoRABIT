@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Pre_Booked_Mandatory_Expected_Date</fullName>
+    <active>true</active>
+    <description>When Walk in/Booked field is Booked the Expected Date of Arrival are mandatory.</description>
+    <errorConditionFormula>AND(  ISPICKVAL( Walk_in_Booked__c , &apos;Booked&apos;) , 
+      ISBLANK(Arrival_Date__c)
+)</errorConditionFormula>
+    <errorDisplayField>Arrival_Date__c</errorDisplayField>
+    <errorMessage>This field has to be populated for Booked visits</errorMessage>
+</ValidationRule>

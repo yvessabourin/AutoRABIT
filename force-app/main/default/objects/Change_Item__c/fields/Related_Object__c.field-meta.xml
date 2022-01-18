@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Related_Object__c</fullName>
+    <description>If a component can be duplicated (e.g. field name across multiple objects) this field is used to clarify which component is being referenced</description>
+    <externalId>false</externalId>
+    <inlineHelpText>(if applicable) enter the object in which this component belongs to</inlineHelpText>
+    <label>Related Object</label>
+    <length>100</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

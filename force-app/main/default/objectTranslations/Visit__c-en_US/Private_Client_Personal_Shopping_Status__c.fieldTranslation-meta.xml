@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help></help>
+    <label></label>
+    <name>Private_Client_Personal_Shopping_Status__c</name>
+    <picklistValues>
+        <masterLabel>1st Visit</masterLabel>
+        <translation></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Existing</masterLabel>
+        <translation></translation>
+    </picklistValues>
+</CustomFieldTranslation>

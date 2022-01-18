@@ -1,0 +1,19 @@
+<aura:component controller="BP_Terms_Controller" implements="force:appHostable,flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes" access="global" >
+    
+    <aura:attribute name="Terms_S" type="String" />  
+    <aura:attribute name="Terms_Approver" type="String"/>  
+    
+    <aura:attribute name="DisclaimerValue" type="Boolean" default="false"/> 
+    
+    <aura:attribute name="Checkdisable" type="Boolean" default="true"/>  
+    <aura:attribute name="Buttondisable" type="Boolean" default="true"/>  
+     
+    <aura:handler name="init" value="{! this }" action="{! c.init }" />       
+    
+    <lightning:formattedRichText class="slds-text-longform" value="{!v.Terms_S}"></lightning:formattedRichText>
+    <br />
+    <ui:inputCheckbox disabled="{!v.Checkdisable}" value="true" aura:id="checkbox" label="{!$Label.c.DAILY_SALE_SAVE_CONFIRMATION}" change="{!c.onCheck}"/>
+    <br />
+    <lightning:button disabled="{!v.Buttondisable}" variant="brand" label="{!$Label.c.DAILY_SALE_SAVE_BTN}" title="Brand action" onclick="{! c.handleClick }" />
+    <lightning:formattedText value="{!v.Terms_Approver}" />
+</aura:component>

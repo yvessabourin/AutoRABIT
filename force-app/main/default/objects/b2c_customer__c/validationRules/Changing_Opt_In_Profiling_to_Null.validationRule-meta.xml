@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Changing_Opt_In_Profiling_to_Null</fullName>
+    <active>true</active>
+    <description>Rule to prevent opt in value changing from a populated value to null.</description>
+    <errorConditionFormula>IF(  ISBLANK( TEXT( optInProfiling__c ) ) &amp;&amp; NOT(ISBLANK( PRIORVALUE(optInProfiling__c ) )) , TRUE, FALSE)</errorConditionFormula>
+    <errorDisplayField>optInProfiling__c</errorDisplayField>
+    <errorMessage>Cannot revert Opt-in value to a null value. Please select false if you wish to remove Opt-in preference.</errorMessage>
+</ValidationRule>

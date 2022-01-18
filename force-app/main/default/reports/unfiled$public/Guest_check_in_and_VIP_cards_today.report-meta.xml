@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Visit__c.Visit_Date_Time__c</field>
+    </columns>
+    <columns>
+        <field>CUST_NAME</field>
+    </columns>
+    <columns>
+        <aggregateTypes>Sum</aggregateTypes>
+        <field>Visit__c.Number_of_Guests__c</field>
+    </columns>
+    <columns>
+        <aggregateTypes>Sum</aggregateTypes>
+        <field>Visit__c.VIP_Cards_Exchanged__c</field>
+    </columns>
+    <columns>
+        <field>Visit__c.Partner_Account_Name__c</field>
+    </columns>
+    <currency>EUR</currency>
+    <description>Gustes with VIP cards today</description>
+    <filter>
+        <criteriaItems>
+            <column>Visit__c.Village__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Wertheim</value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
+    <format>Summary</format>
+    <name>Guest check in and VIP cards today</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CustomEntityCustomEntity$Visit__c$VIP_Card_Exchange__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <sortColumn>Visit__c.Visit_Date_Time__c</sortColumn>
+    <sortOrder>Asc</sortOrder>
+    <timeFrameFilter>
+        <dateColumn>Visit__c.Visit_Date_Time__c</dateColumn>
+        <interval>INTERVAL_TODAY</interval>
+    </timeFrameFilter>
+</Report>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>TI_Status__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Select the appropriate value describing the current status of the tenant incentive contribution</inlineHelpText>
+    <label>TI Status</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Predicted</fullName>
+                <default>false</default>
+                <label>Predicted</label>
+            </value>
+            <value>
+                <fullName>Intended</fullName>
+                <default>false</default>
+                <label>Intended</label>
+            </value>
+            <value>
+                <fullName>Committed</fullName>
+                <default>false</default>
+                <label>Committed</label>
+            </value>
+            <value>
+                <fullName>Contracted</fullName>
+                <default>false</default>
+                <label>Contracted</label>
+            </value>
+            <value>
+                <fullName>Paid</fullName>
+                <default>false</default>
+                <label>Paid</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

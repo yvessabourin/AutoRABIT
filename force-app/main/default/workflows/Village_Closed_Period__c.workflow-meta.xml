@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fieldUpdates>
+        <fullName>Populate_Unique_Field_Update</fullName>
+        <field>Unique_Name__c</field>
+        <formula>Village__r.Name  &amp;  TEXT(From__c)  &amp;  TEXT(To__c)</formula>
+        <name>Populate Unique Field_Update</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>VCP_Activate</fullName>
+        <field>Active__c</field>
+        <literalValue>1</literalValue>
+        <name>VCP Activate</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>VCP_Deativate</fullName>
+        <field>Active__c</field>
+        <literalValue>0</literalValue>
+        <name>VCP Deativate</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <rules>
+        <fullName>Populate Unique Field</fullName>
+        <actions>
+            <name>Populate_Unique_Field_Update</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Village_Closed_Period__c.CreatedDate</field>
+            <operation>greaterThan</operation>
+            <value>1/1/2000</value>
+        </criteriaItems>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Village Closed Period Activate</fullName>
+        <actions>
+            <name>VCP_Activate</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>Closed_Year__c = Current_Year__c</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Village Closed Period Deactivate</fullName>
+        <actions>
+            <name>VCP_Deativate</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>Closed_Year__c  &lt;&gt; Current_Year__c</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+</Workflow>

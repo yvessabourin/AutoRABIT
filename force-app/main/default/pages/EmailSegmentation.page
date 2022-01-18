@@ -1,0 +1,30 @@
+<apex:page showHeader="true" sidebar="true" standardController="Brand_Segmentation_Approval__c" recordSetVar="brandEmails" extensions="SegmentationEmailExtension"  action="{!emailSegmentationRecord}" >
+	
+
+	<apex:form >
+		<apex:commandButton value="Email" rendered="false"/>
+		<apex:pageBlock rendered="false">
+	  <apex:pageBlockSection title="Selected Brand Segmentation Approvals" columns="1">
+        <apex:pageBlockTable value="{!brandEmails}"  var="bsas">
+          <apex:column value="{!bsas.name}"/>
+          <apex:column value="{!bsas.Approval_Date__c} "/>
+          <apex:column headerValue="Data">
+            <apex:outputText value="{!bsas.Assigned_To__c} {!bsas.Assigned_To__r.Name} {!bsas.Assigned_To__r.Email} {!bsas.Brand__c} {!bsas.Brand__r.Name} {!bsas.Brand_Gender__c}  {!bsas.Brand_Guest_Relevance__c}  {!bsas.Brand_Segment__c}  {!bsas.Brand_Subsegment__c}  {!bsas.Brand_VR_Positioning__c}  {!bsas.Email_Notification_Date__c}  {!bsas.Status__c}"/>
+          </apex:column>
+        </apex:pageBlockTable>
+      </apex:pageBlockSection></apex:pageBlock>
+      <apex:pageMessages ></apex:pageMessages>	
+<br />
+<br />
+<button onclick="goBack();return false;">Go Back</button>
+
+
+<script type="text/javascript">
+function goBack() {
+    window.location = "{!JSENCODE($CurrentPage.Parameters.retURL)}";
+   return false;
+}
+</script>
+	</apex:form>
+	
+</apex:page>

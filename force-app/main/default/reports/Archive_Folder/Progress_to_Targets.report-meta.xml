@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>CUST_NAME</field>
+    </columns>
+    <columns>
+        <field>Group_Booking__c.Status__c</field>
+    </columns>
+    <columns>
+        <field>Group_Booking__c.Group_Type__c</field>
+    </columns>
+    <columns>
+        <field>Group_Booking__c.Region__c</field>
+    </columns>
+    <columns>
+        <field>Group_Booking__c.VR_Representative__c</field>
+    </columns>
+    <columns>
+        <field>Group_Booking__c.Name_of_Event__c</field>
+    </columns>
+    <currency>EUR</currency>
+    <description>Slide 4, using new reporting fields</description>
+    <filter>
+        <criteriaItems>
+            <column>Group_Booking__c.Status__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>false</isUnlocked>
+            <operator>notEqual</operator>
+            <value>Cancelled</value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
+    <format>Matrix</format>
+    <name>Progress to Targets</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CustomEntity$Group_Booking__c</reportType>
+    <scope>organization</scope>
+    <showDetails>false</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>Group_Booking__c.Arrival_Date__c</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Guest_Segment__c</fullName>
+    <description>which Segment each HNW Guest belongs to</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Private Client – spend more than €5k annually
+Private Client Elite – spend more than €20k annually
+General Guest - Membership Level 1, 2 and 3 (spend below €5k annually)</inlineHelpText>
+    <label>Guest Segment</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Private Client Elite</fullName>
+                <default>false</default>
+                <label>Private Client Elite</label>
+            </value>
+            <value>
+                <fullName>Private Client</fullName>
+                <default>false</default>
+                <label>Private Client</label>
+            </value>
+            <value>
+                <fullName>General Guest</fullName>
+                <default>false</default>
+                <label>General Guest</label>
+            </value>
+            <value>
+                <fullName>Style Addict</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Style Addict</label>
+            </value>
+            <value>
+                <fullName>Style Connoisseur</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Style Connoisseur</label>
+            </value>
+            <value>
+                <fullName>Style Elite</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Style Elite</label>
+            </value>
+            <value>
+                <fullName>Style Lover</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Style Lover</label>
+            </value>
+            <value>
+                <fullName>Value Hungry</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Value Hungry</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

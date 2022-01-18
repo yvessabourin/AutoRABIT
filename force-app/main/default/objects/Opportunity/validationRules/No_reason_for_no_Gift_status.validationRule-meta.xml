@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>No_reason_for_no_Gift_status</fullName>
+    <active>false</active>
+    <description>If the deal is set to no gift given, then enforce a reason
+
+- IN TEST (applies to IW only)</description>
+    <errorConditionFormula>$Setup.Global_Object_Validation__c.Deal_Validations_Active__c 
+&amp;&amp;   ISPICKVAL(Gift_Status__c , &quot;No Gift Given&quot;)
+&amp;&amp;  ISBLANK( Reason_No_Gift_Given__c )
+&amp;&amp; CreateGift__c = true
+&amp;&amp;  PRIORVALUE(CreateGift__c) = true</errorConditionFormula>
+    <errorDisplayField>Reason_No_Gift_Given__c</errorDisplayField>
+    <errorMessage>If no gift is to be given, please enter a reason why.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Edit_Email</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <linkType>javascript</linkType>
+    <masterLabel>Edit Email</masterLabel>
+    <openType>onClickJavaScript</openType>
+    <protected>false</protected>
+    <url>if (&apos;{!Account.PersonEmail}&apos;) {
+window.location.href = &quot;/apex/apiCustomerEmail?Id={!Account.Id}&amp;guid={!Account.Customer_GUID__c}&amp;currentEmail=&quot; + &apos;{!SUBSTITUTE(Account.PersonEmail, &quot;+&quot;, &quot;%2B&quot;)}&apos; + &quot;&amp;retURL=/{!Account.Id}&quot;;
+} else {
+   alert(&apos;Guest had no current Email address. Please use the Edit Guest button to add an Email address&apos;);
+}</url>
+</WebLink>

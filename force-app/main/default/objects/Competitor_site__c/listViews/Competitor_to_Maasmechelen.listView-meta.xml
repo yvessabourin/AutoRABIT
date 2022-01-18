@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Competitor_to_Maasmechelen</fullName>
+    <columns>NAME</columns>
+    <columns>Type__c</columns>
+    <columns>Competitor_to_Village__c</columns>
+    <columns>Distance_from_Village_km__c</columns>
+    <columns>Number_of_Registered_Stores__c</columns>
+    <columns>Priority_level__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Competitor_to_Village__c</field>
+        <operation>equals</operation>
+        <value>Maasmechelen</value>
+    </filters>
+    <label>Competitor to Maasmechelen</label>
+    <language>en_US</language>
+</ListView>

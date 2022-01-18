@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Radio_Activities_IV_WV_2018</fullName>
+    <columns>NAME</columns>
+    <columns>Marketing_Campaign__c</columns>
+    <columns>Category__c</columns>
+    <columns>Sub_Channel__c</columns>
+    <columns>Status__c</columns>
+    <columns>Start_Date__c</columns>
+    <columns>End_Date__c</columns>
+    <columns>Reach__c</columns>
+    <columns>Marketing_Activity_Ref__c</columns>
+    <columns>Activity_Cost__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Channel__c</field>
+        <operation>contains</operation>
+        <value>Media</value>
+    </filters>
+    <filters>
+        <field>Start_Date__c</field>
+        <operation>greaterThan</operation>
+        <value>1/1/2018</value>
+    </filters>
+    <filters>
+        <field>End_Date__c</field>
+        <operation>lessThan</operation>
+        <value>12/31/2018</value>
+    </filters>
+    <filters>
+        <field>Sub_Channel__c</field>
+        <operation>equals</operation>
+        <value>Radio</value>
+    </filters>
+    <filters>
+        <field>Marketing_Campaign_Village__c</field>
+        <operation>equals</operation>
+        <value>Wertheim</value>
+    </filters>
+    <label>Radio Activities WV 2018</label>
+    <language>en_US</language>
+</ListView>

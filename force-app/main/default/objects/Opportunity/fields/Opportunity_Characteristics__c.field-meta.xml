@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Opportunity_Characteristics__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Select which values from the available list apply to this opportunity</inlineHelpText>
+    <label>Opportunity Characteristics</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Unlikely for 2012</fullName>
+                <default>false</default>
+                <label>Unlikely for 2012</label>
+            </value>
+            <value>
+                <fullName>Power Brand - Anchor</fullName>
+                <default>false</default>
+                <label>Power Brand - Anchor</label>
+            </value>
+            <value>
+                <fullName>Power Brand - Flagship</fullName>
+                <default>false</default>
+                <label>Power Brand - Flagship</label>
+            </value>
+            <value>
+                <fullName>Global Brand</fullName>
+                <default>false</default>
+                <label>Global Brand</label>
+            </value>
+            <value>
+                <fullName>Positioning</fullName>
+                <default>false</default>
+                <label>Positioning</label>
+            </value>
+            <value>
+                <fullName>Asked to Reserve Space</fullName>
+                <default>false</default>
+                <label>Asked to Reserve Space</label>
+            </value>
+            <value>
+                <fullName>Top 6</fullName>
+                <default>false</default>
+                <label>Top 6</label>
+            </value>
+            <value>
+                <fullName>Gucci &amp; Prada</fullName>
+                <default>false</default>
+                <label>Gucci &amp; Prada</label>
+            </value>
+            <value>
+                <fullName>Not on Dream Plan</fullName>
+                <default>false</default>
+                <label>Not on Dream Plan</label>
+            </value>
+            <value>
+                <fullName>On Dream Plan</fullName>
+                <default>false</default>
+                <label>On Dream Plan</label>
+            </value>
+            <value>
+                <fullName>Unit Reserved</fullName>
+                <default>false</default>
+                <label>Unit Reserved</label>
+            </value>
+            <value>
+                <fullName>Site Visit Planned</fullName>
+                <default>false</default>
+                <label>Site Visit Planned</label>
+            </value>
+            <value>
+                <fullName>Top Brands</fullName>
+                <default>false</default>
+                <label>Top Brands</label>
+            </value>
+            <value>
+                <fullName>Deals to accelerate forward</fullName>
+                <default>false</default>
+                <label>Deals to accelerate forward</label>
+            </value>
+            <value>
+                <fullName>Brands to push, other brands to sign 1st</fullName>
+                <default>false</default>
+                <label>Brands to push, other brands to sign 1st</label>
+            </value>
+            <value>
+                <fullName>Priority meetings</fullName>
+                <default>false</default>
+                <label>Priority meetings</label>
+            </value>
+            <value>
+                <fullName>Follow-up Meetings</fullName>
+                <default>false</default>
+                <label>Follow-up Meetings</label>
+            </value>
+            <value>
+                <fullName>Focus Brands (31/07)</fullName>
+                <default>false</default>
+                <label>Focus Brands (31/07)</label>
+            </value>
+            <value>
+                <fullName>2nd Tier Brands</fullName>
+                <default>false</default>
+                <label>2nd Tier Brands</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>5</visibleLines>
+</CustomField>

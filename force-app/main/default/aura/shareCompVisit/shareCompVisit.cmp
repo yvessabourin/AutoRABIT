@@ -1,0 +1,25 @@
+<aura:component controller="shareSiteVisitController" access="GLOBAL" implements="force:lightningQuickActionWithoutHeader,lightning:isUrlAddressable">
+    
+    <ltng:require styles="/resource/SLDS0121/assets/styles/salesforce-lightning-design-system-ltng.min.css"/>
+   
+ 
+   	<aura:handler name="render" value="{!this}" action="{!c.onRender}"/>
+    <aura:attribute name="recordId" type="String" />
+    <aura:attribute name="compvisit" type="Competitor_Visit__c"/>
+     
+ <!--
+    <div class="card-heading">
+        <ui:outputText value="{!v.recordId}" />
+    </div>
+    
+    <div class="card-heading">
+        <ui:outputCheckbox value="{!v.compvisit.Share_Site_Visit_Info__c }" />
+    </div>
+     
+    <div class="card-heading">
+     <ui:button label="Share Report" press="{!c.shareCompVisitReport}"/>
+    </div>
+
+-->
+   
+</aura:component>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Gift__c.Gift_Recipients__r$Contact__c</field>
+    </columns>
+    <columns>
+        <field>Gift__c$Gift_Value__c</field>
+    </columns>
+    <columns>
+        <field>Gift__c$Currency__c</field>
+    </columns>
+    <columns>
+        <field>Gift__c$Reason__c</field>
+    </columns>
+    <columns>
+        <field>Gift__c$Multi_Deal_Gift__c</field>
+    </columns>
+    <description>Report of Gifts</description>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Gift__c$Deal__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Gift__c$Name</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>Deal gifts</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Gifts_with_Recipients__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>Gift__c$CreatedDate</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

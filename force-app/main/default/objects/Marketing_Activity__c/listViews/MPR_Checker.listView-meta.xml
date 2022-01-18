@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MPR_Checker</fullName>
+    <columns>NAME</columns>
+    <columns>Partner_Campaign__c</columns>
+    <columns>Partner__c</columns>
+    <columns>Partner_Name__c</columns>
+    <columns>Market__c</columns>
+    <columns>Domestic__c</columns>
+    <columns>Region__c</columns>
+    <columns>Segmentation__c</columns>
+    <columns>Segment_Name__c</columns>
+    <columns>Expected_Footfall__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Region__c</field>
+        <operation>notEqual</operation>
+    </filters>
+    <filters>
+        <field>Segmentation__c</field>
+        <operation>notEqual</operation>
+    </filters>
+    <filters>
+        <field>Region__c</field>
+        <operation>notEqual</operation>
+    </filters>
+    <filters>
+        <field>Market__c</field>
+        <operation>notEqual</operation>
+    </filters>
+    <label>MPR Checker</label>
+    <language>en_US</language>
+</ListView>

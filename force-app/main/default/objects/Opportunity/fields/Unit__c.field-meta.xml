@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Unit__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <externalId>false</externalId>
+    <inlineHelpText>The Unit assigned to this opportunity, this is synchronized with the Unit on the Contract when the Unit is formally committed to the brand</inlineHelpText>
+    <label>Unit</label>
+    <lookupFilter>
+        <active>true</active>
+        <filterItems>
+            <field>Unit__c.Unit_Status__c</field>
+            <operation>notEqual</operation>
+            <value></value>
+        </filterItems>
+        <filterItems>
+            <field>Unit__c.Village__c</field>
+            <operation>equals</operation>
+            <valueField>$Source.Village__c</valueField>
+        </filterItems>
+        <isOptional>true</isOptional>
+    </lookupFilter>
+    <referenceTo>Unit__c</referenceTo>
+    <relationshipLabel>Deals</relationshipLabel>
+    <relationshipName>Opportunities</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>true</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

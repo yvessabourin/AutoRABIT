@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LGL_Type__c</fullName>
+    <description>Type (luggage or loan) for the Service</description>
+    <externalId>false</externalId>
+    <label>Type</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>luggage</fullName>
+                <default>false</default>
+                <label>Luggage</label>
+            </value>
+            <value>
+                <fullName>loan</fullName>
+                <default>false</default>
+                <label>Loan</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

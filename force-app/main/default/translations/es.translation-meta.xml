@@ -1,0 +1,2648 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Translations xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customLabels>
+        <label><!-- Adbuilder_Button_FieldId --></label>
+        <name>Adbuilder_Button_FieldId</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Adbuilder_Button_Link --></label>
+        <name>Adbuilder_Button_Link</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Adbuilder_Button_Link2 --></label>
+        <name>Adbuilder_Button_Link2</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Adbuilder_Button_RecordTypeId --></label>
+        <name>Adbuilder_Button_RecordTypeId</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Add --></label>
+        <name>Add</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AnonymizedString --></label>
+        <name>AnonymizedString</name>
+    </customLabels>
+    <customLabels>
+        <label>Atrás</label>
+        <name>BP_Back</name>
+    </customLabels>
+    <customLabels>
+        <label>Retroceder a la página de inicio</label>
+        <name>BP_Back_Help</name>
+    </customLabels>
+    <customLabels>
+        <label>Ventas netas</label>
+        <name>BP_Brand_Sales</name>
+    </customLabels>
+    <customLabels>
+        <label>Las ventas de caja reportadas (IVA excluido)</label>
+        <name>BP_Brand_Sales_Help</name>
+    </customLabels>
+    <customLabels>
+        <label>Firma / Village</label>
+        <name>BP_Brand_in_Village</name>
+    </customLabels>
+    <customLabels>
+        <label>Cancelar</label>
+        <name>BP_Cancel</name>
+    </customLabels>
+    <customLabels>
+        <label>Finalización del periodo de Certificación</label>
+        <name>BP_Certification_Close_Period</name>
+    </customLabels>
+    <customLabels>
+        <label>Fecha límite para certificar</label>
+        <name>BP_Certification_Deadline</name>
+    </customLabels>
+    <customLabels>
+        <label>Inicio periodo de Certificación</label>
+        <name>BP_Certification_Open_Period</name>
+    </customLabels>
+    <customLabels>
+        <label>Periodo de Certificación</label>
+        <name>BP_Certification_Period</name>
+    </customLabels>
+    <customLabels>
+        <label>Se dispone a Certificar las ventas. Tenga en cuenta que las ventas que está reportando deben ser netas (IVA excluído).</label>
+        <name>BP_Certification_Submit</name>
+    </customLabels>
+    <customLabels>
+        <label>La presente plataforma se encuentra sujeta a obligaciones contractuales y de confidencialidad, y únicamente debe ser utilizada por el personal expresamente autorizado.</label>
+        <name>BP_Certification_Submit_2</name>
+    </customLabels>
+    <customLabels>
+        <label>Ha enviado las ventas Certificadas correctamente</label>
+        <name>BP_Certification_Success</name>
+    </customLabels>
+    <customLabels>
+        <label>Ventas Certificadas</label>
+        <name>BP_Certified_Amount</name>
+    </customLabels>
+    <customLabels>
+        <label>Cifra Certificada (Total Ventas Netas + Total Descuentos VIP y al staff Netos)</label>
+        <name>BP_Certified_Amount_Help</name>
+    </customLabels>
+    <customLabels>
+        <label>Comentarios</label>
+        <name>BP_Comments</name>
+    </customLabels>
+    <customLabels>
+        <label>Comentarios para explicar cualquier variación</label>
+        <name>BP_Comments_Help</name>
+    </customLabels>
+    <customLabels>
+        <label>Confirmar</label>
+        <name>BP_Confirm</name>
+    </customLabels>
+    <customLabels>
+        <label>Fecha</label>
+        <name>BP_Date</name>
+    </customLabels>
+    <customLabels>
+        <label>Fecha</label>
+        <name>BP_Date_Help</name>
+    </customLabels>
+    <customLabels>
+        <label>Descuentos certificados netos VIP y al staff</label>
+        <name>BP_Enter_Certified_VIP_Amount</name>
+    </customLabels>
+    <customLabels>
+        <label>Ventas Netas Certificadas</label>
+        <name>BP_Enter_Sales</name>
+    </customLabels>
+    <customLabels>
+        <label>Las ventas de caja reportadas (IVA excluído)</label>
+        <name>BP_Enter_Sales_Help</name>
+    </customLabels>
+    <customLabels>
+        <label>Descuentos netos VIP y al staff</label>
+        <name>BP_Enter_VIP_Amount</name>
+    </customLabels>
+    <customLabels>
+        <label>Total Valor neto de descuentos VIP y al staff (IVA excluído)</label>
+        <name>BP_Enter_VIP_Amount_Help</name>
+    </customLabels>
+    <customLabels>
+        <label>Error</label>
+        <name>BP_Error</name>
+    </customLabels>
+    <customLabels>
+        <label>VENTAS NETAS Y DESCUENTOS NETOS (EXCLUYENDO IVA)</label>
+        <name>BP_Excluding_Warning</name>
+    </customLabels>
+    <customLabels>
+        <label>Exportar información en formato CSV</label>
+        <name>BP_Export_Help</name>
+    </customLabels>
+    <customLabels>
+        <label>¡Fichero no compatible!</label>
+        <name>BP_File_Not_Supported</name>
+    </customLabels>
+    <customLabels>
+        <label>¡Fichero cargado con éxito!</label>
+        <name>BP_File_Success_Upload</name>
+    </customLabels>
+    <customLabels>
+        <label>¡El fichero no puede ser mayor a 1MB!</label>
+        <name>BP_File_Upload_Size</name>
+    </customLabels>
+    <customLabels>
+        <label>Importar información</label>
+        <name>BP_Import_Help</name>
+    </customLabels>
+    <customLabels>
+        <label>Las ventas Certificadas no puede estar en blanco a no ser que el local estuviese cerrado en esa fecha. Por favor introduzca un valor o complete la columna de &quot;Local cerrado&quot;.</label>
+        <name>BP_Mandatory_Certified_Amount</name>
+    </customLabels>
+    <customLabels>
+        <label>Hay una variación signifcativa entre las ventas Reportadas, desde el local, y las ventas Certificadas. Por favor, incluya un comentario explicando el motivo de las variaciones en el recuadro de &quot;Comentario general&quot; antes de enviar las ventas Certificadas.</label>
+        <name>BP_Mandatory_Comment</name>
+    </customLabels>
+    <customLabels>
+        <label>Por favor, asegurese de hacer algún cambio en la información de Ventas Certificadas o incluya un comentario general</label>
+        <name>BP_Mandatory_Edit</name>
+    </customLabels>
+    <customLabels>
+        <label>Pendiente</label>
+        <name>BP_Outstanding</name>
+    </customLabels>
+    <customLabels>
+        <label>Comentario general</label>
+        <name>BP_Overall_Comment</name>
+    </customLabels>
+    <customLabels>
+        <label>Introduzca un comentario general para explicar las variaciones</label>
+        <name>BP_Overall_Comment_Help</name>
+    </customLabels>
+    <customLabels>
+        <label>Certificado por:</label>
+        <name>BP_PDF_CertifiedBy</name>
+    </customLabels>
+    <customLabels>
+        <label>Confidencial - Exclusivamente para uso interno</label>
+        <name>BP_PDF_Confidential</name>
+    </customLabels>
+    <customLabels>
+        <label>El fichero CSV no tiene el formato correcto. Por favor, use coma (,) o punto y coma (;) para separar las columnas de datos</label>
+        <name>BP_PDF_Delimiter</name>
+    </customLabels>
+    <customLabels>
+        <label>para el periodo de facturación del</label>
+        <name>BP_PDF_ForPeriodFrom</name>
+    </customLabels>
+    <customLabels>
+        <label>En nombre de:</label>
+        <name>BP_PDF_OnBehalf</name>
+    </customLabels>
+    <customLabels>
+        <label>Enviado el:</label>
+        <name>BP_PDF_Submitted</name>
+    </customLabels>
+    <customLabels>
+        <label>al</label>
+        <name>BP_PDF_To</name>
+    </customLabels>
+    <customLabels>
+        <label>Certificado de Facturación de</label>
+        <name>BP_PDF_Turn</name>
+    </customLabels>
+    <customLabels>
+        <label>Imprimir informe</label>
+        <name>BP_Print_Report</name>
+    </customLabels>
+    <customLabels>
+        <label>Registro actualizado correctamente!</label>
+        <name>BP_Records_Successfull_Updated</name>
+    </customLabels>
+    <customLabels>
+        <label>Ventas Reportadas</label>
+        <name>BP_Reported</name>
+    </customLabels>
+    <customLabels>
+        <label>Cifra reportada desde el local (Total Ventas Netas + Total Descuentos VIP y al staff Netos)</label>
+        <name>BP_Reported_Help</name>
+    </customLabels>
+    <customLabels>
+        <label>Algo ha ido mal, por favor contacté con su persona de contacto en el Village</label>
+        <name>BP_Something_Went_Wrong</name>
+    </customLabels>
+    <customLabels>
+        <label>Local cerrado</label>
+        <name>BP_Store_Close</name>
+    </customLabels>
+    <customLabels>
+        <label>Marcar como Cerrado si el local no estuvo abierto</label>
+        <name>BP_Store_Close_Help</name>
+    </customLabels>
+    <customLabels>
+        <label>Enviar</label>
+        <name>BP_Submit</name>
+    </customLabels>
+    <customLabels>
+        <label>Enviar ventas Certificadas</label>
+        <name>BP_Submit_Help</name>
+    </customLabels>
+    <customLabels>
+        <label>Correcto</label>
+        <name>BP_Success</name>
+    </customLabels>
+    <customLabels>
+        <label>Formato de tabla incompatible</label>
+        <name>BP_Template_Not_Supported</name>
+    </customLabels>
+    <customLabels>
+        <label>Total</label>
+        <name>BP_Total</name>
+    </customLabels>
+    <customLabels>
+        <label>Local</label>
+        <name>BP_Unit</name>
+    </customLabels>
+    <customLabels>
+        <label>Local</label>
+        <name>BP_Unit_Help</name>
+    </customLabels>
+    <customLabels>
+        <label>Necesita salvar o cancelar cualquier cambio para poder enviar las ventas Certificadas</label>
+        <name>BP_Unsaved_Changes</name>
+    </customLabels>
+    <customLabels>
+        <label>Haga click en el link para cargar las ventas. Por favor tenga en cuenta que:&lt;br/&gt;
+- El fichero a cargar no puede tener un tamaño superior a 1MB.&lt;br/&gt;
+- El sistema no acepta comas en las celdas, por favor utilice puntos como separador de decimales.</label>
+        <name>BP_Upload_Sales_Data</name>
+    </customLabels>
+    <customLabels>
+        <label>Descuentos netos VIP y al staff</label>
+        <name>BP_VIP_Discount</name>
+    </customLabels>
+    <customLabels>
+        <label>Total Valor neto de descuentos VIP y al staff (IVA excluído)</label>
+        <name>BP_VIP_Discount_Help</name>
+    </customLabels>
+    <customLabels>
+        <label>Variación</label>
+        <name>BP_Variance</name>
+    </customLabels>
+    <customLabels>
+        <label>Variación entre ventas Certificadas y ventas Reportadas</label>
+        <name>BP_Variance_Help</name>
+    </customLabels>
+    <customLabels>
+        <label>¡Importante!</label>
+        <name>BP_Warning</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Campaign Name --></label>
+        <name>Campaign_Name</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Campaigns --></label>
+        <name>Campaigns</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Campaigns and Activities --></label>
+        <name>Campaigns_and_Activities</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Cancel --></label>
+        <name>Cancel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Community Name Agency --></label>
+        <name>CommunityNameMBSAgency</name>
+    </customLabels>
+    <customLabels>
+        <label>Crear empleado</label>
+        <name>Create_Colleagues</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Creative Name --></label>
+        <name>Creative_Name</name>
+    </customLabels>
+    <customLabels>
+        <label>Ventas diarias</label>
+        <name>DAILY_SALE</name>
+    </customLabels>
+    <customLabels>
+        <label>Cancelar</label>
+        <name>DAILY_SALE_CANCEL_BTN</name>
+    </customLabels>
+    <customLabels>
+        <label>Certificación de ventas</label>
+        <name>DAILY_SALE_CERTIFICATION</name>
+    </customLabels>
+    <customLabels>
+        <label>Click en el gráfico para actualizar  ¡!!</label>
+        <name>DAILY_SALE_CLICK_TO_REFRESH</name>
+    </customLabels>
+    <customLabels>
+        <label>Confirmar ventas diarias</label>
+        <name>DAILY_SALE_CONFIRM</name>
+    </customLabels>
+    <customLabels>
+        <label>Historial de confirmaciones</label>
+        <name>DAILY_SALE_CONFIRMED_HISTORY_LIST</name>
+    </customLabels>
+    <customLabels>
+        <label>Informes confirmados los últimos 3 meses</label>
+        <name>DAILY_SALE_CONFIRMED_RECORDS_3_MONTHS</name>
+    </customLabels>
+    <customLabels>
+        <label>A tener en cuenta:</label>
+        <name>DAILY_SALE_CONFIRM_INFO_1</name>
+    </customLabels>
+    <customLabels>
+        <label>Solo se muestran informes preparados y válidos para su confirmación.</label>
+        <name>DAILY_SALE_CONFIRM_INFO_2</name>
+    </customLabels>
+    <customLabels>
+        <label>Solo verás los informes que tienes autoridad para confirmar.</label>
+        <name>DAILY_SALE_CONFIRM_INFO_3</name>
+    </customLabels>
+    <customLabels>
+        <label>Por favor, contacta a tu Retail Manager si tienes algún problema/pregunta.</label>
+        <name>DAILY_SALE_CONFIRM_INFO_4</name>
+    </customLabels>
+    <customLabels>
+        <label>Tienes certificados de Daily Sales sin confirmar. Por favor entra al portal y confírmalos lo antes posible. 
+&lt;br/&gt;
+Si necesitas ayuda, contacta con el Retail Coordinator de tu Village.
+&lt;br/&gt;
+&lt;br/&gt;</label>
+        <name>DAILY_SALE_CONFIRM_REMINDER_EMAIL_BODY</name>
+    </customLabels>
+    <customLabels>
+        <label>Daily Sales – Tienes ventas sin confirmar</label>
+        <name>DAILY_SALE_CONFIRM_REMINDER_EMAIL_SUBJECT</name>
+    </customLabels>
+    <customLabels>
+        <label>Confirmar selección</label>
+        <name>DAILY_SALE_CONFIRM_SELECTED</name>
+    </customLabels>
+    <customLabels>
+        <label>Registro (s) confirmado</label>
+        <name>DAILY_SALE_CONFIRM_SUCCESSFUL</name>
+    </customLabels>
+    <customLabels>
+        <label>Descripción</label>
+        <name>DAILY_SALE_DESCRIPTION</name>
+    </customLabels>
+    <customLabels>
+        <label>Desactivar usuario</label>
+        <name>DAILY_SALE_DISABLE_USER_BTN</name>
+    </customLabels>
+    <customLabels>
+        <label>Nombre del documento</label>
+        <name>DAILY_SALE_DOCUMENT_NAME</name>
+    </customLabels>
+    <customLabels>
+        <label>Modificar</label>
+        <name>DAILY_SALE_EDIT</name>
+    </customLabels>
+    <customLabels>
+        <label>Cantidad de ventas introducidas – 14 días</label>
+        <name>DAILY_SALE_ENTERED_SALES_AMOUNT_RPT</name>
+    </customLabels>
+    <customLabels>
+        <label>Entrada de ventas diarias</label>
+        <name>DAILY_SALE_ENTRY</name>
+    </customLabels>
+    <customLabels>
+        <label>Exportar</label>
+        <name>DAILY_SALE_EXPORT</name>
+    </customLabels>
+    <customLabels>
+        <label>Filtrar por boutique:</label>
+        <name>DAILY_SALE_FILTER_BY_STORE</name>
+    </customLabels>
+    <customLabels>
+        <label>HFS Términos de marca</label>
+        <name>DAILY_SALE_HFS_BRAND_TERMS</name>
+    </customLabels>
+    <customLabels>
+        <label>HFS Guías operacionales</label>
+        <name>DAILY_SALE_HFS_OPERATIONAL_GUIDES</name>
+    </customLabels>
+    <customLabels>
+        <label>Casa</label>
+        <name>DAILY_SALE_HOME</name>
+    </customLabels>
+    <customLabels>
+        <label>Importar</label>
+        <name>DAILY_SALE_IMPORT</name>
+    </customLabels>
+    <customLabels>
+        <label>El contacto no es un usuario válido.</label>
+        <name>DAILY_SALE_INVALID_USER</name>
+    </customLabels>
+    <customLabels>
+        <label>Informes en progreso</label>
+        <name>DAILY_SALE_IN_PROGRESS_LIST</name>
+    </customLabels>
+    <customLabels>
+        <label>Última modificación por</label>
+        <name>DAILY_SALE_LAST_MODIFIED_BY</name>
+    </customLabels>
+    <customLabels>
+        <label>Cerrar sesión</label>
+        <name>DAILY_SALE_LOGOUT</name>
+    </customLabels>
+    <customLabels>
+        <label>Mi perfil</label>
+        <name>DAILY_SALE_MY_PROFILE</name>
+    </customLabels>
+    <customLabels>
+        <label>Mi configuración</label>
+        <name>DAILY_SALE_MY_SETTINGS</name>
+    </customLabels>
+    <customLabels>
+        <label>No hay registros válidos que puedas confirmar en este momento</label>
+        <name>DAILY_SALE_NO_CONFIRM_RECORDS</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- DAILY_SALE_PORTAL_URL --></label>
+        <name>DAILY_SALE_PORTAL_URL</name>
+    </customLabels>
+    <customLabels>
+        <label>Detalles</label>
+        <name>DAILY_SALE_RECORD_DETAIL</name>
+    </customLabels>
+    <customLabels>
+        <label>Reactivar Usuario</label>
+        <name>DAILY_SALE_RE_ENABLE_USER_BTN</name>
+    </customLabels>
+    <customLabels>
+        <label>Guardar</label>
+        <name>DAILY_SALE_SAVE_BTN</name>
+    </customLabels>
+    <customLabels>
+        <label>Guarde para confirmar que ha leído y comprendido los términos</label>
+        <name>DAILY_SALE_SAVE_CONFIRMATION</name>
+    </customLabels>
+    <customLabels>
+        <label>Seleccionar</label>
+        <name>DAILY_SALE_SELECT_LABEL</name>
+    </customLabels>
+    <customLabels>
+        <label>Seleccionar informes para confirmar</label>
+        <name>DAILY_SALE_SELECT_RECORDS_TO_CONFIRM</name>
+    </customLabels>
+    <customLabels>
+        <label>Los términos fueron aprobados por:</label>
+        <name>DAILY_SALE_TERMS_APPROVED_BY</name>
+    </customLabels>
+    <customLabels>
+        <label>El contacto es un usuario activo.</label>
+        <name>DAILY_SALE_USER_ACTIVE</name>
+    </customLabels>
+    <customLabels>
+        <label>El usuario ha sido deshabilitado.</label>
+        <name>DAILY_SALE_USER_DISABLED</name>
+    </customLabels>
+    <customLabels>
+        <label>El usuario ha sido habilitado.</label>
+        <name>DAILY_SALE_USER_ENABLED</name>
+    </customLabels>
+    <customLabels>
+        <label>El contacto es un usuario inactivo.</label>
+        <name>DAILY_SALE_USER_INACTIVE</name>
+    </customLabels>
+    <customLabels>
+        <label>El contacto no es un usuario válido actualmente. Por favor, selecciona &quot;Habilitar usuario&quot; si quieres proporcionarle acceso al Brand portal.</label>
+        <name>DAILY_SALE_USER_NOT_ENABLED</name>
+    </customLabels>
+    <customLabels>
+        <label>Ver Confirmar lista</label>
+        <name>DAILY_SALE_VIEW_CONFIRM_LIST</name>
+    </customLabels>
+    <customLabels>
+        <label>Ver historial</label>
+        <name>DAILY_SALE_VIEW_HISTORY</name>
+    </customLabels>
+    <customLabels>
+        <label>Primer día de la semana</label>
+        <name>DAILY_SALE_WEEK_COMMENCING</name>
+    </customLabels>
+    <customLabels>
+        <label>Bienvenido</label>
+        <name>DAILY_SALE_WELCOME</name>
+    </customLabels>
+    <customLabels>
+        <label>Bienvenido al Brand Portal de Value Retail</label>
+        <name>DAILY_SALE_WELCOME_EMAIL</name>
+    </customLabels>
+    <customLabels>
+        <label>Hola</label>
+        <name>DAILY_SALE_WELCOME_EMAIL_TEXT1</name>
+    </customLabels>
+    <customLabels>
+        <label>Hemos procedido a activarte como usuario del Brand Portal de Value Retail. Para activar tu password ves a</label>
+        <name>DAILY_SALE_WELCOME_EMAIL_TEXT2</name>
+    </customLabels>
+    <customLabels>
+        <label>Una vez hayas activado tu password, podrás entrar en el Brand Portal. Te recomendamos guardar la página web</label>
+        <name>DAILY_SALE_WELCOME_EMAIL_TEXT3</name>
+    </customLabels>
+    <customLabels>
+        <label>en tus favoritos o marcadores web para que sea te más fácil su uso en tu día a día.</label>
+        <name>DAILY_SALE_WELCOME_EMAIL_TEXT3a</name>
+    </customLabels>
+    <customLabels>
+        <label>La próxima vez que entres en el Brand Portal, necesitarás tu usuario y tu password. Tu usuario es:</label>
+        <name>DAILY_SALE_WELCOME_EMAIL_TEXT4</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- DAILY_SALE_WELCOME_EMAIL_TEXT4a --></label>
+        <name>DAILY_SALE_WELCOME_EMAIL_TEXT4a</name>
+    </customLabels>
+    <customLabels>
+        <label>Atentamente, 
+Value Retail Team</label>
+        <name>DAILY_SALE_WELCOME_EMAIL_TEXT5</name>
+    </customLabels>
+    <customLabels>
+        <label>Detalles</label>
+        <name>DETAILS</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Integration Service --></label>
+        <name>DataIntegrationUser</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- DeploymentUser --></label>
+        <name>DeploymentUser</name>
+    </customLabels>
+    <customLabels>
+        <label>Viernes</label>
+        <name>DoW_Friday</name>
+    </customLabels>
+    <customLabels>
+        <label>Lunes</label>
+        <name>DoW_Monday</name>
+    </customLabels>
+    <customLabels>
+        <label>Sábado</label>
+        <name>DoW_Saturday</name>
+    </customLabels>
+    <customLabels>
+        <label>Domingo</label>
+        <name>DoW_Sunday</name>
+    </customLabels>
+    <customLabels>
+        <label>Jueves</label>
+        <name>DoW_Thursday</name>
+    </customLabels>
+    <customLabels>
+        <label>Martes</label>
+        <name>DoW_Tuesday</name>
+    </customLabels>
+    <customLabels>
+        <label>Miércoles</label>
+        <name>DoW_Wednesday</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- HFS Job Without Location --></label>
+        <name>HFSJobWithoutLocationMessage</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- 2D Code Generation URL --></label>
+        <name>HFS_Code_Gen_URL</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- KPIFlow Brand Event Footfall --></label>
+        <name>KPIFlow_Brand_Event_Footfall</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- KPIFlow_Brand_Event_FootfallHelpText --></label>
+        <name>KPIFlow_Brand_Event_FootfallHelpText</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- KPIFlow Brand Event Sales --></label>
+        <name>KPIFlow_Brand_Event_Sales</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- KPIFlow_Brand_Event_SalesHelpText --></label>
+        <name>KPIFlow_Brand_Event_SalesHelpText</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- KPIFlow Brand Event Transactions --></label>
+        <name>KPIFlow_Brand_Event_Transactions</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- KPIFlow Brand Event TransactionsHelptext --></label>
+        <name>KPIFlow_Brand_Event_TransactionsHelptext</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- KPIFlow Brand Event Units --></label>
+        <name>KPIFlow_Brand_Event_Units</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- KPIFlow Brand Event UnitsHelptext --></label>
+        <name>KPIFlow_Brand_Event_UnitsHelptext</name>
+    </customLabels>
+    <customLabels>
+        <label>El importe de las ventas de productos de temporada (ex Full Price Sales) no puede ser superior al total de ventas. Las ventas netas deben incluir todas las ventas del día.</label>
+        <name>KPIFlow_CSB_Higher_Total_NET_Sales</name>
+    </customLabels>
+    <customLabels>
+        <label>El total de unidades vendidas de la temporada actual (ex Full Price Units) no puede ser superior al total de unidades vendidas del día.</label>
+        <name>KPIFlow_CSB_Higher_Total_Units</name>
+    </customLabels>
+    <customLabels>
+        <label>El número de comensales no puede ser menor al número de transacciones. Si los datos son correctos marca ‘Ignorar Validaciones’ y añade un comentario.</label>
+        <name>KPIFlow_Covers_Less_Transactions</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- KPIFlow_Footfall_cannot_be_higher_than_the_total_Units_Sold_for_the_day --></label>
+        <name>KPIFlow_Footfall_cannot_be_higher_than_the_total_Units_Sold_for_the_day</name>
+    </customLabels>
+    <customLabels>
+        <label>Introducir ventas</label>
+        <name>KPIFlow_Header</name>
+    </customLabels>
+    <customLabels>
+        <label>Si se ha seleccionado la opción  “Ignorar Validaciones, por favor confirme el motivo, o añada cualquier comentario que crea necesario.</label>
+        <name>KPIFlow_HelpText_Brand_Note</name>
+    </customLabels>
+    <customLabels>
+        <label>Introducir la cantidad de Private Appointments, si no hay Private Appointments para el día, introducir 0</label>
+        <name>KPIFlow_HelpText_Brand_Private_Appointment_Sales</name>
+    </customLabels>
+    <customLabels>
+        <label>Introducir la cantidad de Unidades de Private Appointments, si no hay Private Appointments para el día, introducir 0</label>
+        <name>KPIFlow_HelpText_Brand_Private_Appointment_Units</name>
+    </customLabels>
+    <customLabels>
+        <label>Introducir la cantidad de Transacciones de Private Appointments, si no hay Private Appointments para el día, introducir 0</label>
+        <name>KPIFlow_HelpText_Brand_Private_Appointment_transactions</name>
+    </customLabels>
+    <customLabels>
+        <label>Introducir la cantidad de Virtual Shopping, si no hay Virtual Shopping para el día, introducir 0</label>
+        <name>KPIFlow_HelpText_Brand_Virtual_Shopping_Sales</name>
+    </customLabels>
+    <customLabels>
+        <label>Introducir la cantidad de Transacciones de Virtual Shopping, si no hay Virtual Shopping para el día, introducir 0</label>
+        <name>KPIFlow_HelpText_Brand_Virtual_Shopping_Transactions</name>
+    </customLabels>
+    <customLabels>
+        <label>Introducir la cantidad de Unidades de Virtual Shopping, si no hay Virtual Shopping para el día, introducir 0</label>
+        <name>KPIFlow_HelpText_Brand_Virtual_Shopping_Units</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- KPIFlow HelpText_Covers --></label>
+        <name>KPIFlow_HelpText_Covers</name>
+    </customLabels>
+    <customLabels>
+        <label>Introducir la ventas de productos de temporada. Es un producto de la temporada actual de la colección de Full Price. Si no ha habido venta completar con 0.</label>
+        <name>KPIFlow_HelpText_Current_Season_Sales</name>
+    </customLabels>
+    <customLabels>
+        <label>Introducir las unidades vendidas de productos de temporada. Es un producto de la temporada actual de la colección de Full Price. Si no ha vendido ningun artículo completar con 0.</label>
+        <name>KPIFlow_HelpText_Current_Season_Units</name>
+    </customLabels>
+    <customLabels>
+        <label>Introducir los datos del contador de Footfall. Si no hay contador, introducir 0.</label>
+        <name>KPIFlow_HelpText_Footfall</name>
+    </customLabels>
+    <customLabels>
+        <label>Si al guardar la información salta un error de validación pero los datos introducidos son correctos, por favor marcad esta casilla y añadid un comentario con la explicación en notas.</label>
+        <name>KPIFlow_HelpText_Ignore_Validations</name>
+    </customLabels>
+    <customLabels>
+        <label>Valor neto de los descuentos</label>
+        <name>KPIFlow_HelpText_NET_Value_Discounts</name>
+    </customLabels>
+    <customLabels>
+        <label>Introducir número de transacciones</label>
+        <name>KPIFlow_HelpText_Number_Transactions</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- KPIFlow HelpText Special Curated Sales --></label>
+        <name>KPIFlow_HelpText_Special_Curated_Sales</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- KPIFlow HelpText Special Curated Units --></label>
+        <name>KPIFlow_HelpText_Special_Curated_Units</name>
+    </customLabels>
+    <customLabels>
+        <label>Seleccionar para indicar que la tienda estuvo cerrada ese día</label>
+        <name>KPIFlow_HelpText_Store_Closed</name>
+    </customLabels>
+    <customLabels>
+        <label>Total de ventas netas de Tax Free</label>
+        <name>KPIFlow_HelpText_Tax_Free_Sales_Amount</name>
+    </customLabels>
+    <customLabels>
+        <label>Total de transacciones Tax Free</label>
+        <name>KPIFlow_HelpText_Tax_Free_Trans</name>
+    </customLabels>
+    <customLabels>
+        <label>Este es el total de ventas de día. Incluye todo tipo de venta (también la venta de productos de temporada).</label>
+        <name>KPIFlow_HelpText_Total_NET_Sales</name>
+    </customLabels>
+    <customLabels>
+        <label>Artículos comprados por el cliente. (las unidades devueltas tienen que restarse del número de unidades)</label>
+        <name>KPIFlow_HelpText_Units_Sold</name>
+    </customLabels>
+    <customLabels>
+        <label>Número de transacciones escaneadas con tarjeta VIP</label>
+        <name>KPIFlow_HelpText_VIP_Cards</name>
+    </customLabels>
+    <customLabels>
+        <label>Si los valores son correctos, por favor marca la casilla “Ignorar Validaciones” y añade un comentario</label>
+        <name>KPIFlow_Ignore_Without_Notes</name>
+    </customLabels>
+    <customLabels>
+        <label>Ventas Private Appointments</label>
+        <name>KPIFlow_Label_BPASales</name>
+    </customLabels>
+    <customLabels>
+        <label>Transacciones Private Appointments</label>
+        <name>KPIFlow_Label_BPATransactions</name>
+    </customLabels>
+    <customLabels>
+        <label>Unidades Private Appointments</label>
+        <name>KPIFlow_Label_BPAUnits</name>
+    </customLabels>
+    <customLabels>
+        <label>Ventas Virtual Shopping</label>
+        <name>KPIFlow_Label_BVSSales</name>
+    </customLabels>
+    <customLabels>
+        <label>Transacciones Virtual Shopping</label>
+        <name>KPIFlow_Label_BVSTrans</name>
+    </customLabels>
+    <customLabels>
+        <label>Unidades Virtual Shopping</label>
+        <name>KPIFlow_Label_BVSUnits</name>
+    </customLabels>
+    <customLabels>
+        <label>Comentarios de la boutique</label>
+        <name>KPIFlow_Label_Brand_Notes</name>
+    </customLabels>
+    <customLabels>
+        <label>Ventas de Productos de temporada</label>
+        <name>KPIFlow_Label_CSBsSales</name>
+    </customLabels>
+    <customLabels>
+        <label>Unidades de productos de temporada</label>
+        <name>KPIFlow_Label_CSBsUnits</name>
+    </customLabels>
+    <customLabels>
+        <label>Comensales</label>
+        <name>KPIFlow_Label_Covers</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- KPIFlow Label Footfall --></label>
+        <name>KPIFlow_Label_Footfall</name>
+    </customLabels>
+    <customLabels>
+        <label>Ignorar validaciones</label>
+        <name>KPIFlow_Label_Ignore_Validations</name>
+    </customLabels>
+    <customLabels>
+        <label>Valor neto de descuentos</label>
+        <name>KPIFlow_Label_NET_Value_of_Discounts</name>
+    </customLabels>
+    <customLabels>
+        <label>Número de transacciones</label>
+        <name>KPIFlow_Label_Num_Transactions</name>
+    </customLabels>
+    <customLabels>
+        <label>Ventas con descuento &quot;discrecional&quot;</label>
+        <name>KPIFlow_Label_SCSSales</name>
+    </customLabels>
+    <customLabels>
+        <label>Unidades con descuento &quot;discrecional&quot;</label>
+        <name>KPIFlow_Label_SCSUnits</name>
+    </customLabels>
+    <customLabels>
+        <label>Tienda Cerrada</label>
+        <name>KPIFlow_Label_Store_Closed</name>
+    </customLabels>
+    <customLabels>
+        <label>Ventas Tax Free</label>
+        <name>KPIFlow_Label_Tax_Free_Sales_Amount</name>
+    </customLabels>
+    <customLabels>
+        <label>Transacciones Tax Free</label>
+        <name>KPIFlow_Label_Tax_Free_Transaction</name>
+    </customLabels>
+    <customLabels>
+        <label>Ventas NETAS totales</label>
+        <name>KPIFlow_Label_Total_NET_Sales</name>
+    </customLabels>
+    <customLabels>
+        <label>Día de venta</label>
+        <name>KPIFlow_Label_Trading_Date</name>
+    </customLabels>
+    <customLabels>
+        <label>Unidades vendidas</label>
+        <name>KPIFlow_Label_Units_Sold</name>
+    </customLabels>
+    <customLabels>
+        <label>Tarjeta Vip</label>
+        <name>KPIFlow_Label_VIPCards</name>
+    </customLabels>
+    <customLabels>
+        <label>El Valor neto de descuentos no puede ser mayor a las Ventas Netas Totales</label>
+        <name>KPIFlow_Net_Val_of_Discounts_greater_than_Sales</name>
+    </customLabels>
+    <customLabels>
+        <label>&quot;El número de transacciones con VIP cards no debe ser superior al del número total de transacciones.  
+
+Si los datos son correctos marca ‘Ignorar Validaciones’ y añade un comentario.&quot;</label>
+        <name>KPIFlow_No_of_VIPs_gtr_than_no_of_transactions</name>
+    </customLabels>
+    <customLabels>
+        <label>&quot;El número de transacciones con VIP cards no debe ser superior al número total de unidades.
+
+Si los datos son correctos marca ‘Ignorar Validaciones’ y añade un comentario.&quot;</label>
+        <name>KPIFlow_No_of_VIPs_gtr_than_no_of_units_sold</name>
+    </customLabels>
+    <customLabels>
+        <label>&quot;El número de transacciones no debe ser superior al las ventas totales.
+
+Si los datos son correctos marca ‘Ignorar Validaciones’ y añade un comentario.&quot;</label>
+        <name>KPIFlow_No_of_transactions_not_gtr_NET_Sales</name>
+    </customLabels>
+    <customLabels>
+        <label>&quot;El número de transacciones no debe ser superior al número de unidades.
+
+Si los datos son correctos marca ‘Ignorar Validaciones’ y añade un comentario.&quot;</label>
+        <name>KPIFlow_Number_of_units_must_be_gtr_than_transac</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- KPIFlow Pop-Up Boutique Footfall --></label>
+        <name>KPIFlow_Pop_Up_Boutique_Footfall</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- KPIFlow Pop Up Boutique FootfallHelptext --></label>
+        <name>KPIFlow_Pop_Up_Boutique_FootfallHelptext</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- KPIFlow Pop-up_Boutique_Sales --></label>
+        <name>KPIFlow_Pop_up_Boutique_Sales</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- KPIFlow Pop up Boutique SalesHelptext --></label>
+        <name>KPIFlow_Pop_up_Boutique_SalesHelptext</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- KPIFlow Pop-up Boutique Transaction --></label>
+        <name>KPIFlow_Pop_up_Boutique_Transaction</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- KPIFlow Pop up Boutique TransactionHelptext --></label>
+        <name>KPIFlow_Pop_up_Boutique_TransactionHelptext</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- KPIFlow Pop-up Boutique Units --></label>
+        <name>KPIFlow_Pop_up_Boutique_Units</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- KPIFlow Pop up Boutique UnitsHelptext --></label>
+        <name>KPIFlow_Pop_up_Boutique_UnitsHelptext</name>
+    </customLabels>
+    <customLabels>
+        <label>Las Ventas de Private Appointments no pueden ser mayores que las Ventas Netas Totales. Las Ventas Netas Totales deben incluir el total de ventas del día</label>
+        <name>KPIFlow_Priv_App_Sales_Higher_Total_Net_Sales</name>
+    </customLabels>
+    <customLabels>
+        <label>Las Unidades de Private Appointments no pueden ser mayores que las Unidades Totales del día</label>
+        <name>KPIFlow_Priv_App_Sales_Higher_Total_Units</name>
+    </customLabels>
+    <customLabels>
+        <label>Las Transacciones de Private Appointments no pueden ser mayores que las Transacciones Totales del día</label>
+        <name>KPIFlow_Priv_App_Sales_Higher_Transactions</name>
+    </customLabels>
+    <customLabels>
+        <label>Las ventas de Tax Free no deben ser superiores a las ventas totales de la firma.</label>
+        <name>KPIFlow_Reported_amount_gtr_than_tax_amt_NET</name>
+    </customLabels>
+    <customLabels>
+        <label>&quot;El número de transacciones Tax Free no debe ser superior al número de transacciones.
+
+Si los datos son correctos marca ‘Ignorar Validaciones’ y añade un comentario.&quot;</label>
+        <name>KPIFlow_Reported_transactions_gtr_than_tax_trans</name>
+    </customLabels>
+    <customLabels>
+        <label>Las ventas de descuento &quot;discrecional&quot; no pueden ser mayor que el Total de Ventas Netas. El Total de Ventas Netas debe incluir todas las ventas del día.</label>
+        <name>KPIFlow_SCS_Higher_Total_Net_Sales</name>
+    </customLabels>
+    <customLabels>
+        <label>Las unidades de descuento &quot;discrecional&quot; no pueden ser mayor que el total de Unidades para este día.</label>
+        <name>KPIFlow_SCS_Higher_Total_Units</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- KPIFlow_Sales_cannot_be_higher_than_the_Total_Net_Sales --></label>
+        <name>KPIFlow_Sales_cannot_be_higher_than_the_Total_Net_Sales</name>
+    </customLabels>
+    <customLabels>
+        <label>La boutique está registrada como cerrada para este día, por favor asegúrate que no hay datos dentro. Si ha sido un error, por favor modifica y elimina la marca de “boutique cerrada”.</label>
+        <name>KPIFlow_Store_Closed</name>
+    </customLabels>
+    <customLabels>
+        <label>Has introducido un dato muy largo, por favor verifícalo. Si los datos son correctos marca ‘Ignorar Validaciones’ y añade un comentario.</label>
+        <name>KPIFlow_Total_net_sales_too_high</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- KPIFlow_Transactions_cannot_be_higher_than_the_total_Transactions --></label>
+        <name>KPIFlow_Transactions_cannot_be_higher_than_the_total_Transactions</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- KPIFlow_Units_cannot_be_higher_than_the_total_Units_Sold --></label>
+        <name>KPIFlow_Units_cannot_be_higher_than_the_total_Units_Sold</name>
+    </customLabels>
+    <customLabels>
+        <label>Las Ventas de Virtual Shopping no pueden ser mayores que las Ventas Netas Totales. Las Ventas Netas Totales deben incluir el total de ventas del día</label>
+        <name>KPIFlow_Virtual_Sales_Higher_Total_Net_Sales</name>
+    </customLabels>
+    <customLabels>
+        <label>Las Unidades de Virtual Shopping no pueden ser mayores que las Unidades Totales del día</label>
+        <name>KPIFlow_Virtual_Sales_Higher_Total_Units</name>
+    </customLabels>
+    <customLabels>
+        <label>Las Transacciones de Virtual Shopping no pueden ser mayores que las Transacciones Totales del día</label>
+        <name>KPIFlow_Virtual_Sales_Higher_Transactions</name>
+    </customLabels>
+    <customLabels>
+        <label>El número de transacciones no debe ser superior al número de footfall. El footfall no puede ser 0. Si los datos son correctos marca ‘Ignorar Validaciones’ y añade un comentario.</label>
+        <name>KPIFlow_footfall_must_be_gtr_than_transactions</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MarketingActivityDIEndPoint --></label>
+        <name>MarketingActivityDIEndPoint</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MarketingCampaignDIEndPoint --></label>
+        <name>MarketingCampaignDIEndPoint</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MarketingFinanceIntegrationAPIMKey --></label>
+        <name>MarketingFinanceIntegrationAPIMKey</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Marketing Partner --></label>
+        <name>Marketing_Partner</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Master Budget Sheet --></label>
+        <name>Master_Budget_Sheet</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Master Budget Sheet Item Name --></label>
+        <name>Master_Budget_Sheet_Item_Name</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- NO_VILLAGE_TEXT --></label>
+        <name>NO_VILLAGE_TEXT</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- NoConfirmDailySaleRecords --></label>
+        <name>NoConfirmDailySaleRecords</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- No Master Budget Sheet --></label>
+        <name>No_Master_Budget_Sheet</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- No Master Budget Sheet Items --></label>
+        <name>No_Master_Budget_Sheet_Items</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ATV --></label>
+        <name>PRXC__ATV</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AUT --></label>
+        <name>PRXC__AUT</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Activity --></label>
+        <name>PRXC__Activity</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Add --></label>
+        <name>PRXC__Add</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- New Appointment --></label>
+        <name>PRXC__AddAppointment</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Add Client --></label>
+        <name>PRXC__AddClient</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Add Collection --></label>
+        <name>PRXC__AddCollection</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AddCollectionDesc --></label>
+        <name>PRXC__AddCollectionDesc</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Add Photo --></label>
+        <name>PRXC__AddPhoto</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AddProduct --></label>
+        <name>PRXC__AddProduct</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AddProductDesc --></label>
+        <name>PRXC__AddProductDesc</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Add to Cart --></label>
+        <name>PRXC__AddToCart</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Address --></label>
+        <name>PRXC__Address1</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Address Line 2 --></label>
+        <name>PRXC__Address2</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Address Lookup --></label>
+        <name>PRXC__AddressLookup</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- No, send an ad-hoc email --></label>
+        <name>PRXC__AdhocEmail</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- All --></label>
+        <name>PRXC__All</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- All Clients --></label>
+        <name>PRXC__AllClients</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Appointments --></label>
+        <name>PRXC__Appointments</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Are you sure? --></label>
+        <name>PRXC__AreYouSure</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Assign --></label>
+        <name>PRXC__Assign</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Assigned To --></label>
+        <name>PRXC__AssignedTo</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Attended --></label>
+        <name>PRXC__Attended</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Automated --></label>
+        <name>PRXC__Automated</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Average Transaction value --></label>
+        <name>PRXC__AverageTransactionValue</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Average Units Transaction --></label>
+        <name>PRXC__AverageUnitsTransaction</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Back --></label>
+        <name>PRXC__Back</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- BackgroundColor --></label>
+        <name>PRXC__BackgroundColor</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- BarcodeFound --></label>
+        <name>PRXC__BarcodeFound</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Basket History --></label>
+        <name>PRXC__BasketHistory</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Basket Id --></label>
+        <name>PRXC__BasketId</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- By Brand --></label>
+        <name>PRXC__ByBrand</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ByName --></label>
+        <name>PRXC__ByName</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- By Owner --></label>
+        <name>PRXC__ByOwner</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Calendar --></label>
+        <name>PRXC__Calendar</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Record call notes --></label>
+        <name>PRXC__CallNotes</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Calls Made --></label>
+        <name>PRXC__CallsMade</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Cancel --></label>
+        <name>PRXC__Cancel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Cart is empty --></label>
+        <name>PRXC__CartEmpty</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Cart for (client) --></label>
+        <name>PRXC__CartFor</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Change --></label>
+        <name>PRXC__Change</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Change Client --></label>
+        <name>PRXC__ChangeClient</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Checkout --></label>
+        <name>PRXC__Checkout</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Choose --></label>
+        <name>PRXC__Choose</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Choose email address --></label>
+        <name>PRXC__ChooseAddress</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Choose Owner --></label>
+        <name>PRXC__ChooseOwner</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Please choose a PIN --></label>
+        <name>PRXC__ChoosePIN</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Platform selection dialogue in messaging, followed by the client&apos;s first name --></label>
+        <name>PRXC__ChoosePlatform</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- City --></label>
+        <name>PRXC__City</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Clear --></label>
+        <name>PRXC__Clear</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Clear All --></label>
+        <name>PRXC__ClearAll</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Clear Basket --></label>
+        <name>PRXC__ClearBasket</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Client --></label>
+        <name>PRXC__Client</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Client No Found --></label>
+        <name>PRXC__ClientNofound</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ClientTeam --></label>
+        <name>PRXC__ClientTeam</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Client Video Link --></label>
+        <name>PRXC__ClientVideoLink</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Close --></label>
+        <name>PRXC__Close</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Collection for [customer name] --></label>
+        <name>PRXC__CollectionEmailSubject</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- CollectionOptions --></label>
+        <name>PRXC__CollectionOptions</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Collections --></label>
+        <name>PRXC__Collections</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Colours --></label>
+        <name>PRXC__Colours</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- (count) Comments --></label>
+        <name>PRXC__Comments</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Search by First or Last Name... --></label>
+        <name>PRXC__CommunitySearch</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Completed --></label>
+        <name>PRXC__Completed</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Confirmation of an action --></label>
+        <name>PRXC__Confirm</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Clone Collection Confirmation --></label>
+        <name>PRXC__ConfirmCloneCollection</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Confirmation that the user wants to assign a conversation to a particular client --></label>
+        <name>PRXC__ConfirmConversation</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Delete Collection Confirmation --></label>
+        <name>PRXC__ConfirmDeleteCollection</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- You are currently editing another basket, overwrite exiting basket? --></label>
+        <name>PRXC__ConfirmEditingBasket</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Confirmation that the user wants to assign an email to a particular client --></label>
+        <name>PRXC__ConfirmEmailAssignment</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Confirmation that the user wants to complete an outreach task --></label>
+        <name>PRXC__ConfirmEmailOutreach</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Message sending confirmation (followed by Client name) --></label>
+        <name>PRXC__ConfirmMessage</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Enter PIN again to confirm --></label>
+        <name>PRXC__ConfirmPIN</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Conversation resolution confirmation --></label>
+        <name>PRXC__ConfirmResolved</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- SMS send confirmation (followed by Client name) --></label>
+        <name>PRXC__ConfirmSMS</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Confirm text for buttons etc. --></label>
+        <name>PRXC__ConfirmShort</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Message to hand off to POS --></label>
+        <name>PRXC__ContinueInPOSBody</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Continue Transaction --></label>
+        <name>PRXC__ContinueInPOSTitle</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Conversation inactive --></label>
+        <name>PRXC__ConversationInactive</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Displayed to users trying to open an already-assigned live chat conversation --></label>
+        <name>PRXC__ConversationOpened</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Get Link --></label>
+        <name>PRXC__CopyLink</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- &apos;Copy of &apos; - used as a prefix for cloned collections etc.] --></label>
+        <name>PRXC__CopyOf</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Country --></label>
+        <name>PRXC__Country</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Created By --></label>
+        <name>PRXC__CreatedBy</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Created Date --></label>
+        <name>PRXC__CreatedDate</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Today&apos;s Date --></label>
+        <name>PRXC__CurrentDate</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Date --></label>
+        <name>PRXC__Date</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Description --></label>
+        <name>PRXC__Description</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Done --></label>
+        <name>PRXC__Done</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Drafting Email --></label>
+        <name>PRXC__DraftingEmail</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Due Date --></label>
+        <name>PRXC__DueDate</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Edit --></label>
+        <name>PRXC__Edit</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Edit Appointment --></label>
+        <name>PRXC__EditAppointment</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Email --></label>
+        <name>PRXC__Email</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- EmailAttachmentSizeError --></label>
+        <name>PRXC__EmailAttachmentSizeError</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- You&apos;re about to send an email to: {client name} --></label>
+        <name>PRXC__EmailConfirmation</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Email sent confirmation --></label>
+        <name>PRXC__EmailSent</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Emailed --></label>
+        <name>PRXC__Emailed</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Emailing --></label>
+        <name>PRXC__Emailing</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Emails Sent --></label>
+        <name>PRXC__EmailsSent</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- There&apos;s been a problem updating your basket, please try again. --></label>
+        <name>PRXC__EmptyBasketProblem</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- End (Required) --></label>
+        <name>PRXC__End</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- End time is required. --></label>
+        <name>PRXC__EndTimeIsRequired</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Please enter your PIN to unlock --></label>
+        <name>PRXC__EnterPIN</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Error --></label>
+        <name>PRXC__Error</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Extras --></label>
+        <name>PRXC__Extras</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Failed to send --></label>
+        <name>PRXC__FailedToSend</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Feed --></label>
+        <name>PRXC__Feed</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Filters --></label>
+        <name>PRXC__Filters</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Following --></label>
+        <name>PRXC__Following</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Forgotten PIN --></label>
+        <name>PRXC__ForgottenPIN</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- From --></label>
+        <name>PRXC__From</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Greeting --></label>
+        <name>PRXC__Greeting</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Groups --></label>
+        <name>PRXC__Groups</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Hide --></label>
+        <name>PRXC__Hide</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Hide Comments --></label>
+        <name>PRXC__HideComments</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- History --></label>
+        <name>PRXC__History</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- In --></label>
+        <name>PRXC__In</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- In Store --></label>
+        <name>PRXC__InStore</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Inbound --></label>
+        <name>PRXC__Inbound</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Inbox --></label>
+        <name>PRXC__Inbox</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Invoice Notes --></label>
+        <name>PRXC__InvoiceNotes</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Join --></label>
+        <name>PRXC__Join</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Language --></label>
+        <name>PRXC__Language</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Last Message --></label>
+        <name>PRXC__LastMessage</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Last Seen --></label>
+        <name>PRXC__LastSeen</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Last Week --></label>
+        <name>PRXC__LastWeek</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Launch POS --></label>
+        <name>PRXC__LaunchPOS</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Launch POS Confirmation --></label>
+        <name>PRXC__LaunchPOSConfirmForClient</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Leaderboard --></label>
+        <name>PRXC__Leaderboard</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Leave --></label>
+        <name>PRXC__Leave</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Link to Client --></label>
+        <name>PRXC__LinkToClient</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Live Chat Inbox --></label>
+        <name>PRXC__LiveChatInbox</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Loading --></label>
+        <name>PRXC__Loading</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Location --></label>
+        <name>PRXC__Location</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Lock --></label>
+        <name>PRXC__Lock</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Log Out --></label>
+        <name>PRXC__Logout</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Label to use for the MMS channel in client conversations --></label>
+        <name>PRXC__MMS</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Mark as unread --></label>
+        <name>PRXC__MarkUnread</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Message... --></label>
+        <name>PRXC__Message</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Message Templates --></label>
+        <name>PRXC__MessageTemplates</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Messages --></label>
+        <name>PRXC__Messages</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Messages from {client} --></label>
+        <name>PRXC__MessagesFrom</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Messaging {client} --></label>
+        <name>PRXC__MessagingX</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Required fields have not been filled in: --></label>
+        <name>PRXC__MissingRequiredFields</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ModuleSpacing --></label>
+        <name>PRXC__ModuleSpacing</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ModuleStyle --></label>
+        <name>PRXC__ModuleStyle</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Modules --></label>
+        <name>PRXC__Modules</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- My Clients --></label>
+        <name>PRXC__MyClients</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- My Inbox --></label>
+        <name>PRXC__MyInbox</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- My Own --></label>
+        <name>PRXC__MyOwn</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- My Store --></label>
+        <name>PRXC__MyStore</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- My Store Inbox --></label>
+        <name>PRXC__MyStoreInbox</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Name --></label>
+        <name>PRXC__Name</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- New --></label>
+        <name>PRXC__New</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Used for push notifications when a new message is in a user&apos;s inbox --></label>
+        <name>PRXC__NewInboxMessage</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Displayed to users in-app when a new live chat starts --></label>
+        <name>PRXC__NewLiveChat</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Used for push notifications when a new live chat conversation starts --></label>
+        <name>PRXC__NewLiveChatConversation</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Displayed to users when a live chat message comes in to a conversation they own --></label>
+        <name>PRXC__NewLiveChatMessage</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- New Task --></label>
+        <name>PRXC__NewTask</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Newest Clients --></label>
+        <name>PRXC__NewestClients</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- NewestCollections --></label>
+        <name>PRXC__NewestCollections</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Newest Products --></label>
+        <name>PRXC__NewestProducts</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Next Steps --></label>
+        <name>PRXC__NextSteps</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- No --></label>
+        <name>PRXC__No</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- No address specified --></label>
+        <name>PRXC__NoAddress</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- There are no appointments for {date} --></label>
+        <name>PRXC__NoAppointments</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- No collections --></label>
+        <name>PRXC__NoCollections</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- No Comments --></label>
+        <name>PRXC__NoComments</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- No Data --></label>
+        <name>PRXC__NoData</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Used when there are no recommendations to show in the grouped view --></label>
+        <name>PRXC__NoGroupedRecommendations</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- No inbox items --></label>
+        <name>PRXC__NoInboxItems</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- No matching clients found --></label>
+        <name>PRXC__NoMatchingClients</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- NoMatchingCollections --></label>
+        <name>PRXC__NoMatchingCollections</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- No matching items found --></label>
+        <name>PRXC__NoMatchingItemsFound</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- No matching users found. --></label>
+        <name>PRXC__NoMatchingUsers</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- No matcing clients found. --></label>
+        <name>PRXC__NoMatcingClients</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- NoModules --></label>
+        <name>PRXC__NoModules</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- No next steps --></label>
+        <name>PRXC__NoNextSteps</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- No past activity --></label>
+        <name>PRXC__NoPastActivity</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- No phone number, SMS disabled --></label>
+        <name>PRXC__NoPhoneNumber</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- No stock --></label>
+        <name>PRXC__NoStock</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- No outstanding tasks. --></label>
+        <name>PRXC__NoTasks</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- No email templates --></label>
+        <name>PRXC__NoTemplates</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- You&apos;re not a member of any groups. --></label>
+        <name>PRXC__NotAMember</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Not Started --></label>
+        <name>PRXC__NotStarted</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Notes --></label>
+        <name>PRXC__Notes</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Opened --></label>
+        <name>PRXC__Opened</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Out --></label>
+        <name>PRXC__Out</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Outbound --></label>
+        <name>PRXC__Outbound</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Outreach --></label>
+        <name>PRXC__Outreach</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Outreach template for task not found, please contact support. --></label>
+        <name>PRXC__OutreachTemplateError</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Owner --></label>
+        <name>PRXC__Owner</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- An error occurred resetting your PIN. Please contact your administrator. --></label>
+        <name>PRXC__PINError</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- PIN entries did not match, please try again. --></label>
+        <name>PRXC__PINMismatch</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Past Activity --></label>
+        <name>PRXC__PastActivity</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- People --></label>
+        <name>PRXC__People</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Performance --></label>
+        <name>PRXC__Performance</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- PhoneOutreach --></label>
+        <name>PRXC__PhoneOutreach</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Post here... --></label>
+        <name>PRXC__PostHere</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Post Code --></label>
+        <name>PRXC__PostalCode</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Price Ascending --></label>
+        <name>PRXC__PriceAsc</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Price Descending --></label>
+        <name>PRXC__PriceDesc</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Print --></label>
+        <name>PRXC__Print</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- PrivacyHeader --></label>
+        <name>PRXC__PrivacyHeader</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Processing Template --></label>
+        <name>PRXC__ProcessingTemplate</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Description --></label>
+        <name>PRXC__ProductDescription</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ProductPictureInstructions --></label>
+        <name>PRXC__ProductPictureInstructions</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Profile --></label>
+        <name>PRXC__Profile</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Profile picture desktop instructions --></label>
+        <name>PRXC__ProfilePictureDesktopInstructions</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Profile picture instructions --></label>
+        <name>PRXC__ProfilePictureInstructions</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Publish --></label>
+        <name>PRXC__Publish</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- PublishError --></label>
+        <name>PRXC__PublishError</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Purchase --></label>
+        <name>PRXC__Purchase</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Used to ask the user if they&apos;re sure they want to mark a transaction as complete --></label>
+        <name>PRXC__PurchaseConfirmation</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Purchase History --></label>
+        <name>PRXC__PurchaseHistory</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- QuickCollection --></label>
+        <name>PRXC__QuickCollection</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Reason --></label>
+        <name>PRXC__Reason</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Recently Viewed --></label>
+        <name>PRXC__RecentlyViewed</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Recipient(s)... --></label>
+        <name>PRXC__Recipients</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Recommend --></label>
+        <name>PRXC__Recommend</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Recommendation Removal Reason --></label>
+        <name>PRXC__RecommendationRemovalReason</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Recommendations --></label>
+        <name>PRXC__Recommendations</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Remove --></label>
+        <name>PRXC__Remove</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Removed --></label>
+        <name>PRXC__Removed</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Reply --></label>
+        <name>PRXC__Reply</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Reply template not configured, please contact support. --></label>
+        <name>PRXC__ReplyTemplateError</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Replying To {client} --></label>
+        <name>PRXC__ReplyingTo</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Confirmation that the user wants to reset their PIN --></label>
+        <name>PRXC__ResetPIN</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Resolved --></label>
+        <name>PRXC__Resolved</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Return --></label>
+        <name>PRXC__Return</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- SKU --></label>
+        <name>PRXC__SKU</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Label to use for the Nexmo SMS channel in client conversations --></label>
+        <name>PRXC__SMS</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Sales --></label>
+        <name>PRXC__Sales</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Save --></label>
+        <name>PRXC__Save</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Saving --></label>
+        <name>PRXC__Saving</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Search --></label>
+        <name>PRXC__Search</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Search Address --></label>
+        <name>PRXC__SearchAddress</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Search All --></label>
+        <name>PRXC__SearchAll</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- SearchOwner --></label>
+        <name>PRXC__SearchOwner</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Search Results --></label>
+        <name>PRXC__SearchResults</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Select --></label>
+        <name>PRXC__Select</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- SelectAll --></label>
+        <name>PRXC__SelectAll</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Select Folder --></label>
+        <name>PRXC__SelectFolder</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Select Template --></label>
+        <name>PRXC__SelectTemplate</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Selected --></label>
+        <name>PRXC__Selected</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Send --></label>
+        <name>PRXC__Send</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- SendEmail --></label>
+        <name>PRXC__SendEmail</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- SendOptions --></label>
+        <name>PRXC__SendOptions</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Sending --></label>
+        <name>PRXC__Sending</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Set --></label>
+        <name>PRXC__Set</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Pickup in Boutique --></label>
+        <name>PRXC__ShipToStore</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Shipping Address --></label>
+        <name>PRXC__ShippingAddress</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Signature --></label>
+        <name>PRXC__Signature</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Sizes --></label>
+        <name>PRXC__Sizes</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Social --></label>
+        <name>PRXC__Social</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- SocialDesc --></label>
+        <name>PRXC__SocialDesc</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Sort By --></label>
+        <name>PRXC__SortBy</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Start (Required) --></label>
+        <name>PRXC__Start</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- StartConversation --></label>
+        <name>PRXC__StartConversation</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Start time is required. --></label>
+        <name>PRXC__StartTimeIsRequired</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- State --></label>
+        <name>PRXC__State</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Status --></label>
+        <name>PRXC__Status</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Stock --></label>
+        <name>PRXC__Stock</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Store Visit --></label>
+        <name>PRXC__StoreVisit</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Storing PIN --></label>
+        <name>PRXC__StoringPIN</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Street Number --></label>
+        <name>PRXC__StreetNo</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Subject --></label>
+        <name>PRXC__Subject</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Success --></label>
+        <name>PRXC__Success</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Switch User --></label>
+        <name>PRXC__SwitchUser</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Tasks --></label>
+        <name>PRXC__Tasks</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Tax Free --></label>
+        <name>PRXC__TaxFree</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Template --></label>
+        <name>PRXC__Template</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Template Merge Fields --></label>
+        <name>PRXC__TemplateMergeFields</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Template has no editable content --></label>
+        <name>PRXC__TemplateNotEditable</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- This Week --></label>
+        <name>PRXC__ThisWeek</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Time --></label>
+        <name>PRXC__Time</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- To --></label>
+        <name>PRXC__To</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- To Me --></label>
+        <name>PRXC__ToMe</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Today --></label>
+        <name>PRXC__Today</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Toggle Preview --></label>
+        <name>PRXC__TogglePreview</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Total --></label>
+        <name>PRXC__Total</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Total Tax --></label>
+        <name>PRXC__TotalTax</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Unassigned --></label>
+        <name>PRXC__Unassigned</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Unassigned Conversations --></label>
+        <name>PRXC__UnassignedConversations</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Units --></label>
+        <name>PRXC__Units</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Unlock --></label>
+        <name>PRXC__Unlock</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Unopened --></label>
+        <name>PRXC__Unopened</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Unopenend --></label>
+        <name>PRXC__Unopenend</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Unresolved Conversations --></label>
+        <name>PRXC__UnresolvedConversations</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Warning about unsaved changes for yes/no dialogs --></label>
+        <name>PRXC__UnsavedChanges</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Social --></label>
+        <name>PRXC__UnsupportedContentReceived</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Social --></label>
+        <name>PRXC__UnsupportedContentSend</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Social --></label>
+        <name>PRXC__UnsupportedContentVideo</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Upcoming Appointments --></label>
+        <name>PRXC__UpcomingAppointments</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Edit Task --></label>
+        <name>PRXC__UpdateTask</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Updated --></label>
+        <name>PRXC__Updated</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- UploadImage --></label>
+        <name>PRXC__UploadImage</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- UploadImageDesc --></label>
+        <name>PRXC__UploadImageDesc</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Use Address --></label>
+        <name>PRXC__UseAddress</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Use Shipping Address --></label>
+        <name>PRXC__UseShippingAddress</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Video Call --></label>
+        <name>PRXC__VideoCall</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- VideoCallDesc --></label>
+        <name>PRXC__VideoCallDesc</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- The text to display for video calls in the chat UI --></label>
+        <name>PRXC__VideoCallInvite</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- View All --></label>
+        <name>PRXC__ViewAll</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- View All Groups --></label>
+        <name>PRXC__ViewAllGroups</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- View All Store Inbox Items --></label>
+        <name>PRXC__ViewAllStoreInboxItems</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- View all store tasks option --></label>
+        <name>PRXC__ViewAllStoreTasks</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- View Invoice --></label>
+        <name>PRXC__ViewInvoice</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- View More --></label>
+        <name>PRXC__ViewMore</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- View Store Appointments --></label>
+        <name>PRXC__ViewStoreAppointments</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Warranty Address --></label>
+        <name>PRXC__WarrantyAddress</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Wishlist --></label>
+        <name>PRXC__Wishlist</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Yes --></label>
+        <name>PRXC__Yes</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- CollectionPublishMsg --></label>
+        <name>PRXC__collectionpublishmsg</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- font --></label>
+        <name>PRXC__font</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Postal Code --></label>
+        <name>PostalCode</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Select Master Budget Sheet Item --></label>
+        <name>Select_Master_Budget_Sheet_Item</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Toast Message Migration LC --></label>
+        <name>Toast_Message_Migration_LC</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Back --></label>
+        <name>bt_stripe__Back</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Billing_Not_Supported --></label>
+        <name>bt_stripe__Billing_Not_Supported</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Blackthorn Paylink Package Version --></label>
+        <name>bt_stripe__Blackthorn_Paylink_Package_Version</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Cannot_Cancel_Payout --></label>
+        <name>bt_stripe__Cannot_Cancel_Payout</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Cannot_Update_Evidemce --></label>
+        <name>bt_stripe__Cannot_Update_Evidemce</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Connected_Account_StripeIdMissing --></label>
+        <name>bt_stripe__Connected_Account_StripeIdMissing</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Create_Payment_Method --></label>
+        <name>bt_stripe__Create_Payment_Method</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Dispute_Cannot_be_Accepted --></label>
+        <name>bt_stripe__Dispute_Cannot_be_Accepted</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Transfer_GroupId_Missing --></label>
+        <name>bt_stripe__Draft_Invoice_Updates_Only</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ExternalAccount_ConnectedAccountStripeIdMissing --></label>
+        <name>bt_stripe__ExternalAccount_ConnectedAccountStripeIdMissing</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- InvidualAccount_OneContactAllowed --></label>
+        <name>bt_stripe__InvidualAccount_OneContactAllowed</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- LostDispute_EvidenceInsert --></label>
+        <name>bt_stripe__LostDispute_EvidenceInsert</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Only_OneEvidence_Allowed --></label>
+        <name>bt_stripe__Only_OneEvidence_Allowed</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Platform_Keys_Missing --></label>
+        <name>bt_stripe__Platform_Keys_Missing</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Stripe_Connect_Not_Supported --></label>
+        <name>bt_stripe__Stripe_Connect_Not_Supported</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Transfer_GroupId_Missing --></label>
+        <name>bt_stripe__Transfer_GroupId_Missing</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- VT Action --></label>
+        <name>bt_stripe__VT_Action</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- VT Amount --></label>
+        <name>bt_stripe__VT_Amount</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- VT Currency --></label>
+        <name>bt_stripe__VT_Currency</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- VT Parent Object --></label>
+        <name>bt_stripe__VT_Parent_Object</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- VT Payment Method --></label>
+        <name>bt_stripe__VT_Payment_Method</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- VT Process Type --></label>
+        <name>bt_stripe__VT_Process_Type</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- VT Related To --></label>
+        <name>bt_stripe__VT_Related_To</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- labels for actions --></label>
+        <name>conference360__EW_ActionAddDetails</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- labels for actions --></label>
+        <name>conference360__EW_ActionDelete</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- labels for actions --></label>
+        <name>conference360__EW_ActionEdit</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- display it on clone box on main screen(Create Event Step1) --></label>
+        <name>conference360__EW_CloneEventLabelHeader</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- display it on clone box on main screen(Create Event Step1) --></label>
+        <name>conference360__EW_CloneEventLabelSubTitle</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- label for banner image upload --></label>
+        <name>conference360__EW_EventCreateBanner</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- label for profile photo upload --></label>
+        <name>conference360__EW_EventCreateSpeakerProfilePhoto</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- label for profile photo button --></label>
+        <name>conference360__EW_EventCreateSpeakerUploadPhoto</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- general validation error for speaker create logic --></label>
+        <name>conference360__EW_EventCreateSpeakerValidation</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- label for upload banner button --></label>
+        <name>conference360__EW_EventCreateUploadBanner</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- sucess message show when the event is published --></label>
+        <name>conference360__EW_EventPublished</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- label for select webcast button --></label>
+        <name>conference360__EW_EventSelectWebcast</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Header for Event Theme --></label>
+        <name>conference360__EW_EventThemeHeader</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- sucess message show when the event is unpublished --></label>
+        <name>conference360__EW_EventUnPublished</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Event Wizard Title on Main Screen(Create Event Step1) --></label>
+        <name>conference360__EW_EventWizard</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Short description on main screen(Create Event Step1) --></label>
+        <name>conference360__EW_EventWizardShortDesc</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- used as header labels of the builder component --></label>
+        <name>conference360__EW_HeaderFeedbackLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- label for navigation --></label>
+        <name>conference360__EW_Navigation_Attendee</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- label for navigation --></label>
+        <name>conference360__EW_Navigation_Details</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- label for navigation --></label>
+        <name>conference360__EW_Navigation_Look_Feel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- label for navigation --></label>
+        <name>conference360__EW_Navigation_Sessions</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- label for navigation --></label>
+        <name>conference360__EW_Navigation_Speakers</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- label for navigation --></label>
+        <name>conference360__EW_Navigation_Start</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- label for navigation --></label>
+        <name>conference360__EW_Navigation_Tickets</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- display it on new event box on main screen(Create Event Step1) --></label>
+        <name>conference360__EW_NewEventLabelHeader</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- display it on new event box on main screen(Create Event Step1) --></label>
+        <name>conference360__EW_NewEventLabelSubTitle</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- labels for ticket type dropdown --></label>
+        <name>conference360__EW_TicketTypeDonation</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- labels for ticket type dropdown --></label>
+        <name>conference360__EW_TicketTypeNewTicket</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- labels for ticket type dropdown --></label>
+        <name>conference360__EW_TicketTypeProduct</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Actions labels used in toolbar of the builder component --></label>
+        <name>conference360__EW_ToolBarActionBack</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Actions labels used in toolbar of the builder component --></label>
+        <name>conference360__EW_ToolBarActionCancel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Actions labels used in toolbar of the builder component --></label>
+        <name>conference360__EW_ToolBarActionComplete</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Actions labels used in toolbar of the builder component --></label>
+        <name>conference360__EW_ToolBarActionNew</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Actions labels used in toolbar of the builder component --></label>
+        <name>conference360__EW_ToolBarActionNext</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Actions labels used in toolbar of the builder component --></label>
+        <name>conference360__EW_ToolBarActionPreview</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Actions labels used in toolbar of the builder component --></label>
+        <name>conference360__EW_ToolBarActionPrevious</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Actions labels used in toolbar of the builder component --></label>
+        <name>conference360__EW_ToolBarActionPublish</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Actions labels used in toolbar of the builder component --></label>
+        <name>conference360__EW_ToolBarActionSave</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Actions labels used in toolbar of the builder component --></label>
+        <name>conference360__EW_ToolBarActionSend</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Actions labels used in toolbar of the builder component --></label>
+        <name>conference360__EW_ToolBarActionSkip</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Actions labels used in toolbar of the builder component --></label>
+        <name>conference360__EW_WebcastNew</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- used as header labels of the builder component --></label>
+        <name>conference360__EW_WizardBannerUploadHelp</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- used as tooltip in wizard for Session Banner --></label>
+        <name>conference360__EW_WizardSessionBannerUploadHelp</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- used as tooltip in wizard for Profile Photo in Speaker UI --></label>
+        <name>conference360__EW_WizardSpeakerUploadHelp</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Cannot enable Event Item Waitlisting --></label>
+        <name>conference360__EventItem_Waitlist_Cannot_Enable</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Cannot enable Event Waitlisting --></label>
+        <name>conference360__Event_Waitlist_Cannot_Enable</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Waitlis is full --></label>
+        <name>conference360__Waitlist_Full</name>
+    </customLabels>
+    <customTabs>
+        <label><!-- B2B Calendar --></label>
+        <name>B2B_Calendar2</name>
+    </customTabs>
+    <customTabs>
+        <label><!-- B2B Meetings --></label>
+        <name>B2B_Meetings</name>
+    </customTabs>
+    <customTabs>
+        <label><!-- Campaign Redemption Search and Scan --></label>
+        <name>Campaign_Redemption_Search_and_Scan</name>
+    </customTabs>
+    <customTabs>
+        <label><!-- Campaign Search --></label>
+        <name>Campaign_Search</name>
+    </customTabs>
+    <customTabs>
+        <label><!-- Chatter Group Manager --></label>
+        <name>Chatter_Group_Manager</name>
+    </customTabs>
+    <customTabs>
+        <label><!-- CheckIn Multi bags --></label>
+        <name>CheckIn_Multi_bags</name>
+    </customTabs>
+    <customTabs>
+        <label><!-- Competitor Map --></label>
+        <name>Competitor_Map</name>
+    </customTabs>
+    <customTabs>
+        <label><!-- Daily Sales Certification --></label>
+        <name>Daily_Sales_Certification</name>
+    </customTabs>
+    <customTabs>
+        <label><!-- Getting Started --></label>
+        <name>Getting_Started_reg</name>
+    </customTabs>
+    <customTabs>
+        <label><!-- HFS Dashboard --></label>
+        <name>HFS_Dashboard</name>
+    </customTabs>
+    <customTabs>
+        <label><!-- HFS Find Bags --></label>
+        <name>HFS_Find_Bags</name>
+    </customTabs>
+    <customTabs>
+        <label><!-- HFS Find Storage Location --></label>
+        <name>HFS_Find_Storage_Location</name>
+    </customTabs>
+    <customTabs>
+        <label><!-- HFS Search Purchase --></label>
+        <name>HFS_Search_Purchase</name>
+    </customTabs>
+    <customTabs>
+        <label><!-- Manage Duplicate Accounts --></label>
+        <name>Manage_Duplicate_Accounts</name>
+    </customTabs>
+    <customTabs>
+        <label><!-- PI ADMIN --></label>
+        <name>PI_ADMIN</name>
+    </customTabs>
+    <customTabs>
+        <label><!-- Preferences --></label>
+        <name>Preferences</name>
+    </customTabs>
+    <customTabs>
+        <label><!-- Quick Putaway --></label>
+        <name>Quick_Putaway</name>
+    </customTabs>
+    <customTabs>
+        <label><!-- TIC Home --></label>
+        <name>TIC_Home</name>
+    </customTabs>
+    <customTabs>
+        <label><!-- VIP Black Book Search --></label>
+        <name>VIP_Black_Book_Search</name>
+    </customTabs>
+</Translations>

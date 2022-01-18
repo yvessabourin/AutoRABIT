@@ -1,0 +1,78 @@
+.THIS .slds-button_icon-bare{ display: none;}
+.THIS tr:nth-child(even) {background-color: #d2deef;}
+.THIS tr:nth-child(odd) {background-color: #eaeff7;}
+
+.THIS .highlight4 td:nth-child(6) {background-color: rgba(0,153,255,.25); color: rgb(255,0,0 )}
+.THIS .highlight6 td:nth-child(8) {background-color: rgba(0,153,255,.25); color: rgb(255,0,0 ) }
+.THIS .highlight8 td:nth-child(10) {color: rgb(255,0,0 )}
+
+.THIS .highlightTableRed td {color: rgb(255,0,0 )}
+
+
+.THIS .noHover{
+    pointer-events: none;
+}
+
+.THIS .tablecolor{
+    font-size:8pt;
+}
+
+/*Table header font*/
+.THIS .downTable{
+   	font-size:11px;
+	/*
+	 *  font-size:13px;
+  	border: 2px solid #000000;
+    word-wrap: break-word;
+    */
+
+}
+
+.THIS .getfixed{
+    position:fixed
+}
+/* 
+.THIS thead th span{
+    background-color: #5b9bd5; 
+    color: white;
+    text-align: center;
+    font-size:8pt;
+   BOTH of the following are required for text-overflow
+    white-space: initial;
+    overflow-y: hidden;
+    pointer-events: none;
+}
+
+.THIS .downTable thead th span{
+    font-size:8pt;
+}
+*/
+.THIS .tablecolorT{
+    color: black; 
+}
+
+.THIS .tablecolorTX{   
+	width: 1200px
+}
+
+
+.THIS table td {
+    text-align: center;
+    font-size:10pt;
+    width: 150px;
+}
+
+.THIS .myCheckbox{  
+  display: inline-block;
+  float: center;
+}
+
+.THIS input[type=checkbox][disabled]:checked.blue-checkbox{
+    border-color: rgb(135,206,235); /*Choose your color*/
+    box-shadow: 0 0 3px #006A00; /*Choose a darker color for the shadow*/
+    background-color: rgb(135,206,235);
+}
+
+.THIS inputValue {
+    width: 100px;
+}

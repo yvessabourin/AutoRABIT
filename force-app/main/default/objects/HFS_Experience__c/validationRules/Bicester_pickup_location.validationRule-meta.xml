@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Bicester_pickup_location</fullName>
+    <active>false</active>
+    <description>Only Bicester can select a different location other than the main welcome center</description>
+    <errorConditionFormula>Village__r.Name &lt;&gt; &quot;Bicester&quot;
+&amp;&amp;   
+
+ NOT(ISPICKVAL(Pickup_Location__c , &quot;Main Welcome Centre&quot;))</errorConditionFormula>
+    <errorDisplayField>Pickup_Location__c</errorDisplayField>
+    <errorMessage>Please select Main Welcome Center</errorMessage>
+</ValidationRule>

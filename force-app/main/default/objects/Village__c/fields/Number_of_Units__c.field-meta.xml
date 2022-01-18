@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Number_of_Units__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>A Count of Units registered against the Village (that are not Omitted)</inlineHelpText>
+    <label>Number of Units</label>
+    <summaryFilterItems>
+        <field>Unit__c.Omit_from_Village_GEA__c</field>
+        <operation>equals</operation>
+        <value>False</value>
+    </summaryFilterItems>
+    <summaryForeignKey>Unit__c.Village__c</summaryForeignKey>
+    <summaryOperation>count</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

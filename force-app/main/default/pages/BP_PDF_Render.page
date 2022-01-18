@@ -1,0 +1,206 @@
+<apex:page name="printDiv" controller="BP_PDF_Render_Controller" renderAs="pdf" applyHtmlTag="false" applyBodyTag="false" showHeader="false" language="{!printLanguage}">
+    
+    <html>
+        <head>
+            <style type="text/CSS">
+                table {
+                -fs-table-paginate: paginate;
+                }                
+                @page {
+                    @bottom-left{
+                    content: "{!$Label.BP_PDF_Confidential}"
+                    }
+                    @bottom-right {
+                    content: counter(page) " of " counter(pages);
+                    }         
+                }
+            </style>
+            <script>
+            
+            </script>
+        </head>
+    </html>
+
+    <div class="header"> 
+        <center><apex:variable var="logoVar" value="{!logo}"/><apex:image url="{!URLFOR($Resource.Village_Logos, logoVar)}"/></center> 
+    </div>
+    
+    <br/><br/> 
+    <apex:outputText value="{!$Label.BP_PDF_Turn}"/>
+    <apex:outputText value=" "/>
+    <apex:outputText value="{!villagePresenceName}" style="font-weight:bold"/>
+    <apex:outputText value=" "/>
+    <apex:outputText value="{!$Label.BP_PDF_ForPeriodFrom}"/>
+    <apex:outputText value=" "/>
+    <apex:outputText value="{!startDate}" style="font-weight:bold"/>
+    <apex:outputText value=" "/>
+    <apex:outputText value="{!$Label.BP_PDF_To}"/>
+    <apex:outputText value=" "/>
+    <apex:outputText value="{!finalDate}" style="font-weight:bold"/>
+    
+    <br/><br/> 
+    <div style="text-align:center;">
+        <apex:outputText value="{!$Label.BP_Excluding_Warning}"/> 
+    </div>
+    <br/><br/> 
+    
+    <apex:outputpanel rendered="{!IF( (spaceTotal == 22) || (spaceTotal == 23) || (spaceTotal == 24) || (spaceTotal == 55) || (spaceTotal == 56) || (spaceTotal == 57) || (spaceTotal == 88) || (spaceTotal == 89) || (spaceTotal == 90), true, false)}" >
+       <br/><br/><br/><br/>        
+    </apex:outputpanel>
+    
+    <div style="page-break-after:always;">         
+    <apex:dataTable value="{!theCert}" var="dailySale" border="2" cellpadding="4" styleClass="table" width="100%" >
+        <!-- <apex:facet name="caption">table caption</apex:facet> -->
+        <!--<apex:facet name="header">table header</apex:facet>-->
+        <!--<apex:facet name="footer">Total</apex:facet>-->
+    
+        <apex:column >
+            <apex:facet name="header">{!$Label.BP_Date}</apex:facet>
+            
+            <apex:outputText value="{0,date,dd/MM/yyyy}" >
+                <apex:param value="{!dailySale.Trading_Date__c}" />
+            </apex:outputText>
+        </apex:column>
+
+        <apex:column >
+            <apex:facet name="header">{!$Label.BP_Unit}</apex:facet>
+            
+            <apex:outputText value="{!dailySale.MRI_Suite_Id__c}"/>
+        </apex:column>
+        
+        <apex:column >
+            <apex:facet name="header">{!$Label.BP_Store_Close}</apex:facet>
+                     
+            <apex:outputText value="{!IF(dailySale.Store_Closed__c, 'Yes', 'No')}"/>
+        </apex:column>
+        
+        <apex:column >
+            <apex:facet name="header">{!$Label.BP_Enter_Sales}</apex:facet>  
+            
+            <apex:outputText value="{0, number, ##,###,##0.00}" rendered="{!IF(currencySeparator == 'CT',true,false)}"> 
+            <apex:param value="{!IF(dailySale.Store_Closed__c, null, dailySale.Certified_Amount_NetTotal__c)}" />                
+            </apex:outputText>   
+                    
+			<apex:outputText value="{!IF(dailySale.Certified_Amount_NetTotal__c != NULL,
+            IF(dailySale.Certified_Amount_NetTotal__c < 1000, TEXT(FLOOR(dailySale.Certified_Amount_NetTotal__c)) & ',' &RIGHT(TEXT(FLOOR(dailySale.Certified_Amount_NetTotal__c *100)),2),
+            IF(dailySale.Certified_Amount_NetTotal__c < 1000000, TEXT(FLOOR(dailySale.Certified_Amount_NetTotal__c /1000))& '.' &RIGHT(TEXT(FLOOR(dailySale.Certified_Amount_NetTotal__c)), LEN(TEXT(FLOOR(dailySale.Certified_Amount_NetTotal__c))) - LEN(TEXT(FLOOR((dailySale.Certified_Amount_NetTotal__c /1000)))))& ',' &RIGHT(TEXT(FLOOR(dailySale.Certified_Amount_NetTotal__c *100)),2),
+            IF(dailySale.Certified_Amount_NetTotal__c < 1000000000, TEXT(FLOOR(dailySale.Certified_Amount_NetTotal__c /1000000))& '.' &MID(TEXT(dailySale.Certified_Amount_NetTotal__c), 1 + LEN(TEXT(1 + FLOOR(dailySale.Certified_Amount_NetTotal__c /1000000))),3)& '.' &MID(TEXT(dailySale.Certified_Amount_NetTotal__c*100), LEN(TEXT(dailySale.Certified_Amount_NetTotal__c*100)) - 4,3)& ',' &RIGHT(TEXT(FLOOR(dailySale.Certified_Amount_NetTotal__c *100)),2),
+            IF(dailySale.Certified_Amount_NetTotal__c >= 1000000000, "#TooHigh!", NULL)))),NULL) }" rendered="{!IF(currencySeparator == 'DT',true,false)}"/>
+            
+        </apex:column>
+         
+        <apex:column >
+            <apex:facet name="header">{!$Label.BP_Enter_VIP_Amount}</apex:facet>
+            <apex:outputText value="{0, number, ##,###,##0.00}" rendered="{!IF(currencySeparator == 'CT',true,false)}"> 
+            <apex:param value="{!IF(dailySale.Store_Closed__c, null, dailySale.Certified_Amount_Discount__c)}" />                
+            </apex:outputText>   
+
+            <apex:outputText value="{!IF(dailySale.Certified_Amount_Discount__c != NULL,
+            IF(dailySale.Certified_Amount_Discount__c < 1000, TEXT(FLOOR(dailySale.Certified_Amount_Discount__c)) & ',' &RIGHT(TEXT(FLOOR(dailySale.Certified_Amount_Discount__c *100)),2),
+            IF(dailySale.Certified_Amount_Discount__c < 1000000, TEXT(FLOOR(dailySale.Certified_Amount_Discount__c /1000))& '.' &RIGHT(TEXT(FLOOR(dailySale.Certified_Amount_Discount__c)), LEN(TEXT(FLOOR(dailySale.Certified_Amount_Discount__c))) - LEN(TEXT(FLOOR((dailySale.Certified_Amount_Discount__c /1000)))))& ',' &RIGHT(TEXT(FLOOR(dailySale.Certified_Amount_Discount__c *100)),2),
+            IF(dailySale.Certified_Amount_Discount__c < 1000000000, TEXT(FLOOR(dailySale.Certified_Amount_Discount__c /1000000))& '.' &MID(TEXT(dailySale.Certified_Amount_Discount__c), 1 + LEN(TEXT(1 + FLOOR(dailySale.Certified_Amount_Discount__c /1000000))),3)& '.' &MID(TEXT(dailySale.Certified_Amount_Discount__c*100), LEN(TEXT(dailySale.Certified_Amount_Discount__c*100)) - 4,3)& ',' &RIGHT(TEXT(FLOOR(dailySale.Certified_Amount_Discount__c *100)),2),
+            IF(dailySale.Certified_Amount_Discount__c >= 1000000000, "#TooHigh!", NULL)))),NULL) }" rendered="{!IF(currencySeparator == 'DT',true,false)}"/>
+
+        </apex:column>
+        
+        <apex:column >
+            <apex:facet name="header">{!$Label.BP_Certified_Amount}</apex:facet>  
+            <apex:outputText value="{0, number, ##,###,##0.00}" rendered="{!IF(currencySeparator == 'CT',true,false)}"> 
+            <apex:param value="{!IF(dailySale.Store_Closed__c, null, dailySale.Certified_Amount__c)}" />                
+            </apex:outputText>
+            
+            <apex:outputText value="{!IF(dailySale.Certified_Amount__c != NULL,
+            IF(dailySale.Certified_Amount__c < 1000, TEXT(FLOOR(dailySale.Certified_Amount__c)) & ',' &RIGHT(TEXT(FLOOR(dailySale.Certified_Amount__c *100)),2),
+            IF(dailySale.Certified_Amount__c < 1000000, TEXT(FLOOR(dailySale.Certified_Amount__c /1000))& '.' &RIGHT(TEXT(FLOOR(dailySale.Certified_Amount__c)), LEN(TEXT(FLOOR(dailySale.Certified_Amount__c))) - LEN(TEXT(FLOOR((dailySale.Certified_Amount__c /1000)))))& ',' &RIGHT(TEXT(FLOOR(dailySale.Certified_Amount__c *100)),2),
+            IF(dailySale.Certified_Amount__c < 1000000000, TEXT(FLOOR(dailySale.Certified_Amount__c /1000000))& '.' &MID(TEXT(dailySale.Certified_Amount__c), 1 + LEN(TEXT(1 + FLOOR(dailySale.Certified_Amount__c /1000000))),3)& '.' &MID(TEXT(dailySale.Certified_Amount__c*100), LEN(TEXT(dailySale.Certified_Amount__c*100)) - 4,3)& ',' &RIGHT(TEXT(FLOOR(dailySale.Certified_Amount__c *100)),2),
+            IF(dailySale.Certified_Amount__c >= 1000000000, "#TooHigh!", NULL)))),NULL) }" rendered="{!IF(currencySeparator == 'DT',true,false)}"/>
+
+        </apex:column>
+        
+    </apex:dataTable>  
+    <br/> 
+    <!-- TABLE TOTAL -->    
+    <apex:dataTable value="{!dscbFields}" var="dailySale" id="theTableTotal" border="2" cellpadding="4" style="page-break-inside:avoid" align="right">
+        
+        <apex:column >
+            <apex:facet name="header"></apex:facet>
+            
+            <apex:outputText value="{!$Label.BP_Total}"/>
+        </apex:column> 
+        
+        <apex:column >
+            <apex:facet name="header">{!$Label.BP_Enter_Sales}</apex:facet>
+            
+            <apex:outputText value="{0, number, £ ##,###,##0.00}" rendered="{!IF(currencyCode == 'GBP',true,false)}"> 
+            <apex:param value="{!totalNet}" />
+            </apex:outputText>
+            
+            <apex:outputText value="{0, number, € ##,###,##0.00}" rendered="{!IF((currencyCode == 'EUR' && currencySeparator == 'CT'),true,false)}"> 
+            <apex:param value="{!totalNet}" />
+            </apex:outputText>
+
+            <apex:outputText value="{!IF(totalNet != NULL,
+            IF(totalNet < 1000, '€ ' & TEXT(FLOOR(totalNet)) & ',' &RIGHT(TEXT(FLOOR(totalNet *100)),2),
+            IF(totalNet < 1000000, '€ ' & TEXT(FLOOR(totalNet /1000))& '.' &RIGHT(TEXT(FLOOR(totalNet)), LEN(TEXT(FLOOR(totalNet))) - LEN(TEXT(FLOOR((totalNet /1000)))))& ',' &RIGHT(TEXT(FLOOR(totalNet *100)),2),
+            IF(totalNet < 1000000000, '€ ' & TEXT(FLOOR(totalNet /1000000))& '.' &MID(TEXT(totalNet), 1 + LEN(TEXT(1 + FLOOR(totalNet /1000000))),3)& '.' &MID(TEXT(totalNet*100), LEN(TEXT(totalNet*100)) - 4,3)& ',' &RIGHT(TEXT(FLOOR(totalNet *100)),2),
+            IF(totalNet >= 1000000000, "#TooHigh!", NULL)))),NULL) }" rendered="{!IF((currencyCode == 'EUR' && currencySeparator == 'DT'),true,false)}"/>
+            
+        </apex:column>
+        
+        <apex:column >
+            <apex:facet name="header">{!$Label.BP_Enter_VIP_Amount}</apex:facet>
+            
+            <apex:outputText value="{0, number, £ ##,###,##0.00}" rendered="{!IF(currencyCode == 'GBP',true,false)}"> 
+            <apex:param value="{!totalVip}" />
+            </apex:outputText>
+            
+            <apex:outputText value="{0, number, € ##,###,##0.00}" rendered="{!IF((currencyCode == 'EUR' && currencySeparator == 'CT'),true,false)}">  
+            <apex:param value="{!totalVip}" />
+            </apex:outputText>
+
+            <apex:outputText value="{!IF(totalVip != NULL,
+            IF(totalVip < 1000, '€ ' & TEXT(FLOOR(totalVip)) & ',' &RIGHT(TEXT(FLOOR(totalVip *100)),2),
+            IF(totalVip < 1000000, '€ ' & TEXT(FLOOR(totalVip /1000))& '.' &RIGHT(TEXT(FLOOR(totalVip)), LEN(TEXT(FLOOR(totalVip))) - LEN(TEXT(FLOOR((totalVip /1000)))))& ',' &RIGHT(TEXT(FLOOR(totalVip *100)),2),
+            IF(totalVip < 1000000000, '€ ' & TEXT(FLOOR(totalVip /1000000))& '.' &MID(TEXT(totalVip), 1 + LEN(TEXT(1 + FLOOR(totalVip /1000000))),3)& '.' &MID(TEXT(totalVip*100), LEN(TEXT(totalVip*100)) - 4,3)& ',' &RIGHT(TEXT(FLOOR(totalVip *100)),2),
+            IF(totalVip >= 1000000000, "#TooHigh!", NULL)))),NULL) }" rendered="{!IF((currencyCode == 'EUR' && currencySeparator == 'DT'),true,false)}"/>
+
+        </apex:column>
+        
+        <apex:column >
+            <apex:facet name="header">{!$Label.BP_Certified_Amount}</apex:facet>       
+            
+            <apex:outputText value="{0, number, £ ##,###,##0.00}" rendered="{!IF(currencyCode == 'GBP',true,false)}"> 
+            <apex:param value="{!dailySale.Total_Certified_Amount__c}" />
+            </apex:outputText>
+            
+            <apex:outputText value="{0, number, € ##,###,##0.00}" rendered="{!IF((currencyCode == 'EUR' && currencySeparator == 'CT'),true,false)}">  
+            <apex:param value="{!dailySale.Total_Certified_Amount__c}" />
+            </apex:outputText>
+
+            <apex:outputText value="{!IF(dailySale.Total_Certified_Amount__c != NULL,
+            IF(dailySale.Total_Certified_Amount__c < 1000, '€ ' & TEXT(FLOOR(dailySale.Total_Certified_Amount__c)) & ',' &RIGHT(TEXT(FLOOR(dailySale.Total_Certified_Amount__c *100)),2),
+            IF(dailySale.Total_Certified_Amount__c < 1000000, '€ ' & TEXT(FLOOR(dailySale.Total_Certified_Amount__c /1000))& '.' &RIGHT(TEXT(FLOOR(dailySale.Total_Certified_Amount__c)), LEN(TEXT(FLOOR(dailySale.Total_Certified_Amount__c))) - LEN(TEXT(FLOOR((dailySale.Total_Certified_Amount__c /1000)))))& ',' &RIGHT(TEXT(FLOOR(dailySale.Total_Certified_Amount__c *100)),2),
+            IF(dailySale.Total_Certified_Amount__c < 1000000000, '€ ' & TEXT(FLOOR(dailySale.Total_Certified_Amount__c /1000000))& '.' &MID(TEXT(dailySale.Total_Certified_Amount__c), 1 + LEN(TEXT(1 + FLOOR(dailySale.Total_Certified_Amount__c /1000000))),3)& '.' &MID(TEXT(dailySale.Total_Certified_Amount__c*100), LEN(TEXT(dailySale.Total_Certified_Amount__c*100)) - 4,3)& ',' &RIGHT(TEXT(FLOOR(dailySale.Total_Certified_Amount__c *100)),2),
+            IF(dailySale.Total_Certified_Amount__c >= 1000000000, "#TooHigh!", NULL)))),NULL) }" rendered="{!IF((currencyCode == 'EUR' && currencySeparator == 'DT'),true,false)}"/>
+            
+        </apex:column>
+       
+    </apex:dataTable>
+    </div>   
+    
+    <br/> 
+	<div>
+    <apex:outputText value="{!theVillage.CertS_Brand_Turnover_Cert_Decl_Statement__c}"/>   
+    <br/><br/>    
+    <apex:panelGrid columns="2" border="1" cellspacing="0" cellPadding="5" width="100%">
+        <apex:outputText value="{!$Label.BP_PDF_CertifiedBy}" />
+        <apex:outputText value="{!certifiedBy}" />
+        <apex:outputText value="{!$Label.BP_PDF_OnBehalf}" />   
+        <apex:outputText value="{!brandName}" />
+        <apex:outputText value="{!$Label.BP_PDF_Submitted}" />
+        <apex:outputText value="{!certifiedDateWithoutTime}" />
+        
+    </apex:panelGrid>
+    </div>
+        
+</apex:page>

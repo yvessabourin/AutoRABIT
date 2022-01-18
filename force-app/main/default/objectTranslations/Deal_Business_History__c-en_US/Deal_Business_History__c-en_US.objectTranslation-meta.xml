@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Deal Business History</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Deal Business Histories</value>
+    </caseValues>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Approved_Date_Not_in_Future</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>DBH_Cannot_change_approval_date_on_recor</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>DBH_Cannot_change_approval_deci_on_recor</name>
+    </validationRules>
+</CustomObjectTranslation>

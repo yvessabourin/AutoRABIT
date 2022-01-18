@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Guest_API__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <externalId>false</externalId>
+    <inlineHelpText>API Guest</inlineHelpText>
+    <label>Guest</label>
+    <lookupFilter>
+        <active>true</active>
+        <errorMessage>The Account must be of type Guest</errorMessage>
+        <filterItems>
+            <field>Account.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Guest</value>
+        </filterItems>
+        <infoMessage>Please select a Guest</infoMessage>
+        <isOptional>false</isOptional>
+    </lookupFilter>
+    <referenceTo>Account</referenceTo>
+    <relationshipLabel>SCS Experiences</relationshipLabel>
+    <relationshipName>SCS_Experiences</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

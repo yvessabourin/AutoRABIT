@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All_2014_Ratings</fullName>
+    <columns>NAME</columns>
+    <columns>Village__c</columns>
+    <columns>Year__c</columns>
+    <columns>Yield_Classification__c</columns>
+    <columns>Rating__c</columns>
+    <columns>Range_Minimum__c</columns>
+    <columns>Range_Maximum__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Year__c</field>
+        <operation>equals</operation>
+        <value>2014</value>
+    </filters>
+    <label>All 2014 Ratings</label>
+    <sharedTo>
+        <group>LeaseFlow_All_Users</group>
+    </sharedTo>
+</ListView>

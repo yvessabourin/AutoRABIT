@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Prevent_Uncheck_Transfer_When_Synched</fullName>
+    <active>true</active>
+    <description>The validation prevents non-admin users from unchecking the Transfer to Oracle check if the Marketing has been already synched</description>
+    <errorConditionFormula>ISCHANGED(Transfer_To_Oracle__c) &amp;&amp; NOT(Transfer_To_Oracle__c) &amp;&amp; NOT(ISBLANK(Oracle_Project_Number__c))</errorConditionFormula>
+    <errorDisplayField>Transfer_To_Oracle__c</errorDisplayField>
+    <errorMessage>You can&apos;t unselect the Transfer to Oracle checkbox once the Marketing Activity has already been synched</errorMessage>
+</ValidationRule>

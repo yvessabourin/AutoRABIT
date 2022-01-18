@@ -1,0 +1,295 @@
+<apex:page standardController="Account" extensions="AccountViewer" showHeader="false" standardStylesheets="false" sidebar="false" applyHtmlTag="true" applyBodyTag="false" docType="html-5.0" >
+
+    <apex:includeScript value="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"/>
+    <apex:includeScript value="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/jquery-ui.min.js"/>
+    <apex:includeScript value="{!URLFOR($Resource.jquery_tbltree, 'gagiks-jquery-tbltree-82bbfc2/js/jquery.tbltree.js')}" />  
+    <apex:includeScript value="{!URLFOR($Resource.StickyTableHeaders, 'jmosbech-StickyTableHeaders-2349d16/js/jquery.stickytableheaders.js')}" /> 
+
+    <apex:stylesheet value="{!URLFOR($Resource.jquery_tbltree, 'gagiks-jquery-tbltree-82bbfc2/css/jquery.tbltree.css')}" />
+    <head>
+
+    <style type="text/css">
+        
+        tbl.th, td {
+            border-bottom: 1px solid #ddd;
+            border-left: 1px solid #000;
+            text-align: right;
+
+        }
+        #tbl tr.tbltree-expanded:hover {
+            background-color: LightCyan;
+        }
+        tr.tbltree-expanded:nth-child(even) {
+            background-color: #f2f2f2
+        }
+        #tbl th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            padding : 15px;
+            background-color: #00396B;
+            //background-color: #4CAF50;
+            color: white;
+        }
+        #tbl {
+            font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+            font-size: 0.78em;
+        }
+        
+        #tbl td.dealHeader{
+            padding-top: 12px;
+            padding-bottom: 12px;
+            padding : 15px;
+            background-color: #0C8EFF;
+            color: white;        
+        }       
+
+        #tbl td.dealData{
+            color: #000000;
+            font-weight: normal;
+            background-color: #A7B8D1;        
+        }
+        
+        #dealLink{
+            color: #556B2F
+            font-weight: bold;            
+        }  
+      
+    </style>
+    
+    </head>
+        
+    <script>
+            var deal;
+            var theTree;
+            
+            $j = jQuery.noConflict();
+            
+            $j(document).ready(function() {
+                
+                
+                             
+                var dealobj = JSON.parse('[{!JSENCODE(currentDeals)}]');
+                if (dealobj.length > 0){
+                    deal = dealobj[0];
+                }
+
+                
+                var obj = JSON.parse('[{!JSENCODE(AccountTree)}]');
+                theTree = JSON.stringify(obj);
+
+                var helpArray = '{!JSENCODE(helpTextMap)}';
+                var helpObj = JSON.parse(helpArray);
+                var replaceNulls = JSON.stringify(helpObj).replace(/null/g, '"No Help Text defined"'); //convert to JSON string
+                helpObj = JSON.parse(replaceNulls); //convert back 
+
+                
+                html = '<table id="tbl" >';
+                html += '<thead > <tr id="header">';
+                html += '<th >Brand/Group</th><th>Village Presence</th><th title="' + helpObj.Status+ '">Status</th>';
+                html += '<th title="' + helpObj.Unit + '" >Unit</th>' + '<th title="' + helpObj.UnitSizeGEA + '">Size(GEA)</th>' + '<th title="' + helpObj.UnitSizeSQFT + '">GEA (Sqft.)</th>';
+                html += '<th title="' + helpObj.ActualSignedDate + '">Actual Signed Date</th>' + '<th title="' + helpObj.LastShopfitDate + '">Last Shopfit Date</th>' + '<th title="' + helpObj.AgeOfShopfit + '">Age of Shopfit (Years)</th>'; 
+                html += '<th title="' + helpObj.InitialOpenedDate + '">Initial Opened Date</th><th title="' + helpObj.ContractExpiryDate + '">Contract Expiry Date</th>' + '<th title="' + helpObj.ContractTenantBreakDate + '">Contract Tenant Break Date</th>';
+                html += '<th title="' + helpObj.ProjectedSalesYieldLocalConverted + '">Proj. Sales Yield Local</th>' + '<th title="' + helpObj.ProjectedIncomeLocal + '">Proj. Income Local</th><th title="' + helpObj.AnnualTORGross + '">Annual TOR Gross</th>';
+                html += '<th title="' + helpObj.TotalRating + '">Total Rating</th><th title="' + helpObj.PositionRating+ '">Pos. Rating</th>';
+                html += '<th title="' + helpObj.SalesRating+ '">Sales Rating</th><th title="' + helpObj.IncomeRating + '">Income Rating</th>';
+                html += '<th title="' + helpObj.MezzanineSize + '">Size (Mezz.)</th>';
+                html += '<th title="' + helpObj.LastRemerchandisingDate + '">Last Remerch. Date</th>';
+
+                html += '</tr></thead><tbody >';
+                 
+                var html = buildTable(obj, '0', html);                                 
+                html += '</tbody></table></div>';
+               
+                document.getElementById("table2").innerHTML = html;
+                $j( "#tbl" ).tbltree({initState: 'expanded'});
+                $j("#tbl").stickyTableHeaders();
+             
+                 
+            })    
+
+          
+            function buildTable(obj, level , html){           
+               
+                //$j( "#table2" ).tbltree();
+                for(var i=0;i < obj.length;i++){
+                    var node = obj[i];
+                    
+                    var AccountName = toEmptyString(node.AccountName);
+                    var ParentName = toEmptyString(node.ParentName);
+                    var ParentId = node.ParentId;
+                    var RecordIdUrl = node.RecordId;
+                    var RecordId = RecordIdUrl.toUpperCase();
+                    var VPName = toEmptyString(node.Name);
+                    var VillageName = toEmptyString(node.VillageName);
+console.log(AccountName + ' - '  + ' - ' + ParentName + ' - ' + ParentId + ' - ' + ' - ' + RecordId + ' - ' + VPName);                   
+                    var Status = toEmptyString(node.Status);
+                    var InitialOpenedDate = toEmptyString(node.InitialOpenedDate);
+                    var ActualSignedDate = toEmptyString(node.ActualSignedDate);
+                    var ContractTenantBreakDate = toEmptyString(node.ContractTenantBreakDate);
+                    var Unit =  toEmptyString(node.Unit);
+                    var UnitSizeGEA = toEmptyString(node.UnitSizeGEA);
+                    var UnitSizeSQFT = toEmptyString(node.UnitSizeSQFT); 
+                    var MezzanineSize = toEmptyString(node.MezzanineSize);
+                    var LastShopfitDate = toEmptyString(node.LastShopfitDate);
+                    var AgeOfShopfit = toEmptyStringN(node.AgeOfShopfit);
+                    var ContractExpiryDate = toEmptyString(node.ContractExpiryDate);
+                    var LastRemerchandisingDate = toEmptyString(node.LastRemerchandisingDate);
+                    var ProjectedSalesYieldLocalConverted= numberWithCommas(node.ProjectedSalesYieldLocalConverted);
+                    var TotalRating = toEmptyString(node.TotalRating);
+                    var PositionRating = toEmptyString(node.PositionRating);
+                    var SalesRating = toEmptyString(node.SalesRating);
+                    var IncomeRating = toEmptyString(node.IncomeRating);
+                    var ProjectedIncomeLocal = numberWithCommas(node.ProjectedIncomeLocal);
+                    var AnnualTORGross = numberWithCommas(node.AnnualTORGross); 
+
+                    if (ParentId == null){
+                        html += '<tr row-id="' + RecordId +'" >';
+                    } else {
+                        ParentId = ParentId.toUpperCase();                        
+                        if (html.indexOf(ParentId) > -1) {                                                        
+                            html += '<tr row-id="' + RecordId + '" parent-id="' + ParentId  +'" >';
+                        } else {
+                            html += '<tr row-id="' + RecordId +'" >';
+                        }
+                    }
+
+                    html += '<td>' + '<a href="/' + RecordIdUrl + '" target="_blank">' + AccountName + '</td><td class="data">' + '<a href="/' + RecordIdUrl + '" target="_blank">' + VillageName + '</a></td><td class="data">' + Status + '</td>';
+                    html += '<td class="data">' + Unit + '</td><td class="data">' + UnitSizeGEA + '</td>' + '<td class="data">' + UnitSizeSQFT + '</td>';
+                    html += '<td>' + ActualSignedDate  + '</td>' + '<td>' + LastShopfitDate + '</td><td class="data">' + AgeOfShopfit + '</td>';
+                    html += '<td>' + InitialOpenedDate  + '</td><td class="data">' + ContractExpiryDate + '</td><td class="data">' + ContractTenantBreakDate + '</td>';
+                    html += '<td>' + ProjectedSalesYieldLocalConverted + '<td class="data">' + ProjectedIncomeLocal  + '</td><td class="data">' + AnnualTORGross + '</td>';
+                    html += '<td class="data">' + TotalRating + '</td><td class="data">' + PositionRating + '</td>';
+                    html += '<td class="data">' + SalesRating + '</td><td>' + IncomeRating + '</td>';
+                    html += '<td class="data">' + MezzanineSize + '</td>';
+                    html += '<td class="data">' + LastRemerchandisingDate + '</td>';
+                    html += '</tr>';
+
+                    // Add row for current Deal Data 
+                    for (var x=0; x <deal.length; x++){                                              
+                        var vpId = deal[x].vpId.toUpperCase();
+                       
+                        if (vpId == RecordId){
+                    
+                            html += '<tr row-id="' + deal[x].dealId + '" parent-id="' + vpId  +'" >';
+                            html += '<td class="">  </td>';
+                            html += '<td class="">  </td>';
+                            html += '<td class="dealHeader"> Deal Name </td>';
+                            html += '<td class="dealHeader"> Rec Type </td>';
+                            html += '<td class="dealHeader"> Stage </td>';
+                            html += '<td class="dealHeader"> Type </td>';        
+                            html += '<td class="dealHeader"> Lease Type </td>';
+                            html += '<td class="dealHeader"> Tier Level </td>';
+                            html += '<td class="dealHeader"> Lead Negot. VR </td>';
+                            html += '<td class="dealHeader"> Exp. Sig. Date </td>';
+                            html += '<td class="dealHeader"> Next Step </td>';
+                            html += '<td class="dealHeader"> Next Step Due </td>';
+                            html += '<td class="dealHeader"> Proj. Sales </td>';
+                            html += '<td class="dealHeader"> Proj. Income </td>';
+                            html += '<td class="dealHeader"> Annual TOR Gross </td>';
+                            html += '<td class="dealHeader"> Total Rating </td>';
+                            html += '<td class="dealHeader"> Pos. Rating </td>';
+                            html += '<td class="dealHeader"> Sales Rating </td>';                            
+                            html += '<td class="dealHeader"> Income Rating </td>'; 
+                            html += '<td class="dealHeader"> Ideal Size </td>';
+                            html += '<td class="dealHeader"> Comments </td>';                            
+                            html += '</tr>';
+                            
+                            html += '<tr row-id="' + deal[x].dealId + '" parent-id="' + vpId  +'">';
+                            html += '<td class="">  </td>';
+                            html += '<td class=""></td>';
+                            html += '<td id="dealLink" class="dealData"> <a href="/' + deal[x].dealId + '" target="_blank">' + deal[x].dealName + '</td>';
+                            html += '<td class="dealData"> ' + deal[x].recType + ' </td>';
+                            html += '<td class="dealData"> ' + toEmptyString(deal[x].stage) + '</td>';
+                            html += '<td class="dealData"> ' + toEmptyString(deal[x].dealType) + ' </td>';
+                            html += '<td class="dealData"> ' + toEmptyString(deal[x].leaseType) + '</td>';
+                            html += '<td class="dealData"> ' + toEmptyString(deal[x].tierLevel) + ' </td>';
+                            html += '<td class="dealData"> ' + toEmptyString(deal[x].leadNegotiatorVR) + '</td>';
+                            html += '<td class="dealData"> ' + toEmptyString(deal[x].expectedSignatureDate) + ' </td>';
+                            html += '<td class="dealData"> ' + toEmptyString(deal[x].nextStep) + '</td>';
+                            html += '<td class="dealData"> ' + toEmptyString(deal[x].nextStepDue) + ' </td>';
+                            html += '<td class="dealData"> ' + numberWithCommas(deal[x].projectedSalesYield) + '</td>';
+                            html += '<td class="dealData"> ' + numberWithCommas(deal[x].projectedIncome) + '</td>';
+                            html += '<td class="dealData"> ' + numberWithCommas(deal[x].annualTOR) + '</td>';
+                            html += '<td class="dealData"> ' + toEmptyString(deal[x].totalRating) + '</td>';
+                            html += '<td class="dealData"> ' + toEmptyString(deal[x].positionRating) + '</td>';
+                            html += '<td class="dealData"> ' + toEmptyString(deal[x].salesRating) + '</td>';                                
+                            html += '<td class="dealData"> ' + toEmptyString(deal[x].incomeRating) + '</td>';
+                            html += '<td class="dealData"> ' + toEmptyStringN(deal[x].idealSize) + '</td>';
+                            html += '<td class="dealData"> ' + toEmptyString(deal[x].comments) + '</td>';
+
+                            html += '</tr>';
+                                    
+                            break;
+                        }
+                    }
+                    // End of Deal row data 
+
+                    
+                    for(var key in node){
+                        var attrName = key;
+                        var attrValue = node[key];
+                        if(isArray(attrValue)){                       
+
+                            html = buildTable(attrValue, ParentId, html);
+                            
+                        }
+                    }     
+
+                }                
+                
+
+                return html;
+
+            
+            }           
+
+            function isArray(what) {
+                return Object.prototype.toString.call(what) === '[object Array]';
+            }
+            
+            function toEmptyString(val){
+                                
+                if (val){
+                    if (isNaN(val) == false){
+                        return parseInt(val);
+                    } else {
+                        return val;
+                    }
+                } else {
+                    return "";
+                }
+                
+            }
+
+            function toEmptyStringN(val){
+                                
+                if (val){
+                    return val;
+                } else {
+                    return "";
+                }
+                
+            }                       
+
+            function numberWithCommas(x) {
+                if(x) {
+                    var y = parseInt(x);
+                    return y.toString().replace(/\B(?=(?:\d{3})+(?!\d))/g, ",");
+
+                } else {
+                    return '';
+                }
+            }
+            
+    </script>
+       
+   <html xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"> 
+        <div id="table2" >
+        </div>      
+
+
+    </html>
+  
+</apex:page>

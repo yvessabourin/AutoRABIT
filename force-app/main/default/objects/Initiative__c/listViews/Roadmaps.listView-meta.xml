@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Roadmaps</fullName>
+    <columns>NAME</columns>
+    <columns>LAST_UPDATE</columns>
+    <columns>Strategy__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>NAME</field>
+        <operation>contains</operation>
+        <value>Roadmap</value>
+    </filters>
+    <label>Roadmaps</label>
+</ListView>

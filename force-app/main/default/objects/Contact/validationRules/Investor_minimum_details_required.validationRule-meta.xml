@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Investor_minimum_details_required</fullName>
+    <active>false</active>
+    <description>An Investor Contact should only be able to be created if it has at least one of - mobile / phone / email address / Mailing Address/ Fax</description>
+    <errorConditionFormula>AND(ISBLANK(Email),ISBLANK(Phone) ,ISBLANK(MobilePhone),
+ ISBLANK(Fax), ISBLANK( MailingStreet ),  RecordType.DeveloperName = &quot;Investor_Contact&quot;)</errorConditionFormula>
+    <errorMessage>At least one of  Mobile, Phone, Fax, Email address or Mailing Address must be entered before you can save the record.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Reason_for_Removal_or_Cancel_Required</fullName>
+    <active>true</active>
+    <errorConditionFormula>IF($Setup.Global_Object_Validation__c.Marketing_Activity_Validations_Active__c, 
+AND(ISPICKVAL( Status__c , &quot;Cancelled&quot;),  ISBLANK(Reason_for_Removal_or_Cancellation__c ) ),
+false)</errorConditionFormula>
+    <errorDisplayField>Reason_for_Removal_or_Cancellation__c</errorDisplayField>
+    <errorMessage>Enter a reason for Cancellation</errorMessage>
+</ValidationRule>

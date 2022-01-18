@@ -1,0 +1,109 @@
+<apex:page docType="html-5.0" applyBodyTag="false" applyHtmlTag="false" cache="true" showHeader="false" standardStylesheets="false"
+    standardController="Campaign" extensions="CampaignRedemptionActionController" >
+<html> 
+<head> 
+    <title>Redeem Promotion</title>
+    <meta charset="utf-8" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    
+    <!-- jQuery Mobile -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+    <apex:stylesheet value="https://code.jquery.com/mobile/1.3.0/jquery.mobile-1.3.0.min.css" />
+    <apex:includeScript value="https://code.jquery.com/jquery-1.9.1.min.js"/>
+    <apex:includeScript value="https://code.jquery.com/mobile/1.3.0/jquery.mobile-1.3.0.min.js"/>
+    
+    <!-- Salesforce1 -->
+    <apex:includeScript value="/canvas/sdk/js/publisher.js" />
+ 
+    <!-- custom scripts -->
+    <script>
+    
+<!-- custom scripts functions to handle the ";" in the textbox --> 
+    function callMe()
+    {
+        var myText =  $j('#VIPcodeTextBox').val() + ";";
+        $j('#VIPcodeTextBox').val(myText);
+    }
+
+    var _timer = 0;
+        function DelayedCallMe(num) {
+        Sfdc.canvas.publisher.publish({name: "publisher.setValidForSubmit", payload:"true"});
+            if (_timer)
+                window.clearTimeout(_timer);
+            _timer = window.setTimeout(function() { callMe(); }, 200);
+                }   
+<!--  END OF functions to handle the ";"  -->
+    
+        $j = jQuery.noConflict();
+        Visualforce.remoting.timeout = 120000;
+        Visualforce.remoting.buffer = false;        
+        Visualforce.remoting.escape = false;
+        
+        // Process submit button clicked
+        Sfdc.canvas.publisher.subscribe({name: "publisher.post", onData:function(e) {
+            SubmitRedemptions();
+        }}); 
+        
+        
+        function SubmitRedemptions() {
+            
+            var codes = $j('#VIPcodeTextBox').val();
+            if(codes.length == 0){
+                alert('At least one code must be entered before submitting');
+                return;
+            }
+            
+            $j('#statusPopupID').popup('open');
+                                    
+            CampaignRedemptionActionController.ProcessRedemptions(codes,'{!Campaign.Id}', function(result, event) {
+                $j('#statusPopupID').popup('close');
+                if(event.status) {
+                    if (result == 'Success') {
+                        alert('VIP cards sucesfully processed');
+                        Sfdc.canvas.publisher.publish({name: "publisher.close", payload:{refresh:"true"}});
+                    } else if (result == 'Badly formatted codes'){
+                        alert('All codes must be 14 or 16 characters long. No VIP cards have been redeemed.');
+                    } else {
+                        alert(result);
+                    }
+                } else {
+                    alert("Network Error - Please report issue if problem persists");
+                    alert(event.message);
+                }
+            });
+        }
+    
+        $j(document).ready(function() {            
+            // Enable submit button
+            Sfdc.canvas.publisher.publish({name: "publisher.setValidForSubmit", payload:"true"});   
+         });
+    </script>
+    
+</head> 
+<body>
+<div data-role="page">
+    <div data-role="content">   
+        <div data-role="popup" id="statusPopupID" class="ui-content" data-overlay-theme="a">
+
+            <img src="{!$Resource.ajaxSpinner}"/>  
+        </div>
+            <form>
+                <h3>Submit VIP codes for {!Campaign.Name}</h3>
+        
+                <div id="mobilePage">
+                    <p>This Action will add anonymous redemptions to {!Campaign.Name}. You can only use a QR keyboard or a 
+                    laser scanner to enter the codes into the text box below. If you need to enter guest information against
+                     the redemption, please use the single redemption action</p>    
+                    <label for="VIPCodes">Enter Codes:</label>
+                    <textarea name="VIPCodes" id="VIPcodeTextBox" placeholder="scan codes using scanner only" oninput="DelayedCallMe(200);"/>
+                </div>
+            </form>
+        <br/>
+        
+        
+    </div><!-- /content -->
+    
+</div><!-- /page -->
+</body>
+</html>
+</apex:page>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>FK_CNTC_FIRST_NAME</field>
+    </columns>
+    <columns>
+        <field>FK_NAME</field>
+    </columns>
+    <columns>
+        <field>FK_ACC_NAME</field>
+    </columns>
+    <columns>
+        <field>FK_CNTC_EMAIL</field>
+    </columns>
+    <currency>EUR</currency>
+    <filter>
+        <criteriaItems>
+            <column>CUST_NAME</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>Virtuoso Las Vegas 2014</value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
+    <format>Tabular</format>
+    <name>Virtuoso Las Vegas 2014</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CustomEntityCustomEntity$Trade_Event__c$Trade_Event_Attendee__c@Trade_Event_Attendee__c.Contact__c</reportType>
+    <scope>user</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>Trade_Event__c.Event_Date__c</dateColumn>
+        <endDate>2014-08-11</endDate>
+        <interval>INTERVAL_CUSTOM</interval>
+        <startDate>2014-08-11</startDate>
+    </timeFrameFilter>
+</Report>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>No_Gift_status_Mandatory_Fields</fullName>
+    <active>true</active>
+    <description>If gift status is gift recorded it´s need necessary fill the fields Gift Description, Gift Value,Date Sent, Currency and Gift Recipients</description>
+    <errorConditionFormula>AND(
+OR(
+$RecordType.Name = &quot;Relocation&quot;,
+$RecordType.Name = &quot;New Brand&quot;,
+$RecordType.Name = &quot;ShopRefit&quot;,
+$RecordType.Name = &quot;Contract Change&quot;,
+$RecordType.Name = &quot;Exit&quot;
+),
+ISPICKVAL(Gift_Status__c, &quot;Gift Recorded&quot;),
+
+OR(
+ISBLANK(Gift_Description__c),
+ISBLANK(Gift_Value__c),
+ISBLANK(Date_Sent__c),
+ISBLANK(TEXT(Currency__c))))</errorConditionFormula>
+    <errorMessage>It is necessary to fill in the mandatory fields Gift Description,  Gift Value, Date Sent, Currency.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>In_Budget__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Indicate whether this remerchandise activity is in next year&apos;s budget or not and if it is still likely to happen</inlineHelpText>
+    <label>Budget Status</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Budgeted LY</fullName>
+                <default>false</default>
+                <label>Budgeted LY</label>
+            </value>
+            <value>
+                <fullName>Budgeted TY</fullName>
+                <default>false</default>
+                <label>Budgeted TY</label>
+            </value>
+            <value>
+                <fullName>Budgeted TY Wont Happen</fullName>
+                <default>false</default>
+                <label>Budgeted TY Wont Happen</label>
+            </value>
+            <value>
+                <fullName>Budgeted TY Delayed</fullName>
+                <default>false</default>
+                <label>Budgeted TY Delayed</label>
+            </value>
+            <value>
+                <fullName>Budgeted TY Unit Change</fullName>
+                <default>false</default>
+                <label>Budgeted TY Unit Change</label>
+            </value>
+            <value>
+                <fullName>Budgeted NY</fullName>
+                <default>false</default>
+                <label>Budgeted NY</label>
+            </value>
+            <value>
+                <fullName>Not Budgeted</fullName>
+                <default>false</default>
+                <label>Not Budgeted</label>
+            </value>
+            <value>
+                <fullName>Budgeted</fullName>
+                <default>false</default>
+                <label>Budgeted</label>
+            </value>
+            <value>
+                <fullName>Reforecast</fullName>
+                <default>false</default>
+                <label>Reforecast</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Roberto_Cavalli_LV_09</fullName>
+    <columns>NAME</columns>
+    <columns>Trading_Date__c</columns>
+    <columns>Lease_ID__c</columns>
+    <columns>MRI_Phase_Id__c</columns>
+    <columns>MRI_Unit_Id__c</columns>
+    <columns>Store_Formula__c</columns>
+    <columns>MRI_Suite_Id__c</columns>
+    <columns>Certification_Batch__c</columns>
+    <columns>Period_Name__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Village_Code__c</field>
+        <operation>equals</operation>
+        <value>LV</value>
+    </filters>
+    <filters>
+        <field>Store_Formula__c</field>
+        <operation>equals</operation>
+        <value>Roberto Cavalli (La Vallée)</value>
+    </filters>
+    <filters>
+        <field>Period_Name__c</field>
+        <operation>equals</operation>
+        <value>Roberto Cavalli in La Vallée - 9/2019</value>
+    </filters>
+    <label>Roberto Cavalli LV - 09</label>
+    <language>en_US</language>
+</ListView>

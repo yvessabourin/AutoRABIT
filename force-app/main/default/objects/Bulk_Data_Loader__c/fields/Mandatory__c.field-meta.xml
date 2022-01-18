@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Mandatory__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Indicate whether field is a mandatory item.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Indicate whether field is a mandatory item.</inlineHelpText>
+    <label>Mandatory</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Referred_By__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <externalId>false</externalId>
+    <inlineHelpText>Enter the Name or rep office for the person who set up the promotion with VR</inlineHelpText>
+    <label>Referred By</label>
+    <lookupFilter>
+        <active>true</active>
+        <filterItems>
+            <field>User.Profile.Name</field>
+            <operation>equals</operation>
+            <value>Tourism Consultant</value>
+        </filterItems>
+        <infoMessage>Select Avia Rep. or click Show all results to select a different user.</infoMessage>
+        <isOptional>true</isOptional>
+    </lookupFilter>
+    <referenceTo>User</referenceTo>
+    <relationshipName>Campaigns</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Lookup</type>
+</CustomField>

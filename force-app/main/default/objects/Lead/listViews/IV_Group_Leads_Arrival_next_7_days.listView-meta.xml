@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>IV_Group_Leads_Arrival_next_7_days</fullName>
+    <columns>FULL_NAME</columns>
+    <columns>LEAD.COMPANY</columns>
+    <columns>LEAD.STATE</columns>
+    <columns>LEAD.EMAIL</columns>
+    <columns>Expected_Arrival__c</columns>
+    <columns>Account_Reference_Number__c</columns>
+    <columns>Lead_Country__c</columns>
+    <columns>Number_of_Visitors__c</columns>
+    <columns>Group_Type__c</columns>
+    <columns>LEAD.CREATED_DATE</columns>
+    <columns>LEAD.STATUS</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Village_of_Visit_c__c</field>
+        <operation>equals</operation>
+        <value>Ingolstadt</value>
+    </filters>
+    <filters>
+        <field>Expected_Arrival__c</field>
+        <operation>equals</operation>
+        <value>THIS_WEEK</value>
+    </filters>
+    <label>IV Group Leads - Arrival next 7 days</label>
+    <language>en_US</language>
+    <sharedTo>
+        <group>German_Tourism_Distribution_Group</group>
+        <group>Location_Ingolstadt</group>
+    </sharedTo>
+</ListView>

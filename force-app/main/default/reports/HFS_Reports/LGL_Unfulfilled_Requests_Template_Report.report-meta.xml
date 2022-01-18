@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>LGL_Unfulfilled_Request__c$Name</field>
+    </columns>
+    <columns>
+        <field>LGL_Unfulfilled_Request__c$LGL_Service_Type__c.Name</field>
+    </columns>
+    <columns>
+        <field>LGL_Unfulfilled_Request__c$LGL_Request_Location__c.Name</field>
+    </columns>
+    <columns>
+        <field>LGL_Unfulfilled_Request__c$CreatedDate</field>
+    </columns>
+    <columns>
+        <field>LGL_Unfulfilled_Request__c$CreatedBy</field>
+    </columns>
+    <currency>EUR</currency>
+    <format>Tabular</format>
+    <name>L&amp;L Unfulfilled Requests Template Report</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>LGL_Unfulfilled_Service_Requests__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>LGL_Unfulfilled_Request__c$LastModifiedDate</dateColumn>
+        <interval>INTERVAL_CURRENT</interval>
+    </timeFrameFilter>
+</Report>

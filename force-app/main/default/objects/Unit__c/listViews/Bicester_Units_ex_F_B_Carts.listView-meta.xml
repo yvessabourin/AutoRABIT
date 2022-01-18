@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Bicester_Units_ex_F_B_Carts</fullName>
+    <columns>NAME</columns>
+    <columns>Size_sq_ft__c</columns>
+    <columns>GIA_sq_ft__c</columns>
+    <columns>Size_GEA__c</columns>
+    <columns>Size_GIA__c</columns>
+    <columns>Size_Ground_Floor__c</columns>
+    <columns>Size_Mezzanine__c</columns>
+    <columns>Size_Storage__c</columns>
+    <columns>Storage_sq_ft__c</columns>
+    <columns>Unit_Status__c</columns>
+    <columns>LAST_UPDATE</columns>
+    <columns>Unit_Band__c</columns>
+    <columns>Seq__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>NAME</field>
+        <operation>notContain</operation>
+        <value>O</value>
+    </filters>
+    <filters>
+        <field>Village__c</field>
+        <operation>equals</operation>
+        <value>Bicester</value>
+    </filters>
+    <label>Bicester Units ex F&amp;B Carts</label>
+    <language>en_US</language>
+</ListView>

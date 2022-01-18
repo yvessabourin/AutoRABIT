@@ -1,0 +1,18 @@
+<aura:component controller="UserProfileController" implements="forceCommunity:profileMenuInterface" access="global">
+	<aura:attribute name="runningUser" type="User" />
+    <aura:attribute name="options" type="String[]" default=""/>
+
+	<aura:registerEvent name="menuSelect"  type="ui:menuSelect"
+                    description="The event fired when a menu item is selected." />
+                        
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+        
+    <ui:menu >
+        <ui:menuTriggerLink class="menuLink" aura:id="trigger" label="{!v.runningUser.FirstName + '\n' + v.runningUser.LastName}" />
+        <ui:menuList class="actionMenu" aura:id="actionMenu" menuSelect="{!c.selected}">
+            <aura:iteration items="{!v.options}" var="itemLabel">
+                <ui:actionMenuItem label="{!itemLabel}" click="{!c.handleMenuClick}"/>
+            </aura:iteration>
+        </ui:menuList>
+    </ui:menu>
+</aura:component>

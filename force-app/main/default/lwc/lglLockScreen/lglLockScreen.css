@@ -1,0 +1,17 @@
+.lgl-lock-screen {
+	background-color: rgb(0 0 0 / 75%);
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 9050;
+	position: fixed;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+label {
+	color: white;
+	display: block;
+}

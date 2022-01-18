@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Estimated_Total_Revenue__c</fullName>
+    <externalId>false</externalId>
+    <formula>Number_of_Visitors_Expected__c  *  Visitor_Estimated_Revenue_Lookup__r.Revenue_per_Visitor__c</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Calculated Field based on Group Source x visitors</inlineHelpText>
+    <label>Estimated Total Revenue</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

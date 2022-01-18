@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Matrix Report - ReadOnly</description>
+    <format>Matrix</format>
+    <groupingsAcross>
+        <dateGranularity>Week</dateGranularity>
+        <field>b2c_customer__c$originalRegistrationDate__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsAcross>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>b2c_customer__c$primaryVillage__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>b2c_customer__c$leadSource__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>Customer Reg by Week &amp; Lead Source</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Guests__c</reportType>
+    <scope>organization</scope>
+    <showDetails>false</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>b2c_customer__c$originalRegistrationDate__c</dateColumn>
+        <interval>INTERVAL_PREVCURY</interval>
+    </timeFrameFilter>
+</Report>

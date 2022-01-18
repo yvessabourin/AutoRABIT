@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Promotion_Redemption__c$Name</field>
+    </columns>
+    <filter>
+        <criteriaItems>
+            <column>Promotion_Redemption__c$Redeemable_Campaign__c.Parent.Name</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>BV-HOTELS-LONDON</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Promotion_Redemption__c$Country_of_Origin__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>India</value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <aggregateType>RowCount</aggregateType>
+        <dateGranularity>Day</dateGranularity>
+        <field>Promotion_Redemption__c$Redeemable_Campaign__c.Name</field>
+        <sortByName>RowCount</sortByName>
+        <sortOrder>Desc</sortOrder>
+        <sortType>Aggregate</sortType>
+    </groupingsDown>
+    <name>Top 10 London Hotels, India LW</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>VIP_Redemptions__c</reportType>
+    <scope>organization</scope>
+    <showDetails>false</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>Promotion_Redemption__c$CreatedDate</dateColumn>
+        <interval>INTERVAL_LASTWEEK</interval>
+    </timeFrameFilter>
+</Report>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Travel Trade Meeting</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Travel Trade Meetings</value>
+    </caseValues>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>TTM_can_only_be_shared_once</name>
+    </validationRules>
+    <webLinks>
+        <label></label>
+        <name>New_Travel_Trade_Meeting</name>
+    </webLinks>
+    <webLinks>
+        <label></label>
+        <name>New_Travel_Trade_Meeting_2</name>
+    </webLinks>
+</CustomObjectTranslation>

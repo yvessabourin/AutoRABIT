@@ -1,0 +1,83 @@
+<apex:page controller="HFSMultiDropJobListController" lightningStylesheets="true">
+
+        <apex:form >
+      
+        <apex:pageMessages ></apex:pageMessages>
+        
+        <apex:pageBlock id="pb0" rendered="true">
+         <label>Select your drop off location: </label>
+                <apex:selectList id="dropOffLocations" size="1" value="{!selectedField}">
+                    <apex:selectOptions value="{!LocationOptions}"/>
+                     <apex:actionSupport action="{!updateJobsList}" event="onchange"/>
+                </apex:selectList>
+        </apex:pageBlock>
+        
+        
+
+            <apex:pageBlock id="pb" rendered="{!pbRendered}">
+            <br></br>
+                <br></br>
+                <apex:pageBlockTable value="{!jobList}" var="j">
+
+                    <apex:column >
+                        <apex:facet name="header">
+                           
+                         </apex:facet>
+                        <!-- This is our selected Boolean property in our wrapper class -->
+                        <apex:inputCheckbox value="{!j.selected}"  id="selectBox"/>
+                    </apex:column>
+
+                    <apex:column >
+                        <apex:facet name="header">
+                           Guest Code
+                         </apex:facet>
+                        <!-- This is our selected Boolean property in our wrapper class -->
+                        <apex:outputfield value="{!j.HFSJob.Guest_ID_Code__c}"  id="Guest_ID_Code__c"/>
+                    </apex:column>
+
+                    <apex:column >
+                        <apex:facet name="header">
+                           Job
+                         </apex:facet>
+                        <!-- This is our selected Boolean property in our wrapper class -->
+                        <apex:outputfield value="{!j.HFSJob.Name}"  id="jobName"/>
+                    </apex:column>
+
+                    <apex:column >
+                        <apex:facet name="header">
+                           Collection Point
+                         </apex:facet>
+                        <!-- This is our selected Boolean property in our wrapper class -->
+                        <apex:outputfield value="{!j.HFSJob.HFS_Guest_Collection_Point__c}"  id="HFS_Guest_Collection_Point__c"/>
+                    </apex:column>
+
+                </apex:pageBlockTable>
+                <br></br>
+                
+
+                <apex:commandButton action="{!selectAll}" value="Select All"/>
+                <apex:commandButton action="{!deselectAll}" value="Deselect All"/>
+                <br></br>
+                <br></br>
+                <apex:commandButton action="{!ArrivedAtStoragePoint}" value="Arrive at Storage Point"/>
+                
+                  <!-- 
+                    <apex:panelGrid columns="7">
+                    <apex:commandButton status="fetchStatus" reRender="pb" value="|<" action="{!setCon.first}" disabled="{!!setCon.hasPrevious}" title="First Page"/>
+                    <apex:commandButton status="fetchStatus" reRender="pb" value="<" action="{!setCon.previous}" disabled="{!!setCon.hasPrevious}" title="Previous Page"/>
+                    <apex:commandButton status="fetchStatus" reRender="pb" value=">" action="{!setCon.next}" disabled="{!!setCon.hasNext}" title="Next Page"/>
+                    <apex:commandButton status="fetchStatus" reRender="pb" value=">|" action="{!setCon.last}" disabled="{!!setCon.hasNext}" title="Last Page"/>
+                    <apex:outputText >{!(setCon.pageNumber * size)+1-size}-{!IF((setCon.pageNumber * size)>noOfRecords, noOfRecords,(setCon.pageNumber * size))} of {!noOfRecords}</apex:outputText>
+                    <apex:commandButton status="fetchStatus" reRender="pb" value="Refresh" action="{!refresh}" title="Refresh Page"/>
+                    <apex:outputPanel style="color:#4AA02C;font-weight:bold">
+                        <apex:actionStatus id="fetchStatus" startText="Fetching..." stopText=""/>
+                    </apex:outputPanel>
+                </apex:panelGrid>
+                -->
+                
+                
+                
+            </apex:pageBlock>
+        </apex:form>
+        
+</apex:page>

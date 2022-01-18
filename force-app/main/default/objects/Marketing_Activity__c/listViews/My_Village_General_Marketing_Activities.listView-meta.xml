@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>My_Village_General_Marketing_Activities</fullName>
+    <columns>NAME</columns>
+    <columns>Marketing_Campaign__c</columns>
+    <columns>Channel__c</columns>
+    <columns>Start_Date__c</columns>
+    <columns>End_Date__c</columns>
+    <columns>Parent_Group_Marketing_Campaign__c</columns>
+    <columns>Status__c</columns>
+    <columns>Responsible_Person__c</columns>
+    <columns>Marketing_Campaign_Village__c</columns>
+    <columns>RECORDTYPE</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Marketing_Activity__c.General_Activity</value>
+    </filters>
+    <filters>
+        <field>My_Village_Activity__c</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <label>My Village General Marketing Activities</label>
+    <language>en_US</language>
+</ListView>

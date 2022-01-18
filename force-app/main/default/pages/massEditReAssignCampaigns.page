@@ -1,0 +1,102 @@
+<apex:page sidebar="false" showHeader="true"  standardController="Marketing_Campaign__c" recordSetVar="MarkCamps" extensions="massEditReAssignCampaignsController" docType="html-5.0" lightningStylesheets="true">
+
+
+<div>
+
+<apex:form id="theform" >
+
+<b><apex:outputLabel value="Set all Status'                          " for="invitestatus" /></b>
+    <apex:inputfield value="{!selectoption.Status__c}" id="invitestatus"/>
+     <b></b>
+     <apex:commandButton action="{!setAllStatus}" value="Update"/>
+     <p></p>
+
+
+     <p></p>
+     
+
+    <apex:pageBlock id="thepageblock" >
+
+  <apex:pageMessage severity="Error" summary="{!errormessage}" rendered="{!errorcount > 0 }"></apex:pageMessage>
+
+            <apex:pageBlockTable value="{!wMCstoEdit}" var="select" id="thepageblocktable" columns="8" >
+
+                <apex:column >
+                  <apex:facet name="header">
+                    Selected Records<br/>to update
+                  </apex:facet>
+                    <apex:inputCheckbox value="{!select.selected}"  id="selectBox" styleClass="selectBox"/>
+                </apex:column>
+                
+                <apex:column headerValue="Name" >
+                <apex:outputField value="{!select.theMC.name}" />
+                </apex:column>
+
+                <apex:column headerValue="Status" >
+                  <apex:inputField value="{!select.theMC.Status__c}" id="thestatus" onchange="jsUpdateCheckboxInvite(this)"/>
+                </apex:column> 
+
+                <apex:column headerValue="Start Date" >
+                  <apex:inputField value="{!select.theMC.Start_Date__c}" id="theStartDate" onchange="jsUpdateCheckboxInvite(this)"/>
+                </apex:column> 
+
+                <apex:column headerValue="End Date" >
+                  <apex:inputField value="{!select.theMC.End_Date__c}" id="theEndDate" onchange="jsUpdateCheckboxInvite(this)"/>
+                </apex:column>                
+
+                <apex:column headerValue="Transfer to Oracle" >
+                  <apex:inputField value="{!select.theMC.Transfer_To_Oracle__c}" id="theTransferOracle" onchange="jsUpdateCheckboxInvite(this)"/>
+                </apex:column>  
+
+                <apex:column headerValue="Re-Send to Oracle" >
+                  <apex:inputField value="{!select.theMC.Re_send_to_Oracle__c}" id="theReSendOracle" onchange="jsUpdateCheckboxInvite(this)"/>
+                </apex:column>                
+                
+                <!--<apex:column headerValue="RecType" >
+                <apex:outputField value="{!select.theMC.RecordTypeId}" />
+                </apex:column>
+
+                <apex:column headerValue="Name" >
+                <apex:outputField value="{!select.theMC.name}" />
+                </apex:column>
+
+               <apex:column headerValue="Parent Campaign" >
+                <apex:inputField value="{!select.theMC.Parent_Marketing_Campaign__c}" id="theparent" onchange="jsUpdateCheckboxInvite(this)"/>
+                </apex:column
+
+                <apex:column headerValue="Campaign Focus" >
+                <apex:inputField value="{!select.theMC.Campaign_Focus__c}" id="thefocus" onchange="jsUpdateCheckboxInvite(this)"/>
+                </apex:column> 
+
+                <apex:column headerValue="Campaign Level" >
+                <apex:inputField value="{!select.theMC.Campaign_Level__c}" id="thelevel" onchange="jsUpdateCheckboxInvite(this)"/>
+                </apex:column> 
+
+                <apex:column headerValue="Marketing Activity Budget" >
+                {!select.theMC.CurrencyIsoCode} : 
+                <apex:inputField value="{!select.theMC.Campaign_Marketing_Budget__c}" id="theBudget" onchange="jsUpdateCheckboxInvite(this)"/>
+                </apex:column> -->
+                
+
+            </apex:pageBlockTable>
+    
+    <!-- test -->
+    <apex:commandButton action="{!selectAll}" value="Select All"/>
+    <apex:commandButton action="{!deselectAll}" value="Deselect All"/>
+
+    </apex:pageBlock>
+
+    
+    
+    <apex:pageBlock >
+    <apex:commandButton action="{!Cancel}" value="Cancel"/>
+    
+    <apex:commandButton action="{!saveSelected}" value="Save Selected Records" /> 
+    </apex:pageBlock>
+
+  </apex:form>  
+
+</div>
+
+
+</apex:page>

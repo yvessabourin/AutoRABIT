@@ -1,0 +1,393 @@
+<apex:page sidebar="false" controller="PrescanGroupBookingController" showHeader="false" standardStylesheets="false"  applyBodyTag="false" docType="html-5.0">
+
+  <html xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" ng-app="ticApp" >    
+    <head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>TIC Home Page</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></link>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment-with-locales.js"></script>
+ <link rel="stylesheet" href="{!URLFOR($Resource.NewTICStyles)}"></link>
+
+        <script src="{!URLFOR($Resource.NewTICScripts)}"></script>
+ <apex:includeScript value="{!$Resource.Sorttable}"></apex:includeScript> 
+
+<style type="text/css">
+
+body{
+    background: url({!URLFOR($Resource.TICDashboard, 'BVWalk.jpg')}) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+</style>
+<script type="text/javascript">
+	
+ $j = jQuery.noConflict();
+      var homeUrl;
+      $j(document).ready(function() {
+          if( ('{!$User.UIThemeDisplayed}' == 'Theme4t' || '{!$User.UIThemeDisplayed}' == 'Theme4d' ) ) {
+             // running in mobile
+                homeUrl = '/_ui/core/chatter/ui/ChatterPage';
+            } else { //desktop
+                homeUrl = '/home/home.jsp';
+            } 
+          })
+
+        var visitId = '';
+             //custom scripts functions to handle the ";" in the textbox -
+            var _timer = 0;
+            
+        visitId = '{!$CurrentPage.parameters.visitId}';
+
+            function callMe() {
+                
+                var newCode =  $j('#codesinput').val() ;
+                addCodeToList(newCode);
+
+            }
+            function precallMe() {
+                
+                var newCode =  $j('#precodesinput').val() ;
+                preaddCodeToList(newCode);
+
+            }
+            function addCodeToList(code){
+                // first loop through the list to verify that the code isnt there already
+                if(code){
+                    var codeFound = false;
+                    $j('#codes option').each(function(i, selected){ 
+                        console.log(selected);
+                        if(code == $j(selected).val())
+                        {
+                            // then its already in the list
+                            codeFound = true;
+                        }                    
+                    });
+                    if(!codeFound)
+                    {
+                        $j('#codes').append(new Option(code, code, true, true));                    
+                    }
+                    
+                    $j('#codesinput').val("");
+                     $j('#cardcount').val("Cards scanned: " + $j('#codes option').length);
+                     //  $j('#numberOfGuests').val($j('#codes option').length);
+                }
+            }
+            function preaddCodeToList(code){
+                // first loop through the list to verify that the code isnt there already
+                if(code){
+                    var codeFound = false;
+                    $j('#precodes option').each(function(i, selected){ 
+                        console.log(selected);
+                        if(code == $j(selected).val())
+                        {
+                            // then its already in the list
+                            codeFound = true;
+                        }                    
+                    });
+                    if(!codeFound)
+                    {
+                        $j('#precodes').append(new Option(code, code, true, true));                    
+                    }
+                    
+                    $j('#precodesinput').val("");
+                     $j('#precardcount').val("Cards scanned: " + $j('#precodes option').length);
+                     //  $j('#numberOfGuests').val($j('#codes option').length);
+                }
+            }
+
+            function callRemove() {
+                
+                var newCode =  $j('#codesremove').val() ;
+                // first loop through the list to verify that the code isnt there already
+                var codeFound = false;
+                $j('#codes option').each(function(i, selected){ 
+                    console.log(selected);
+                    if(newCode == $j(selected).val())
+                    {
+                        // then its already in the list
+                        codeFound = true;
+                        $j(selected).remove();
+                    }                    
+                });
+            /*    if(codeFound)
+                {
+                    $j('#codes').find('option:selected').remove();
+                    $j('#codes').append(new Option(newCode, newCode, true, true));                    
+                }
+                */
+                $j('#codesremove').val("");
+                $j('#cardcount').val("Cards scanned: " + $j('#codes option').length);
+
+
+            }
+            
+            function precallRemove() {
+                
+                var newCode =  $j('#precodesremove').val() ;
+                // first loop through the list to verify that the code isnt there already
+                var codeFound = false;
+                $j('#precodes option').each(function(i, selected){ 
+                    console.log(selected);
+                    if(newCode == $j(selected).val())
+                    {
+                        // then its already in the list
+                        codeFound = true;
+                        $j(selected).remove();
+                    }                    
+                });
+            /*    if(codeFound)
+                {
+                    $j('#codes').find('option:selected').remove();
+                    $j('#codes').append(new Option(newCode, newCode, true, true));                    
+                }
+                */
+                $j('#precodesremove').val("");
+                $j('#precardcount').val("Cards scanned: " + $j('#precodes option').length);
+
+
+            }
+            
+            function DelayedCallMe(num) {
+                
+                if (_timer)
+                    window.clearTimeout(_timer);
+                    
+                _timer = window.setTimeout(function() { callMe(); }, 200);
+            }
+
+            function DelayedCallRemove(num) {
+                
+                if (_timer)
+                    window.clearTimeout(_timer);
+                    
+                _timer = window.setTimeout(function() { callRemove(); }, 200);
+            }
+               
+
+             function removeCodes() {
+                // remove the selected codes from the multi select
+
+                 $j('#codes').find('option:selected').remove();
+
+               // $j('#numberOfGuests').val($j('#codes option').length);
+                 $j('#cardcount').val("Cards scanned: " + $j('#codes option').length);
+            }
+
+            function bulkadd() {
+              
+                 $j('#bulkaddModal').modal('show');
+
+            }
+            // Pre scan section
+
+
+            function preDelayedCallMe(num) {
+                
+                if (_timer)
+                    window.clearTimeout(_timer);
+                    
+                _timer = window.setTimeout(function() { precallMe(); }, 200);
+            }
+
+            function preDelayedCallRemove(num) {
+                
+                if (_timer)
+                    window.clearTimeout(_timer);
+                    
+                _timer = window.setTimeout(function() { precallRemove(); }, 200);
+            }
+               
+
+             function preremoveCodes() {
+                // remove the selected codes from the multi select
+
+                 $j('#precodes').find('option:selected').remove();
+
+               // $j('#numberOfGuests').val($j('#codes option').length);
+                 $j('#precardcount').val("Cards scanned: " + $j('#precodes option').length);
+            }
+
+            function prebulkadd() {
+              // hmm, not sure if i want this....
+                 $j('#bulkaddModal').modal('show');
+
+            }
+            
+            function reSendEmail() {
+              
+                $j('#resendemailModal').modal('show');
+
+            }
+
+            function prescanCards() {
+              
+                $j('#prescanModal').modal('show');
+
+            }
+      
+              function cancelAction(){
+                  
+                  if(  ('{!$User.UIThemeDisplayed}' == 'Theme4t' || '{!$User.UIThemeDisplayed}' == 'Theme4d' ) ) {
+                      // running in mobile
+                      console.log('MOBILE URL ... ' + homeUrl);
+                      sforce.one.navigateToURL(homeUrl);
+                      
+                  } else { //desktop
+                      console.log('DESKTOP URL ... ' + homeUrl);
+                      window.location.href = homeUrl;
+                  }     
+                  
+              }
+
+            function savePreScanVisit(){
+                // saves only the pre-scanned cards to the visit
+                 $j('#saving').show();
+                 var codes =  '';
+                var codecount = 0;
+                  $j('#precodes option').each(function(i, selected){                    
+                        codecount ++;
+                         codes += $j(selected).val() + ';' ;
+
+                  });
+                  console.log("pre codes = " + codes);
+
+                PrescanGroupBookingController.savePreScannedVisit(codes, visitId, function(result, event) {
+                        $j('#saving').hide();
+                        console.log(result);                        
+                        
+                        var err = result.indexOf("ERROR");
+                        var url = '';
+                        if(event.status && err < 0) {
+                            alert(result);
+                            url = '/apex/TIC_Dashboard';
+                            window.location.href = url;
+                                        
+                        } else {
+                            alert(result);                           
+                            console.log('ERROR  ' + result);
+        
+                        }                        
+
+                        },{buffer: false, escape: false, timeout: 90000} );
+
+
+              }
+
+</script>
+</head>
+<body>
+      <!-- Main Navigation -->
+      <div class="my-nav">
+         <div class="site-navbar navbar navbar-fixed-top" role="navigation">
+            <div class="container">
+               <div class="navbar-header">
+                  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+                   <a class="navbar-brand" onclick="gotoPage('TIC_Dashboard');">Tourist Information Center</a> 
+               </div>
+               <div id="navbar" class="navbar-collapse collapse">
+                  <ul class="nav navbar-nav navbar-right">
+                     <li> <a  href="#group" class="active"  onclick="gotoPage('GroupBooking_Search');" >Group Check In</a> </li>
+                     <li> <a  href="#guest"  onclick="gotoPage('Promotion_Search');" >Guest Check In</a> </li>
+                     <li> <a  href="#search"  onclick="gotoPage('GuestSearch');">Guest Search</a> </li>
+                     <li> <a  href="#card"  onclick="gotoPage('VIPCardSearch');">Card Search</a> </li>
+                     <li> <a  href="#clean"  onclick="gotoPage('VIPCardCleardown');">VIP Card Cleanup</a> </li>
+                      <li id="hfslistitem" name="hfslistitem"> <a  href="#hfs"  onclick="gotoPage('HFSDash');">Hands Free Shopping</a> </li>
+                     <li> <a  href="#exit" onclick="cancelAction();" >Exit</a> </li>
+                  </ul>
+               </div>
+               <!--/.nav-collapse -->
+            </div>
+         </div>
+      </div>
+      <!-- /.Main Navigation -->
+      <!-- Fullwidth Header -->
+      <!-- Intro Header -->
+
+      
+<div class="jumbotron text-center">
+  <h2>&nbsp;</h2>
+</div>
+
+<!-- main content -->
+<div class="container" ng-controller="GroupCtrl">  
+
+ <div id="loadingmodal" name="loadingmodal" class="modal" role="dialog">
+      <div class="modal-dialog">
+        <div id="loader">
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+        </div>
+      </div>
+    </div>
+
+<div class="panel panel-default disable" id="registerpanel" name="registerpanel">
+  <div class="panel-heading">Visit Details</div>
+  <div class="panel-body">
+<!-- put content here -->
+ <div  class="row" >  
+
+            <div class="col-md-4">
+                <div class="input-group"> 
+                    <span class="tooltiptext">Scan to add VIP Cards</span>
+                    <span class="input-group-addon"><i class="fa fa-qrcode"></i></span>  
+                    <input type="text" id="precodesinput" class="form-control" placeholder="Scan to add VIP cards here .." oninput="preDelayedCallMe(200);"></input>                          
+                </div>  
+                 <br/>
+                      
+             </div> 
+              <div class="col-md-4">
+                <div class="input-group"> 
+                    <select id="precodes" multiple="true" class="form-control" placeholder="Scanned VIP cards" ></select>                 
+                </div>  
+                 <div class="input-group"> 
+                    <span class="tooltiptext">Cards Scanned</span>
+                    <span class="input-group-addon"><i class="fa fa-tags"></i></span>  
+                    <input type="text" id="precardcount" class="form-control" placeholder="Cards Scanned: 0" disabled="disabled"></input>                   
+                </div>    
+             </div> 
+              <div class="col-md-4">
+               <div class="input-group"> 
+                    <span class="tooltiptext">Scan to REMOVE VIP Cards</span>
+                    <span class="input-group-addon"><i class="fa fa-qrcode"></i></span>  
+                    <input type="text" id="precodesremove" class="form-control" placeholder="Scan to remove VIP cards here .." oninput="preDelayedCallRemove(200);"></input>                   
+                </div>     
+                <br/>
+                <div class="input-group">                   
+                    <button id="removeCode" class="btn btn-default" role="button"  onclick="preremoveCodes();">Remove Selected Codes</button>               
+                </div> 
+             </div> 
+        </div>
+        <div  class="row" >  
+            <div class="col-md-4">
+             <button role="button" class="btn btn-default" id="SavePrescan" onclick="savePreScanVisit();" >Save Pre-scanned cards</button>
+            </div>
+            <div class="col-md-4">
+            </div>
+            <div class="col-md-4">
+            </div>
+
+      </div>
+       </div>
+        </div>
+         </div>
+
+  </body>
+    </html>
+
+
+</apex:page>

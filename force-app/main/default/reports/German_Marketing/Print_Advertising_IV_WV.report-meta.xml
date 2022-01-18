@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Marketing_Campaign__c.Marketing_Activities__r$Name</field>
+    </columns>
+    <columns>
+        <field>Marketing_Campaign__c$Name</field>
+    </columns>
+    <columns>
+        <field>Marketing_Campaign__c$Start_Date__c</field>
+    </columns>
+    <columns>
+        <field>Marketing_Campaign__c$End_Date__c</field>
+    </columns>
+    <columns>
+        <field>Marketing_Campaign__c.Marketing_Activities__r$Sub_Channel__c</field>
+    </columns>
+    <currency>EUR</currency>
+    <description>Report shows receent print ads in magazines for German Villages</description>
+    <format>Tabular</format>
+    <name>Print Advertising IV &amp; WV</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Marketing_Campaigns_with_Marketing_Activities_VR__c</reportType>
+    <scope>user</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>Marketing_Campaign__c.Marketing_Activities__r$Start_Date__c</dateColumn>
+        <interval>INTERVAL_CURRENT</interval>
+    </timeFrameFilter>
+</Report>

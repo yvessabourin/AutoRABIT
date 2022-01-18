@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomTab xmlns="http://soap.sforce.com/2006/04/metadata">
+    <flexiPage>Campaign_Redemption_Search_and_Scan</flexiPage>
+    <label>Campaign Redemption Search and Scan</label>
+    <motif>Custom100: TV Widescreen</motif>
+</CustomTab>

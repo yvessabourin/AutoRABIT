@@ -1,0 +1,50 @@
+<template>
+	<lightning-spinner
+		class="slds-is-fixed"
+		if:true={loading}
+		alternative-text="Loading"
+		size="large"
+	></lightning-spinner>
+	<div if:true={showActiveItemsTable} class="slds-var-m-bottom_medium">
+		<c-lgl-table
+			columns={activeItemsTableFields}
+			rows={activeServiceItems}
+			table-key="Id"
+			empty-table-text="No Active Service Items"
+		>
+		</c-lgl-table>
+	</div>
+
+	<div if:false={selectedServices}>
+		<c-lgl-services-selector></c-lgl-services-selector>
+
+		<footer
+			data-region="serviceSettingsButtons"
+			class="slds-var-m-top_medium slds-var-p-top_small"
+		>
+			<div>
+				<button type="button" onclick={handleSelectServices}>Confirm Services</button>
+				<button type="button" onclick={handleCancel}>Cancel</button>
+			</div>
+		</footer>
+	</div>
+
+	<div if:true={selectedServices}>
+		<c-lgl-new-service-form-service-details
+			selected-services={selectedServices}
+			default-location={serviceLocation}
+			service-offerings={serviceOfferings}
+			hide-guest-type-field
+		></c-lgl-new-service-form-service-details>
+
+		<footer
+			data-region="serviceSettingsButtons"
+			class="slds-var-m-top_medium slds-var-p-top_small"
+		>
+			<div>
+				<button type="button" onclick={handleCreateServices}>Create Service Request</button>
+				<button type="button" onclick={handleCancel}>Cancel</button>
+			</div>
+		</footer>
+	</div>
+</template>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Master_Budget_Sheets_La_Vallee</fullName>
+    <columns>NAME</columns>
+    <columns>Month__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Budget_Village__c</field>
+        <operation>equals</operation>
+        <value>La Vallée</value>
+    </filters>
+    <label>Master Budget Sheets La Vallée</label>
+    <language>en_US</language>
+</ListView>

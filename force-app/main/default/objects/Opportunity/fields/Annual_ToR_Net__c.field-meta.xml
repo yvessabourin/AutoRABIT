@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Annual_ToR_Net__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF( ( Annual_ToR_Gross__c - Annual_Base_Rent__c )  &lt; 0, 0,( Annual_ToR_Gross__c - Annual_Base_Rent__c ) )</formula>
+    <inlineHelpText>Annual Gross T/O rent net of Base Rent, this will be Zero if Annual Gross T/O Rent is less than Base Rent</inlineHelpText>
+    <label>Annual ToR Net</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Log_Call</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <linkType>url</linkType>
+    <masterLabel>Log Call</masterLabel>
+    <openType>replace</openType>
+    <protected>false</protected>
+    <url>/00T/e?title=Call&amp;what_id={!Account.Id}&amp;who_id={!Contact.Id}&amp;tsk5=Call&amp;RecordType=012b0000000UdC1&amp;retURL=%2F{!Contact.Id}</url>
+</WebLink>

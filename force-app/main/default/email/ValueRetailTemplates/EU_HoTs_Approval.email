@@ -1,0 +1,46 @@
+<table height="400" width="550" cellpadding="5" border="0" cellspacing="5" >
+<tr height="400" valign="top" >
+<td style=" color:#000000; font-size:12pt; background-color:#FFFFFF; font-family:arial; bLabel:main; bEditID:r3st1;" tEditID="c1r1" locked="0" aEditID="c1r1" >
+<![CDATA[<P align=center><FONT color=#000066><STRONG>{!Contract.Village__c}</STRONG></FONT></P>
+<P align=center><STRONG><FONT color=#000066></FONT></STRONG>&nbsp;</P><STRONG><FONT color=#000066>
+<P align=center><STRONG><FONT color=#3333ff face=Verdana,Helvetica,Sans-Serif>Heads of Terms&nbsp;Approval&nbsp;Request</FONT></STRONG></P></FONT></STRONG>
+<P align=center><STRONG><FONT color=#3333ff face=Verdana></FONT></STRONG>&nbsp;</P>
+<P align=left><STRONG><FONT color=#3333ff size=2 face=Verdana,Helvetica,Sans-Serif>To approve, please&nbsp;reply to this email and include any one of the following in line 1, <FONT color=#009900>Approve, Approved or&nbsp;Yes </FONT>followed by an appropriate comment.</FONT></STRONG></P>
+<P align=left><STRONG><FONT color=#3333ff size=2 face=Verdana,Helvetica,Sans-Serif>To reject do as above but use any one of <FONT color=#990000>Reject, Rejected or No</FONT>.</FONT></STRONG></P>
+<P align=left><STRONG><FONT color=#3333ff size=2 face=Verdana,Helvetica,Sans-Serif>Or use the link below to approve from within Salesforce</FONT></STRONG></P>
+<P align=left><STRONG><FONT color=#3333ff size=2 face=Verdana></FONT></STRONG>&nbsp;</P>
+<P align=left><FONT color=#3333ff><FONT color=#000000><FONT face=Arial,Sans-Serif><FONT size=2><FONT color=#000000>Contract Type:</FONT>&nbsp;&nbsp;&nbsp;&nbsp; {!Contract.Contract_Type__c}</FONT></FONT></FONT></FONT></P>
+<P align=left><FONT color=#3333ff><FONT color=#000000 size=2 face=Arial,Sans-Serif></FONT></FONT>&nbsp;</P>
+<P align=left><FONT face=Arial,Sans-Serif><FONT size=2><FONT color=#3333ff><FONT color=#000000>Tenant:&nbsp;&nbsp;</FONT><STRONG>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </STRONG></FONT>{!Contract.Name}</FONT></FONT></P>
+<P align=left><FONT size=2 face=Arial,Sans-Serif></FONT>&nbsp;</P>
+<P align=left><FONT size=2 face=Arial,Sans-Serif>Unit: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {!Contract.00NP0000000jcbu} {!Contract.Unit_Size__c} sq.m {!Contract.Unit_Size_sqft__c} sq.ft</FONT></P>
+<P align=left><FONT size=2 face=Arial,Sans-Serif></FONT>&nbsp;</P>
+<P align=left><FONT size=2 face=Arial,Sans-Serif>Trading Name:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {!Contract.Trading_Name__c}</FONT></P>
+<P align=left><FONT size=2 face=Arial,Sans-Serif></FONT>&nbsp;</P>
+<P align=left><FONT size=2 face=Arial,Sans-Serif>Guarantor:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {!Contract.Tenant_Guarantor__c}</FONT></P>
+<P align=left><FONT size=2 face=Arial,Sans-Serif></FONT>&nbsp;</P>
+<P align=left><FONT size=2 face=Arial,Sans-Serif>Deposit:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {!Contract.Deposit_Clause__c}</FONT></P>
+<P align=left><FONT size=2 face=Arial,Sans-Serif></FONT>&nbsp;</P>
+<P align=left><FONT size=2 face=Arial,Sans-Serif>Permitted Use:&nbsp;&nbsp;&nbsp;&nbsp; {!Contract.Permitted_Use__c}</FONT></P>
+<P align=left><FONT size=2 face=Arial,Sans-Serif></FONT>&nbsp;</P>
+<P align=left><FONT size=2 face=Arial,Sans-Serif>Fit Out:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {!Contract.Fitting_Out_Period_weeks__c} weeks</FONT></P>
+<P align=left><FONT size=2 face=Arial,Sans-Serif></FONT>&nbsp;</P>
+<P align=left><FONT size=2 face=Arial,Sans-Serif>Term:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {!Contract.Contract_Term_years__c} years</FONT></P>
+<P align=left><FONT size=2 face=Arial,Sans-Serif>&nbsp;</FONT></P>
+<P align=left><FONT size=2 face=Arial,Sans-Serif>Base Rent:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {!Contract.Base_Rent_Clause__c}</FONT></P>
+<P align=left><FONT size=2 face=Arial,Sans-Serif>&nbsp;</FONT></P>
+<P align=left><FONT size=2 face=Arial,Sans-Serif>Turnover Rent:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {!Contract.Turnover_Rent_Clause__c}</FONT></P>
+<P align=left>&nbsp;</P>
+<P align=left><FONT color=#3333ff size=1 face=Arial,Sans-Serif>Click to view entire Contract:&nbsp;{!Contract.Link}</FONT></P>
+<P align=left>&nbsp;</P>
+<P align=center><STRONG><FONT face=Verdana></FONT></STRONG>&nbsp;</P>
+<P align=center>&nbsp;</P>
+<P align=left><FONT size=2 face=Verdana></FONT>&nbsp;</P>
+<P align=left><FONT color=#33cc00></FONT>&nbsp;</P>
+<P align=left>&nbsp;</P>
+<P align=left>&nbsp;</P>
+<P align=left>&nbsp;</P>
+<P align=center><FONT size=4 face=Verdana></FONT>&nbsp;</P>
+<P align=left>&nbsp;</P>]]></td>
+</tr>
+</table>

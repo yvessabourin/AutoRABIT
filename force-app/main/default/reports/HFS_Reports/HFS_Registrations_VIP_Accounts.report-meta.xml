@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <buckets>
+        <bucketType>number</bucketType>
+        <developerName>BucketField_44280341</developerName>
+        <masterLabel>Spent Level</masterLabel>
+        <nullTreatment>z</nullTreatment>
+        <sourceColumnName>Account.Cases$Total_Spent_Amount__c</sourceColumnName>
+        <useOther>false</useOther>
+        <values>
+            <sourceValues>
+                <to>1,500</to>
+            </sourceValues>
+            <value>Low Spend</value>
+        </values>
+        <values>
+            <sourceValues>
+                <from>1,500</from>
+                <to>3,000</to>
+            </sourceValues>
+            <value>Medium Spend</value>
+        </values>
+        <values>
+            <sourceValues>
+                <from>3,000</from>
+            </sourceValues>
+            <value>High Spend</value>
+        </values>
+    </buckets>
+    <columns>
+        <field>Account.Cases$Service_Guest_Number__c</field>
+    </columns>
+    <columns>
+        <field>Account.Cases$Village__c</field>
+    </columns>
+    <columns>
+        <field>Account.Cases$Country_of_Residence__c</field>
+    </columns>
+    <columns>
+        <field>Account.Cases$Experience_Start__c</field>
+    </columns>
+    <columns>
+        <aggregateTypes>Sum</aggregateTypes>
+        <aggregateTypes>Average</aggregateTypes>
+        <field>Account.Cases$Total_Spent_Amount__c</field>
+    </columns>
+    <currency>EUR</currency>
+    <description>Report that displays information about the VIP registrations that were performed after an HFS Experience via the Register to BlackBook button from the HFS App</description>
+    <filter>
+        <criteriaItems>
+            <column>Account.Cases$HFS_Was_Registered_BlackBook__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>1</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Account$RecordType</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>PersonAccount.VIP_Guest</value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>BucketField_44280341</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Account.Cases$HFS_Guest_Residency__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>HFS Registrations &amp; VIP Accounts</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Accounts_With_Cases__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <sortColumn>Account.Cases$Total_Spent_Amount__c</sortColumn>
+    <sortOrder>Desc</sortOrder>
+    <timeFrameFilter>
+        <dateColumn>Account.Cases$Experience_Start__c</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

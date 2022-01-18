@@ -1,0 +1,133 @@
+<apex:page sidebar="false" showHeader="false" standardStylesheets="false"  applyBodyTag="false" controller="apiCustomerController" docType="html-5.0">
+      
+   <head>
+       <apex:stylesheet value="{!URLFOR($Resource.SLDS0121, 'assets/styles/salesforce-lightning-design-system-vf.css')}" />  
+   </head>
+
+    <!-- <apex:includeScript value="https://code.jquery.com/jquery-1.9.1.min.js"/> -->
+    <apex:includeScript value="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"/>
+    <!-- custom scripts -->
+           
+   <script>
+       var guid =  '{!$CurrentPage.parameters.guid}';
+       var currentEmail =   decodeURIComponent('{!JSENCODE($CurrentPage.parameters.email)}');
+
+       $j = jQuery.noConflict();
+       var homeUrl;
+
+            
+        $j(document).ready(function() {
+            $j('#saving').hide();
+            $j('#currentEmail').html('<br/><p>' + currentEmail + '</p>');
+            
+            if( ('{!$User.UIThemeDisplayed}' == 'Theme4t' || '{!$User.UIThemeDisplayed}' == 'Theme4d' ) ) {
+             // running in mobile
+                homeUrl = '/apex/TIC_Dashboard';
+            } else { //desktop
+                homeUrl = '/apex/TIC_Dashboard';
+            }                 
+        })
+
+        Visualforce.remoting.timeout = 60000;
+        Visualforce.remoting.buffer = false;        
+        Visualforce.remoting.escape = false;        
+
+        function cancelAction(){
+        
+            if(  ('{!$User.UIThemeDisplayed}' == 'Theme4t' || '{!$User.UIThemeDisplayed}' == 'Theme4d' ) ) {
+             // running in mobile
+                console.log('MOBILE URL ... ' + homeUrl);
+                sforce.one.navigateToURL(homeUrl);
+
+            } else { //desktop
+                console.log('DESKTOP URL ... ' + homeUrl);
+                window.location.href = homeUrl;
+            }     
+
+        }
+               
+        function saveEmail(){
+                
+            $j('#saving').show();
+            var valid;
+            var newEmail = $j('#email').val();
+            
+            valid = validateEmail(newEmail);
+                       
+            if (valid){
+                 
+                 apiCustomerController.saveEmailfromMobile(guid, currentEmail, newEmail, function(result, event) {
+                        $j('#saving').hide();             
+                        console.log(result);
+                        
+                        if(event.status) {
+                          
+                            alert(result);
+                            
+                        } else {
+                               
+                            alert('Network Error - Please report issue if problem persists - '  + result);
+        
+                        }
+                              
+
+                    },{buffer: false, escape: false, timeout: 90000} );            
+            
+            } else {
+                 $j('#saving').hide();
+                 alert('Email address is not valid');
+            
+            }
+
+        }           
+
+
+        function validateEmail(email) { 
+          
+            var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            return re.test(email);
+        }
+        
+   </script>
+
+    <div class="slds">
+       
+        <div class="slds-page-header" role="banner">
+            <div class="slds-grid">
+                <div class="slds-col slds-has-flexi-truncate slds-size--1-of-3 slds-col--padded-large">
+                    <button class="slds-button slds-button--brand slds-button--small" onclick="cancelAction();">Home</button>
+                </div>
+                <div class="slds-col slds-has-flexi-truncate slds-size--1-of-3 slds-col--padded-large">
+
+                    <h2 class="slds-text-heading--large slds-m-bottom--large slds-align-middle">
+                        Guest Email Amendment
+                    </h2>
+  
+                    <div id="currentEmail" class="slds-text-heading--small" >  </div>
+
+                    <div align="center" id='saving'>Saving ...  <img src="{!$Resource.ajaxSpinner}"/></div>
+
+                </div>
+                <div class="slds-col slds-has-flexi-truncate slds-size--1-of-3  slds-col--padded-large">
+                    
+                    <button  class="slds-button slds-button--brand slds-button--small   slds-float--right" onclick=" $j('#saving').show();saveEmail();">Save</button> 
+                </div>
+             </div>
+        </div>
+
+        <div class="slds-grid">
+            <div class="slds-form--horizontal slds-m-left--x-small slds-m-top--small slds-align-middle slds-size--1-of-1">
+                
+                <div class="slds-form-element  ">
+                    <label class="slds-form-element__label" for="email">Enter New Email</label>
+                    <div class="slds-form-element__control slds-col">
+                        <input id="email" class="slds-input--small" type="email" placeholder="" style="width:50%;" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+               
+                                           
+</apex:page>

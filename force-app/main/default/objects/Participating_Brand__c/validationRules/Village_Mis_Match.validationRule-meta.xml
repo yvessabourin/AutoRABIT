@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Village_Mis_Match</fullName>
+    <active>false</active>
+    <errorConditionFormula>Village_Presence__r.Village__c &lt;&gt;  00Nb0000009ZC7z.00Nb0000009ZC7p</errorConditionFormula>
+    <errorDisplayField>Village_Presence__c</errorDisplayField>
+    <errorMessage>The Presence Village must match the Marketing Activity Village</errorMessage>
+</ValidationRule>

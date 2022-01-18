@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Next_Step_Update_Required</fullName>
+    <active>true</active>
+    <description>You can&apos;t progress to the &apos;Negotiation&apos; stage or any subsequent stage without having the &apos;Next Step Update&apos; field on the progress section completed</description>
+    <errorConditionFormula>$Setup.Global_Object_Validation__c.Deal_Validations_Active__c 
+&amp;&amp; Stage_Value__c &gt; 1
+&amp;&amp;  ISBLANK(Next_Step_Update_Description__c)</errorConditionFormula>
+    <errorDisplayField>Next_Step_Update_Description__c</errorDisplayField>
+    <errorMessage>You can&apos;t progress to the &apos;Negotiation&apos; stage or any subsequent stage without having the &apos;Next Step Update&apos; field on the progress section completed</errorMessage>
+</ValidationRule>

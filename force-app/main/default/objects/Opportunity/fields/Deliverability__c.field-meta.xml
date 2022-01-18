@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Deliverability__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>High: It is possible for a deal to be agreed within 3 months.
+Medium: It is possible for a deal to be agreed within 6-12 months.
+Low: It is possible for a deal to be agreed in more than 12 months.</inlineHelpText>
+    <label>Deliverability</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>High</fullName>
+                <default>false</default>
+                <label>High</label>
+            </value>
+            <value>
+                <fullName>Medium</fullName>
+                <default>false</default>
+                <label>Medium</label>
+            </value>
+            <value>
+                <fullName>Low</fullName>
+                <default>false</default>
+                <label>Low</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,164 @@
+<apex:page controller="chattermanagerController" id="page">
+
+    <apex:stylesheet value="/sCSS/25.0/sprites/1342034628000/Theme3/default/gc/versioning.css" />
+    <apex:stylesheet value="/sCSS/25.0/sprites/1342034628000/Theme3/default/gc/extended.css" />
+
+  <!-- Adding styles required for loading or processing popup  -->
+    <style>
+        .popupBackground {
+            background-color:black;
+            opacity: 0.20;
+            filter: alpha(opacity = 20);
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 998;
+            position: absolute;
+        }
+        .popupPanel {
+            border: solid 1px;
+            background-color: white;
+            left: 50%;
+            width: 200px;
+            margin-left: -100px;
+            top: 50%;
+            height: 50px;
+            margin-top: -25px;
+            z-index: 999;
+            position: fixed;
+        }
+
+        div.pbSubheader{
+            font color:black;
+        }
+        
+        .odd{
+            background-color: #FCF7F7;
+        }
+
+        .even{
+            background-color: #E3DCDB;
+        }
+
+    </style>
+
+    <!-- "Loading" or "Processing" popup whenever we are waiting to generate preview table.  -->
+    <apex:actionStatus id="processingStatus" stopText=""  >
+        <apex:facet name="start">
+            <div>
+                <div class="popupBackground" />
+                <div class="popupPanel">
+                    <table border="0" width="100%" height="100%">
+                        <tr>
+                            <td align="center" style="font-family: Calibri; font-size: 13px; font-weight: normal;"><b>Processing... Please Wait</b></td>
+                        </tr>
+                        <tr>
+                            <td align="center"><img src="/img/loading.gif"/></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </apex:facet>
+    </apex:actionStatus>
+    
+    <apex:PageMessages id="msgs" />
+
+    <apex:tabPanel switchType="client" value="{!tabOpt}" id="theTabPanel">
+        <apex:tab label="User and Groups" name="userAndGroups" id="userTab">
+
+        <apex:form > 
+ 
+            <apex:pageBlock >
+
+                <apex:pageBlockButtons >
+                     <apex:commandButton value="Save!" Action="{!SaveChanges}" reRender=""/>
+                </apex:pageBlockButtons>
+             
+                <apex:selectList value="{!selectedUserId}" multiselect="false" size="1">
+                     <apex:actionSupport event="onchange" rerender="opbtn,memberDetails" action="{!refreshTable}" />
+                     <apex:selectOptions value="{!users}" />
+                </apex:selectList>
+            
+                <apex:outputPanel id="opbtn">
+                     <apex:commandButton id="adduserbtn" value="Add User to Existing Group" Action="{!addMember}" reRender="memberDetails" rendered="{!selecteduserid!=null && selecteduserid != 'none'}"/>
+                </apex:outputPanel>
+
+                <apex:pageBlockTable id="memberDetails" value="{!CGMs}" var="CGM"  rowClasses="odd,even" styleClass="tableClass">
+
+                    <apex:column >
+                        <apex:facet name="header">Name</apex:facet>                 
+    
+                        <apex:selectList value="{!CGM.MemberId}" multiselect="false" size="1" disabled="true" >
+                             <apex:selectOptions value="{!users}" />
+                        </apex:selectList>                   
+                    </apex:column>
+            
+                    <apex:column >
+                         <apex:facet name="header">Group Name</apex:facet>
+                         <apex:selectList value="{!CGM.CollaborationGroupID}" multiselect="false" size="1"  >
+                             <apex:selectOptions value="{!ChatterGroups}" />
+                         </apex:selectList>
+                    </apex:column>
+             
+                    <apex:column >
+                        <apex:facet name="header">Frequency</apex:facet>
+               
+                        <apex:selectList value="{!CGM.NotificationFrequency}" multiselect="false" size="1"  >
+                            <apex:selectOptions value="{!frequencies}" />
+                        </apex:selectList>
+                    </apex:column>
+         
+                </apex:pageBlockTable>
+                
+            </apex:pageBlock>
+        </apex:form>
+
+        </apex:tab>
+        <apex:tab label="Group and Users" name="groupAndUsers" id="groupTab">
+
+        <apex:form id="frmUsers">
+
+            <apex:pageBlock >
+
+                <apex:pageBlockButtons >
+                     <apex:commandButton value="Save!" Action="{!SaveGroup}" reRender="frmUsers, userDetails, msgs" status="processingStatus"/>
+                </apex:pageBlockButtons>
+             
+                <apex:selectList value="{!selectedGroupId}" multiselect="false" size="1">
+                     <apex:actionSupport event="onchange" rerender="frmUsers, userDetails, msgs" action="{!refreshUsers}" status="processingStatus" />
+                     <apex:selectOptions value="{!ChatterGroups}" />
+                </apex:selectList>
+
+                <apex:selectList value="{!selectedFrequency}" multiselect="false" size="1"  >
+                    <apex:actionSupport event="onchange" rerender="frmUsers, userDetails, msgs" action="{!refreshUsers}" status="processingStatus" />
+                    <apex:selectOptions value="{!frequencies}" />
+                </apex:selectList>
+                
+                <apex:outputPanel id="userDetails">        
+                <apex:outputPanel >
+                    <apex:pageBlockSection columns="1" >
+    
+                        <apex:pageBlockSectionItem labelTitle="Users" id="selectedUsers">                                
+    
+                            <c:MultiselectPicklist leftLabel="Users"
+                            leftOptions="{!usersAvailable}"
+                            rightLabel="Selected Users"
+                            rightOptions="{!selectedUsers}"
+                            size="14"
+                            width="400px"/>
+                            
+                        </apex:pageBlockSectionItem> 
+                    
+                    </apex:pageBlockSection>
+                </apex:outputPanel>
+                </apex:outputPanel>    
+            </apex:pageBlock>
+            
+        </apex:form>
+             
+        </apex:tab>
+    </apex:tabPanel>        
+        
+        
+ </apex:page>

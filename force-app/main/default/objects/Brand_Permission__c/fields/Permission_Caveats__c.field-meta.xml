@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Permission_Caveats__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Please enter all of the exceptions where the permission is Yes or no but with stipulations for example the brand may be willing to participate but on certain channels like Facebook only</inlineHelpText>
+    <label>Permission Caveats</label>
+    <length>500</length>
+    <trackTrending>false</trackTrending>
+    <type>LongTextArea</type>
+    <visibleLines>5</visibleLines>
+</CustomField>

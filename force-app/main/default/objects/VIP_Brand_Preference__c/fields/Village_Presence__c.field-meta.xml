@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Village_Presence__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>The brand that the guest prefers</description>
+    <externalId>false</externalId>
+    <inlineHelpText>The brand that the guest prefers</inlineHelpText>
+    <label>Village Presence</label>
+    <lookupFilter>
+        <active>true</active>
+        <filterItems>
+            <field>Village_Presence__c.Status__c</field>
+            <operation>equals</operation>
+            <value>Trading</value>
+        </filterItems>
+        <infoMessage>Only Trading brands should be selected</infoMessage>
+        <isOptional>true</isOptional>
+    </lookupFilter>
+    <referenceTo>Village_Presence__c</referenceTo>
+    <relationshipLabel>VIP Brand Preferences</relationshipLabel>
+    <relationshipName>VIP_Brand_Preferences</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

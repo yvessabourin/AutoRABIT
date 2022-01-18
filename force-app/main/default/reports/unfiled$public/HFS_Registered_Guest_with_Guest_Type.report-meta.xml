@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>CASE_NUMBER</field>
+    </columns>
+    <currency>GBP</currency>
+    <description>HFS Registered Guest with Guest Type</description>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Case.Guest_Type__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>HFS Registered Guest with Guest Type</name>
+    <params>
+        <name>units</name>
+        <value>h</value>
+    </params>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CaseCustomEntity$Case_Item__c</reportType>
+    <scope>organization</scope>
+    <showDetails>false</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>CREATED_DATEONLY</dateColumn>
+        <endDate>2019-08-31</endDate>
+        <interval>INTERVAL_CUSTOM</interval>
+        <startDate>2019-01-01</startDate>
+    </timeFrameFilter>
+</Report>

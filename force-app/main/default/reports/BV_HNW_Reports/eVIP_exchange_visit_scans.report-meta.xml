@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>CUST_NAME</field>
+    </columns>
+    <columns>
+        <field>FK_NAME</field>
+    </columns>
+    <columns>
+        <field>CUST_CREATED_NAME</field>
+    </columns>
+    <columns>
+        <field>Visit__c.Village__c</field>
+    </columns>
+    <columns>
+        <field>Visit__c.VIP_Cards_Exchanged__c</field>
+    </columns>
+    <currency>GBP</currency>
+    <description>Guest visits created and eVIP scanned</description>
+    <filter>
+        <criteriaItems>
+            <column>Visit__c.Village__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Bicester</value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
+    <format>Tabular</format>
+    <name>eVIP exchange visit scans</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CustomEntity$Visit__c@Visit__c.Account__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>Visit__c.Visit_Date_Time__c</dateColumn>
+        <interval>INTERVAL_YESTERDAY</interval>
+    </timeFrameFilter>
+</Report>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Std_Cost_of_Capital__c</fullName>
+    <defaultValue>0.00</defaultValue>
+    <externalId>false</externalId>
+    <inlineHelpText>Enter the cost of capital percentage to be used in BCAP Terms Analysis calculations for leases in this village</inlineHelpText>
+    <label>Std Cost of Capital</label>
+    <precision>5</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Percent</type>
+</CustomField>

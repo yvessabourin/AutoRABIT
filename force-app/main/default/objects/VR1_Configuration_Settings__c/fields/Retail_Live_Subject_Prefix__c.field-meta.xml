@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Retail_Live_Subject_Prefix__c</fullName>
+    <description>Subject Prefix text for Retail LIVE emails.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Subject Prefix text for Retail LIVE emails.</inlineHelpText>
+    <label>Retail Live Subject Prefix</label>
+    <length>20</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

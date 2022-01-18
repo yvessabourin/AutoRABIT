@@ -1,0 +1,6 @@
+<apex:component controller="IPAddress">
+    ipAddress :<apex:outputText value="{!ipAddress}" /> <br/>
+    SF Address :<apex:outputText value="{!sfIP}" /> <br/>
+    Client Address :<apex:outputText value="{!clientIP}" /> <br/>
+    User Name :<apex:outputText value="{!userName}" /> <br/>
+</apex:component>

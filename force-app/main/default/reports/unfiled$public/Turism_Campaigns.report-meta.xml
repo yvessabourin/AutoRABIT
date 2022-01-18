@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Marketing_Campaign__c$Village__c</field>
+    </columns>
+    <columns>
+        <field>Marketing_Campaign__c$Marketing_Campaign_Ref__c</field>
+    </columns>
+    <columns>
+        <field>Marketing_Campaign__c$Name</field>
+    </columns>
+    <columns>
+        <field>Marketing_Campaign__c.Marketing_Activities__r$Marketing_Activity_Ref__c</field>
+    </columns>
+    <columns>
+        <field>Marketing_Campaign__c.Marketing_Activities__r$Name</field>
+    </columns>
+    <columns>
+        <field>Marketing_Campaign__c.Marketing_Activities__r$Budget__c</field>
+    </columns>
+    <columns>
+        <field>Marketing_Campaign__c$Village_Accumulated_Budget__c</field>
+    </columns>
+    <columns>
+        <field>Marketing_Campaign__c.Marketing_Activities__r$Start_Date__c</field>
+    </columns>
+    <columns>
+        <field>Marketing_Campaign__c.Marketing_Activities__r$End_Date__c</field>
+    </columns>
+    <currency>EUR</currency>
+    <filter>
+        <criteriaItems>
+            <column>Marketing_Campaign__c$Village__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Las Rozas,La Roca</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Marketing_Campaign__c.Marketing_Activities__r$Business_Function__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Local Tourism</value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
+    <format>Tabular</format>
+    <name>Turism Campaigns</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Marketing_Campaigns_with_Marketing_Activities__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>Marketing_Campaign__c$Start_Date__c</dateColumn>
+        <endDate>2018-12-31</endDate>
+        <interval>INTERVAL_CUSTOM</interval>
+        <startDate>2018-01-01</startDate>
+    </timeFrameFilter>
+</Report>

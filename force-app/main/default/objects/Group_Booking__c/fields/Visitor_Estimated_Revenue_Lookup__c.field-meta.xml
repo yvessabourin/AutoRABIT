@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Visitor_Estimated_Revenue_Lookup__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <externalId>false</externalId>
+    <inlineHelpText>Search for &quot;GS&quot; in the lookup</inlineHelpText>
+    <label>Visitor Estimated Revenue Lookup</label>
+    <lookupFilter>
+        <active>true</active>
+        <filterItems>
+            <field>Group_Source__c.Archived__c</field>
+            <operation>equals</operation>
+            <value>False</value>
+        </filterItems>
+        <filterItems>
+            <field>Group_Source__c.Village__r.Id</field>
+            <operation>equals</operation>
+            <valueField>$Source.Village__c</valueField>
+        </filterItems>
+        <infoMessage>Please search for Domestic, EU or Long Haul, or just select from the list of recent options below.</infoMessage>
+        <isOptional>false</isOptional>
+    </lookupFilter>
+    <referenceTo>Group_Source__c</referenceTo>
+    <relationshipLabel>Bookings/Partnerships</relationshipLabel>
+    <relationshipName>Group_Booking_Information</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

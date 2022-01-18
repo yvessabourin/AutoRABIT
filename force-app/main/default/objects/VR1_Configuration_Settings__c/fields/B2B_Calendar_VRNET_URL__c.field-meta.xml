@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>B2B_Calendar_VRNET_URL__c</fullName>
+    <defaultValue>&quot;http://intranet.valueretail.com/retailgrs/default.aspx&quot;</defaultValue>
+    <description>URL of B2B Calendar displayed on VR Net</description>
+    <externalId>false</externalId>
+    <inlineHelpText>URL of B2B Calendar displayed on VR Net</inlineHelpText>
+    <label>B2B Calendar VRNET URL</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Url</type>
+</CustomField>

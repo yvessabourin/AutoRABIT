@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LeaseFlow</fullName>
+    <columns>NAME</columns>
+    <columns>Component_Name__c</columns>
+    <columns>Component_Type__c</columns>
+    <columns>Release__c</columns>
+    <columns>Developer__c</columns>
+    <columns>Deployment_Method__c</columns>
+    <columns>Environment__c</columns>
+    <columns>JIRA_Issue_ID__c</columns>
+    <columns>Status__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Release__c</field>
+        <operation>equals</operation>
+        <value>LeaseFlow</value>
+    </filters>
+    <label>LeaseFlow</label>
+</ListView>

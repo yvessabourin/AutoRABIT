@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Retail_Live_Email__c$Name</field>
+    </columns>
+    <columns>
+        <field>Retail_Live_Email__c$CreatedDate</field>
+    </columns>
+    <columns>
+        <aggregateTypes>Sum</aggregateTypes>
+        <field>Retail_Live_Email__c$Reply_Count__c</field>
+    </columns>
+    <columns>
+        <field>Retail_Live_Email__c$Brand_Reference__c</field>
+    </columns>
+    <columns>
+        <field>Retail_Live_Email__c$Village__c</field>
+    </columns>
+    <description>Returns only records owned by users with the same role as running user</description>
+    <filter>
+        <criteriaItems>
+            <column>Retail_Live_Email__c$Owner_in_Same_Team__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>1</value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Retail_Live_Email__c$Owner</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Retail_Live_Email__c$Reply_Received__c</field>
+        <sortOrder>Desc</sortOrder>
+    </groupingsDown>
+    <name>RL DB Retail Lives by Sender - My Team</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Retail_Live__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>Retail_Live_Email__c$CreatedDate</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

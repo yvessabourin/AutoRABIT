@@ -1,0 +1,29 @@
+<apex:component controller="productLoanEmailController" access="global">
+    <apex:attribute name="AcctId" type="Id" description="Id of the account" assignTo="{!ProductLoanID}"/>
+    <table border = "1" cellspacing = "1">
+        <tr>
+            <td>Name</td>
+             <td>Colour</td>
+            <td>Quantity</td>
+             <td>Product Ref</td>
+            <td>Outlet Price</td>            
+            <td>Retail Price</td>   
+            <td>Damaged Coll</td>
+            <td>Damage Ret</td>             
+            <td>Damage Description</td>
+        </tr>
+        <apex:repeat value="{!PLitems}" var="i">
+        <tr>
+            <td>{!i.Name}</td>
+            <td>{!i.Colour_of_product__c}</td>
+            <td>{!i.Quantity_of_product__c}</td>
+            <td>{!i.Product_Reference_SKU__c}</td>
+            <td>{!i.Outlet_Price__c}</td>           
+            <td>{!i.Retail_Price__c}</td>  
+            <td>{!i.Damaged_on_collection__c}</td>
+            <td>{!i.Damaged_on_return__c}</td>
+            <td>{!i.Damage_Description__c}</td>            
+        </tr>
+        </apex:repeat>        
+    </table>
+</apex:component>

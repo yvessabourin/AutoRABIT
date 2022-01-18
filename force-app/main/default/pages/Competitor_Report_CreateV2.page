@@ -1,0 +1,497 @@
+<apex:page standardController="Competitor_site__c" sidebar="false" showHeader="false" extensions="CompetitorSiteVisitController"  id="thepage" docType="html-5.0" > 
+<html>
+<head>
+<apex:includeScript value="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"/>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></link>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="{!URLFOR($Resource.NewTICScripts)}"></script>
+  <link rel="stylesheet" href="{!URLFOR($Resource.NewTICStyles)}"></link> 
+
+<style>
+
+.btn {
+  display: inline-block;
+  margin-bottom: 0; // For input.btn
+  font-weight: @btn-font-weight;
+  text-align: center;
+  vertical-align: middle;
+  touch-action: manipulation;
+  cursor: pointer;
+  background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
+  border: 1px solid transparent;
+  white-space: nowrap;
+  .button-size(@padding-base-vertical; @padding-base-horizontal; @font-size-base; @line-height-base; @btn-border-radius-base);
+  .user-select(none);
+
+  }
+
+    /*  CSS below to stop the cursor jumping around on iphones ---- https://developer.salesforce.com/forums/?id=906F0000000AizgIAC */
+    html, body { 
+        height: 100%;
+        overflow: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+            
+    body{
+    background: url({!URLFOR($Resource.TICDashboard, 'villageview.jpg')}) no-repeat center center fixed !important;
+    -webkit-background-size: cover !important;
+    -moz-background-size: cover !important;
+    -o-background-size: cover !important;
+    background-size: cover !important;
+
+    }
+ 
+    #spinner{
+    display: none;
+    width:200px; 
+    height: 50px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    text-align:center;
+    padding:10px;
+    font:normal 16px Tahoma, Geneva, sans-serif;
+    margin-left: -100px;
+    margin-top: -100px;
+    z-index:2;
+    overflow: auto;
+    border:1px solid #CCC;
+    background-color:white;
+    z-index:100;
+    padding:5px;
+    line-height:20px;
+     }
+     #opaque {
+         position: fixed;
+         top: 0px;
+         left: 0px;
+         width: 100%;
+         height: 100%;
+         z-index: 1;
+         display: none;
+         background-color: gray;
+         filter: alpha(opacity=30);
+         opacity: 0.3;
+         -moz-opacity:0.3;
+         -khtml-opacity:0.3
+     }
+     * html #opaque {
+         position: absolute;
+     }
+
+
+  input[type="date"]:before {
+    content: attr(placeholder) !important;
+    color: #aaa;
+  }
+  
+  .borderRed {
+    border: 3px solid red;
+  }
+  
+</style> 
+  <div id="opaque"/>
+  <div id="spinner">
+  <p align="center" style='{font-family:"Arial", Helvetica, sans-serif; font-size:20px;}'>
+  <apex:image value="/img/loading32.gif"/>&nbsp;Please wait</p>
+  </div>
+
+<script>
+
+
+  $j = jQuery.noConflict();
+
+    $j(function() {
+    $j( "#button" ).click(function() {
+        $j( "#ChangeSinceLastVisitDiv1" ).toggle();
+    });
+  });
+
+  function removeDateplaceholder(){  
+    $j = jQuery.noConflict();
+        $j('[id$=startdate1]').removeAttr("placeholder"); 
+         $j('[id$=startdate2]').removeAttr("placeholder");     
+  }
+
+  function exit()
+  {  
+     if( (typeof sforce != 'undefined') && (sforce != null) ) {
+          sforce.one.navigateToSObject('{!compsiteid}');
+     }else{
+      window.top.location.replace('{!theuRL}/{!compsiteid}');
+    }
+  } 
+
+
+  $j(document).ready(function() { 
+    console.log('working');  
+    var rt ='{!RecType}';
+    console.log('rt' + rt);  
+      if(rt == 'Site Visit'){
+        var BVSC_Employees_Name__c = document.getElementById("{!$Component.pageId:formId:BVSC_Employees_Name__c}");
+        var startdate1 = document.getElementById("{!$Component.pageId:formId:startdate1}");
+       }
+        else{
+          var BVSC_Employees_Name__c = document.getElementById("{!$Component.pageId:formId:BVSC_Employees_Name__c}");
+        }   
+
+        
+
+    $j("input[id*='Number_of_Empty_Units__c']").focusout(function() {
+      NaNCheck(this);
+    });
+
+    $j("input[id*='Announced_New_Arrivals__c']").focusout(function() {
+      NaNCheck(this);
+    });
+
+  });
+
+
+  function NaNCheck(element){
+
+    if(isNaN(element.value)){
+        $j(element).addClass("borderRed");
+        alert('Please enter a number value only');
+      }else{
+        $j(element).removeClass("borderRed");
+      }
+
+  }
+  
+
+  function validationCheck(){
+
+    //var allInputs = $j("Form[id*='secondForm'] :input" );
+    //  $j(allInputs).each(function() {
+     //     console.log($j(this).val() != null);
+     // });
+
+     if(ValidateElements()){
+                   
+                  }
+
+  }
+
+  function showSpinner()
+  {
+       document.getElementById('opaque').style.display='block';
+       var popUp = document.getElementById('spinner');    
+       popUp.style.display = 'block';
+  } 
+   
+</script>
+</head>
+<body>
+
+<br/>
+
+<div class="container">
+       
+<apex:form rendered="{!IF(RecType = 'Site Visit', true, false)}" styleClass="form-horizontal" id="firstForm">
+<div class="panel panel-default disable" id="hfspanel" name="hfspanel">
+  <div class="panel-heading">Please complete the required fields below</div>
+  <div class="panel-body">
+
+  <div class="input-group">
+      <span class="tooltiptext">BVSC Employees Name</span>
+      <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+        <apex:inputText value="{!cv.BVSC_Employees_Name__c}" id="BVSC_Employees_Name__c1" required="{!IF(RecType = 'Site Visit', true, false)}" html-placeholder="BVSC Employees Name"  styleClass="form-control requiredfield" />
+    </div>   
+    <br />
+
+
+    <div class="input-group" >
+        <span class="tooltiptext">Date of Visit</span>
+        <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+          <apex:input value="{!startdate}"  id="startdate1" type="date" required="{!IF(RecType = 'Site Visit', true, false)}" styleClass="form-control requiredfield" />
+    </div>
+    <br />
+
+
+    <div class="input-group">
+      <span class="tooltiptext">Number of Empty Units</span>
+        <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+        <apex:inputText value="{!cv.Number_of_Empty_Units__c}" id="Number_of_Empty_Units__c" required="{!IF(RecType = 'Site Visit', true, false)}" html-placeholder="Number of Empty Units"  styleClass="form-control requiredfield"  />
+    </div>
+    <br />
+
+
+    <div class="input-group">
+      <span class="tooltiptext">Number of New Arrivals</span>
+      <span class="input-group-addon"><i class="glyphicon glyphicon-log-in"></i></span>
+        <apex:inputText value="{!cv.Announced_New_Arrivals__c}" id="Announced_New_Arrivals__c" required="{!IF(RecType = 'Site Visit', true, false)}" html-placeholder="Number of New Arrivals"  styleClass="form-control requiredfield" />
+    </div>   
+    <br />
+
+    <div class="input-group">
+      <span class="tooltiptext">Retail Discount</span>
+      <span class="input-group-addon"><i class="glyphicon glyphicon-scissors"></i></span>
+        <apex:selectList id="Retail_Discount__c" value="{!cv.Retail_Discount__c}" size="1" html-placeholder="Retail Discount"  styleClass="form-control requiredfield" required="{!IF(RecType = 'Site Visit', true, false)}">
+          <apex:selectOptions value="{!items}" />
+        </apex:selectList>
+    </div>   
+    <br />
+
+    <div class="input-group">
+      <span class="tooltiptext">Food and Beverage Options</span>
+      <span class="input-group-addon"><i class="glyphicon glyphicon-cutlery"></i></span>
+        <apex:selectList id="Food_Beverage_Options__c" value="{!cv.Food_Beverage_Options__c}" size="1" html-placeholder="Food and Beverage"  styleClass="form-control requiredfield" required="{!IF(RecType = 'Site Visit', true, false)}">
+          <apex:selectOptions value="{!FoodBeverage}" />
+        </apex:selectList>
+    </div>   
+    <br />
+
+    <div class="input-group">
+      <span class="tooltiptext">Overall Experience</span>
+      <span class="input-group-addon"><i class="glyphicon glyphicon-star"></i></span>
+        <apex:selectList id="Overall_Experience__c" value="{!cv.Overall_Experience__c}" size="1" html-placeholder="Overall Experience"  styleClass="form-control requiredfield" required="{!IF(RecType = 'Site Visit', true, false)}">
+          <apex:selectOptions value="{!Overalls}" />
+        </apex:selectList>
+    </div>   
+    <br />
+
+ 
+
+    <div class="input-group">
+      <span class="tooltiptext">General Presentation</span>
+      <span class="input-group-addon"><i class="glyphicon glyphicon-eye-open"></i></span>
+        <apex:selectList id="General_Presentation__c" value="{!cv.General_Presentation__c}" size="{!Presentations.size}" html-placeholder="General Presentatation"  styleClass="form-control requiredfield" required="{!IF(RecType = 'Site Visit', true, false)}" multiselect="true">
+          <apex:selectOptions value="{!Presentations}" />
+        </apex:selectList>
+    </div>   
+    <br />
+
+    
+    <div class="input-group">
+      <span class="tooltiptext">Customer Services</span>
+      <span class="input-group-addon"><i class="glyphicon glyphicon-check"></i></span>
+        <apex:selectList id="Customer_Service__c" value="{!cv.Customer_Service__c}" size="{!Services.size}" html-placeholder="Select Customer Services"  styleClass="form-control requiredfield" required="{!IF(RecType = 'Site Visit', true, false)}" multiselect="true">
+          <apex:selectOptions value="{!Services}" />
+        </apex:selectList>
+    </div>
+    <br />
+
+    <div class="input-group">
+      <span class="tooltiptext">Extra Services</span>
+      <span class="input-group-addon"><i class="glyphicon glyphicon-plus"></i></span>
+        <apex:selectList id="Extra_Services__c" value="{!cv.Extra_Services__c}" size="{!Extras.size}" html-placeholder="Extra ServiceS"  styleClass="form-control requiredfield" required="{!IF(RecType = 'Site Visit', true, false)}" multiselect="true">
+          <apex:selectOptions value="{!Extras}" />
+        </apex:selectList>
+    </div>
+
+    <br />
+  
+
+        <div class="input-group" >
+        <span class="tooltiptext">Description (Things to Flag)</span>
+        <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
+          <apex:inputField value="{!cv.Description__c}" id="Description__c" html-placeholder="Description (Things to Flag)" required="{!IF(RecType = 'Site Visit', true, false)}" styleClass="form-control requiredfield" />
+    </div>
+
+  <br />
+
+    <div class="panel panel-default disable" id="hfspanel" name="hfspanel">
+    <div class="panel-heading">The following fields are optional</div>
+    </div>
+
+    <a class="btn btn-primary" data-toggle="collapse" href="#fieldsDiv" role="button" aria-expanded="false" aria-controls="multiCollapseExample2">Show/Hide Optional Fields</a>
+     <br />
+    <div class="collapse multi-collapse" id="fieldsDiv">
+
+
+    
+    <br />
+    <br />
+
+    <div class="input-group" >
+        <span class="tooltiptext">Key Leasing Points</span>
+        <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
+          <apex:inputField value="{!cv.Key_Leasing_Points__c}" id="Key_Leasing_Points__c" html-placeholder="Key Leasing Points" styleClass="form-control" />
+    </div>
+
+
+    <br />
+    <br />
+
+    <div class="input-group" >
+        <span class="tooltiptext">Brands we should consider</span>
+        <span class="input-group-addon"><i class="
+glyphicon glyphicon-xbt"></i></span>
+          <apex:inputField value="{!cv.Brands_we_should_consider__c}" id="Brands_we_should_consider__c" html-placeholder="Brands we should consider" styleClass="form-control" />
+    </div>
+
+
+
+    <br />
+    <br />
+
+    <div class="input-group" >
+        <span class="tooltiptext">Retail Offer</span>
+        <span class="input-group-addon"><i class="glyphicon glyphicon-gift"></i></span>
+          <apex:inputField value="{!cv.Retail_Offer__c}" id="Retail_Offer__c" html-placeholder="Retail Offer" styleClass="form-control" />
+    </div>
+
+
+
+    <br />
+    <br />
+
+    <div class="input-group" >
+        <span class="tooltiptext">In Store Presentation</span>
+        <span class="input-group-addon"><i class="glyphicon glyphicon-blackboard"></i></span>
+          <apex:inputField value="{!cv.In_Store_Presentation__c}" id="In_Store_Presentation__c"  html-placeholder="In Store Presentation" styleClass="form-control" />
+    </div>
+
+
+
+    <br />
+    <br />
+
+    <div class="input-group" >
+        <span class="tooltiptext">Customer Profile and Bag Count</span>
+        <span class="input-group-addon"><i class="glyphicon glyphicon-briefcase"></i></span>
+          <apex:inputField value="{!cv.Customer_profile_and_bag_count__c}" id="Customer_profile_and_bag_count__c" html-placeholder="Customer Profile and Bag Count" styleClass="form-control" />
+    </div>
+
+
+
+    <br />
+    <br />
+
+    <div class="input-group" >
+        <span class="tooltiptext">Food and Beverage Quality</span>
+        <span class="input-group-addon"><i class="glyphicon glyphicon-cutlery"></i></span>
+          <apex:inputField value="{!cv.Food_Beverage_Quality__c}" id="Food_Beverage_Quality__c"  html-placeholder="Food and Beverage Quality" styleClass="form-control" />
+    </div>
+
+
+    <br />
+    <br />
+
+    <div class="input-group" >
+        <span class="tooltiptext">Other Matters</span>
+        <span class="input-group-addon"><i class="glyphicon glyphicon-compressed"></i></span>
+          <apex:inputField value="{!cv.Other_Matters__c}" id="Other_Matters__c"  html-placeholder="Other Matters" styleClass="form-control" />
+    </div>
+
+
+
+    <br />
+    <br />
+
+
+    <div class="input-group" >
+        <span class="tooltiptext">Risks</span>
+        <span class="input-group-addon"><i class="glyphicon glyphicon-alert"></i></span>
+          <apex:inputField value="{!cv.Risks__c}" id="Risks__c"  html-placeholder="Risks" styleClass="form-control" />
+    </div>
+
+
+    <br />
+    <br />
+
+    <div class="input-group" >
+        <span class="tooltiptext">Opportunities</span>
+        <span class="input-group-addon"><i class="glyphicon glyphicon-king"></i></span>
+          <apex:inputField value="{!cv.Opportunities__c}" id="Opportunities__c"  html-placeholder="Opportunities" styleClass="form-control" />
+    </div>
+
+
+    <br />
+    <br />
+
+
+    <div class="input-group" >
+        <span class="tooltiptext">Change Since Last Visit</span>
+        <span class="input-group-addon"><i class="glyphicon glyphicon-adjust"></i></span>
+          <apex:inputField value="{!cv.Change_Since_Last_Visit__c}" id="Change_Since_Last_Visit__c"  html-placeholder="Change Since Last Visit" styleClass="form-control" />
+    </div>
+    <br />
+    <br />
+
+
+    <div class="input-group" >
+        <span class="tooltiptext">Instore Services</span>
+        <span class="input-group-addon"><i class="glyphicon glyphicon-adjust"></i></span>
+          <apex:inputField value="{!cv.Instore_Services__c}" id="Instore_Services__c"  html-placeholder="Instore Services" styleClass="form-control" />
+    </div>
+    <br />
+    </div>
+    <br />
+
+
+    <apex:commandButton value="Create Site Visit" action="{!addAttachements}" id="createButton1" onclick="validationCheck();"/>
+    <p></p>
+    <p></p>
+    <apex:commandButton value="Exit" onclick="exit();"/>
+ 
+    </div>
+    </div>
+
+</apex:form>
+
+
+<!-- NEXT FORM STARTS HERE -->
+
+
+
+<apex:form rendered="{!IF(RecType = 'Intel', true, false)}" styleClass="form-horizontal" id="secondForm">
+<div class="panel panel-default disable" id="hfspanel" name="hfspanel">
+  <div class="panel-heading">Please complete the required fields below</div>
+  <div class="panel-body">
+
+  <div class="input-group">
+      <span class="tooltiptext">BVSC Employees Name</span>
+      <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+        <apex:inputText value="{!cv.BVSC_Employees_Name__c}" id="BVSC_Employees_Name__c" required="{!IF(RecType = 'Intel', true, false)}" html-placeholder="BVSC Employees Name"  styleClass="form-control requiredfield" />
+    </div>   
+    <br />
+
+
+    <div class="input-group" >
+        <span class="tooltiptext">Date of Source</span>
+        <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+          <apex:input id="startdate2" value="{!startdate}" type="date" required="{!IF(RecType = 'Intel', true, false)}" styleClass="form-control requiredfield" />
+    </div>
+    <br />
+
+    <div class="input-group" >
+        <span class="tooltiptext">Source</span>
+        <span class="input-group-addon"><i class="glyphicon glyphicon-screenshot"></i></span>
+          <apex:inputText value="{!cv.Source__c}" id="Source__c" required="{!IF(RecType = 'Intel', true, false)}" html-placeholder="Source" styleClass="form-control requiredfield" />
+    </div>
+    <br />
+
+
+
+
+    <div class="input-group" >
+        <span class="tooltiptext">Description</span>
+        <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
+          <apex:inputField value="{!cv.Description__c}" id="Description__c" required="{!IF(RecType = 'Intel', true, false)}" html-placeholder="Description" styleClass="form-control requiredfield" />
+    </div>
+    <br />
+
+<br />
+    
+  <apex:commandButton value="Create Site Visit" action="{!addAttachements}" id="createButton2" styleClass="btn" onclick="validationCheck();"/>
+  <p></p>
+  <p></p>
+  <apex:commandButton value="Exit" onclick="exit();" styleClass="btn"/>
+ 
+  </div>
+  </div>
+
+</apex:form>
+
+
+
+</div>
+       
+            
+
+</body>
+</html>
+</apex:page>

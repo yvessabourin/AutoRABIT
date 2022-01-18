@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Status_Step__c</fullName>
+    <description>Enables a sequence of actions on the items</description>
+    <externalId>false</externalId>
+    <formula>CASE(TEXT(Status__c), &quot;Requested&quot;, 1, &quot;Runner On Way&quot;, 2,&quot;With Runner&quot;,3, &quot;In Storage&quot;,4,&quot;With TIC&quot;,5,&quot;Customer Collected&quot;,6,0)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Status Step</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help>Valore netto degli sconti</help>
+    <label>Valore netto di sconto</label>
+    <name>NET_Value_of_Discounts__c</name>
+</CustomFieldTranslation>

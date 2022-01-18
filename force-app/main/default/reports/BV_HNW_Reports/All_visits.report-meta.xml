@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>CUST_NAME</field>
+    </columns>
+    <columns>
+        <field>FK_NAME</field>
+    </columns>
+    <columns>
+        <field>CUST_CREATED_NAME</field>
+    </columns>
+    <columns>
+        <field>Visit__c.Village__c</field>
+    </columns>
+    <columns>
+        <field>Visit__c.VIP_Cards_Exchanged__c</field>
+    </columns>
+    <currency>GBP</currency>
+    <format>Tabular</format>
+    <name>All visits</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CustomEntity$Visit__c@Visit__c.Account__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <sortColumn>Visit__c.Village__c</sortColumn>
+    <sortOrder>Asc</sortOrder>
+    <timeFrameFilter>
+        <dateColumn>CUST_CREATED_DATE</dateColumn>
+        <endDate>2020-06-30</endDate>
+        <interval>INTERVAL_CUSTOM</interval>
+        <startDate>2020-06-01</startDate>
+    </timeFrameFilter>
+</Report>

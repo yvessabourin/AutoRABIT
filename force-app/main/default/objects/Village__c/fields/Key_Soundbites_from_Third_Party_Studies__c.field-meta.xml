@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Key_Soundbites_from_Third_Party_Studies__c</fullName>
+    <description>Key Soundbites from Third Party Studies</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Key Soundbites from Third Party Studies</inlineHelpText>
+    <label>Key Soundbites from Third Party Studies</label>
+    <length>10000</length>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>LongTextArea</type>
+    <visibleLines>5</visibleLines>
+</CustomField>

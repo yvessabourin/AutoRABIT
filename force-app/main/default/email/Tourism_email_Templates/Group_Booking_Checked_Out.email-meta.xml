@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>44.0</apiVersion>
+    <available>true</available>
+    <description>Notification to all booking parties that a group booking has checked out</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Group Booking Checked Out</name>
+    <style>none</style>
+    <subject>Group Booking Check-Out Confirmation</subject>
+    <type>visualforce</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

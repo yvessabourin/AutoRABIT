@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help>Inserisci la quantità di transazioni effettuate di Brand Virtual Shopping, se non ci sono state transazioni per il giorno inserisci 0.</help>
+    <label>Transazioni Brand Private Appointment</label>
+    <name>Brand_Private_Appointment_Transactions__c</name>
+</CustomFieldTranslation>

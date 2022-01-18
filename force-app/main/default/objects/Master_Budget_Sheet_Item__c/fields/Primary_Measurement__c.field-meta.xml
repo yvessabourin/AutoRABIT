@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Primary_Measurement__c</fullName>
+    <externalId>false</externalId>
+    <label>Primary Measurement</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Clicks</fullName>
+                <default>false</default>
+                <label>Clicks</label>
+            </value>
+            <value>
+                <fullName>Views</fullName>
+                <default>false</default>
+                <label>Views</label>
+            </value>
+            <value>
+                <fullName>Registrations</fullName>
+                <default>false</default>
+                <label>Registrations</label>
+            </value>
+            <value>
+                <fullName>Link Clicks</fullName>
+                <default>false</default>
+                <label>Link Clicks</label>
+            </value>
+            <value>
+                <fullName>Complete Registrations</fullName>
+                <default>false</default>
+                <label>Complete Registrations</label>
+            </value>
+            <value>
+                <fullName>Post Engagement</fullName>
+                <default>false</default>
+                <label>Post Engagement</label>
+            </value>
+            <value>
+                <fullName>Reach</fullName>
+                <default>false</default>
+                <label>Reach</label>
+            </value>
+            <value>
+                <fullName>Reach/Frequency</fullName>
+                <default>false</default>
+                <label>Reach/Frequency</label>
+            </value>
+            <value>
+                <fullName>10s Video Views</fullName>
+                <default>false</default>
+                <label>10s Video Views</label>
+            </value>
+            <value>
+                <fullName>Page Likes</fullName>
+                <default>false</default>
+                <label>Page Likes</label>
+            </value>
+            <value>
+                <fullName>Impressions</fullName>
+                <default>false</default>
+                <label>Impressions</label>
+            </value>
+            <value>
+                <fullName>Landing Page Views</fullName>
+                <default>false</default>
+                <label>Landing Page Views</label>
+            </value>
+            <value>
+                <fullName>Cost Per Store Visit</fullName>
+                <default>false</default>
+                <label>Cost Per Store Visit</label>
+            </value>
+            <value>
+                <fullName>Cost Per Click (CPC)</fullName>
+                <default>false</default>
+                <label>Cost Per Click (CPC)</label>
+            </value>
+            <value>
+                <fullName>Cost Per Thousand Impressions (CPM)</fullName>
+                <default>false</default>
+                <label>Cost Per Thousand Impressions (CPM)</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Participating_Brand_Link__c</fullName>
+    <externalId>false</externalId>
+    <formula>HYPERLINK(&quot;/&quot; &amp; Id,  Village_Presence__r.Brand__r.Name ,&quot;_self&quot;)</formula>
+    <label>Participating Brand</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

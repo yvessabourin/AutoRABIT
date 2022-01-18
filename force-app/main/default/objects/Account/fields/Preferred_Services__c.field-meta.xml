@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Preferred_Services__c</fullName>
+    <description>The services that the guest would prefer to use</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Which services would the guest prefer to use</inlineHelpText>
+    <label>Preferred Services</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetName>VIP_Services</valueSetName>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Opportunity$Name</field>
+    </columns>
+    <columns>
+        <field>Opportunity$Account.Name</field>
+    </columns>
+    <columns>
+        <field>Opportunity$Account.Brand_ID__c</field>
+    </columns>
+    <description>Report to ensure that all Accounts have an MRI Brand ID</description>
+    <filter>
+        <criteriaItems>
+            <column>Opportunity$Account.Brand_ID__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value></value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Opportunity$Village_Presence__c.Status__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>Trading</value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
+    <format>Tabular</format>
+    <name>Brand ID checklist</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Deals__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <sortColumn>Opportunity$Account.Name</sortColumn>
+    <sortOrder>Asc</sortOrder>
+    <timeFrameFilter>
+        <dateColumn>Opportunity$CloseDate</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

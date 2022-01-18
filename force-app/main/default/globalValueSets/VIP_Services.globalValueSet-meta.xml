@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Chauffeur Service</fullName>
+        <default>false</default>
+        <label>Chauffeur Service</label>
+    </customValue>
+    <customValue>
+        <fullName>Dog Stroller</fullName>
+        <default>false</default>
+        <label>Dog Stroller</label>
+    </customValue>
+    <customValue>
+        <fullName>eVIP Pass</fullName>
+        <default>false</default>
+        <label>eVIP Pass</label>
+    </customValue>
+    <customValue>
+        <fullName>F&amp;B Voucher</fullName>
+        <default>false</default>
+        <label>F&amp;B Voucher</label>
+    </customValue>
+    <customValue>
+        <fullName>Fast Pass</fullName>
+        <default>false</default>
+        <label>Fast Pass</label>
+    </customValue>
+    <customValue>
+        <fullName>Lounge/ Apartment Use</fullName>
+        <default>false</default>
+        <label>Lounge/ Apartment Use</label>
+    </customValue>
+    <customValue>
+        <fullName>HFS</fullName>
+        <default>false</default>
+        <label>HFS</label>
+    </customValue>
+    <customValue>
+        <fullName>Inclusive Lunch</fullName>
+        <default>false</default>
+        <label>Inclusive Lunch</label>
+    </customValue>
+    <customValue>
+        <fullName>Miles redemption</fullName>
+        <default>false</default>
+        <label>Miles redemption</label>
+    </customValue>
+    <customValue>
+        <fullName>Personal Shopping Service</fullName>
+        <default>false</default>
+        <label>Personal Shopping Service</label>
+    </customValue>
+    <customValue>
+        <fullName>Valet/VIP Parking</fullName>
+        <default>false</default>
+        <label>Valet/VIP Parking</label>
+    </customValue>
+    <customValue>
+        <fullName>Reserved Parking</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Reserved Parking</label>
+    </customValue>
+    <customValue>
+        <fullName>Bespoke</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Bespoke</label>
+    </customValue>
+    <customValue>
+        <fullName>VIP Room</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>VIP Room</label>
+    </customValue>
+    <customValue>
+        <fullName>VIP Card</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>VIP Card</label>
+    </customValue>
+    <customValue>
+        <fullName>VIP Apartments</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>VIP Apartments</label>
+    </customValue>
+    <customValue>
+        <fullName>Valet Parking</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Valet Parking</label>
+    </customValue>
+    <customValue>
+        <fullName>Personal Shopping</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Personal Shopping</label>
+    </customValue>
+    <customValue>
+        <fullName>Personal Shopper / Stylist</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Personal Shopper / Stylist</label>
+    </customValue>
+    <customValue>
+        <fullName>Light Refreshments</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Light Refreshments</label>
+    </customValue>
+    <customValue>
+        <fullName>Chauffeur and Car</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Chauffeur and Car</label>
+    </customValue>
+    <customValue>
+        <fullName>Hands Free Shopping</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Hands Free Shopping</label>
+    </customValue>
+    <description>A list of all the services that a guest can make use of</description>
+    <masterLabel>VIP Services</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Marketing_Activity__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <externalId>false</externalId>
+    <inlineHelpText>Enter name of Marketing Promotion that resulted in this VIP Account being created.</inlineHelpText>
+    <label>Marketing Activity</label>
+    <lookupFilter>
+        <active>true</active>
+        <filterItems>
+            <field>Marketing_Activity__c.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Partnership Promotion</value>
+        </filterItems>
+        <filterItems>
+            <field>Marketing_Activity__c.Is_Live__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </filterItems>
+        <filterItems>
+            <field>Marketing_Activity__c.Status__c</field>
+            <operation>equals</operation>
+            <value>Approved</value>
+        </filterItems>
+        <isOptional>false</isOptional>
+    </lookupFilter>
+    <referenceTo>Marketing_Activity__c</referenceTo>
+    <relationshipLabel>Accounts</relationshipLabel>
+    <relationshipName>Accounts</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Lookup</type>
+</CustomField>

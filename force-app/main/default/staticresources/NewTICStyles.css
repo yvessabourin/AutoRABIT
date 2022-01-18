@@ -1,0 +1,536 @@
+.full-width {
+                height: 40px;
+                width: 100%;
+                background: #123e6c;
+                text-align: left;
+                padding:8px 5px 5px 20px;
+                color: #fff;
+                position: absolute;
+                z-index: 9999 !important;
+                font-family: BrownStdLight;
+                font-size: 20px;
+                top:0px;
+                text-transform: uppercase;
+                }
+
+.selectlanguagelist {
+		width:100%;
+                border: none;
+                background-color: #123e6c;
+                margin-right: 0px; 
+                color:#fff;
+                -webkit-box-sizing: border-box;
+                -moz-box-sizing: border-box;
+                box-sizing: border-box;
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                background-image:
+                linear-gradient(45deg, transparent 50%, #fff 50%),
+                linear-gradient(135deg, #fff 50%, transparent 50%),
+                linear-gradient(to right, #123e6c, #123e6c);
+                background-position:
+                calc(100% - 20px) calc(1em - 7px),
+                calc(100% - 15px) calc(1em - 7px),
+                calc(100% - 2.5em) 0.5em;
+                background-size:
+                5px 5px,
+                5px 5px,
+                1px 1.5em;
+                background-repeat: no-repeat;
+		text-transform: uppercase;
+                }
+                
+                .selectlanguagelist:focus {
+                outline:none;
+                -webkit-box-shadow: none;
+                box-shadow: none;
+                }
+
+
+
+  h1{
+        margin: 30px 0;
+        padding: 0 200px 15px 0;
+        border-bottom: 1px solid #E5E5E5;
+    }
+    .bs-example{
+        margin: 20px;
+    }
+.jumbotron {
+  margin-top: 0px;
+ /* background-image: linear-gradient(180deg, #337ab7, #5b94c5); */
+ background-color: transparent;
+}
+.navbar{
+background-color: transparent;
+    margin-bottom: 0;
+         border-radius: 0px; 
+}
+.navbar a{
+background-color: transparent;
+}
+.navbar-inverse {
+    border-color: transparent;
+}
+.navbar-inverse .navbar-nav>li>a {
+    color: #0d0d0d;
+}
+
+.navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form{
+    border-color: none;
+    background-color: transparent;
+    margin-bottom: 0;
+}
+.navbar-inverse .navbar-nav > .active > a,
+.navbar-inverse .navbar-nav > .active > a:hover,
+.navbar-inverse .navbar-nav > .active > a:focus {
+  color: #fff;
+ /* background-color: #337ab7; */
+  background-color: transparent;
+}
+
+.row
+{
+text-align: center;
+}
+.col-sm-3
+{
+float: none;
+display: inline-block;
+}
+
+/* Side Nav section */
+
+/* The side navigation menu */
+.sidenav {
+    height: 100%; /* 100% Full-height */
+    width: 0; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Stay on top */
+    top: 0;
+    left: 0;
+    background-color: #5A5A5F; /* Black*/
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 60px; /* Place content 60px from the top */
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+}
+
+/* The navigation menu links */
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover, .offcanvas a:focus{
+    color: #f1f1f1;
+}
+
+/* Position and style the close button (top right corner) */
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+#main {
+    transition: margin-left .5s;
+    padding: 20px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+}
+/*
+body{
+     background: url(trainStationblurgrad.jpg) no-repeat center top fixed; 
+    
+}
+*/
+
+body{
+    padding: 0px 0px 0px 0px !important;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-color: #999;
+}
+
+
+    a {
+        color: #282828;
+        text-decoration: none;
+        transition: all 0.3s;
+        cursor: pointer
+    }
+    /* Site Nabar Style */
+    
+    .site-navbar {
+        min-height: 50px;
+        padding: 45px 0 20px;
+        border: 0;
+        transition: all 0.3s
+    }
+    /* Navbar Radius */
+    
+    .site-navbar .container {
+        border-radius: 4px;
+        background: rgba(0, 0, 0, 0.3);
+    }
+    /* Navbar a Link */
+    
+    .site-navbar a {
+        color: #fff;
+        text-transform: capitalize;
+        font-family: 'Open Sans', sans-serif;
+        font-size: 1.5em;
+    }
+    /* Navbar Active */
+    
+	.site-navbar .active,
+	.site-navbar .active a {
+	color: #000000;
+	background: #989898;
+	font-size: 14px;
+	font-family: 'Open Sans', sans-serif;
+}
+    /* List Font Size */
+    
+    .navbar-nav>li>a {
+        font-size: 14px;
+        font-family: 'Open Sans', sans-serif;
+    }
+    /* Site Navbar List Color */
+    
+    .site-navbar li a.current:hover {
+        color: #fc490c;
+        background: transparent
+    }
+    .site-navbar li a:hover {
+        color: #fff;
+        background: #989898;
+        border-top-right-radius: 3px;
+        border-bottom-right-radius: 3px;
+    }
+    .site-navbar li a:focus {
+        background: transparent
+    }
+    /* Navbar Brand */
+    
+    .site-navbar .navbar-brand {
+        padding-top: 0
+    }
+    /* Toggle Case */
+    
+    .site-navbar .navbar-toggle .icon-bar {
+        background: #fff
+    }
+    .site-navbar .navbar-toggle {
+       /* border: 1px solid #fff; */
+        border-radius: 0
+    }
+    /* Navbar Font size */
+    
+    .site-navbar a.navbar-brand {
+        padding: 0 0 0 15px;
+        text-transform: uppercase;
+        font-size: 20px;
+        font-weight: bold;
+        line-height: 51px
+    }
+    /* Span Style */
+    
+    .site-navbar a.navbar-brand span {
+        color: #fc490c
+    }
+    .sticky {
+        z-index: 100000;
+        padding: 12px 0;
+        background: #a9a9a9;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    }
+    @media only screen and (max-width: 768px) {
+        /* Site Navbar Style */
+        
+        .site-navbar {
+            margin-bottom: 0;
+            padding: 0;
+            background: #999
+        }
+        /* Brand Navbar */
+        
+        .site-navbar a.navbar-brand {
+            font-size: 2.3em
+        }
+        .site-navbar .container {
+            padding-right: 15px;
+            padding-left: 15px;
+            border-radius: 0;
+            background: #999
+        }
+        /* Ico Backgroud */
+        
+        .site-navbar .navbar-toggle .icon-bar {
+            background: #000
+        }
+    }
+    @media only screen and (max-width: 480px) {
+        /* Container Padding */
+        
+        .container {
+            padding-right: 30px;
+            padding-left: 30px
+        }
+        .site-navbar {
+            margin-bottom: 0;
+            padding: 0
+        }
+        /* Navbar Brand Fontsize */
+        
+        .site-navbar a.navbar-brand {
+            font-size: 2.3em
+        }
+        .site-navbar .container {
+            padding-right: 15px;
+            padding-left: 15px;
+            border-radius: 0;
+            background: #999
+        }
+        /* Icon Bar Style */
+        
+        .site-navbar .navbar-toggle .icon-bar {
+            background: #000
+        }
+    }
+    /* Content Section */
+    
+    #bsec #home,
+    #bsec #about,
+    #bsec #service,
+    #bsec #product,
+    #bsec #portfolio,
+    #bsec #contact {
+        padding-top: 40px;
+    }
+    /* Horizantal link CSS */
+    
+    #bsec hr {
+        margin-top: 10px !important;
+        margin-bottom: 0px !important;
+        border: 0;
+        border-top: 2px solid #ccc;
+    }
+    /* Heading CSS */
+    
+    #bsec #home h4,
+    #bsec #about h4,
+    #bsec #service h4,
+    #bsec #product h4,
+    #bsec #portfolio h4,
+    #bsec #contact h4 {
+        text-transform: capitalize;
+        font-family: 'Open Sans', sans-serif;
+        font-size: 15px;
+        font-weight: bold;
+        line-height: 25px;
+        color: #696969;
+    }
+    /* Padding Top and Bottom */
+    
+    #bsec .pad-top {
+        padding-top: 50px;
+    }
+    #bsec .pad-bot {
+        padding-bottom: 50px;
+    }
+    /* Smartphones (portrait and landscape) --  --  --  --  -- - */
+@media screen
+and (min-width: 304px) 
+and (max-width: 667px) {
+    /* Styles */
+    .site-navbar a {
+    color: #333;
+    text-transform: capitalize;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.5em;
+}
+.site-navbar a.navbar-brand {
+    font-size: 20px;
+    font-weight: 400;
+}
+
+}
+.panel
+{
+background-color: rgba(10, 10, 10, 0.3);
+}
+
+.panel-primary>.panel-heading
+{
+    background-color: #909090;
+    border-color: #707070;
+    color: #101010;
+}
+
+.panel-primary
+{
+border-color: #707070;
+}
+
+.panel-heading
+{
+font-weight: bold;
+text-color: #101010;
+}
+
+a:hover {
+    text-decoration: none;  
+}
+
+.col-sm-3 a:hover .panel-primary:hover{
+    text-decoration: none;
+    background-color: #808080;
+    border-color: #707070;
+    color: #202020;
+            transition: all 0.3s;
+}
+
+
+/* ----- loader image ----- */
+
+
+#loader {
+    bottom: 0;
+    height: 175px;
+    left: 0;
+    margin: auto;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 175px;
+}
+#loader {
+    bottom: 0;
+    height: 175px;
+    left: 0;
+    margin: auto;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 175px;
+}
+#loader .dot {
+    bottom: 0;
+    height: 100%;
+    left: 0;
+    margin: auto;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 87.5px;
+}
+#loader .dot::before {
+    border-radius: 100%;
+    content: "";
+    height: 87.5px;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transform: scale(0);
+    width: 87.5px;
+}
+#loader .dot:nth-child(7n+1) {
+    transform: rotate(45deg);
+}
+#loader .dot:nth-child(7n+1)::before {
+    animation: 0.8s linear 0.1s normal none infinite running load;
+    background: #2a00ff  none repeat scroll 0 0;
+}
+#loader .dot:nth-child(7n+2) {
+    transform: rotate(90deg);
+}
+#loader .dot:nth-child(7n+2)::before {
+    animation: 0.8s linear 0.2s normal none infinite running load;
+    background: #2a00ff  none repeat scroll 0 0;
+}
+#loader .dot:nth-child(7n+3) {
+    transform: rotate(135deg);
+}
+#loader .dot:nth-child(7n+3)::before {
+    animation: 0.8s linear 0.3s normal none infinite running load;
+    background: #2a00ff  none repeat scroll 0 0;
+}
+#loader .dot:nth-child(7n+4) {
+    transform: rotate(180deg);
+}
+#loader .dot:nth-child(7n+4)::before {
+    animation: 0.8s linear 0.4s normal none infinite running load;
+    background: #2a00ff  none repeat scroll 0 0;
+}
+#loader .dot:nth-child(7n+5) {
+    transform: rotate(225deg);
+}
+#loader .dot:nth-child(7n+5)::before {
+    animation: 0.8s linear 0.5s normal none infinite running load;
+    background: #2a00ff none repeat scroll 0 0;
+}
+#loader .dot:nth-child(7n+6) {
+    transform: rotate(270deg);
+}
+#loader .dot:nth-child(7n+6)::before {
+    animation: 0.8s linear 0.6s normal none infinite running load;
+    background: #2a00ff  none repeat scroll 0 0;
+}
+#loader .dot:nth-child(7n+7) {
+    transform: rotate(315deg);
+}
+#loader .dot:nth-child(7n+7)::before {
+    animation: 0.8s linear 0.7s normal none infinite running load;
+    background: #2a00ff  none repeat scroll 0 0;
+}
+#loader .dot:nth-child(7n+8) {
+    transform: rotate(360deg);
+}
+#loader .dot:nth-child(7n+8)::before {
+    animation: 0.8s linear 0.8s normal none infinite running load;
+    background: #2a00ff  none repeat scroll 0 0;
+}
+
+@keyframes load {
+100% {
+    opacity: 0;
+    transform: scale(1);
+}
+}
+
+
+.input-group .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: #888;
+    opacity: 0.95;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    margin-top: 30px;
+
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 100;
+}
+
+.input-group:hover .tooltiptext {
+    visibility: visible;
+}

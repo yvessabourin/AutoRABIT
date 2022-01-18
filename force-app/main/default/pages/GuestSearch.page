@@ -1,0 +1,441 @@
+<apex:page controller="GuestSearchController" sidebar="false" showHeader="false" standardStylesheets="false"  applyBodyTag="false" docType="html-5.0" >
+
+<html lang="en" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Guest Search</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></link>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap3-dialog/1.34.9/css/bootstrap-dialog.min.css" rel="stylesheet" type="text/css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap3-dialog/1.34.9/js/bootstrap-dialog.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="{!URLFOR($Resource.NewTICStyles)}"></link>
+
+ <apex:includeScript value="{!$Resource.Sorttable}"></apex:includeScript>
+
+    <style type="text/css">
+
+      body{
+          background: url({!URLFOR($Resource.TICDashboard, 'ingolstadt-village.jpg')}) no-repeat center center fixed; 
+      }
+  
+        .modal {
+          text-align: center;
+          padding: 0!important;
+        }
+
+        .modal:before {
+          content: '';
+          display: inline-block;
+          height: 100%;
+          vertical-align: middle;
+          margin-right: -4px;
+        }
+
+        .modal-dialog {
+          display: inline-block;
+          text-align: left;
+          vertical-align: middle;
+        }
+    </style>
+
+</head>
+<body>
+
+
+      <!-- Main Navigation -->
+      <div class="my-nav">
+         <div class="site-navbar navbar navbar-fixed-top" role="navigation">
+            <div class="container">
+               <div class="navbar-header">
+                  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+                  <a class="navbar-brand"  onclick="gotoPage('TIC_Dashboard');" href="#">Tourist Information Center</a>
+               </div>
+               <div id="navbar" class="navbar-collapse collapse">
+                  <ul class="nav navbar-nav navbar-right">
+                     <li> <a  href="#guest"  onclick="gotoPage('Promotion_Search');" >Guest Check In</a> </li>
+                     <li> <a  href="#search"  onclick="gotoPage('GuestSearch');"  class="active">Guest Search</a> </li>
+                     <li> <a  href="#card"  onclick="gotoPage('VIPCardSearch');">Card Search</a> </li>
+                     <li> <a  href="#clean"  onclick="gotoPage('VIPCardCleardown');">VIP Card Cleanup</a> </li>
+                     <li id="hfslistitem" name="hfslistitem"> <a  href="#hfs"  onclick="gotoPage('HFSDash');">Hands Free Shopping</a> </li>
+                     <li> <a  href="#exit" onclick="cancelAction();" >Exit</a> </li>
+                  </ul>
+               </div>
+               <!--/.nav-collapse -->
+            </div>
+         </div>
+      </div>
+      <!-- /.Main Navigation -->
+      <!-- Fullwidth Header -->
+      <!-- Intro Header -->
+
+
+<div class="jumbotron text-center">
+  <h2>&nbsp;</h2>
+</div>
+
+<!-- main content -->
+<div class="container">
+
+    <div id="loadingmodal" name="loadingmodal" class="modal" role="dialog">
+      <div class="modal-dialog">
+        <div id="loader">
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+        </div>
+      </div>
+    </div>
+
+      <!--  <div id='searching' align="center">Searching...  <img src="{!$Resource.ajaxSpinner}"/></div> -->
+
+        <div class="input-group" id="guestSearchbox" name="guestSearchbox">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+              <input type="text" class="form-control" placeholder="Guest Search" name="searchText" id="searchText" />
+              <div class="input-group-btn">
+                <button id="searchBtn" name="searchBtn" class="btn btn-default" onclick=" $j('#loadingmodal').show(); searchGuests();"><i class="glyphicon glyphicon-search"></i></button>
+              </div>
+        </div>
+        <br/>
+         <div class="input-group">
+              <a onclick="gotoPage('GuestSearch');" class="btn btn-default"><i class="glyphicon glyphicon-home"></i></a>&nbsp;&nbsp;<a href="#Add" class="btn btn-default" role="button" onclick="newCustomer();">Add New Guest</a>
+              </div>
+        <br/><br/>
+
+        <!-- Search Results LIST TABLE -->
+        <div id="searchResults" class="slds-p-vertical--large slds-cell-wrap"></div>
+        <!-- / Search Results LIST TABLE -->
+
+        <div id="myModal" name="myModal" class="modal" role="dialog" ng-show="showBrandListSearch">
+          <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content" >
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" onclick="closeModal();">&times;</button>
+                <h4 class="modal-title">Edit Guest Email Address</h4>
+              </div>
+              <div class="modal-body">
+                <span id="oldemail" name="oldemail"></span>
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                  <input id="newemail" type="email" class="form-control" name="newemail"  html-pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,63}$" placeholder="New Email Address" />
+                  <input id="guestguid" name="guestguid"  type="hidden" />
+                </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal" onclick="saveemail();">Save</button>&nbsp;&nbsp;<button type="button" class="btn btn-default" data-dismiss="modal" onclick="closeModal();">Close</button>
+              </div>
+              <div id="alertmessage" name="alertmessage" class="alert" style="display:none;">
+
+                </div>
+            </div>
+
+          </div>
+        </div>
+
+    </div>
+       </div>
+
+      <script>
+            function isLightningRedirect(inUrl){
+                if ('{!$User.UITheme}' === 'Theme4d' || '{!$User.UITheme}' === 'Theme4t' || '{!$User.UITheme}' === 'Theme4u') {
+                    sforce.one.navigateToURL(inUrl);
+                } else {
+                    window.location = inUrl;
+                }
+            }
+        </script>
+    <script>
+
+        $j = jQuery.noConflict();
+        var homeUrl;
+
+
+        $j(document).ready(function() {
+
+            //readitem = {"apexType":"c.apiCustomerRead.cls_CustomerReadItem"};
+            $j('#searchText').val('');
+            $j('#loadingmodal').hide();
+
+            homeUrl = '/apex/TIC_Dashboard';
+
+            $j("#searchText").keypress(function(e) {
+                if(e.which == 13) {
+                    $j("#searchBtn").click();
+                }
+            });
+        })
+
+        Visualforce.remoting.timeout = 60000;
+        Visualforce.remoting.buffer = false;
+        Visualforce.remoting.escape = false;
+
+        function searchGuests(){
+
+            $j('#loadingmodal').show();
+            var searchString = $j('#searchText').val();
+            searchString = searchString.trim();
+
+            console.log(searchString);
+            var search = false;
+
+            if (searchString.length > 0){
+                search = true;
+            }
+
+
+            if (search){
+
+                 GuestSearchController.searchGuests(searchString, function(result, event) {
+
+                        console.log(result);
+
+                        var html = buildHTML(result);
+                        $j('#loadingmodal').hide();
+
+                        if(event.status) {
+
+                            $j( "#searchResults").html(function() {
+                               return html;
+                            });
+
+                            if(html){
+                                var resultTable = document.getElementById("resultsTable");
+                                sorttable.makeSortable(resultTable);
+                            }
+
+                        } else {
+                            $j( "#searchResults").html(function() {
+                               return "<p>Network Error - Please report issue if problem persists</p> <br/>" + result
+                            });
+
+                        }
+
+
+                    },{buffer: false, escape: false, timeout: 90000} );
+
+            }
+
+
+        }
+
+        function buildHTML(records){
+
+            var html = '';
+            var outputDiv = document.getElementById("searchResults");
+
+            console.log(records.length + ' found ');
+
+            if (records.length == 0){
+                html += '<div class="panel panel-default">';
+                html += '<div class="panel-heading">Guest Search Results</div>  ';
+                html += '<div class="table-responsive">';
+                html += '<table class="table table-hover" id="resultsTable">';
+                html += '<thead>';
+                html += '<tr class="active">';
+                html += '<th>>Email Address</th>';
+                html += '<th>First Name</th>';
+                html += '<th>Last Name</th>';
+                html += '<th>Mobile</th>';
+                html += '<th>Country</th>';
+                html += '<th>Postcode</th>';
+                html += '<th>&nbsp;</th>';
+                html += '</tr>';
+                html += '</thead>';
+                html += '<tbody>';
+                html += '<tr class="info"><td>No Data Found</td>';
+                html += '<td></td>';
+                html += '<td></td>';
+                html += '<td></td>';
+                html += '<td></td>';
+                html += '<td></td>';
+                html += '<td></td>';
+                html += '</tr>';
+                html += '</tbody></table></div></div></div></div>';
+                    outputDiv.innerHTML = html;
+                return html;
+            }
+
+            for (var i=0; i<records.length; i++){
+                var html = '';
+
+                html += '<div class="panel panel-default">';
+                html += '<div class="panel-heading">Guest Search Results</div>  ';
+                html += '<div class="table-responsive">';
+                html += '<table class="table table-hover sortable"  id="resultsTable" name="resultsTable">';
+                html += '<thead>';
+                html += '<tr class="active">';
+                html += '<th >Email</th>';
+                html += '<th >First Name</th>';
+                html += '<th >Last Name</th>';
+                html += '<th >Mobile</th>';
+                html += '<th >Country</th>';
+                html += '<th >Postcode</th>';
+                html += '<th></th>';
+                html += '<th></th>';
+                html += '<th></th>';
+                html += '</tr>';
+                html += '</thead>';
+                html += '<tbody>';
+
+                if (records.length > 40){
+                    $j('#loadingmodal').hide();
+                    alert ('Too many records returned, please refine your search criteria');
+                    return '';
+                }
+
+                if (records.length > 0) {
+                    records.forEach(function(record) {
+                        var eml = undefinedToEmptyString(record.PersonEmail);
+                        var fname = undefinedToEmptyString(record.FirstName);
+                        var lname = undefinedToEmptyString(record.LastName);
+                        var mobile = undefinedToEmptyString(record.PersonMobilePhone);
+                        var country =  undefinedToEmptyString(record.Country_of_Residence__c);
+                        var postcode =  undefinedToEmptyString(record.PersonMaiolingPostalCode);
+                        var guid = undefinedToEmptyString(record.Customer_GUID__c);
+
+                        var recId = record.Id;
+
+                        html += '<tr class="info"><td>' + eml + '</td>';
+                        html += '<td>' + fname + '</td>';
+                        html += '<td>' + lname + '</td>';
+                        html += '<td>' + mobile + '</td>';
+                        html += '<td>' + country + '</td>';
+                        html += '<td>' + postcode + '</td>';
+                        html += '<td><a href="javascript:editGuest(\''+ recId +'\');">Edit/Del</a></td>';
+                        html += '<td><a href="javascript:editEmail(\''+ guid +'\', \'' + eml + '\');">Edit Email</a></td>';
+                        html += '<td><a href="javascript:viewGuest(\''+ recId +'\');">View</a></td>';
+                        html += '</tr>';
+                    });
+                    html = html + '</tbody></table>';
+                   // html = html + '</br> <button class="slds-button slds-button--brand slds-button--small   slds-float--right" onclick="newCustomer();">New Guest</button></div>';
+                    outputDiv.innerHTML = html;
+                } else {
+                    html = '<div align="center"><p>No records found</p></div>';
+                  // html = html + '</br> <button class="slds-button slds-button--brand slds-button--small   slds-float--right" onclick="newCustomer();">New Guest</button></div>';
+                    outputDiv.innerHTML = html;
+                }
+
+            }
+
+            return html;
+
+        }
+
+        function newCustomer(){
+            isLightningRedirect('/apex/apiCustomerMobile');
+        }
+
+        function viewGuest(recId){
+            isLightningRedirect(encodeURI('/' + recId));
+        }
+
+         function editGuest(recId){
+            isLightningRedirect(encodeURI('/apex/apiCustomerMobile?recId=' + recId));
+        }
+
+        function editEmail(guid, email){
+
+            if (email) {
+
+                $j('#myModal').show();
+                $j('#guestguid').val(guid);
+                $j('#oldemail').html(email);
+
+                email = email.replace('+', '%2B');
+                var url =  encodeURI('/apex/apiCustomerEmailMobile?guid=' + guid + '&email='+ email);
+
+                /*
+                if(  ('{!$User.UIThemeDisplayed}' == 'Theme4t' || '{!$User.UIThemeDisplayed}' == 'Theme4d' ) ) {
+                 // running in mobile
+                    sforce.one.navigateToURL(url);
+
+                } else { //desktop
+                    window.open(url, '_blank');
+                }*/
+
+
+            } else {
+
+                alert('Guest has no current email, please use the edit guest link to add an email');
+            }
+
+        }
+
+        function saveemail(){
+            var guid = $j('#guestguid').val();
+            var currentEmail = $j('#oldemail').html();
+            var newEmail = $j('#newemail').val();
+console.log('saving email' + guid + currentEmail + newEmail);
+
+              GuestSearchController.editEmail( guid,  currentEmail,  newEmail, function(result, event) {
+
+                        console.log(result);
+                        $j('#loadingmodal').hide();
+                           console.log("event.status===" + event.status);
+                        if(event.status) {
+                              if (result.indexOf('ERROR') > -1){
+                                $j('#alertmessage').html(result);
+                                $j('#alertmessage').addClass("alert-danger");
+                                $j('#alertmessage').show();
+                            } else {
+                               $j('#myModal').hide();
+                                 // and clear any values
+                                 $j('#guestguid').val('');
+                                 $j('#oldemail').html('');
+                                 $j('#newemail').val('');
+                                 // and we can do a re-search to show the change...
+                                 searchGuests();
+                            }
+
+                        } else {
+                            $j('#alertmessage').html(result);
+                        }
+
+
+                    },{buffer: false, escape: false, timeout: 90000} );
+
+        }
+        function cancelAction(){
+            isLightningRedirect(homeUrl);
+        }
+
+         function closeModal(){
+             $j('#myModal').hide();
+             // and clear any values
+             $j('#guestguid').val('');
+              $j('#newemail').val('');
+
+             $j('#oldemail').html('');
+
+        }
+
+        function undefinedToEmptyString(v){
+
+            if (typeof(v) == 'undefined' || v == null){
+                return '';
+            } else {
+                return v;
+            }
+        }
+
+         function gotoPage(pg){
+            isLightningRedirect('/apex/' + pg);
+        }
+    
+    </script>
+
+
+            </body>
+    </html>
+
+</apex:page>

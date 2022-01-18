@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Network xmlns="http://soap.sforce.com/2006/04/metadata">
+    <allowInternalUserLogin>false</allowInternalUserLogin>
+    <allowMembersToFlag>false</allowMembersToFlag>
+    <changePasswordTemplate>Community_Emails/CommunityChangePasswordEmailTemplate</changePasswordTemplate>
+    <communityRoles/>
+    <disableReputationRecordConversations>false</disableReputationRecordConversations>
+    <emailSenderAddress>vr1@valueretail.com</emailSenderAddress>
+    <emailSenderName>Third Party Portal</emailSenderName>
+    <enableCustomVFErrorPageOverrides>false</enableCustomVFErrorPageOverrides>
+    <enableDirectMessages>true</enableDirectMessages>
+    <enableExperienceBundleBasedSnaOverrideEnabled>true</enableExperienceBundleBasedSnaOverrideEnabled>
+    <enableGuestChatter>false</enableGuestChatter>
+    <enableGuestFileAccess>false</enableGuestFileAccess>
+    <enableGuestMemberVisibility>false</enableGuestMemberVisibility>
+    <enableInvitation>false</enableInvitation>
+    <enableKnowledgeable>false</enableKnowledgeable>
+    <enableMemberVisibility>false</enableMemberVisibility>
+    <enableNicknameDisplay>false</enableNicknameDisplay>
+    <enablePrivateMessages>false</enablePrivateMessages>
+    <enableReputation>false</enableReputation>
+    <enableShowAllNetworkSettings>false</enableShowAllNetworkSettings>
+    <enableSiteAsContainer>true</enableSiteAsContainer>
+    <enableTalkingAboutStats>true</enableTalkingAboutStats>
+    <enableTopicAssignmentRules>true</enableTopicAssignmentRules>
+    <enableTopicSuggestions>false</enableTopicSuggestions>
+    <enableUpDownVote>false</enableUpDownVote>
+    <forgotPasswordTemplate>Community_Emails/CommunityForgotPasswordEmailTemplate</forgotPasswordTemplate>
+    <gatherCustomerSentimentData>false</gatherCustomerSentimentData>
+    <networkMemberGroups>
+        <profile>admin</profile>
+        <profile>third party community user</profile>
+        <profile>village social media planner</profile>
+    </networkMemberGroups>
+    <networkPageOverrides>
+        <changePasswordPageOverrideSetting>Standard</changePasswordPageOverrideSetting>
+        <forgotPasswordPageOverrideSetting>Standard</forgotPasswordPageOverrideSetting>
+        <homePageOverrideSetting>Standard</homePageOverrideSetting>
+        <loginPageOverrideSetting>Standard</loginPageOverrideSetting>
+        <selfRegProfilePageOverrideSetting>Designer</selfRegProfilePageOverrideSetting>
+    </networkPageOverrides>
+    <newSenderAddress>vr1@valueretail.com</newSenderAddress>
+    <picassoSite>X3rdParty1</picassoSite>
+    <selfRegistration>false</selfRegistration>
+    <sendWelcomeEmail>false</sendWelcomeEmail>
+    <site>X3rdParty</site>
+    <status>Live</status>
+    <tabs>
+        <customTab>Marketing_Activity__c</customTab>
+        <defaultTab>01rb0000000bF1Z</defaultTab>
+    </tabs>
+    <urlPathPrefix>3rdParty</urlPathPrefix>
+    <welcomeTemplate>Community_Emails/CommunityWelcomeEmailTemplate</welcomeTemplate>
+</Network>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sharingCriteriaRules>
+        <fullName>Tourism_Leads_Share</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Share Tourism Leads with Group Tourism</description>
+        <label>Tourism Leads Share</label>
+        <sharedTo>
+            <role>Group_Tourism</role>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Tourism Lead,Group Booking Lead</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingOwnerRules>
+        <fullName>Old_La_Roca_Lead_Conversions</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Enables specified La Roca users to convert leads on behalf of each other, required due to the movement of unused accounts back to leads where the owner was the original account owner.</description>
+        <label>Old La Roca Lead Conversions</label>
+        <sharedTo>
+            <group>Old_Spanish_Leads_Conversion</group>
+        </sharedTo>
+        <sharedFrom>
+            <group>Old_Spanish_Leads_Conversion</group>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>Spanish_Leads_Share</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>Spanish Leads Share</label>
+        <sharedTo>
+            <group>Spanish_Leads</group>
+        </sharedTo>
+        <sharedFrom>
+            <group>Spanish_Leads</group>
+        </sharedFrom>
+    </sharingOwnerRules>
+</SharingRules>

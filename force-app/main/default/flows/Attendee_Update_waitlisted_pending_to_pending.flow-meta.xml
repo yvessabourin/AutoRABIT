@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>49.0</apiVersion>
+    <interviewLabel>Attendee Update waitlisted pending to pending {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Attendee Update waitlisted pending to pending</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <name>Get_attendees_on_the_waitlist</name>
+        <label>Get attendees on the waitlist</label>
+        <locationX>176</locationX>
+        <locationY>311</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Update_status</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>conference360__Registration_Status__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Waitlisted - Pending</stringValue>
+            </value>
+        </filters>
+        <object>conference360__Attendee__c</object>
+        <outputReference>Attendee_waitlisted_pending</outputReference>
+        <queriedFields>Id</queriedFields>
+        <queriedFields>conference360__Registration_Status__c</queriedFields>
+        <sortField>Name</sortField>
+        <sortOrder>Asc</sortOrder>
+    </recordLookups>
+    <recordUpdates>
+        <name>Update_status</name>
+        <label>Update status</label>
+        <locationX>176</locationX>
+        <locationY>431</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>conference360__Registration_Status__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Waitlisted - Pending</stringValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>conference360__Registration_Status__c</field>
+            <value>
+                <stringValue>Pending</stringValue>
+            </value>
+        </inputAssignments>
+        <object>conference360__Attendee__c</object>
+    </recordUpdates>
+    <startElementReference>Get_attendees_on_the_waitlist</startElementReference>
+    <status>Draft</status>
+    <variables>
+        <name>Attendee_waitlisted_pending</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+        <objectType>conference360__Attendee__c</objectType>
+    </variables>
+</Flow>

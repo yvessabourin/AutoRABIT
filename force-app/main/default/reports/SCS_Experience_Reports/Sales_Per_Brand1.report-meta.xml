@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <aggregates>
+        <calculatedFormula>HFS_Item__c.Receipt_Amount__c:SUM</calculatedFormula>
+        <datatype>currency</datatype>
+        <developerName>FORMULA1</developerName>
+        <downGroupingContext>HFS_Item__c$Brand__c.Name</downGroupingContext>
+        <isActive>true</isActive>
+        <isCrossBlock>false</isCrossBlock>
+        <masterLabel>Receipt Total</masterLabel>
+        <scale>2</scale>
+    </aggregates>
+    <buckets>
+        <bucketType>number</bucketType>
+        <developerName>BucketField_93881326</developerName>
+        <masterLabel>Spend Groupings</masterLabel>
+        <nullTreatment>z</nullTreatment>
+        <sourceColumnName>HFS_Item__c$Receipt_Amount__c</sourceColumnName>
+        <useOther>false</useOther>
+        <values>
+            <sourceValues>
+                <to>0</to>
+            </sourceValues>
+            <value>No Spend</value>
+        </values>
+        <values>
+            <sourceValues>
+                <from>0</from>
+                <to>100</to>
+            </sourceValues>
+            <value>€0&gt; €100</value>
+        </values>
+        <values>
+            <sourceValues>
+                <from>100</from>
+                <to>250</to>
+            </sourceValues>
+            <value>€100&gt; €250</value>
+        </values>
+        <values>
+            <sourceValues>
+                <from>250</from>
+                <to>500</to>
+            </sourceValues>
+            <value>€250&gt; €500</value>
+        </values>
+        <values>
+            <sourceValues>
+                <from>500</from>
+                <to>1,000</to>
+            </sourceValues>
+            <value>€500&gt; €1,000</value>
+        </values>
+        <values>
+            <sourceValues>
+                <from>1,000</from>
+                <to>1,500</to>
+            </sourceValues>
+            <value>€1,000&gt; €1,500</value>
+        </values>
+        <values>
+            <sourceValues>
+                <from>1,500</from>
+                <to>2,000</to>
+            </sourceValues>
+            <value>€1,500&gt; €2,000</value>
+        </values>
+        <values>
+            <sourceValues>
+                <from>2,000</from>
+                <to>2,500</to>
+            </sourceValues>
+            <value>€2,000&gt; €2,500</value>
+        </values>
+        <values>
+            <sourceValues>
+                <from>2,500</from>
+            </sourceValues>
+            <value>&gt; €2,500</value>
+        </values>
+    </buckets>
+    <chart>
+        <backgroundColor1>#FFFFFF</backgroundColor1>
+        <backgroundColor2>#FFFFFF</backgroundColor2>
+        <backgroundFadeDir>Diagonal</backgroundFadeDir>
+        <chartSummaries>
+            <axisBinding>y</axisBinding>
+            <column>RowCount</column>
+        </chartSummaries>
+        <chartType>VerticalColumnStacked</chartType>
+        <enableHoverLabels>false</enableHoverLabels>
+        <expandOthers>true</expandOthers>
+        <groupingColumn>BucketField_93881326</groupingColumn>
+        <legendPosition>Bottom</legendPosition>
+        <location>CHART_TOP</location>
+        <secondaryGroupingColumn>HFS_Item__c$Brand__c.Name</secondaryGroupingColumn>
+        <showAxisLabels>true</showAxisLabels>
+        <showPercentage>false</showPercentage>
+        <showTotal>false</showTotal>
+        <showValues>false</showValues>
+        <size>Large</size>
+        <summaryAxisRange>Auto</summaryAxisRange>
+        <textColor>#000000</textColor>
+        <textSize>12</textSize>
+        <title>Sales Per Brand</title>
+        <titleColor>#000000</titleColor>
+        <titleSize>18</titleSize>
+    </chart>
+    <columns>
+        <field>HFS_Item__c$Receipt_Amount__c</field>
+    </columns>
+    <description>Spend Grouping</description>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>HFS_Item__c$Brand__c.Name</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>BucketField_93881326</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>Sales Per Brand</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>SCS_Items__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>HFS_Item__c$CreatedDate</dateColumn>
+        <interval>INTERVAL_CURRENT</interval>
+    </timeFrameFilter>
+</Report>

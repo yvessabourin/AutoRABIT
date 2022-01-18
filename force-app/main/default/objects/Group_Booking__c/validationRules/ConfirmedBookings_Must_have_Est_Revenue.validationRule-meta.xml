@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ConfirmedBookings_Must_have_Est_Revenue</fullName>
+    <active>false</active>
+    <errorConditionFormula>TEXT( Status__c) != &quot;Proposed&quot; 
+&amp;&amp; TEXT( Status__c) != &quot;Cancelled&quot; 
+&amp;&amp; Visitor_Estimated_Revenue_Lookup__c = &quot;&quot;</errorConditionFormula>
+    <errorDisplayField>Visitor_Estimated_Revenue_Lookup__c</errorDisplayField>
+    <errorMessage>Confirmed bookings must have an estimated revenue set</errorMessage>
+</ValidationRule>

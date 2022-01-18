@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QuickAction xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fieldOverrides>
+        <field>Actual_Release_Date__c</field>
+        <formula>Today()</formula>
+    </fieldOverrides>
+    <fieldOverrides>
+        <field>Status__c</field>
+        <literalValue>Live</literalValue>
+    </fieldOverrides>
+    <label>Go Live</label>
+    <optionsCreateFeedItem>false</optionsCreateFeedItem>
+    <quickActionLayout>
+        <layoutSectionStyle>TwoColumnsLeftToRight</layoutSectionStyle>
+        <quickActionLayoutColumns>
+            <quickActionLayoutItems>
+                <emptySpace>false</emptySpace>
+                <field>Status__c</field>
+                <uiBehavior>Readonly</uiBehavior>
+            </quickActionLayoutItems>
+            <quickActionLayoutItems>
+                <emptySpace>false</emptySpace>
+                <field>Actual_Release_Date__c</field>
+                <uiBehavior>Edit</uiBehavior>
+            </quickActionLayoutItems>
+        </quickActionLayoutColumns>
+        <quickActionLayoutColumns/>
+    </quickActionLayout>
+    <type>Update</type>
+</QuickAction>

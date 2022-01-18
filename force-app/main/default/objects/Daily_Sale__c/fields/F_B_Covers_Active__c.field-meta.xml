@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>F_B_Covers_Active__c</fullName>
+    <defaultValue>false</defaultValue>
+    <externalId>false</externalId>
+    <inlineHelpText>When F&amp;B Covers Active is selected the Daily Sales record will include the covers data field and will not include the tax free data fields.</inlineHelpText>
+    <label>F &amp; B Covers Active</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

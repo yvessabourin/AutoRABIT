@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Task_Compact_Layout</fullName>
+    <fields>WhoId</fields>
+    <fields>OwnerId</fields>
+    <fields>Event_Headline__c</fields>
+    <fields>Follow_Up_Assignee__c</fields>
+    <fields>Follow_Up_Due_date__c</fields>
+    <label>Task Compact Layout</label>
+</CompactLayout>

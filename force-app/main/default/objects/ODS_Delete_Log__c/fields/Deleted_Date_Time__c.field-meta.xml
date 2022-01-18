@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Deleted_Date_Time__c</fullName>
+    <description>When was the record deleted?</description>
+    <externalId>false</externalId>
+    <label>Deleted Date/Time</label>
+    <required>true</required>
+    <trackTrending>false</trackTrending>
+    <type>DateTime</type>
+</CustomField>

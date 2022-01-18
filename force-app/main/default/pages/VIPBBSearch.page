@@ -1,0 +1,1033 @@
+<apex:page standardController="Account" id="page" extensions="VIPBBSearchExtension" sidebar="false" showHeader="false">
+   
+    <html lang="en" ng-app="VIPBBAppMod">
+        <head>
+            <meta charset="utf-8" />
+            <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+            <meta name="viewport" content="width=device-width, initial-scale=1" />
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+           	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+			<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap3-dialog/1.34.9/css/bootstrap-dialog.min.css" rel="stylesheet" type="text/css" />
+        	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+			<link rel="stylesheet" href="{!URLFOR($Resource.FlagPack, 'flag-icon-css-master/css/flag-icon.css')}" />
+			<link rel="stylesheet" href="{!URLFOR($Resource.NewTICStyles)}" />
+
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" />
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap3-dialog/1.34.9/js/bootstrap-dialog.min.js" />
+
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.2/css/bootstrap-select.min.css"></link>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.2/js/bootstrap-select.min.js"></script>
+			<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+            <title>The VIP Black Book Search Page</title>
+			<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.1/angular.min.js"></script>
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+                
+            <script src="{!URLFOR($Resource.NewTICScripts)}"></script>
+            
+            <script>
+            function isLightningRedirect(inUrl){
+                if ('{!$User.UITheme}' === 'Theme4d' || '{!$User.UITheme}' === 'Theme4t' || '{!$User.UITheme}' === 'Theme4u') {
+                    sforce.one.navigateToURL(inUrl);
+                } else {
+                    window.location = inUrl;
+                }
+            }
+            function handleRedirect()
+            {
+                $('#visitVisitModal').modal('hide');
+                 $('#visitconfModal').modal('show');
+            }
+            </script>
+            
+            <script>
+            
+            var accountId;
+            var newVisitId;
+            var visitrecordid;
+            // define the app
+            var VIPBBApp = angular.module('VIPBBAppMod', []);
+            // add the controller
+            VIPBBApp.controller('VIPBBServiceCtrl',['$log','$scope','$window',function($log,$scope,$window){
+                $scope.searchvalue;
+                $scope.guestList;
+                $scope.flag;
+                $scope.hasEvents;
+                $scope.customUnescape = function (v) {
+                    if (typeof (v) == 'string') {
+                        return v.replace(/&amp;/g, "&")
+                        .replace(/&lt;/g, "<")
+                        .replace(/&gt;/g, ">")
+                        .replace(/&quot;/g, "\"")
+                        .replace(/&apos;/g, "\'");
+                    } else {
+                        return v;
+                    }
+                };
+                
+                let searchParams = new URLSearchParams(window.location.search);
+                if (searchParams.get("email")) {
+                    $scope.searchvalue = searchParams.get("email");
+                }
+                
+                $scope.getGuests = function(){
+                    $scope.guestList = [];
+                    $scope.flag = false;
+                    Visualforce.remoting.Manager.invokeAction('{!$RemoteAction.VIPBBSearchExtension.retrieveGuests}',
+                                                              $scope.searchvalue,
+                                                              function(result, event){
+                                                                  if (event.status) {
+                                                                      for (let guest of result) {
+                                                                          for (let field in guest)  {
+                                                                              guest[field] = $scope.customUnescape(guest[field]);
+                                                                          }
+                                                                      }
+                                                                      $scope.flag = true;
+                                                                      $scope.guestList = result;
+                                                                  }
+                                                                  $scope.$apply();
+                                                              },
+                                                              {escape: true}
+                                                             );
+                };
+                
+                $scope.whatClassIsRow = function(statusvalue){
+                    $log.log('about to call statusvalue....' + statusvalue.Permissiontoholddata);
+                    if(statusvalue.Permissiontoholddata === 'true'){
+                        return 'fa fa-check-circle';
+                    }
+                    else if(statusvalue.Permissiontoholddata === 'false' ){
+                        return '';
+                    }
+                }
+                
+                $scope.visitType = function(VisitStatus){
+                    if(VisitStatus === true){
+                        return 'CHECK-IN VISIT';
+                    }
+                    else if(VisitStatus === false ){
+                        return 'CREATE VISIT';
+                    }
+                        else{
+                            return '';
+                        }
+                }
+                
+                $scope.onSearchKeyPress = function(event){
+                    if (event.charCode == 13){ //if enter then hit the search button
+                        $scope.getGuests();
+                    }
+                }
+                
+                $scope.showGuest = function(guestId) {
+                    isLightningRedirect('/apex/VIPBBConsent?ID=' + guestId);
+                };
+                
+                $scope.editGuest = function(guestId) {
+                    isLightningRedirect('/' + guestId);
+                };
+                
+                $scope.newGuest = function() {
+                    isLightningRedirect('/apex/VIPBBConsent?');
+                };
+                
+                $scope.getVisit = function(guest) {
+                    $j('#loadingmodal').show();
+                    if(guest.HasCheckinVisit){
+                        $scope.updateVisit(guest.Id);
+                    }
+                    else{
+                        $scope.createNewVisit(guest.Id);
+                    }
+                }
+                
+                $scope.updateVisitrecord = function(guest){   
+                    // VF REMOTE METHOD IMPLEMENTATION
+                    $scope.updatevisitrecordflag = true ;
+                    console.log($scope.updatevisitrecordflag);
+                    Visualforce.remoting.Manager.invokeAction('{!$RemoteAction.VIPBBSearchExtension.updateVisitRecord}',
+                                                              guest.Id,
+                                                              function(result, event){
+                                                                  console.log('Here 01: '+JSON.stringify(result));
+                                                                  console.log(JSON.stringify(guest)); 
+                                                                  newVisitId = result;
+                                                                  if (event.status) {
+                                                                      $('#HFSModal1').modal('show');
+                                                                  }else{
+                                                                      alert('An error has occurred, please contact your System Administrator.');
+                                                                  }
+                                                              },
+                                                              {escape: true}
+                                                             );
+                    
+                }
+                
+                $scope.createNewVisit = function(guestId) {
+                    $("getvisit").attr("disabled",true);
+                    accountId = guestId;
+                    if(!guestId){
+                        guestId=null;
+                    }
+                    Visualforce.remoting.Manager.invokeAction('{!$RemoteAction.VIPBBSearchExtension.createVisit}',
+                                                              guestId,
+                                                              function(result, event){
+                                                                  if (event.status) {
+                                                                      if(result != null){
+                                                                          newVisitId = result;
+                                                                          $('#HFSModal').modal('show');
+                                                                      }else{
+                                                                          alert('An error has occurred, please contact your System Administrator.');
+                                                                      }
+                                                                  }
+                                                                  $j('#loadingmodal').hide();
+                                                              },
+                                                              {escape: true}
+                                                             );
+                };
+                
+                $scope.updateVisit = function(guestId) {
+                    accountId = guestId;
+                    if(!guestId){
+                        guestId=null;
+                    }
+                    Visualforce.remoting.Manager.invokeAction('{!$RemoteAction.VIPBBSearchExtension.updateVisit}',
+                                                              guestId,
+                                                              function(result, event){
+                                                                  if (event.status) {
+                                                                      if(result != null){
+                                                                          newVisitId = result;
+                                                                          $('#HFSModal').modal('show');
+                                                                      }else{
+                                                                          alert('An error has occurred, please contact your System Administrator.');
+                                                                      }
+                                                                      $j('#loadingmodal').hide();
+                                                                  }
+                                                              },
+                                                              {escape: true}
+                                                             );
+                };
+                
+                $scope.updateStatus = function(guestId) {
+                    accountId = guestId;
+                    Visualforce.remoting.Manager.invokeAction('{!$RemoteAction.VIPBBSearchExtension.UpdateAttendeeStatus}',
+                                                              guestId,
+                                                              function(result, event){
+                                                                  if (event.status) {
+                                                                      if(result != null){
+                                                                          newVisitId = result;
+                                                                          $('#HFSModal2').modal('show');
+                                                                      }else{
+                                                                          alert('An error has occurred, please contact your System Administrator.');
+                                                                      }
+                                                                  }
+                                                              },
+                                                              {escape: true}
+                                                             );
+                    
+                };
+            }]);
+            
+            $(document).on("click", "#hfs_submit_btn", function(event){
+                if(accountId){
+                    isLightningRedirect('/apex/HNW_HFSPage?accountId=' + accountId + '&visitId=' + newVisitId + '&type=hfs');
+                } else {
+                    isLightningRedirect('/apex/HNW_HFSPage?visitId=' + newVisitId + '&type=hfs');
+                }
+            });
+            
+            $(document).on("click", "#hfs_submit_btn1", function(event){
+                if(accountId){
+                    isLightningRedirect('/apex/HNW_HFSPage?accountId=' + accountId + '&visitId=' + newVisitId + '&type=hfs');
+                } else {
+                    isLightningRedirect('/apex/HNW_HFSPage?visitId=' + newVisitId + '&type=hfs');
+                }
+            });
+            
+            $(document).on("click", "#hfs_submit_btn2", function(event){
+                if(accountId){
+                    isLightningRedirect('/apex/HNW_HFSPage?accountId=' + accountId + '&visitId=' + newVisitId + '&type=hfs&redirecttype=eventcheckin');
+                } else {
+                    isLightningRedirect('/apex/HNW_HFSPage?visitId=' + newVisitId + '&type=hfs&redirecttype=eventcheckin');
+                }
+            });
+            
+            $(document).on("click", "#hfs_btn_no", function(event){
+                $('#cardModal').modal('show');
+            });
+            
+            $(document).on("click", "#hfs_btn_no1", function(event){
+                $('#cardModal1').modal('show');
+            });
+            
+            $(document).on("click", "#hfs_btn_no2", function(event){
+                $('#cardModal2').modal('show');
+            });
+            
+            $(document).on("click", "#card_btn_no", function(event){
+                //getNewVisit(newVisitId);
+                //        $('#visitModal').modal('show');
+
+                  queryAndSetVisitInfo(newVisitId);
+                    $('#visitVisitModal').modal('show');
+                
+            });
+            
+            $(document).on("click", "#card_btn_no12", function(event){
+                $('#visitModal').modal('show');
+            });
+            
+            $(document).on("click", "#card_btn_no13", function(event){
+                $('#eventconfModal').modal('show');
+            });
+            
+           
+            $(document).on("click", "#card_btn_no4", function(event){
+                $('#visitconfModal').modal('show');
+            });
+            
+                        
+            $(document).on("click", "#card_submit_btn", function(event){
+                if(accountId){
+                    console.log(accountId);
+                    isLightningRedirect('/apex/HNW_HFSPage?accountId=' + accountId + '&visitId=' + newVisitId + '&type=card');
+                }
+                else{
+                    isLightningRedirect('/apex/HNW_HFSPage?visitId=' + newVisitId + '&type=card');                    
+                }
+            });
+            
+            $(document).on("click", "#card_submit_btn12", function(event){
+                if(accountId){
+                    console.log(accountId);
+                    isLightningRedirect('/apex/HNW_HFSPage?accountId=' + accountId + '&visitId=' + newVisitId + '&type=card');
+                }
+                else{
+                    isLightningRedirect('/apex/HNW_HFSPage?visitId=' + newVisitId + '&type=card');                    
+                }
+            });
+          
+            $(document).on("click", "#card_submit_btn13", function(event){
+                if(accountId){
+                    console.log(accountId);
+                    isLightningRedirect('/apex/HNW_HFSPage?accountId=' + accountId + '&visitId=' + newVisitId + '&type=card&redirecttype=eventcheckin');
+                }
+                else{
+                    isLightningRedirect('/apex/HNW_HFSPage?visitId=' + newVisitId + '&type=card&redirecttype=eventcheckin');                    
+                }
+            });
+            
+            $(document).on("click", "#card_submit_btn1", function(event){
+                if(newVisitId){
+                    console.log(newVisitId);
+                    isLightningRedirect('/lightning/r/Visit__c/'+newVisitId+'/view');
+                }
+                else{
+                    isLightningRedirect('/apex/VIPBBSearch');                 
+                }
+            });
+            
+            $(document).on("click", "#card_btn_no1", function(event){
+                isLightningRedirect('/apex/VIPBBSearch');
+            });
+            
+            $(document).on("click", "#card_submit_btn2", function(event){
+                
+                if(newVisitId){
+                    console.log(newVisitId);;
+                    isLightningRedirect('/lightning/r/Visit__c/'+newVisitId+'/view');
+                }
+                else{
+                    isLightningRedirect('/apex/VIPBBSearch');                   
+                }
+            });
+            
+            $(document).on("click", "#card_btn_no2", function(event){
+                isLightningRedirect('/apex/VIPBBSearch');
+            });
+       
+            $(document).on("click", "#card_submit_btn3", function(event){
+                if(accountId){
+                    console.log(accountId);
+                    isLightningRedirect('/lightning/r/Visit__c/'+accountId+'/view');
+                }
+                else{
+                    isLightningRedirect('/apex/VIPBBSearch');                  
+                }
+            });
+            
+              $(document).on("click", "#card_btn_no3", function(event){
+                isLightningRedirect('/apex/VIPBBSearch');
+            });
+            </script>
+            
+            <style type="text/css">
+                @font-face { font-family: BauerBodoni; src: url("{!URLFOR($Resource.FontBauerBodoni)}"); }
+                @font-face { font-family: SangBleuRegular; src: url("{!URLFOR($Resource.SangBleuKingdom, 'SangBleuKingdom-Regular.otf')}"); }
+                @font-face { font-family: SangBleuLight; src: url("{!URLFOR($Resource.SangBleuKingdom, 'SangBleuKingdom-Light.otf')}"); }
+                @font-face { font-family: SangBleuBold; src: url("{!URLFOR($Resource.SangBleuKingdom, 'SangBleuKingdom-Bold.otf')}"); }
+                @font-face { font-family: BrownStdRegular; src: url("{!URLFOR($Resource.BrownStdAll, 'BrownStd-Regular.otf')}"); }
+                @font-face { font-family: BrownStdLight; src: url("{!URLFOR($Resource.BrownStdAll, 'BrownStd-Light.otf')}"); }
+                @font-face { font-family: BrownStdBold; src: url("{!URLFOR($Resource.BrownStdAll, 'BrownStd-Bold.otf')}"); }
+                @font-face { font-family: BrownStdThin; src: url("{!URLFOR($Resource.BrownStdAll, 'BrownStd-Thin.otf')}"); }
+                
+                body{
+                background-color: #FFF;
+                margin-top: 20px;
+                font-family: BrownStdLight;
+                /*background: url({!URLFOR($Resource.VIPDesignImages, 'wash.jpg')}) no-repeat center top fixed; */
+                /*  -webkit-background-size: cover;
+                -moz-background-size: cover;
+                -o-background-size: cover;
+                background-size: cover;*/
+                }
+                
+                .inputbox {
+                height: 50px;
+                width: 100%;
+                /*border-radius: 3px;*/
+                /* border: 1px solid transparent;*/
+                border-top: none;
+                border-left: none;
+                border-right:none;
+                border-bottom: 1px solid #123e6c;
+                /* box-shadow: inset 0 1px 2px rgba(0,0,0,.39), 0 -1px 1px #FFF, 0 1px 0 #FFF;*/
+                /* box-shadow: horizontal-length vertical-length blur-radius spread-radius colour; */
+                /*border: none;*/
+                /*box-shadow: inset 0px 0px 12px 4px rgba(0,0,0,.19);*/
+                background-color: #fff;
+                padding-left: 15px;
+                padding-right:15px;
+                font-size: 20px;
+                float:right;
+                
+                }
+                
+                .inputbox:focus {
+                outline:none;
+                }
+                
+                .submitbutton
+                {
+                height: 50px;
+                /*width: 15%;*/
+                width: 250px;
+                border: none;
+                background-color: #123e6c;
+                /*box-shadow: 0px 0px 6px 4px rgba(0,0,0,.19);*/
+                /* background-color: #FAFAFA;*/
+                padding-left: 15px;
+                padding-right:15px;
+                float: right;
+                display:block;
+                margin-left: 5px;
+                font-size: 20px;
+                color: #fff;
+                font-family:BrownStdLight;
+                }
+                
+                
+                
+                .tablebutton {
+                height: 28px;
+                width: max-content;
+                border: none;
+                background-color: #123e6c;
+                color: #fff;
+                /*box-shadow: 0px 0px 6px 4px rgba(0,0,0,.19);*/
+                /* background-color: #FAFAFA;*/
+                padding-left: 8px;
+                padding-right:8px;
+                float: right;
+                display:block;
+                margin-left: 5px;
+                //font-weight: normal;
+                font-family: BrownStdLight;
+                }
+                
+                .modalbutton {
+                height: 50px;
+                border: none;
+                background-color: #123e6c;
+                color: #fff;
+                /*box-shadow: 0px 0px 6px 4px rgba(0,0,0,.19);*/
+                /* background-color: #FAFAFA;*/
+                padding-left: 15px;
+                padding-right:15px;
+                float: right;
+                display:block;
+                margin-left: 35px;
+                margin-right:35px;
+                font-family: BrownStdLight;
+                font-size: 20px;
+                }
+                
+                .alignmainbuttontext {
+                position: relative;
+                float: left;
+                top: 50%;
+                left: 2%;
+                transform: translate(-2%, -50%);
+                margin:auto;
+                
+                }
+                
+                .alignbuttontext {
+                position: relative;
+                float: left;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                margin:auto;
+                
+                }
+                
+                
+                .overlayimage {
+                /*  background: url("{!URLFOR($Resource.VIPDesignImages, 'MothersdayWide.jpg')}") no-repeat center top fixed;
+                width: 100%;*/
+                /*margin-left: auto;
+                margin-right: auto;
+                display: block;*/
+                z-index: 1;
+                margin-left:20px;
+                margin-right: 20px;
+                
+                
+                
+                }
+                /* override some of the bootstrap styled */
+                .panel-heading {
+                /*box-shadow: inset 0px 0px 12px 4px rgba(255,255,255,.29);*/
+                /*border-top-left-radius: 0px;
+                border-top-right-radius: 0px;*/
+                background-color: #57595a !important ;
+                text-align: left;
+                font-size: 18px;
+                font-weight: normal;
+                
+                
+                
+                }
+                .panel {
+                border-top-left-radius: 0px;
+                border-top-right-radius: 0px;
+                border-top-width: 0px;
+                border-left-width: 0px;
+                border-right-width: 0px;
+                border-bottom-width: 0px;
+                /*box-shadow: 0px 0px 6px 4px rgba(0,0,0,.19);*/
+                //padding-bottom: 2px;
+                background-color: #fff;
+                }
+                
+                .borderless th{
+                padding: 0px 0 0px 8px !important;
+                border: 1px solid transparent !important;
+                background-color: #fff !important;
+                color: #123e6c;
+                font-family: BrownStdThin;
+                font-size: 16px;
+                }
+                
+                .borderless td{
+                padding: 8px 0 8px 8px !important;
+                border-bottom: 1px solid #123e6c;
+                border-left: 1px solid transparent;
+                border-right: 1px solid transparent;
+                background-color: #fff !important;
+                color: #123e6c;
+                font-family: BrownStdLight;
+                width: 40%;
+                vertical-align: middle !important;
+                }
+                
+                
+                
+                p {
+                font-size: 20px;
+                /*font-family: BauerBodoni;*/
+                color: #123e6c;
+                }
+                
+                a:link{
+                color:#fff !important;
+                }
+                a:visited{
+                color:#fff !important;
+                }
+                a:hover{
+                color:#fff !important;
+                }
+                a:active{
+                color:#fff !important;
+                }
+                
+                
+                .modal{
+                position: absolute;
+                top: 25%;
+                }
+                
+                .modal-content{
+                border: 5px solid #123e6c;
+                width: auto;
+                height: auto;
+                top: auto;
+                margin-left: auto;
+                margin-right: auto;
+                
+                }
+          
+                .modal-header{
+                border-bottom: none;
+                }
+                
+                .modal-body{
+                margin-right: 20px;
+                margin-left: 20px
+                }
+                
+                .modal-footer{
+                margin-bottom: 50px;
+                float: none;
+                border-top: none;
+                }
+                
+                #HFSModal .modal-dialog  .modalbutton{
+                float: none;
+                margin-bottom: 15px;
+                }
+                
+                #HFSModal1 .modal-dialog  .modalbutton{
+                float: none;
+                margin-bottom: 15px;
+                }
+                
+                #HFSModal2 .modal-dialog  .modalbutton{
+                float: none;
+                margin-bottom: 15px;
+                }
+                
+                #cardModal .modal-dialog  .modalbutton{
+                float: none;
+                margin-bottom: 15px;
+                }
+                
+                #cardModal1 .modal-dialog  .modalbutton{
+                float: none;
+                margin-bottom: 15px;
+                }
+                
+                #cardModal2 .modal-dialog  .modalbutton{
+                float: none;
+                margin-bottom: 15px;
+                }            
+                
+                
+                #visitModal .modal-dialog  .modalbutton{
+                float: none;
+                margin-bottom: 15px;
+                }
+                
+                #eventconfModal .modal-dialog  .modalbutton{
+                float: none;
+                margin-bottom: 15px;
+                }
+                
+                #visitconfModal .modal-dialog  .modalbutton{
+                float: none;
+                margin-bottom: 15px;
+                }
+                
+                #visitVisitModal .modal-dialog  .modalbutton{
+                float: none;
+                margin-bottom: 15px;
+                }
+                
+                .two-col {
+                overflow: hidden;/* Makes this div contain its floats */
+                }
+                
+                .two-col .col1,
+                .two-col .col2 {
+                width: 49%;
+                }
+                
+                .two-col .col1 {
+                float: left;
+                }
+                
+                .two-col .col2 {
+                float: right;
+                }
+                
+                .two-col label {
+                display: block;
+                }
+                
+                
+                .modal-backdrop{
+                display: none;
+                
+                }
+            </style>
+            
+        </head>
+        <body>
+           <apex:form >
+              
+                <apex:actionFunction name="queryAndSetVisitInfo" action="{!getVisitInfo}" reRender="mainPanel" >
+                    <apex:param value="" assignTo="{!visitId}" name="visitId"/>
+                </apex:actionFunction>
+                <apex:actionFunction name="saveVisitData" action="{!saveVisitInfo}" oncomplete="showConfirmationModal();" reRender="mainPanel"/>
+        
+
+                <div class="full-width">
+                    <span>PRIVATE CLIENT SEARCH</span>
+                    <a onclick="javascript:isLightningRedirect('/apex/HFSDash'); return false;" style="float:right;cursor: pointer;color:white; padding-right:15px;">HANDS FREE SHOPPING</a>
+                </div>
+                
+                <div id="overlayimage text-center" >
+                    <img style="margin-left: auto; margin-right: auto; width: 100%; display: block; padding-top: 0px;height:600px;object-fit:cover;" src="{!URLFOR($Resource.VIPRedesignImages, 'LadyInYellow.jpg')}" />
+                </div>
+                <div class="container" style="margin-left: auto; margin-right: auto; z-index: 100; position: relative;font-family:BrownStdThin" ng-controller="VIPBBServiceCtrl">
+                    
+                    <br />
+                    <br/>
+                    <input type="text" ng-model="searchvalue" class="inputbox" name="guestsearch" placeholder="GUEST SEARCH" ng-keypress="onSearchKeyPress($event)" style="display:inline-block;    vertical-align: top;"/>&nbsp;&nbsp;
+                    <br/>
+                    <div class="form-group row">
+                        <div class="col-sm-12">
+                            <br/>
+                            <a href="#" class="submitbutton"  ng-click="getGuests()"  style="display:inline-block;"><span class="alignmainbuttontext">SUBMIT</span></a>
+                        </div>
+                        <div class="col-sm-12">
+                            <br/>
+                            <!--<a href="#" class="submitbutton"  ng-click="newGuest()"  style="display:inline-block; padding-top: 10px;padding-bottom: 10px;  height: 60px; width: auto;"><span class="alignbuttontext">REGISTER NEW GUEST</span></a>-->
+                            <a href="#" class="submitbutton"  ng-click="newGuest()"  style="display:inline-block;"><span class="alignmainbuttontext">REGISTER NEW GUEST</span></a>
+                        </div>
+                        <div class="col-sm-12">
+                            <br/>
+                            <a href="#" class="submitbutton"  ng-click="createNewVisit(guest.Id)"  style="display:inline-block;"><span class="alignmainbuttontext">ANONYMOUS VISIT</span></a>
+                        </div>
+                    </div>
+                    <br/>
+                            
+                    <div class="panel panel-default"  ng-show="guestList" >
+                        <div class="panel panel-default"  ng-hide="getvisit" >
+                            <div class="panel-heading" style="color: #fff; width:100%; margin-left:auto; margin-right:auto">SEARCH RESULTS</div>
+                            <div class="panel panel-default" style="margin : 10px;">
+                                <div class="table-responsive" ng-if="guestList.length>0">
+                                    <table class="table table-hover borderless" border="1">
+                                        <tr class="info"><th>NAME</th><th>EMAIL</th><th>CONSENT GIVEN</th><th></th><th></th><th></th><th></th><th style="text-align: right" colspan="1">CONSENT</th></tr>
+                                        <div id="loadingmodal" name="loadingmodal" class="modal" role="dialog">
+                                            <div class="modal-dialog">
+                                                <div id="loader">
+                                                    <div class="dot"></div>
+                                                    <div class="dot"></div>
+                                                    <div class="dot"></div>
+                                                    <div class="dot"></div>
+                                                    <div class="dot"></div>
+                                                    <div class="dot"></div>
+                                                    <div class="dot"></div>
+                                                    <div class="dot"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <tr ng-repeat="guest in guestList" class="info">
+                                            <td style="word-break: break-word">{{guest.Name}}</td>
+                                            <td style="word-break: break-word">{{guest.Email}}</td>
+                                            <td><i ng-class="whatClassIsRow(guest)" style="font-size: 20px;"></i></td>
+                                            <td><a name="search" ng-click="updateStatus(guest.Id)" ng-show="guest.HasEvent" class="tablebutton"><span class="alignbuttontext">EVENT CHECK-IN</span></a></td>
+                                            <td><a name="search" ng-click="editGuest(guest.Id)" class="tablebutton"><span class="alignbuttontext">EDIT</span></a></td>
+                                            <td><a name="search" ng-click="updateVisitrecord(guest)" ng-show="guest.updateVisitRecord" class="tablebutton"><span class="alignbuttontext">UPDATE TODAYS VISIT</span></a></td>
+                                            <td><a name="search" ng-click="getVisit(guest)" ng-hide="guest.getvisit" class="tablebutton"><span class="alignbuttontext">{{visitType(guest.HasCheckinVisit)}}</span></a></td>
+                                            <td><a name="search" ng-click="showGuest(guest.Id)" class="tablebutton"><span class="alignbuttontext">CONSENT</span></a></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                            
+                            <div class="table-responsive" ng-if="flag === true">
+                                <div class="table-responsive" ng-if="guestList.length<1">
+                                    <table class="table table-hover borderless" border="1">
+                                        <tr class="info"><th>No results found, please try again.
+                                            </th>
+                                        </tr>
+                                    </table>
+                                </div>    
+                            </div>
+                        </div>
+                    </div>
+                </div>
+           
+            <div id="HFSModal" class="modal fade" role="dialog" tabindex="-1" aria-labelledby="myModalLabel" >
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content" >
+                        <div class="modal-header" style =" font-weight: bold; font-size: medium;">
+                            <button name="close" type="button" class="close" data-dismiss="modal" >&times;</button>
+                        </div>
+                        
+                        <div id="mainPanel" class="modal-body">
+                            <p align="center">Would you like to create a Hands Free Shopping experience for this guest?</p>
+                        </div>
+                        
+                        <div class="modal-footer">
+                            <a id="hfs_submit_btn" class="modalbutton"><span class="alignbuttontext">YES</span></a>
+                            <a id="hfs_btn_no" class="modalbutton" data-dismiss="modal"><span class="alignbuttontext">NO</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+               
+            <div id="HFSModal1" class="modal fade" role="dialog" tabindex="-1" aria-labelledby="myModalLabel" >
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content" >
+                        <div class="modal-header" style =" font-weight: bold; font-size: medium;">
+                            <button name="close" type="button" class="close" data-dismiss="modal" >&times;</button>
+                        </div>
+                        
+                        <div id="mainPanel" class="modal-body">
+                            <p align="center">Would you like to create a Hands Free Shopping experience for this guest?</p>
+                        </div>
+                        
+                        <div class="modal-footer">
+                            <a id="hfs_submit_btn1" class="modalbutton"><span class="alignbuttontext">YES</span></a>
+                            <a id="hfs_btn_no1" class="modalbutton" data-dismiss="modal"><span class="alignbuttontext">NO</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="HFSModal2" class="modal fade" role="dialog" tabindex="-1" aria-labelledby="myModalLabel" >
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content" >
+                        <div class="modal-header" style =" font-weight: bold; font-size: medium;">
+                            <button name="close" type="button" class="close" data-dismiss="modal" >&times;</button>
+                        </div>
+                        
+                        <div id="mainPanel" class="modal-body">
+                            <p align="center">Would you like to create a Hands Free Shopping experience for this guest?</p>
+                        </div>
+                        
+                        <div class="modal-footer">
+                            <a id="hfs_submit_btn2" class="modalbutton"><span class="alignbuttontext">YES</span></a>
+                            <a id="hfs_btn_no2" class="modalbutton" data-dismiss="modal"><span class="alignbuttontext">NO</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+               
+            <div id="cardModal" class="modal fade" role="dialog" tabindex="-1" aria-labelledby="myModalLabel" >
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header" style =" font-weight: bold; font-size: medium;">
+                            <button name="close" type="button" class="close" data-dismiss="modal" >&times;</button>
+                        </div>
+                        
+                        <div id="mainPanel" class="modal-body">
+                            <p align="center">Would you like to associate a VIP card to this guest?</p>
+                        </div>
+                        
+                        <div class="modal-footer">
+                            <a id="card_submit_btn" class="modalbutton"><span class="alignbuttontext">YES</span></a>
+                            <a id="card_btn_no" class="modalbutton" data-dismiss="modal"><span class="alignbuttontext">NO</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            
+            <div id="cardModal1" class="modal fade" role="dialog" tabindex="-1" aria-labelledby="myModalLabel" >
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header" style =" font-weight: bold; font-size: medium;">
+                            <button name="close" type="button" class="close" data-dismiss="modal" >&times;</button>
+                        </div>
+                        
+                        <div id="mainPanel" class="modal-body">
+                            <p align="center">Would you like to associate a VIP card to this guest?</p>
+                        </div>
+                        
+                        <div class="modal-footer">
+                            <a id="card_submit_btn12" class="modalbutton"><span class="alignbuttontext">YES</span></a>
+                            <a id="card_btn_no12" class="modalbutton" data-dismiss="modal"><span class="alignbuttontext">NO</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            
+            <div id="cardModal2" class="modal fade" role="dialog" tabindex="-1" aria-labelledby="myModalLabel" >
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header" style =" font-weight: bold; font-size: medium;">
+                            <button name="close" type="button" class="close" data-dismiss="modal" >&times;</button>
+                        </div>
+                        
+                        <div id="mainPanel" class="modal-body">
+                            <p align="center">Would you like to associate a VIP card to this guest?</p>
+                        </div>
+                        
+                        <div class="modal-footer">
+                            <a id="card_submit_btn13" class="modalbutton"><span class="alignbuttontext">YES</span></a>
+                            <a id="card_btn_no13" class="modalbutton" data-dismiss="modal"><span class="alignbuttontext">NO</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="visitModal" class="modal fade" role="dialog" tabindex="-1" aria-labelledby="myModalLabel" >
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header" style =" font-weight: bold; font-size: medium;">
+                            <button name="close" type="button" class="close" data-dismiss="modal" >&times;</button>
+                        </div>
+                        
+                        <div id="mainPanel" class="modal-body">
+                            <p align="center">Would you like to Edit existing visit record for this GUEST?</p>
+                        </div>
+                        
+                        <div class="modal-footer">
+                            <a id="card_submit_btn1" class="modalbutton"><span class="alignbuttontext">YES</span></a>
+                            <a id="card_btn_no1" class="modalbutton" data-dismiss="modal"><span class="alignbuttontext">NO</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="visitconfModal" class="modal fade" role="dialog" tabindex="-1" aria-labelledby="myModalLabel" >
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content" >
+                        <div class="modal-header" style =" font-weight: bold; font-size: medium;">
+                            <button name="close" type="button" class="close" data-dismiss="modal" >&times;</button>
+                        </div>
+                        
+                        <div id="mainPanel" class="modal-body">
+                            <p align="center">You have successfully created visit</p>
+                            
+                        </div>
+                        
+                        <div class="modal-footer">
+                            <a id="card_submit_btn2" class="modalbutton"><span class="alignbuttontext">Open Visit</span></a>
+                            <a id="card_btn_no2" class="modalbutton" data-dismiss="modal"><span class="alignbuttontext">Close</span></a>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>  
+            
+            <div id="eventconfModal" class="modal fade" role="dialog" tabindex="-1" aria-labelledby="myModalLabel" >
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content" >
+                        <div class="modal-header" style =" font-weight: bold; font-size: medium;">
+                            <button name="close" type="button" class="close" data-dismiss="modal" >&times;</button>
+                        </div>
+                        
+                        <div id="mainPanel" class="modal-body">
+                            <p align="center">You have successfully checked in event</p>
+                            
+                        </div>
+                        
+                        <div class="modal-footer">
+                            <a id="card_submit_btn3" class="modalbutton"><span class="alignbuttontext">Open Guest Account</span></a>
+                            <a id="card_btn_no3" class="modalbutton" data-dismiss="modal"><span class="alignbuttontext">Close</span></a>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div> 
+            
+            <div id="visitVisitModal" class="modal fade" role="dialog" tabindex="-1" aria-labelledby="myModalLabel" >
+                <div class="modal-dialog modal-lg" style="overflow-y: scroll; max-height:85%;  margin-top: 50px; margin-bottom:50px;"   >
+                    <div class="modal-content" >
+                        <div class="modal-header" style =" font-weight: bold; font-size: medium;">
+                            <button name="close" type="button" class="close" data-dismiss="modal" >&times;</button>
+                            <p align="center">Add Visit Information</p>
+                        </div>
+                             
+                        <div id="mainPanel" class="modal-header">                           
+                            <label for="fname"> Virtual Visit? :</label>
+                            <apex:inputField id="visitVirtualVisit"  value="{!visitRecordInfo.Virtual_Visit__c}" /><br/> 
+                            <apex:outputLabel value="Services Used:"/><br />
+                            <apex:selectList value="{!ServicesUsedSelection}" multiselect="true">
+                                <apex:selectOptions value="{!ServicesUsed}"/>
+                            </apex:selectList><br/> 
+
+                       </div>        
+                  <div id="mainPanel" class="modal-header">
+                  <div id="mainPanel" class="two-col">
+                      <div class="col1" >  
+                            <label for="fname"> Number of Adults:</label>
+                            <apex:inputField id="visitNumberofAdults"  value="{!visitRecordInfo.Number_of_Guests__c}" /><br/>
+                           </div>
+                      <div class="col2" >  
+                            <label for="fname"> Number of Children :</label>
+                            <apex:inputField id="visitNumberofChildren"  value="{!visitRecordInfo.Number_of_Children__c}" /><br/>
+                          </div>
+                     <div class="col1" > 
+                       		<label for="fname">Visit Source :</label>
+                       		<apex:inputField id="visitVisitSource"  value="{!visitRecordInfo.Visit_Source__c}" /><br/>    
+			               </div>
+                      </div>
+                   </div>
+                      <div id="mainPanel" class="modal-header">
+                      <div id="mainPanel" class="two-col">
+                      <div class="col1" >  
+							<label for="fname"> Partner name :</label>
+                      		<apex:inputField id="visitPartnername" value="{!visitRecordInfo.Partnership__c}" /><br/>  
+                           </div>
+                      <div class="col2" >  
+                      		<label for="fname">Visit Source Notes :</label>
+                       		<apex:inputField id="visitVisitSourceNotes"  value="{!visitRecordInfo.Visit_Source_Notes__c}" /><br/>    
+					       </div>
+                      <div class="col1" >  
+                      		<label for="fname">Brand Event :</label>
+                       		<apex:inputField id="visitBrandEvent"  value="{!visitRecordInfo.Brand_Event__c}" /><br/>    
+					       </div>
+                       <div class="col2" >  
+                      		<label for="fname">Brand Referral :</label>
+                       		<apex:inputField id="visitBrandReferral"  value="{!visitRecordInfo.Brand_Referral__c}" /><br/>    
+					       </div>
+                       <div class="col1" >  
+							<label for="fname">Private Client Team :</label>
+                       		<apex:inputField id="visitPrivateClientTeam"  value="{!visitRecordInfo.Private_Client_Team__c}" /><br/> 
+                   		   </div>
+                       <div class="col2" >  
+                      		<label for="fname">Marketing Activity :</label>
+                       		<apex:inputField id="visitMarketingActivity"  value="{!visitRecordInfo.Marketing_Activity__c}" /><br/>    
+					       </div>
+					  <div class="col1" >  
+                      		<label for="fname"> Domestic or International Partner :</label>
+                       		<apex:inputField id="visitDomesticorInternationalPartner"  value="{!visitRecordInfo.Domestic_or_International_Partner__c}" /><br/> 
+					       </div>
+                      <div class="col2" >  
+						<label for="fname">Village Specific :</label>
+                       		<apex:inputField id="visitVillageSpecific"  value="{!visitRecordInfo.Village_Specific__c}" /><br/> 
+                   		   </div>                      
+                     <div class="col1" >  
+							<label for="fname">Personal Shopper :</label>
+                          	<apex:inputField id="visitPersonalShopper"  value="{!visitRecordInfo.Personal_Shopper__c}" /><br/> 
+                   		   </div>
+                      <div class="col2" >  
+							<label for="fname"> Visit Notes :</label>
+                       		<apex:inputField id="visitVisitNotes"  value="{!visitRecordInfo.Visit_Notes__c}" /><br/> 
+                   		   </div>
+                      </div>
+                      </div>
+                        <div class="modal-footer">
+                            <div align="center">
+                                <apex:commandButton action="{!saveVisitInfo}" style="color:#fff;width:600px;background:#123e6c;padding-top: 10px;padding-bottom: 10px;font-size: 20px;font-family: BrownStdLight;"  value="Save" oncomplete="handleRedirect()"/>
+                                <br/>
+                                <a id="card_btn_no4" class="modalbutton" style="color:#fff;width:600px;background:#123e6c;padding-top: 10px;padding-bottom: 10px;font-size: 20px;" data-dismiss="modal"><span class="alignbuttontext">Close</span></a>
+                            </div>
+                        </div> 
+                  	  </div>
+              	    </div>
+           		  </div>
+               
+             </apex:form>
+        </body> 
+    </html>
+</apex:page>

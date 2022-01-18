@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label></label>
+    <name>HFS_Leaflet_Type__c</name>
+    <picklistValues>
+        <masterLabel>Leaflet QR Code Scan</masterLabel>
+        <translation></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Leaflet with DM Code</masterLabel>
+        <translation></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Non-Privilege Guest</masterLabel>
+        <translation></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Privilege Guest</masterLabel>
+        <translation></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Privilege QR Code Scan</masterLabel>
+        <translation></translation>
+    </picklistValues>
+</CustomFieldTranslation>

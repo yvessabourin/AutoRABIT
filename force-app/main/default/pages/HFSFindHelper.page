@@ -1,0 +1,3 @@
+<apex:page controller="HFSFindHelperController" lightningStylesheets="true" action="{!autoRun}">
+
+</apex:page>

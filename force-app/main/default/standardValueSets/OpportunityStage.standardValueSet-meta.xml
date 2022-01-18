@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sorted>false</sorted>
+    <standardValue>
+        <fullName>No Village Interest</fullName>
+        <default>false</default>
+        <label>No Village Interest</label>
+        <closed>false</closed>
+        <forecastCategory>Pipeline</forecastCategory>
+        <probability>0</probability>
+        <won>false</won>
+    </standardValue>
+    <standardValue>
+        <fullName>Stuck</fullName>
+        <default>false</default>
+        <label>Stuck</label>
+        <closed>false</closed>
+        <forecastCategory>Pipeline</forecastCategory>
+        <probability>0</probability>
+        <won>false</won>
+    </standardValue>
+    <standardValue>
+        <fullName>On hold</fullName>
+        <default>false</default>
+        <label>On hold</label>
+        <closed>false</closed>
+        <forecastCategory>Omitted</forecastCategory>
+        <probability>0</probability>
+        <won>false</won>
+    </standardValue>
+    <standardValue>
+        <fullName>Pipeline</fullName>
+        <default>false</default>
+        <label>Pipeline</label>
+        <closed>false</closed>
+        <forecastCategory>Pipeline</forecastCategory>
+        <probability>0</probability>
+        <won>false</won>
+    </standardValue>
+    <standardValue>
+        <fullName>In discussion</fullName>
+        <default>false</default>
+        <label>In discussion</label>
+        <closed>false</closed>
+        <forecastCategory>Pipeline</forecastCategory>
+        <probability>30</probability>
+        <won>false</won>
+    </standardValue>
+    <standardValue>
+        <fullName>Negotiations</fullName>
+        <default>false</default>
+        <label>Negotiations</label>
+        <closed>false</closed>
+        <forecastCategory>Pipeline</forecastCategory>
+        <probability>40</probability>
+        <won>false</won>
+    </standardValue>
+    <standardValue>
+        <fullName>Advanced Negotiation</fullName>
+        <default>false</default>
+        <label>Advanced Negotiation</label>
+        <closed>false</closed>
+        <forecastCategory>Pipeline</forecastCategory>
+        <probability>50</probability>
+        <won>false</won>
+    </standardValue>
+    <standardValue>
+        <fullName>Agreed in Principle</fullName>
+        <default>false</default>
+        <label>Agreed in Principle</label>
+        <closed>false</closed>
+        <forecastCategory>Pipeline</forecastCategory>
+        <probability>60</probability>
+        <won>false</won>
+    </standardValue>
+    <standardValue>
+        <fullName>Heads of Terms Signed</fullName>
+        <default>false</default>
+        <label>Heads of Terms Signed</label>
+        <closed>false</closed>
+        <forecastCategory>Pipeline</forecastCategory>
+        <probability>70</probability>
+        <won>false</won>
+    </standardValue>
+    <standardValue>
+        <fullName>Out for Signature</fullName>
+        <default>false</default>
+        <label>Out for Signature</label>
+        <closed>false</closed>
+        <forecastCategory>Pipeline</forecastCategory>
+        <probability>65</probability>
+        <won>false</won>
+    </standardValue>
+    <standardValue>
+        <fullName>Lease Signed Awaiting Unit</fullName>
+        <default>false</default>
+        <label>Lease Signed Awaiting Unit</label>
+        <closed>false</closed>
+        <forecastCategory>Pipeline</forecastCategory>
+        <probability>100</probability>
+        <won>false</won>
+    </standardValue>
+    <standardValue>
+        <fullName>Shopfitting</fullName>
+        <default>false</default>
+        <label>Shopfitting</label>
+        <closed>false</closed>
+        <forecastCategory>Pipeline</forecastCategory>
+        <probability>100</probability>
+        <won>false</won>
+    </standardValue>
+    <standardValue>
+        <fullName>Trading</fullName>
+        <default>false</default>
+        <label>Trading</label>
+        <closed>false</closed>
+        <forecastCategory>Pipeline</forecastCategory>
+        <probability>100</probability>
+        <won>false</won>
+    </standardValue>
+    <standardValue>
+        <fullName>Closed</fullName>
+        <default>false</default>
+        <label>Closed</label>
+        <closed>true</closed>
+        <forecastCategory>Omitted</forecastCategory>
+        <probability>0</probability>
+        <won>true</won>
+    </standardValue>
+    <standardValue>
+        <fullName>Terminated</fullName>
+        <default>false</default>
+        <label>Terminated</label>
+        <closed>true</closed>
+        <forecastCategory>Closed</forecastCategory>
+        <probability>100</probability>
+        <won>true</won>
+    </standardValue>
+    <standardValue>
+        <fullName>Completed - New Brand opened in Village</fullName>
+        <default>false</default>
+        <label>Completed - New Brand opened in Village</label>
+        <closed>true</closed>
+        <forecastCategory>Closed</forecastCategory>
+        <probability>100</probability>
+        <won>true</won>
+    </standardValue>
+    <standardValue>
+        <fullName>Finished - Deal Failed</fullName>
+        <default>false</default>
+        <label>Finished - Deal Failed</label>
+        <closed>true</closed>
+        <forecastCategory>Omitted</forecastCategory>
+        <probability>0</probability>
+        <won>false</won>
+    </standardValue>
+    <standardValue>
+        <fullName>Completed - Brand Exited</fullName>
+        <default>false</default>
+        <label>Completed - Brand Exited</label>
+        <closed>true</closed>
+        <forecastCategory>Closed</forecastCategory>
+        <probability>100</probability>
+        <won>true</won>
+    </standardValue>
+    <standardValue>
+        <fullName>Completed - Brand Relocated</fullName>
+        <default>false</default>
+        <label>Completed - Brand Relocated</label>
+        <closed>true</closed>
+        <forecastCategory>Closed</forecastCategory>
+        <probability>100</probability>
+        <won>true</won>
+    </standardValue>
+    <standardValue>
+        <fullName>Completed - Brand Refitted</fullName>
+        <default>false</default>
+        <label>Completed - Brand Refitted</label>
+        <closed>true</closed>
+        <forecastCategory>Closed</forecastCategory>
+        <probability>100</probability>
+        <won>true</won>
+    </standardValue>
+    <standardValue>
+        <fullName>Completed - Contract Updated</fullName>
+        <default>false</default>
+        <label>Completed - Contract Updated</label>
+        <closed>true</closed>
+        <forecastCategory>Closed</forecastCategory>
+        <probability>100</probability>
+        <won>true</won>
+    </standardValue>
+    <standardValue>
+        <fullName>Exit Agreed – Brand Closing</fullName>
+        <default>false</default>
+        <label>Exit Agreed – Brand Closing</label>
+        <closed>false</closed>
+        <forecastCategory>Pipeline</forecastCategory>
+        <probability>70</probability>
+        <won>false</won>
+    </standardValue>
+</StandardValueSet>

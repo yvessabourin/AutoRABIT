@@ -1,0 +1,65 @@
+<apex:page showHeader="false" showChat="false" standardController="Marketing_Campaign__c"  >
+   
+    
+    <apex:pageBlock > <font ><apex:facet name="header">
+         <span style="color: black; font-size: 18pt">{!Marketing_Campaign__c.Name}</span>
+     </apex:facet> </font>
+
+  <!--     <h2>Campaign Name : {!Marketing_Campaign__c.Name}</h2> <br/> <br/>  -->
+       <h3>Start Date  : &nbsp;<apex:outputText value="{0,date,dd/MM/yyyy}"> 
+                                 <apex:param value="{!Marketing_Campaign__c.Start_Date__c}" /> 
+                               </apex:outputText></h3>
+       &nbsp;&nbsp;
+       <h3>End Date : &nbsp;<apex:outputText value="{0,date,dd/MM/yyyy}"> 
+                                 <apex:param value="{!Marketing_Campaign__c.End_Date__c}" /> 
+                               </apex:outputText></h3>
+
+
+    </apex:pageBlock>
+
+
+    
+    <hr/>
+   
+
+        
+    <apex:pageBlock title="Marketing Objectives">
+        <apex:pageBlockSection columns="1">
+            <b>Proposition : </b> {!Marketing_Campaign__c.Proposition__c}
+            <br/><br/>
+            <b>Product Focus : </b> {!Marketing_Campaign__c.Product_Focus__c}
+            <br/><br/>
+            <b>Target : </b> {!Marketing_Campaign__c.Target_Audience__c}
+        </apex:pageBlockSection>
+    </apex:pageBlock>
+    <hr/>
+        
+
+    <apex:pageBlock title="Metrics">
+        <apex:pageBlockSection >
+            <b>Campaign Marketing Budget :  </b> {!Marketing_Campaign__c.Campaign_Marketing_Budget__c}<br/><br/>
+            <b>Accumulated Campaign Expected Footfall :  </b>{!Marketing_Campaign__c.Accumulated_Campaign_Expected_Footfall__c}<br/><br/>        
+            <b>Accumulated Campaign Expected Sales :  </b>{!Marketing_Campaign__c.Accumulated_Campaign_Expected_Sales__c}<br/><br/>
+            <b>Accumulated Campaign Reach :  </b>{!Marketing_Campaign__c.Accumulated_Campaign_Reach__c}<br/><br/>
+            <b>Target Campaign New Members :  </b>{!Marketing_Campaign__c.Target_Campaign_New_Members__c}
+        </apex:pageBlockSection>
+    </apex:pageBlock>
+    
+    <hr/>
+
+    <apex:pageBlock title="Activity Calendar">
+
+
+        <apex:iframe src="apex/Campaign_QBR_Calendar?Id={!Marketing_Campaign__c.Id}" frameborder="true" height="1200px" id="thecalendar"/>
+        
+
+       
+    </apex:pageBlock>
+
+
+
+
+ 
+ 
+ 
+</apex:page>

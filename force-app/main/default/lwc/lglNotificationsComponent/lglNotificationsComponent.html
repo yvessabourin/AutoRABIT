@@ -1,0 +1,27 @@
+<template>
+	<template if:true={isVisible}>
+		<div class="slds-notify_container slide-in-top">
+			<div class={notificationClass}>
+				<lightning-icon
+					class={iconClass}
+					icon-name={notificationIcon}
+					alternative-text={type}
+					size="medium"
+				>
+				</lightning-icon>
+
+				<span class="slds-var-m-left_x-small slds-col">{message}</span>
+
+				<lightning-icon
+					class={closeIconClass}
+					icon-name="action:close"
+					alternative-text="Close"
+					title="Close"
+					size="small"
+					onclick={handleCloseClick}
+				>
+				</lightning-icon>
+			</div>
+		</div>
+	</template>
+</template>

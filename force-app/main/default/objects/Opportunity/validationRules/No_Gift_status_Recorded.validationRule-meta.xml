@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>No_Gift_status_Recorded</fullName>
+    <active>true</active>
+    <description>Blocks the closure of the Deal if the gift status field has not been completed</description>
+    <errorConditionFormula>AND(
+OR(
+$RecordType.Name = &quot;Relocation&quot;,
+$RecordType.Name = &quot;New Brand&quot;, 
+$RecordType.Name = &quot;ShopRefit&quot;,  
+$RecordType.Name = &quot;Contract Change&quot;,
+$RecordType.Name = &quot;Exit&quot;   
+),
+BEGINS(TEXT(StageName),&apos;Completed&apos; ),
+ISBLANK(TEXT(Gift_Status__c)))</errorConditionFormula>
+    <errorDisplayField>Gift_Status__c</errorDisplayField>
+    <errorMessage>You must enter a Gift Status before closing this deal</errorMessage>
+</ValidationRule>

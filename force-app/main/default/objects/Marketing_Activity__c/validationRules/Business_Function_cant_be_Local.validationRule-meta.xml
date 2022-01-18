@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Business_Function_cant_be_Local</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(CONTAINS(Marketing_Campaign__r.RecordType.Name, &apos;Village&apos;), NOT(CONTAINS(TEXT(Business_Function__c), &apos;Local&apos;)) )</errorConditionFormula>
+    <errorDisplayField>Business_Function__c</errorDisplayField>
+    <errorMessage>If Campaign&apos;s Record Type is Village Business Function has to be Local</errorMessage>
+</ValidationRule>

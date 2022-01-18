@@ -1,0 +1,25 @@
+<apex:page standardController="HFS_Job__c" extensions="HFSDeliverToGuestController" lightningStylesheets="true">
+    <c:HFS_Barcode_Scanner />
+    <audio id="audio" src="{!URLFOR($Resource.HFS_beep, '/beep-06.wav')}" autostart="false" ></audio>
+
+    <script type="text/javascript">
+        function PlaySound() {
+            var sound = document.getElementById("audio");
+            sound.play()
+        }
+
+        function getManuallyBarcode() {
+            var barCodeBag = document.getElementById('result_c').value;
+
+            if(barCodeBag){
+                var url_string = window.location.href;
+                var url = new URL(url_string);
+                var record_id = url.searchParams.get("id");
+                var urlfinal = '/apex/HFSDeliverToGuest?barcodeBagQH=' + barCodeBag + '&id=' + record_id;
+                sforce.one.navigateToURL(urlfinal, true);
+            }
+        }
+
+        
+    </script>
+</apex:page>

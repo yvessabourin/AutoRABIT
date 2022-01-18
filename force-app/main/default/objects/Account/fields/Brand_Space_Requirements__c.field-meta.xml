@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Brand_Space_Requirements__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Select if the Brand is requesting new space requirements</inlineHelpText>
+    <label>Brand Space Requirements</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>More Space</fullName>
+                <default>false</default>
+                <label>More Space</label>
+            </value>
+            <value>
+                <fullName>Less Space</fullName>
+                <default>false</default>
+                <label>Less Space</label>
+            </value>
+            <value>
+                <fullName>Same Space</fullName>
+                <default>false</default>
+                <label>Same Space</label>
+            </value>
+            <value>
+                <fullName>Do Not Know Yet</fullName>
+                <default>false</default>
+                <label>Do Not Know Yet</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

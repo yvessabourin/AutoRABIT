@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ReportType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <baseObject>LGL_Unfulfilled_Request__c</baseObject>
+    <category>other</category>
+    <deployed>true</deployed>
+    <description>Report type that allows retrieveing information about the Unfulfilled Service Requests</description>
+    <label>L&amp;L Unfulfilled Service Requests</label>
+    <sections>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>CreatedBy</field>
+            <table>LGL_Unfulfilled_Request__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>CurrencyIsoCode</field>
+            <table>LGL_Unfulfilled_Request__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>LGL_Request_Location__c</field>
+            <table>LGL_Unfulfilled_Request__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>LastModifiedBy</field>
+            <table>LGL_Unfulfilled_Request__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>LastModifiedDate</field>
+            <table>LGL_Unfulfilled_Request__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>true</checkedByDefault>
+            <field>Name</field>
+            <table>LGL_Unfulfilled_Request__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>LGL_Service_Type__c</field>
+            <table>LGL_Unfulfilled_Request__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>CreatedDate</field>
+            <table>LGL_Unfulfilled_Request__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Id</field>
+            <table>LGL_Unfulfilled_Request__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Service Type</displayNameOverride>
+            <field>LGL_Service_Type__c.Name</field>
+            <table>LGL_Unfulfilled_Request__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Request Location</displayNameOverride>
+            <field>LGL_Request_Location__c.Name</field>
+            <table>LGL_Unfulfilled_Request__c</table>
+        </columns>
+        <masterLabel>Unfulfilled Service Requests</masterLabel>
+    </sections>
+</ReportType>

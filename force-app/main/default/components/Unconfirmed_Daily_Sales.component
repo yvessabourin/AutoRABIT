@@ -1,0 +1,21 @@
+<apex:component controller="StoreUnconfirmedDailySales" access="global"  language="{!language}"  >
+
+   <apex:attribute name="usrId" type="Id" description="The Salesforce User Id of the Brand Contact" assignTo="{!userId}"/>
+
+  
+    
+    <apex:datatable value="{!unconfirmedList}" var="ds" border="1" rowClasses="odd,even" styleClass="tableClass">
+        <apex:column headerValue="Ref" >
+            <apex:outputLink value="{!$Label.DAILY_SALE_PORTAL_URL}/{!ds.id}" id="theLink">{!ds.Name}</apex:outputLink>
+        </apex:column>
+        <apex:repeat var="f" value="{!$ObjectType.Daily_Sale__c.FieldSets.Reminder_Email}">    
+            <apex:column headerValue="{!f.label}">
+                <apex:outputText value="{0, date, MMMM d','  yyyy}" escape="false" rendered="{!f.type ='date'}">
+                    <apex:param value="{!ds[f.fieldPath]}" />    
+                </apex:outputText>
+                <apex:outputText value="{!IF(f.type='boolean', IF(ds[f.fieldPath] = true,'&#x2714;', ''), ds[f.fieldPath])}" escape="false" rendered="{!f.type !='date'}"/>
+            </apex:column>        
+        </apex:repeat>                                                                
+    </apex:datatable>
+    
+</apex:component>

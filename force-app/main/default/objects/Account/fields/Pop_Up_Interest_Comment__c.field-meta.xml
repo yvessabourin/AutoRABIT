@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Pop_Up_Interest_Comment__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Enter any comments related to the Brands interest in pop-up&apos;s</inlineHelpText>
+    <label>Pop-Up Interest Comment</label>
+    <length>2000</length>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>LongTextArea</type>
+    <visibleLines>2</visibleLines>
+</CustomField>

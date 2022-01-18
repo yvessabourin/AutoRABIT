@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Opportunity$Name</field>
+    </columns>
+    <columns>
+        <field>Opportunity$Type</field>
+    </columns>
+    <columns>
+        <field>Opportunity$Next_Step_due_Date__c</field>
+    </columns>
+    <columns>
+        <field>Opportunity$Next_Step_Update_Description__c</field>
+    </columns>
+    <columns>
+        <field>Opportunity$StageName</field>
+    </columns>
+    <columns>
+        <field>Opportunity$CloseDate</field>
+    </columns>
+    <columns>
+        <field>Opportunity$Expected_Signature_Date__c</field>
+    </columns>
+    <currency>EUR</currency>
+    <filter>
+        <criteriaItems>
+            <column>Opportunity$StageName</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>Stuck,On hold</value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Opportunity$Lead_Negotiator_for_VR__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>Stuck/On Hold Deals by Lead Neg.</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Deals__c</reportType>
+    <roleHierarchyFilter>CEO</roleHierarchyFilter>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>Opportunity$CreatedDate</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

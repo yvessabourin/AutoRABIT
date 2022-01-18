@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Budget_Unit__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <externalId>false</externalId>
+    <inlineHelpText>This is the unit that was associated to the Deal at the time the budget was set</inlineHelpText>
+    <label>Budget Unit</label>
+    <lookupFilter>
+        <active>true</active>
+        <filterItems>
+            <field>Unit__c.Unit_Status__c</field>
+            <operation>notEqual</operation>
+            <value></value>
+        </filterItems>
+        <filterItems>
+            <field>Unit__c.Village__c</field>
+            <operation>equals</operation>
+            <valueField>$Source.Village__c</valueField>
+        </filterItems>
+        <isOptional>false</isOptional>
+    </lookupFilter>
+    <referenceTo>Unit__c</referenceTo>
+    <relationshipLabel>Opportunities (Budget Unit)</relationshipLabel>
+    <relationshipName>Opportunities1</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

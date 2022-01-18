@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Is_logged_in_User_assigned__c</fullName>
+    <externalId>false</externalId>
+    <formula>OR(
+IF(AND( CONTAINS(X3rd_Party_Assigned__c,$User.Email), Creative_Agency_Access_To_Salesforce__r.Profile.Name = &quot;Third Party Community User&quot;), true, false),
+IF(AND( CONTAINS(X3rd_Party_Assigned__c,$User.Email), Creative_Agency_2__r.Profile.Name = &quot;Third Party Community User&quot;), true, false),
+IF(AND( CONTAINS(X3rd_Party_Assigned__c,$User.Email), Creative_Agency_3__r.Profile.Name = &quot;Third Party Community User&quot;), true, false),
+IF(AND( CONTAINS(X3rd_Party_Assigned__c,$User.Email), Creative_Agency_4__r.Profile.Name = &quot;Third Party Community User&quot;), true, false),
+false)</formula>
+    <label>Is logged in User assigned</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

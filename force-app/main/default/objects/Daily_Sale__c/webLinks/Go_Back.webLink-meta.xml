@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Go_Back</fullName>
+    <availability>online</availability>
+    <description>Goes back to main daily sales page,</description>
+    <displayType>button</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <linkType>url</linkType>
+    <masterLabel>Go Back</masterLabel>
+    <openType>replace</openType>
+    <protected>false</protected>
+    <url>{!URLFOR(&quot;/daily-sales&quot;)}</url>
+</WebLink>

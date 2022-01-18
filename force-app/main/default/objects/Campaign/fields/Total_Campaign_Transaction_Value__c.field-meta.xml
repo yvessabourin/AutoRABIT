@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Total_Campaign_Transaction_Value__c</fullName>
+    <description>Sum of all the FF123 Transaction values</description>
+    <externalId>false</externalId>
+    <label>Total Campaign Transaction Value</label>
+    <summarizedField>FF123_Transaction__c.Transaction_Value__c</summarizedField>
+    <summaryForeignKey>FF123_Transaction__c.Campaign__c</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <type>Summary</type>
+</CustomField>

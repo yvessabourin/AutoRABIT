@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MICE_Contact__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>(B2T) this field should be checked if the lead came from a MICE web lead form. It will be mapped to the contact record in the conversion process.</description>
+    <externalId>false</externalId>
+    <label>MICE Contact</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

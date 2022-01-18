@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fieldUpdates>
+        <fullName>BCP_Activate</fullName>
+        <field>Active__c</field>
+        <literalValue>1</literalValue>
+        <name>BCP Activate</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>BCP_Deactivate</fullName>
+        <field>Active__c</field>
+        <literalValue>0</literalValue>
+        <name>BCP Deactivate</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <rules>
+        <fullName>Brand Closed Period Activate</fullName>
+        <actions>
+            <name>BCP_Activate</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>Closed_Year__c = Current_Year__c</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Brand Closed Period Deactivate</fullName>
+        <actions>
+            <name>BCP_Deactivate</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>Closed_Year__c  &lt;&gt;  Current_Year__c</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+</Workflow>

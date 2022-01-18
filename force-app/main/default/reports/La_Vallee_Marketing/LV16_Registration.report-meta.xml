@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>b2c_customer__c$CreatedDate</field>
+    </columns>
+    <columns>
+        <field>b2c_customer__c$doubleOptInStatus__c</field>
+    </columns>
+    <columns>
+        <field>b2c_customer__c$leadSourceText__c</field>
+    </columns>
+    <columns>
+        <field>b2c_customer__c$originalRegistrationDate__c</field>
+    </columns>
+    <filter>
+        <criteriaItems>
+            <column>b2c_customer__c$primaryVillage__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>LV</value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
+    <format>Tabular</format>
+    <name>LV16 - Registration</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Guests__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <sortColumn>b2c_customer__c$leadSourceText__c</sortColumn>
+    <sortOrder>Asc</sortOrder>
+    <timeFrameFilter>
+        <dateColumn>b2c_customer__c$CreatedDate</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+        <startDate>2015-10-14</startDate>
+    </timeFrameFilter>
+</Report>

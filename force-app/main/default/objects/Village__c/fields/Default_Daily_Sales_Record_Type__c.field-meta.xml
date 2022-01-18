@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Default_Daily_Sales_Record_Type__c</fullName>
+    <description>Select the default Daily Sales record type</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Select the default Daily Sales record type</inlineHelpText>
+    <label>Default Daily Sales Record Type</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetName>Daily_Sale_Record_Types</valueSetName>
+    </valueSet>
+</CustomField>

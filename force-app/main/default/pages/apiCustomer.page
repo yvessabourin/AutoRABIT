@@ -1,0 +1,73 @@
+<apex:page StandardController="Account" extensions="apiCustomerController" docType="html-5.0" recordSetVar="guest" lightningStylesheets="true">
+<apex:pageMessages id="pgMsgs"/>    
+   
+   <head>
+       <apex:stylesheet value="{!URLFOR($Resource.SLDS0121, 'assets/styles/salesforce-lightning-design-system-vf.css')}" />  
+   </head>
+   
+    <apex:form >
+         <div class="slds">
+         <c:ProcessSpinner2 MessageText="Saving, please wait ...." />
+         
+         <div class="slds-grid">
+         <div class="slds-col">
+             <apex:pageBlock id="pb1">
+                <apex:pageBlockButtons location="both"  >
+                    <apex:commandButton action="{!saveCustomer}" value="Save" reRender="pbs1,pbs2,pbs3,pgMsgs,prefMsgs" status="processingStatus" disabled="{!NOT(validPage)}"/>
+                    <apex:commandButton action="{!Cancel}" value="Cancel" html-formnovalidate="formnovalidate" />
+                </apex:pageBlockButtons>
+                <apex:pageBlockSection id="pbs1" columns="1"  collapsible="false">
+                <div class="slds-page-header" role="banner">                            
+                    <h1 class="slds-text-heading--small slds-m-bottom--small slds-align-middle">
+                        Guest Details
+                    </h1>
+                 </div>
+
+                    <apex:inputText id="title" value="{!customer.name.x_Title}" label="Title" />
+                    <apex:inputText id="given" value="{!customer.name.x_Given}" label="First Name" />
+                    <apex:inputText id="family" value="{!customer.name.x_Family}" label="Surname" />
+                    <apex:selectList value="{!customer.x_Gender}" multiselect="false" label="Gender" size="1">
+                        <apex:selectOptions value="{!Genders}"/>
+                    </apex:selectList>                
+                    <apex:input id="dateofbirth" value="{!customer.x_DateOfBirth}" label="Date of Birth" type="auto"/>                       
+                    <apex:input id="phone" value="{!customer.properties.item[0].y_text}" label="Mobile Telephone" type="auto"
+                                      html-pattern="([+?0-9-x ])+$"
+                                      html-placeholder="+, [0-9], spaces, hyphens, x (for extensions)"
+                                      title="please enter a valid telephone number, Use +, any number, spaces, hyphens and x (for extensions)"
+                                      /> <!-- Regex for phone numbers ?? -->
+                    <apex:input id="email" value="{!customer.references.item[0].y_text}" label="Email" type="auto"
+                                    html-pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,63}$"
+                                    html-placeholder="you@example.com"                                
+                                    title="Please enter a valid email address"
+                                    disabled="{!emailReadOnly}"/>  
+                    <apex:selectList value="{!customer.x_VillagePrimary}" multiselect="false" label="Primary Village" size="1">
+                        <apex:selectOptions value="{!Villages}"/>
+                    </apex:selectList>
+                    <apex:selectList value="{!customer.x_Language}" multiselect="false" label="Language" size="1">
+                        <apex:selectOptions value="{!Languages}"/>
+                    </apex:selectList>
+                    <apex:inputText id="nationality" value="{!customer.properties.item[1].y_text}" label="Nationality" />                
+                    </apex:pageBlockSection>
+                    <apex:pageBlockSection id="pbs2" columns="1" collapsible="false">
+                    <div class="slds-page-header" role="banner">                            
+                    <h1 class="slds-text-heading--small slds-m-bottom--small slds-align-middle">
+                        Address
+                    </h1>
+                    </div>
+                        <apex:inputText id="addressline1" value="{!customer.address.x_AddressLine1}" label="Address Line 1" />
+                        <apex:inputText id="addressline2" value="{!customer.address.x_AddressLine2}" label="Address Line 2" />
+                        <apex:inputText id="city" value="{!customer.address.x_City}" label="City" />
+                        <apex:inputText id="county" value="{!customer.address.x_County}" label="County" />
+                        <apex:inputText id="postcode" value="{!customer.address.x_PostCode}" label="Postcode" />
+                        <apex:selectList value="{!customer.address.x_Country}" multiselect="false" label="Country" size="1">
+                            <apex:selectOptions value="{!Countries}"/>
+                        </apex:selectList>                     
+                    </apex:pageBlockSection>
+                </apex:pageBlock>      
+
+        </div>
+        </div>
+        </div>    
+    </apex:form>
+
+</apex:page>

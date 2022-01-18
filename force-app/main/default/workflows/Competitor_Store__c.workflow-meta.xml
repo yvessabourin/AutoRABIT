@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fieldUpdates>
+        <fullName>Populate_Unique_Competitor_Store_Unique</fullName>
+        <field>Unique_Store__c</field>
+        <formula>Brand__r.Id  &amp;  Competitor_Site__r.Id</formula>
+        <name>Populate Unique Competitor Store Unique</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <rules>
+        <fullName>Ensure Store is not duplicated</fullName>
+        <actions>
+            <name>Populate_Unique_Competitor_Store_Unique</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Competitor_site__c.Name</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <description>populates a unique field on the c. store to ensure its not duplicated</description>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+</Workflow>

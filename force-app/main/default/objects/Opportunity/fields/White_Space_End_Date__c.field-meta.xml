@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>White_Space_End_Date__c</fullName>
+    <description>used by the white space calendar</description>
+    <externalId>false</externalId>
+    <formula>CASE( RecordType.DeveloperName , 
+&quot;New_Brand&quot;, Contract_Expiry_Date__c , 
+&quot;Relocation&quot;,  Contract_Expiry_Date__c , 
+&quot;Exit&quot;,  Key_Handback_Date__c  , 
+&quot;Contract_Change&quot;, null, 
+&quot;ShopRefit&quot;,  Expected_Open_Date__c , 
+null)</formula>
+    <label>White Space End Date</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+</CustomField>

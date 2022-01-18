@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Status__c</fullName>
+    <externalId>false</externalId>
+    <label>Status</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Target</fullName>
+                <color>#FF6600</color>
+                <default>false</default>
+                <label>Target</label>
+            </value>
+            <value>
+                <fullName>Request Sent</fullName>
+                <color>#F3D904</color>
+                <default>false</default>
+                <label>Request Sent</label>
+            </value>
+            <value>
+                <fullName>No</fullName>
+                <color>#FF0000</color>
+                <default>false</default>
+                <label>No</label>
+            </value>
+            <value>
+                <fullName>Yes</fullName>
+                <color>#66FF99</color>
+                <default>false</default>
+                <label>Yes</label>
+            </value>
+            <value>
+                <fullName>Yes - not used</fullName>
+                <color>#33CC00</color>
+                <default>false</default>
+                <label>Yes - not used</label>
+            </value>
+            <value>
+                <fullName>Not Requested Yet</fullName>
+                <color>#FFFF66</color>
+                <default>false</default>
+                <label>Not Requested Yet</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

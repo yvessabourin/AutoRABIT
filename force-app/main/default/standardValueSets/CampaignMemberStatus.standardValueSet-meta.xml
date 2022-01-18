@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sorted>true</sorted>
+    <standardValue>
+        <fullName>Assigned</fullName>
+        <default>false</default>
+        <label>Assigned</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Attended</fullName>
+        <default>false</default>
+        <label>Attended</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Clicked Campaign Link</fullName>
+        <default>false</default>
+        <label>Clicked Campaign Link</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Complained of spam</fullName>
+        <default>false</default>
+        <label>Complained of spam</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Completed Form</fullName>
+        <default>false</default>
+        <label>Completed Form</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Converted</fullName>
+        <default>false</default>
+        <label>Converted</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Hard Bounced</fullName>
+        <default>false</default>
+        <label>Hard Bounced</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Inviato</fullName>
+        <default>false</default>
+        <label>Inviato</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Invited</fullName>
+        <default>false</default>
+        <label>Invited</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Mobile Bag</fullName>
+        <default>false</default>
+        <label>Mobile Bag</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Mobile Phone Bag</fullName>
+        <default>false</default>
+        <label>Mobile Phone Bag</label>
+    </standardValue>
+    <standardValue>
+        <fullName>No Show</fullName>
+        <default>false</default>
+        <label>No Show</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Notebook</fullName>
+        <default>false</default>
+        <label>Notebook</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Nylon Bag</fullName>
+        <default>false</default>
+        <label>Nylon Bag</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Opted Out</fullName>
+        <default>false</default>
+        <label>Opted Out</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Other</fullName>
+        <default>false</default>
+        <label>Other</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Pursehook</fullName>
+        <default>false</default>
+        <label>Pursehook</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Registered</fullName>
+        <default>false</default>
+        <label>Registered</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Responded</fullName>
+        <default>false</default>
+        <label>Responded</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Risposta</fullName>
+        <default>false</default>
+        <label>Risposta</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Sent</fullName>
+        <default>false</default>
+        <label>Sent</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Skipped/Failed</fullName>
+        <default>false</default>
+        <label>Skipped/Failed</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Soft Bounced</fullName>
+        <default>false</default>
+        <label>Soft Bounced</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Spam</fullName>
+        <default>false</default>
+        <label>Spam</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Travelwallet</fullName>
+        <default>false</default>
+        <label>Travelwallet</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Viewed Message</fullName>
+        <default>false</default>
+        <label>Viewed Message</label>
+    </standardValue>
+</StandardValueSet>

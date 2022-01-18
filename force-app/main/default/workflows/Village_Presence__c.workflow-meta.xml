@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fieldUpdates>
+        <fullName>Remove_Daily_Sales_flag</fullName>
+        <description>Removes the Daily Sales flag if Village Presence is not trading.</description>
+        <field>Daily_Sales_Active__c</field>
+        <literalValue>0</literalValue>
+        <name>Remove Daily Sales flag</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <rules>
+        <fullName>Daily Sales Flag rule</fullName>
+        <actions>
+            <name>Remove_Daily_Sales_flag</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Village_Presence__c.Status__c</field>
+            <operation>notEqual</operation>
+            <value>Trading</value>
+        </criteriaItems>
+        <description>Daily Sales flag cannot be active if Village Presence is not trading.</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+</Workflow>

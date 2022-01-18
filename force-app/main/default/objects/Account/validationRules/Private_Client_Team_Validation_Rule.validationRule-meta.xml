@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Private_Client_Team_Validation_Rule</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+ISBLANK(  Private_Client_Team__c  ),
+TEXT( Guest_Source__c )==&apos;Private_Clients_Team&apos;
+)</errorConditionFormula>
+    <errorDisplayField>Private_Client_Team__c</errorDisplayField>
+    <errorMessage>If Guest Source is Private Clients Team then Private Client Team Field is Mandatory.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,37 @@
+<aura:component controller="HFSOperationGuidesTilesController" implements="force:appHostable,flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes" access="global">
+    
+    <aura:attribute name="theDocuments" type="List" />
+    <aura:attribute name="Baseurl" type="String" />
+    <aura:handler name="init" value="{!this}" action="{!c.init}"/>  
+    
+    <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_col-bordered">
+        <thead>
+            <tr class="slds-text-title_caps">
+                <th scope="col" class="slds-cell-buffer_right">
+                    <div class="slds-truncate" title="Name"><b>{!$Label.c.DAILY_SALE_DOCUMENT_NAME}</b>
+                    </div>
+                </th>
+                <th scope="col" class="slds-cell-buffer_right slds-col slds-size_1-of-2">
+                    <div class="slds-truncate" title="Description"><b>{!$Label.c.DAILY_SALE_DESCRIPTION}</b>
+                    </div>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <aura:iteration items="{!v.theDocuments}" var="docs">
+                <tr scope="row" class="slds-cell-wrap">
+                    <td class="slds-cell-buffer_right slds-size_1-of-2">
+                        <div>
+                            <a data-id="{!docs.Id}" onclick="{!c.handleExportClick}" default="{!docs.Name}">{!docs.Name}</a>
+                        </div>
+                    </td>
+                    <td class="slds-cell-wrap">
+                        <div class="slds-col">
+                            {!docs.Description}
+                        </div>
+                    </td>
+                </tr>
+            </aura:iteration>
+        </tbody>
+    </table>
+</aura:component>

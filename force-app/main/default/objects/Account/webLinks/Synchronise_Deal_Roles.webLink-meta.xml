@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Synchronise_Deal_Roles</fullName>
+    <availability>online</availability>
+    <description>Updates all deals related to the Brand to reflect the same Brand roles.</description>
+    <displayType>button</displayType>
+    <linkType>javascript</linkType>
+    <masterLabel>Synchronise Deal Roles</masterLabel>
+    <openType>onClickJavaScript</openType>
+    <protected>false</protected>
+    <url>{!REQUIRESCRIPT(&quot;/soap/ajax/10.0/connection.js&quot;)}
+{!REQUIRESCRIPT(&quot;/soap/ajax/10.0/apex.js&quot;)}
+
+var returnVal = sforce.apex.execute(
+&quot;OpportunityTeamMemberSync&quot;, //class name 
+&quot;syncAccountRecordPersonnel&quot;, //method name 
+{accId:&apos;{!Account.Id}&apos;}); //parameter
+
+alert(returnVal);
+window.location.reload();</url>
+</WebLink>

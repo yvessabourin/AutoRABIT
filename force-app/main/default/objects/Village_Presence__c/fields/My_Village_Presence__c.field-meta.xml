@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>My_Village_Presence__c</fullName>
+    <description>Used for List View (not to be displayed on page layout)
+
+If the current user is either the retail or marketing manager the check box will be true</description>
+    <externalId>false</externalId>
+    <formula>IF ( Retail_Manager__r.Id = $User.Id || Marketing_Manager__r.Id = $User.Id , true, false)</formula>
+    <label>My Village Presence</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

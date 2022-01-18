@@ -1,0 +1,43 @@
+<apex:page standardController="HFS_Bag__c" lightningStylesheets="true">
+    <p style="font-size: 20px">Scan the <b>NEW</b> HFS Storage Location</p>
+    <c:HFS_Barcode_Scanner />
+    <audio id="audio" src="{!URLFOR($Resource.HFS_beep, '/beep-06.wav')}" autostart="false" ></audio>
+
+    <script type="text/javascript">
+        function PlaySound() {
+            var sound = document.getElementById("audio");
+            sound.play()
+        }
+    
+        function getManuallyBarcode() {
+            var storageLocationBarcode = document.getElementById('result_c').value;
+            
+            if(storageLocationBarcode){
+                var url_string = window.location.href;
+                var url = new URL(url_string);
+                var record_id = url.searchParams.get("id");
+                var urlfinal = '/apex/HFSFindHelper?qrCodeStorageLocation=' + storageLocationBarcode + '&bagId=' + record_id;
+                
+                if(  ('{!$User.UIThemeDisplayed}' == 'Theme4t' || '{!$User.UIThemeDisplayed}' == 'Theme4d' || '{!$User.UIThemeDisplayed}' == 'Theme4u') && (typeof sforce != 'undefined') && (sforce != null) ) {
+                    sforce.one.navigateToURL(urlfinal, true);
+                } else {
+                    window.location.href = urlfinal;
+                }
+            }
+        }
+
+        Quagga.onDetected(function(result) {
+            var code = result.codeResult.code;
+            var storageLocationBarcode = document.getElementById('result_c').value = code;
+
+            if(storageLocationBarcode){
+                PlaySound();
+                var url_string = window.location.href;
+                var url = new URL(url_string);
+                var record_id = url.searchParams.get("id");
+                var urlfinal = '/apex/HFSFindHelper?qrCodeStorageLocation=' + storageLocationBarcode + '&bagId=' + record_id;
+                sforce.one.navigateToURL(urlfinal, true);
+             }
+        });
+    </script>
+</apex:page>

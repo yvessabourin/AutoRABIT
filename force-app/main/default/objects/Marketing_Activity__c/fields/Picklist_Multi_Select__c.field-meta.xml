@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Picklist_Multi_Select__c</fullName>
+    <externalId>false</externalId>
+    <label>Posting Originator</label>
+    <required>false</required>
+    <trackFeedHistory>true</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Bicester</fullName>
+                <default>false</default>
+                <label>Bicester</label>
+            </value>
+            <value>
+                <fullName>Fidenza</fullName>
+                <default>false</default>
+                <label>Fidenza</label>
+            </value>
+            <value>
+                <fullName>Inglostadt</fullName>
+                <default>false</default>
+                <label>Inglostadt</label>
+            </value>
+            <value>
+                <fullName>Kildare</fullName>
+                <default>false</default>
+                <label>Kildare</label>
+            </value>
+            <value>
+                <fullName>La Roca</fullName>
+                <default>false</default>
+                <label>La Roca</label>
+            </value>
+            <value>
+                <fullName>Las Rozas</fullName>
+                <default>false</default>
+                <label>Las Rozas</label>
+            </value>
+            <value>
+                <fullName>La Vallee</fullName>
+                <default>false</default>
+                <label>La Vallee</label>
+            </value>
+            <value>
+                <fullName>Maasmechelen</fullName>
+                <default>false</default>
+                <label>Maasmechelen</label>
+            </value>
+            <value>
+                <fullName>Wertheim</fullName>
+                <default>false</default>
+                <label>Wertheim</label>
+            </value>
+            <value>
+                <fullName>TBVSC Brand</fullName>
+                <default>false</default>
+                <label>TBVSC Brand</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>9</visibleLines>
+</CustomField>

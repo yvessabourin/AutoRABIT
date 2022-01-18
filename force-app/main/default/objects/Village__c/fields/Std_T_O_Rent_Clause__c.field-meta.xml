@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Std_T_O_Rent_Clause__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Enter the Standard Turnover Rent Clause</inlineHelpText>
+    <label>Std T/O Rent Clause</label>
+    <length>2048</length>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>LongTextArea</type>
+    <visibleLines>5</visibleLines>
+</CustomField>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Apollo_Assets_Links__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Copy of the URL(s) of the folder(s) or assets saved in Apollo</inlineHelpText>
+    <label>Apollo Assets Links</label>
+    <length>32768</length>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Html</type>
+    <visibleLines>25</visibleLines>
+</CustomField>

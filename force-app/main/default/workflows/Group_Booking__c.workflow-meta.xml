@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>Email_to_send_when_a_Group_booking_is_confirmed</fullName>
+        <description>Email to send when a MICE Group booking is confirmed</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Contact__c</field>
+            <type>contactLookup</type>
+        </recipients>
+        <recipients>
+            <field>Primary_Contacts_Secondary_Email__c</field>
+            <type>email</type>
+        </recipients>
+        <recipients>
+            <field>Secondary_MICE_Contact_Email__c</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>traveltrade@thebicestervillageshoppingcollection.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Tourism_email_Templates/Group_Booking_Confirmed_MICE_v3</template>
+    </alerts>
+    <alerts>
+        <fullName>Email_to_send_when_a_LEISURE_Group_booking_is_confirmed</fullName>
+        <description>Email to send when a LEISURE Group booking is confirmed</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Contact__c</field>
+            <type>contactLookup</type>
+        </recipients>
+        <recipients>
+            <field>Primary_Contacts_Secondary_Email__c</field>
+            <type>email</type>
+        </recipients>
+        <recipients>
+            <field>Secondary_MICE_Contact_Email__c</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>traveltrade@thebicestervillageshoppingcollection.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Tourism_email_Templates/Group_Booking_Confirmed_Leisure_v3</template>
+    </alerts>
+    <alerts>
+        <fullName>Send_Booking_Confirmation_for_Group_Booking</fullName>
+        <description>Send Booking Confirmation for Group Booking</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Contact__c</field>
+            <type>contactLookup</type>
+        </recipients>
+        <recipients>
+            <field>Primary_Contacts_Secondary_Email__c</field>
+            <type>email</type>
+        </recipients>
+        <recipients>
+            <field>Secondary_MICE_Contact_Email__c</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>traveltrade@thebicestervillageshoppingcollection.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Tourism_email_Templates/Group_Booking_Confirmed_v1</template>
+    </alerts>
+    <alerts>
+        <fullName>Send_email_to_VR_Rep_when_they_are_attributed_to_a_Group_Booking</fullName>
+        <description>Send email to VR Rep when they are attributed to a Group Booking</description>
+        <protected>false</protected>
+        <recipients>
+            <field>VR_Representative__c</field>
+            <type>userLookup</type>
+        </recipients>
+        <senderAddress>traveltrade@thebicestervillageshoppingcollection.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Tourism_email_Templates/MICE_booking_assignment_to_Rep</template>
+    </alerts>
+    <fieldUpdates>
+        <fullName>Default_Departure_Date</fullName>
+        <field>Departure_Date__c</field>
+        <formula>Arrival_Date__c</formula>
+        <name>Default Departure Date</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Primary_Contacts_Secondary_Email</fullName>
+        <field>Primary_Contacts_Secondary_Email__c</field>
+        <formula>Contact__r.Secondary_Email_Address__c</formula>
+        <name>Primary Contacts Secondary Email</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Set_Noshow_Email</fullName>
+        <description>Sets the Send No Show email flag on a group booking</description>
+        <field>Send_No_Show_Email__c</field>
+        <literalValue>1</literalValue>
+        <name>Set Noshow Email</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Status_No_Show_Update</fullName>
+        <field>Status__c</field>
+        <literalValue>No Show</literalValue>
+        <name>Status No Show Update</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>UpdateBookingNoShow</fullName>
+        <description>Updates a booking t be NO-Show after not arriving for 2 days</description>
+        <field>Status__c</field>
+        <literalValue>No Show</literalValue>
+        <name>UpdateBookingNoShow</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Confirmation_Date</fullName>
+        <description>Update the confirmation date to NOW</description>
+        <field>Confirmation_Email_Sent__c</field>
+        <formula>NOW()</formula>
+        <name>Update Confirmation Date</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <rules>
+        <fullName>Booking Auto NoShow</fullName>
+        <active>false</active>
+        <criteriaItems>
+            <field>Group_Booking__c.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Group Booking</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Group_Booking__c.Status__c</field>
+            <operation>equals</operation>
+            <value>Confirmed</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>UpdateBookingNoShow</name>
+                <type>FieldUpdate</type>
+            </actions>
+            <offsetFromField>Group_Booking__c.Expected_Arrival__c</offsetFromField>
+            <timeLength>2</timeLength>
+            <workflowTimeTriggerUnit>Days</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Booking Automatic NoShow</fullName>
+        <active>true</active>
+        <criteriaItems>
+            <field>Group_Booking__c.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Group Booking</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Group_Booking__c.Status__c</field>
+            <operation>equals</operation>
+            <value>Confirmed</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Status_No_Show_Update</name>
+                <type>FieldUpdate</type>
+            </actions>
+            <offsetFromField>Group_Booking__c.Expected_Arrival__c</offsetFromField>
+            <timeLength>8</timeLength>
+            <workflowTimeTriggerUnit>Days</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Group Booking No Show Email</fullName>
+        <active>false</active>
+        <criteriaItems>
+            <field>Group_Booking__c.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Group Booking</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Group_Booking__c.Status__c</field>
+            <operation>equals</operation>
+            <value>No Show</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Set_Noshow_Email</name>
+                <type>FieldUpdate</type>
+            </actions>
+            <offsetFromField>Group_Booking__c.Expected_Arrival__c</offsetFromField>
+            <timeLength>5</timeLength>
+            <workflowTimeTriggerUnit>Days</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Populate Departure Date</fullName>
+        <actions>
+            <name>Default_Departure_Date</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>This rule will Populate the Departure Date when the arrival date in filled in (and is blank)</description>
+        <formula>NOT(ISBLANK(Arrival_Date__c))  &amp;&amp;  ISBLANK( Departure_Date__c )</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Send Confirmation Email When Group Booking Confirmed</fullName>
+        <actions>
+            <name>Send_Booking_Confirmation_for_Group_Booking</name>
+            <type>Alert</type>
+        </actions>
+        <actions>
+            <name>Update_Confirmation_Date</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>false</active>
+        <criteriaItems>
+            <field>Group_Booking__c.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Group Booking</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Group_Booking__c.Group_Type__c</field>
+            <operation>equals</operation>
+            <value>Leisure,MICE</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Group_Booking__c.Status__c</field>
+            <operation>equals</operation>
+            <value>Confirmed</value>
+        </criteriaItems>
+        <description>Send the confirmation email when the group booking is confirmed</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Send Notification to VR Rep</fullName>
+        <actions>
+            <name>Send_email_to_VR_Rep_when_they_are_attributed_to_a_Group_Booking</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Group_Booking__c.VR_Representative__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <description>This workflow will send an email to the user who is selected in the VR Representative  field on the group booking</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Update Group Booking with Primary Contacts Secondary Email</fullName>
+        <actions>
+            <name>Primary_Contacts_Secondary_Email</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>NOT(ISBLANK(Contact__r.Secondary_Email_Address__c) )</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+</Workflow>

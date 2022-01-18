@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AllOpenLeads</fullName>
+    <columns>LEAD.RECORDTYPE</columns>
+    <columns>LEAD.LEAD_SOURCE</columns>
+    <columns>FULL_NAME</columns>
+    <columns>LEAD.COMPANY</columns>
+    <columns>Village_of_Visit_c__c</columns>
+    <columns>LEAD.PHONE</columns>
+    <columns>LEAD.EMAIL</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>Expected_Arrival__c</columns>
+    <columns>Expected_Departure__c</columns>
+    <columns>LEAD.CREATED_DATE</columns>
+    <columns>Account_Reference_Number__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>LEAD.STATUS</field>
+        <operation>notEqual</operation>
+        <value>Qualified</value>
+    </filters>
+    <filters>
+        <field>LEAD.CREATED_DATE</field>
+        <operation>greaterOrEqual</operation>
+        <value>1/1/2016 12:00 AM</value>
+    </filters>
+    <label>All Open Leads</label>
+    <language>en_US</language>
+</ListView>

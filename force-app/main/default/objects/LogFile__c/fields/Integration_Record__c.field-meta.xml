@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Integration_Record__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <externalId>false</externalId>
+    <label>Integration Record</label>
+    <referenceTo>HFS_IntegrationErrorTrackedBag__c</referenceTo>
+    <relationshipLabel>LogFiles</relationshipLabel>
+    <relationshipName>LogFiles</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

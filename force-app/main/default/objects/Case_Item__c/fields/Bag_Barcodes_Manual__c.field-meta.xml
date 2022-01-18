@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Bag_Barcodes_Manual__c</fullName>
+    <description>Auxiliar field to get the barcodes from the bags. Just used when the HFS Co-ordinator need to register HFS Purchases.</description>
+    <externalId>false</externalId>
+    <label>Bag Barcodes Manual</label>
+    <length>200</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

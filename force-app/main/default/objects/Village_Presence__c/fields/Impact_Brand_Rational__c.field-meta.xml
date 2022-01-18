@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Impact_Brand_Rational__c</fullName>
+    <description>Identifies that a brand is an Impact Brand and why</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Identifies that a brand is an Impact Brand and why</inlineHelpText>
+    <label>Impact Brand Rational</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>On Trend</fullName>
+                <default>false</default>
+                <label>On Trend</label>
+            </value>
+            <value>
+                <fullName>Heritage</fullName>
+                <default>false</default>
+                <label>Heritage</label>
+            </value>
+            <value>
+                <fullName>Newness</fullName>
+                <default>false</default>
+                <label>Newness</label>
+            </value>
+            <value>
+                <fullName>Positioning</fullName>
+                <default>false</default>
+                <label>Positioning</label>
+            </value>
+            <value>
+                <fullName>Millennial</fullName>
+                <default>false</default>
+                <label>Millennial</label>
+            </value>
+            <value>
+                <fullName>PR</fullName>
+                <default>false</default>
+                <label>PR</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

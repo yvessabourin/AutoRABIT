@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help>Jedes einzelne Element, dass durch einen Kunden erworben wurde, zählt als eine Einheit</help>
+    <label>Gesamtanzahl der verkauften Einheiten</label>
+    <name>Units_Sold__c</name>
+</CustomFieldTranslation>

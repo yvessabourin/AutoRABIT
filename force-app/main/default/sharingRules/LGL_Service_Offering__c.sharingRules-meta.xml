@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sharingCriteriaRules>
+        <fullName>BV_Service_Offering_Sharing</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Shares the Service Offerings with the Bicester HFS Users</description>
+        <label>BV Service Offering Sharing</label>
+        <sharedTo>
+            <group>HFS_Owners_Bicester</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>LGL_Village__c</field>
+            <operation>equals</operation>
+            <value>Bicester</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>KV_Service_Offering_Sharing</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Shares the Service Offerings with the Kildare HFS Users</description>
+        <label>KV Service Offering Sharing</label>
+        <sharedTo>
+            <group>HFS_Owners_Kildare</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>LGL_Village__c</field>
+            <operation>equals</operation>
+            <value>Kildare</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+</SharingRules>

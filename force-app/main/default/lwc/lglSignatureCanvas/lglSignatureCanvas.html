@@ -1,0 +1,20 @@
+<template>
+	<div class="lgl-canvas-container">
+		<canvas
+			class="lgl-required"
+			height="150px"
+			width="250px"
+			onmousedown={start}
+			ontouchstart={start}
+			onmousemove={draw}
+			ontouchmove={draw}
+			onmouseup={stop}
+			onmouseout={stop}
+			ontouchend={stop}
+		>
+		</canvas>
+		<div class="slds-var-m-top_xx-small slds-text-align_right">
+			<button onclick={clearSignature} type="button">Clear Signature</button>
+		</div>
+	</div>
+</template>

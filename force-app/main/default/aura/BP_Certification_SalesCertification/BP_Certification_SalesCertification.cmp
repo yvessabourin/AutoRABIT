@@ -1,0 +1,395 @@
+<aura:component controller="BP_Certification_SCert_Controller" implements="force:appHostable,flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes" access="global">   
+    
+    <!-- attributes -->
+    <aura:attribute name="testattrib" type="String" default="test"/>     
+    <aura:attribute name="data" type="Object"/>
+    <aura:attribute name="columns" type="List"/>
+    <aura:attribute name="dataT" type="List"/>
+    <aura:attribute name="columnsT" type="List"/>
+    <aura:attribute name="village" type="String"/>
+    <aura:attribute name="certificationPeriod" type="String"/>
+    <aura:attribute name="valuesCertification" type="String"/>
+    <aura:attribute name="submitMessageisOpen" type="Boolean" default="false"/>
+    <aura:attribute name="unsavedChangesisOpen" type="Boolean" default="false"/>
+    <aura:attribute name="overallComment" type="String"/>
+    <aura:attribute name="checkEditing" type="Boolean" default="false"/>
+    <aura:attribute name="showSaveCancelBtn" type="boolean" default="false"/>
+    <aura:attribute name="isSubmit" type="boolean" default="false"/>
+    <aura:attribute name="isHistory" type="boolean" default="false"/>
+    <aura:attribute name="sortColumn" type="String" default="Trading_Date__c" access="global" />
+    <aura:attribute name="sortDirection" type="String" default="DESC" access="global" />
+    <aura:attribute name="currentSortColumn" type="String" />
+    <aura:attribute name="currentSortDirection" type="String" />
+    <aura:attribute name="certCurrencyCode" type="Currency" />
+    
+    <aura:attribute name="arrowDirection" type="string" default="arrowup" />
+    <aura:attribute name="arrowDirectionUnit" type="string" default="arrowup" />
+    <aura:attribute name="arrowDirectionVariance" type="string" default="arrowup" />
+    <aura:attribute name="isAsc" type="boolean" default="true" /> 
+    <aura:attribute name="selectedTabsoft" type="string" default="Trading_Day_with_date__c" />
+    <aura:attribute name="disableOnEdit" type="boolean" default="false"/>
+    
+    <aura:handler event="aura:waiting" action="{!c.showSpinner}"/>
+    <aura:handler event="aura:doneWaiting" action="{!c.hideSpinner}"/>
+    <!--create a component attribute --> 
+    <aura:attribute name="Spinner" type="boolean" default="false"/>
+    <aura:attribute name="UploadMessageisOpen" type="Boolean" default="false"/>
+    
+    <!-- handlers-->
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />   
+    <br></br>
+    <div class="slds-text-heading_large slds-text-align_left">{!v.village}</div>
+    <div class="slds-text-body_regular slds-text-align_left">{!$Label.c.BP_Certification_Period}: {!v.certificationPeriod}</div>
+    <br></br>
+    
+    <div style=" text-align: left;">  
+        <div class="slds-text-body_regular slds-text-align_left slds-text-color_error slds-text-title_bold" >{!$Label.c.BP_Excluding_Warning}</div>
+    </div>
+    <br></br>
+
+    <!-- the container element determines the height of the datatable -->     
+    <div style="border:2px solid #5b9bd5; padding: 2px;"> 
+        <div class="slds-table_bordered slds-table_col-bordered slds-table--header-fixed_container" style="height:300px;">
+            <div class=" slds-table slds-scrollable" style="height:100%;">
+                <table class="slds-table slds-table_bordered slds-table--header-fixed">
+                    <thead class="downTable">
+                        <tr>
+                            <th  scope="col" style="background-color:#cce6ff; padding: 2px;">
+                            </th>
+                            
+                            <th scope="col" style="background-color:#cce6ff; padding: 2px;">
+                                <div style ="width: auto; height: auto;" class="slds-cell-fixed slds-cell-buffer_right slds-align_fixed-center" title="{!$Label.c.BP_Date_Help}">
+                                    <a onclick= "{!c.sortDate}">{!$Label.c.BP_Date}
+                                        <aura:if isTrue="{!v.arrowDirection == 'arrowdown'}">&nbsp;  &#9660; </aura:if>  
+                                        <aura:if isTrue="{!v.arrowDirection != 'arrowdown'}"> &nbsp;  &#9650; </aura:if>
+                                    </a> 
+                                </div>
+                            </th>
+                            
+                            <th scope="col" style="background-color:#cce6ff; padding: 2px;"  >
+                                <div style ="width: auto; height: auto;" class="slds-cell-fixed slds-cell-buffer_right slds-align_fixed-center" title="{!$Label.c.BP_Unit_Help}">
+                                    <a onclick= "{!c.sortUnit}">{!$Label.c.BP_Unit}
+                                        <aura:if isTrue="{!v.arrowDirectionUnit == 'arrowdown'}">&nbsp;  &#9660; </aura:if>  
+                                        <aura:if isTrue="{!v.arrowDirectionUnit != 'arrowdown'}"> &nbsp;  &#9650; </aura:if>
+                                    </a> 
+                                </div>    
+                            </th>
+                            <th scope="col" style="background-color:#cce6ff; padding: 2px;">
+                                <div style ="width: auto; height: auto;" class="slds-cell-fixed slds-cell-buffer_right slds-align_fixed-center" title="{!$Label.c.BP_Store_Close_Help}">{!$Label.c.BP_Store_Close}</div>
+                            </th>
+                            
+                            <th scope="col" style="background-color:#cce6ff; padding: 2px;">
+                                <div style ="width: auto; height: auto;" class="slds-cell-fixed  slds-cell-buffer_right slds-align_fixed-center" title="{!$Label.c.BP_Brand_Sales_Help}">{!$Label.c.BP_Brand_Sales}</div>
+                            </th>
+                            <th scope="col" style="background-color:#cce6ff; padding: 2px;">
+                                <div style ="width: auto; height: auto;" class="slds-cell-fixed slds-cell-buffer_right slds-align_fixed-center" title="{!$Label.c.BP_Enter_Sales_Help}">{!$Label.c.BP_Enter_Sales}</div>
+                            </th>
+                            <th scope="col" style="background-color:#cce6ff; padding: 2px;">
+                                <div style ="width: auto; height: auto;" class="slds-cell-fixed slds-cell-buffer_right slds-align_fixed-center" title="{!$Label.c.BP_VIP_Discount_Help}">{!$Label.c.BP_VIP_Discount}</div>
+                            </th>              
+                            
+                            <th scope="col" style="background-color:#cce6ff; padding: 2px;">
+                                <div style ="width: auto; height: auto;" class="slds-cell-fixed  slds-cell-buffer_right slds-align_fixed-center" title="{!$Label.c.BP_Enter_VIP_Amount_Help}">{!$Label.c.BP_Enter_VIP_Amount}</div>
+                            </th>
+                            <th scope="col" style="background-color:#cce6ff; padding: 2px;">
+                                <div style ="width: auto; height: auto; " class="slds-cell-fixed slds-cell-buffer_right slds-align_fixed-center" title="{!$Label.c.BP_Reported_Help}">{!$Label.c.BP_Reported}</div>
+                            </th>
+                            <th scope="col" style="background-color:#cce6ff; padding: 2px;">
+                                <div style ="width: auto; height: auto;" class="slds-cell-fixed slds-cell-buffer_right slds-align_fixed-center" title="{!$Label.c.BP_Certified_Amount_Help}">{!$Label.c.BP_Certified_Amount}</div>
+                            </th>                         
+                            
+                            <th scope="col" style="background-color:#cce6ff; padding: 2px;">
+                                <div style ="width: auto; height: auto;" class="slds-cell-fixed slds-cell-buffer_right slds-align_fixed-center" title="{!$Label.c.BP_Variance_Help}">
+                                    <a onclick= "{!c.sortVariance}">{!$Label.c.BP_Variance}
+                                        <aura:if isTrue="{!v.arrowDirectionVariance == 'arrowdown'}">&nbsp;  &#9660; </aura:if> 
+                                        <aura:if isTrue="{!v.arrowDirectionVariance != 'arrowdown' }"> &nbsp;  &#9650; </aura:if>
+                                    </a> 
+                                </div>
+                            </th>
+                            <th scope="col" style="background-color:#cce6ff; padding: 2px;">
+                                <div style ="width: auto; height: auto;" class="slds-cell-fixed slds-cell-buffer_left slds-cell-buffer_right slds-align_fixed-center" title="{!$Label.c.BP_Comments_Help}">{!$Label.c.BP_Comments}</div>
+                            </th> 
+                            
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <aura:iteration items="{!v.data}" var="data" >
+                            <tr>                            
+                                <td class="slds-row-number" style="width: 15px;">                            
+                                </td> 
+                                <td style="width: 50px;">
+                                    <ui:outputDate value="{!data.Trading_Date__c}" format="DD/MM/YYYY" />
+                                </td>                             
+                                <td  style="width: 60px;">
+                                    <ui:outputText value="{!data.MRI_Suite_Id__c}"/>                               
+                                </td>                             
+                                <td class="slds-align_absolute-center" style="width: 80px;">                                 
+                                    <ui:inputCheckbox aura:id="checkbox"
+                                                      class="blue-checkbox"
+                                                      value= "{!data.Store_Closed__c}"  
+                                                      change="{!c.handleRowAction}"
+                                                      text="{!data.Id}"
+                                                      disabled="{!v.isHistory}"/>                                
+                                </td> 
+                                
+                                <td style="width: 65px;">
+                                    <lightning:formattedNumber value="{!data.Total_NET_SALES__c}" minimumFractionDigits="2"/>
+                                </td>     
+                                
+                                <td style="background-color: rgba(0,153,255,.25); color: rgb(255,0,0 ); width: 120px;">
+                                    
+                                    <ui:inputNumber class="inputValue"                 								
+                                                    value="{!data.Certified_Amount_NetTotal_Input__c}"
+                                                    change="{!c.onChange}" 
+                                                    disabled="{!or(data.Store_Closed__c, v.isHistory)}"
+                                                    format="##,###,##0.00"/>
+                                    
+                                </td>
+                                
+                                <td style="width: 150px;">
+                                    <lightning:formattedNumber value="{!data.NET_Value_of_Discounts__c}" minimumFractionDigits="2"/>                               
+                                </td> 
+                                
+                                
+                                
+                                <td style="background-color: rgba(0,153,255,.25); color: rgb(255,0,0 );width: 150px;">
+                                    
+                                    <ui:inputNumber class="slds-input slds-is-edited slds-truncate inputValue" 	
+                                                    value="{!data.Certified_Amount_Discount_Input__c}"
+                                                    change="{!c.onChange}"
+                                                    disabled="{!or(data.Store_Closed__c, v.isHistory)}"
+                                                    format="##,###,##0.00"/>
+                                    
+                                </td>
+                                
+                                <td style="width: 115px;"> 
+                                    <lightning:formattedNumber value="{!data.Brand_Reported_Amount__c}" minimumFractionDigits="2"/>                               
+                                </td> 
+                                
+                                <td style=" color: rgb(255,0,0 );width: 105px;" >
+                                    <lightning:formattedNumber  value="{!data.Certified_Amount__c}" minimumFractionDigits="2"/>                               
+                                </td>
+                                
+                                <td style="width: 70px;" >
+                                    <lightning:formattedNumber value="{!data.Variance_Amount__c}" minimumFractionDigits="2"/>                               
+                                </td> 
+                                
+                                
+                                <td title="{!data.Certification_Comment__c}" style="width: 120px;background-color: rgba(0,153,255,.25); color: rgb(255,0,0 )">
+                                    
+                                    <ui:inputText 
+                                                  class="slds-input slds-is-edited slds-truncate" 	
+                                                  value="{!data.Certification_Comment__c}"
+                                                  change="{!c.onChange}"
+                                                  disabled="{!or(data.Store_Closed__c, v.isHistory)}"/>                  				                            
+                                </td>
+                            </tr>
+                        </aura:iteration>  
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    
+    
+    <!--SFDC END-->
+    <!--loading spinner start... style=Brand Medium (blue dots)-->
+    <aura:if isTrue="{!v.Spinner}">
+        <div aura:id="spinnerId" class="slds-spinner_container">
+            <div class="slds-spinner--brand  slds-spinner slds-spinner--large slds-is-relative" role="alert">
+                <span class="slds-assistive-text">Loading</span>
+                <div class="slds-spinner__dot-a"></div>
+                <div class="slds-spinner__dot-b"></div>
+            </div>
+        </div>
+    </aura:if>
+    
+    <aura:if isTrue="{!v.showSaveCancelBtn}">
+        <!--button for save and cancel Record after Inline Edit-->
+        <lightning:buttonGroup class="slds-m-around_medium">
+            <lightning:button label="{!$Label.c.BP_Cancel}" onclick="{!c.cancel}" aura:id="btn2"/>
+            <lightning:button label="{!$Label.c.DAILY_SALE_SAVE_BTN}" onclick="{!c.save}" variant="success" aura:id="btn3" />
+        </lightning:buttonGroup>
+    </aura:if> 
+    <br></br>
+    <div class=" slds-table slds-scrollable" style="height:100%;">
+        <div class="tablecolorT" scope="col" style="width:480px; border:2px solid #5b9bd5; padding: 2px; position:relative; margin-left: auto;">
+            <table class="slds-table ">
+                <thead >
+                    <tr >
+                        <th  scope="col">                            
+                        </th>
+                        
+                        <th class="slds-cell-wrap" style="font-size:13px;font-weight: bold;" scope="col" title="{!$Label.c.BP_Reported_Help}">
+                            <div >{!$Label.c.BP_Reported}</div>
+                        </th>
+                        
+                        <th class="slds-cell-wrap" style="font-size:13px;font-weight: bold;" scope="col" title="{!$Label.c.BP_Certified_Amount_Help}"> 
+                            <div>{!$Label.c.BP_Certified_Amount}</div>
+                        </th>
+                        
+                        <th class="slds-cell-wrap" style="font-size:13px;font-weight: bold;" scope="col" title="{!$Label.c.BP_Variance_Help}">
+                            <div>{!$Label.c.BP_Variance}</div>                            
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <aura:iteration items="{!v.dataT}" var="dataT" >
+                        <tr >
+                            <td style="font-size:13px;font-weight: bold;">
+                                <div class="slds-truncate">Total</div>
+                            </td>
+                            
+                            <td style="text-align: left;">
+                                <lightning:formattedNumber value="{!dataT.Total_Brand_Reported_Amount__c}" minimumFractionDigits="2" style="currency" currencyCode="{!v.certCurrencyCode}" currencyDisplayAs="symbol"/>
+                            </td> 
+                            
+                            <td style="text-align: left;">
+                                <lightning:formattedNumber value="{!dataT.Total_Certified_Amount__c}" minimumFractionDigits="2" style="currency" currencyCode="{!v.certCurrencyCode}" currencyDisplayAs="symbol"/>                               
+                            </td>
+                            
+                            <td style="text-align: left;"> 
+                                <lightning:formattedNumber value="{!dataT.Total_Variance_Amount__c}" minimumFractionDigits="2" style="currency" currencyCode="{!v.certCurrencyCode}" currencyDisplayAs="symbol"/>                               
+                            </td> 
+                            
+                        </tr>
+                    </aura:iteration>                  
+                </tbody>
+            </table>    
+            
+        </div>
+    </div>
+    <br></br>
+    <div class=" slds-table slds-scrollable" style="height:100%;">
+        <div style="width:550px; border: 1px solid #5b9bd5; padding: 1px;  position:relative; margin-left: auto;">
+            <lightning:textarea value="{!v.overallComment}" aura:id="overall" class="topText" label="{!$Label.c.BP_Overall_Comment}" placeholder="{!$Label.c.BP_Overall_Comment_Help}" maxlength="5000" disabled="false" onchange="{!c.onChange}"/>
+        </div>
+    </div>
+    <div></div>
+    <br></br>
+    <div style=" text-align: right;">
+        <aura:if isTrue="{!v.isSubmit}">    
+            <lightning:button variant="brand" iconName="utility:upload" label="{!$Label.c.DAILY_SALE_IMPORT}" title="{!$Label.c.BP_Import_Help}"  onclick="{! c.handleClickUpload }"  disabled="{!v.disableOnEdit}"/>
+        </aura:if>
+        <aura:if isTrue="{!v.isHistory}"> 
+            <lightning:button variant="brand" aura:id="btn1" label="{!$Label.c.BP_Print_Report}" onclick="{! c.openPDFwindow }"/>
+        </aura:if>
+        <lightning:button variant="brand" iconName="utility:download" iconPosition="left" label="{!$Label.c.DAILY_SALE_EXPORT}" title="{!$Label.c.BP_Export_Help}" onclick="{! c.downloadCsv }" disabled="{!v.disableOnEdit}"/>
+        <lightning:button variant="brand" label="{!$Label.c.BP_Back}" title="{!$Label.c.BP_Back_Help}" onclick="{! c.brandSalesCertification }"/>
+        <aura:if isTrue="{!v.isSubmit}">
+            <lightning:button variant="success" aura:id="btn1" label="{!$Label.c.BP_Submit}"  title="{!$Label.c.BP_Submit_Help}" onclick="{! c.handleClickSubmit }" disabled="{!v.disableOnEdit}"/>
+        </aura:if>
+        
+    </div>
+    
+    <aura:if isTrue="{!v.submitMessageisOpen}">
+        
+        <!--###### MODAL BOX Start######--> 
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+                <!-- ###### MODAL BOX HEADER Start ######-->
+                <header class="slds-modal__header">
+                    <lightning:buttonIcon iconName="utility:close"
+                                          onclick="{! c.cancelSubmit}"
+                                          alternativeText="close"
+                                          variant="bare-inverse"
+                                          class="slds-modal__close"/>
+                    <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">{!$Label.c.BP_Warning}</h2>
+                </header>
+                <!--###### MODAL BOX BODY Part Start######-->
+                <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                    <p><b>{!$Label.c.BP_Certification_Submit}</b></p>
+                    <p><b>{!$Label.c.BP_Certification_Submit_2}</b></p>
+                </div>
+                <!--###### MODAL BOX FOOTER Part Start ######-->
+                <footer class="slds-modal__footer">
+                    <lightning:button variant="neutral" 
+                                      label="{!$Label.c.BP_Cancel}"
+                                      title="{!$Label.c.BP_Cancel}"
+                                      onclick="{! c.cancelSubmit}"/>
+                    <lightning:button variant="brand" 
+                                      label="{!$Label.c.BP_Confirm}"
+                                      title="{!$Label.c.BP_Confirm}"
+                                      onclick="{! c.confirmSubmit}"/>
+                </footer>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+        <!--###### MODAL BOX Part END Here ######-->
+        
+    </aura:if>
+    
+    <aura:if isTrue="{!v.unsavedChangesisOpen}">
+        
+        <!--###### MODAL BOX Start######--> 
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+                <!-- ###### MODAL BOX HEADER Start ######-->
+                <header class="slds-modal__header">
+                    <lightning:buttonIcon iconName="utility:close"
+                                          onclick="{! c.cancelUnsavedChanges}"
+                                          alternativeText="close"
+                                          variant="bare-inverse"
+                                          class="slds-modal__close"/>
+                    <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">{!$Label.c.BP_Warning}</h2>
+                </header>
+                <!--###### MODAL BOX BODY Part Start######-->
+                <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                    <p><b>{!$Label.c.BP_Unsaved_Changes}</b></p>
+                </div>
+                <!--###### MODAL BOX FOOTER Part Start ######-->
+                <footer class="slds-modal__footer">
+                    <lightning:button variant="neutral" 
+                                      label="{!$Label.c.BP_Cancel}"
+                                      title="{!$Label.c.BP_Cancel}"
+                                      onclick="{! c.cancelUnsavedChanges}"/>
+                    <lightning:button variant="brand" 
+                                      label="{!$Label.c.BP_Confirm}"
+                                      title="{!$Label.c.BP_Confirm}"
+                                      onclick="{! c.confirmUnsavedChanges}"/>
+                </footer>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+        <!--###### MODAL BOX Part END Here ######-->
+    </aura:if>
+    
+    <aura:if isTrue="{!v.UploadMessageisOpen}">     
+        <!--###### MODAL BOX Start######--> 
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+                <!-- ###### MODAL BOX HEADER Start ######-->
+                <header class="slds-modal__header">
+                    <lightning:buttonIcon iconName="utility:close"
+                                          onclick="{! c.cancelUpload}"
+                                          alternativeText="close"
+                                          variant="bare-inverse"
+                                          class="slds-modal__close"/>
+                    <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">{!$Label.c.BP_Warning}</h2>
+                </header>
+                <!--###### MODAL BOX BODY Part Start######-->
+                <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                    <p>
+                        <b>
+                            <td>
+                                <aura:unescapedHtml value="{!$Label.c.BP_Upload_Sales_Data}" />
+                            </td>
+                        	<lightning:input aura:id="myinput" name="file" type="file" multiple="false" accept=".csv" isLoading="true" onchange="{!c.readCSV}"/>
+						
+                        </b>
+                    </p>  
+                </div>
+                <!--###### MODAL BOX FOOTER Part Start ######-->
+                <footer class="slds-modal__footer">
+                    <lightning:button variant="neutral" 
+                                      label="{!$Label.c.BP_Cancel}"
+                                      title="{!$Label.c.BP_Cancel}"
+                                      onclick="{! c.cancelUpload}"/>
+                </footer>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div> 
+        <!--###### MODAL BOX Part END Here ######-->
+    </aura:if>
+    <br></br>
+</aura:component>

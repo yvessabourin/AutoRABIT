@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Marketing_Campaign_Ref__c</fullName>
+    <displayFormat>MC-{00000}</displayFormat>
+    <externalId>true</externalId>
+    <label>Marketing Campaign Ref</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>AutoNumber</type>
+</CustomField>

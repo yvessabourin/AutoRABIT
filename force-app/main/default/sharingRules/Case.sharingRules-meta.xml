@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sharingCriteriaRules>
+        <fullName>HFS_Runners_Giving_Access</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>HFS Runners Giving Access</label>
+        <sharedTo>
+            <group>Runners</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>Type</field>
+            <operation>equals</operation>
+            <value>Hands Free Shopping</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Service_Guest_ID__c</field>
+            <operation>startsWith</operation>
+            <value>BV</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>HFS_Runners_Giving_Access_FV</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>FV</description>
+        <label>HFS Runners Giving Access FV</label>
+        <sharedTo>
+            <group>Runners_FV</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>Type</field>
+            <operation>equals</operation>
+            <value>Hands Free Shopping</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Service_Guest_ID__c</field>
+            <operation>startsWith</operation>
+            <value>FV</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>HFS_Runners_Giving_Access_WV</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>WV</description>
+        <label>HFS Runners Giving Access WV</label>
+        <sharedTo>
+            <group>Runners_WV</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>Type</field>
+            <operation>equals</operation>
+            <value>Hands Free Shopping</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Service_Guest_ID__c</field>
+            <operation>startsWith</operation>
+            <value>WV</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>HFS_Runners_IV_Giving_Access</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>HFS Runners IV Giving Access</label>
+        <sharedTo>
+            <group>Runners_IV</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>Type</field>
+            <operation>equals</operation>
+            <value>Hands Free Shopping</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Service_Guest_ID__c</field>
+            <operation>startsWith</operation>
+            <value>IV</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>HFS_Runners_KV_Giving_Access</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>HFS Runners KV Giving Access</label>
+        <sharedTo>
+            <group>Runners_KV</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>Type</field>
+            <operation>equals</operation>
+            <value>Hands Free Shopping</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Service_Guest_ID__c</field>
+            <operation>startsWith</operation>
+            <value>KV</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>HFS_Runners_LV_Giving_Access</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>HFS Runners LV Giving Access</label>
+        <sharedTo>
+            <group>Runners_LV</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>Type</field>
+            <operation>equals</operation>
+            <value>Hands Free Shopping</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Service_Guest_ID__c</field>
+            <operation>startsWith</operation>
+            <value>LV</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingOwnerRules>
+        <fullName>HFS_Bicester_Sharing</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Share VIP HFS Cases with other members in the group</description>
+        <label>HFS Bicester Sharing</label>
+        <sharedTo>
+            <group>HFS_Owners_Bicester</group>
+        </sharedTo>
+        <sharedFrom>
+            <group>HFS_Owners_Bicester</group>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>HFS_Ingolstadt_Sharing</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>HFS Ingolstadt Sharing</label>
+        <sharedTo>
+            <group>HFS_Owners_Ingolstadt</group>
+        </sharedTo>
+        <sharedFrom>
+            <group>HFS_Owners_Ingolstadt</group>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>HFS_Kildare_Sharing</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>HFS Kildare Sharing</label>
+        <sharedTo>
+            <group>HFS_Owners_Kildare</group>
+        </sharedTo>
+        <sharedFrom>
+            <group>HFS_Owners_Kildare</group>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>HFS_La_Vallee_Sharing</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>HFS La Vallée Sharing</label>
+        <sharedTo>
+            <group>HFS_Owners_La_Vallee</group>
+        </sharedTo>
+        <sharedFrom>
+            <group>HFS_Owners_La_Vallee</group>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>HFS_Owners_Wertheim</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>HFS_Owners_Wertheim</label>
+        <sharedTo>
+            <group>HFS_Owners_Wertheim</group>
+        </sharedTo>
+        <sharedFrom>
+            <group>HFS_Owners_Wertheim</group>
+        </sharedFrom>
+    </sharingOwnerRules>
+</SharingRules>

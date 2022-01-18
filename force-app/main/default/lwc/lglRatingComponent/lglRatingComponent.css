@@ -1,0 +1,26 @@
+.lgl-radio {
+	text-align: center;
+}
+
+label {
+	font-size: 0.9em;
+}
+
+.lgl-sublabel {
+	font-size: 0.9em;
+	margin-bottom: 1em;
+	color: #333333b0;
+}
+
+.lgl-rating-container {
+	padding: 1em;
+	background-color: white;
+	border: 1px solid #ddd;
+	border-radius: 5px;
+	min-height: 170px;
+	transition: all 0.3s;
+}
+
+.lgl-has-error {
+	border-color: rgb(194, 57, 52);
+}

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Gross</fullName>
+    <active>true</active>
+    <description>Figures entered in Gross</description>
+    <label>Gross</label>
+    <picklistValues>
+        <picklist>Brand_Status__c</picklist>
+        <values>
+            <fullName>Confirmed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Not Confirmed</fullName>
+            <default>true</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>MRI_Report_Type_ID__c</picklist>
+        <values>
+            <fullName>Reported</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Status__c</picklist>
+        <values>
+            <fullName>Certified Approved</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Certified Complete</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Certified Pending</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Certified Re-opened</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Created</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Reported Confirmed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reported Incomplete</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TOR</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

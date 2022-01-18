@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>FX_Rate_to_Group_CCY__c</fullName>
+    <defaultValue>1</defaultValue>
+    <externalId>false</externalId>
+    <inlineHelpText>Enter the FX rate to be used for reporting and rating calculations</inlineHelpText>
+    <label>FX Rate to Group CCY</label>
+    <precision>12</precision>
+    <required>false</required>
+    <scale>3</scale>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

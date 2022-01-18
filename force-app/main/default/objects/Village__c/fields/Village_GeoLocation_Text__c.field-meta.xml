@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Village_GeoLocation_Text__c</fullName>
+    <externalId>false</externalId>
+    <formula>TEXT(  Village_GeoLocation__Latitude__s )&amp;&quot; &quot;&amp;TEXT(  Village_GeoLocation__Longitude__s  )</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Village_GeoLocation_Text</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

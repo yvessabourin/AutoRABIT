@@ -1,0 +1,3 @@
+<apex:page standardController="HFS_Job__c" extensions="HFSRunnerAssignExtension" action="{!cancelAJob}">
+
+</apex:page>

@@ -1,0 +1,16 @@
+LGL_Service_Type__c,LGL_Service_Offering_Location__c,LGL_Quantity__c
+mScoot,BTA,4
+wChair,BVC,2
+dStrol,BTS,2
+dStrol,BTA,1
+dStrol,BVC,4
+lLugg,BVC,3
+pChair,BTA,7
+wChair,BTS,7
+lLugg,BTA,6
+mScoot,BVC,4
+pChair,BTS,3
+lLugg,BTS,1
+mScoot,BTS,3
+wChair,BTA,3
+pChair,BVC,4

@@ -1,0 +1,28 @@
+<apex:page standardController="Trade_Event__c" extensions="addtotradeEventController" lightningStylesheets="true">
+
+  <apex:form >
+  <!-- test -->
+    <apex:pageBlock >
+    <apex:pageBlockSection columns="1" rendered="{!NOT(VIPEvent)}">
+    <apex:inputfield value="{!initMem.Accountid}" id="initiative" label="Select an Account" />
+    </apex:pageBlockSection>
+    <apex:pageBlockSection columns="1" rendered="{!VIPEvent}">
+    <apex:inputfield value="{!brandSelection.Village_Presence__c}" id="selectedvp" label="Select a Brand in village" />
+    <apex:inputfield value="{!segmentSelection.Guest_Segment__c}" id="selectedsegment" label="Select a Guest Segment" />          
+    </apex:pageBlockSection>
+        
+    <apex:commandButton action="{!AddSelectedAttendees}" value="View and Select Contacts" rendered="{!NOT(VIPEvent)}" />
+    <apex:commandButton action="{!AddSelectedAttendeesVIP}" value="View and Select VIP Guests" rendered="{!VIPEvent}"/>
+     <apex:commandButton action="{!Cancel}" value="Cancel"/> 
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    
+    </apex:pageBlock>
+
+  </apex:form> 
+  
+  
+    
+</apex:page>

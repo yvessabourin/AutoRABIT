@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Person_Registering__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Controls if the Person Registering Guest field should be shown in the HFS Registration page</description>
+    <externalId>false</externalId>
+    <fieldManageability>SubscriberControlled</fieldManageability>
+    <label>Person Registering</label>
+    <type>Checkbox</type>
+</CustomField>

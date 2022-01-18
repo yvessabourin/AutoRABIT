@@ -1,0 +1,28 @@
+<apex:page standardController="Marketing_Campaign__c" extensions="marketingCampaignActionsControllerExt" lightningStylesheets="true">
+    <apex:form >
+
+        <apex:outputLabel > Campaign Level : </apex:outputLabel>
+        <apex:selectList size="1" value="{!selectedOption}">
+        <apex:selectOptions value="{!Options}"/>
+        </apex:selectList> 
+        &nbsp;&nbsp;
+        <apex:commandButton action="{!save}" value="Save"/>
+        &nbsp;&nbsp;
+        <apex:commandButton action="{!cancel}" value="Cancel"/>              
+        &nbsp;&nbsp;
+        <apex:outputPanel id="redirectPanel" >
+                
+            <apex:outputText rendered="{!shouldRedirect}">
+                <script type="text/javascript">
+                    if ('{!$User.UITheme}' === 'Theme4d' || '{!$User.UITheme}' === 'Theme4u') {
+                        sforce.one.navigateToURL('{!redirectUrl}');
+                    } else {
+                        window.top.location.href = '{!redirectUrl}';
+                    }
+                </script>
+            </apex:outputText>
+                                        
+        </apex:outputPanel>
+        
+    </apex:form>        
+</apex:page>

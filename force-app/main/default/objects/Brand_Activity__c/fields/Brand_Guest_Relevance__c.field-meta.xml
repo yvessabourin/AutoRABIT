@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Brand_Guest_Relevance__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(INCLUDES( Brand__r.Brand_Guest_Relevance__c , &quot;North America&quot;), &quot;North America&quot; + BR() , NULL) + 
+IF(INCLUDES( Brand__r.Brand_Guest_Relevance__c , &quot;Russia&quot;), &quot;Russia&quot; + BR() , NULL) + 
+IF(INCLUDES( Brand__r.Brand_Guest_Relevance__c , &quot;Central &amp; South America&quot;), &quot;Central &amp; South America&quot; + BR() , NULL) + 
+IF(INCLUDES( Brand__r.Brand_Guest_Relevance__c , &quot;South East Asia&quot;), &quot;South east Asia&quot; + BR() , NULL) + 
+IF(INCLUDES( Brand__r.Brand_Guest_Relevance__c , &quot;India&quot;), &quot;India&quot; + BR() , NULL) + 
+IF(INCLUDES( Brand__r.Brand_Guest_Relevance__c , &quot;Europe&quot;), &quot;Europe&quot; + BR() , NULL) + 
+IF(INCLUDES( Brand__r.Brand_Guest_Relevance__c , &quot;China&quot;), &quot;China&quot; + BR() , NULL) + 
+IF(INCLUDES( Brand__r.Brand_Guest_Relevance__c , &quot;Middle East&quot;), &quot;Middle East&quot;, NULL)</formula>
+    <label>Brand Guest Relevance</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

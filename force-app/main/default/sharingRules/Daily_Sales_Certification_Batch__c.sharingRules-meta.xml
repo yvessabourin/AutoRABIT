@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sharingCriteriaRules>
+        <fullName>Sharing_to_Bicester</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Sharing to Bicester</label>
+        <sharedTo>
+            <role>Bicester_Finance</role>
+        </sharedTo>
+        <criteriaItems>
+            <field>Certification_Batch_Village_Code__c</field>
+            <operation>equals</operation>
+            <value>BV</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Sharing_to_Fidenza</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Sharing to Fidenza</label>
+        <sharedTo>
+            <role>Fidenza_Finance</role>
+        </sharedTo>
+        <criteriaItems>
+            <field>Certification_Batch_Village_Code__c</field>
+            <operation>equals</operation>
+            <value>FV</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Sharing_with_Ingolstadt</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Sharing with Ingolstadt</label>
+        <sharedTo>
+            <role>Ingolstadt_Finance</role>
+        </sharedTo>
+        <criteriaItems>
+            <field>Certification_Batch_Village_Code__c</field>
+            <operation>equals</operation>
+            <value>IV</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Sharing_with_Kildare</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Sharing with Kildare</label>
+        <sharedTo>
+            <role>Kildare_Finance</role>
+        </sharedTo>
+        <criteriaItems>
+            <field>Certification_Batch_Village_Code__c</field>
+            <operation>equals</operation>
+            <value>KV</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Sharing_with_La_Roca</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Sharing with La Roca</label>
+        <sharedTo>
+            <role>La_Roca_Finance</role>
+        </sharedTo>
+        <criteriaItems>
+            <field>Certification_Batch_Village_Code__c</field>
+            <operation>equals</operation>
+            <value>LR</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Sharing_with_La_Vallee</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Sharing with La Vallée</label>
+        <sharedTo>
+            <role>La_Vall_e_Finance</role>
+        </sharedTo>
+        <criteriaItems>
+            <field>Certification_Batch_Village_Code__c</field>
+            <operation>equals</operation>
+            <value>LV</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Sharing_with_Las_Rozas</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Sharing with Las Rozas</label>
+        <sharedTo>
+            <role>Las_Rozas_Finance</role>
+        </sharedTo>
+        <criteriaItems>
+            <field>Certification_Batch_Village_Code__c</field>
+            <operation>equals</operation>
+            <value>LZ</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Sharing_with_Maasmechelen</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Sharing with Maasmechelen</label>
+        <sharedTo>
+            <role>Maasmechelen_Finance</role>
+        </sharedTo>
+        <criteriaItems>
+            <field>Certification_Batch_Village_Code__c</field>
+            <operation>equals</operation>
+            <value>MV</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Sharing_with_Wertheim</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Sharing with Wertheim</label>
+        <sharedTo>
+            <role>Wertheim_Finance</role>
+        </sharedTo>
+        <criteriaItems>
+            <field>Certification_Batch_Village_Code__c</field>
+            <operation>equals</operation>
+            <value>WV</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+</SharingRules>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Brand Permission</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Brand Permissions</value>
+    </caseValues>
+    <recordTypes>
+        <description></description>
+        <label></label>
+        <name>Ad_hoc</name>
+    </recordTypes>
+    <recordTypes>
+        <description></description>
+        <label></label>
+        <name>Group_led_Annual</name>
+    </recordTypes>
+    <recordTypes>
+        <description></description>
+        <label></label>
+        <name>Lease_led_Annual</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Cant_create_Permissions_in_earlier_years</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>From_date_AND_To_date_in_same_Year</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Reason_for_Cancellation_Removal_reqd</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Reason_no_Permission_Granted</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>TO_year_not_less_than_FROM_year</name>
+    </validationRules>
+</CustomObjectTranslation>

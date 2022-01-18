@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>FV_Brand_Ratings</fullName>
+    <booleanFilter>1 AND 2 AND 3 AND 4</booleanFilter>
+    <columns>OPPORTUNITY.NAME</columns>
+    <columns>Expected_Open_Date__c</columns>
+    <columns>Total_Rating__c</columns>
+    <columns>Position_Rating__c</columns>
+    <columns>Sales_Rating__c</columns>
+    <columns>Income_Rating__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Village__c</field>
+        <operation>equals</operation>
+        <value>Fidenza</value>
+    </filters>
+    <filters>
+        <field>Expected_Open_Date__c</field>
+        <operation>greaterOrEqual</operation>
+        <value>1/1/2021</value>
+    </filters>
+    <filters>
+        <field>OPPORTUNITY.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Opportunity.New_Brand</value>
+    </filters>
+    <filters>
+        <field>Expected_Open_Date__c</field>
+        <operation>lessOrEqual</operation>
+        <value>12/31/2021</value>
+    </filters>
+    <label>FV Brand Ratings New Brand</label>
+</ListView>

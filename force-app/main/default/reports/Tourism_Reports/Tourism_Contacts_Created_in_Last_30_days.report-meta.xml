@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Tourism Contacts Created in Last 30 days</description>
+    <filter>
+        <criteriaItems>
+            <column>CONTACT_RECORDTYPE</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>Contact.Tourism_Contact</value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
+    <format>Matrix</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>CONTACT_OWNER</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>Tourism Contacts Created in Last 30 days</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>ContactList</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>CREATED_DATE</dateColumn>
+        <interval>INTERVAL_LAST30</interval>
+    </timeFrameFilter>
+</Report>

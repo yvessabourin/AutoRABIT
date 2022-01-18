@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<HomePageComponent xmlns="http://soap.sforce.com/2006/04/metadata">
+    <body>&lt;span style=&quot;color: #FFFFFF;&quot;&gt;&lt;b&gt;&lt;span style=&quot;background-color: #FF0000;&quot;&gt;Alitalia (Third Party Points System) has now been moved across to the Partner Platform and is no longer available is Salesforce.&lt;/span&gt;&lt;/b&gt;&lt;/span&gt;</body>
+    <pageComponentType>htmlArea</pageComponentType>
+    <width>wide</width>
+</HomePageComponent>

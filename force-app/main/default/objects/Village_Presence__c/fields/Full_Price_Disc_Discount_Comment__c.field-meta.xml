@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Full_Price_Disc_Discount_Comment__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Describe any details related to the brands interest in Full Price or Discretionary Discount</inlineHelpText>
+    <label>Full Price/Disc Discount Comment</label>
+    <length>2000</length>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>LongTextArea</type>
+    <visibleLines>2</visibleLines>
+</CustomField>

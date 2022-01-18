@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LastActiveDate__c</fullName>
+    <description>It calculates the latest date based on Marketing Consent dates, Last Visit date and Last Modified date.
+It ignores the Last Modified date if the update was done by a Sys Admin type of profile.
+It defaults the date to Created date if everything else is not relevant.</description>
+    <externalId>false</externalId>
+    <formula>DATE(1900,01,01) +
+MAX( BLANKVALUE(DATEVALUE(Marketing_Consent_Email_Date__c ), DATE(1900,01,01))-DATE(1900,01,01) ,
+BLANKVALUE(DATEVALUE(Marketing_Consent_Phone_Date__c ), DATE(1900,01,01))- DATE(1900,01,01) ,
+BLANKVALUE(DATEVALUE(Marketing_Consent_Post_Date__c ), DATE(1900,01,01)) - DATE(1900,01,01) ,
+BLANKVALUE(DATEVALUE(Last_Visit_Date_Time__c ) , DATE(1900,01,01)) - DATE(1900,01,01) ,
+IF(OR(LastModifiedBy.Profile.Name = &quot;System Administrator&quot;, ISBLANK(LastModifiedBy.ProfileId), LastModifiedBy.Profile.Name = &quot;Admin Backup Recovery&quot;), DATEVALUE(CreatedDate ), DATEVALUE(LastModifiedDate )) - DATE(1900,01,01)
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>LastActiveDate</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Date</type>
+</CustomField>

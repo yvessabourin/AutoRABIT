@@ -1,0 +1,10 @@
+<apex:component access="GLOBAL" controller="HFS_Code_GeneratorController">
+	<apex:attribute name="codeAttr" type="String" default="CODE_NOT_SET" description="Text code that needs to be generated" assignTo="{!code}"/> 
+	<apex:attribute name="codeTypeAttr" type="String" default="DataMatrix" description="2D code type that needs to be generated" assignTo="{!codeType}"/> 
+	<apex:attribute name="formatAttr" type="String" default="gif" description="Format for the generated image code" assignTo="{!format}"/>
+	<apex:attribute name="imageStyle" type="String" description="Styling applied to the image"/>
+	<apex:attribute name="imageWidth" type="String" description="Width in pixels for the image"/>
+
+	<apex:image alt="{!codeAttr}" value="{!codeUrl}" style="{!imageStyle}" width="{!imageWidth}"/>
+
+</apex:component>

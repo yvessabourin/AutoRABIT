@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Total_Variance_Percentage__c</fullName>
+    <externalId>false</externalId>
+    <formula>( Total_Certified_Amount__c - Total_Brand_Reported_Amount__c )/IF(OR(ISBLANK(Total_Brand_Reported_Amount__c),Total_Brand_Reported_Amount__c = 0),1,Total_Brand_Reported_Amount__c)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>The total variance as a percentage</inlineHelpText>
+    <label>Total Variance Percentage</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Percent</type>
+</CustomField>

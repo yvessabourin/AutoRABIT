@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Personal_Shopping_engagements__c</fullName>
+    <defaultValue>0</defaultValue>
+    <externalId>false</externalId>
+    <inlineHelpText>Field shows the number of Personal shopping visits for the Guest</inlineHelpText>
+    <label>Personal Shopping engagements</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

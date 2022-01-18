@@ -1,0 +1,439 @@
+<apex:page controller="VisitRedemptionsHelper" showHeader="false" standardStylesheets="false" sidebar="false" applyHtmlTag="false" applyBodyTag="false" docType="html-5.0" action="{!getGroupCleardownList}">
+
+  <html xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">    
+
+    <head>
+      <meta charset="utf-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <title>TIC Home Page</title>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></link>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+      <link rel="stylesheet" href="{!URLFOR($Resource.NewTICStyles)}"></link>
+
+      <script src="{!URLFOR($Resource.NewTICScripts)}"></script>
+
+      <style type="text/css">
+
+        body{
+            background: url({!URLFOR($Resource.TICDashboard, 'BVWalk.jpg')}) no-repeat center center fixed; 
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+        }
+      </style>
+    </head>
+
+    <body>
+
+          <!-- Main Navigation -->
+      <div class="my-nav">
+         <div class="site-navbar navbar navbar-fixed-top" role="navigation">
+            <div class="container">
+               <div class="navbar-header">
+                  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+                  <a class="navbar-brand" href="#"  onclick="gotoPage('TIC_Dashboard');">Tourist Information Center</a> 
+               </div>
+               <div id="navbar" class="navbar-collapse collapse">
+                  <ul class="nav navbar-nav navbar-right">
+                   <li> <a  href="#group"  onclick="gotoPage('GroupBooking_Search');" >Group Check In</a> </li>
+                     <li> <a  href="#guest"  onclick="gotoPage('Promotion_Search');" >Guest Check In</a> </li>
+                     <li> <a  href="#search"  onclick="gotoPage('GuestSearch');">Guest Search</a> </li>
+                     <li> <a  href="#card"  onclick="gotoPage('VIPCardSearch');">Card Search</a> </li>
+                     <li> <a  href="#clean"  onclick="gotoPage('VIPCardCleardown');">VIP Card Cleanup</a> </li>
+                     <li id="hfslistitem" name="hfslistitem"> <a  href="#hfs"  onclick="gotoPage('HFSDash');">Hands Free Shopping</a> </li>
+                     <li> <a  href="#exit" onclick="cancelAction();" >Exit</a> </li>
+                  </ul>
+               </div>
+               <!--/.nav-collapse -->
+            </div>
+         </div>
+      </div>
+      <!-- /.Main Navigation -->
+      <!-- Fullwidth Header -->
+      <!-- Intro Header -->
+
+      <div class="jumbotron text-center">
+        <h2>&nbsp;</h2>
+      </div>
+      <!-- main content -->
+      <div class="container">  
+        <div id="saving"  name="saving" class="modal" role="dialog">
+          <div class="modal-dialog">
+            <div id="loader">
+              <div class="dot"></div>
+              <div class="dot"></div>
+              <div class="dot"></div>
+              <div class="dot"></div>
+              <div class="dot"></div>
+              <div class="dot"></div>
+              <div class="dot"></div>
+              <div class="dot"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="input-group">
+            <a onclick="gotoPage('Promotion_Search');" class="btn btn-default"><i class="glyphicon glyphicon-home"></i></a>
+        </div>
+        <br/><br/>
+        <div class="panel panel-default">        
+          <div class="panel-heading">VIP Card Cleardown</div>
+          <div class="panel-body">
+            <div class="row">
+              <div class="col-lg-10">
+                <div class="input-group"> 
+                  <span class="tooltiptext">Email Address</span>
+                  <span class="input-group-addon"><i class="fa fa-qrcode"></i></span>       
+                  <input id="codes" class="form-control"  type="email" placeholder="Scan here ..." oninput="DelayedCallMe(250);" />           
+                </div>
+              </div>
+              <div class="col-lg-2">
+                <button class="btn btn-default" onclick="$j('#saving').show();clearCards($j(this));">Clear Cards</button>
+              </div>
+              <br/>
+            </div>
+          </div>
+        </div>         
+        <div id='savingNoShow' align="center">Saving ...  <img src="{!$Resource.ajaxSpinner}"/></div>
+        <br/>
+        <div class="panel panel-default">        
+          <div class="panel-heading">Group Booking Visits not Checked-In</div>
+          <div id="groupCleardownList"></div>
+        </div>
+      </div>            
+    </body>  
+                
+    <script>
+
+      Number.prototype.padLeft = function(base,chr){
+         var  len = (String(base || 10).length - String(this).length)+1;
+         return len > 0? new Array(len).join(chr || '0')+this : this;
+      }
+      
+      $j = jQuery.noConflict();
+      var homeUrl;
+      var cleardownDiv = document.getElementById("groupCleardownList");
+                          
+      $j(document).ready(function() {
+          
+          $j('#saving').hide();
+          $j('#savingNoShow').hide();
+
+          if( ('{!$User.UIThemeDisplayed}' == 'Theme4t' || '{!$User.UIThemeDisplayed}' == 'Theme4d' ) ) {
+           // running in mobile
+              //homeUrl = '/_ui/core/chatter/ui/ChatterPage';
+              homeUrl = '/apex/TIC_Dashboard';
+          } else { //desktop
+              //homeUrl = '/home/home.jsp';
+              homeUrl = '/apex/TIC_Dashboard';
+          }                             
+          $j('#home').attr('href', homeUrl);
+          
+          buildHtml();
+          
+          $j("#codes").focus();                  
+          
+      });
+      
+      function cancelAction(){
+      
+          if(  ('{!$User.UIThemeDisplayed}' == 'Theme4t' || '{!$User.UIThemeDisplayed}' == 'Theme4d') ) {
+           // running in mobile
+              console.log('VIP Mobile ..');
+              sforce.one.navigateToURL(homeUrl);
+          } else { //desktop
+              console.log('VIP Desktop..');
+              window.location.href = homeUrl;
+          }     
+      
+      
+      }
+              
+      <!-- custom scripts functions to handle the ";" in the textbox --> 
+      var _timer = 0;
+      
+      function callMe() {
+          var myText =  $j('#codes').val() + ";";
+          $j('#codes').val(myText);
+      }
+
+      
+      
+      function DelayedCallMe(num) {
+          
+          if (_timer)
+              window.clearTimeout(_timer);
+              
+          _timer = window.setTimeout(function() { callMe(); }, 200);
+      }
+         
+      <!--  END OF functions to handle the ";"  --> 
+
+      function clearCards(button){
+
+          var codes =  $j('#codes').val();
+          if (codes)
+              codes = codes.replace(/[\n\r]/g, '');    
+              
+          if (codes){
+          
+              VisitRedemptionsHelper.clearCards(codes , function(result, event) {
+                  $j('#saving').hide();
+                  console.log(result);                        
+                  
+                  var err = result.indexOf("ERROR");
+                  
+                  if(event.status && err < 0) {
+                      $j('#codes').val('');
+                      alert(result);                            
+                  } else {
+                      alert(result);
+                      button.prop('disabled',false);  
+                      console.log('ERROR  ' + result);
+   
+  
+                  }
+  
+              },{buffer: false, escape: false, timeout: 90000} );                
+          
+          
+          } else {
+              $j('#saving').hide();
+              //alert ('No Cards to clear');
+              $j('#Cardstoclear').modal('show');
+          
+          }
+
+          
+     }      
+
+     function undefinedToEmptyString(v){
+      
+          if (typeof(v) == 'undefined' || v == null){
+              return '';
+          } else {
+              return v;
+          }
+      }
+      
+      function buildHtml() {
+
+          var records = $j.parseJSON('{!JSENCODE(cleardownList)}');
+         
+          console.log(records);
+          
+          var recCount = records.length;
+          
+          console.log(recCount);
+          console.log(records[0]);
+          var html = '    <div class="table-responsive"><table class="table table-hover sortable" >';    
+
+          html += '<thead>';
+          html += '<tr class="active"><th scope="col">Ref.</th>';
+          html += '<th scope="col">Partner</th>';
+          html += '<th scope="col">Booking Name</th>';
+          html += '<th scope="col">Grp Bkng Id</th>';
+          html += '<th scope="col">Village</th>';
+          html += '<th scope="col">Expected Arrival</th>';
+          html += '<th scope="col">Location</th>';
+          html += '<th scope="col" class="slds-cell-wrap">No. of Guests</th>';
+          html += '<th scope="col" class="slds-cell-wrap">Scanned Cards</th>';             
+          html += '<th scope="col" class="slds-cell-wrap">Country of Origin</th>';                             
+          html += '<th scope="col"> </th>';
+          html += '<th scope="col"> </th>';
+          html += '<th scope="col"> </th>';
+          html += '</tr>';
+          html += '</thead><tbody>';    
+          if (recCount > 0) {
+
+              for (var r=0; r < recCount; r++){ 
+                  var record = records[r]; 
+                  var name = undefinedToEmptyString(record.Name);
+                  var partnerName = undefinedToEmptyString(record.Group_Booking__r.Organisation__r.Name);
+                  var bookingName = undefinedToEmptyString(record.Booking_Partnership_Name__c);
+                  var village = undefinedToEmptyString(record.Group_Booking__r.Village__r.Name);
+                  var promoId = record.Group_Booking__c;
+                  var GBId = record.Group_Booking__r.Name;
+                  var promoName = encodeURIComponent(partnerName + ' - ' + bookingName);
+                  promoName = promoName.replace(/'/g, "\\'");
+                  var visitNotes = encodeURIComponent(undefinedToEmptyString(record.Visit_Notes__c));
+                  visitNotes = visitNotes.replace(/'/g, "\\'");                        
+                 
+                  var modeOfTransport = undefinedToEmptyString(record.Mode_of_Transport__c); 
+                  var expectedArrival = undefinedToEmptyString(record.Expected_Arrival_Date_Time__c);                        
+                  var location =  undefinedToEmptyString(record.Location__c);
+                  var numberOfGuests = undefinedToEmptyString(record.Number_of_Guests__c);
+                  var vipCards = undefinedToEmptyString(record.VIP_Cards_Exchanged__c);
+                  var countryOfOrigin = undefinedToEmptyString(record.Country_of_Origin__c);
+                  var recId = record.Id;
+                  var vType = record.Type__c;
+                            
+                  console.log(' 1 ' + expectedArrival);                        
+                    if (expectedArrival) {
+                        // Salesforce returns yyyy-mm-ddThh:mm:ss .. eg.2016-04-13T16:07:00.000+0000
+                        // for IOS, date string needs to be in format mm/dd/yyyy hh:mm
+                        if (navigator.userAgent.match(/(iPhone|iPod|iPad)/) != null) {
+                            var sfd = expectedArrival.split('T');
+                            var sft = sfd[1];
+                            console.log(sfd);
+                            console.log(sft);
+                            sfd = sfd[0].split('-');
+                            var sfday = sfd[1];
+                            console.log('SFD ..... ' + sfd);
+                            var sfmonth = sfd[0];
+                            var sfyear = sfd[2];
+                            sft = sft.split(':');
+                            var hh = sft[0];
+                            var mm = sft[1];
+                            expectedArrival  = sfmonth +'/' + sfday + '/' + sfyear + ' ' + hh + ':' + mm;
+                        }
+                  console.log(' 2 ' + expectedArrival); 
+                          
+                        var d = new Date(expectedArrival);
+                        var day = d.getDate();
+                        var month = d.getMonth() + 1;
+                        var year = d.getFullYear();
+                        var min = d.getMinutes();
+                        var hours = d.getHours();
+                        expectedArrival = day.padLeft() + '/' + month.padLeft() + '/' + year + ' ' + hours.padLeft() + ':'+ min.padLeft();
+                        }
+                            
+                            
+                        if (!vipCards){
+                            vipCards = 0;
+                        }
+
+                        html += '<tr class="info"><td>' + name + '</td>';
+                        html += '<td >' + partnerName + '</td>';
+                        html += '<td >' + bookingName+ '</td>';
+                        html += '<td >' + GBId+ '</td>';
+                        html += '<td >' + village + '</td>';
+                        html += '<td >' + expectedArrival + '</td>';
+                        html += '<td >' + location + '</td>';
+                        html += '<td >' + numberOfGuests + '</td>';
+                        html += '<td >' + vipCards + '</td>';                        
+                        html += '<td >' + countryOfOrigin + '</td>';                        
+                        html += '<td><a class="btn btn-default" href="javascript:noShow(\''+ recId +'\', \'' + promoName + '\');">No Show</a></td>';
+                        html += '<td><a class="btn btn-default" href="javascript:checkInVisit(\''+ recId +'\', \'' + promoId + '\', \''+ promoName +'\', \'' + location + '\', \''+ modeOfTransport+'\', \'' + countryOfOrigin + '\', \''+ vType+'\', \'' + numberOfGuests  + '\', \''+ visitNotes+'\', \'' + vipCards + '\');">Check-In</a></td>';
+                        html += '<td><a class="btn btn-default" href="javascript:viewVisit(\''+ recId +'\');">View</a></td>';                                                                                   
+                        html += '</tr>';
+
+                        cleardownDiv.innerHTML = html;
+                    } // end of for loop
+                    html = html + '</tbody></table>';
+                } else {
+                     html += '<tr class="active"><td colspan="12">No outstanding Visits</td></tr>';
+                      html = html + '</tbody></table>';                 
+                    cleardownDiv.innerHTML = html;
+
+                } // end of if recCount > 0
+            }            
+
+            function viewVisit(recId){
+                var url =  encodeURI('/' + recId);
+                if(  ('{!$User.UIThemeDisplayed}' == 'Theme4t' || '{!$User.UIThemeDisplayed}' == 'Theme4d' ) ) {
+                 // running in mobile
+                    sforce.one.navigateToURL(url);
+    
+                } else { //desktop
+                    window.open(url, '_blank');
+                    //window.open(url); 
+                } 
+                        
+            }
+
+            function checkInVisit(recId, promoId, promoName, location, modeOfTransport, countryOfOrigin, vType, numberOfGuests, visitNotes, vipCards ){
+                
+                var url = '/apex/VisitVIPCardIssue?visitId=' + recId +'&promoId=' + promoId + '&promoName=' + promoName + '&location=' + location + '&modeOfTransport=' + modeOfTransport + '&country=' + countryOfOrigin  + '&type=' + vType + '&guestNumber=' + numberOfGuests  + '&visitNotes=' + visitNotes +'&vipCards=' + vipCards;
+                
+                //url =  encodeURI(url );
+                if(  ('{!$User.UIThemeDisplayed}' == 'Theme4t' || '{!$User.UIThemeDisplayed}' == 'Theme4d' ) ) {
+                 // running in mobile
+                    sforce.one.navigateToURL(url);
+    
+                } else { //desktop
+                    window.open(url, '_blank');
+                    //window.open(url); 
+                } 
+                        
+            }
+
+            function noShow(visitId, promoName){
+
+                var r = confirm("Are you sure you wish to mark the selected visit (" + promoName + ") as a 'No Show'?\nThis will remove all scanned cards and mark the visit as a 'No Show'");
+                if (r == true) {
+                    $j('#savingNoShow').show();
+                    // make call to set visit record as a no show
+                        VisitRedemptionsHelper.noShow(visitId, function(result, event) {
+                            $j('#savingNoShow').hide();
+                            console.log(result);                        
+                            
+                            var err = result.indexOf("ERROR");
+                            var url = '';
+                            if(event.status && err < 0) {
+                                //alert('Visit record has been marked as a No Show');
+                                $j('#RecordMarked').modal('show');
+                                location.reload();
+                            } else {
+                                alert(result); 
+                                console.log('ERROR  ' + result);
+                            }                    
+                        },{buffer: false, escape: false, timeout: 90000} );
+                        
+                } else {
+                    return;
+                }                                                
+            
+            }                            
+        </script>
+     <!-- Modal Lightning migration -->
+<div class="modal fade" id="Cardstoclear" tabindex="-1" role="dialog" aria-labelledby="Cardstoclear" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="Cardstoclear"></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" style="width: 100%; height: 80%; overflow-y: scroll;">      
+      <div id="termsdiv" style="margin-right: auto;margin-left: auto;">
+       No Cards to clear.
+       </div>       
+      </div>
+      <div class="modal-footer">
+         <a href="#" style="float: right;" role="button" class="btn btn-default" data-dismiss="modal">Close</a>
+      </div>
+    </div>
+  </div>
+</div>
+ <!-- Modal Lightning migration -->
+<div class="modal fade" id="RecordMarked" tabindex="-1" role="dialog" aria-labelledby="RecordMarked" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="RecordMarked"></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" style="width: 100%; height: 80%; overflow-y: scroll;">      
+      <div id="termsdiv" style="margin-right: auto;margin-left: auto;">
+       Visit record has been marked as a No Show.
+       </div>       
+      </div>
+      <div class="modal-footer">
+         <a href="#" style="float: right;" role="button" class="btn btn-default" data-dismiss="modal">Close</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+    </html>
+    
+</apex:page>

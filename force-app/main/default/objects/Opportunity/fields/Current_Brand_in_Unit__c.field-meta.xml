@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Current_Brand_in_Unit__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <externalId>false</externalId>
+    <label>Current Brand in Unit</label>
+    <lookupFilter>
+        <active>true</active>
+        <errorMessage>The Village Presence Record must be in the same village</errorMessage>
+        <filterItems>
+            <field>$Source.Village__c</field>
+            <operation>equals</operation>
+            <valueField>Village_Presence__c.Village__c</valueField>
+        </filterItems>
+        <isOptional>false</isOptional>
+    </lookupFilter>
+    <referenceTo>Village_Presence__c</referenceTo>
+    <relationshipLabel>Brands in Contention</relationshipLabel>
+    <relationshipName>Opportunities1</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

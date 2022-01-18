@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Evidence_of_VR_Support__c</fullName>
+    <description>Evidence of VR Support leading to higher conversion</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Evidence of VR Support leading to higher conversion</inlineHelpText>
+    <label>Evidence of VR Support</label>
+    <length>10000</length>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>LongTextArea</type>
+    <visibleLines>5</visibleLines>
+</CustomField>

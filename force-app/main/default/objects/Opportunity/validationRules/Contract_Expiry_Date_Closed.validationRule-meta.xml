@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Contract_Expiry_Date_Closed</fullName>
+    <active>true</active>
+    <description>Can&apos;t close the deal (apart from exit record type) if the Stage is closed positive and there is no &apos;Contract expiry date&apos; populated</description>
+    <errorConditionFormula>$Setup.Global_Object_Validation__c.Deal_Validations_Active__c 
+&amp;&amp; Stage_Value__c = 100
+&amp;&amp;  ISBLANK(  Contract_Expiry_Date__c ) 
+&amp;&amp; NOT( RecordTypeName__c = &quot;Exit&quot; ) 
+&amp;&amp; NOT( RecordTypeName__c = &quot;ShopRefit&quot; )</errorConditionFormula>
+    <errorDisplayField>Contract_Expiry_Date__c</errorDisplayField>
+    <errorMessage>You cannot close this deal without completing the Contract expiry date on the Deal.</errorMessage>
+</ValidationRule>

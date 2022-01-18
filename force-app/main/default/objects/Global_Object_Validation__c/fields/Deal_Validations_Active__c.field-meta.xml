@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Deal_Validations_Active__c</fullName>
+    <defaultValue>true</defaultValue>
+    <description>Controls whether validation rules for Deals are active.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Controls whether validation rules for Deals are active.</inlineHelpText>
+    <label>Deal Validations Active</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

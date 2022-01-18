@@ -1,0 +1,70 @@
+<apex:page Controller="MultipleActivityCreationController" showHeader="true"  lightningStylesheets="true" sidebar="true" docType="html-5.0">
+    <style>
+        body .bPageBlock .pbBody .red .pbSubheader{
+        background-color:#c00000;
+        }
+        body .bPageBlock .pbBody .grey .pbSubheader{
+        background-color:#c0c0c0;
+        }
+        body .bPageBlock .pbBody .grey .pbSubheader h3{
+        color:#000;
+        }
+    </style>
+    <apex:form title="Multiple Activity Creation Tool">
+        <apex:pageBlock title="Multiple Activity Creation Tool">
+            <apex:outputPanel styleClass="grey">
+                <apex:pageBlockSection title="Recurrence Pattern">
+                    <apex:selectRadio value="{!getSelectedValue}">
+                        <apex:selectOptions value="{!recurrencePattern}"/>
+                        <apex:actionSupport event="onchange" action="{!renderSection}" rerender="unlockFields"/>
+                    </apex:selectRadio>
+                </apex:pageBlockSection>
+            </apex:outputPanel>
+            <apex:outputPanel id="unlockFields" styleClass="grey">
+                <apex:pageBlockSection title="Recurrence Pattern Details" rendered="{!showDailyDetails}">
+                    <apex:selectRadio value="{!reccurrencePatternDetail}">
+                        <apex:selectOptions value="{!recurrencePatternDaily}"/>
+                    </apex:selectRadio>
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="Recurrence Pattern Details" rendered="{!showWeeklyDetails}">
+                    <apex:selectcheckboxes value="{!listOfDays}">
+                        <apex:selectOptions value="{!recurrencePatternWeekly}"/>
+                    </apex:selectcheckboxes>
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="Recurrence Pattern Details" rendered="{!showMonthlyDetails}" >
+                    <apex:selectList size="1" value="{!selectedMonthDay}" title="Day of the Month" label="Day of the Month : "> 
+                        <apex:selectOptions value="{!monthDayOptions}"/>
+                    </apex:selectList>
+                </apex:pageBlockSection>
+            </apex:outputPanel>
+        </apex:pageBlock>
+        <apex:pageBlock title="Recurrence Range">
+            <apex:pageMessages rendered="{!showStartDateError}"/>
+            
+            <apex:outputPanel styleClass="grey">
+                <apex:pageBlockSection title="Start Date:">
+                    <apex:input type="date" value="{!startDate}"/>
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="Recurrence Range Details">
+                    <apex:selectRadio value="{!getSelectedReccurrence}">
+                        <apex:selectOptions value="{!recurrenceDetails}"/>
+                        <apex:actionSupport event="onchange" action="{!renderOccurrence}" rerender="occurrences"/>
+                    </apex:selectRadio>
+                </apex:pageBlockSection>
+            </apex:outputPanel>
+            <apex:outputPanel id="occurrences" styleClass="grey">
+                <apex:pageMessages rendered="{!showEndDateError}"/>
+                <apex:pageBlockSection title="End Date:" rendered="{!showEndDate}">
+                    <apex:input type="date" value="{!endDate}"/>
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="End After" rendered="{!showOccurrences}">
+                    <apex:selectList size="1" value="{!totalOccurrences}" label="Number of Occurrences : "> 
+                        <apex:selectOptions value="{!endAfterOccurrences}"/>
+                    </apex:selectList>
+                </apex:pageBlockSection>
+                <apex:commandButton action="{!saveWithEndAfter}" value="Save" rendered="{!showOccurrences}" />
+                <apex:commandButton action="{!save}" value="Save" rendered="{!showEndDate}" />
+            </apex:outputPanel>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

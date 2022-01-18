@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sorted>false</sorted>
+    <standardValue>
+        <fullName>Lead Negotiator</fullName>
+        <default>false</default>
+        <label>Lead Negotiator</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Co-Negotiator</fullName>
+        <default>false</default>
+        <label>Co-Negotiator</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Legal Lead</fullName>
+        <default>false</default>
+        <label>Legal Lead</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Paralegal</fullName>
+        <default>false</default>
+        <label>Paralegal</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Keep Informed</fullName>
+        <default>false</default>
+        <label>Keep Informed</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Key Holder</fullName>
+        <default>false</default>
+        <label>Key Holder</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Store Manager</fullName>
+        <default>false</default>
+        <label>Store Manager</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Distributor</fullName>
+        <default>false</default>
+        <label>Distributor</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Consultant</fullName>
+        <default>false</default>
+        <label>Consultant</label>
+    </standardValue>
+</StandardValueSet>

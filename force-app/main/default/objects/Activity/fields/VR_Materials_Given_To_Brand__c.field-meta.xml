@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VR_Materials_Given_To_Brand__c</fullName>
+    <externalId>false</externalId>
+    <label>VR Materials Given To Brand</label>
+    <required>false</required>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Brand Presentation - Group</fullName>
+                <default>false</default>
+                <label>Brand Presentation - Group</label>
+            </value>
+            <value>
+                <fullName>Brand Presentation - GRS</fullName>
+                <default>false</default>
+                <label>Brand Presentation - GRS</label>
+            </value>
+            <value>
+                <fullName>Brand Presentation - Bicester</fullName>
+                <default>false</default>
+                <label>Brand Presentation - Bicester</label>
+            </value>
+            <value>
+                <fullName>Brand Presentation - Fidenza</fullName>
+                <default>false</default>
+                <label>Brand Presentation - Fidenza</label>
+            </value>
+            <value>
+                <fullName>Brand Presentation - Ingolstadt</fullName>
+                <default>false</default>
+                <label>Brand Presentation - Ingolstadt</label>
+            </value>
+            <value>
+                <fullName>Brand Presentation - Kildare</fullName>
+                <default>false</default>
+                <label>Brand Presentation - Kildare</label>
+            </value>
+            <value>
+                <fullName>Brand Presentation - La Roca</fullName>
+                <default>false</default>
+                <label>Brand Presentation - La Roca</label>
+            </value>
+            <value>
+                <fullName>Brand Presentation - Las Rozas</fullName>
+                <default>false</default>
+                <label>Brand Presentation - Las Rozas</label>
+            </value>
+            <value>
+                <fullName>Brand Presentation - La Vallée</fullName>
+                <default>false</default>
+                <label>Brand Presentation - La Vallée</label>
+            </value>
+            <value>
+                <fullName>Brand Presentation - Maasmechelen</fullName>
+                <default>false</default>
+                <label>Brand Presentation - Maasmechelen</label>
+            </value>
+            <value>
+                <fullName>Brand Presentation - Suzhou</fullName>
+                <default>false</default>
+                <label>Brand Presentation - Suzhou</label>
+            </value>
+            <value>
+                <fullName>Brand Presentation - Wertheim</fullName>
+                <default>false</default>
+                <label>Brand Presentation - Wertheim</label>
+            </value>
+            <value>
+                <fullName>Chic Buzz Magazine</fullName>
+                <default>false</default>
+                <label>Chic Buzz Magazine</label>
+            </value>
+            <value>
+                <fullName>Chic Guide to Europe</fullName>
+                <default>false</default>
+                <label>Chic Guide to Europe</label>
+            </value>
+            <value>
+                <fullName>Commercialisation Brochure</fullName>
+                <default>false</default>
+                <label>Commercialisation Brochure</label>
+            </value>
+            <value>
+                <fullName>Concepts in store Design</fullName>
+                <default>false</default>
+                <label>Concepts in store Design</label>
+            </value>
+            <value>
+                <fullName>Convincing Evidence</fullName>
+                <default>false</default>
+                <label>Convincing Evidence</label>
+            </value>
+            <value>
+                <fullName>Lease Book</fullName>
+                <default>false</default>
+                <label>Lease Book</label>
+            </value>
+            <value>
+                <fullName>Marketing Campaign Presentation</fullName>
+                <default>false</default>
+                <label>Marketing Campaign Presentation</label>
+            </value>
+            <value>
+                <fullName>Press Articles</fullName>
+                <default>false</default>
+                <label>Press Articles</label>
+            </value>
+            <value>
+                <fullName>Village One Pager - Bicester</fullName>
+                <default>false</default>
+                <label>Village One Pager - Bicester</label>
+            </value>
+            <value>
+                <fullName>Village One Pager - Fidenza</fullName>
+                <default>false</default>
+                <label>Village One Pager - Fidenza</label>
+            </value>
+            <value>
+                <fullName>Village One Pager - Ingolstadt</fullName>
+                <default>false</default>
+                <label>Village One Pager - Ingolstadt</label>
+            </value>
+            <value>
+                <fullName>Village One Pager - Kildare</fullName>
+                <default>false</default>
+                <label>Village One Pager - Kildare</label>
+            </value>
+            <value>
+                <fullName>Village One Pager - La Roca</fullName>
+                <default>false</default>
+                <label>Village One Pager - La Roca</label>
+            </value>
+            <value>
+                <fullName>Village One Pager - Las Rozas</fullName>
+                <default>false</default>
+                <label>Village One Pager - Las Rozas</label>
+            </value>
+            <value>
+                <fullName>Village One Pager - La Vallée</fullName>
+                <default>false</default>
+                <label>Village One Pager - La Vallée</label>
+            </value>
+            <value>
+                <fullName>Village One Pager - Maasmechelen</fullName>
+                <default>false</default>
+                <label>Village One Pager - Maasmechelen</label>
+            </value>
+            <value>
+                <fullName>Village One Pager - Suzhou</fullName>
+                <default>false</default>
+                <label>Village One Pager - Suzhou</label>
+            </value>
+            <value>
+                <fullName>Village One Pager - Wertheim</fullName>
+                <default>false</default>
+                <label>Village One Pager - Wertheim</label>
+            </value>
+            <value>
+                <fullName>VR China Pricing Arguments</fullName>
+                <default>false</default>
+                <label>VR China Pricing Arguments</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>10</visibleLines>
+</CustomField>

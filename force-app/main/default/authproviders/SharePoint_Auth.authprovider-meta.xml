@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AuthProvider xmlns="http://soap.sforce.com/2006/04/metadata">
+    <authorizeUrl>https://login.microsoftonline.com/common/oauth2/authorize?prompt=consent&amp;resource=https%3A%2F%2Fvalueretail1.sharepoint.com%2F</authorizeUrl>
+    <consumerKey>7685c20f-0665-48f9-8580-2547262fc7f8</consumerKey>
+    <consumerSecret>r8OL2xMFhZYt460dQhrDJMJ1CvF0IavqdXtO+GxCQTGkLcFxSqETavNdoRkNia7G</consumerSecret>
+    <friendlyName>SharePoint_Auth</friendlyName>
+    <iconUrl>https://login.salesforce.com/icons/microsoft-black.png</iconUrl>
+    <includeOrgIdInIdentifier>false</includeOrgIdInIdentifier>
+    <providerType>MicrosoftACS</providerType>
+    <sendAccessTokenInHeader>false</sendAccessTokenInHeader>
+    <sendClientCredentialsInHeader>false</sendClientCredentialsInHeader>
+    <sendSecretInApis>true</sendSecretInApis>
+    <tokenUrl>https://login.microsoftonline.com/common/oauth2/token</tokenUrl>
+</AuthProvider>

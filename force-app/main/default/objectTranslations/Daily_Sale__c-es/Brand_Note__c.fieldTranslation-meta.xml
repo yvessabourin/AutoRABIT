@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help>Si se ha seleccionado la opción  “Ignorar Validaciones, por favor confirme el motivo, o añada cualquier comentario que crea necesario</help>
+    <label>Comentario de la marca</label>
+    <name>Brand_Note__c</name>
+</CustomFieldTranslation>

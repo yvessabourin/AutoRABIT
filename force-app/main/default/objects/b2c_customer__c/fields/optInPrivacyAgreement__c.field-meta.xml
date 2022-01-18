@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>optInPrivacyAgreement__c</fullName>
+    <description>Privacy agreement opt in status</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Privacy agreement opt in status</inlineHelpText>
+    <label>opt In Privacy Agreement</label>
+    <length>5</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

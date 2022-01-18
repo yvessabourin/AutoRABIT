@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Actual_Signed_Date_Closed</fullName>
+    <active>true</active>
+    <description>Can&apos;t close the deal (all record types except Shop Refit Deal (Shop Refit type) and Exit - Contract Expiry Type and Non Renewal) and if the Stage name is closed positive and there is no &apos;Actual Signed date&apos; populated</description>
+    <errorConditionFormula>$Setup.Global_Object_Validation__c.Deal_Validations_Active__c 
+&amp;&amp; Stage_Value__c = 100
+&amp;&amp;  ISBLANK( Signed_Date__c) 
+&amp;&amp; NOT( RecordTypeName__c = &quot;EXIT&quot; )
+&amp;&amp; NOT(
+        AND(RecordTypeName__c = &quot;EXIT&quot; , OR( ISPICKVAL(Type, &quot;Expiry&quot;)  ,  ISPICKVAL(Type, &quot;Non Renewal&quot;) )
+        )
+      )
+&amp;&amp; NOT(RecordTypeName__c = &quot;ShopRefit&quot;)</errorConditionFormula>
+    <errorDisplayField>Signed_Date__c</errorDisplayField>
+    <errorMessage>You cannot close this deal without completing the Actual Signed Date on the Deal.</errorMessage>
+</ValidationRule>

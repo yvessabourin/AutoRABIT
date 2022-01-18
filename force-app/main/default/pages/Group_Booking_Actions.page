@@ -1,0 +1,12 @@
+<apex:page standardController="Group_Booking__c" showHeader="False" sidebar="False" extensions="resendGroupBookingEmail">    
+    
+    <apex:form >
+        <div style="width:100%;text-align:left" >
+        
+           <APEX:commandButton id="ResendEmail" value="Resend Email" action="{!sendEmail}" rendered="{!showbutton}"/> 
+           <apex:pageMessage id="emailsuccesspagemessage" rendered="{!IF(showSuccessMessage == false, false, true)}" severity="Warning"  summary="{!message}" strength="1"/> 
+                                   
+        </div>
+    </apex:form>
+ 
+</apex:page>

@@ -1,0 +1,558 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Sub_Channel_Type__c</fullName>
+    <externalId>false</externalId>
+    <label>Sub Channel Type</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Sub_Channel__c</controllingField>
+        <valueSetDefinition>
+            <sorted>true</sorted>
+            <value>
+                <fullName>Aboard</fullName>
+                <default>false</default>
+                <label>Aboard</label>
+            </value>
+            <value>
+                <fullName>Art Gallery</fullName>
+                <default>false</default>
+                <label>Art Gallery</label>
+            </value>
+            <value>
+                <fullName>Blog Post</fullName>
+                <default>false</default>
+                <label>Blog Post</label>
+            </value>
+            <value>
+                <fullName>Brand</fullName>
+                <default>false</default>
+                <label>Brand</label>
+            </value>
+            <value>
+                <fullName>Bus Cover</fullName>
+                <default>false</default>
+                <label>Bus Cover</label>
+            </value>
+            <value>
+                <fullName>Campaign</fullName>
+                <default>false</default>
+                <label>Campaign</label>
+            </value>
+            <value>
+                <fullName>Chic Travel</fullName>
+                <default>false</default>
+                <label>Chic Travel</label>
+            </value>
+            <value>
+                <fullName>Cinema</fullName>
+                <default>false</default>
+                <label>Cinema</label>
+            </value>
+            <value>
+                <fullName>Competition</fullName>
+                <default>false</default>
+                <label>Competition</label>
+            </value>
+            <value>
+                <fullName>Digital</fullName>
+                <default>false</default>
+                <label>Digital</label>
+            </value>
+            <value>
+                <fullName>Digital Media</fullName>
+                <default>false</default>
+                <label>Digital Media</label>
+            </value>
+            <value>
+                <fullName>Display</fullName>
+                <default>false</default>
+                <label>Display</label>
+            </value>
+            <value>
+                <fullName>Domestic</fullName>
+                <default>false</default>
+                <label>Domestic</label>
+            </value>
+            <value>
+                <fullName>Email</fullName>
+                <default>false</default>
+                <label>Email</label>
+            </value>
+            <value>
+                <fullName>Empty Unit Vinyls</fullName>
+                <default>false</default>
+                <label>Empty Unit Vinyls</label>
+            </value>
+            <value>
+                <fullName>Event</fullName>
+                <default>false</default>
+                <label>Event</label>
+            </value>
+            <value>
+                <fullName>Fam Trip</fullName>
+                <default>false</default>
+                <label>Fam Trip</label>
+            </value>
+            <value>
+                <fullName>Gift Card</fullName>
+                <default>false</default>
+                <label>Gift Card</label>
+            </value>
+            <value>
+                <fullName>Gifting</fullName>
+                <default>false</default>
+                <label>Gifting</label>
+            </value>
+            <value>
+                <fullName>Google+</fullName>
+                <default>false</default>
+                <label>Google+</label>
+            </value>
+            <value>
+                <fullName>Guest Welcome Centre</fullName>
+                <default>false</default>
+                <label>Guest Welcome Centre</label>
+            </value>
+            <value>
+                <fullName>Home</fullName>
+                <default>false</default>
+                <label>Home</label>
+            </value>
+            <value>
+                <fullName>Inflight Magazine Advertising</fullName>
+                <default>false</default>
+                <label>Inflight Magazine Advertising</label>
+            </value>
+            <value>
+                <fullName>Inflight Magazine Advertorial</fullName>
+                <default>false</default>
+                <label>Inflight Magazine Advertorial</label>
+            </value>
+            <value>
+                <fullName>Inflight Video</fullName>
+                <default>false</default>
+                <label>Inflight Video</label>
+            </value>
+            <value>
+                <fullName>Installations</fullName>
+                <default>false</default>
+                <label>Installations</label>
+            </value>
+            <value>
+                <fullName>In Store Signage</fullName>
+                <default>false</default>
+                <label>In Store Signage</label>
+            </value>
+            <value>
+                <fullName>Interview</fullName>
+                <default>false</default>
+                <label>Interview</label>
+            </value>
+            <value>
+                <fullName>KOL</fullName>
+                <default>false</default>
+                <label>KOL</label>
+            </value>
+            <value>
+                <fullName>Magazine Advertising</fullName>
+                <default>false</default>
+                <label>Magazine Advertising</label>
+            </value>
+            <value>
+                <fullName>Magazine Advertorial</fullName>
+                <default>false</default>
+                <label>Magazine Advertorial</label>
+            </value>
+            <value>
+                <fullName>Mobile App</fullName>
+                <default>false</default>
+                <label>Mobile App</label>
+            </value>
+            <value>
+                <fullName>Newsletter</fullName>
+                <default>false</default>
+                <label>Newsletter</label>
+            </value>
+            <value>
+                <fullName>Newspaper Advertising</fullName>
+                <default>false</default>
+                <label>Newspaper Advertising</label>
+            </value>
+            <value>
+                <fullName>Newspaper Advertorial</fullName>
+                <default>false</default>
+                <label>Newspaper Advertorial</label>
+            </value>
+            <value>
+                <fullName>Offer</fullName>
+                <default>false</default>
+                <label>Offer</label>
+            </value>
+            <value>
+                <fullName>Olapic</fullName>
+                <default>false</default>
+                <label>Olapic</label>
+            </value>
+            <value>
+                <fullName>On Board Brochure</fullName>
+                <default>false</default>
+                <label>On Board Brochure</label>
+            </value>
+            <value>
+                <fullName>On Board Video</fullName>
+                <default>false</default>
+                <label>On Board Video</label>
+            </value>
+            <value>
+                <fullName>Organic</fullName>
+                <default>false</default>
+                <label>Organic</label>
+            </value>
+            <value>
+                <fullName>Organic - UGC</fullName>
+                <default>false</default>
+                <label>Organic - UGC</label>
+            </value>
+            <value>
+                <fullName>Out of Home</fullName>
+                <default>false</default>
+                <label>Out of Home</label>
+            </value>
+            <value>
+                <fullName>Paid</fullName>
+                <default>false</default>
+                <label>Paid</label>
+            </value>
+            <value>
+                <fullName>Paid - UGC</fullName>
+                <default>false</default>
+                <label>Paid - UGC</label>
+            </value>
+            <value>
+                <fullName>Partners</fullName>
+                <default>false</default>
+                <label>Partners</label>
+            </value>
+            <value>
+                <fullName>Photo Shoot</fullName>
+                <default>false</default>
+                <label>Photo Shoot</label>
+            </value>
+            <value>
+                <fullName>PPC</fullName>
+                <default>false</default>
+                <label>PPC</label>
+            </value>
+            <value>
+                <fullName>Press Release</fullName>
+                <default>false</default>
+                <label>Press Release</label>
+            </value>
+            <value>
+                <fullName>Print</fullName>
+                <default>false</default>
+                <label>Print</label>
+            </value>
+            <value>
+                <fullName>Printed Material</fullName>
+                <default>false</default>
+                <label>Printed Material</label>
+            </value>
+            <value>
+                <fullName>Printed Registration Form</fullName>
+                <default>false</default>
+                <label>Printed Registration Form</label>
+            </value>
+            <value>
+                <fullName>Printed Survey</fullName>
+                <default>false</default>
+                <label>Printed Survey</label>
+            </value>
+            <value>
+                <fullName>Print Media</fullName>
+                <default>false</default>
+                <label>Print Media</label>
+            </value>
+            <value>
+                <fullName>Private Sale</fullName>
+                <default>false</default>
+                <label>Private Sale</label>
+            </value>
+            <value>
+                <fullName>Privilege</fullName>
+                <default>false</default>
+                <label>Privilege</label>
+            </value>
+            <value>
+                <fullName>Product</fullName>
+                <default>false</default>
+                <label>Product</label>
+            </value>
+            <value>
+                <fullName>Radio</fullName>
+                <default>false</default>
+                <label>Radio</label>
+            </value>
+            <value>
+                <fullName>Radio Advertising</fullName>
+                <default>false</default>
+                <label>Radio Advertising</label>
+            </value>
+            <value>
+                <fullName>Radio Advertorial</fullName>
+                <default>false</default>
+                <label>Radio Advertorial</label>
+            </value>
+            <value>
+                <fullName>Round Table</fullName>
+                <default>false</default>
+                <label>Round Table</label>
+            </value>
+            <value>
+                <fullName>Seasonal</fullName>
+                <default>false</default>
+                <label>Seasonal</label>
+            </value>
+            <value>
+                <fullName>Shuttle Drop Off Area</fullName>
+                <default>false</default>
+                <label>Shuttle Drop Off Area</label>
+            </value>
+            <value>
+                <fullName>SnapChat</fullName>
+                <default>false</default>
+                <label>SnapChat</label>
+            </value>
+            <value>
+                <fullName>Social Media</fullName>
+                <default>false</default>
+                <label>Social Media</label>
+            </value>
+            <value>
+                <fullName>Source</fullName>
+                <default>false</default>
+                <label>Source</label>
+            </value>
+            <value>
+                <fullName>Sponsoring</fullName>
+                <default>false</default>
+                <label>Sponsoring</label>
+            </value>
+            <value>
+                <fullName>Stakla</fullName>
+                <default>false</default>
+                <label>Stakla</label>
+            </value>
+            <value>
+                <fullName>Store Vinyls</fullName>
+                <default>false</default>
+                <label>Store Vinyls</label>
+            </value>
+            <value>
+                <fullName>Style Notes</fullName>
+                <default>false</default>
+                <label>Style Notes</label>
+            </value>
+            <value>
+                <fullName>Survey</fullName>
+                <default>false</default>
+                <label>Survey</label>
+            </value>
+            <value>
+                <fullName>Trade Event</fullName>
+                <default>false</default>
+                <label>Trade Event</label>
+            </value>
+            <value>
+                <fullName>TV</fullName>
+                <default>false</default>
+                <label>TV</label>
+            </value>
+            <value>
+                <fullName>TV Broadcast</fullName>
+                <default>false</default>
+                <label>TV Broadcast</label>
+            </value>
+            <value>
+                <fullName>Unpaid</fullName>
+                <default>false</default>
+                <label>Unpaid</label>
+            </value>
+            <value>
+                <fullName>Video</fullName>
+                <default>false</default>
+                <label>Video</label>
+            </value>
+            <value>
+                <fullName>Video Shoot</fullName>
+                <default>false</default>
+                <label>Video Shoot</label>
+            </value>
+            <value>
+                <fullName>Village Leaflet</fullName>
+                <default>false</default>
+                <label>Village Leaflet</label>
+            </value>
+            <value>
+                <fullName>VIP Lounge</fullName>
+                <default>false</default>
+                <label>VIP Lounge</label>
+            </value>
+            <value>
+                <fullName>Visit</fullName>
+                <default>false</default>
+                <label>Visit</label>
+            </value>
+            <value>
+                <fullName>Website</fullName>
+                <default>false</default>
+                <label>Website</label>
+            </value>
+            <value>
+                <fullName>Welcome</fullName>
+                <default>false</default>
+                <label>Welcome</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Facebook</controllingFieldValue>
+            <controllingFieldValue>Foursquare</controllingFieldValue>
+            <controllingFieldValue>Instagram</controllingFieldValue>
+            <controllingFieldValue>LinkedIn</controllingFieldValue>
+            <controllingFieldValue>Pinterest</controllingFieldValue>
+            <controllingFieldValue>Twitter</controllingFieldValue>
+            <controllingFieldValue>VK</controllingFieldValue>
+            <controllingFieldValue>WeChat</controllingFieldValue>
+            <controllingFieldValue>Weibo</controllingFieldValue>
+            <controllingFieldValue>YouTube</controllingFieldValue>
+            <valueName>Organic</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Facebook</controllingFieldValue>
+            <controllingFieldValue>Foursquare</controllingFieldValue>
+            <controllingFieldValue>Google+</controllingFieldValue>
+            <controllingFieldValue>Instagram</controllingFieldValue>
+            <controllingFieldValue>LinkedIn</controllingFieldValue>
+            <controllingFieldValue>Pinterest</controllingFieldValue>
+            <controllingFieldValue>Twitter</controllingFieldValue>
+            <controllingFieldValue>VK</controllingFieldValue>
+            <controllingFieldValue>WeChat</controllingFieldValue>
+            <controllingFieldValue>Weibo</controllingFieldValue>
+            <controllingFieldValue>YouTube</controllingFieldValue>
+            <controllingFieldValue>Instagram Stories</controllingFieldValue>
+            <valueName>Organic - UGC</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Facebook</controllingFieldValue>
+            <controllingFieldValue>Foursquare</controllingFieldValue>
+            <controllingFieldValue>Instagram</controllingFieldValue>
+            <controllingFieldValue>LinkedIn</controllingFieldValue>
+            <controllingFieldValue>Pinterest</controllingFieldValue>
+            <controllingFieldValue>Twitter</controllingFieldValue>
+            <controllingFieldValue>VK</controllingFieldValue>
+            <controllingFieldValue>WeChat</controllingFieldValue>
+            <controllingFieldValue>Weibo</controllingFieldValue>
+            <controllingFieldValue>YouTube</controllingFieldValue>
+            <valueName>Paid</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Facebook</controllingFieldValue>
+            <controllingFieldValue>Foursquare</controllingFieldValue>
+            <controllingFieldValue>Google+</controllingFieldValue>
+            <controllingFieldValue>Instagram</controllingFieldValue>
+            <controllingFieldValue>LinkedIn</controllingFieldValue>
+            <controllingFieldValue>Pinterest</controllingFieldValue>
+            <controllingFieldValue>Twitter</controllingFieldValue>
+            <controllingFieldValue>VK</controllingFieldValue>
+            <controllingFieldValue>WeChat</controllingFieldValue>
+            <controllingFieldValue>Weibo</controllingFieldValue>
+            <controllingFieldValue>YouTube</controllingFieldValue>
+            <controllingFieldValue>Instagram Stories</controllingFieldValue>
+            <valueName>Paid - UGC</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Google+</controllingFieldValue>
+            <valueName>Google+</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Mobile App</controllingFieldValue>
+            <valueName>Mobile App</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Sales Mission</controllingFieldValue>
+            <valueName>Domestic</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Sales Mission</controllingFieldValue>
+            <valueName>Source</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SnapChat</controllingFieldValue>
+            <valueName>SnapChat</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Sponsorship</controllingFieldValue>
+            <valueName>Event</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Sponsorship</controllingFieldValue>
+            <valueName>Gifting</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Sponsorship</controllingFieldValue>
+            <valueName>Interview</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Sponsorship</controllingFieldValue>
+            <valueName>Photo Shoot</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Sponsorship</controllingFieldValue>
+            <valueName>Press Release</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Sponsorship</controllingFieldValue>
+            <valueName>Round Table</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Sponsorship</controllingFieldValue>
+            <valueName>Video Shoot</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Sponsorship</controllingFieldValue>
+            <valueName>Visit</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Trade Event</controllingFieldValue>
+            <valueName>Trade Event</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Video</controllingFieldValue>
+            <valueName>Video</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Partners Website</controllingFieldValue>
+            <valueName>Unpaid</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Printed Survey</controllingFieldValue>
+            <valueName>Printed Survey</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SMS</controllingFieldValue>
+            <valueName>Competition</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SMS</controllingFieldValue>
+            <valueName>Offer</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Installations</controllingFieldValue>
+            <valueName>Installations</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

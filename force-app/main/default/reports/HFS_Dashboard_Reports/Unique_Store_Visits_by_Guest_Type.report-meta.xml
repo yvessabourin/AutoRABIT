@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <aggregates>
+        <calculatedFormula>RowCount / 100</calculatedFormula>
+        <datatype>percent</datatype>
+        <description>% of HFS Guests</description>
+        <developerName>FORMULA1</developerName>
+        <isActive>true</isActive>
+        <isCrossBlock>false</isCrossBlock>
+        <masterLabel>% of HFS Guests</masterLabel>
+        <scale>0</scale>
+    </aggregates>
+    <chart>
+        <backgroundColor1>#FFFFFF</backgroundColor1>
+        <backgroundColor2>#FFFFFF</backgroundColor2>
+        <backgroundFadeDir>Diagonal</backgroundFadeDir>
+        <chartSummaries>
+            <axisBinding>y</axisBinding>
+            <column>FORMULA1</column>
+        </chartSummaries>
+        <chartType>VerticalColumnGrouped</chartType>
+        <enableHoverLabels>true</enableHoverLabels>
+        <expandOthers>true</expandOthers>
+        <groupingColumn>FK_$Village_Presence__c.Brand__c</groupingColumn>
+        <legendPosition>Bottom</legendPosition>
+        <location>CHART_TOP</location>
+        <secondaryGroupingColumn>Case.Guest_Type__c</secondaryGroupingColumn>
+        <showAxisLabels>true</showAxisLabels>
+        <showPercentage>false</showPercentage>
+        <showTotal>false</showTotal>
+        <showValues>true</showValues>
+        <size>Huge</size>
+        <summaryAxisRange>Auto</summaryAxisRange>
+        <textColor>#000000</textColor>
+        <textSize>12</textSize>
+        <title>Unique Store Visits</title>
+        <titleColor>#000000</titleColor>
+        <titleSize>18</titleSize>
+    </chart>
+    <columns>
+        <field>CASE_NUMBER</field>
+    </columns>
+    <currency>EUR</currency>
+    <description>Unique Store Visits by Guest Type</description>
+    <filter>
+        <criteriaItems>
+            <column>Case.Experience_Close__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>notEqual</operator>
+            <value></value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Case_Item__c.Total_Bags__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>greaterThan</operator>
+            <value>0</value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Case.Guest_Type__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>FK_$Village_Presence__c.Brand__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>Unique Store Visits by Guest Type</name>
+    <params>
+        <name>units</name>
+        <value>h</value>
+    </params>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CaseCustomEntity$Case_Item__c@Case_Item__c.Village_Presence__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>CREATED_DATEONLY</dateColumn>
+        <endDate>2019-08-27</endDate>
+        <interval>INTERVAL_CUSTOM</interval>
+        <startDate>2019-08-26</startDate>
+    </timeFrameFilter>
+</Report>

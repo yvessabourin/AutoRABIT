@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Coniq_Review_Dates</fullName>
+    <active>true</active>
+    <description>Coniq Review Date NOT Less Than Last Review Date</description>
+    <errorConditionFormula>Coniq_Next_Review_Date__c &lt;= Coniq_Last_Review_Date__c</errorConditionFormula>
+    <errorDisplayField>Coniq_Next_Review_Date__c</errorDisplayField>
+    <errorMessage>The Next Review MUST occur later than the Last Review Date</errorMessage>
+</ValidationRule>

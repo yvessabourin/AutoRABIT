@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Social_Media_Plan_Germany</fullName>
+    <columns>NAME</columns>
+    <columns>Reach__c</columns>
+    <columns>Start_Date__c</columns>
+    <columns>Status__c</columns>
+    <columns>Marketing_Campaign__c</columns>
+    <columns>Sub_Channel__c</columns>
+    <columns>Sub_Channel_Type__c</columns>
+    <columns>Marketing_Campaign_Village__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Channel__c</field>
+        <operation>equals</operation>
+        <value>Social Media</value>
+    </filters>
+    <filters>
+        <field>End_Date__c</field>
+        <operation>lessOrEqual</operation>
+        <value>6/30/2018</value>
+    </filters>
+    <filters>
+        <field>Start_Date__c</field>
+        <operation>greaterOrEqual</operation>
+        <value>10/1/2017</value>
+    </filters>
+    <filters>
+        <field>Marketing_Campaign_Village__c</field>
+        <operation>contains</operation>
+        <value>Wertheim</value>
+    </filters>
+    <label>Social Media Plan WV</label>
+    <language>en_US</language>
+    <sharedTo>
+        <roleAndSubordinates>German_Marketing</roleAndSubordinates>
+        <roleAndSubordinatesInternal>German_Marketing</roleAndSubordinatesInternal>
+    </sharedTo>
+</ListView>

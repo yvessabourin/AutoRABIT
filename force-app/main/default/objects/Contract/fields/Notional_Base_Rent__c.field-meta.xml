@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Notional_Base_Rent__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Enter the notional value per unit of GEA based on the size metric to be used to calculate deposit amounts, the actual base rent amount appears on the term increments and will vary annually based on the terms of the lease</inlineHelpText>
+    <label>Notional Base Rent</label>
+    <precision>13</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

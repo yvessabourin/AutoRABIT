@@ -1,0 +1,50 @@
+<apex:page lightningStylesheets="True" controller="batchCreateVillageClosedPeriods" docType="html-5.0">
+    <apex:form >
+    <apex:pageMessage id="companyemailpagemessage" rendered="{!showerror}" severity="Warning"  summary="{!errormessage}" strength="1"/>        
+    
+    <apex:pageBlock title="Mass Create Sunday Closed Periods">
+    <apex:pageBlockSection columns="1">
+    <apex:input label="Year" value="{!year}" />
+    </apex:pageBlockSection>
+    </apex:pageBlock>
+    <!-- test -->
+
+    <apex:commandButton action="{!getYearStartDay}" value="Get Sunday Records" rendered="{!NOT(showListSection)}"/>
+    <apex:commandButton action="{!selectAll}" value="Select All Records" rendered="{!showListSection}"/>
+    <apex:commandButton action="{!deselectAll}" value="Deselect All Records" rendered="{!showListSection}"/>
+    <apex:commandButton action="{!cancel}" value="Cancel" rendered="{!showListSection}" />
+
+    <apex:pageBlock rendered="{!showListSection}" title="Sunday Closed Periods to Add">
+    <apex:pageBlockTable value="{!cVCPList}" var="select" >
+                <apex:column headerValue="Selected" >
+                <!-- This is our selected Boolean property in our wrapper class -->
+                <apex:inputCheckbox value="{!select.selected}" />
+                </apex:column>
+
+                <apex:column headerValue="First Name" >
+                <!-- This is our selected Boolean property in our wrapper class -->
+                <apex:outputField value="{!select.vcp.name}"/>
+                </apex:column>
+
+                <apex:column headerValue="Village" >
+                <!-- This is our selected Boolean property in our wrapper class -->
+                <apex:outputField value="{!select.vcp.Village__c}"/>
+                </apex:column>
+
+                <apex:column headerValue="From Date" >
+                <!-- This is our selected Boolean property in our wrapper class -->
+                <apex:outputField value="{!select.vcp.From__c}"/>
+                </apex:column>
+
+                <apex:column headerValue="To Date" >
+                <!-- This is our selected Boolean property in our wrapper class -->
+                <apex:outputField value="{!select.vcp.To__c}"/>
+                </apex:column>
+
+
+    </apex:pageBlockTable>
+    </apex:pageBlock>
+    <apex:commandButton action="{!save}" value="Add Selected Records" rendered="{!showListSection}"/>
+    <apex:commandButton action="{!cancel}" value="Cancel" />
+    </apex:form>
+</apex:page>

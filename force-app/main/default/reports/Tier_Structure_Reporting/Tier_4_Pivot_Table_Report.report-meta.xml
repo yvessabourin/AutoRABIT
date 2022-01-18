@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Opportunity.Village__c</field>
+    </columns>
+    <columns>
+        <field>OPPORTUNITY_NAME</field>
+    </columns>
+    <columns>
+        <field>Opportunity.Lease_Type__c</field>
+    </columns>
+    <columns>
+        <field>Opportunity.Tier_Level__c</field>
+    </columns>
+    <columns>
+        <field>TYPE</field>
+    </columns>
+    <columns>
+        <field>Opportunity.Approved_Date__c</field>
+    </columns>
+    <filter>
+        <criteriaItems>
+            <column>Opportunity.Tier_Level__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>Tier 1,Tier 2a,Tier 2b,Tier 2c,Tier 4,Tier 4*</value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
+    <format>Summary</format>
+    <name>Tier 4 Pivot Table Report</name>
+    <params>
+        <name>open</name>
+        <value>all</value>
+    </params>
+    <params>
+        <name>probability</name>
+        <value>&gt;0</value>
+    </params>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Opportunity</reportType>
+    <roleHierarchyFilter>CEO</roleHierarchyFilter>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <sortColumn>Opportunity.Village__c</sortColumn>
+    <sortOrder>Asc</sortOrder>
+    <timeFrameFilter>
+        <dateColumn>Opportunity.Approved_Date__c</dateColumn>
+        <interval>INTERVAL_CURFY</interval>
+    </timeFrameFilter>
+</Report>

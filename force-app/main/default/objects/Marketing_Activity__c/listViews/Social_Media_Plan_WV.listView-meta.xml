@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Social_Media_Plan_WV</fullName>
+    <columns>NAME</columns>
+    <columns>Reach__c</columns>
+    <columns>Start_Date__c</columns>
+    <columns>Status__c</columns>
+    <columns>Marketing_Campaign__c</columns>
+    <columns>Sub_Channel__c</columns>
+    <columns>Channel__c</columns>
+    <columns>Message__c</columns>
+    <columns>Sub_Channel_Type__c</columns>
+    <columns>Customer_Dimension__c</columns>
+    <columns>Marketing_Campaign_Village__c</columns>
+    <columns>Communication_Plan__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Channel__c</field>
+        <operation>equals</operation>
+        <value>Social Media</value>
+    </filters>
+    <filters>
+        <field>End_Date__c</field>
+        <operation>lessOrEqual</operation>
+        <value>12/31/2018</value>
+    </filters>
+    <filters>
+        <field>Start_Date__c</field>
+        <operation>greaterOrEqual</operation>
+        <value>7/1/2017</value>
+    </filters>
+    <filters>
+        <field>Marketing_Campaign_Village__c</field>
+        <operation>contains</operation>
+        <value>Ingolstadt</value>
+    </filters>
+    <label>Social Media Plan IV</label>
+    <language>en_US</language>
+    <sharedTo>
+        <roleAndSubordinatesInternal>German_Marketing</roleAndSubordinatesInternal>
+    </sharedTo>
+</ListView>

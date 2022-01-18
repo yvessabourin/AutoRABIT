@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <applicationVisibilities>
+        <application>Private_Client_Services</application>
+        <visible>true</visible>
+    </applicationVisibilities>
+    <description>This permission set will give user an access to the PCS app.</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>Private Client Services app</label>
+</PermissionSet>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Deal_Closed_without_Standard_Terms</fullName>
+    <active>true</active>
+    <description>Deal cannot be closed without entering a value in the Standard Terms field.</description>
+    <errorConditionFormula>$Setup.Global_Object_Validation__c.Deal_Validations_Active__c 
+&amp;&amp; Stage_Value__c = 100 
+&amp;&amp; ISBLANK(  TEXT(Standard_Terms__c)  ) 
+&amp;&amp; NOT( RecordTypeName__c = &quot;Exit&quot; ) 
+&amp;&amp; NOT( RecordTypeName__c = &quot;ShopRefit&quot; )
+&amp;&amp; NOT(  ISPICKVAL(Tier_Level__c, &quot;Tier 4L&quot;) )</errorConditionFormula>
+    <errorDisplayField>Standard_Terms__c</errorDisplayField>
+    <errorMessage>Deal cannot be closed without entering a value in the Standard Terms field.</errorMessage>
+</ValidationRule>

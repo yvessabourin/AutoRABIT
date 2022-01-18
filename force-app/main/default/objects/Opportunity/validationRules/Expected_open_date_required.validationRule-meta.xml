@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Expected_open_date_required</fullName>
+    <active>true</active>
+    <description>On any deal record type (apart from exit record type) the &apos;expected open date&apos; should be populated from &apos;Advanced negotiation&apos; stage and all subsequent stages</description>
+    <errorConditionFormula>$Setup.Global_Object_Validation__c.Deal_Validations_Active__c 
+&amp;&amp; Stage_Value__c &gt; 2
+&amp;&amp;  ISBLANK(   Expected_Open_Date__c ) 
+&amp;&amp; NOT( RecordTypeName__c = &quot;Exit&quot; )
+&amp;&amp; NOT( RecordTypeName__c = &quot;Contract Change&quot; )</errorConditionFormula>
+    <errorDisplayField>Expected_Open_Date__c</errorDisplayField>
+    <errorMessage>You must enter an &apos;Expected Open Date&apos; before the deal can progress to the &apos;Advanced negotiation&apos;  and subsequent stages</errorMessage>
+</ValidationRule>

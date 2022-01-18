@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Service_Guest_ID__c</fullName>
+    <caseSensitive>false</caseSensitive>
+    <description>a unique generated ID to identify the guest, and the date</description>
+    <externalId>false</externalId>
+    <inlineHelpText>a unique generated ID to identify the guest, and the date</inlineHelpText>
+    <label>Service Guest ID</label>
+    <length>15</length>
+    <required>true</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>true</unique>
+</CustomField>

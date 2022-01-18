@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Participating_Brands_IVWV</fullName>
+    <columns>NAME</columns>
+    <columns>Start_Date__c</columns>
+    <columns>Marketing_Campaign__c</columns>
+    <columns>Marketing_Campaign_Village__c</columns>
+    <columns>Other_Notes__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Marketing_Campaign_Village__c</field>
+        <operation>contains</operation>
+        <value>Wertheim,Ingolstadt</value>
+    </filters>
+    <filters>
+        <field>Start_Date__c</field>
+        <operation>greaterOrEqual</operation>
+        <value>1/1/2018</value>
+    </filters>
+    <filters>
+        <field>NAME</field>
+        <operation>contains</operation>
+        <value>offerpage</value>
+    </filters>
+    <label>Offerpage IVWV</label>
+    <language>en_US</language>
+    <sharedTo>
+        <role>German_Marketing</role>
+        <role>German_Tourism</role>
+        <roleAndSubordinates>German_Marketing</roleAndSubordinates>
+    </sharedTo>
+</ListView>

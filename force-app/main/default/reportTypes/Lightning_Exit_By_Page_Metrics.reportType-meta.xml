@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ReportType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <baseObject></baseObject>
+    <category>other</category>
+    <deployed>false</deployed>
+    <description>Represents standard pages Users switched from Lightning Experience to Salesforce most frequently.</description>
+    <label>Lightning Exit By Page Metrics</label>
+    <sections>
+        <masterLabel>LightningExitByPageMetrics</masterLabel>
+    </sections>
+    <sections>
+        <masterLabel>User</masterLabel>
+    </sections>
+</ReportType>

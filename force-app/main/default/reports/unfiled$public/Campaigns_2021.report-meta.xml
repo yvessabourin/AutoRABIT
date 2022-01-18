@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Marketing_Campaign__c$Name</field>
+    </columns>
+    <columns>
+        <field>Marketing_Campaign__c.Marketing_Activities__r$Name</field>
+    </columns>
+    <columns>
+        <field>Marketing_Campaign__c$CreatedBy</field>
+    </columns>
+    <columns>
+        <field>Marketing_Campaign__c$CreatedDate</field>
+    </columns>
+    <columns>
+        <field>Marketing_Campaign__c$Start_Date__c</field>
+    </columns>
+    <columns>
+        <field>Marketing_Campaign__c$End_Date__c</field>
+    </columns>
+    <currency>EUR</currency>
+    <format>Tabular</format>
+    <name>Campaigns 2021</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Marketing_Campaigns_with_Marketing_Activities__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>Marketing_Campaign__c$Start_Date__c</dateColumn>
+        <interval>INTERVAL_NEXTFY</interval>
+    </timeFrameFilter>
+</Report>

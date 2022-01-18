@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Brand_to_Deal_Role_Sync_Items__c</fullName>
+    <description>Comma separated list of Brand roles which should be synchronised with associated Deals when the &apos;Synchronise Deal Roles&apos; button is clicked on the Account detail page.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Comma separated list of Brand roles which should be synchronised with associated Deals when the &apos;Synchronise Deal Roles&apos; button is clicked on the Account detail page.</inlineHelpText>
+    <label>Brand to Deal Role Sync Items</label>
+    <length>255</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sharingOwnerRules>
+        <fullName>BV_Service_Request_Sharing</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Shares the Service Request Items with the Bicester HFS Users</description>
+        <label>BV Service Request Sharing</label>
+        <sharedTo>
+            <group>HFS_Owners_Bicester</group>
+        </sharedTo>
+        <sharedFrom>
+            <group>All_BV_HFS</group>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>KV_Service_Request_Sharing</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Shares the Service Request Items with the Kildare HFS Users</description>
+        <label>KV Service Request Sharing</label>
+        <sharedTo>
+            <group>HFS_Owners_Kildare</group>
+        </sharedTo>
+        <sharedFrom>
+            <group>All_KV_HFS</group>
+        </sharedFrom>
+    </sharingOwnerRules>
+</SharingRules>

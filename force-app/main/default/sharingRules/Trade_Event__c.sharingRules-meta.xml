@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sharingCriteriaRules>
+        <fullName>Leasing_Events_with_Leasing_Users</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Leasing Events with Leasing Users</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>Group_Leasing</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Brand Entertainment,Corporate Event</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Leasing_Type_Events_with_GRS</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Share Brand &amp; Corporate Events with GRS &amp; Subs</description>
+        <label>Leasing Type Events with GRS</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>Group_Retail_Services</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Brand Entertainment,Corporate Event</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Leasing_Type_Events_with_Group_Retail_Subs</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Share Brand &amp; Corporate Events with Group Retail &amp; Subs</description>
+        <label>Leasing Type Events with Group Retail &amp; Subs</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>Group_Retail</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Brand Entertainment,Corporate Event</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Tourism_Event_With_Tourism_users</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Tourism Event With Tourism users</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>Group_Tourism</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Tourism Event</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingOwnerRules>
+        <fullName>VIP_Global_Guest_Access_Trade_Event</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>All Personal Shopping and Private Client users can access Guest Records from across all villages.</description>
+        <label>VIP Global Guest Access</label>
+        <sharedTo>
+            <group>VIP_Global</group>
+        </sharedTo>
+        <sharedFrom>
+            <group>VIP_Global</group>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>VIP_TE_Sharing_BV</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Sharing Trade Events within group</description>
+        <label>VIP TE Sharing BV</label>
+        <sharedTo>
+            <group>VIP_Bicester</group>
+        </sharedTo>
+        <sharedFrom>
+            <group>VIP_Bicester</group>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>VIP_TE_Sharing_KV</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>VIP Kildare</description>
+        <label>VIP TE Sharing KV</label>
+        <sharedTo>
+            <group>VIP_Kildare</group>
+        </sharedTo>
+        <sharedFrom>
+            <group>VIP_Kildare</group>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>VIP_TE_Sharing_LRV</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Sharing TE with Owners in LRV</description>
+        <label>VIP TE Sharing LRV</label>
+        <sharedTo>
+            <group>VIP_LaRoca</group>
+        </sharedTo>
+        <sharedFrom>
+            <group>VIP_LaRoca</group>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>VIP_TE_Sharing_LZV</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>VIP LaRoca</description>
+        <label>VIP TE Sharing LZV</label>
+        <sharedTo>
+            <group>VIP_Las_Rozas</group>
+        </sharedTo>
+        <sharedFrom>
+            <group>VIP_Las_Rozas</group>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>VIP_Visit_Sharing_FV</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Sharing TE with Owners in FV</description>
+        <label>VIP Visit Sharing FV</label>
+        <sharedTo>
+            <group>VIP_Fidenza</group>
+        </sharedTo>
+        <sharedFrom>
+            <group>VIP_Fidenza</group>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>VIP_Visit_Sharing_IV</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Sharing TE with Owners in IV</description>
+        <label>VIP Visit Sharing IV</label>
+        <sharedTo>
+            <group>VIP_Ingolstadt</group>
+        </sharedTo>
+        <sharedFrom>
+            <group>VIP_Ingolstadt</group>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>VIP_Visit_Sharing_LVV</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Sharing TE with Owners in LVV</description>
+        <label>VIP Visit Sharing LVV</label>
+        <sharedTo>
+            <group>VIP_La_Vallee</group>
+        </sharedTo>
+        <sharedFrom>
+            <group>VIP_La_Vallee</group>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>VIP_Visit_Sharing_MMV</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Sharing TE with Owners in MMV</description>
+        <label>VIP Visit Sharing MMV</label>
+        <sharedTo>
+            <group>VIP_Maasmechelen</group>
+        </sharedTo>
+        <sharedFrom>
+            <group>VIP_Maasmechelen</group>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>VIP_Visit_Sharing_WV</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Sharing TE with Owners in WV</description>
+        <label>VIP Visit Sharing WV</label>
+        <sharedTo>
+            <group>VIP_Wertheim</group>
+        </sharedTo>
+        <sharedFrom>
+            <group>VIP_Wertheim</group>
+        </sharedFrom>
+    </sharingOwnerRules>
+</SharingRules>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Old_Instance_Activity_Assigned_To_ID__c</fullName>
+    <description>The User ID in Old Salesforce to which this activity was assigned.
+
+Used for data migration from old salesforce to VR1</description>
+    <externalId>true</externalId>
+    <label>Old Instance Activity Assigned To ID</label>
+    <length>18</length>
+    <required>false</required>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

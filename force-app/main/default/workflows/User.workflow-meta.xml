@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fieldUpdates>
+        <fullName>Set_Chatter_B2B_group_frequency_to_false</fullName>
+        <field>B2B_Alerts__c</field>
+        <literalValue>0</literalValue>
+        <name>Set Chatter B2B group frequency to false</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <rules>
+        <fullName>Update B2B Chatter frequency</fullName>
+        <actions>
+            <name>Set_Chatter_B2B_group_frequency_to_false</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>ISCHANGED(Send_Custom_B2B_Email__c )  &amp;&amp; Send_Custom_B2B_Email__c = true</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+</Workflow>

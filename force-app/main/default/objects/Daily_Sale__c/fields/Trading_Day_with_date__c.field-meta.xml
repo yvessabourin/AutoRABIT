@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Trading_Day_with_date__c</fullName>
+    <externalId>false</externalId>
+    <formula>TEXT(YEAR(Trading_Date__c)) &amp;  &quot;-&quot; &amp; LPAD(TEXT(MONTH(Trading_Date__c)),2,&quot;0&quot;) &amp; &quot;-&quot; &amp; LPAD(TEXT(DAY(Trading_Date__c)),2,&quot;0&quot;) &amp; &quot; (&quot; &amp;
+CASE( MOD(  Trading_Date__c - DATE(1900, 1, 7), 7), 0, $Label.DoW_Sunday , 1, $Label.DoW_Monday, 2, $Label.DoW_Tuesday, 3,
+$Label.DoW_Wednesday, 4, $Label.DoW_Thursday, 5, $Label.DoW_Friday, 6, $Label.DoW_Saturday,&quot;Error&quot;) 
+
+&amp; &quot;)&quot;</formula>
+    <label>Trading Day</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

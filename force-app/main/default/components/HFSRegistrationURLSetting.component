@@ -1,0 +1,13 @@
+<apex:component controller="getVillageLanguageURL" access="global">
+    <apex:attribute name="theCaseId" type="Id" description="Id of the HFS Experience" assignTo="{!caseId }"/>
+    <br></br>
+    <br></br>
+    <br></br>
+    <p align="center" style='text-align:center;background:white; font-family:Arial,sans-serif'>
+        <a href="{!theURls.theVillageTermsandConditionsURL}">{!theURls.theVillageTermsandConditions }</a>  
+    </p>    
+    <p align="center" style='text-align:center;background:white; font-family:Arial,sans-serif'>
+        <a href="{!theURls.theVillagePrivacyPolicyURL}">{!theURls.theVillagePrivacyPolicy}</a>  
+    </p>
+    
+</apex:component>

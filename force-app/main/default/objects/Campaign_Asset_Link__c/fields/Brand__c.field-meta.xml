@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Brand__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>Links the asset to the associated brand</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Links the asset to the associated brand</inlineHelpText>
+    <label>Brand</label>
+    <lookupFilter>
+        <active>true</active>
+        <errorMessage>You can only select brands for asset links</errorMessage>
+        <filterItems>
+            <field>Account.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Brand</value>
+        </filterItems>
+        <isOptional>false</isOptional>
+    </lookupFilter>
+    <referenceTo>Account</referenceTo>
+    <relationshipLabel>Campaign Asset Links and Reports</relationshipLabel>
+    <relationshipName>Campaign_Asset_Links</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

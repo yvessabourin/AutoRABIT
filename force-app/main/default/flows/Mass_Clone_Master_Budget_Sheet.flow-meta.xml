@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>Clone_Records</name>
+        <label>Clone Records</label>
+        <locationX>179</locationX>
+        <locationY>679</locationY>
+        <actionName>CloneMasterBudgetSheetController</actionName>
+        <actionType>apex</actionType>
+        <connector>
+            <targetReference>Screen_Result</targetReference>
+        </connector>
+        <faultConnector>
+            <targetReference>Assign_Error_Message</targetReference>
+        </faultConnector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>masterBudgedSheets</name>
+            <value>
+                <elementReference>selectedRecords</elementReference>
+            </value>
+        </inputParameters>
+    </actionCalls>
+    <apiVersion>49.0</apiVersion>
+    <assignments>
+        <name>Assign_Empty_Result_Text</name>
+        <label>Assign Empty Result Text</label>
+        <locationX>435</locationX>
+        <locationY>385</locationY>
+        <assignmentItems>
+            <assignToReference>resultText</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Please select at least one line.</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Screen_Result</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_Error_Message</name>
+        <label>Assign Error Message</label>
+        <locationX>393</locationX>
+        <locationY>812</locationY>
+        <assignmentItems>
+            <assignToReference>resultText</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Flow.FaultMessage</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Screen_Result</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_Greater_Than_5_Result_Text</name>
+        <label>Assign Greater Than 5 Result Text</label>
+        <locationX>440</locationX>
+        <locationY>527</locationY>
+        <assignmentItems>
+            <assignToReference>resultText</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>You can only clone up to 5 records at a time.</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Screen_Result</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_Selected_Records_Count</name>
+        <label>Assign Selected Records Count</label>
+        <locationX>176</locationX>
+        <locationY>203</locationY>
+        <assignmentItems>
+            <assignToReference>selectedRecordsCount</assignToReference>
+            <operator>AssignCount</operator>
+            <value>
+                <elementReference>selectedRecords</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Check_Selected_Records_Size</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <name>Check_Selected_Records_Size</name>
+        <label>Check Selected Records Size</label>
+        <locationX>168</locationX>
+        <locationY>449</locationY>
+        <defaultConnector>
+            <targetReference>Clone_Records</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Is_Empty</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>selectedRecordsCount</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <numberValue>0.0</numberValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Empty_Result_Text</targetReference>
+            </connector>
+            <label>Is Empty</label>
+        </rules>
+        <rules>
+            <name>Is_Greater_Than_5</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>selectedRecordsCount</leftValueReference>
+                <operator>GreaterThan</operator>
+                <rightValue>
+                    <numberValue>5.0</numberValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Greater_Than_5_Result_Text</targetReference>
+            </connector>
+            <label>Is Greater Than 5</label>
+        </rules>
+    </decisions>
+    <interviewLabel>Mass Clone Master Budget Sheet {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Mass Clone Master Budget Sheet</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>Flow</processType>
+    <screens>
+        <name>Screen_Result</name>
+        <label>Screen Result</label>
+        <locationX>693</locationX>
+        <locationY>452</locationY>
+        <allowBack>false</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <fields>
+            <name>Result_Text</name>
+            <fieldText>&lt;p style=&quot;text-align: center;&quot;&gt;&lt;b style=&quot;font-size: 16px;&quot;&gt;{!resultText}&lt;/b&gt;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <showFooter>false</showFooter>
+        <showHeader>false</showHeader>
+    </screens>
+    <startElementReference>Assign_Selected_Records_Count</startElementReference>
+    <status>Active</status>
+    <variables>
+        <name>resultText</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <value>
+            <stringValue>Record(s) have been Cloned.</stringValue>
+        </value>
+    </variables>
+    <variables>
+        <name>selectedRecords</name>
+        <dataType>SObject</dataType>
+        <isCollection>true</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Master_Budget_Sheet__c</objectType>
+    </variables>
+    <variables>
+        <name>selectedRecordsCount</name>
+        <dataType>Number</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <scale>0</scale>
+        <value>
+            <numberValue>0.0</numberValue>
+        </value>
+    </variables>
+</Flow>

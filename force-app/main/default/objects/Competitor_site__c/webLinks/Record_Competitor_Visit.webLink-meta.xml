@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Record_Competitor_Visit</fullName>
+    <availability>online</availability>
+    <description>Button to kick off new Competitor Site Visit screens</description>
+    <displayType>button</displayType>
+    <linkType>page</linkType>
+    <masterLabel>Record Competitor Visit</masterLabel>
+    <openType>replace</openType>
+    <page>CompetitorRecTypeSelect</page>
+    <protected>false</protected>
+</WebLink>

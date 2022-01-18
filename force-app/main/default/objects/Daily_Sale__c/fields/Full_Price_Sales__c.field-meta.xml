@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Full_Price_Sales__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Enter the amount of Current Season Bestseller sales.  This is full price product from current season collection.  If there were no full price sales for this day enter 0.</inlineHelpText>
+    <label>Current Season Bestsellers Sales</label>
+    <precision>8</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

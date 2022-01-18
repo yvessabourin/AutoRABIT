@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Fidenza_Open_Group_Bookings</fullName>
+    <columns>Status__c</columns>
+    <columns>NAME</columns>
+    <columns>Name_of_Event__c</columns>
+    <columns>Group_Type__c</columns>
+    <columns>Expected_Arrival__c</columns>
+    <columns>Visitors_Country_of_Origin__c</columns>
+    <columns>Number_of_Visitors__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Status__c</field>
+        <operation>notEqual</operation>
+        <value>Completed,Cancelled,Proposed</value>
+    </filters>
+    <filters>
+        <field>Village__c</field>
+        <operation>equals</operation>
+        <value>Fidenza</value>
+    </filters>
+    <filters>
+        <field>Expected_Arrival__c</field>
+        <operation>greaterThan</operation>
+        <value>TODAY</value>
+    </filters>
+    <label>Fidenza Open Group Bookings</label>
+    <language>en_US</language>
+    <sharedTo>
+        <group>Location_Fidenza</group>
+    </sharedTo>
+</ListView>

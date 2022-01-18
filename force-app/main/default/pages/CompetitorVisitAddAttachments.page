@@ -1,0 +1,450 @@
+<apex:page standardController="Competitor_Visit__c" extensions="CompetitorVisitAddAttachmentsExt" sidebar="false" showHeader="false"  docType="html-5.0">
+
+
+<apex:includeScript value="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"/>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></link>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="{!URLFOR($Resource.NewTICStyles)}"></link> 
+
+<style>
+  body{
+      background: url({!URLFOR($Resource.TICDashboard, 'villageview.jpg')}) no-repeat center center fixed !important;
+     -webkit-background-size: cover !important;
+      -moz-background-size: cover !important;
+      -o-background-size: cover !important;
+      background-size: cover !important;
+  }
+
+
+.panel bg-light text-white{
+background:#FFCCFF;}
+ 
+ 
+   #spinner{
+display: none;
+width:200px; 
+    height: 50px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    text-align:center;
+    padding:10px;
+    font:normal 16px Tahoma, Geneva, sans-serif;
+    margin-left: -100px;
+    margin-top: -100px;
+    z-index:2;
+    overflow: auto;
+    border:1px solid #CCC;
+    background-color:white;
+    z-index:100;
+    padding:5px;
+    line-height:20px;
+     }
+     #opaque {
+         position: fixed;
+         top: 0px;
+         left: 0px;
+         width: 100%;
+         height: 100%;
+         z-index: 1;
+         display: none;
+         background-color: gray;
+         filter: alpha(opacity=30);
+         opacity: 0.3;
+         -moz-opacity:0.3;
+         -khtml-opacity:0.3
+     }
+     * html #opaque {
+         position: absolute;
+     }
+  
+</style> 
+  <div id="opaque"/>
+  <div id="spinner">
+  <p align="center" style='{font-family:"Arial", Helvetica, sans-serif; font-size:20px;}'>
+  <apex:image value="/img/loading32.gif"/>&nbsp;Please wait</p>
+  </div>
+<script>
+
+  $j = jQuery.noConflict();
+  
+  function showSpinner()
+  {  
+       document.getElementById('opaque').style.display='block';
+       var popUp = document.getElementById('spinner');
+       popUp.style.display = 'block';
+  } 
+
+  function hideSpinner()
+  {  
+       document.getElementById('opaque').style.display='none';
+       var popUp = document.getElementById('spinner');
+       popUp.style.display = 'none';
+  } 
+
+  function exitpage()
+  {
+    showSpinner();
+     if( (typeof sforce != 'undefined') && (sforce != null) ) {
+          sforce.one.navigateToSObject('{!visitId}');
+
+     }else{
+      window.open("/{!visitId}", "_self");     
+    }
+
+  } 
+
+  $j(document).ready(function() {
+
+    if (window.File && window.FileReader && window.FileList && window.Blob) {
+    // Great success! All the File APIs are supported.
+    } else {
+    alert('The File APIs are not fully supported in this browser.');
+    }
+
+
+  });
+
+  var maxStringSize = 6000000;    //Maximum String size is 6,000,000 characters
+    var maxFileSize = 4350000;      //After Base64 Encoding, this is the max file size
+    var chunkSize = 950000;         //Maximum Javascript Remoting message size is 1,000,000 characters
+    var attachment;
+    var attachmentName;
+    var fileSize;
+    var positionIndex;
+    var doneUploading;
+    var srcOrientation;
+    const width = 600;
+    //const height = 300;
+    const fileName = '{!compName} - {!dateToday}';
+
+  //https://forceadventure.wordpress.com/2013/07/19/uploading-attachments-to-salesforce-using-javascript-remoting/
+  //https://zocada.com/compress-resize-images-javascript-browser/
+  
+ function uploadImages() {
+
+ 
+
+  if(files.length == null || files.length > 5){
+  console.log('files.length :' + files.length );
+  alert('Please upload a maximum of 5 files at a time!');
+  clearOutput();
+  }  
+
+  else {
+  showSpinner();
+
+  var thisId = $j('#divContainer').text();
+
+      //http://www.jstips.co/en/javascript/implementing-asynchronous-loops/
+      for (let i = 0, f; f = files[i]; i++) {
+      (function(num){
+      var file = f;
+      console.log(file);
+      if(file != undefined) {
+        if(file.size <= maxFileSize) {
+            attachmentName = file.name;
+            var fileReader = new FileReader();
+            
+          
+            fileReader.onload = event => {
+            getOrientation(file, function(orientation) {
+                console.log('orientation: ' + orientation);
+                srcOrientation = orientation;
+                console.log("onload fired");
+                const img = new Image();
+                //console.log('etr :' +event.target.result);
+                img.src = event.target.result;
+                img.onload = () => {
+                const elem = document.createElement('canvas');
+                const scaleFactor = width / img.width;
+                elem.width = width;
+                elem.height = img.height * scaleFactor;
+                const ctx = elem.getContext('2d');
+                var height = img.height * scaleFactor;
+
+                ////https://stackoverflow.com/questions/7584794/accessing-jpeg-exif-rotation-data-in-javascript-on-the-client-side/32490603#32490603
+                //http://sylvana.net/jpegcrop/exif_orientation.html          
+                //https://jsfiddle.net/wunderbart/w1hw5kv1/
+                //https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/drawImage
+                //https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/transform
+                
+                  // transform context before drawing image--
+                  switch (orientation) {
+                    case 2: ctx.transform(-1, 0, 0, 1, width, 0); console.log('case 2'); break;
+                    case 3: ctx.transform(-1, 0, 0, -1, width, height ); console.log('case 3'); break;
+                    case 4: ctx.transform(1, 0, 0, -1, 0, height ); console.log('case 4'); break;
+                    case 5: ctx.transform(0, 1, 1, 0, 0, 0); console.log('case 5'); break;
+                    case 6: ctx.transform(0, 1, -1, 0, height , 0); console.log('case 6'); break;
+                    case 7: ctx.transform(0, -1, -1, 0, height , width); console.log('case 7'); break;
+                    case 8: ctx.transform(0, -1, 1, 0, 0, width); console.log('case 8'); break;
+                    default: console.log('case default'); break;
+                  }
+              
+                // img.width and img.height will give the original dimensions
+                    ctx.drawImage(img, 0, 0, width, img.height * scaleFactor);
+                   
+                    ctx.canvas.toBlob((blob) => {
+                    const file = new File([blob], fileName, {
+                        type: 'image/jpg',
+                        lastModified: Date.now()
+                    });
+                    
+                      processFile(file, i, thisId);
+                   
+                }, 'image/jpg', 1);
+                   
+            },
+          
+            fileReader.onerror = error => console.log(error);
+            });
+        };
+
+
+        fileReader.readAsDataURL(file);  //Read the body of the file
+         
+        } else {
+          alert("File must be under 4.3 MB in size.  Your file is too large.  Please try again.");
+        }
+      } else {
+        alert("You must choose a file before trying to upload it");
+      }
+      })(i); 
+    }
+
+      //hide the upload images button --- $j('#UploadImages').hide();
+      clearOutput();
+      alert("You have uploaded your image files, you can now upload more images or use the other file types below or click exit to finish");
+      //setInterval(function(){exitpage(); },4000);
+      //exitpage();
+       
+    }
+
+        
+    }
+
+
+    function getOrientation(file, callback) {
+    var reader = new FileReader();
+    reader.onload = function(e) {
+
+        var view = new DataView(e.target.result);
+        if (view.getUint16(0, false) != 0xFFD8)
+        {
+            return callback(-2);
+        }
+        var length = view.byteLength, offset = 2;
+        while (offset < length) 
+        {
+            if (view.getUint16(offset+2, false) <= 8) return callback(-1);
+            var marker = view.getUint16(offset, false);
+            offset += 2;
+            if (marker == 0xFFE1) 
+            {
+                if (view.getUint32(offset += 2, false) != 0x45786966) 
+                {
+                    return callback(-1);
+                }
+
+                var little = view.getUint16(offset += 6, false) == 0x4949;
+                offset += view.getUint32(offset + 4, little);
+                var tags = view.getUint16(offset, little);
+                offset += 2;
+                for (var i = 0; i < tags; i++)
+                {
+                    if (view.getUint16(offset + (i * 12), little) == 0x0112)
+                    {
+                        return callback(view.getUint16(offset + (i * 12) + 8, little));
+                    }
+                }
+            }
+            else if ((marker & 0xFF00) != 0xFF00)
+            {
+                break;
+            }
+            else
+            { 
+                offset += view.getUint16(offset, false);
+            }
+        }
+        return callback(-1);
+    };
+    reader.readAsArrayBuffer(file);
+}
+  
+
+
+    function processFile(file, i, thisId){
+
+       var attachmentName = file.name;
+          var fileReader = new FileReader();
+
+          fileReader.onloadend = function(e) {
+            attachment = window.btoa(this.result);  //Base 64 encode the file before sending it
+            positionIndex=0;
+            fileSize = attachment.length;
+            console.log("Total Attachment Length: " + fileSize);
+            doneUploading = false;
+            if(fileSize < maxStringSize) {
+              uploadAttachment(null,i,thisId, attachment,attachmentName);
+              hideSpinner(); 
+            } else {
+              alert("Base 64 Encoded file is too large.  Maximum size is " + maxStringSize + " your file is " + fileSize + ".");
+              hideSpinner();
+            }
+             
+          }
+          fileReader.onerror = function(e) {
+            alert("There was an error reading the file.  Please try again.");
+          }
+          fileReader.onabort = function(e) {
+            alert("There was an error reading the file.  Please try again.");
+          }
+
+        fileReader.readAsBinaryString(file);  
+    }
+
+
+//Method to send a file to be attached to the Account bound to the page by the standardController
+//Sends parameters: Account Id, Attachment (body), Attachment Name, and the Id of the Attachment if it exists to the controller   
+    function uploadAttachment(fileId, fileIndex, theId, att, attName) {
+      var attachmentBody = "";
+      if(fileSize <= positionIndex + chunkSize) {
+        attachmentBody = att.substring(positionIndex);
+        doneUploading = true;
+      } else {
+        attachmentBody = att.substring(positionIndex, positionIndex + chunkSize);
+      }
+      console.log("Uploading " + attachmentBody.length + " chars of " + fileSize);
+
+      CompetitorVisitAddAttachmentsExt.doUploadAttachment(
+      theId, attachmentBody, attName, fileId, 
+        function(result, event) {
+          console.log(result);
+          if(event.type === 'exception') {
+            console.log("exception");
+            console.log(event);
+          } else if(event.status) {
+            if(result.substring(0,3) == '00P') {
+              if(doneUploading == true) {
+              } else {
+                positionIndex += chunkSize;
+                uploadAttachment(result);
+              }
+            }
+          } else {
+            console.log(event.message);
+          }
+        },
+        {buffer: true, escape: true, timeout: 120000}
+      );
+    }
+
+    function clearOutput(){
+        document.getElementById('listelements').innerHTML = '';
+    }
+
+    function clearListOutput(){
+        document.getElementById('Additionlistelements').innerHTML = '';
+    }
+
+
+$j(function(){
+
+  function handleFileSelect(evt) {
+    files = evt.target.files; // FileList object
+    // files is a FileList of File objects. List some properties.
+    var output = [];
+    for (var i = 0, f; f = files[i]; i++) {
+      output.push('<li id="file'+i+'" name="file'+i+'"><strong>', escape(f.name), '</strong> (', f.type || 'n/a', ') - ',
+                  f.size, ' bytes ',
+                  '</li>');
+    }
+    document.getElementById('listelements').innerHTML = '<ul>' + output.join('') + '</ul>';
+  }
+
+  document.getElementById('files').addEventListener('change', handleFileSelect, false);
+
+});
+
+
+
+$j(function(){
+
+  function handleAddFileSelect(evt) {
+
+     var input = document.getElementById('{!$Component.theFileForm.Addfile}');
+     var files = input.files;
+     var output = '';
+     console.log(files);
+     for(var i = 0, f; f = files[i]; i++){
+      output += f.name ;
+     }
+    
+   document.getElementById('Additionlistelements').innerHTML = '<ul>' + output + '</ul>';
+   setInterval(function(){clearListOutput(); },4000);
+
+  }
+
+  //document.getElementById('{!$Component.Addfile}').addEventListener('change', handleAddFileSelect, false);
+  document.getElementById('{!$Component.theFileForm.Addfile}').onchange = handleAddFileSelect;
+
+});
+   
+</script>
+
+  <div class="container">
+    <div class="panel panel-default disable">
+      <div class="panel-heading">Please upload upto 5 Image files here</div>
+        <div class="panel-body">       
+          <input type="file" id="files" name="files[]" multiple="true" class="btn" />
+          <output id="list"></output>
+          <div class="panel panel-default disable">
+            <div class="panel-body" id="listelements" style="background-color:#F5F5F5"></div>
+          </div>
+        <input type="button" id="UploadImages" name="upload images" value="upload images" onclick="uploadImages();"  />
+        </div>
+      </div>
+    <div>
+  </div>
+
+  <br></br>
+  <br></br>
+  
+  <div id="divContainer" hidden="false">{!visitId}</div>
+  </div> 
+
+  <div>
+  <div class="container" id="additionFiles">
+    <div class="panel panel-default disable" id="hfspanel" name="hfspanel">
+      <div class="panel-heading">Upload additional txt,pdf,ppt or xls files (1 at a time)</div>
+        <div class="panel-body">
+          <apex:form enctype="multipart/form-data" id="theFileForm">
+          <apex:inputFile value="{!file}" fileName="{!fn}" id="Addfile"/>
+          <br></br>  
+            <div class="panel panel-default disable">
+              <div class="panel-body" id="Additionlistelements" style="background-color:#F5F5F5">
+                <apex:dataTable value="{!myattachments}" var="ma" rendered="{!myattachments != NULL}">
+                <!-- <apex:column value="{!ma.title}"/> -->
+                </apex:dataTable>
+              </div>
+            </div>
+          <apex:commandbutton action="{!go}" value="Upload Files"  status="pageStatus" onclick="showSpinner()" />
+          <br></br>  
+          </apex:form>  
+          <div>
+          <br></br>  
+          <input type="button" value="Finish/Exit" onclick="exitpage();" id="finishButton2"/>   
+          <br></br>  
+          </div>   
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+</apex:page>

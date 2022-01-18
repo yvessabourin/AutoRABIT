@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>50.0</apiVersion>
+    <available>true</available>
+    <description>Email sent to guests when the collection of a Click &amp; Collect request is completed</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>HFS Call And Collect Checkout</name>
+    <style>none</style>
+    <subject>Call &amp; Collect Completed</subject>
+    <type>visualforce</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

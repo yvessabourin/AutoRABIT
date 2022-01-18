@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Delete_Guest</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <linkType>javascript</linkType>
+    <masterLabel>Delete Guest</masterLabel>
+    <openType>onClickJavaScript</openType>
+    <protected>false</protected>
+    <url>{!REQUIRESCRIPT(&quot;/soap/ajax/30.0/connection.js&quot;)} 
+{!REQUIRESCRIPT(&quot;/soap/ajax/30.0/apex.js&quot;)} 
+
+
+userConsent = confirm( 
+&apos;Are you sure you wish to delete Guest record ? &apos; 
+); 
+if(userConsent == true) 
+{ 
+
+var d = &apos;&apos;; 
+d = sforce.apex.execute(&quot;apiCustomerUtilities&quot;, &quot;deleteGuest&quot;, {guid:&apos;{!Account.Customer_GUID__c}&apos;}); 
+
+alert(d);
+
+//if (d.indexOf(&quot;successfully&quot;) &gt; -1 ){
+    window.location = &apos;/home/home.jsp&apos;;
+//} 
+ 
+
+
+}</url>
+</WebLink>

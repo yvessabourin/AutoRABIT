@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>New_Travel_Trade_Meeting</fullName>
+    <availability>online</availability>
+    <description>Override for the standard button which also populates the Account field</description>
+    <displayType>massActionButton</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <linkType>url</linkType>
+    <masterLabel>New Travel Trade Meeting</masterLabel>
+    <openType>replace</openType>
+    <protected>false</protected>
+    <requireRowSelection>true</requireRowSelection>
+    <url>{!
+IF(CONTAINS($User.UIThemeDisplayed, &apos;Theme4&apos;)
+,
+URLFOR(&quot;/lightning/o/Travel_Trade_Meeting__c/new?backgroundContext=%2Flightning%2Fr%2FContact%2F&quot; &amp; Contact.Id &amp; &quot;%2Fview&quot;
+&amp; &quot;&amp;ent=Contact&amp;navigationLocation=RELATED_LIST&quot;
+&amp; &quot;&amp;defaultFieldValues=&quot; 
+&amp; &quot;Tourism_Contact__c=&quot; &amp; Contact.Id &amp;
+&quot;,Tourism_Account__c=&quot; &amp; Account.Id &amp;
+&quot;,VR_Representative__c=&quot; &amp; User.Id &amp;
+&quot;,Date_of_Meeting__c=&quot; &amp; TEXT(TODAY())
+)
+,
+URLFOR(&quot;/a03/e?ent=Contact&quot; &amp; 
+&quot;&amp;CF00Nb0000007PTi0=&quot; &amp; Contact.Name &amp;
+&quot;&amp;CF00Nb0000007PTi0_lkid=&quot; &amp; Contact.Id &amp;
+&quot;&amp;CF00Nb0000007PTd7=&quot; &amp; Account.Name &amp;
+&quot;&amp;CF00Nb0000007PTd7_lkid=&quot; &amp; Account.Id &amp;
+&quot;&amp;CF00Nb0000007PTjv=&quot; &amp; URLENCODE(User.FirstName) &amp; &quot; &quot; &amp; URLENCODE(User.LastName) &amp;
+&quot;&amp;CF00Nb0000007PTjv_lkid=&quot; &amp; User.Id &amp;
+&quot;&amp;saveURL=%2F&quot; &amp; Contact.Id &amp;
+&quot;&amp;retURL=%2F&quot; &amp; Contact.Id
+)
+)}</url>
+</WebLink>

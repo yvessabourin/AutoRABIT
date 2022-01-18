@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Group_Booking__c.Organisation__c</field>
+    </columns>
+    <columns>
+        <field>Group_Booking__c.Number_of_Visitors_Expected__c</field>
+    </columns>
+    <currency>EUR</currency>
+    <description>For HM dashboard</description>
+    <filter>
+        <criteriaItems>
+            <column>Group_Booking__c.Status__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>false</isUnlocked>
+            <operator>notEqual</operator>
+            <value>No Show,Cancelled</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Group_Booking__c.Village__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Bicester</value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
+    <format>Tabular</format>
+    <name>BV groups / MICE tomorrow</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CustomEntity$Group_Booking__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>Group_Booking__c.Expected_Arrival__c</dateColumn>
+        <interval>INTERVAL_TOMORROW</interval>
+    </timeFrameFilter>
+</Report>

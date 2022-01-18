@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <aggregateTypes>Average</aggregateTypes>
+        <field>Case$Total_Spent_Amount__c.CONVERT</field>
+    </columns>
+    <columns>
+        <field>Case$CaseNumber</field>
+    </columns>
+    <currency>GBP</currency>
+    <description>HFS Registration Average Spend</description>
+    <format>Matrix</format>
+    <groupingsAcross>
+        <dateGranularity>Day</dateGranularity>
+        <field>Case$Service_Date__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsAcross>
+    <name>HFS Registration Average Spend</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>HFS_Registrations__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>Case$Service_Date__c</dateColumn>
+        <interval>INTERVAL_CURFY</interval>
+    </timeFrameFilter>
+</Report>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Trade_Event_Attendee_Compact_Layout</fullName>
+    <fields>Contact__c</fields>
+    <fields>Trade_Event__c</fields>
+    <fields>Followed_Up__c</fields>
+    <label>Trade Event Attendee Compact Layout</label>
+</CompactLayout>

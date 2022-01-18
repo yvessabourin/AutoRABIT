@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help>Inserire il numero delle unità dei Current Season Bestseller. Questo è un prodotto full price della collezione della stagione in corso. Se non ci sono state unità full price vendute durante il giorno inserire 0.</help>
+    <label>Unità Current Season Bestsellers</label>
+    <name>Full_Price_Units__c</name>
+</CustomFieldTranslation>

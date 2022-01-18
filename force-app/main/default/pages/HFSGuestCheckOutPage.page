@@ -1,0 +1,3248 @@
+<apex:page standardController="Case" sidebar="false" showHeader="false" standardStylesheets="false"  applyBodyTag="false" docType="html-5.0" extensions="HandsFreeShoppingGuestExtension">    
+
+            <apex:includeScript value="{!URLFOR($Resource.HFS_qrv4, '/instascan.js')}"/>
+            <apex:includeScript value="{!URLFOR($Resource.HFS_qrv4, '/adapter.min.js')}"/>
+            <apex:includeScript value="{!URLFOR($Resource.HFS_qrv4, '/jquery.min.js')}"/>
+            <apex:includeScript value="{!URLFOR($Resource.DMScan, '/index.min.js')}"/>
+    		<audio id="audio" src="{!URLFOR($Resource.HFS_beep, '/beep-06.wav')}" autostart="false" ></audio>
+    
+    <html ng-app="hfsguestApp" lang="en" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <head>
+            <meta charset="utf-8" />
+            <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+            <meta name="viewport" content="width=device-width, initial-scale=1" />
+            <title>Add new Shopping service</title>
+            
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+            <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap3-dialog/1.34.9/css/bootstrap-dialog.min.css" rel="stylesheet" type="text/css" />
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />          
+            <link rel="stylesheet" href="{!URLFOR($Resource.FlagPack, 'flag-icon-css-master/css/flag-icon.css')}" />
+            <link rel="stylesheet" href="{!URLFOR($Resource.NewTICStyles)}" />
+            
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"/>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap3-dialog/1.34.9/js/bootstrap-dialog.min.js" />                       
+            <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular.min.js" />
+            
+            <!-- Language Selector Dependencies  https://codepen.io/brapastor/pen/BWyomB -->
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.2/css/bootstrap-select.min.css"></link> 
+        <!--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/0.8.2/css/flag-icon.min.css"></link>      -->
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.2/js/bootstrap-select.min.js"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>       
+            
+
+            <style type="text/css">
+                                        
+             body{
+                 
+                 height: 1250px;         
+                 background: url({!URLFOR($Resource.TICDashboard, 'HFshop.png')}) 
+                 no-repeat center center fixed; 
+                 -webkit-background-size: cover; 
+                 -moz-background-size: cover; 
+                 -o-background-size: cover; 
+                 -webkit-overflow-scrolling: touch;
+                 -overflow-y: scroll;
+                 background-size: cover; 
+
+             }-
+            
+            
+            .modal {
+                text-align: center;
+                padding: 0!important;
+            }
+
+         
+            .modal:before {
+                content: '';
+                display: inline-block;
+                height: 100%;
+                vertical-align: middle;
+                margin-right: -4px;
+            }
+            
+            .modal-dialog {
+                display: inline-block;
+                text-align: left;
+                vertical-align: middle;
+            }
+            
+            .table>tbody>tr{
+                opacity: 0.9;
+            }
+            
+            
+            /* checkbox thingy */
+            
+            /* Core */
+            
+            .filters input {
+                display: none;
+            }
+            
+            .filters .icon {
+                text-align: center;
+                display: inline-block;
+            }
+            
+            .filters .icon .fa {
+                visibility: hidden;
+            }
+            
+            .filters input:checked + .icon .fa {
+                visibility: visible;
+            }
+            
+            
+            /* IE8 and lower disabling hack because it does not support the :checked selector */
+            
+            .filters input {
+                display: inline\9;
+            }
+            
+            .filters .icon {
+                display: none\9;
+            }
+            
+            
+            /* Optional */
+            
+            .filters {
+                /* prevent accidental selection when clicking */
+                user-select: none;
+                -ms-user-select: none;
+                -moz-user-select: none;
+                -webkit-user-select: none;
+                opacity: 0.9;
+            }
+            
+            .filters label {
+                cursor: pointer;
+                opacity: 0.9;
+            }
+            
+            
+            /* Checkbox styling */
+            
+            .filters input {
+                margin: 0 .1em; /* Use something similar to .icon */
+            }
+            
+            .filters .icon {
+                background: #fcf4d2;
+                border: 1px solid;
+                border-color: #cac3a8 #f9f0c2 #f9f0c2 #cac3a8;
+                border-radius: .3em;
+                text-align: center;
+                /*font-size: .8em;*/
+                color: #666;
+                margin: 0 .1em;
+                /* height: 1em;
+                width: 1em; */
+                padding: 0.15em;
+                line-height: 1.1em;
+                /**
+                * Values for height, width and line-height
+                * may need to be adjusted depending on your font.
+                */
+            }
+            
+            
+            /* Inline menu styling */
+            
+            .filters {
+                list-style: none;
+                padding: 8px;
+                display: inline-block;
+            }
+            
+            .filters li {
+                display: inline-block;
+                margin-right: 0.3em;
+            }
+            
+            
+            /* Extra beautify */
+            
+            
+            .filters {
+                border-radius: 4px;
+                box-shadow: 0 0 7px rgba(0,0,0,0.15);
+                background: #fff;
+            }
+
+
+            	#recommend label {
+                display: inline-block; 
+                text-align: center;
+                }
+
+                #recommend input {
+                margin: 0 auto;
+                background-color: #FFF;
+                float:bottom;
+                display: block;
+                }
+
+                #satisfaction label {
+                display: inline-block; 
+                text-align: center;
+                }
+
+                #satisfaction input {
+                margin: 0 auto;
+                background-color: #FFF;
+                float:bottom;
+                display: block;
+                }
+
+                .feedBackform {
+                box-shadow: 0 0 7px rgba(0,0,0,0.15);
+                background: #fff;
+                border-radius: 4px;
+                 display: inline-block;
+                 opacity: 0.9;
+                }
+
+
+            
+            </style>
+
+            <script>
+                function isLightningRedirect(inUrl){
+                    if(  ('{!$User.UIThemeDisplayed}' == 'Theme4t' || '{!$User.UIThemeDisplayed}' == 'Theme4d' || '{!$User.UIThemeDisplayed}' == 'Theme4u') && (typeof sforce != 'undefined') && (sforce != null) ) {
+                        sforce.one.navigateToURL(inUrl);
+                    } else {
+                        window.location = inUrl;
+                    }
+                }
+            </script>
+
+            <script>
+
+            var guesttermscontentdata = '';
+            var termscontentdata = '';
+            var privacynoticecontentdata = '';
+            var villageTermsURL = 'https://www.thebicestervillageshoppingcollection.com/';
+            var selectedlanguageValue = '';
+            
+           
+            var guesttypeVIP = ''; //VIP
+            
+        
+            console.log('guesttypeVIP ' + guesttypeVIP);
+            
+            // define the app
+            var hfsguestApp = angular.module('hfsguestApp', []);
+            // add the controller         
+            hfsguestApp.controller('GuestCaseCtrl',['$log','$scope', '$window','$sce' ,  function($log,$scope,$window,$sce){
+
+                //--------------------------------------------------
+                $scope.case = ('{!JSENCODE(CaseInfo)}' != '') ? JSON.parse('{!JSENCODE(CaseInfo)}')[0] : null;
+                $scope.caseitems = ('{!JSENCODE(CaseItems)}' != '') ? JSON.parse('{!JSENCODE(CaseItems)}') : null;
+                $scope.$log = $log;
+                $scope.villagename = '{!JSENCODE(userVillage)}';
+
+                $scope.result_c = '';
+
+                $scope.GuestBagsPendingCollection = ('{!JSENCODE(GuestBagsPendingCollection)}' != '') ? JSON.parse('{!JSENCODE(GuestBagsPendingCollection)}') : null;
+                $scope.GuestBagsCollection = ('{!JSENCODE(GuestBagsCollection)}' != '') ? JSON.parse('{!JSENCODE(GuestBagsCollection)}') : null;
+                
+                $scope.showBrandListSearch  = false;
+                $scope.showchangeitemmodal  = false;
+                
+                $scope.brandName  = '';
+                $scope.selectedItem = '';
+                $scope.selectedItemID = '';
+                $scope.selectedItemvalue = '';  
+
+                $scope.hfsitembagcount = '';
+
+                $scope.table = { fields: [] };
+                $scope.tableString = '';
+
+                  $scope.addFormField = function() {
+                    $scope.table.fields.push('');
+                  }
+
+                $scope.pickuplocations = ('{!JSENCODE(pickuplocations)}' != '') ? JSON.parse('{!JSENCODE(pickuplocations)}') : null;
+                $scope.selectedpickuplocation =  $scope.pickuplocations[0].val
+
+                $scope.choices = [{id: 'choice1', name: 'choice1'}];
+                     
+                   $scope.showAddChoice = function(choice) {
+                     return choice.id === $scope.choices[$scope.choices.length-1].id;
+                   };
+               
+                $scope.selectables = [
+                    { label: "Awaiting Pick-up from Brand", value: "Awaiting Pick-up from Brand"},
+                    { label:"Ready for Guest Collection", value: "Ready for Guest Collection"},
+                    { label: "Guest Collected", value: "Guest Collected"}
+                ];
+                
+                $scope.whatClassIsItemRow = function(caseitem){
+                    
+                    if(caseitem.Status__c === 'Awaiting Pick-up from Brand'){
+                        return 'danger';
+                    }
+                    else if(caseitem.Status__c === 'Ready for Guest Collection'){
+                        return 'success';
+                    }                     
+                        else{
+                            return 'active';
+                        }
+                    
+                }
+                
+                $scope.UpdateItem = function(caseitem){
+                    // display the popup, and populate the dropdown
+                    console.log('clicked item');
+                    $scope.selectedItem = caseitem.Village_Presence__r.Name;
+                    $scope.selectedItemID = caseitem.Id;
+                    $scope.selectedItemvalue = caseitem.Status__c;      
+                    $scope.showchangeitemmodal  = true;    
+                    $j('#myitemModal').show();   
+
+                }
+
+                $scope.showFeedbackForm = false;      
+
+                $scope.viewFeedBackForm = function() {
+
+                    var btnOne = $j('#checkboxterms1:checked').is(":checked");   
+                    var btnTwo = $j('#checkboxterms3:checked').is(":checked")
+
+                    if(btnOne == true && btnTwo == true){
+                        $scope.showFeedbackForm = true;
+                    }
+                    else{
+                        $scope.showFeedbackForm = false;
+                    }
+
+                }
+
+
+
+                $scope.UpdateGuestBag = function(GuestBag){
+                    // display the popup, and populate the dropdown
+                    console.log('clicked UpdateGuestBag');
+
+                }
+
+                $scope.whatClassIsItemRowBAG = function(caseitem){  
+                    //Background color             
+                    return 'active';                      
+                }
+                
+                
+                $scope.rec = true; 
+                $scope.sat = true; 
+                $scope.state = true;  
+                $scope.toggleImprovements = function($event) {
+                    console.log('event value' + $event.target.value);
+                    val = $event.target.value;
+
+                    if(val == 'rec0' || val == 'rec1' || val == 'rec2'){
+                        $scope.rec =  false;
+                    }
+                    else if(val == 'rec3' || val == 'rec4' || val == 'rec5' || val == 'rec6' || val == 'rec7' || val == 'rec8' || val == 'rec9' || val == 'rec10'){
+                         $scope.rec =  true;
+                    }
+                    else if(val == 'sat1' || val == 'sat2'){
+                        $scope.sat =  false;
+                    }else{
+                        $scope.sat =  true;
+                    }
+
+                    if($scope.rec == false || $scope.sat == false){
+                        $scope.state = false;
+                    }else{
+                        $scope.state = true;
+                    }
+                }
+                
+                
+                
+                
+                //-------------------------------------------		
+
+                $scope.SummaryScannedGuestBag = 'Summary - Scanned Guest Bag';
+            	$scope.languagelabels = '';
+            	$scope.selectedlanguage = '';
+            	$scope.selectedLang = 'en';
+            	$scope.GuestHandover = 'Guest Handover';
+                $scope.Brand = 'Brand';
+                $scope.Barcode = 'Barcode';
+                $scope.NoBagsYet = 'No Bags Yet';
+                $scope.TotalBagsforCollection = 'Total Bags for Collection';
+                $scope.BagCollectionConfirmation = 'I confirm that I have collected all bags listed above and they are in good condition / undamaged';
+                $scope.HFSFinishedConfirmation = 'I confirm that I have finished my HFS experience';
+                $scope.ClearSignatureButton = 'Clear Signature';
+                $scope.CompleteHandoverButton = 'Complete Handover';
+                $scope.CancelButton = 'Cancel';
+                $scope.BackButton = 'Back';
+                $scope.Whatwasthevalueofyourspendtoday = 'What was the value of your spend today';
+                $scope.Lessthanplanned = 'Less than planned';
+                $scope.Morethanplanned = 'More than planned';
+                $scope.Considerablymorethanplanned = 'Considerably more than planned';
+                $scope.Spentasmuchasexpected = 'Spent as much as expected';
+                $scope.Whatisyourlevelofsatisfactionwiththeservice = 'What is your level of satisfaction with the service';
+                $scope.Highlydissatisfied = 'Highly dissatisfied';
+                $scope.Highlysatisfied = 'Highly satisfied';
+                $scope.Howlikelyareyoutorecommendtheservice = 'How likely areyou to recommend the service';    
+                $scope.Notlikelyatall = 'Not likely at all';
+                $scope.Verylikely = 'Very likely';
+                $scope.WhatcouldweImprove = 'What could we Improve';
+               
+                
+				$scope.updateLanguage = function() {            
+               
+               var elem = angular.element(document.querySelector("#theLanguagePicker"));
+               
+                 $log.log('the selected Language was ' + elem.val());
+                 var selectedlanguage = elem.val();
+                   		
+					Visualforce.remoting.Manager.invokeAction(
+                        '{!$RemoteAction.HandsFreeShoppingGuestExtension.getLanguageLabels}',
+                         selectedlanguage ,
+                        function(result, event){
+                            if (event.status) {                                          
+                                if(result.startsWith("ERROR") ){
+                                    // display error
+                                    $log.log('ERROR .... ' + result );
+                                }
+                                else
+                                {
+							        $log.log('NEW Language .... ' + result );
+                                    $scope.languagelabels = angular.fromJson(result);   
+                                    $log.log('$scope.languagelabels .... ' + $scope.languagelabels );
+                                    for (x in $scope.languagelabels) {
+                                    
+                                    	$log.log('$scope.languagelabels[x].LabelName .... ' + $scope.languagelabels[x].LabelName );
+                                    	$log.log('$scope.languagelabels[x].LabelValue .... ' + $scope.languagelabels[x].LabelValue );
+                                    	
+						                if($scope.languagelabels[x].LabelName == 'SummaryScannedGuestBag'){
+						                    $scope.SummaryScannedGuestBag = $scope.languagelabels[x].LabelValue;
+						                }
+						                if($scope.languagelabels[x].LabelName == 'GuestHandover'){
+						                    $scope.GuestHandover = $scope.languagelabels[x].LabelValue;
+						                }
+						                if($scope.languagelabels[x].LabelName == 'Brand'){
+						                    $scope.Brand = $scope.languagelabels[x].LabelValue;
+						                }
+						                if($scope.languagelabels[x].LabelName == 'Barcode'){
+						                    $scope.Barcode = $scope.languagelabels[x].LabelValue;
+						                }
+						                if($scope.languagelabels[x].LabelName == 'NoBagsYet'){
+						                    $scope.NoBagsYet = $scope.languagelabels[x].LabelValue;
+						                }
+						                if($scope.languagelabels[x].LabelName == 'TotalBagsforCollection'){
+						                    $scope.TotalBagsforCollection = $scope.languagelabels[x].LabelValue;
+						                }
+						                if($scope.languagelabels[x].LabelName == 'BagCollectionConfirmation'){
+						                    $scope.BagCollectionConfirmation = $scope.languagelabels[x].LabelValue;
+						                }
+						                if($scope.languagelabels[x].LabelName == 'HFSFinishedConfirmation'){
+						                    $scope.HFSFinishedConfirmation = $scope.languagelabels[x].LabelValue;
+						                }
+						                if($scope.languagelabels[x].LabelName == 'ClearSignatureButton'){
+						                    $scope.ClearSignatureButton = $scope.languagelabels[x].LabelValue;
+						                }
+						                if($scope.languagelabels[x].LabelName == 'CompleteHandoverButton'){
+						                    $scope.CompleteHandoverButton = $scope.languagelabels[x].LabelValue;
+						                }
+						                if($scope.languagelabels[x].LabelName == 'CancelButton'){
+						                    $scope.CancelButton = $scope.languagelabels[x].LabelValue;
+						                }
+						                if($scope.languagelabels[x].LabelName == 'BackButton'){
+						                    $scope.BackButton = $scope.languagelabels[x].LabelValue;
+						                }
+						                if($scope.languagelabels[x].LabelName == 'Whatwasthevalueofyourspendtoday'){
+						                    $scope.Whatwasthevalueofyourspendtoday = $scope.languagelabels[x].LabelValue;
+						                }
+						                if($scope.languagelabels[x].LabelName == 'Lessthanplanned'){
+						                    $scope.Lessthanplanned = $scope.languagelabels[x].LabelValue;
+						                }
+						                if($scope.languagelabels[x].LabelName == 'Morethanplanned'){
+						                    $scope.Morethanplanned = $scope.languagelabels[x].LabelValue;
+						                }
+						                if($scope.languagelabels[x].LabelName == 'Considerablymorethanplanned'){
+						                    $scope.Considerablymorethanplanned = $scope.languagelabels[x].LabelValue;
+						                }
+						                if($scope.languagelabels[x].LabelName == 'Spentasmuchasexpected'){
+						                    $scope.Spentasmuchasexpected = $scope.languagelabels[x].LabelValue;
+						                }
+						                if($scope.languagelabels[x].LabelName == 'Whatisyourlevelofsatisfactionwiththeservice'){
+						                    $scope.Whatisyourlevelofsatisfactionwiththeservice = $scope.languagelabels[x].LabelValue;
+						                }
+						                if($scope.languagelabels[x].LabelName == 'Highlydissatisfied'){
+						                    $scope.Highlydissatisfied = $scope.languagelabels[x].LabelValue;
+						                }
+						                if($scope.languagelabels[x].LabelName == 'Highlysatisfied'){
+						                    $scope.Highlysatisfied = $scope.languagelabels[x].LabelValue;
+						                }	
+						                if($scope.languagelabels[x].LabelName == 'Howlikelyareyoutorecommendtheservice'){
+						                    $scope.Howlikelyareyoutorecommendtheservice = $scope.languagelabels[x].LabelValue;
+						                }
+						                if($scope.languagelabels[x].LabelName == 'Notlikelyatall'){
+						                    $scope.Notlikelyatall = $scope.languagelabels[x].LabelValue;
+						                }
+						                if($scope.languagelabels[x].LabelName == 'Verylikely'){
+						                    $scope.Verylikely = $scope.languagelabels[x].LabelValue;
+						                }
+						                if($scope.languagelabels[x].LabelName == 'WhatcouldweImprove'){
+						                    $scope.WhatcouldweImprove = $scope.languagelabels[x].LabelValue;
+						                }					    
+
+			            			}
+ 			
+                                    $scope.$apply();
+                                                                                      
+                                }
+                            }                                            
+                	},{escape: false}
+                	);
+                	}                
+                //--------------------------------------------------
+            
+                $scope.villagename = '{!JSENCODE(userVillage)}';
+                $scope.brandName  = '';
+                $scope.contactList = [];
+                $scope.showActivatingBrandDiv = false;
+     
+                $scope.languagelabels = '';
+                $scope.selectedlanguage = '{!JSENCODE(defaultLang)}';                    
+				$scope.selectedLang = '{!JSENCODE(defaultLang)}';
+				document.getElementById("theLanguagePicker").value = '{!JSENCODE(defaultLang)}';
+                
+   				$scope.GuestBagsCollection = ('{!JSENCODE(GuestBagsCollection)}' != '') ? JSON.parse('{!JSENCODE(GuestBagsCollection)}') : null;
+                          
+                $scope.NonPrivilegeGuest = 'Non-Privilege Guest';
+                $scope.PrivilegeGuest = 'Privilege Guest';
+                $scope.ScanOrManuallyEnter = 'Scan Guest Code or enter manually';
+              
+
+            }]);
+            
+            
+            
+            $j = jQuery.noConflict();
+            
+                        // Initiates the flag icons as options
+                        $j(function(){
+                            $j('.selectpicker').selectpicker();
+                        });
+                        
+                        
+            var homeUrl;
+            
+            
+            
+            var villagename = '{!JSENCODE(userVillage)}';
+            
+            var guestfname;
+            var guestlastname;
+            var guestemail;
+            var guestmobile;
+            var guestsalutation;
+            
+            var guestID;
+            var scanner = '';
+            
+            $j(document).ready(function() {
+                let lugaggeAndLoansPermission = {!$Permission.LGL_Permission};
+        
+                if (lugaggeAndLoansPermission) {
+                    $j('#lgldash').show();
+                } 
+                                 
+                $j('#LanguageSelectDiv').hide();
+                
+                startCamera();
+                
+                
+                if(villagename == 'Bicester'){
+                    $j('#currencyIcon1').addClass('fa fa-gbp');
+                    }
+                else{
+                    $j('#currencyIcon1').addClass('fa fa-eur');
+                    }
+                                              
+                $j('#lockpassword').keyup(function(event){                  
+                    var keycode = (event.keyCode ? event.keyCode : event.which);
+                    if(keycode == '13'){
+                        checkPass();                       
+                    }
+                });
+                
+                
+                //startCamera();    
+                
+                //SCAN TEMPORAY RSILVA
+                
+                                
+                $j("#hfsmodal").click(function() {
+                    hfsmodalfuncTerms($j('#selectedlanguage').val());
+                });   
+                
+                $j("#hfsmodallink").click(function() {             
+                    hfsmodalfuncTerms($j('#selectedlanguage').val());               
+                });   
+                
+                $j("#selectedlanguage").on('change',function() {             
+                    console.log('Selected Language:' + $j('#selectedlanguage').val());
+                    hfsmodalfuncTerms($j('#selectedlanguage').val());
+                });    
+                
+                
+                function hfsmodalfuncTerms(lang){
+                    
+                    console.log('about to get termsXXXX....');
+                    var TermsURLmiddle = '/legal/terms-and-conditions/';
+                    
+                    TermsURLmiddle = lang + TermsURLmiddle;
+                    
+                    if(lang == 'ar'){             
+                        $j('#termsdiv').css("direction", "rtl");
+                        $j('#termsdiv').css("text-align","right");
+                    }else
+                    {
+                        $j('#termsdiv').css("direction", "ltr");
+                        $j('#termsdiv').css("text-align","left");
+                    }
+                    
+                    
+                    console.log('HF' + villageTermsURL + TermsURLmiddle + '?frame=false');
+                    
+                    $j.get(villageTermsURL + TermsURLmiddle + '?frame=false', function(response) {
+                        console.log('got response = ' + response);
+                        var html = $j.parseHTML( response );
+                        termscontentdata =  $j(html).find( "div.module-free-text-content" ).html();
+                        $j('#termsdiv').html(termscontentdata);
+                        console.log('got termscontentdata = ' + termscontentdata);
+                    });
+                    
+                }
+                
+                
+                
+                
+                $j("#guestmodal").click(function() {
+                    guestmodalfuncTerms($j('#guestselectedlanguage').val());
+                });   
+                
+                $j("#guestmodalterms").click(function() {             
+                    guestmodalfuncTerms($j('#guestselectedlanguage').val());               
+                });   
+                
+                $j("#guestselectedlanguage").on('change',function() {             
+                    guestmodalfuncTerms($j('#guestselectedlanguage').val());
+                });    
+                
+                
+                function guestmodalfuncTerms(lang){
+                    
+                    console.log('about to get termsXXXX....');
+                    var TermsURLmiddle = '/legal/terms-and-conditions/';
+                    
+                    TermsURLmiddle = lang + TermsURLmiddle;
+                    
+                    if(lang == 'ar'){             
+                        $j('#guesttermsdiv').css("direction", "rtl");
+                        $j('#guesttermsdiv').css("text-align","right");
+                    }else
+                    {
+                        $j('#guesttermsdiv').css("direction", "ltr");
+                        $j('#guesttermsdiv').css("text-align","left");
+                    }
+                    
+                    
+                    /*$j.get(villageTermsURL + TermsURLmiddle + '?frame=false', function(response) {
+                        console.log('got response = ' + response);
+                        var html = $j.parseHTML( response );
+                        guesttermscontentdata =  $j(html).find( "div.module-free-text-content" ).html();
+                        $j('#guesttermsdiv').html(guesttermscontentdata);
+                        console.log('got guesttermscontentdata = ' + guesttermscontentdata);
+                    });*/
+                    
+                }
+                
+                
+                
+                
+                /*$j("#hfsmodallinkprivacy2").click(function() {             
+                    hfsmodalfuncPrivacyNotice($j('#selectedlanguageprivacy').val());               
+                });  
+                
+                
+                
+                $j("#hfsmodalprivacy").click(function() {
+                    hfsmodalfuncPrivacyNotice($j('#selectedlanguageprivacy').val());
+                }); 
+                
+                $j("#hfsmodallinkprivacy").click(function() {             
+                    hfsmodalfuncPrivacyNotice($j('#selectedlanguageprivacy').val());               
+                });  
+                
+                $j("#selectedlanguageprivacy").on('change',function() {             
+                    hfsmodalfuncPrivacyNotice($j('#selectedlanguageprivacy').val());
+                });   */ 
+                 
+
+                 $j("#hfsmodallinkprivacyLoad").click(function() {             
+                     
+                     selectedLanguage = document.getElementById("theLanguagePicker").value;
+                     console.log('selectedLanguage -- ' + selectedLanguage + ' ---- villagename ---- ' + villagename);
+                     HandsFreeShoppingExtention.getPrivacyNoticeURLforVillage(villagename, selectedLanguage , function(result, event) {  
+            
+                         if (result.indexOf('ERROR') > -1){
+                             alert('An error occured please inform your administrator -' + result);                                                                    
+                         } else {
+                             window.open(result, '_blank');
+                         }
+                     });                 
+                });
+                
+                $j("#guestmodalterms").click(function() {             
+                     
+                     selectedLanguage = document.getElementById("theLanguagePicker").value;
+                     console.log('selectedLanguage -- ' + selectedLanguage + ' ---- villagename ---- ' + villagename);
+                     HandsFreeShoppingExtention.getTermsandConditionsforVillage(villagename, selectedLanguage , function(result, event) {  
+            
+                         if (result.indexOf('ERROR') > -1){
+                             alert('An error occured please inform your administrator -' + result);                                                                    
+                         } else {
+                             window.open(result, '_blank');
+                         }
+                     });  
+                  
+                     
+                });
+
+                
+                function hfsmodalfuncPrivacyNotice(lang){                   
+                    var PrivacyNoticeURL = 'https://www.bicestervillage.com/en/footer/legal/bicester-village-website-privacy-notice/';
+                    
+                    $j('#privacydiv').css("direction", "ltr");
+                    $j('#privacydiv').css("text-align","left");
+                    
+                    
+                    $j.get(PrivacyNoticeURL + '?frame=false', function(response) {
+                        console.log('got response = ' + response);
+                        var html = $j.parseHTML( response );
+                        privacynoticecontentdata =  $j(html).find( "div.module-free-text-content" ).html();
+                        $j('#privacydiv').html(privacynoticecontentdata);
+                        console.log('got privacynoticecontentdata = ' + privacynoticecontentdata);
+                    });
+                    
+                }
+
+                
+                
+                $j("#savehfs").click(function(){
+                    
+                    // this is for when the guest saves the HFS (ie. the signature comes from the second canvas)
+                    var strDataURI = canvas.toDataURL();
+                    var signatureURL  = strDataURI.replace(/^data:image\/(png|jpg);base64,/, "");
+                    var phoneRegex = /^[+]*[(]{0,1}[0-9]{1,3}[)]{0,1}[-\s\./0-9]*$/;
+                    var nameRegex = /(?=.*\d)(?=.*[a-zA-Z])/;
+                    var firstNameBool = true;
+                    var lastNameBool = true;
+                    var mobileBool = true;
+
+                    var accountId = "";
+                    var email = $j('#hfsemail').val();
+                    // var fullname = $j('#hfsfullname').val();
+                    var firstname = $j('#hfsfirstname').val();
+                    var lastname = $j('#hfslastname').val();
+                    var mobilenum =  $j('#hfsphone').val();
+                    var servicetypename = $j('#hfsservicetype option:selected').text();
+                    var servicetype = $j('#hfsservicetype').val(); 
+                    var title = $j('#hfssalutation option:selected').text();
+                    console.log('l. 207: ' + title);
+                    
+                    var qrCode = $j('#qrCode').val();
+                    console.log(qrCode);
+                    
+                    var activatingBrandId = $j('#brandid').val();
+                       
+                    var collectlocationname =  $j( '#hfspickup option:selected' ).text();
+                    var collectlocationcode =  $j('#hfspickup').val();
+                    var guesttypename  = $j( '#hfsguesttype option:selected' ).text();
+                    var guesttypecode =  $j('#hfsguesttype').val();
+                    var villagename = "{!JSENCODE(userVillage)}";
+                    var hfspaymentstatus = $j( '#hfspayment option:selected' ).val();
+                    var hfsprivileged = $j('#hfsprivileged option:selected').val();
+                    var hfsguestcamp = $j( '#hfsguestcampaign option:selected' ).text();
+                    var languageRegistration = $j('#theLanguagePicker').val();
+                    //var modeoftransport = $j('#hfstransport option:selected').text(); 
+
+                    if(hfsguestcamp == 'Marketing Campaign'){
+                        hfsguestcamp = '';
+                    }
+                    
+                    if(guesttypename == 'Vip Guest'){
+                        var modeoftransport = 'Refuse to Answer';  
+                    }else{
+                        var modeoftransport = $j('#hfstransport option:selected').val();  
+                    }
+                    
+                    if(title == 'Title'){
+                        title = '';
+                    }    
+
+                    if(modeoftransport == null){
+                        modeoftransport = 'Refuse to Answer'; 
+                    }        
+
+                    if(mobilenum != ''){
+                           mobileBool = phoneRegex.test(String(mobilenum)); 
+                    }    
+
+                    if(firstname != '' && lastname != '') {
+                        firstNameBool = firstname.match(/[a-z]/i);
+                        lastNameBool = lastname.match(/[a-z]/i);
+                    }         
+                    
+                    console.log('Guest INFO ===== ' + modeoftransport + '-' + guesttypename + ' - ' + servicetypename+ ' - ' + hfsguestcamp );
+                            
+                    if(qrCode != ''){
+
+                    }
+
+                    //DEV TEAM L
+                    if( firstname != '' && lastname != '' && servicetypename != 'Service Type' && guesttypename != 'Guest Type' && collectlocationname != 'Pickup Location' && hfspaymentstatus != 'Payment Status' && qrCode != '' && mobileBool && mobilenum != '' && firstNameBool && lastNameBool){
+                        $j('#loadingmodal').show(); 
+                        HandsFreeShoppingExtention.saveHFSShopping( accountId,  email,  firstname, lastname, 
+                                                                   mobilenum,  collectlocationname,  collectlocationcode,
+                                                                   guesttypename,  guesttypecode,  villagename,  modeoftransport,
+                                                                   signatureURL, hfspaymentstatus, hfsprivileged, qrCode, servicetypename, servicetype, title, hfsguestcamp,activatingBrandId,languageRegistration, function(result, event) {  
+                                                                       // send the details to the server
+                                                                       console.log(result);
+                                                                       if (!result ||  result.indexOf('ERROR') > -1){
+                                                                            alert('result ' + result);
+                                                                            $j('#loadingmodal').hide();
+                                                                       } else {
+                                                                           console.log('trying to redirect' + result);
+                                                                           
+                                                                           $j('#loadingmodal').hide(); 
+                         
+                                                                           
+                                                                           
+                                                                       }
+                                                                       
+                                                                   });
+                    }else{
+                        
+                        
+                        // HF
+                        if(firstname == ''){
+                            $j( '#hfsfirstname' ).css("border-color", "#FF0000");
+                        }else{
+                            $j( '#hfsfirstname' ).css("border-color", "#AFAFAF");
+                        }
+                        
+                        if(lastname == ''){
+                            $j( '#hfslastname' ).css("border-color", "#FF0000");
+                        }else{
+                            $j( '#hfslastname' ).css("border-color", "#AFAFAF");
+                        }
+                        
+                        if(servicetypename == 'Service Type'){
+                            $j( '#hfsservicetype' ).css("border-color", "#FF0000");
+                        }else{
+                            $j( '#hfsservicetype' ).css("border-color", "#AFAFAF");
+                        }
+                        
+                        if(guesttypename == 'Guest Type'){
+                            $j( '#hfsguesttype' ).css("border-color", "#FF0000");
+                        }else{
+                            $j( '#hfsguesttype' ).css("border-color", "#AFAFAF");
+                        }
+                        
+                        if(collectlocationname == 'Pickup Location'){
+                            $j( '#hfspickup' ).css("border-color", "#FF0000");
+                        }else{
+                            $j( '#hfspickup' ).css("border-color", "#AFAFAF");
+                        }
+                        
+                        if(hfspaymentstatus == 'Payment Status'){
+                            $j( '#hfspayment' ).css("border-color", "#FF0000");
+                        }else{
+                            $j( '#hfspayment' ).css("border-color", "#AFAFAF");
+                        }
+                        
+                        if(qrCode == ''){
+                            $j( '#qrCode' ).css("border-color", "#FF0000");
+                        }else{
+                            $j( '#qrCode' ).css("border-color", "#AFAFAF");
+                        }
+
+                        if(mobilenum != ''){
+                            if( (phoneRegex.test(String(mobilenum)) == false )  ){
+                                $j( '#hfsphone' ).css("border-color", "#FF0000");
+                            }else{
+                                $j( '#hfsphone' ).css("border-color", "#AFAFAF");
+                            }
+                        }
+
+
+                    }
+                    
+                });
+                
+                $j("#savehfsuser").click(function(){
+                    //DEV TEAM L
+                    console.log('Save HFS user');
+                    
+                    // this is for when the operator saves the HFS (ie. signature comes from the first canvas)
+                    $j('#loadingmodal').show(); 
+                    var strDataURI = canvas.toDataURL();
+                    var signatureURL  = strDataURI.replace(/^data:image\/(png|jpg);base64,/, "");
+                    
+                    var accountId = $j('#hfsguestID').val(); 
+                    console.log('accountId ==== ' + accountId);
+                    var email = $j('#hfsemail').val();
+                    // var fullname = $j('#hfsfullname').val();
+                    var firstname = $j('#hfsfirstname').val();
+                    var lastname = $j('#hfslastname').val();
+                    var mobilenum =  $j('#hfsphone').val();
+                    var servicetypename = $j('#hfsservicetype option:selected').text();              
+                    var servicetype = $j('#hfsservicetype').val();
+                    var title = $j('#hfssalutation option:selected').text();
+                    console.log('l. 300: ' + title);
+                    
+                    var activatingBrandId = $j('#brandid').val();
+                    
+                    var qrCode = $j('#qrCode').val();
+                    var collectlocationname =  $j( '#hfspickup option:selected' ).text();
+                    var collectlocationcode =  $j('#hfspickup').val();
+                    var guesttypename  = $j( '#hfsguesttype option:selected').text();
+                    var guesttypecode =  $j('#hfsguesttype').val();
+                    var villagename = "{!userVillage}";
+                    var hfspaymentstatus = $j('#hfspayment option:selected' ).val();
+                    var hfsprivileged = $j('#hfsprivileged option:selected').val();
+                    var modeoftransport =  $j('#hfstransport option:selected').val();  
+                    var hfsguestcamp = $j( '#hfsguestcampaign option:selected' ).text();
+                    var languageRegistration = $j('#theLanguagePicker').val();
+                    
+                    HandsFreeShoppingExtention.saveHFSShopping(accountId,  email,  firstname, lastname, 
+                                                               mobilenum,  collectlocationname,  collectlocationcode,
+                                                               guesttypename,  guesttypecode,  villagename,  modeoftransport,
+                                                               signatureURL, hfspaymentstatus, hfsprivileged, qrCode, servicetypename, servicetype, title, hfsguestcamp,activatingBrandId ,languageRegistration, function(result, event) {  
+                                                                   // send the details to the server
+                                                                   console.log(result);
+                                                                   // now we need to redirect the user to the guest details screen
+                                                                   if (result.indexOf('ERROR') > -1){
+                                                                       alert('ERROR, guest could not be saved');                                                                    
+                                                                   } else {
+                                                                       console.log('trying to redirect' + result);                                                                                         
+                           
+                                                                       
+                                                                   }
+                                                               }); 
+                    
+                    
+                    
+                    
+                });
+                              
+                
+                
+                $j("#saveguest").click(function() {                  
+                    
+                    
+                    
+                    var checkedValue = $j('#guestcheckboxterms:checked').is(":checked");
+                    var marketingchecked = $j('#guestcheckboxmarketing:checked').is(":checked");
+                    var mobileBool = true;
+                    
+                    guestID = '';
+                    //STILL MISSING THE ALREADY REGISTERED GUEST VERIFICATION
+                    if(checkedValue){
+                        //STILL MISSING THE ALREADY REGISTERED GUEST VERIFICATION
+                        
+                        
+                        //DEV TEAM L     
+                        var emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+                        var phoneRegex = /^[+]*[(]{0,1}[0-9]{1,3}[)]{0,1}[-\s\./0-9]*$/;
+                        // when the user clicks 'Save Guest'
+                        // we need to send the guest data to the server, and use the data to create the HFS case
+                        // lets get the data 
+                        
+                        // SaveGuest(string fname, string lname, string email, string mobile, string country, string village)
+                        // guestname
+                        // guestlastname
+                        // guestemail
+                        // guestphone
+                        guestsalutation = $j('#guestsalutation option:selected').text();
+                        $j('#hfssalutation').val(guestsalutation);
+                        
+                        guestfname = $j('#guestname').val();
+                        guestlastname = $j('#guestlastname').val();
+                        guestemail = $j('#guestemail').val();  
+                        guestmobile = $j('#guestphone').val();                    
+                        guestcountry = $j('#guestcountry option:selected').text();                      
+                        var guestcountryCode =  $j('#guestcountry').val();
+                        guestTransport = $j('#hfstransport option:selected').text();                          
+
+                        //DEV TEAM L
+                        
+                        if(guestsalutation == 'Title'){
+                            guestsalutation = '';
+                        } 
+
+                        if(guestmobile != ''){
+                           mobileBool = phoneRegex.test(String(guestmobile)); 
+                        }
+                        if(guestfname != '' && guestlastname != '' && guestemail != '' && emailRegex.test(String(guestemail)) == true  && guestcountry != 'Country of residence' && guestTransport != 'Method of transport' && SignTrue == true && mobileBool && guestmobile != ''){
+                            
+                            $j('#loadingmodal').show(); 
+                            $j('#registerpanel').addClass('disable');
+                            $j('#reg-msg').show();
+                            lockScreen();
+                            
+                            console.log('Guest INFO ===== ' + guestsalutation + '-' + guestfname + ' - ' + guestlastname+ ' - ' + guestemail + ' - ' + guestmobile);
+                            
+                            
+                            if(marketingchecked){
+                                HandsFreeShoppingExtention.SaveGuest( guestfname , guestlastname,  guestemail ,  guestmobile, guestsalutation, guestcountryCode ,  function(result, event) {              
+                                    // if the result has the word ERROR in it, then we have an issue :( 
+                                    if (result.indexOf('ERROR') > -1){
+                                        console.log('an error has occurred: ' + result); 
+                                        alert('ERROR, guest could not be saved, continue to hands free.');
+                                    }else {
+                                        guestID = result;
+                                    }
+
+                                    hfsnewGuest();
+
+                                },{buffer: false, escape: false, timeout: 90000} ); 
+
+                            }else{
+                                hfsnewGuest();
+                            }
+                            
+                            
+                        }else{
+                            
+                            
+                            //DEV TEAM L
+                            if(guestfname == ''){
+                                $j( '#guestname' ).css("border-color", "#FF0000");
+                            }else{
+                                $j( '#guestname' ).css("border-color", "#AFAFAF");
+                            }
+                            
+                            if(guestlastname == ''){
+                                $j( '#guestlastname' ).css("border-color", "#FF0000");
+                            }else{
+                                $j( '#guestlastname' ).css("border-color", "#AFAFAF");
+                            }
+                            
+                            if(guestemail == '' || (emailRegex.test(String(guestemail)) == false)){
+                                $j( '#guestemail' ).css("border-color", "#FF0000");
+                            }else{
+                                $j( '#guestemail' ).css("border-color", "#AFAFAF");
+                            }
+
+                            if(guestmobile != ''){
+                                if( (phoneRegex.test(String(guestmobile)) == false )  ){
+                                    $j( '#guestphone' ).css("border-color", "#FF0000");
+                                }else{
+                                    $j( '#guestphone' ).css("border-color", "#AFAFAF");
+                                }
+                            }
+                            
+                            if(guestcountry == 'Country of residence'){
+                                $j( '#guestcountry' ).css("border-color", "#FF0000");
+                            }else{
+                                $j( '#guestcountry' ).css("border-color", "#AFAFAF");
+                            }
+                            
+                            
+                            if(guestTransport == 'Method of transport'){
+                                $j( '#hfstransport' ).css("border-color", "#FF0000");
+                            }else{
+                                $j( '#hfstransport' ).css("border-color", "#AFAFAF");
+                            }
+                            
+                            if(SignTrue){
+                                $j( '#signatureCanvas' ).css("border-color", "#FFFDE8");
+                            }else{
+                                $j( '#signatureCanvas' ).css("border-color", "#FF0000");
+                            }                
+                        }            
+                    }
+                });
+                
+          		$j("#hfspayment").change(function() {
+                    selectedItem = document.getElementById("hfspayment").value; 
+                    console.log('selectedItem worked  . . . ' + selectedItem);
+                 
+                    if(selectedItem == 'Free of Charge [Store Activated]' && villagename == 'Fidenza' ){
+                        $j('#activatingBrandDiv').show();
+                    }  
+                    else{
+                        $j('#activatingBrandDiv').hide();
+                        }
+                    
+                }); 
+                          
+                /*$j("#guestcheckboxterms").click(function() {
+                    $j("#saveguest").attr("disabled", !this.checked);
+                });*/
+                
+                $j("#hfscheckboxterms").click(function() {
+                    $j("#savehfs").attr("disabled", !this.checked);
+                });
+                
+                if( ('{!$User.UIThemeDisplayed}' == 'Theme4t' || '{!$User.UIThemeDisplayed}' == 'Theme4d' ) ) {
+                    // running in mobile
+                    homeUrl = '/_ui/core/chatter/ui/ChatterPage';
+                } else { //desktop
+                    homeUrl = '/home/home.jsp';
+                }                        
+                
+                $j("#searchguestemail").keypress(function(e) {           
+                    if(e.which == 13) {              
+                        $j("#searchBtn").click();
+                    }
+                });
+                
+            })
+            
+            function hfsnewGuest(){
+             
+                                    $j('#loadingmodal').hide();                                     
+                                    $j('#registerpanel').removeClass('disable');
+                                    $j('#hfsform').show(); 
+                                    $j('#searchResults').hide(); 
+                                    $j('#guestform').hide(); 
+                                    // and we can hide the signature too, but only if the guest was saved previously
+                                    if(guestID != ''){
+                                        $j('#hfssignatureCanvas').hide(); 
+                                        $j('#hfsclearsig').hide(); 
+                                        $j('#hfsagreecheckbox').hide(); 
+                                        $j('#savehfs').hide(); 
+                                        $j('#savehfsuser').show(); 
+                                    }
+                                    else
+                                    {
+                                        $j('#hfssignatureCanvas').hide(); 
+                                        $j('#hfsclearsig').hide(); 
+                                        $j('#hfsagreecheckbox').hide(); 
+                                        $j('#savehfs').show(); 
+                                        $j('#savehfsuser').hide(); 
+                                    }
+                                    
+                                    $j("#savehfs").attr("disabled", false);
+                                    // now we also need to populate the HFS form with the guest details, and disable them
+                                    $j('#hfssalutation').val(guestsalutation);
+                                    console.log($j('#hfssalutation').val(guestsalutation));
+                                    // $j('#hfsfullname').val(guestfname + ' ' + guestlastname);
+                                    $j('#hfsfirstname').val(guestfname);
+                                    $j('#hfslastname').val(guestlastname);
+                                    $j('#hfsemail').val(guestemail);
+                                    $j('#hfsphone').val(guestmobile);
+                                    $j('#hfsguestID').val(guestID);
+                                    
+                                    //$j('#hfssalutation').attr("disabled", true);
+                                    //$j('#hfsfullname').attr("disabled", true);
+                                    //$j('#hfsfirstname').attr("disabled", true);
+                                    //$j('#hfslastname').attr("disabled", true);
+                                    //$j('#hfsemail').attr("disabled", true);
+                                    /*if(guestmobile != ''){
+                                        $j('#hfsphone').attr("disabled", true);
+                                    }*/
+                 
+                };
+            
+            function cancelAction(){
+                isLightningRedirect(homeUrl);
+            }
+            
+            function placeHolderText(){
+                console.log('placeholder firing');
+                var elem = document.getElementById("feedback");
+                elem.setSelectionRange(0, 0);
+            }
+            
+            function gotoPage(pg){
+                isLightningRedirect('/apex/' + pg);
+            }
+            
+            function StartScanBag(){
+                
+                console.log('in here now');
+
+                var caseID = '{!Case.id}';
+                this.HandsFreeShoppingGuestExtension.updateCaseScanBagCollection( result_c.value , caseID,function(result){
+                   
+                    console.log(result)
+                    //beep
+                    PlaySound();
+                    setTimeout(function() {location.reload();}, 500);
+
+        
+                });
+                }
+                
+
+                            function startCamera(){
+
+                 //SCAN TEMPORAY RSILVA
+                    var privilege = $j('#hfsprivileged option:selected').text();
+					console.log('this workewd');
+                    const codeReader = new ZXing.BrowserDatamatrixCodeReader()
+                codeReader.getVideoInputDevices()
+                .then((videoInputDevices) => {
+                    const sourceSelect = document.getElementById('sourceSelect')
+                    var firstDeviceId = videoInputDevices[0].deviceId;;
+                    if(videoInputDevices.length == 1){
+                        firstDeviceId = videoInputDevices[0].deviceId;
+                    }
+                    if(videoInputDevices.length == 2){
+                        firstDeviceId = videoInputDevices[1].deviceId;
+                    }
+                    if (videoInputDevices.length > 1) {
+                        videoInputDevices.forEach((element) => {
+                            const sourceOption = document.createElement('option')
+                            sourceOption.text = element.label
+                            sourceOption.value = element.deviceId
+                            sourceSelect.appendChild(sourceOption)
+                        })
+                        const sourceSelectPanel = document.getElementById('sourceSelectPanel')
+                        sourceSelectPanel.style.display = 'block'
+                    }
+                    
+                    
+                        var privilege = $j('#hfsprivileged option:selected').text();
+                        if(privilege == 'Non-Privilege Guest'){
+                            document.getElementById('closeButton').addEventListener('click', () => {
+                                $j(".modal-backdrop").remove();
+                                $j('body').css('padding-right', '');
+                                codeReader.reset();
+                                console.log('Stopped1.');
+                                 StartScanBag();
+                            })
+                            codeReader.decodeFromInputVideoDevice(firstDeviceId, 'video').then((result) => {
+                            console.log(result);
+                            
+                            document.getElementById('result_c').value = result;
+                            
+                            $j("#ScanModal .close").click();
+                            $j(".modal-backdrop").remove();
+                            $j('body').css('padding-right', '');
+                            codeReader.reset();
+                            console.log('Stopped2.');
+                                 StartScanBag();
+                        }).catch((err) => {
+                            console.error(err)
+                            document.getElementById('result').textContent = err
+                        })
+                        console.log(`Started continous decode from camera with id ${firstDeviceId}`)
+                        }
+                    
+                })
+                .catch((err) => {
+                    console.error(err)
+                })
+
+
+
+                    if(privilege == 'Privilege Guest'){
+                        scanner = new Instascan.Scanner({ video: document.getElementById('video'), mirror: false});
+                        scanner.addListener('scan', function (content) {
+                            consolelog(content);
+                        });
+                        
+                        hasGetUserMedia();
+
+                        Instascan.Camera.getCameras()
+                        //.then(cameras => cameras.filter(camera => camera.name.indexOf('back') !== -1))
+                        .then(function (cameras) {
+                            if (cameras.length > 0) {
+                                
+                                
+                                if( (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1)){
+                                    // running in mobile
+                                    console.log('VIP Mobile ..');
+                                    scanner.start(cameras[1]);
+                                } else { //Desktop
+                                    console.log('VIP Desktop..');
+                                    scanner.start(cameras[0]);
+                                }       
+                                
+                                //consolelog(JSON.stringify(cameras));
+                            } else {
+                                alert('No cameras found.');
+                            }
+                        }).catch(function (e) {
+                            //consolelog(e);
+                        });
+                    }
+                    };
+                
+                function stopCamera(){
+                    var privilege = $j('#hfsprivileged option:selected').text();
+                    if(privilege == 'Privilege Guest'){
+                        scanner.stop();
+                    }
+                };
+                
+                function consolelog(message){
+                    console.log(message);
+                    document.getElementById('qrCode').value = message;
+                    //document.getElementById('output_scan').value = message;
+                    
+                    $j("#ScanModal .close").click()
+                    //   $j("#ScanModal").removeClass("in");
+                    $j(".modal-backdrop").remove();
+                    //   $j('body').removeClass('modal-open');
+                    $j('body').css('padding-right', '');
+                    //   $j("#ScanModal").hide();
+                    stopCamera();
+                    
+                    
+                    //addAnonguest();
+                    //console.log(message);
+                };
+                
+                function hasGetUserMedia() {
+                    //consolelog(navigator.mediaDevices);
+                    //consolelog(navigator.mediaDevices.getUserMedia);
+                    return !!(navigator.mediaDevices &&
+                              navigator.mediaDevices.getUserMedia);
+                }
+                
+            
+            function searchGuests(){
+                $j('#loadingmodal').show(); 
+                
+                var searchString = $j('#searchguestemail').val();
+                searchString = searchString.trim();
+                
+                console.log(searchString);    
+                var search = false;
+                
+                if (searchString.length > 0){                                
+                    search = true;
+                }
+                
+                
+                if (search){
+                    
+                    HandsFreeShoppingExtention.searchGuests(searchString, function(result, event) {
+                        
+                        console.log(result);
+                        // going to do something different here, instead of building the html
+                        var html = buildHTML(result);
+                        console.log(html);
+                        //  alert('JSON RESULT' + result);
+                        
+                        $j('#loadingmodal').hide();
+                        
+                        if(event.status) {
+                            
+                            $j( "#searchResults").html(function() {
+                                return html;
+                            });
+                            if(html){
+                                var resultTable = document.getElementById("resultsTable");
+                                //  sorttable.makeSortable(resultTable);
+                                $j( "#searchResults").show();
+                            }
+                            
+                        } else {
+                            $j( "#searchResults").html(function() {
+                                return "<p>Network Error - Please report issue if problem persists</p> <br/>" + result
+                            });
+                            
+                        }
+                        
+                        
+                    },{buffer: false, escape: false, timeout: 90000} );            
+                    
+                }
+                
+                
+            }
+            
+            // for the record, i dont want to do it like this, but time is the enemy ....
+            function buildHTML(records){
+                
+                var html = '';
+                var outputDiv = document.getElementById("searchResults");
+                
+                console.log(records.length + ' found ');            
+                
+                if (records.length == 0){
+                    html += '<div class="panel panel-default">';
+                    html += '<div class="panel-heading">Guest Search Results</div>  ';
+                    html += '<div class="table-responsive">';
+                    html += '<table class="table table-hover">';
+                    html += '<thead>';
+                    html += '<tr class="active">';
+                    html += '<th>Email</th>';
+                    html += '<th>First Name</th>';
+                    html += '<th>Last Name</th>';
+                    html += '<th>Mobile</th>';
+                    html += '<th>Country</th>';
+                    html += '<th>Postcode</th>';
+                    html += '<th>&nbsp;</th>';
+                    html += '</tr>';
+                    html += '</thead>';
+                    html += '<tbody>';
+                    html += '<tr class="info"><td>No Data Found</td>';
+                    html += '<td></td>';
+                    html += '<td></td>';
+                    html += '<td></td>';
+                    html += '<td></td>';
+                    html += '<td></td>';
+                    html += '<td></td>';
+                    html += '</tr>';
+                    html += '</tbody></table></div></div></div></div>';
+                    outputDiv.innerHTML = html;
+                    return html;
+                }
+                
+                for (var i=0; i<records.length; i++){
+                    var html = ''; 
+                    console.log(' itemloop ' + i);  
+                    // var svgUrl = '{!URLFOR($Resource.SLDS0121, "/assets/icons/utility-sprite/svg/symbols.svg#arrowdown")}';
+                    
+                    html += '<div class="panel panel-default">';
+                    html += '<div class="panel-heading">Guest Search Results</div>  ';
+                    html += '<div class="table-responsive">';
+                    html += '<table class="table table-hover">';
+                    html += '<thead>';
+                    html += '<tr class="active">';
+                    html += '<th>Email</th>';
+                    html += '<th>First Name</th>';
+                    html += '<th>Last Name</th>';
+                    html += '<th>Mobile</th>';
+                    html += '<th>Country</th>';
+                    html += '<th>Postcode</th>';
+                    html += '</tr>';
+                    html += '</thead>';
+                    html += '<tbody>';
+                    
+                    
+                    if (records.length > 40){
+                        $j('#searching').hide();
+                        alert ('Too many records returned, please refine your search criteria');
+                        return '';
+                    }    
+                    if (records.length > 0) {    
+                        records.forEach(function(record) {
+                            console.log(' record ' + record.PersonEmail);  
+                            var eml = undefinedToEmptyString(record.PersonEmail);
+                            var fname = undefinedToEmptyString(record.FirstName);
+                            var lname = undefinedToEmptyString(record.LastName);
+                            var mobile = undefinedToEmptyString(record.PersonMobilePhone);
+                            var country =  undefinedToEmptyString(record.Country_of_Residence__c);
+                            var postcode =  undefinedToEmptyString(record.PersonMaiolingPostalCode);
+                            var guid = undefinedToEmptyString(record.Customer_GUID__c);
+                            var title = undefinedToEmptyString(record.Salutation);
+                            
+                            var recId = record.Id;
+                            
+                            html += '<tr class="info" onclick="javascript:selectGuest(\''+ recId +'\', \''+ eml +'\',\''+ fname +'\',\''+ lname +'\',\''+ mobile +'\',\''+ title +'\');"><td>' + eml + '</td>';
+                            html += '<td>' + fname + '</td>';
+                            html += '<td>' + lname + '</td>';
+                            html += '<td>' + mobile + '</td>';
+                            html += '<td>' + country + '</td>';
+                            html += '<td>' + postcode + '</td>';
+                            html += '</tr>';
+                        });
+                        html = html + '</tbody></table></div></div></div></div>';
+                        
+                        // html = html + '</br> <button class="slds-button slds-button--brand slds-button--small   slds-float--right" onclick="newCustomer();">New Guest</button></div>'; 
+                        outputDiv.innerHTML = html;
+                    } else {
+                        
+                        html += '<tr class="info"><td>No Data Found</td>';
+                        html += '<td></td>';
+                        html += '<td></td>';
+                        html += '<td></td>';
+                        html += '<td></td>';
+                        html += '<td></td>';
+                        html += '</tr>';
+                        html += '</tbody></table></div></div></div></div>';
+                        outputDiv.innerHTML = html;
+                    }
+                    
+                }
+                
+                return html;     
+                
+            }
+            
+			function showGuestSignout(){
+                
+                $j('#guestDetails').hide();
+                $j('#btnadditem').hide();
+                $j('#guestsignoutform').hide();
+                $j('#LanguageSelectDiv').hide();
+
+                $j('#guestsbags').show();
+
+
+                $j('#guestPurchaseDetails').hide();
+                $j('#guestBagDetails').hide();
+
+                $j('#btnaddbagdropitem').hide();
+
+            }
+            
+            function showBagSignout(){
+                
+              console.log('1507');
+         
+                $j('#guestDetails').hide();
+                $j('#btnadditem').hide();
+                $j('#guestsbagsummary').show();
+                $j('#guestsignoutform').show();
+                $j('#LanguageSelectDiv').show();
+           
+
+                $j('#guestsbags').hide();
+
+                $j('#preview').hide();
+                $j('#result_c').hide();
+                $j('#showBagSignoutB').hide();
+
+                $j('#guestPurchaseDetails').hide();
+                $j('#guestBagDetails').hide();
+
+                $j('#btnaddbagdropitem').hide();
+
+            };
+
+            function showBagSignoutInit(){
+                isLightningRedirect('/apex/HFSGuestCheckOutPage?ID=' + '{!Case.id}');
+            };
+            
+            function selectGuest(recId, email, firstname, lastname, mobile, title){
+                /*
+                // going to need to get the guest details, and put them into the HFS registration page
+                $j('#registerpanel').removeClass('disable'); 
+                
+                $j('#actions').hide(); 
+                $j('#guestSearchbox').hide(); 
+                
+                $j('#hfsform').show(); 
+                $j('#searchResults').hide(); 
+                $j('#guestform').hide(); 
+                $j('#savehfs').hide(); 
+                $j('#savehfsuser').show(); 
+                // now we also need to populate the HFS form with the guest details, and disable them
+                $j('#hfssalutation').val(salutation);
+                //$j('#hfsfullname').val(firstname + ' ' + lastname);
+                $j('#hfsfirstname').val(firstname);
+                $j('#hfslastname').val(lastname);
+                $j('#hfsemail').val(email);
+                $j('#hfsphone').val(mobile);
+                $j('#hfsguestID').val(recId);
+                
+                $j('#hfssalutation').attr("disabled", true);
+                //$j('#hfsfullname').attr("disabled", true);
+                $j('#hfsfirstname').attr("disabled", true);
+                $j('#hfslastname').attr("disabled", true);
+                $j('#hfsemail').attr("disabled", true);
+                if( mobile != ''){
+                    $j('#hfsphone').attr("disabled", true);
+                }
+                */
+                $j('#actions').hide(); 
+                $j('#guestSearchbox').hide(); 
+                hfsnewGuest();
+                // $j('#hfssalutation').val(title)
+                if(title){
+                    	$j('#hfssalutation').append('<option value='+title+' selected="selected">'+title+'</option>');
+                    	}
+                else{
+                    $j('#hfssalutation').append('<option value="Title" selected="selected">Title</option>');
+                    }
+   
+                $j('#hfsfirstname').val(firstname);
+                $j('#hfslastname').val(lastname);
+                $j('#hfsemail').val(email);
+                $j('#hfsphone').val(mobile);
+                $j('#hfsguestID').val(recId);
+                $j('#hfstransport').val('Refuse to Answer');
+                $j('#savehfs').show(); 
+                $j('#savehfsuser').hide(); 
+                
+                console.log('title --  ' + title);
+                
+            }
+            
+            function undefinedToEmptyString(v){
+                
+                if (typeof(v) == 'undefined' || v == null){
+                    return '';
+                } else {
+                    return v;
+                }
+            }
+            /*
+            function addnewguest(){
+               
+                // shows guest screen and shopping collection screen
+                $j('#guestform').show(); 
+                $j('#guestSearchbox').hide(); 
+                
+                $j('#searchResults').hide(); 
+                $j('#actions').hide();           
+            }
+            */
+            function lockScreen() {
+                    locked = true;
+                    console.log(locked);
+                    $j('#lockscreen').show();
+                    $j('#my-nav').hide();
+                    $j('.wrong-pass').hide();
+                // lets also focus on the textbox
+                    $j('#lockpassword').focus();
+                }
+                
+                
+                function lockscreen2() {
+                    locked = true;
+                    console.log(locked);
+                    $j('#lockscreen').show();
+                    $j('#my-nav').hide();
+                    $j('.wrong-pass').hide();
+                // lets also focus on the textbox
+                    $j('#lockpassword').focus();
+                }
+
+            
+
+            
+                function checkPass(){
+                    var inputPass = $j('.lockscreen-password').val();
+                    var sysPass = "{!JSENCODE($Setup.Screen_Pass__c.Password__c)}";
+                    if (inputPass == sysPass) {
+                        locked = false;
+                        $j('.lockscreen-password').val("");
+                        $j('#lockscreen').hide();
+                        $j('#my-nav').show();
+                        $j('#cancel-msg').hide();
+                        $j('#reg-msg').hide();
+                    } else {
+                        console.log('wrong password');
+                        $j('.wrong-pass').show();
+                    }
+                }
+                
+                
+                function selectLanguage(){
+                
+                    console.log('selectLanguage Called');
+                    
+                    $j('#languageModal').modal('show'); 
+                    $j('#guestSearchbox').hide();
+                    $j('#searchResults').hide(); 
+                    $j('#actions').hide();    
+                    //$j('#hfsguestcampaign').hide();
+                    $j('#hfsprivacynoticeNew').show();
+                    $j('#my-nav').hide();
+                    //lockscreen2();
+                    
+                             
+                }
+            
+            function addnewguest(){
+                // shows guest screen and shopping collection screen
+                $j('#languageModal').show(); 
+                $j('#guestform').show(); 
+                $j('#guestSearchbox').hide();
+                $j('#searchResults').hide(); 
+                $j('#actions').hide();    
+                //$j('#hfsguestcampaign').hide();
+                $j('#hfsprivacynoticeNew').show();
+                $j('#my-nav').hide();
+                
+
+            }
+            
+            
+            function addAnonguest(){ //TEMPORARY GUEST
+                // shows shopping collection screen only, and email/mobile and name (not to be saved as guest account)
+                //var guestype =  $j('#selectedguesttype').val();
+                
+                $j('#searchResults').hide(); 
+                $j('#actions').hide(); 
+                $j('#guestform').hide(); 
+                $j('#guestSearchbox').hide(); 
+                
+                $j('#hfsform').show();
+                
+                $j('hfssalutationdiv').hide();
+                
+                $j('#hfssalutation').attr("disabled", false);
+                $j('#hfsfirstname').attr("disabled", false);
+                $j('#hfslastname').attr("disabled", false);
+                $j('#hfsemail').attr("disabled", false);
+                $j('#hfsphone').attr("disabled", false);
+                
+                $j('#hfsguesttype').val(guesttypeVIP);
+                $j('#hfspayment').val('Free of charge (VIP)');
+                
+                // need to also show the signature form, since the guest needs to sign
+                $j('#hfssignatureCanvas').hide(); 
+                $j('#hfsagreecheckbox').hide(); 
+                $j('#savehfsuser').hide(); 
+                
+                $j("#savehfs").attr("disabled", false);
+                $j('#savehfs').show(); 
+                
+                
+            }
+            //DEV Team L
+            function addAnonguestVIP(){
+                // shows shopping collection screen only, and email/mobile and name (not to be saved as guest account)
+                $j('#searchResults').hide(); 
+                $j('#actions').hide(); 
+                $j('#guestform').hide(); 
+                $j('#guestSearchbox').hide(); 
+                
+                $j('#hfsform').show();
+                
+                $j('#hfssalutation').attr("disabled", false);
+                //$j('#hfsfullname').attr("disabled", false);
+                $j('#hfsfirstname').attr("disabled", true);
+                $j('#hfslastname').attr("disabled", true);
+                $j('#hfsemail').attr("disabled", false);
+                $j('#hfsphone').attr("disabled", false);
+                
+                $j('#hfssignatureCanvas').hide(); 
+                $j('#hfsagreecheckbox').hide(); 
+                $j('#savehfsuser').hide(); 
+                $j('#savehfs').show(); 
+                
+                
+            }
+            
+            function cancelanyaction(){
+                // shows main screen again, and clears all fields
+                if(confirm('Are you sure you want to cancel your registration?')){
+                    $j('#my-nav').show();
+                    $j('#searchResults').hide(); 
+                    $j('#guestform').hide(); 
+                    //  $j('#Signatureform').hide(); 
+                    $j('#actions').show(); 
+                    $j('#guestSearchbox').show(); 
+                    $j('#guestform input[type="text"]').val('');
+                    $j('#guestform input[type="email"]').val('');
+                    $j('#guestform input[type="checkbox"]').attr('checked',false);
+                    // clear the signature (if there is one)
+                    context.clearRect(0,0,w,h);
+                    
+                    $j('#hfsform').hide(); 
+                    $j('#hfsform input[type="text"]').val('');
+                    $j('#hfsform input[type="email"]').val('');
+                    $j('#hfsform input[type="checkbox"]').attr('checked',false);
+                    
+                    
+                    guestfname = null;
+                    guestlastname = null;
+                    guestemail = null;
+                    guestmobile = null;
+                    guestsalutation = null;
+                    guestID = null;
+                    locked = false;
+                    lockScreen(); 
+                    $j('#cancel-msg').show();
+                }  
+            }
+            
+            //-----------------------------------------------
+            
+            
+            </script>
+            
+            <!-- Signature section -->
+            
+            <script>
+            
+            
+            var canvas;
+            var context;
+            var drawingUtil;
+            var isDrawing = false;
+            var accountId = '';
+            var prevX = 0;
+            var prevY = 0;
+            var currX = 0;
+            var currY = 0;
+            var accountId;
+
+            
+            
+            // second canvas
+            var canvas2;
+            var context2;
+            var drawingUtil2;
+            var isDrawing2 = false;
+            var accountId2 = '';
+            var prevX2 = 0;
+            var prevY2 = 0;
+            var currX2 = 0;
+            var currY2 = 0;
+            var accountId2;
+            var SignTrue = false;
+            
+            $j(document).ready(function() {
+                
+                function DrawingUtil() {
+                    isDrawing = false;
+                    canvas.addEventListener("mousedown", start, false);
+                    canvas.addEventListener("mousemove", draw, false);
+                    canvas.addEventListener("mouseup", stop, false);
+                    canvas.addEventListener("mouseout", stop, false);
+                    canvas.addEventListener("touchstart", start, false);
+                    canvas.addEventListener("touchmove", draw, false);
+                    canvas.addEventListener("touchend", stop, false);
+                    
+                    $j('#clearsig').click(clearSign);
+                    
+                    // $j('#clearsig').addEventListener("mousedown", clearSign, false);
+                    
+                    // once the guest has agreed to the terms,   
+                    $j('#savesig').click(saveSignature);
+                    
+                    w = canvas.width;
+                    h = canvas.height;
+                }
+                
+                function DrawingUtil2() {
+                    // second canvas
+                    isDrawing2 = false;
+                    canvas2.addEventListener("mousedown", start2, false);
+                    canvas2.addEventListener("mousemove", draw2, false);
+                    canvas2.addEventListener("mouseup", stop2, false);
+                    canvas2.addEventListener("mouseout", stop2, false);
+                    canvas2.addEventListener("touchstart", start2, false);
+                    canvas2.addEventListener("touchmove", draw2, false);
+                    canvas2.addEventListener("touchend", stop2, false);
+                    
+                    // $j('#clearsig').click(clearSign);
+                    
+                    $j('#hfsclearsig').click(clearSign2);
+                    // $j('#clearsig').addEventListener("mousedown", clearSign, false);
+                    
+                    // once the guest has agreed to the terms,   
+                    $j('#savesig').click(saveSignature);
+                    
+                    w = canvas2.width;
+                    h = canvas2.height;
+                    
+                }
+                
+                function start(event) {
+                    event.preventDefault();
+                    isDrawing = true;
+                    //DEV TEAM L
+                    if(event.clientX){
+                        currX = (event.clientX + window.pageXOffset) - canvas.offsetLeft ;
+                        currY = (event.clientY + window.pageYOffset) - canvas.offsetTop ;
+                    }
+                    else
+                    {
+                        
+                        // it is probably a mobile, and need to use touch
+                        var touch = event.touches[0];
+                        var currX = touch.pageX - canvas.offsetLeft;
+                        var currY = touch.pageY - canvas.offsetTop;
+                    }
+                    
+                    context.beginPath();
+                    context.fillStyle = "cadetblue";
+                    context.fillRect(currX, currY, 2, 2);
+                    context.closePath();
+                    // since its starting, there should be no previous
+                    // the next previous should be the current
+                    prevX = currX;
+                    prevY = currY;
+                    console.log('PREV = ' + prevX + ' x ' + prevY);
+                }
+                
+                
+                function draw(event) {
+                    event.preventDefault();
+                    
+                    if (isDrawing) {
+                        //DEV TEAM L
+                        if(event.clientX){
+                            currX = (event.clientX + window.pageXOffset ) - canvas.offsetLeft;
+                            currY = (event.clientY + window.pageYOffset ) - canvas.offsetTop;
+                        }
+                        else
+                        {
+                            // it is probably a mobile, and need to use touch
+                            var touch = event.touches[0];
+                            var currX = touch.pageX - canvas.offsetLeft;
+                            var currY = touch.pageY - canvas.offsetTop;
+                        }
+                        
+                        context.beginPath();
+                        context.moveTo(prevX, prevY);
+                        context.lineTo(currX, currY);
+                        context.strokeStyle = "cadetblue";
+                        context.lineWidth = "2";
+                        context.stroke();
+                        context.closePath();
+                        prevX = currX;
+                        prevY = currY;
+                    }
+                }
+                function DrawingUtil() {
+                    isDrawing = false;
+                    canvas.addEventListener("mousedown", start, false);
+                    canvas.addEventListener("mousemove", draw, false);
+                    canvas.addEventListener("mouseup", stop, false);
+                    canvas.addEventListener("mouseout", stop, false);
+                    canvas.addEventListener("touchstart", start, false);
+                    canvas.addEventListener("touchmove", draw, false);
+                    canvas.addEventListener("touchend", stop, false);
+                    
+                    $j('#clearsig').click(clearSign);
+                    
+                    w = canvas.width;
+                    h = canvas.height;
+                }
+                
+                
+                function start(event) {
+                    event.preventDefault();
+                    isDrawing = true;
+                    hasDrawn = true;
+                    if(event.clientX){
+                        currX = (event.clientX + window.pageXOffset) - canvas.offsetLeft ;
+                        currY = (event.clientY + window.pageYOffset) - canvas.offsetTop ;
+                    }
+                    else
+                    {
+                        
+                        // it is probably a mobile, and need to use touch
+                        var touch = event.touches[0];
+                        var currX = touch.pageX - canvas.offsetLeft;
+                        var currY = touch.pageY - canvas.offsetTop;
+                    }
+                    
+                    context.beginPath();
+                    context.fillStyle = "cadetblue";
+                    context.fillRect(currX, currY, 2, 2);
+                    console.log('context.fillRect(currX, currY, 2, 2); = ' + context + '---' + currX + ' x ' + currY);
+                    context.closePath();
+                    // since its starting, there should be no previous
+                    // the next previous should be the current
+                    prevX = currX;
+                    prevY = currY;
+                    console.log('PREV = ' + prevX + ' x ' + prevY);
+                }
+                
+                function draw(event) {
+
+
+                    event.preventDefault();
+                    if (isDrawing) {
+                        console.log('DRAWING');
+                        if(event.clientX){
+                        currX = (event.clientX + window.pageXOffset) - canvas.offsetLeft ;
+                        currY = (event.clientY + window.pageYOffset) - canvas.offsetTop ;
+                        }
+                        else
+                        {
+                            // it is probably a mobile, and need to use touch
+                            var touch = event.touches[0];
+                            currX = touch.pageX - canvas.offsetLeft;
+                            currY = touch.pageY - canvas.offsetTop;
+                        }
+                        
+                        context.beginPath();
+                        context.moveTo(prevX, prevY);
+                        context.lineTo(currX, currY);
+                        context.strokeStyle = "cadetblue";
+                        context.lineWidth = "2";
+                        context.stroke();
+                        context.closePath();
+                        prevX = currX;
+                        prevY = currY;
+                        
+                        console.log('Should be stroking here');
+                        signatureCanvasdrawn = true;
+                    }
+                }
+                
+                var valueCellselectedselected = false;
+                var satisfactionCellselected = false;
+                var recommendationCellselected = false;
+                var signatureCanvasdrawn = false;
+                
+                window.addEventListener("click", () => { 
+                    
+                    
+                    var inputarray = $j( "#valueCell" ).find( "input" );
+                    inputarray.each(function() {
+                        if($j(this).is(":checked")){
+                    valueCellselectedselected = true;
+                    	}
+                    });
+                
+                	var satisfactionarray = $j( "#satisfactionTable" ).find( "input" );
+                    satisfactionarray.each(function() {
+                        if($j(this).is(":checked")){
+                    satisfactionCellselected = true;
+                    	}
+                    });
+                
+                	var recommendationarray = $j( "#recommendTable" ).find( "input" );
+                    recommendationarray.each(function() {
+                        if($j(this).is(":checked")){
+                    recommendationCellselected = true;
+                    	}
+                    });
+                
+                console.log('valueCellselectedselected ' + valueCellselectedselected);
+                console.log('satisfactionCellselected ' + satisfactionCellselected);
+                console.log('recommendationCellselected ' + recommendationCellselected);
+                console.log('signatureCanvasdrawn ' + signatureCanvasdrawn);
+                
+                    if(valueCellselectedselected == true && satisfactionCellselected == true && recommendationCellselected && signatureCanvasdrawn == true){
+                           $j("#guestcheckout").attr("disabled", false);
+                       } else {
+                          $j("#guestcheckout").attr("disabled", true);
+                     }
+            	});;
+                
+
+                
+                function stop(event) {
+ 
+
+               
+                    //   showCheckoutButton();
+                    if (isDrawing) {
+                        context.stroke();
+                        context.closePath();
+                        isDrawing = false;
+                        console.log('STOPPED');
+                        prevX = currX;
+                        prevY = currY;
+                    }
+                     
+                }
+                
+    
+                // function showCheckoutButton(){
+                //            $j("#guestcheckout").attr("disabled", false);
+                //}
+                
+                function stop(event) {
+                    if (isDrawing) {
+                        context.stroke();
+                        context.closePath();
+                        isDrawing = false;
+                        console.log('STOPPED');
+                        prevX = currX;
+                        prevY = currY;
+                        SignTrue = true;
+                    }
+                }
+                
+                function clearSign() {
+                    context.clearRect(0,0,w,h);
+                    hasDrawn = false;
+                    signatureCanvasdrawn =  true;
+                    $j("#guestcheckout").attr("disabled", true);
+                }
+                
+                canvas = document.getElementById("signatureCanvas");
+                context = canvas.getContext("2d");
+                context.strokeStyle = "black";
+                context.lineWidth = "2";
+                drawingUtil = new DrawingUtil(canvas);
+                
+                
+
+                
+                function processResult(result) {
+                    // alert(JSON.stringify(result));
+                    window.location.href = '/'+accountId;
+                }
+                
+                // ----------------------------------------------------------
+                // SECOND SIGNATURE 
+                
+                function start2(event) {
+                    event.preventDefault();
+                    isDrawing2 = true;
+                    
+                    if(event.clientX){
+                        currX2 = (event.clientX + window.pageXOffset ) - canvas2.offsetLeft;
+                        currY2 = (event.clientY + window.pageYOffset ) - canvas2.offsetTop;
+                    }
+                    else
+                    {
+                        
+                        // it is probably a mobile, and need to use touch
+                        var touch = event.touches[0];
+                        var currX2 = touch.pageX - canvas2.offsetLeft;
+                        var currY2 = touch.pageY - canvas2.offsetTop;
+                    }
+                    
+                    context2.beginPath();
+                    context2.fillStyle = "cadetblue";
+                    context2.fillRect(currX2, currY2, 2, 2);
+                    context2.closePath();
+                    // since its starting, there should be no previous
+                    // the next previous should be the current
+                    prevX2 = currX2;
+                    prevY2 = currY2;
+                    console.log('PREV = ' + prevX2 + ' x ' + prevY2);
+                }
+                
+                function draw2(event) {
+                    event.preventDefault();
+                    if (isDrawing2) {
+                        
+                        if(event.clientX){
+                            currX2 = (event.clientX + window.pageXOffset ) - canvas2.offsetLeft;
+                            currY2 = (event.clientY + window.pageYOffset ) - canvas2.offsetTop;
+                        }
+                        else
+                        {
+                            // it is probably a mobile, and need to use touch
+                            var touch = event.touches[0];
+                            var currX2 = touch.pageX - canvas2.offsetLeft;
+                            var currY2 = touch.pageY - canvas2.offsetTop;
+                        }
+                        
+                        context2.beginPath();
+                        context2.moveTo(prevX2, prevY2);
+                        context2.lineTo(currX2, currY2);
+                        context2.strokeStyle = "cadetblue";
+                        context2.lineWidth = "2";
+                        context2.stroke();
+                        context2.closePath();
+                        prevX2 = currX2;
+                        prevY2 = currY2;
+                    }
+                }
+                
+                function stop2(event) {
+                    if (isDrawing2) {
+                        context2.stroke();
+                        context2.closePath();
+                        isDrawing2 = false;
+                        console.log('STOPPED2');
+                        prevX2 = currX2;
+                        prevY2 = currY2;
+                    }
+                }
+                
+                function clearSign2() {
+                    context2.clearRect(0,0,w,h);
+                }
+                
+                canvas2 = document.getElementById("hfssignatureCanvas");
+                if(canvas2 != null ){
+                    context2 = canvas2.getContext("2d");
+                    context2.strokeStyle = "black";
+                    context2.lineWidth = "2";
+                    drawingUtil2 = new DrawingUtil2(canvas2);
+                }
+                
+
+                function processResult(result) {
+                    //alert(JSON.stringify(result));
+                    //window.location.href = '/'+accountId;
+                }
+                
+                function DelayedCallMe(num) {
+                    
+                    if (_timer)
+                        window.clearTimeout(_timer);
+                    
+                    _timer = window.setTimeout(function() { callMe(); }, 250);
+                }                
+                
+            });
+
+          
+            
+            function PlaySound() {
+                  var sound = document.getElementById("audio");
+                  sound.play()
+              }
+
+            </script>
+            
+            <script>
+            
+            $j = jQuery.noConflict();
+            var homeUrl;
+                   
+            $j(document).ready(function() {         
+                
+                $j("#guestcheckout").click(function() {
+                    // this is for when the guest saves the HFS (ie. the signature comes from the second canvas)           
+                        var strDataURI = canvas.toDataURL();
+                        var signatureURL  = strDataURI.replace(/^data:image\/(png|jpg);base64,/, "");
+                        var hfsID = '{!caseID}';
+                        var endCase = $j('#checkboxterms3:checked').is(":checked");  
+                    	var closingAgent = $j('#Closing_Agent__c').val();
+                     	var HistoricCloseReason = $j('#Historic_Close_Reason__c').val();	
+
+                        var plannedSpend;
+                        var satisfactionLevel;
+                        var recommendLevel;
+                        var improvements;
+                        var guestFeedbackItems = [];                    
+
+                        if(endCase){
+                            
+
+                            $j( "#valueTable" ).find( "input:checked" ).each(function() {
+                                plannedSpend = $j(this).val();
+                                //alert('plannedSpend = ' + plannedSpend);
+                            });
+
+                            $j( "#satisfactionTable" ).find( "input:checked" ).each(function() {
+                                satisfactionLevel = $j(this).val();
+                                //alert('satisfactionLevel = ' + satisfactionLevel);
+                            });
+
+                            $j( "#recommendTable" ).find( "input:checked" ).each(function() {
+                                recommendLevel = $j(this).val();
+                                //alert('recommendLevel = ' + recommendLevel);
+                            });
+                                improvements =  $j( "#feedback" ).val();
+
+
+
+
+                            if(plannedSpend == undefined || satisfactionLevel == undefined || recommendLevel == undefined ){
+                                alert('please fill in the highlighted fields');
+                            }else{
+
+                                guestFeedbackItems = [];
+                                guestFeedbackItems.push(plannedSpend);
+                                guestFeedbackItems.push(satisfactionLevel);
+                                guestFeedbackItems.push(recommendLevel);
+                                guestFeedbackItems.push(improvements);
+
+                                console.log('guestFeedbackItems ' + guestFeedbackItems);
+
+
+                                console.log('this is good, process away');
+                                
+                                HandsFreeShoppingGuestExtension.checkoutGuest( hfsID, signatureURL, endCase, guestFeedbackItems,HistoricCloseReason,closingAgent, function(result, event) {  
+                                // send the details to the server
+                                console.log(result);
+                                if (result.indexOf('ERROR') > -1){
+                                    alert('ERROR, guest could not be saved');                                                                    
+                                } else {
+                                    console.log('trying to redirect' + result);
+                                    isLightningRedirect('/apex/HFSGuestPage?ID=' + '{!Case.id}');
+                                }
+                                });
+                                
+
+                            }
+
+                        }else{
+                            console.log('not the end of the case');
+
+                            HandsFreeShoppingGuestExtension.checkoutGuest( hfsID, signatureURL, endCase, guestFeedbackItems,HistoricCloseReason, function(result, event) {
+                            // send the details to the server
+                            console.log(result);
+                            if (result.indexOf('ERROR') > -1){
+                                alert('ERROR, guest could not be saved');                                                                    
+                            } else {
+                                console.log('trying to redirect' + result);
+                                isLightningRedirect('/apex/HFSGuestPage?ID=' + '{!Case.id}');
+                            }
+                            });
+                        
+
+
+                        }
+
+
+                    
+                });
+                
+               
+
+                if( ('{!$User.UIThemeDisplayed}' == 'Theme4t' || '{!$User.UIThemeDisplayed}' == 'Theme4d' ) ) {
+                    // running in mobile
+                    homeUrl = '/_ui/core/chatter/ui/ChatterPage';
+                } else { //desktop
+                    homeUrl = '/home/home.jsp';
+                }  
+                
+            	});
+            
+            function showError( errormessage){
+                $j('#errorModal').show();
+                $j('#errormessage').html(errormessage);
+            }    
+            
+            function closeErrorModal(){
+                $j('#errorModal').hide();
+                $j('#errormessage').html('');
+            }
+            
+            function addShoppingItem(){
+                
+                $j('#guestDetails').hide();
+                $j('#btnadditem').hide();
+
+                $j('#hfsitemform').show();
+
+                $j('#guestPurchaseDetails').hide();
+                $j('#guestBagDetails').hide();
+                $j('#btnaddbagdropitem').hide();
+                
+            }
+
+            function addBagDropItem(){
+                $j('#guestDetails').hide();
+                $j('#btnadditem').hide();
+
+                $j('#bagdropform').show();
+
+                $j('#guestPurchaseDetails').hide();
+                $j('#guestBagDetails').hide();
+                $j('#btnaddbagdropitem').hide();
+            }
+            
+            function showGuestSignout(){
+                
+                $j('#guestDetails').hide();
+                $j('#btnadditem').hide();
+                $j('#guestsignoutform').hide();
+                $j('#LanguageSelectDiv').hide();
+
+                $j('#guestsbags').show();
+
+
+                $j('#guestPurchaseDetails').hide();
+                $j('#guestBagDetails').hide();
+
+                $j('#btnaddbagdropitem').hide();
+
+            }
+                    
+                    function enablehistoricProceedButton(){
+                     	$j('#historicProceedButton').prop("disabled", false);
+                    }
+                    
+                    function closeHistoricModal(){ 
+                    
+                    var x = $j('#Closing_Agent__c').val();
+                    var y = $j('#Historic_Close_Reason__c').val();
+                        if(x != '' && y != ''){
+                             $j('#HistoricCloseModal').modal('hide');
+                        }else{
+                        	alert('Please enter a reason for closing this historic HFS Experisnce');
+                        }
+
+                    }
+                    
+                    function clearout(){
+                        
+                        var closeAgent = document.getElementById('Closing_Agent__c').value;                
+                        var closeString = document.getElementById('Historic_Close_Reason__c').value;
+                        var caseID = '{!Case.id}';
+                                        
+                        console.log('closeString - ' + closeString + ' -----  ClosingAgent - ' + closeAgent);
+                                        
+                        if(!closeAgent || !closeString  ){        
+                                        
+                        	if(!closeAgent && closeString ){
+									alert('Please enter the name of the person closing the Historic HFS Experience i.e. Your Full Name');
+                                    document.getElementById('Closing_Agent__c').style.borderColor = "red";
+                        	}
+                            
+                            if(closeAgent && !closeString ){
+									alert('Please enter a reason for closing the Historic HFS Experience');
+                                    document.getElementById('Historic_Close_Reason__c').style.borderColor = "red";
+                        	}
+                               
+                            if(!closeAgent && !closeString ){
+									alert('please enter your Full Name and a reason for closing the Historic HFS Experience');
+                                    document.getElementById('Historic_Close_Reason__c').style.borderColor = "red";
+                              		document.getElementById('Closing_Agent__c').style.borderColor = "red";
+                        	}
+                                                                                                                                                                                               
+                        }
+                        else{                                     
+                        		$j('#HistoricCloseModal').modal('hide');                             
+                        }                                                         
+                    };
+                    
+                    
+
+           function showBagSignout(){
+                var isAgedItem = ('{!JSENCODE(IF(isAgedItem,"true", "false"))}' == 'true');
+                if(isAgedItem){
+                    $j('#HistoricCloseModal').modal('show');
+                    $j('#historicProceedButton').prop("disabled", true);                                     
+                    }
+                    
+                $j('#guestDetails').hide();
+                $j('#btnadditem').hide();
+                $j('#guestsbagsummary').show();
+                $j('#guestsignoutform').show();
+                $j('#LanguageSelectDiv').show();
+           
+
+                $j('#guestsbags').hide();
+
+                $j('#preview').hide();
+                $j('#result_c').hide();
+                $j('#showBagSignoutB').hide();
+
+                $j('#guestPurchaseDetails').hide();
+                $j('#guestBagDetails').hide();
+
+                $j('#btnaddbagdropitem').hide();
+
+            };
+
+            function showBagSignoutInit(){
+               location.reload();
+
+            };
+
+              
+            function GuestCheckout(){
+                setTimeout(function() {GoToGuestProfile();}, 500);
+            }
+
+
+            function cancelCheckout(){
+                var caseID = '{!Case.id}';
+
+                this.HandsFreeShoppingGuestExtension.GuestBagsCancel(caseID,function(result){
+                    console.log(result)
+                    setTimeout(function() {GoToGuestProfile();}, 500);
+                });
+            }
+
+            function placeHolderText(){
+                console.log('placeholder firing');
+                var elem = document.getElementById("feedback");
+                elem.setSelectionRange(0, 0);
+            }
+            
+
+            
+
+            function StartScanBag(){
+
+                var caseID = '{!Case.id}';
+                this.HandsFreeShoppingGuestExtension.updateCaseScanBagCollection( result_c.value , caseID,function(result){
+                   
+                    console.log(result)
+                    //beep
+                    PlaySound();
+                    setTimeout(function() {location.reload();}, 500);
+
+        
+                });
+
+               
+
+            }
+
+            function saveShoppingItem(){
+                
+                /*do your IF statement*/
+                 
+                var estimatedSpend = $j('#hfsitemspend').val();
+                var bagCount = $j('#hfsitembagcount').val();
+                var brandID = $j('#brandid').val();
+                var caseID = '{!Case.id}';
+                var brandshopName = $j('#brandName').val();
+                var bagBarCode = this.tableStringBar;
+
+                console.log('brandshopName====' + brandshopName);
+                console.log('Bag Barcode ==' + bagBarCode);                
+                
+                if(parseInt(estimatedSpend) < parseInt(bagCount)){
+                    showError('Bag Count cannot be greater than Estimated Spend');
+                    $j("#hfsitemspend").css("border-color", "#FF0000");
+                    $j("#hfsitemspend").css("background-color", "#f2dede");
+                    $j("#hfsitembagcount").css("border-color", "#FF0000");
+                    $j("#hfsitembagcount").css("background-color", "#f2dede");
+                }
+                else if(bagCount.length > 2){
+                    
+                    showError('Bag Count cannot be greater than 2 digits');
+                    $j("#hfsitembagcount").css("border-color", "#FF0000");
+                    $j("#hfsitembagcount").css("background-color", "#f2dede");
+                    
+                }
+                    else{
+                        
+                        $j('#guestDetails').show();
+                        $j('#btnadditem').show();
+                        $j('#hfsitemform').hide();
+                        $j('#guestPurchaseDetails').show();
+                        $j('#guestBagDetails').show();
+                        
+                        HandsFreeShoppingGuestExtension.saveShoppingItem(  brandID,  estimatedSpend,  bagCount , bagBarCode, caseID, brandshopName, function(result, event, scope) {  
+                            // send the details to the server
+                            console.log(result);
+                            // now we need to redirect the user to the guest details screen
+                            if (result.indexOf('ERROR') > -1){
+                                console.log('an error has occurred: ' + result); 
+                                alert('ERROR, guest could not be saved');      
+                                location.reload();                                                              
+                            } else {
+                                console.log('trying to redirect' + result); 
+                                //window.location.href = '/apex/HFSGuestPage?ID=' + result;
+                                location.reload();
+                            }
+                        }); 
+                    }   
+            }
+
+
+            function saveBagDropItem(){
+                console.log('New Result');
+            }
+
+            function GuestWarning30(){
+                var url_string = window.location.href;
+                var url = new URL(url_string);
+                var record_id = url.searchParams.get("ID");
+                this.HandsFreeShoppingGuestExtension.updateCase30Minutes(record_id, function(result){
+                    console.log(result);
+                    // now we need to redirect the user to the guest details screen
+                    if (result.indexOf('ERROR') > -1){
+                        console.log('An error has occurred: ' + result); 
+                        alert('The Guest had already inform that.');      
+                        location.reload();                                                              
+                    } else {
+                        location.reload();
+                    }
+                });
+            }
+
+            
+
+
+            function GoToGuestProfile(){
+                isLightningRedirect('/apex/HFSGuestPage?ID=' + '{!Case.id}');
+            }
+
+            function PlaySound() {
+                  var sound = document.getElementById("audio");
+                  sound.play()
+              }
+           
+            </script>
+            
+            
+        </head>
+        <body ng-controller="GuestCaseCtrl">
+                 
+            <!-- main content -->
+            <div class="container" > 
+                              
+                <!-- OPEN HFS FORM -->
+                <div id="hfsform" name="hfsform" style="display:none;">
+                
+                        <div class="panel panel-default disable" id="hfspanel" name="hfspanel">
+                 
+                        <div class="panel-body">
+                            <form class="form-horizontal">
+
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-star"></i></span>
+                                    <select class="form-control" placeholder="Non-Privilege Guest" id="hfsprivileged" name="hfsprivileged" required="true">
+                                        <option value="Non-Privilege Guest" selected="selected">{{NonPrivilegeGuest}}</option>
+                                        <option value="Privilege Guest">{{PrivilegeGuest}}</option>    
+                                    </select>
+                                    <span class="input-group-btn"><i class="glyphicon glyphicon-menu-down"></i></span>
+                                </div>
+                                <br />
+                                <div class="panel panel-default" id="qrCodepanel" name="qrCodepanel">        
+                                    <div class="panel-heading">{{HFSPrivilegeGuestCode}}</div>
+                                    <div class="panel-body">
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <div class="input-group">                                             
+                                                    <span class="input-group-addon"><i href="#qrbutton" id="qrbutton" name="qrbutton" data-toggle="modal" data-target="#ScanModal" class="btn btn-outline-secondary" type="button" onclick="startCamera();">
+                                                        <i class="fa fa-qrcode"></i></i></span>    
+                                                    <input id="qrCode" name="qrCode" class="form-control" type="text" placeholder="{{ScanOrManuallyEnter}} ..." required="true"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> 
+                     
+                                <!-- select Scan Modal -->
+                              
+                                    
+                                    <div class="modal-dialog modal-lg" >
+                                        
+                                        <!-- Modal content-->
+                                        <div class="modal-content" >   
+                                            
+                                            <div class="modal-header" style =" font-weight: bold; font-size: medium;"> Scan Guest QR/DM code
+                                                <button name = "close" type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                                
+                                            </div>
+                                            
+                                            <div id="sourceSelectPanel" class="modal-body" style="margin-right: auto;margin-left: auto;">  
+                                               
+                                                <p>Detected QR code: </p><input hidden = "hidden" id="output_scan" style="width:40%;" />
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" id="closeButton" class="btn btn-default" data-dismiss="modal" aria-hidden="true" onclick="stopCamera();">Close</button>
+                                            </div>
+                                        </div>                                            
+                                    </div>
+                            
+                                <!--  select Scan MODAL END -->
+
+                                <!-- DM Scan Modal -->
+            <div id ="dmscan" name="dmscan" class="modal fade" role="dialog" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="false">
+
+                <div class="modal-dialog modal-lg" >
+                    
+                    <div class="modal-content" >
+                        <div class="modal-header" style =" font-weight: bold; font-size: medium;"> Scan Guest QR/DM code<div>
+                <button type="button" id="startButton" class="btn btn-default">Start</button>
+                <button type="button" id="closeButtonDM" data-dismiss="modal" class="btn btn-default">Close</button>
+            </div>
+
+            <div id="sourceSelectPanel" style="display:none">
+                <label for="sourceSelect">Change video source:</label>
+                <select id="sourceSelect" style="max-width:400px">
+                </select>
+            </div>
+            <p hidden = "hidden">Detected QR code: </p><input hidden = "hidden" id="output_scan" style="width:40%;" />
+            <label>Result:</label>
+            <blockquote>
+                <p id="result"></p>
+            </blockquote>
+        </div>
+        </div>
+        </div>
+    </div>
+                                            
+                            </form>
+                            
+                        </div>
+                    </div>
+                    
+                </div>
+
+            </div>
+    
+    
+    <!--   '---------------------------------------------------------' -->
+        
+    <!-- Main Navigation -->
+            <div class="my-nav">
+                <div class="site-navbar navbar navbar-fixed-top" role="navigation">
+                    <div class="container">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+                            <a class="navbar-brand" onclick="gotoPage('TIC_Dashboard');">Tourist Information Center</a> 
+                        </div>
+                        <div id="navbar" class="navbar-collapse collapse">
+                            <ul class="nav navbar-nav navbar-right">
+                                <li> <a  href="#guest"  onclick="gotoPage('Promotion_Search');" >Guest Check In</a> </li>
+                                <li> <a  href="#search"  onclick="gotoPage('GuestSearch');">Guest Search</a> </li>
+                                <li> <a  href="#card"  onclick="gotoPage('VIPCardSearch');">Card Search</a> </li>
+                                <li> <a  href="#clean"  onclick="gotoPage('VIPCardCleardown');">VIP Card Cleanup</a> </li>
+                                <li> <a  href="#hfs"  onclick="gotoPage('HFSDash');" class="active">Hands Free Shopping</a> </li>
+                    			<li style="display:none;" id="lgldash"> <a  name="lgldash" id="lgldash" onclick="gotoPage('LGL_Dash');">Luggage &amp; Loans</a> </li>
+                                <li> <a  href="#exit" onclick="cancelAction();" >Exit</a> </li>
+                            </ul>
+                        </div>
+                        <!--/.nav-collapse -->
+                    </div>
+                </div>
+            </div>
+            <!-- /.Main Navigation -->
+            <!-- Fullwidth Header -->
+            <!-- Intro Header -->
+            
+            
+            <div class="jumbotron text-center">
+                <h2>&nbsp;</h2>
+            </div>
+
+            <!-- main content -->
+            <div class="container" ng-controller="GuestCaseCtrl"> 
+            
+            <table>
+            <tr>
+            <td>
+                            <a onclick="GuestCheckout()" class="btn btn-default"><i class="glyphicon glyphicon-user"></i></a>
+                			<a href="#" class="btn btn-default" role="button" id="showBagSignoutB" name="showBagSignoutB" ng-click="updateLanguage();" onclick="showBagSignout();">Proceed to Guest Handover</a> 
+            
+            </td> 
+            
+            <div id="LanguageSelectDiv">
+          <!--   <button id="LanguageSelectButton" type="button" class="btn btn-default" data-dismiss="modal" ng-click="updateLanguage()" style="float: right;">OK</button>  -->
+            							<select class="selectpicker pull-right" id="theLanguagePicker" hidden="hidden" ng-model="selectedLang" ng-change="updateLanguage()" >
+                           			<!-- 	<select class="selectpicker pull-right" id="theLanguagePicker" >  -->
+										    <option selected="selected" value="en" data-content='<span class="flag-icon flag-icon-gb"></span> English'>English</option>
+										  	<option value="fr" data-content='<span class="flag-icon flag-icon-fr"></span> Français'>Français</option>
+								<!--		  	<option value="es" data-content='<span class="flag-icon flag-icon-es"></span> Español'>Español</option>	 -->
+								<!--		  	<option value="ca" data-content='<span class="flag-icon flag-icon-cat"></span> Català'>Català</option>    -->
+										  	<option value="de" data-content='<span class="flag-icon flag-icon-de"></span> Deutsch'>Deutsch</option>   
+								<!--		  	<option value="nl" data-content='<span class="flag-icon flag-icon-nl"></span> Nederlands'>Nederlands</option>    -->
+										  	    <option value="it" data-content='<span class="flag-icon flag-icon-it"></span> Italiano'>Italiano</option>
+								<!--		  	<option value="ru" data-content='<span class="flag-icon flag-icon-ru"></span> Русский язык'>Русский язык</option>     -->
+								<!--		  	<option value="cn" data-content='<span class="flag-icon flag-icon-cn"></span> 中文'>中文</option>    -->
+								<!--		 	<option value="ar" data-content='<span class="flag-icon flag-icon-ar"></span> العربية'>     -  العربية</option>   --> 
+                           				</select> 
+            </div>
+            <td>
+            </td>
+            </tr>           
+            </table>
+
+                
+             				
+                <br/>
+                <br/>
+                <!-- OPEN GUEST BAG SUMMARY -->
+                <div id="guestsbags" name="guestsbags"  ng-controller="GuestCaseCtrl" >
+                    <div class="panel panel-primary" id="guestBagDetailsScan" name="guestBagDetails">
+                        <div class="panel-heading">{{SummaryScannedGuestBag}}</div>
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr class="active">
+                                        <th>Brand</th>
+                                        <th>Barcode</th>
+                                        <th>Storage location</th>
+                                        <th>Scanned at storage location</th>
+                                        <th>Status</th>
+                                    </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="GuestBag in GuestBagsPendingCollection | filter:query" ng-click="UpdateGuestBag(GuestBag)" ng-class="whatClassIsItemRowBAG(GuestBag)">
+                                    <td>{{GuestBag.HFS_Purchase__r.Village_Presence__r.Brand__r.Name}}</td>
+                                    <td>{{GuestBag.Barcode__c }}</td>
+                                                                      
+                                 <!--   <td>{{GuestBag.HFS_Storage_Location__r.Name || 'Not defined yet' }}</td>     -->                             
+                                    <td ng-if="GuestBag.Status__c != 'Bag with GSA' ">{{GuestBag.HFS_Storage_Location__r.Name}}</td>
+                                    <td ng-if="GuestBag.Status__c == 'Bag with GSA' ">Delivered with Quick Handover</td>
+                                    
+                                                                    
+                                    <td>{{GuestBag.Scanned_for_collection__c?'yes':'no'}}</td>
+                                    <td >{{GuestBag.Status__c}} </td>
+                                </tr> 
+                                <tr ng-hide="GuestBagsPendingCollection.length" class="info" >
+                                    <td colspan="5">No bags yet</td>
+                                </tr>  
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+  
+                    <input  id="result_c" name="result_c" ng-model= "result_c" placeholder="Scan bag barcode or enter manually..." size="30" onchange="StartScanBag();"></input>
+                    <br/>
+                    <br/>
+                    <div class="panel panel-primary" id="guestBagDetailsScan" name="guestBagDetails">
+                        <div class="panel-heading">Scan Bags for Guest Handover</div>  
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <tbody>
+                                <div id="" class="col-md-2 col-md-offset-2" > <video playsinline="true" id="video" ></video></div>
+                                </tbody>
+                            </table>
+                        </div>
+                     </div>
+                    <br/>
+                    <br/>
+  
+
+
+                </div>
+                <!-- OPEN GUEST BAG SUMMARY   class="col-md-2 col-md-offset-2"-->
+            
+            <!-- Historic Close Modal -->
+            <center>               
+                <div id="HistoricCloseModal" name="ScanModal" class="modal fade" role="dialog" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+
+                                        <div class="modal-dialog modal-lg">
+                                            
+                                            <!-- Modal content-->
+                                            <div class="modal-content" >   
+
+                                                <div class="modal-header" style =" font-weight: bold; font-size: medium;"> 
+                         
+
+                                                </div>
+
+                                                <div class="modal-body" style="margin-right: auto;margin-left: auto;">  
+                                 					<p>Your Full Name: </p><input id="Closing_Agent__c" rows="10" style="width:100%;"></input>
+                                                <p/>
+                                                    <p>Historic Close Reason: </p><input id="Historic_Close_Reason__c" rows="10" style="width:100%;"></input>
+
+
+                                                </div>
+
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn pull-left" data-toggle="modal" onclick="clearout();" >OK</button>
+                                                <!--   <button type="button" id="cancelButton" class="btn pull-right" data-dismiss="modal" aria-hidden="true" onclick="cancelClearout();">Cancel</button> -->
+                                                </div>
+
+                                            </div>
+                                            
+                                        </div>
+                                    </div>          
+            </center>
+            <!-- Historic Close Modal END -->    
+
+                <!-- Scanned BAGs Summary -->
+           <!--     <div id="guestsbagsummary" name="guestsbagsummary" style="display:none;" ng-controller="GuestCaseCtrl" > -->
+                <div id="guestsbagsummary" name="guestsbagsummary" style="display:none;" >
+                
+                    <div class="panel panel-primary" id="guestBagDetailsScan2" name="guestBagDetails2">
+                             				
+                        <div class="panel-heading">{{SummaryScannedGuestBag}}</div>
+                        	                        
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr class="active">
+                                        <th>{{Brand}}</th>
+                                        <th>{{Barcode}}</th>                                       
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="GuestBagC in GuestBagsCollection | filter:query" ng-class="whatClassIsItemRowBAG(GuestBagC)">
+                                    <td>{{GuestBagC.HFS_Purchase__r.Village_Presence__r.Brand__r.Name}}</td>
+                                    <td>{{GuestBagC.Barcode__c }}</td>
+               
+                                </tr> 
+                                <tr ng-hide="GuestBagsCollection.length" class="info" >
+                                    <td colspan="5">{{NoBagsYet}}</td>
+                                </tr>  
+                                <tr style="background-color: #E2E2E2;">
+                                <td><b>{{TotalBagsforCollection}}:</b></td>  
+                                <td><b>{!totalBagForCollection}</b></td> 
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- Scanned BAGs Summary -->
+
+
+                <!-- CLOSE BAG DROP ITEM FORM -->
+                <div id="guestsignoutform" name="guestsignoutform" style="display:none;">
+                      <div class="panel panel-default disable" id="hfspanel" name="hfspanel">
+                      
+                      	
+                      
+                        <div class="panel-heading">{{GuestHandover}}</div>
+                        <div class="panel-body">
+                            <form class="form-horizontal">
+                               
+                                <div class="input-group">          
+                                
+                                    <br />
+                                    <ul class="filters" id="agreecheckbox1" name="agreecheckbox1"  style="outline: 3px solid #FF0000;">
+                                        <li>
+                                            <label>
+                                                <input type="checkbox" checked="" id="checkboxterms1" class="checkboxterms1" name="checkboxterms1" ng-click="viewFeedBackForm($event)"/>
+                                                <span class="icon"><i class="fa fa-check"></i></span>
+                                                {{BagCollectionConfirmation}}
+                                            </label>
+                                        </li>  
+                                    </ul>
+                                    <br />
+                                    <!--
+                                    <ul class="filters" id="agreecheckbox2" name="agreecheckbox2">
+                                        <li>
+                                            <label>
+                                                <input type="checkbox" checked="" id="checkboxterms2" name="checkboxterms2" />
+                                                <span class="icon"><i class="fa fa-check"></i></span>
+                                                I confirm that all bags are in good condition/undamaged
+                                            </label>
+                                        </li>  
+                                    </ul>
+                                    <br />
+                                    <br />
+                                    -->
+                                    <ul class="filters" id="agreecheckbox3" name="agreecheckbox3">
+                                        <li>
+                                            <label>
+                                                <input type="checkbox" checked="" id="checkboxterms3" name="checkboxterms3" ng-click="viewFeedBackForm($event)"/>
+                                                <span class="icon"><i class="fa fa-check"></i></span>
+                                               {{HFSFinishedConfirmation}}
+                                            </label>
+                                        </li>  
+                                    </ul>
+                                    <br />
+
+                                <!-- Guest Feedback DIV below -->
+                                <div id="guestFeedBackForm" name="guestFeedBackForm" ng-show="showFeedbackForm" class="input-group">
+                                <div class="panel-body feedBackform" style="border: 3px solid #FF0000;">
+                                    <form class="form-horizontal">
+                                        
+                                        <table id="valueTable" class="table-responsive-sm">
+
+                                              <tr>                                     
+                                                  <td style="padding: 10px;font-size: 12px;text-align: left;">
+                                                  <center>
+                                                     <b>{{Whatwasthevalueofyourspendtoday}}?</b>
+                                                     </center>
+                                                  </td>
+                                            </tr>
+
+                                            <tr>
+
+                                                  <td id="valueCell" style="padding: 10px;font-size: 12px;text-align: left;">
+                                                    <input type="radio" id="lessThanPlanned" name="contact" value="Less than planned" />
+                                                    <label for="lessThanPlanned" >{{Lessthanplanned}}</label>
+                                                    <br/>
+
+                                                    <input type="radio" id="moreThanPlanned" name="contact" value="More than planned" />
+                                                    <label for="moreThanPlanned">{{Morethanplanned}}</label>
+                                                    <br/>
+
+                                                    <input type="radio" id="considerablyMoreThanPlanned" name="contact" value="Considerably more than planned" />
+                                                    <label for="considerablyMoreThanPlanned">{{Considerablymorethanplanned}}</label>
+                                                    <br/>
+
+                                                    <input type="radio" id="spentAsMuchAsExpected" name="contact" value="Spent as much as expected" />
+                                                    <label for="spentAsMuchAsExpected">{{Spentasmuchasexpected}}</label>
+                                                  </td>
+                                              </tr>                                
+
+                                        </table>
+                                       </form> 
+                                        
+                                    
+                                </div>
+
+                                <br />
+                                 
+                                <div class="panel-body container-fluid feedBackform" id="satisfaction" style="background-color: #FFF; padding: 10px; border-radius: 5px; border: 3px solid #FF0000;">
+                                            <form class="form-horizontal">
+                                               
+                                                      <table id="satisfactionTable">
+
+                                                          <tr>                                     
+                                                              <td style="padding: 20px;font-size: 12px;text-align: left;">
+
+                                                                 <p><b>{{Whatisyourlevelofsatisfactionwiththeservice}}?</b></p>&#10;1 - {{Highlydissatisfied}}, 5 - {{Highlysatisfied}}
+                                                          
+                                                              </td>
+                                                              </tr>
+                                                              <tr>
+
+                                                              <td align="left" id="satisfactionCell" style="padding: 20px;font-size: 12px;text-align: left;"> 
+                                                           
+
+                                                                <label for="level1" >
+                                                                <input type="radio" id="level1" name="satisfactionLevel" value="sat1" ng-click="toggleImprovements($event)" />
+                                                                1</label>&nbsp; 
+                                                     
+                                                                <label for="level2">
+                                                                <input type="radio" id="level2" name="satisfactionLevel" value="sat2" ng-click="toggleImprovements($event)" />
+                                                                2</label>&nbsp; 
+                                                 
+                                                                <label for="level3">
+                                                                <input type="radio" id="level3" name="satisfactionLevel" value="sat3" ng-click="toggleImprovements($event)" />
+                                                                3</label>&nbsp; 
+
+                                                                <label for="level4">
+                                                                <input type="radio" id="level4" name="satisfactionLevel" value="sat4" ng-click="toggleImprovements($event)" />
+                                                                4</label>&nbsp; 
+
+                                                                <label for="level3">
+                                                                <input type="radio" id="level5" name="satisfactionLevel" value="sat5" ng-click="toggleImprovements($event)" />
+                                                                5</label>
+
+                                                             
+                                                              </td>
+                                                       
+                                                          </tr>                                
+
+                                                      </table>
+                                                                 
+                                            </form>
+                                        </div>
+
+
+                                    <br />
+                                 
+                                    <div class="panel-body container-fluid feedBackform" id="satisfaction" style="background-color: #FFF; padding: 10px; border-radius: 5px; border: 3px solid #FF0000;">
+                                            <form class="form-horizontal">
+                                               
+                                                      <table id="recommendTable">
+
+                                                          <tr>                                     
+                                                              <td style="padding: 20px;font-size: 12px;text-align: left;">
+                                                              
+                                                                 <p><b>{{Howlikelyareyoutorecommendtheservice}}?</b></p>&#10;0 - {{Notlikelyatall}}, 10 - {{Verylikely}}
+                                                                
+                                                              </td>
+                                                              </tr>
+                                                              <tr>
+
+                                                              <td align="left" id="recommendationCell"  style="padding: 20px;font-size: 12px;text-align: left;"> 
+                                                              
+                                                                <label for="level0">
+                                                                <input type="radio" id="rad0" name="radioLevel" value="rec0" ng-click="toggleImprovements($event)" /><center>
+                                                                0</center></label>&nbsp; 
+
+                                                                <label for="level1">
+                                                                <input type="radio" id="rad1" name="radioLevel" value="rec1" ng-click="toggleImprovements($event)" />
+                                                                1</label>&nbsp; 
+                                                     
+                                                                <label for="level2">
+                                                                <input type="radio" id="rad2" name="radioLevel" value="rec2" ng-click="toggleImprovements($event)" />
+                                                                2</label>&nbsp; 
+                                                 
+                                                                <label for="level3">
+                                                                <input type="radio" id="rad3" name="radioLevel" value="rec3" ng-click="toggleImprovements($event)" />
+                                                                3</label>&nbsp; 
+
+                                                                <label for="level4">
+                                                                <input type="radio" id="rad4" name="radioLevel" value="rec4" ng-click="toggleImprovements($event)" />
+                                                                4</label>&nbsp; 
+
+                                                                <label for="level5">
+                                                                <input type="radio" id="rad5" name="radioLevel" value="rec5" ng-click="toggleImprovements($event)" />
+                                                                5</label>&nbsp; 
+
+                                                                <label for="level6">
+                                                                <input type="radio" id="rad6" name="radioLevel" value="rec6" ng-click="toggleImprovements($event)" />
+                                                                6</label>&nbsp; 
+
+                                                                <label for="level7">
+                                                                <input type="radio" id="rad7" name="radioLevel" value="rec7" ng-click="toggleImprovements($event)" />
+                                                                7</label>&nbsp; 
+
+                                                                <label for="level8">
+                                                                <input type="radio" id="rad8" name="radioLevel" value="rec8" ng-click="toggleImprovements($event)" />
+                                                                8</label>&nbsp; 
+
+                                                                <label for="level9">
+                                                                <input type="radio" id="rad9" name="radioLevel" value="rec9" ng-click="toggleImprovements($event)" />
+                                                                9</label>&nbsp; 
+
+                                                                <label for="level10">
+                                                                <input type="radio" id="rad10" name="radioLevel" value="rec10" ng-click="toggleImprovements($event)" />
+                                                                10</label>&nbsp; 
+                                                              
+                                                              </td>
+                                                       
+                                                          </tr>                                
+
+                                                      </table>
+                                                                 
+                                            </form>
+                                        </div>  
+
+
+
+                                        <br />
+                                 
+                                    <div class="panel-body container-fluid feedBackform" id="Improvements" ng-hide="state" style="background-color: #FFF; padding: 10px; border-radius: 5px;">
+                                    <!-- <div class="panel-body container-fluid feedBackform" id="satisfaction" style="background-color: #FFF; padding: 10px; border-radius: 5px; border: 3px solid #FF0000;"> -->
+                                    <!-- <div class="panel-body container-fluid feedBackform" id="satisfaction" style="background-color: #FFF; padding: 10px; border-radius: 5px; border: 3px solid #FF0000;"> -->
+                                            <form class="form-horizontal" id="improvementForm">
+                                                <div style="background-color: #FFF; padding: 10px; border-radius: 5px">                                                                           
+                                                  <div>
+                                                      <table id="improvements">
+
+                                                          <tr>                                     
+                                                              <td style="padding: 20px">
+                                                              <centre>
+                                                                 <p><b>{{WhatcouldweImprove}}?</b></p>
+                                                                 </centre>
+                                                              </td>
+                                                              </tr>
+                                                              <tr>
+
+                                                              <td style="padding: 20px">
+                                                                <center>
+                                                                  <textarea rows="4" cols="30" id="feedback" maxlength="500" form="improvementForm" onclick="javascript:placeHolderText();" style="border-radius: 5px">
+                                                                  </textarea>
+                                                                </center>
+                                                              </td>
+                                                          </tr>                                
+                                                      </table>
+                                                  </div>
+                                                </div>                       
+                                            </form>
+                                        </div>
+                                        </div>
+
+
+                                <!-- Guest Feedback DIV end -->
+
+
+                          
+                                   
+                                </div> 
+
+
+                            </form>
+
+                            <form class="form-horizontal" id="signatureAndButtons">
+                                <br />
+                                <canvas id="signatureCanvas" name="signatureCanvas" height="150px" width="250px" style="border: 3px solid #FF0000; border-radius: 8px; background-color: #AFAFAF;" ></canvas>
+                                <br />
+                                <div class="input-group">          
+                                    <a href="#clear" id="clearsig" name="clearsig" class="btn btn-default" role="button" >{{ClearSignatureButton}}</a>
+                                    <br />
+                                    <br />
+                                </div>
+                                <div>
+                                     <button href="#" class="btn btn-default" role="button" id="guestcheckout" name="guestcheckout" disabled="disabled" >{{CompleteHandoverButton}}</button>
+                                     <a href="#" class="btn btn-default" role="button" id="cancelcheckout" name="cancelcheckout" onclick="cancelCheckout();">{{CancelButton}}</a>
+                                     <a href="#" class="btn btn-default" role="button" id="Backcheckout" name="Backcheckout" onclick="showBagSignoutInit();">{{BackButton}}</a> 
+                                </div>
+                            </form>
+                            
+                        </div>
+                    </div>
+                </div>
+                <!-- CLOSE GUEST SIGNOUT FORM -->
+                
+
+                <!-- select BAGS Modal -->
+                <div id="myModalBags" name="myModalBags" class="modal" role="dialog" ng-show="showBagListSearch">
+                    <div class="modal-dialog">
+                        
+                        <!-- Modal content-->
+                        <div class="modal-content" >
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" ng-click="closeModalBags()">&times;</button>
+                                <h4 class="modal-title">{{hfsitembagcount}} New Bags</h4>
+                            </div>
+                            <div class="modal-body">
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                            <tbody >
+                                <div ng-repeat="field in table.fields track by $index" >
+                                <input id="tablebarcode" name="tablebarcode" type='text' ng-model='table.fields[$index]' placeholder='Barcode'/>
+                                <br />
+                                </div>
+                            </tbody>
+                        </table>
+                    </div>
+
+                            </div>
+                            <div class="modal-footer">
+                                   <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="closeModalBags()">Save</button>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                <!--  select BAGS MODAL END -->
+
+
+
+
+
+
+
+
+
+
+                <!-- select brand Modal -->
+                <div id="myModal" name="myModal" class="modal" role="dialog" ng-show="showBrandListSearch">
+                    <div class="modal-dialog">
+                        
+                        <!-- Modal content-->
+                        <div class="modal-content" >
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" ng-click="closeModal()">&times;</button>
+                                <h4 class="modal-title">&quot;{{brandName}}&quot; in Brands</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="list-group">
+                                    <a href="#" class="list-group-item" ng-click="selectedContact(brandName)" ng-repeat="brandName  in contactList">{{brandName.Name}}</a>  
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="closeModal()">Close</button>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                <!--  select brand MODAL END -->
+                
+                <!-- change item status Modal -->
+                <div id="myitemModal" name="myitemModal" class="modal" role="dialog" ng-show="showchangeitemmodal">
+                    <div class="modal-dialog">
+                        
+                        <!-- Modal content-->
+                        <div class="modal-content" >
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" ng-click="closeitemModal()">&times;</button>
+                                <h4 class="modal-title">Change &quot;{{selectedItem}}&quot; Status</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-refresh"></i></span>
+                                    <select class="form-control"  ng-model="selectedItemvalue" id="itemstatus" name="itemstatus">
+                                        <option value="placeholder" disabled="disabled">Item Status</option>
+                                        <option ng-repeat="sel in selectables" ng-selected="selectedItemvalue == sel.value" value="{{sel.value}}">{{sel.label}}</option>
+                                    </select>
+                                    <span class="input-group-btn"><i class="glyphicon glyphicon-menu-down"></i></span>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" ng-click="saveitem()">Save</button>&nbsp;&nbsp;<button type="button" class="btn btn-default" data-dismiss="modal" ng-click="closeitemModal()">Close</button>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+                <!-- error Modal -->
+                <div id="errorModal" name="errorModal" class="modal" role="dialog" >
+                    <div class="modal-dialog">
+                        
+                        <!-- Modal content-->
+                        <div class="modal-content" >
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" onclick="closeErrorModal()">&times;</button>
+                                <h4 class="modal-title">ERROR</h4>
+                            </div>
+                            <div class="modal-body" id="errormessage" name="errormessage">
+                                
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal" onclick="closeErrorModal()">Close</button>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                <!--  error MODAL END -->
+            </div>
+        </body>
+    </html>
+</apex:page>

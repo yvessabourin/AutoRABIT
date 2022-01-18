@@ -1,0 +1,11 @@
+Please find Error Information below :
+
+Functional Area : {!MarketingFinanceIntegrato__c.Functional_Area__c}
+
+Related Object : {!MarketingFinanceIntegrato__c.Related_Object__c}
+
+Related Record Name :  {!MarketingFinanceIntegrato__c.Related_Record_Name__c}
+
+Related Record Id : {!MarketingFinanceIntegrato__c.Related_Record_Id__c}
+
+Error Message : {!MarketingFinanceIntegrato__c.Error_Message__c}

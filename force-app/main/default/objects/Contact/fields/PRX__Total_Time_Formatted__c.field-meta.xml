@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PRX__Total_Time_Formatted__c</fullName>
+    <deprecated>false</deprecated>
+    <externalId>false</externalId>
+    <formula>IF((PRX__Total_Time__c / (3600 * 24)) &gt; 1,
+  TEXT(FLOOR(PRX__Total_Time__c / (3600 * 24))) &amp; &apos;d &apos;,
+  &apos;&apos;)
+
+&amp;
+
+IF((PRX__Total_Time__c / 3600) &gt; 1,
+  TEXT(MOD(FLOOR(PRX__Total_Time__c / 3600), 24)) &amp; &apos;h &apos;,
+  &apos;&apos;)
+
+&amp;
+
+IF((PRX__Total_Time__c / 60) &gt; 1,
+  TEXT(MOD(FLOOR(PRX__Total_Time__c / 60), 60)) &amp; &apos;m&apos;,
+  &apos;&apos;)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Total Time</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

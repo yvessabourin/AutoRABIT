@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All</fullName>
+    <columns>Village_Logo__c</columns>
+    <columns>NAME</columns>
+    <columns>Village_Code__c</columns>
+    <columns>Total_GEA__c</columns>
+    <columns>Retail_Live_Execs__c</columns>
+    <columns>Default_Daily_Sales_Record_Type__c</columns>
+    <columns>CURRENCY_ISO_CODE</columns>
+    <filterScope>Everything</filterScope>
+    <label>All</label>
+    <language>en_US</language>
+</ListView>

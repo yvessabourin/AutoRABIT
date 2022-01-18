@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Mode_of_Transport__c</fullName>
+    <description>how the customer came to the village today</description>
+    <externalId>false</externalId>
+    <inlineHelpText>how the customer came to the village today</inlineHelpText>
+    <label>Mode of Transport</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Train</fullName>
+                <default>false</default>
+                <label>Train</label>
+            </value>
+            <value>
+                <fullName>Car</fullName>
+                <default>false</default>
+                <label>Car</label>
+            </value>
+            <value>
+                <fullName>Large Coach</fullName>
+                <default>false</default>
+                <label>Large Coach</label>
+            </value>
+            <value>
+                <fullName>Small Coach</fullName>
+                <default>false</default>
+                <label>Small Coach</label>
+            </value>
+            <value>
+                <fullName>Taxi</fullName>
+                <default>false</default>
+                <label>Taxi</label>
+            </value>
+            <value>
+                <fullName>Private Hire</fullName>
+                <default>false</default>
+                <label>Private Hire</label>
+            </value>
+            <value>
+                <fullName>Public Bus</fullName>
+                <default>false</default>
+                <label>Public Bus</label>
+            </value>
+            <value>
+                <fullName>Shopping Express</fullName>
+                <default>false</default>
+                <label>Shopping Express</label>
+            </value>
+            <value>
+                <fullName>Refuse to Answer</fullName>
+                <default>false</default>
+                <label>Refuse to Answer</label>
+            </value>
+            <value>
+                <fullName>Small</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Small</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,288 @@
+<apex:page standardController="Account" extensions="VIPBBDeclineExtension"  sidebar="false" showHeader="false">
+    <html lang="en" ng-app="vipApp">
+    <head>
+
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <title>The VIP Black Book Consent Page</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></link>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.9/angular.min.js"></script>
+        <link rel="stylesheet" href="{!URLFOR($Resource.NewTICStyles)}"></link>
+        <script src="{!URLFOR($Resource.NewTICScripts)}"></script>
+
+        <script>
+            function isLightningRedirect(inUrl){
+                if ('{!$User.UITheme}' === 'Theme4d' || '{!$User.UITheme}' === 'Theme4t' || '{!$User.UITheme}' === 'Theme4u') {
+                    sforce.one.navigateToURL(inUrl);
+                } else {
+                    window.location = inUrl;
+                }
+            }
+        </script>
+
+        <style type="text/css">
+                @font-face { font-family: BauerBodoni; src: url("{!URLFOR($Resource.FontBauerBodoni)}"); }
+                @font-face { font-family: SangBleuRegular; src: url("{!URLFOR($Resource.SangBleuKingdom, 'SangBleuKingdom-Regular.otf')}"); }
+                @font-face { font-family: SangBleuLight; src: url("{!URLFOR($Resource.SangBleuKingdom, 'SangBleuKingdom-Light.otf')}"); }
+                @font-face { font-family: SangBleuBold; src: url("{!URLFOR($Resource.SangBleuKingdom, 'SangBleuKingdom-Bold.otf')}"); }
+                @font-face { font-family: SangBleuAir; src: url("{!URLFOR($Resource.SangBleuKingdom, 'SangBleuKingdom-Air.otf')}"); }
+                @font-face { font-family: BrownStdRegular; src: url("{!URLFOR($Resource.BrownStdAll, 'BrownStd-Regular.otf')}"); }
+                @font-face { font-family: BrownStdLight; src: url("{!URLFOR($Resource.BrownStdAll, 'BrownStd-Light.otf')}"); }
+                @font-face { font-family: BrownStdBold; src: url("{!URLFOR($Resource.BrownStdAll, 'BrownStd-Bold.otf')}"); }
+                @font-face { font-family: BrownStdThin; src: url("{!URLFOR($Resource.BrownStdAll, 'BrownStd-Thin.otf')}"); }
+
+                body{
+                background-color: #FFF;
+                margin-top: 20px;
+                font-family: BrownStdLight;
+                color: #123e6c;
+                }
+
+                .inputbox {
+                height: 50px;
+
+                /*border-radius: 3px;*/
+                /* border: 1px solid transparent;*/
+                /* border-top: none; */
+                /* border-bottom: 1px solid #DDD;*/
+                /* box-shadow: inset 0 1px 2px rgba(0,0,0,.39), 0 -1px 1px #FFF, 0 1px 0 #FFF;*/
+                /* box-shadow: horizontal-length vertical-length blur-radius spread-radius colour; */
+                border: none;
+                box-shadow: inset 0px 0px 12px 4px rgba(0,0,0,.19);
+                background-color: #FAFAFA;
+                padding-left: 15px;
+                padding-right:15px;
+                font-size: 20px;
+                }
+
+                .submitbutton
+                {
+
+                border: none;
+                color: #fff;
+                background-color: #123e6c;
+                //box-shadow: 0px 0px 6px 4px rgba(0,0,0,.19);
+                /* background-color: #FAFAFA;*/
+                padding-left: 15px;
+                padding-right:15px;
+                /*float: right;*/
+                display:block;
+                //margin-left: 10px;
+                font-size: 22px;
+                margin-top: 130px;
+                margin-bottom: 10px;
+                padding-top: 10px;
+                padding-bottom: 10px;
+                text-decoration: none !important;
+                text-transform: uppercase;
+                font-family: BrownStdLight;
+                }
+
+                .tablebutton {
+                height: 50px;
+                border: none;
+                background-color: #FFFFFF;
+                box-shadow: 0px 0px 6px 4px rgba(0,0,0,.19);
+                /* background-color: #FAFAFA;*/
+                padding-left: 15px;
+                padding-right:15px;
+                float: right;
+                display:block;
+                margin-left: 5px;
+                }
+
+                .alignbuttontext {
+                position: relative;
+                float: left;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                margin:auto;
+                }
+
+                .overlayimage {
+                /*  background: url("{!URLFOR($Resource.VIPDesignImages, 'MothersdayWide.jpg')}") no-repeat center top fixed;
+                width: 100%;*/
+                margin-left: auto;
+                margin-right: auto;
+                display: block;
+                z-index: 1;
+
+                }
+                /* override some of the bootstrap styled */
+                .panel-heading {
+                box-shadow: inset 0px 0px 12px 4px rgba(246,169,55,.29);
+                border-top-left-radius: 0px;
+                border-top-right-radius: 0px;
+                background-color: #F6A937 !important ;
+                text-align: center;
+                font-size: 22px;
+                }
+                .panel {
+                border-top-left-radius: 0px;
+                border-top-right-radius: 0px;
+                border-top-width: 0px;
+                border-left-width: 0px;
+                border-right-width: 0px;
+                border-bottom-width: 0px;
+                box-shadow: 0px 0px 6px 4px rgba(0,0,0,.19);
+                padding-bottom: 2px;
+                }
+
+                .borderless td, .borderless th {
+                border: 0 !important;
+                }
+
+                h2 {
+                padding-top: 20px;
+                font-size: 50px;
+                /*font-weight: bold;
+                color: #007B8D;*/
+                }
+                a:link{
+                color:#fff !important;
+                }
+                a:visited{
+                color:#fff !important;
+                }
+                a:hover{
+                color:#fff !important;
+                }
+                a:active{
+                color:#fff !important;
+                }
+
+                .jumbotron {
+                margin: 200px 0px 0px 0px;
+                font-family: SangBleuLight;
+                padding: 0px 0px 40px 0px;
+
+                }
+            </style>
+
+        <script>
+            // define the app
+            var VIPBBApp = angular.module('vipApp', []);
+            // add an app factory
+
+            // add the controller
+            VIPBBApp.controller('VIPBBServiceCtrl',['$log','$scope','$window','$sce',function($log,$scope,$window,$sce){
+                $scope.guestdata = '{id:"{!JSENCODE(Account.Id)}", firstname:"{!JSENCODE(Account.FirstName)}",lastname:"{!JSENCODE(Account.LastName)}" ,email:"{!JSENCODE(Account.PersonEmail)}", telephone:"{!JSENCODE(Account.PersonMobilePhone)}" }' ;
+
+                $scope.languagelabels = JSON.parse('{!JSENCODE(languagelabels)}');
+                $scope.selectedlanguage = '{!JSENCODE(lang)}';
+                $scope.accID = '{!JSENCODE(Account.Id)}';
+
+                $scope.deleteGuest = function(accID){
+                    // need to save the data first
+                    Visualforce.remoting.Manager.invokeAction(
+                        '{!$RemoteAction.VIPBBDeclineExtension.deleteGuest}',
+                        '{!Account.ID}',
+                        function(result, event){
+                            $log.log('about to call result....' + result);
+                            if (event.status) {
+                                if(result.startsWith("ERROR") ){
+                                    // means something couldnt save :(
+                                    $scope.message = result;
+                                    window.alert(result);
+                                }
+                                else
+                                {
+                                    //$window.location.href = '/apex/VIPBBDeclineThankYou'+ '?lang=' + $scope.selectedlanguage;
+                                    isLightningRedirect('/apex/VIPBBDeclineThankYou'+ '?lang=' + $scope.selectedlanguage);
+                                }
+                            } else if (event.type === 'exception') {
+                                $scope.message = event;
+                            } else {
+                                $scope.message = event;
+                            }
+                            $scope.$apply();
+                        },
+                        {escape: true}
+                    );
+                }
+
+                $scope.gotoBack = function(accID) {
+                    //$window.location.href = '/apex/VIPBBConsent?ID=' + accID + '&lang=' + $scope.selectedlanguage;
+                    isLightningRedirect('/apex/VIPBBConsent?ID=' + accID + '&lang=' + $scope.selectedlanguage);
+                };
+
+                $scope.labelvalue = function(labelname){
+                    var returnval = '';
+                    for (x in $scope.languagelabels) {
+
+                        if($scope.languagelabels[x].LabelName == labelname){
+                            returnval = $scope.languagelabels[x].LabelValue;
+                            //  $log.log('Label name .... ' + $scope.languagelabels[x].LabelName  );
+                            //   $log.log('Label value .... ' + $scope.languagelabels[x].LabelValue );
+                        }
+                    }
+                    return  $sce.trustAsHtml(returnval);
+                };
+
+                $scope.updateLanguage = function() {
+                    // this isnt working very well, so im going to just reload the page, with a new language
+                    //   $log.log('aChanged Language .... ' + $scope.selectedlanguage );
+                    if($scope.accID != ''){
+                        //$window.location.href = '/apex/VIPBBDecline?ID=' + $scope.accID + '&lang=' + $scope.selectedlanguage;
+                        isLightningRedirect('/apex/VIPBBDecline?ID=' + $scope.accID + '&lang=' + $scope.selectedlanguage);
+                    }
+
+                }
+
+            }]);
+            </script>
+    </head>
+    <body>
+    <div ng-controller="VIPBBServiceCtrl">
+        <div class="full-width">{{labelvalue('DeclineTopHeader')}}
+            <div style="float:right;">
+                <select class="selectlanguagelist" name="language" ng-model="selectedlanguage" ng-change="updateLanguage(this)" >
+                    <option value="en">English</option>
+                    <option value="fr">Français</option>
+                    <option value="es">Español</option>
+                    <option value="ca">Català</option>
+                    <option value="de">Deutsch</option>
+                    <option value="nl">Nederlands</option>
+                    <option value="it">Italiano</option>
+                </select>
+            </div>
+        </div>
+        <div class="jumbotron text-center">
+            <h2>{{labelvalue('DeclineHeader')}}</h2>
+        </div>
+        <div class="container" style="margin-left: auto; margin-right: auto; z-index: 100; position: relative;padding-left:0px" >
+
+            <div class="container py-5">
+
+                <div class="form-group row" style="font-size: 18px;">
+                    <div class="col-sm-12">
+
+                        <!--<p>{!Account.Name}</p>-->
+                        <span ng-bind-html="labelvalue('DeclineContent')" ></span>
+
+                    </div>
+
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-6">
+                        <a href="#" class="submitbutton"  ng-click="gotoBack('{!Account.Id}')" >{{labelvalue('NoDeclineButton')}}</a>
+
+                    </div>
+                    <div class="col-sm-6">
+                        <a href="#" class="submitbutton"  ng-click="deleteGuest('{!Account.Id}')"  >{{labelvalue('YesDeclineButton')}}</a>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+    </body>
+
+    </html>
+</apex:page>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>SCS Experience</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>SCS Experiences</value>
+    </caseValues>
+    <fieldSets>
+        <label></label>
+        <name>Summary_Display_Fields</name>
+    </fieldSets>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Bicester_pickup_location</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Cant_add_bags_to_Completed_Experiences</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Cant_collect_exp_with_outstanding_bags2</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Only_Bicester_can_have_other_locations</name>
+    </validationRules>
+    <webLinks>
+        <label></label>
+        <name>New_SCS_Experience_v2</name>
+    </webLinks>
+</CustomObjectTranslation>

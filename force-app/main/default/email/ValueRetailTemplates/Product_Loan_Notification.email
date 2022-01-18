@@ -1,0 +1,26 @@
+<messaging:emailTemplate subject="Product Loan - {!relatedTo.Status__c}" recipientType="User" relatedToType="Product_Loan__c">
+    <messaging:htmlEmailBody >
+    Hi,<br/>
+    Below are the details of a Product Loan.
+    <br />
+    <apex:outputlink value="{!LEFT($Api.Partner_Server_URL_140,FIND('.com',$Api.Partner_Server_URL_140)+4)+relatedTo.Id}">{!relatedTo.Name}</apex:outputlink>
+    <br />
+    <table border="1">
+    <tr><td><strong>Details</strong></td><td><strong>Collection</strong></td><td><strong>Return</strong></td></tr>
+    <tr><td>Brand: {!relatedTo.Brand__r.Name}</td><td>Coll Date:&nbsp;<apex:outputText value="{0, date, dd-MM-yyyy}">
+<apex:Param value="{!relatedTo.Collection_Date__c}" />
+</apex:OutputText></td><td>Ret Date:&nbsp;<apex:outputText value="{0, date, dd-MM-yyyy}">
+<apex:Param value="{!relatedTo.Returned_Date__c}" />
+</apex:OutputText></td></tr>
+    <tr><td>Loaned To: {!relatedTo.Loaned_To__r.Name}</td><td>Staff Name:&nbsp;{!relatedTo.Brand_Employee_Name_On_Collection__c}</td><td>Staff Name:&nbsp;{!relatedTo.Brand_Employee_Name_On_Return__c}</td></tr>
+    <tr><td>Reason: {!relatedTo.Reason_For_Loan__r.Name}</td><td>VR Name:&nbsp;{!relatedTo.VR_Employee_Name_On_Collection__c}</td><td>VR Name:&nbsp;{!relatedTo.VR_Employee_Name_On_Return__c}</td></tr>
+    <tr><td colspan="3">&nbsp;</td></tr>
+    <tr><td colspan="3">Status:{!relatedTo.Status__c}</td></tr>
+    <tr><td colspan="3">Retail Value:<apex:outputText value="{0}"> <apex:param value="{!TEXT(ROUND(relatedTo.Total_Retail_Value__c , 2))}"/> </apex:outputText></td></tr>
+    <tr><td colspan="3">Outlet Value:<apex:outputText value="{0}"> <apex:param value="{!TEXT(ROUND(relatedTo.Total_Outlet_Value__c , 2))}"/> </apex:outputText></td></tr>
+    </table>
+    <br/><br/>
+    <c:ProdLoanList AcctId="{!relatedTo.Id}" /><br/><br/>
+    <b>Regards,</b><br/>
+    </messaging:htmlEmailBody>
+</messaging:emailTemplate>

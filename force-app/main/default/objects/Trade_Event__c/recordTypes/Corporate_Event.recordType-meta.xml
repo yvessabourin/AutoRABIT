@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Corporate_Event</fullName>
+    <active>true</active>
+    <label>Corporate Event</label>
+    <picklistValues>
+        <picklist>Category_Specification__c</picklist>
+        <values>
+            <fullName>Conference</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Trade Show</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Type__c</picklist>
+        <values>
+            <fullName>Corporate Sales Blitz</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fam%2FPress trips</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Market Visits%2FWorkshops</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Travel Shows</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

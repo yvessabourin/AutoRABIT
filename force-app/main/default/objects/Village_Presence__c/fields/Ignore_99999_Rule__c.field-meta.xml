@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Ignore_99999_Rule__c</fullName>
+    <defaultValue>false</defaultValue>
+    <externalId>false</externalId>
+    <inlineHelpText>Ignore all &quot;Total net Sales + Net value of discounts not greater than 99,999&quot; for this village presence.</inlineHelpText>
+    <label>Ignore 99999 Rule</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

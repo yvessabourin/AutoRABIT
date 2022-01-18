@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Sub_Category__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>If the Department on the Account is set to Food and Drink then this field must be populated by one of the available values otherwise it must be left blank</inlineHelpText>
+    <label>Sub Category</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Bakery café</fullName>
+                <default>false</default>
+                <label>Bakery café</label>
+            </value>
+            <value>
+                <fullName>Café &amp; Tea</fullName>
+                <default>false</default>
+                <label>Café &amp; Tea</label>
+            </value>
+            <value>
+                <fullName>Casual Asian</fullName>
+                <default>false</default>
+                <label>Casual Asian</label>
+            </value>
+            <value>
+                <fullName>Casual Western</fullName>
+                <default>false</default>
+                <label>Casual Western</label>
+            </value>
+            <value>
+                <fullName>Formal Asian</fullName>
+                <default>false</default>
+                <label>Formal Asian</label>
+            </value>
+            <value>
+                <fullName>Formal Western</fullName>
+                <default>false</default>
+                <label>Formal Western</label>
+            </value>
+            <value>
+                <fullName>Chocolate/Pop Up</fullName>
+                <default>false</default>
+                <label>Chocolate/Pop Up</label>
+            </value>
+            <value>
+                <fullName>Convenience Store</fullName>
+                <default>false</default>
+                <label>Convenience Store</label>
+            </value>
+            <value>
+                <fullName>Dessert Snack</fullName>
+                <default>false</default>
+                <label>Dessert Snack</label>
+            </value>
+            <value>
+                <fullName>Restaurant</fullName>
+                <default>false</default>
+                <label>Restaurant</label>
+            </value>
+            <value>
+                <fullName>Snack Bar</fullName>
+                <default>false</default>
+                <label>Snack Bar</label>
+            </value>
+            <value>
+                <fullName>Cart</fullName>
+                <default>false</default>
+                <label>Cart</label>
+            </value>
+            <value>
+                <fullName>Cafe</fullName>
+                <default>false</default>
+                <label>Cafe</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

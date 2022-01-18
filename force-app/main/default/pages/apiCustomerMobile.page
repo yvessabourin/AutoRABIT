@@ -1,0 +1,1176 @@
+<apex:page sidebar="false" showHeader="false" standardStylesheets="false"  applyBodyTag="false" controller="apiCustomerController" docType="html-5.0" >
+   
+   <html xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">    
+    
+   
+    <head>
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Guest Details</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></link>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap3-dialog/1.34.9/css/bootstrap-dialog.min.css" rel="stylesheet" type="text/css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap3-dialog/1.34.9/js/bootstrap-dialog.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="{!URLFOR($Resource.NewTICStyles)}"></link> 
+    <style type="text/css">
+
+      body{
+          background: url({!URLFOR($Resource.TICDashboard, 'ingolstadt-village.jpg')}) no-repeat center center fixed; 
+          -webkit-background-size: cover;
+          -moz-background-size: cover;
+          -o-background-size: cover;
+          background-size: cover;
+      }
+  
+  .input-group {
+    padding-bottom: 10px;
+  }
+
+
+  /* -------------------------- */
+
+
+.input-group .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: #888;
+    opacity: 0.95;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    margin-top: 30px;
+
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 100;
+}
+
+.input-group:hover .tooltiptext {
+    visibility: visible;
+}
+  </style>
+    </head>    
+<body>
+
+
+      <!-- Main Navigation -->
+      <div class="my-nav">
+         <div class="site-navbar navbar navbar-fixed-top" role="navigation">
+            <div class="container">
+               <div class="navbar-header">
+                  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+                  <a class="navbar-brand"  onclick="gotoPage('TIC_Dashboard');" href="#">Tourist Information Center</a> 
+               </div>
+               <div id="navbar" class="navbar-collapse collapse">
+                  <ul class="nav navbar-nav navbar-right">
+                    <li> <a  href="#group"  onclick="gotoPage('GroupBooking_Search');" >Group Check In</a> </li>
+                     <li> <a  href="#guest"  onclick="gotoPage('Promotion_Search');" >Guest Check In</a> </li>
+                     <li> <a  href="#search"  onclick="gotoPage('GuestSearch');"  class="active">Guest Search</a> </li>
+                     <li> <a  href="#card"  onclick="gotoPage('VIPCardSearch');">Card Search</a> </li>
+                     <li> <a  href="#clean"  onclick="gotoPage('VIPCardCleardown');">VIP Card Cleanup</a> </li>
+                     <li id="hfslistitem" name="hfslistitem"> <a  href="#hfs"  onclick="gotoPage('HFSDash');">Hands Free Shopping</a> </li>
+                     <li> <a  href="#exit" onclick="cancelAction();" >Exit</a> </li>
+                  </ul>
+               </div>
+               <!--/.nav-collapse -->
+            </div>
+         </div>
+      </div>
+      <!-- /.Main Navigation -->
+      <!-- Fullwidth Header -->
+      <!-- Intro Header -->
+
+       
+<div class="jumbotron text-center">
+  <h2>&nbsp;</h2>
+</div>
+
+<!-- main content -->
+<div class="container">  
+
+    <div id="loadingmodal" name="loadingmodal" class="modal" role="dialog">
+      <div class="modal-dialog">
+        <div id="loader">
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+        </div>
+      </div>
+    </div>
+
+         <div class="input-group">
+              <a onclick="gotoPage('GuestSearch');" class="btn btn-default"><i class="glyphicon glyphicon-home"></i></a>
+              </div>
+<!--
+            <div align="center" id='saving'>Saving ...  <img src="{!$Resource.ajaxSpinner}"/></div>
+            <div align="center" id='loading'>Loading ...  <img src="{!$Resource.ajaxSpinner}"/></div>
+            <div align="center" id='loadingGuest'>Loading Guest ...  <img src="{!$Resource.ajaxSpinner}"/></div>
+            <div align="center" id='processing'>Processing ...  <img src="{!$Resource.ajaxSpinner}"/></div> -->
+
+                    <div class="panel panel-primary" id="guestDetails" name="guestDetails">
+        <div class="panel-heading">Guest Details</div>  
+         <div class="panel-body default" style="color:#FFF;">     
+            
+        <div  class="row" > 
+            <div class="col-md-4">
+               <div class="input-group">
+                 <span class="tooltiptext">Level</span>
+                <span class="input-group-addon"><i class="fa fa-tachometer"></i></span>
+                <input id="theLevel" class="form-control" type="text" placeholder="Level" />
+                </div>
+            </div>
+            
+            <div class="col-md-4">
+               <div class="input-group">
+                 <span class="tooltiptext">Stars</span>
+                <span class="input-group-addon"><i class="fa fa-star"></i></span>
+                <input id="theStars" class="form-control" type="text" placeholder="Stars" />
+                </div>
+            </div>
+            
+            </div>    
+             
+        <div  class="row" >                          
+
+        <div class="formitem">
+            <div class="col-md-4">
+                <div class="input-group">  
+                  <span class="tooltiptext">Title</span>
+                    <span class="input-group-addon"><i class="fa fa-user-md"></i></span>
+                    <input id="title" type="text" class="form-control" name="title" placeholder="Title" />
+                </div>  
+            </div>
+        </div>
+
+        <div class="formitem">
+            <div class="col-md-4">
+               <div class="input-group">
+                 <span class="tooltiptext">First Name</span>
+                <span class="input-group-addon"><i class="fa fa-user-circle-o"></i></span>
+                <input id="fstName" class="form-control" type="text" placeholder="First Name" />
+                </div>
+            </div>
+        </div> 
+  
+                <div class="formitem">
+            <div class="col-md-4">
+                <div class="input-group">
+                  <span class="tooltiptext">Last Name</span>
+                    <span class="input-group-addon"><i class="fa fa-user-circle"></i></span>
+                    <input id="lstName" class="form-control" type="text" placeholder="Last Name" />
+                </div>
+            </div>                
+        </div>                      
+        </div>
+        <div  class="row" >   
+        <div class="formitem">
+            <div class="col-md-6">
+               <div class="input-group">
+                 <span class="tooltiptext">Gender</span>
+                <span class="input-group-addon"><i class="fa fa-venus-mars"></i></span>
+                    <select class="form-control gender" placeholder="Gender" id="gender" name="gender">     
+                    <option value="placeholder" selected="selected" disabled="disabled">Gender</option>
+               </select>                    
+                </div>
+            </div>
+        </div> 
+        <div class="formitem">
+            <div class="col-md-6">
+               <div class="input-group">
+                 <span class="tooltiptext">Date Of Birth (dd/mm/yyyy)</span>
+                <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                  <input id="birthDate" class="form-control" type="text" placeholder="Date Of Birth (dd/mm/yyyy)" />
+                </div>
+            </div>
+        </div> 
+                    </div>
+        <div  class="row" >                          
+         <div class="formitem">
+            <div class="col-md-6">
+               <div class="input-group">
+                 <span class="tooltiptext">Email Address</span>
+                <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+                  <input id="email" class="form-control"  type="email"   placeholder="Email Address" title="Please enter a valid email address" />
+                </div>
+            </div>
+        </div> 
+                <div class="formitem">
+            <div class="col-md-6">
+               <div class="input-group">
+                 <span class="tooltiptext">Mobile Number</span>
+                <span class="input-group-addon"><i class="fa fa-mobile"></i></span>
+                 <input id="phone" class="form-control" type="text" title="please enter a valid telephone number, Use +, any number, spaces, hyphens and x (for extensions)" placeholder="Mobile Number" />                
+                </div>
+            </div>
+        </div> 
+</div>
+        <div  class="row" >                          
+
+                <div class="formitem">
+            <div class="col-md-6">
+               <div class="input-group">
+                 <span class="tooltiptext">Village</span>
+                <span class="input-group-addon"><i class="fa fa-location-arrow"></i></span>
+                  <select class="form-control village" placeholder="Village" id="village" name="village">     
+                    <option value="placeholder" selected="selected" disabled="disabled">Village</option>
+               </select>               
+                </div>
+            </div>
+        </div> 
+
+                <div class="formitem">
+            <div class="col-md-6">
+               <div class="input-group">
+                 <span class="tooltiptext">Language</span>
+                <span class="input-group-addon"><i class="fa fa-language"></i></span>
+                <select class="form-control language" placeholder="Language" id="language" name="language">     
+                    <option value="placeholder" selected="selected" disabled="disabled">Language</option>
+               </select>
+                </div>
+            </div>
+        </div> 
+
+                    </div>
+        <div  class="row" >                          
+
+
+
+                <div class="formitem">
+            <div class="col-md-6">
+               <div class="input-group">
+                 <span class="tooltiptext">Address Line 1</span>
+                <span class="input-group-addon"><i class="fa fa-address-card"></i></span>
+               <input id="address1" class="form-control" type="text" placeholder="Address Line 1" />
+                </div>
+            </div>
+        </div> 
+
+                    </div>
+        <div  class="row" >                          
+
+        <div class="formitem">
+            <div class="col-md-6">
+               <div class="input-group">
+                 <span class="tooltiptext">Address Line 2</span>
+                <span class="input-group-addon"><i class="fa fa-address-card"></i></span>
+                 <input id="address2" class="form-control" type="text" placeholder="Address Line 2" />
+                </div>
+            </div>
+        </div> 
+
+        <div class="formitem">
+            <div class="col-md-6">
+               <div class="input-group">
+                 <span class="tooltiptext">City</span>
+                <span class="input-group-addon"><i class="fa fa-university"></i></span>
+                 <input id="city" class="form-control" type="text" placeholder="City" />
+                </div>
+            </div>
+        </div> 
+                    </div>
+        <div  class="row" >                          
+
+        <div class="formitem">
+            <div class="col-md-6">
+               <div class="input-group">
+                 <span class="tooltiptext">County</span>
+                <span class="input-group-addon"><i class="fa fa-map"></i></span>
+                 <input id="county" class="form-control" type="text" placeholder="County" />
+                </div>
+            </div>
+        </div> 
+        <div class="formitem">
+            <div class="col-md-6">
+               <div class="input-group">
+                 <span class="tooltiptext">Post code</span>
+                <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+                 <input id="postcode" class="form-control" type="text" placeholder="Post Code" />
+               
+                </div>
+            </div>
+        </div> 
+                    </div>
+        <div  class="row" >                          
+
+        <div class="formitem">
+            <div class="col-md-6">
+               <div class="input-group">
+                 <span class="tooltiptext">Country of Residence</span>
+                <span class="input-group-addon"><i class="fa fa-globe"></i></span>
+                <select class="form-control Country" placeholder="Country of residence" id="Country" name="Country">     
+                <option value="placeholder" selected="selected" disabled="disabled">Country of residence</option>
+               </select>
+                </div>
+            </div>
+        </div> 
+
+                <div class="formitem">
+            <div class="col-md-6">
+               <div class="input-group" id="leadsourcefield" style="display: none;">
+                 <span class="tooltiptext">Lead Source</span>
+                <span class="input-group-addon"><i class="fa fa-flag"></i></span>
+                 <select class="form-control leadsource" placeholder="Lead Source" id="leadsource" name="leadsource">     
+                <option value="placeholder" selected="selected" disabled="disabled">Lead Source</option>
+               </select>
+                </div>
+            </div>
+        </div> 
+            </div>
+            <br/>
+            <div id="preferencesSection" class="row">
+                <h3 class="slds-section-title--divider" align="center">Opt-In Statuses</h3>            
+                
+                <div class="formitem">
+            <div class="col-md-4">
+                        <label class="slds-form-element__label" for="optoutEmail">Opt In Email</label>
+                         <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-at"></i></span>
+                 <select class="form-control optoutEmail" placeholder="Opt-In Email" id="optoutEmail" name="optoutEmail">     
+                <option value="placeholder" selected="selected" disabled="disabled">Opt-In Email</option>
+               </select>                
+                </div>
+                    </div>
+                     </div>
+                   <div class="formitem">
+            <div class="col-md-4">
+                        <label class="slds-form-element__label" for="optoutMobile">Opt In Mobile</label>
+                         <div class="input-group">
+                          <span class="input-group-addon"><i class="fa fa-mobile"></i></span>
+                            <select class="form-control optoutMobile" placeholder="Opt-In Email" id="optoutMobile" name="optoutMobile">     
+                <option value="placeholder" selected="selected" disabled="disabled">Opt-In Mobile</option>
+               </select>    
+                       </div>
+                    </div>                         
+         </div>
+                   <div class="formitem">
+            <div class="col-md-4">
+                        <label class="slds-form-element__label" for="optoutPostal">Opt In Postal</label>
+                         <div class="input-group">
+                          <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+                            <select class="form-control optoutPostal" placeholder="Opt-In Email" id="optoutPostal" name="optoutPostal">     
+                <option value="placeholder" selected="selected" disabled="disabled">Opt-In Postal</option>
+               </select>    
+                       </div>
+                     
+                    </div>
+                </div>
+            </div>
+            <br />
+             <button id="btnSave" class="btn btn-default" role="button"  onclick="  saveCustomer();">Save</button>&nbsp;&nbsp;&nbsp;<button  class="btn btn-default" role="button"  onclick="cancelAction();">Cancel</button>&nbsp;&nbsp;&nbsp;<button id="btnDelete" class="btn btn-default" role="button" onclick="deleteGuest();">Delete Guest</button>
+        </div>
+              </div>
+                    </div>
+        </body>
+        <script>
+            
+            $j = jQuery.noConflict();
+            var homeUrl;
+            var recId;
+            var allProperties;
+            var allReferences;
+            var hasPermSet;
+                        
+            $j(document).ready(function() {
+                
+                //$j('#preferencesSection').hide();
+                 $j('#loadingmodal').show();
+                //$j('#loading').show();
+                //$j('#loadingGuest').hide();
+                //$j('#saving').hide();
+                //$j('#processing').hide();
+                
+                therecId = '{!$CurrentPage.parameters.recId}';
+                
+                getAllDropdowns();
+                getLevelandStars(therecId);
+
+                
+                if( (typeof sforce != 'undefined') && (sforce != null) ) {
+                 // running in mobile
+                    //homeUrl = '/_ui/core/chatter/ui/ChatterPage';
+                    homeUrl = '/apex/TIC_Dashboard';
+                } else { //desktop
+                    //homeUrl = '/home/home.jsp';
+                    homeUrl = '/apex/TIC_Dashboard';
+                }                                 
+                
+                //Dan Childs 03/10/2017 - additional IF clasue to allow allocated users with the required permission set to view
+                //and edit the "Lead Source Text" field on the guest record
+                hasPermSet = {!showLeadSourceTextField};
+                recId = '{!$CurrentPage.parameters.recId}';  
+                if (recId && hasPermSet){
+                    $j('#btnDelete').prop('disabled', false);
+                    $j('#leadsourcefield').show();
+                   // $j('#leadsourcelabel').show();
+                } 
+                else if(recId){
+                    $j('#btnDelete').prop('disabled', false);
+                    $j('#leadsourcefield').hide();
+                    //$j('#leadsourcelabel').hide();
+                }
+                
+                else {
+                    $j('#btnDelete').prop('disabled', true); // not valid for a new record
+                    $j('#leadsourcefield').show();
+                   // $j('#leadsource').show();
+                }
+
+            })          
+            
+            var level = document.getElementById("theLevel");
+            var Stars = document.getElementById("theStars");
+            var title = document.getElementById("title");
+            var fstName = document.getElementById("fstName");
+            var lstName =  document.getElementById("lstName");
+            var gender =  document.getElementById("gender");
+            var birthDate = document.getElementById("birthDate");                       
+            var email = document.getElementById("email");
+            var village = document.getElementById("village");
+            var language = document.getElementById("language");
+            
+            var address1 = document.getElementById("address1");
+            var address2 = document.getElementById("address2");
+            var city = document.getElementById("city");
+            var county = document.getElementById("county");
+            var postcode = document.getElementById("postcode");                        
+            var country = document.getElementById("Country");
+            var phone =  document.getElementById("phone");
+            var leadsource = document.getElementById("leadsource"); 
+            
+            Visualforce.remoting.timeout = 120000;
+            Visualforce.remoting.buffer = false;        
+            Visualforce.remoting.escape = false;
+            
+            
+            function cancelAction(){
+                
+                var mode =  '{!$CurrentPage.parameters.mode}';
+                
+                if (mode == 'classic'){
+                    window.history.back();
+                } else {
+                    if(  ('{!$User.UIThemeDisplayed}' == 'Theme4t' || '{!$User.UIThemeDisplayed}' == 'Theme4d' ) ) {
+                     // running in mobile
+                        console.log('MOBILE URL ... ' + homeUrl);
+                        sforce.one.navigateToURL(homeUrl);
+        
+                    } else { //desktop - from TIC homepage
+                        console.log('DESKTOP URL ... ' + homeUrl);
+                        window.location.href = homeUrl;
+                    }     
+                }
+            
+            
+            }
+            
+            function gotoPage(pg){
+                
+            var url = '/apex/' + pg;
+            
+            if(  ('{!$User.UIThemeDisplayed}' == 'Theme4t' || '{!$User.UIThemeDisplayed}' == 'Theme4d') || ((typeof sforce != 'undefined') && (sforce != null)) ) {
+             // running in mobile
+                console.log('VIP Mobile ..');
+                sforce.one.navigateToURL(url);
+            } else { //desktop
+                console.log('VIP Desktop..');                
+                //window.open(url, '_blank');
+                window.location.href = url;                    
+            }  
+            
+        }
+
+            function readGuest(recId){
+               // $j('#loadingGuest').show();
+                 $j('#loadingmodal').show();
+                apiCustomerController.readGuest(recId, function(result, event) {
+                       // $j('#saving').hide();
+                       // $j('#loadingGuest').hide();
+                         $j('#loadingmodal').hide();
+                        
+                        console.log('the result ' + result);
+                        
+                        if(event.status) {
+                            if (result.indexOf('ERROR') > -1){
+                                alert('Customer details could not be retrieved at the present time. Please try again later.');                                                                    
+                            } else {
+                                var obj = JSON.parse(result);
+                                console.log('the object- ' + obj);
+
+                                $j('#language').val(obj.x_Language);
+                                $j('#village').val(obj.x_VillagePrimary);
+                                $j('#gender').val(obj.x_Gender);
+                                if (obj.x_DateOfBirth){
+                                    var dob = obj.x_DateOfBirth.split('-');
+                                    var yyyy = dob[0];
+                                    var mm = dob[1];
+                                    var dd = dob[2];
+                                    $j('#birthDate').val(dd+'/'+mm+'/'+yyyy);
+                                }
+                                var key = 'Properties';
+                                if (obj.hasOwnProperty(key)) {
+                                    console.log(key + " -> " + obj[key] );
+                                    var items = obj[key];
+                                    var item = items.item;
+                                    for (var i=0; i < item.length; i++){
+                                        
+                                        var theKey = item[i].x_type
+                                        var theValue = item[i].y_text;
+                                        if (theKey == 'PHONENUMBER'){
+                                            phone.value = theValue;
+                                        }
+                                        if (theKey == 'LEADSOURCE'){
+                                            console.log('setting lead source text ... ' + theValue);
+                                            // $j('#leadsource').val(theValue);
+                                        }                                                   
+
+                                         
+                                         if (theKey == 'OPTOUTEMAIL'){                                       
+                                             $j('#optoutEmail').val(theValue);
+                                         }
+                                         if (theKey == 'OPTOUTMOBILE'){                                        
+                                             $j('#optoutMobile').val(theValue);
+                                         }
+                                         if (theKey == 'OPTOUTPOSTAL'){                                        
+                                             $j('#optoutPostal').val(theValue);
+                                         }                                                                                  
+                                    }
+                                }                                
+                                key = 'References';
+                                if (obj.hasOwnProperty(key)) {
+                                    console.log(key + " -> " + obj[key]);
+                                    var items = obj[key];
+                                    var item = items.item;
+                                    for (var i=0; i < item.length; i++){
+                                        var theKey = item[i].x_type
+                                        var theValue = item[i].y_text;
+                                        if (theKey == 'EMAIL'){
+                                            email.value = theValue;
+                                            if(theValue){
+                                                email.setAttribute('disabled', true);
+                                            }
+                                        }                           
+                      
+                                    }
+                                } 
+                                key = 'address';
+                                if (obj.hasOwnProperty(key)) {
+
+                                    item = obj[key];
+                                    address1.value = undefinedToEmptyString(item.x_AddressLine1);
+                                    address2.value = undefinedToEmptyString(item.x_AddressLine2);
+                                    county.value = undefinedToEmptyString(item.x_County);                       
+                                    city.value = undefinedToEmptyString(item.x_City);
+                                    postcode.value = undefinedToEmptyString(item.x_PostCode);
+                                    $j('#Country').val(item.x_Country);
+
+                                } 
+                                key = 'name';
+                                if (obj.hasOwnProperty(key)) {
+                                    item = obj[key];
+                                    
+                                    title.value = item.x_Title;
+                                    fstName.value = undefinedToEmptyString(item.x_Given);
+                                    lstName.value = undefinedToEmptyString(item.x_Family);
+                                    
+                                }
+                                key = 'allProperties';
+                                if (obj.hasOwnProperty(key)) {
+                                    item = obj[key];
+                                    allProperties = item;
+                                }
+                                
+                                key = 'allReferences';                                                                 
+                                if (obj.hasOwnProperty(key)) {
+                                    item = obj[key];
+                                    allReferences = item;
+                                }
+                            }                                                                                             
+          
+                        } else {
+                            alert(result);
+        
+                        }
+        
+                },{buffer: false, escape: false, timeout: 90000} );                  
+                
+            }
+            
+            function isEmail(email) {
+              var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+              return regex.test(email);
+            }
+                                            
+            function saveCustomer(){
+
+
+              // lets do some validation first
+              var validationFailed = false;
+              // email
+              if($j("#email").val() == "" || !isEmail($j("#email").val()))
+              {
+                  $j("#email").css("border-color", "#FF0000");
+                  $j("#email").css("background-color", "#f2dede");
+                  validationFailed = true;
+                  console.log("Validation failed for email");
+              }
+              else
+              {
+                $j("#email").css({ "background-color" : "", "border-color" : "" });
+              }
+
+              //language
+              if($j("#language option:selected").is(":disabled"))
+              {
+                  $j("#language").css("border-color", "#FF0000");
+                  $j("#language").css("background-color", "#f2dede");
+                  validationFailed = true;
+                  console.log("Validation failed for language");
+              }
+              else
+              {
+                $j("#language").css({ "background-color" : "", "border-color" : "" });
+              }
+
+              //village
+              if($j("#village option:selected").is(":disabled"))
+              {
+                  $j("#village").css("border-color", "#FF0000");
+                  $j("#village").css("background-color", "#f2dede");
+                  validationFailed = true;
+                  console.log("Validation failed for village");
+              }
+              else
+              {
+                $j("#village").css({ "background-color" : "", "border-color" : "" });
+              }
+              // country
+              if($j("#Country option:selected").is(":disabled"))
+              {
+                  $j("#Country").css("border-color", "#FF0000");
+                  $j("#Country").css("background-color", "#f2dede");
+                  validationFailed = true;
+                  console.log("Validation failed for Country");
+              }
+              else
+              {
+                $j("#Country").css({ "background-color" : "", "border-color" : "" });
+              }
+         
+            if($j("#gender option:selected").is(":disabled"))
+              {
+                  $j("#gender").css("border-color", "#FF0000");
+                  $j("#gender").css("background-color", "#f2dede");
+                  validationFailed = true;
+                  console.log("Validation failed for gender");
+              }
+              else
+              {
+                $j("#gender").css({ "background-color" : "", "border-color" : "" });
+              }
+
+              if($j("#optoutEmail option:selected").is(":disabled"))
+              {
+                  $j("#optoutEmail").css("border-color", "#FF0000");
+                  $j("#optoutEmail").css("background-color", "#f2dede");
+                  validationFailed = true;
+                  console.log("Validation failed for optoutEmail");
+              }
+              else
+              {
+                $j("#optoutEmail").css({ "background-color" : "", "border-color" : "" });
+              }
+              if($j("#optoutMobile option:selected").is(":disabled"))
+              {
+                  $j("#optoutMobile").css("border-color", "#FF0000");
+                  $j("#optoutMobile").css("background-color", "#f2dede");
+                  validationFailed = true;
+                  console.log("Validation failed for optoutMobile");
+              }
+              else
+              {
+                $j("#optoutMobile").css({ "background-color" : "", "border-color" : "" });
+              }
+              if($j("#optoutPostal option:selected").is(":disabled"))
+              {
+                  $j("#optoutPostal").css("border-color", "#FF0000");
+                  $j("#optoutPostal").css("background-color", "#f2dede");
+                  validationFailed = true;
+                  console.log("Validation failed for optoutPostal");
+              }
+              else
+              {
+                $j("#optoutPostal").css({ "background-color" : "", "border-color" : "" });
+              }
+
+              if(!validationFailed){
+                  $j('#loadingmodal').show();
+                var country = document.getElementById("Country");
+                console.log(country); 
+
+                var emailAddress = email.value;
+                var firstName = fstName.value;
+                var lastName = lstName.value;
+                var mobilePhone = phone.value;
+                var salutation = title.value;
+                var dob = birthDate.value;
+                var addr1 = address1.value;
+                var addr2 = address2.value;
+                var state = county.value;
+                var town = city.value;
+                var zip = postcode.value;
+                
+
+                var countryCode = $j('#Country option:selected').val();
+                var gend = $j('#gender option:selected').val();
+                var lang = $j('#language option:selected').val();
+                var vill = $j('#village option:selected').val();
+                var hasPermSet = {!showLeadSourceTextField};
+                var leadsourcetext = "";
+                if(hasPermSet){
+                    leadsourcetext = undefinedToEmptyString($j('#leadsource option:selected').val());
+                }
+                var optoutEmail = $j('#optoutEmail option:selected').val();
+                var optoutMobile = $j('#optoutMobile option:selected').val();
+                var optoutPostal = $j('#optoutPostal option:selected').val();
+                var valid = true;
+
+
+                console.log("emailAddress" + emailAddress);
+                console.log("firstName" + firstName);
+                console.log("lastName" + lastName);
+                console.log("mobilePhone" + mobilePhone);
+                console.log("salutation" + salutation);
+                console.log("dob" + dob);
+                console.log("addr1" + addr1);
+                console.log("addr2" + addr2);
+                console.log("state" + state);
+                console.log("town" + town);
+                console.log("zip" + zip);
+                console.log("countryCode" + countryCode);
+                console.log("gend" + gend);
+                console.log("lang" + lang);
+                console.log("vill" + vill);
+                console.log("leadsourcetext" + leadsourcetext);
+                console.log("optoutEmail" + optoutEmail);
+                console.log("optoutMobile" +optoutMobile);
+                console.log("optoutPostal" +   optoutPostal);
+
+                if (!validateEmail(emailAddress)){
+                   // $j('#saving').hide();
+                     $j('#loadingmodal').hide();
+                    alert('Email address is not valid');
+                    valid = false;                   
+                    $j('#emailH').addClass("slds-has-error");                  
+                } else {
+                    $j('#emailH').removeClass("slds-has-error");
+                }
+
+                if (!validateBirthDate()){
+                    valid = false;
+                    //$j('#saving').hide();
+                     $j('#loadingmodal').hide();
+                    $j('#birthDateH').addClass("slds-has-error");
+                } else {
+                    $j('#birthDateH').removeClass("slds-has-error");
+                }
+                
+                if (!validateOptOuts(optoutEmail, optoutMobile, optoutPostal)){
+                    valid = false;
+                }
+                 
+                if(valid) { 
+                         
+                    apiCustomerController.saveGuest(recId, salutation, firstName,lastName, gend, dob, mobilePhone, 
+                                                            emailAddress, vill, lang, addr1, addr2, town, state, 
+                                                            zip, countryCode, leadsourcetext, optoutEmail, optoutMobile, optoutPostal, 
+                                                            function(result, event) {
+                           // $j('#saving').hide();
+                             $j('#loadingmodal').hide();
+                            console.log(result);
+                            var url = '';
+
+                            if(event.status) {
+                                if (result.indexOf('error') > -1){
+                                    alert('Guest record cannot be saved at this time. If problem persists please contact System Administrator\r\n' + result);                                                                    
+                                    return;
+                                } else {
+                                    var guestId = result;
+                                    url += '/' + guestId;
+                                }                                                                                             
+                                if( (typeof sforce != 'undefined') && (sforce != null) ) {
+                                 // running in mobile
+                                    sforce.one.navigateToURL(url);
+                                } else { //desktop
+                                    window.location.href = url ;
+                                }           
+                            } else {
+                                alert('Guest record cannot be saved at this time. If problem persists please contact System Administrator\r\n' + result);
+                                $j('#btnDelete').prop('disabled', true); 
+                                $j('#btnSave').prop('disabled', true); 
+            
+                            }
+            
+                    },{buffer: false, escape: false, timeout: 90000} );                                 
+                } else {
+                
+                   // $j('#saving').hide();
+                     $j('#loadingmodal').hide();
+                    
+                }
+              } // end of if validationfailed
+
+            }
+            
+            function validateEmail(email) { 
+              
+                var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+                return re.test(email);
+            }
+
+            function getLeadSourceTextValues(){
+                apiCustomerController.getLeadSourceTextValues(function(result, event) {
+                  // $j('#loading').hide(); 
+                    $j('#loadingmodal').hide();
+               console.log("building lead source drop down");
+                    if(event.status) {
+                        
+                        var html = '';
+                        var values=result.split(',');
+                        if( (typeof sforce != 'undefined') && (sforce != null) ) {
+                             // running in mobile
+                         //  html += '<select id="' + 'leadsource' + 'value" class="slds-select" style="width: 80%;" value="" required="">';
+                        } else {
+                         //   html += '<select id="' + 'leadsource' + 'value" class="slds-select" style="width: 50%;" value="" required="">';
+                        }
+                        //html +=  '<option></option>';
+
+
+                        /*    This is the original code to be reinstanitated after BV4-VIP go live
+                        for (var i=0; i< values.length; i++){
+                            var key = values[i];
+                            console.log(key);                              
+                            html += '<option value="' + key +'">' + key + '</option>';                        
+                        }
+                        */
+                        //the following FOR loop needs to be repolaced by the above once BV4-VIP complete
+                        for (var i=0; i< values.length; i++){
+                            var key = values[i];
+                            console.log("Options for LST: " + key);      
+                                if(key == 'BV4-Privilege-VIP' && !recId ){
+
+                                }   
+
+                                else if(key == 'Complaint' && recId ){
+
+                                }
+                                
+                                else if(key == 'Reg Card' && recId ){
+
+                                }
+                                
+                                else if(key == 'Hands Free Shopping' && recId ){
+
+                                }
+
+
+                                else{                     
+                                    html += '<option value="' + key +'">' + key + '</option>';     
+                                    }                 
+                        }
+                            
+
+                      //  html += '</select>';
+                        
+                        $j("#leadsource").append(html);
+                        
+                    } else {
+                        console.log('ERROR  ' + result);
+                        alert('Guest cannot be processed at this time. If problem persists please contact System Administrator\r\n' + result);
+                        $j('#btnDelete').prop('disabled', true); 
+                        $j('#btnSave').prop('disabled', true);      
+    
+                    }
+    
+                },{buffer: false, escape: false, timeout: 90000} );    
+                            
+            }
+       
+            function getLevelandStars(recId){          
+                apiCustomerController.getLevelandStars(recId, function(result, event) {             
+                console.log('object result = ' + result);
+                var obj = JSON.parse(result);
+                var obj2 = obj["MembershipStatus"];
+  
+                    var obj3 = obj2[0];
+                
+                    console.log('stars = ' + obj3.attributes.Stars);
+                    console.log('level = ' + obj3.attributes.Level);
+                    
+                    $j('#theLevel').val( obj3.attributes.Level);
+                    $j( "#theLevel" ).prop( "disabled", true );
+                    $j('#theStars').val( obj3.attributes.Stars);
+                    $j('#theStars').prop( "disabled", true );
+                              
+                },
+                {escape: false} );                 
+             }
+                
+                           
+            function getAllDropdowns(){
+                apiCustomerController.getDropdownValues(function(result, event) {
+                  // $j('#loading').hide(); 
+                    $j('#loadingmodal').hide();
+                    if(event.status) {
+                        
+                        var html = '';
+                        
+                        html = getDropdownValues(result, 'Genders');
+                        $j( "select.gender").append(function() {
+                           return html;
+                        });
+
+                        html = getDropdownValues(result, 'Villages');
+                        $j( "select.village").append(function() {
+                           return html;
+                        });
+                        
+                        html = getDropdownValues(result, 'Languages');
+                        $j( "select.language").append(function() {
+                           return html;
+                        });
+                        
+                        html = getDropdownValues(result, 'Countries');
+                        $j( "select.Country").append(function() {
+                           return html;
+                        });                                                                        
+                        
+                        getLeadSourceTextValues();
+                        getPreferenceDropdowns();
+                        
+                        if (recId){
+                           // $j('#loadingGuest').show();
+                             $j('#loadingmodal').show();
+                            readGuest(recId);
+                        } else {
+                            var vill = '{!DefaultVillage}';
+                            var lang = '{!DefaultLanguage}';
+
+                            if (vill){
+                                $j('#Villagesvalue').val(vill);
+                            }
+                            if (lang){
+                                $j('#Languagesvalue').val(lang);
+                            }                               
+                            
+                        
+                        }                                                
+                        
+                    } else {
+                        console.log('ERROR  ' + result);
+                        alert('Guest cannot be processed at this time. If problem persists please contact System Administrator\r\n' + result);
+                        $j('#btnDelete').prop('disabled', true); 
+                        $j('#btnSave').prop('disabled', true);      
+    
+                    }
+    
+                },{buffer: false, escape: false, timeout: 90000} );            
+            
+            }
+            
+
+            function deleteGuest(){
+
+                var r = confirm("Are you sure you wish to delete this Guest record?");
+                    if (r == true) {
+                       // $j('#processing').show();
+                         $j('#loadingmodal').show();
+                        // make call to mark guest for deletion               
+                    apiCustomerController.deleteGuest(recId, function(result, event){
+                        //$j('#processing').hide(); 
+                        $j('#loadingmodal').hide();
+                        if(event.status) {
+                            alert(result);
+                            cancelAction();
+                        } else {
+                            alert('Internal Technical Error - Guest record could not be deleted. \r\n' + result); 
+                        }
+                                            
+                    
+                    } ,{buffer: false, escape: false, timeout: 90000});            
+                }
+            }
+            
+                                                
+            function getDropdownValues(values, key){
+
+                var html = '';
+                var obj = JSON.parse(values);
+                
+                if (obj.hasOwnProperty(key)) {
+                    //console.log(key + " -> " + obj[key]);
+                    var items = obj[key];
+                    if( (typeof sforce != 'undefined') && (sforce != null) ) {
+                         // running in mobile
+                     //   html += '<select id="' + key + 'value" class="slds-select" style="width: 80%;" value="" required="">';
+                    } else {
+                      //  html += '<select id="' + key + 'value" class="slds-select" style="width: 50%;" value="" required="">';
+                    }
+                   // html +=  '<option></option>';
+                    
+                    for (var i=0; i < items.length; i++){
+                        var item = items[i];
+                        var theKey = Object.keys(item)[0];
+                        var theValue = item[theKey];
+                      
+                        html += '<option value=' + theKey +'>' + theValue + '</option>';                        
+                    }
+                   // html += '</select>'; 
+                    
+                }
+                
+                return html;          
+            
+            }        
+           function validateBirthDate(){
+                
+                var b = true;
+                //var pattern = '[0-3][0-9]\/[0-1][0-9]\/[0-9]{4} [0-1][0-9]:[0-5][0-9]';
+                var pattern = '(([1-2]\\d)|(3[0-1]))\/((0\\d)|(1[0-2]))\/((1\\d{3})|(20\\d{2}))';
+                var reg = new RegExp(pattern);
+                var dob =  birthDate.value;
+                var birthDt = null; 
+                
+console.log(dob);                
+                if (dob){
+                    var d = dob.split('/');
+                    if (d.length < 3){
+                        b = false;
+                        alert('Birth Date must be in the format DD/MM/YYYY');
+                        return b;                        
+                    }
+console.log(d);
+
+                    var day =  parseInt(d[0],10);
+                    var month = parseInt(d[1] - 1,10);
+                    var year = parseInt(d[2],10);
+
+console.log('birth Date .... '+ day + '/' + month + '/' + year );                    
+                    birthDt = new Date(year, month, day, 0,0,0);                   
+console.log(birthDt);
+                    b = isValidDate(birthDt);
+                   
+                    if (b){
+console.log(birthDt.getFullYear() + ' - ' + year + '      ' + birthDt.getMonth() + ' - ' + month +   '          ' + birthDt.getDate() + - + day);                  
+                        if (birthDt.getFullYear() == year 
+                                    && birthDt.getMonth()  == month 
+                                    && birthDt.getDate() == day){
+
+                            b = true;                            
+                        } else {
+                            b = false;
+                            alert('An invalid entry has been made for the Birth Date. The format must be DD/MM/YYYY');
+                            
+                        }
+                    } else {
+                        birthDt = null;
+                        alert('Birth Date must be in the format DD/MM/YYYY');
+                        
+                    }
+                }
+                return b;
+            }
+
+
+            function getPreferenceDropdowns(){
+  
+
+                var html = '';
+                var items = new Array('Yes', 'No');
+                var itemValues = new Array('0', '1');
+                var keys = new Array('optoutEmail', 'optoutMobile', 'optoutPostal');
+                
+                for (var k=0; k < keys.length; k++) {
+                    var key = keys[k];
+                    html = '';
+                   // html += '<select id="' + key + 'value" class="slds-select" style="width: 20%;" value="" required="">';
+                   // html +=  '<option></option>';
+                        
+                    for (var i=0; i < items.length; i++){
+                        var item = items[i];
+                        var itemValue = itemValues[i];
+                      
+                        html += '<option value=' + itemValue +'>' + item + '</option>';                        
+                    }
+                  //  html += '</select>';
+                    console.log (key);
+                    var id = 'select.' + key;
+                    $j(id).append(function() {
+                       return html;
+                    });
+                } 
+                       
+            
+            }
+
+            function validateOptOuts(optoutEmail, optoutMobile, optoutPostal){
+                
+                var valid = true;
+                
+                if (!optoutEmail){
+                    $j('#optoutEmail').addClass("danger"); 
+                    valid = false;
+                } else {
+                    $j('#optoutEmail').removeClass("danger"); 
+                }
+                
+                if (!optoutMobile){
+                    $j('#optoutMobile').addClass("danger"); 
+                    valid = false;
+                } else {
+                    $j('#optoutMobile').removeClass("danger"); 
+                }
+                
+                if (!optoutPostal){
+                    $j('#optoutPostal').addClass("danger"); 
+                    valid = false;
+                } else {
+                    $j('#optoutPostal').removeClass("danger"); 
+                }
+                                      
+                if (!valid){
+                    alert('Please enter a value for all opt-in statuses');
+                }
+                
+                return valid;
+            }                                                  
+            function isValidDate(d) {
+
+                if ( Object.prototype.toString.call(d) !== "[object Date]" )
+                    return false;
+              return !isNaN(d.getTime());
+            }            
+
+            function undefinedToEmptyString(v){
+            
+                if (typeof(v) == 'undefined' || v == null || v.indexOf('null') > -1){
+                    return '';
+                } else {
+                    return v;
+                }
+            }
+            
+        </script>
+        
+        
+    </html>
+    
+</apex:page>

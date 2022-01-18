@@ -1,0 +1,31 @@
+<template>
+	<table if:true={hasTableRows} class="lgl-table">
+		<thead>
+			<tr>
+				<template for:each={columns} for:item="column">
+					<th key={column.fieldId}>{column.fieldLabel}</th>
+				</template>
+			</tr>
+		</thead>
+		<tbody>
+			<template for:each={_rows} for:item="row">
+				<tr key={row.key} onclick={handleRowClick} data-id={row.key}>
+					<template for:each={row.columns} for:item="column">
+						<td key={column.name} class={column.class}>{column.value}</td>
+					</template>
+				</tr>
+			</template>
+			<!-- Totals Footer -->
+			<tr if:true={showTotal} class="lgl-table-footer">
+				<td colspan={totalColSpan}>{totalLabel}</td>
+				<td>{totalValue}</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<table if:false={hasTableRows} class="lgl-table lgl-empty-table">
+		<tbody>
+			<td colspan={columns.length}>{emptyTableText}</td>
+		</tbody>
+	</table>
+</template>

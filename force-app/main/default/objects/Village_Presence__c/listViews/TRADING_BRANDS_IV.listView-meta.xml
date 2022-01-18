@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>TRADING_BRANDS_IV</fullName>
+    <columns>NAME</columns>
+    <columns>Brand__c</columns>
+    <columns>Retail_Manager__c</columns>
+    <columns>Lease_ID__c</columns>
+    <columns>Status__c</columns>
+    <columns>Store_email__c</columns>
+    <columns>Contract_Expiry_Date__c</columns>
+    <columns>Age_of_Shop_Fit_Years__c</columns>
+    <columns>Actual_Exit_Date__c</columns>
+    <columns>Coniq_Scanner_ids__c</columns>
+    <columns>Coniq_No_of_Actual_Scanners__c</columns>
+    <columns>Coniq_No_of_Planned_Scanners__c</columns>
+    <columns>Coniq_No_of_Tills__c</columns>
+    <columns>Coniq_Review_Alert__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Village__c</field>
+        <operation>equals</operation>
+        <value>Ingolstadt</value>
+    </filters>
+    <filters>
+        <field>Status__c</field>
+        <operation>equals</operation>
+        <value>Deal Pending,Trading,in Refit</value>
+    </filters>
+    <label>TRADING BRANDS IV</label>
+    <language>en_US</language>
+    <sharedTo>
+        <role>Ingolstadt_Retail</role>
+        <roleAndSubordinatesInternal>German_Marketing</roleAndSubordinatesInternal>
+    </sharedTo>
+</ListView>

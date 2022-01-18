@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Committed_Cost__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Purchased requisition, purchase orders + receipts</inlineHelpText>
+    <label>[Oracle] Committed Cost</label>
+    <summarizedField>Cost__c.Cost_Value__c</summarizedField>
+    <summaryFilterItems>
+        <field>Cost__c.Cost_Type__c</field>
+        <operation>equals</operation>
+        <value>Committed</value>
+    </summaryFilterItems>
+    <summaryForeignKey>Cost__c.Marketing_Activity__c</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

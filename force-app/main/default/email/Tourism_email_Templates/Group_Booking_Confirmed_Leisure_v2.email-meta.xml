@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Sent when Leisure booking is confirmed</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>External_Chic</letterhead>
+    <name>Group Booking Confirmed - Leisure v2</name>
+    <style>freeForm</style>
+    <subject>Group Booking Confirmation</subject>
+    <textOnly>Dear Partner,
+
+Thank you for your interest in arranging a {!Group_Booking__c.Group_Type__c} group visit to {!Group_Booking__c.00Nb0000007pfg0} Village.
+
+Your booking is now confirmed.
+
+Please find below a summary of your booking.
+
+{!If(Group_Booking__c.Name_of_Event__c != &quot;&quot;, &quot;Name of Event: &quot;, &quot;&quot;)} {!If(Group_Booking__c.Name_of_Event__c != &quot;&quot;, Group_Booking__c.Name_of_Event__c, &quot;&quot;)}
+Organisation: {!Group_Booking__c.Organisation__c}
+Contact: {!Group_Booking__c.Contact__c}
+Visitors Country of Origin: {!Group_Booking__c.Visitors_Country_of_Origin__c}
+
+Number of Visitors Expected: {!Group_Booking__c.Number_of_Visitors_Expected__c}
+Expected Arrival: {!Group_Booking__c.Expected_Arrival__c}
+Expected Departure: {!Group_Booking__c.Expected_Departure__c}
+
+{!If(Group_Booking__c.Secondary_MICE_Org_or_Agency_name__c != &quot;&quot;,&quot;Secondary Org or Agency&quot;,&quot;&quot;)}
+{!If(Group_Booking__c.Secondary_MICE_Org_or_Agency_name__c != &quot;&quot;,Group_Booking__c.Secondary_MICE_Org_or_Agency_name__c,&quot;&quot;)}
+{!If(Group_Booking__c.Secondary_MICE_Org_or_Agency_name__c != &quot;&quot;,Group_Booking__c.Secondary_MICE_Contact_First_Name__c,&quot;&quot;)} {!If(Group_Booking__c.Secondary_MICE_Org_or_Agency_name__c != &quot;&quot;,Group_Booking__c.Secondary_MICE_Contact_Last_Name__c,&quot;&quot;)}
+{!If(Group_Booking__c.Secondary_MICE_Org_or_Agency_name__c != &quot;&quot;,Group_Booking__c.Secondary_MICE_Contact_Email__c,&quot;&quot;)}
+{!If(Group_Booking__c.Secondary_MICE_Org_or_Agency_name__c != &quot;&quot;,Group_Booking__c.Secondary_MICE_Contact_Position__c,&quot;&quot;)}
+{!If(Group_Booking__c.Secondary_MICE_Org_or_Agency_name__c != &quot;&quot;,Group_Booking__c.Secondary_MICE_Contact_Address_1__c,&quot;&quot;)}
+{!If(Group_Booking__c.Secondary_MICE_Org_or_Agency_name__c != &quot;&quot;,Group_Booking__c.Secondary_MICE_Contact_Address_2__c,&quot;&quot;)}
+{!If(Group_Booking__c.Secondary_MICE_Org_or_Agency_name__c != &quot;&quot;,Group_Booking__c.Secondary_MICE_Contact_Address_3__c,&quot;&quot;)}
+{!If(Group_Booking__c.Secondary_MICE_Org_or_Agency_name__c != &quot;&quot;,Group_Booking__c.Secondary_MICE_Contact_Town_City__c,&quot;&quot;)}
+{!If(Group_Booking__c.Secondary_MICE_Org_or_Agency_name__c != &quot;&quot;,Group_Booking__c.Secondary_MICE_Contact_ZIP_Postcode__c,&quot;&quot;)}
+{!If(Group_Booking__c.Secondary_MICE_Org_or_Agency_name__c != &quot;&quot;,Group_Booking__c.Secondary_MICE_Contact_Phone__c,&quot;&quot;)}
+
+We look forward to welcoming you to {!Group_Booking__c.00Nb0000007pfg0} Village soon.
+
+With kind regards,
+
+The Bicester Village Shopping Collection team
+
+ref: {!Group_Booking__c.Name}</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

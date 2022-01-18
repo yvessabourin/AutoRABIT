@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LGL_Request_Location__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>The Location where the unfulfilled request was made</description>
+    <externalId>false</externalId>
+    <label>Request Location</label>
+    <referenceTo>HFS_Collection_Point__c</referenceTo>
+    <relationshipLabel>Unfulfilled Service Requests</relationshipLabel>
+    <relationshipName>Unfulfilled_Service_Requests_del</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

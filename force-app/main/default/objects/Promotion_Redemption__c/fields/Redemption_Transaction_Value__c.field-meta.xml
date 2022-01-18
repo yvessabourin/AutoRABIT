@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Redemption_Transaction_Value__c</fullName>
+    <externalId>false</externalId>
+    <label>Redemption Transaction Value</label>
+    <summarizedField>FF123_Transaction__c.Transaction_Value__c</summarizedField>
+    <summaryForeignKey>FF123_Transaction__c.Promotion_Redemption__c</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

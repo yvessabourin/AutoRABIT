@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Activity_Budget_Split__c$Marketing_Activity__c.Marketing_Campaign__c</field>
+    </columns>
+    <columns>
+        <field>Activity_Budget_Split__c$Marketing_Activity__c.Name</field>
+    </columns>
+    <columns>
+        <field>Activity_Budget_Split__c$Marketing_Activity__c.Business_Function__c</field>
+    </columns>
+    <columns>
+        <aggregateTypes>Sum</aggregateTypes>
+        <field>Activity_Budget_Split__c$Marketing_Activity__c.Budget__c</field>
+    </columns>
+    <currency>EUR</currency>
+    <filter>
+        <criteriaItems>
+            <column>Activity_Budget_Split__c$Year__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>2020</value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Activity_Budget_Split__c$Marketing_Activity__c.Marketing_Campaign__c.Village__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>2020 Budgets into Salesforce</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Activity_Budget_Splits__c</reportType>
+    <scope>organization</scope>
+    <showDetails>false</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>Activity_Budget_Split__c$CreatedDate</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

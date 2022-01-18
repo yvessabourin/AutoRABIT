@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Group_Art_Activities</fullName>
+    <columns>NAME</columns>
+    <columns>Budget__c</columns>
+    <columns>Channel__c</columns>
+    <columns>Start_Date__c</columns>
+    <columns>End_Date__c</columns>
+    <columns>LAST_UPDATE</columns>
+    <columns>Link_to_Oracle__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Business_Function__c</field>
+        <operation>equals</operation>
+        <value>Art B2C</value>
+    </filters>
+    <label>TBVSC Art Activities</label>
+    <language>en_US</language>
+</ListView>

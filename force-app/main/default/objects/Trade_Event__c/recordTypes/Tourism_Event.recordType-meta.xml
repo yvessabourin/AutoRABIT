@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Tourism_Event</fullName>
+    <active>true</active>
+    <label>Tourism Event</label>
+    <picklistValues>
+        <picklist>Category_Specification__c</picklist>
+        <values>
+            <fullName>Awards Night</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Dinner</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fashion Show</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Music</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sport</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Theatre</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Type__c</picklist>
+        <values>
+            <fullName>Corporate Sales Blitz</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fam%2FPress trips</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Market Visits%2FWorkshops</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Travel Shows</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

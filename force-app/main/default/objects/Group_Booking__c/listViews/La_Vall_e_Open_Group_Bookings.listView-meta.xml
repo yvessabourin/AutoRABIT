@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>La_Vall_e_Open_Group_Bookings</fullName>
+    <columns>NAME</columns>
+    <columns>Name_of_Event__c</columns>
+    <columns>Group_Type__c</columns>
+    <columns>Expected_Arrival__c</columns>
+    <columns>Visitors_Country_of_Origin__c</columns>
+    <columns>Number_of_Visitors__c</columns>
+    <columns>VR_Representative__c</columns>
+    <columns>Status__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Status__c</field>
+        <operation>notEqual</operation>
+        <value>Completed,Cancelled,No Show</value>
+    </filters>
+    <filters>
+        <field>Village__c</field>
+        <operation>equals</operation>
+        <value>La Vallée</value>
+    </filters>
+    <label>La Vallée Open Group Bookings</label>
+    <language>en_US</language>
+    <sharedTo>
+        <group>Location_La_Vallee</group>
+    </sharedTo>
+</ListView>

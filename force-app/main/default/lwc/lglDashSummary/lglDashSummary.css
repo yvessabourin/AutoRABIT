@@ -1,0 +1,45 @@
+:host {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+	color: #333;
+}
+
+th {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+	padding: 8px;
+}
+
+td {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+	border-top: 1px solid rgb(221, 221, 221);
+	padding: 8px;
+}
+
+.lgl-table > tbody > tr:hover {
+	background-color: #e8e8e8;
+}
+
+.lgl-full {
+	background-color: #d9534f;
+	color: white;
+}
+
+.lgl-available {
+	background-color: #5cb85c;
+	color: white;
+}
+
+.lgl-badge {
+	padding: 0.2em 0.6em 0.3em;
+	color: #fff;
+	white-space: nowrap;
+	vertical-align: baseline;
+	border-radius: 0.25em;
+	max-width: 55px;
+	font-weight: 700;
+	text-align: center;
+	transition: all 0.3s;
+}
+
+.lgl-limited-cell {
+	max-width: 100px;
+}

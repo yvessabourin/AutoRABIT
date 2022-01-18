@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>email_Active__c</fullName>
+    <description>For Reporting</description>
+    <externalId>false</externalId>
+    <formula>isRetiredDuplicate__c = false 
+&amp;&amp;  NOT(ISBLANK(email__c ))
+&amp;&amp;   NOT(ISPICKVAL(optInEmail__c, &quot;false&quot;))</formula>
+    <label>email Active</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

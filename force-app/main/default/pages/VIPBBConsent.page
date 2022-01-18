@@ -1,0 +1,1066 @@
+<apex:page standardController="Account" extensions="VIPBBConsentExtension" sidebar="false" showHeader="false">
+    <html ng-app="vipApp">
+    <head>
+
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+
+        <title>The VIP Black Book Consent Page</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></link>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.9/angular.min.js"></script>
+        <link rel="stylesheet" href="{!URLFOR($Resource.NewTICStyles)}"></link>
+
+        <script src="{!URLFOR($Resource.NewTICScripts)}"/>
+
+        <script>
+            function isLightningRedirect(inUrl){
+                if ('{!$User.UITheme}' === 'Theme4d' || '{!$User.UITheme}' === 'Theme4t' || '{!$User.UITheme}' === 'Theme4u') {
+                    sforce.one.navigateToURL(inUrl);
+                } else {
+                    window.location = inUrl;
+                }
+            }
+        </script>
+
+        <style type="text/css">
+
+                @font-face { font-family: BauerBodoni; src: url("{!URLFOR($Resource.FontBauerBodoni)}"); }
+                @font-face { font-family: SangBleuRegular; src: url("{!URLFOR($Resource.SangBleuKingdom, 'SangBleuKingdom-Regular.otf')}"); }
+                @font-face { font-family: SangBleuLight; src: url("{!URLFOR($Resource.SangBleuKingdom, 'SangBleuKingdom-Light.otf')}"); }
+                @font-face { font-family: SangBleuBold; src: url("{!URLFOR($Resource.SangBleuKingdom, 'SangBleuKingdom-Bold.otf')}"); }
+                @font-face { font-family: SangBleuAir; src: url("{!URLFOR($Resource.SangBleuKingdom, 'SangBleuKingdom-Air.otf')}"); }
+                @font-face { font-family: BrownStdRegular; src: url("{!URLFOR($Resource.BrownStdAll, 'BrownStd-Regular.otf')}"); }
+                @font-face { font-family: BrownStdLight; src: url("{!URLFOR($Resource.BrownStdAll, 'BrownStd-Light.otf')}"); }
+                @font-face { font-family: BrownStdBold; src: url("{!URLFOR($Resource.BrownStdAll, 'BrownStd-Bold.otf')}"); }
+                @font-face { font-family: BrownStdThin; src: url("{!URLFOR($Resource.BrownStdAll, 'BrownStd-Thin.otf')}"); }
+
+            
+                body{
+                background-color: #FFF;
+                margin-top: 20px;
+                margin-bottom:20px;
+                font-family: BrownStdLight;
+                //background: url({!URLFOR($Resource.VIPDesignImages, 'washthin.jpg')}) no-repeat center top fixed;
+                /*  -webkit-background-size: cover;
+                -moz-background-size: cover;
+                -o-background-size: cover;
+                background-size: cover;*/
+                //color: #123e6c;
+
+                }
+
+                select.safari {
+                height: 40px;
+                width: 100%;
+                /*border-radius: 3px;*/
+                /* border: 1px solid transparent;*/
+                border-top: none !important;
+                border-left: none !important;
+                border-right:none !important;
+                border-bottom: 1px solid #123e6c !important;
+                border-radius: 0px !important;
+                background-color: #fff;
+                padding-left: 15px;
+                padding-right:15px;
+                font-size: 20px;
+                float:right;
+                box-shadow: none !important;
+                font-family: BrownStdThin;
+                color:#999;
+                text-transform: uppercase;
+
+                margin: 0;
+                -webkit-box-sizing: border-box;
+                -moz-box-sizing: border-box;
+                box-sizing: border-box;
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                background-image:
+                linear-gradient(45deg, transparent 50%, #123e6c 50%),
+                linear-gradient(135deg, #123e6c 50%, transparent 50%),
+                linear-gradient(to right, #fff, #fff);
+                background-position:
+                calc(100% - 20px) calc(1em + 2px),
+                calc(100% - 15px) calc(1em + 2px),
+                calc(100% - 2.5em) 0.5em;
+                background-size:
+                5px 5px,
+                5px 5px,
+                1px 1.5em;
+                background-repeat: no-repeat;
+                }
+
+                select.safari:focus {
+                outline:none;
+                //border-color: #cccccc;
+                -webkit-box-shadow: none;
+                box-shadow: none;
+                }
+
+                .submitbutton
+                {
+
+                border: none;
+                color: #fff;
+                background-color: #123e6c;
+                //box-shadow: 0px 0px 6px 4px rgba(0,0,0,.19);
+                /* background-color: #FAFAFA;*/
+                padding-left: 15px;
+                padding-right:15px;
+                /*float: right;*/
+                display:block;
+
+                font-size: 22px;
+                margin-top: 35px;
+                margin-bottom: 10px;
+                padding-top: 10px;
+                padding-bottom: 10px;
+                text-decoration: none !important;
+                text-transform: uppercase;
+                font-family: BrownStdLight;
+                }
+
+
+
+                .inputbox {
+                height: 40px;
+                width: 100%;
+                /*border-radius: 3px;*/
+                /* border: 1px solid transparent;*/
+                border-top: none !important;
+                border-left: none !important;
+                border-right:none !important;
+                border-bottom: 1px solid #123e6c !important;
+                border-radius: 0px !important;
+                background-color: #fff;
+                padding-left: 15px;
+                padding-right:15px;
+                font-size: 20px;
+                float:right;
+                box-shadow: none !important;
+                font-family: BrownStdThin;
+                color:#555;
+                }
+
+                input.largerCheckbox
+                {
+                width: 25px;
+                height: 25px;
+                }
+
+                .checklabel {
+                font-size: 20px;
+                font-weight:400;
+                text-transform: uppercase;
+                vertical-align: super;
+                font-family: BrownStdThin;
+                color: #999;
+                }
+
+                ::placeholder {
+                text-transform: uppercase;
+                font-family: BrownStdThin;
+                }
+
+                .form-control:focus{
+                border-color: #cccccc;
+                -webkit-box-shadow: none;
+                box-shadow: none;
+                }
+
+                .tablebutton {
+                height: 50px;
+                border: none;
+                background-color: #FFFFFF;
+                box-shadow: 0px 0px 6px 4px rgba(0,0,0,.19);
+                /* background-color: #FAFAFA;*/
+                padding-left: 15px;
+                padding-right:15px;
+                float: right;
+                display:block;
+                margin-left: 5px;
+                }
+
+                .alignbuttontext {
+                position: relative;
+                float: left;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                margin:auto;
+                }
+
+
+                .overlayimage {
+                /*  background: url("{!URLFOR($Resource.VIPDesignImages, 'MothersdayWide.jpg')}") no-repeat center top fixed;
+                width: 100%;*/
+                margin-left: auto;
+                margin-right: auto;
+                display: block;
+                z-index: 1;
+
+                }
+                /* override some of the bootstrap styled */
+                .panel-heading {
+                box-shadow: inset 0px 0px 12px 4px rgba(246,169,55,.29);
+                border-top-left-radius: 0px;
+                border-top-right-radius: 0px;
+                background-color: #F6A937 !important ;
+                text-align: center;
+                font-size: 22px;
+                }
+                .panel {
+                border-top-left-radius: 0px;
+                border-top-right-radius: 0px;
+                border-top-width: 0px;
+                border-left-width: 0px;
+                border-right-width: 0px;
+                border-bottom-width: 0px;
+                box-shadow: 0px 0px 6px 4px rgba(0,0,0,.19);
+                padding-bottom: 2px;
+                }
+
+
+
+                .borderless th{
+                padding: 0px 0 0px 8px !important;
+                border: 1px solid transparent !important;
+                background-color: #fff !important;
+                color: #123e6c;
+                font-family: BrownStdThin;
+                font-size: 16px;
+                text-transform: uppercase;
+                }
+
+                .borderless td{
+                padding: 8px 15px 8px 8px !important;
+                border-bottom: 1px solid #123e6c;
+                border-left: 1px solid transparent;
+                border-right: 1px solid transparent;
+                background-color: #fff !important;
+                color: #123e6c;
+                font-family: BrownStdLight;
+                width: 40%;
+                vertical-align: middle !important;
+                word-wrap: break-word;
+                max-width: 250px;
+                }
+
+
+                h2 {
+                padding-top: 20px;
+                font-size: 50px;
+                /*font-weight: bold;
+                color: #007B8D;*/
+                }
+
+                .jumbotron {
+                //margin: 150px 0px 0px 0px;
+                margin: 10% 0px 0px 0px;
+                font-family: SangBleuLight;
+                padding: 0px 0px 40px 0px;
+                color: #123e6c;
+                }
+
+                p {
+                font-size: 20px;
+                font-family: BrownStdLight;
+                color: #123e6c;
+                }
+
+                a:link{
+                color:#fff !important;
+                }
+                a:visited{
+                color:#fff !important;
+                }
+                a:hover{
+                color:#fff !important;
+                }
+                a:active{
+                color:#fff !important;
+                }
+
+                .validationfail {
+                border-color:#FF0000;
+                background-color:#f2dede;
+                }
+
+
+                tr {
+                cursor: pointer;
+                }
+
+                .form-group{
+                margin-bottom: 30px;
+                }
+
+                .modal{
+                position: absolute;
+                top: 20%;
+                overflow-x: hidden;
+                overflow-y: auto;
+                }
+
+                .modal-content{
+                border: 5px solid #123e6c;
+                //width: 70%;
+                margin-left: auto;
+                margin-right: auto;
+                }
+
+                .modal-header{
+                border-bottom: none;
+                }
+
+                .modal-body{
+                margin-right: 20px;
+                margin-left: 20px
+                }
+
+                .modal-footer{
+                margin-bottom: 50px;
+                float: none;
+                border-top: none;
+                padding: 0px;
+                }
+
+                .modal-backdrop{
+                display: none;
+                }
+
+                .list-group-item{
+                border-bottom: 1px solid #123e6c;
+                border-left: 1px solid transparent;
+                border-right: 1px solid transparent;
+                border-top: 1px solid transparent;
+                margin-bottom: 0px;
+                }
+
+                .list-group-item:last-child{
+                border-bottom-left-radius: unset;
+                border-bottom-right-radius: unset;
+                }
+
+            </style>
+
+        <script>
+
+            // define the app
+            var VIPBBApp = angular.module('vipApp', []);
+            // add an app factory
+
+            // add the controller
+            VIPBBApp.controller('VIPBBServiceCtrl',['$log','$scope','$window','$sce',function($log,$scope,$window,$sce){
+
+                /*{   ID: '{!Account.Id}"',
+      FirstName: '{!JSENCODE(Account.FirstName)}',
+      LastName: '{!JSENCODE(Account.LastName)}',
+      Email: '{!JSENCODE(Account.PersonEmail)}',
+      Phone: '{!JSENCODE(Account.PersonMobilePhone)}'
+     };*/
+                document.getElementById('bdayInvalidID').style.display = "none";
+                document.getElementById('emailPhoneInvalidID').style.display = "none";
+                document.getElementById('emailInvalidID').style.display = "none";
+                document.getElementById('partnerInvalidID').style.display = "none";
+
+                $scope.duplicateRecords;
+                $scope.accID = '{!JSENCODE(Account.Id)}';
+                $scope.guestdata = JSON.parse('{!JSENCODE(guestJson)}');
+                $scope.showPartnerListSearch  = false;
+
+                if(!$scope.guestdata.Birth_Day__c ||$scope.guestdata.Birth_Day__c==''){
+                    $scope.guestdata.Birth_Day__c='0';
+                    }
+                if(!$scope.guestdata.Birth_Month__c ||$scope.guestdata.Birth_Month__c==''){
+                    $scope.guestdata.Birth_Month__c='0';
+                    }
+                if(!$scope.guestdata.Gender__c ||$scope.guestdata.Gender__c==''){
+                    $scope.guestdata.Gender__c='0';
+                    }
+                //  if(!$scope.guestdata.Preferred_method_of_contact__c ||$scope.guestdata.Preferred_method_of_contact__c==''){
+                //    $scope.guestdata.Preferred_method_of_contact__c='0';
+                //    }
+                $scope.partnerName  = '{!JSENCODE(partnerNameJson)}';
+                //$scope.partnerMessageResults='No matching partners found.';
+                $scope.message = '';
+                $scope.namestyle = '';
+                $scope.validationfailColor = '#FF6961';
+
+                $scope.hfsCaseId = "{!JSENCODE(hfsCaseId)}";
+				$scope.customUnescape = function (v) {
+					if (typeof (v) == 'string') {
+						return v.replace(/&amp;/g, "&")
+							.replace(/&lt;/g, "<")
+							.replace(/&gt;/g, ">")
+							.replace(/&quot;/g, "\"")
+							.replace(/&apos;/g, "\'");
+					} else {
+						return v;
+					}
+				};
+
+                $scope.languagelabels = JSON.parse('{!JSENCODE(languagelabels)}');
+                $scope.selectedlanguage = '{!JSENCODE(lang)}';
+                $log.log('Test: '+$scope.selectedlanguage);
+
+                $scope.gotoTerms = function(){
+                    $j('#loadingmodal').show();
+                    // Disable the button to prevent double click
+                    document.getElementById('SaveNextButton').style.display = "none";
+                    document.getElementById('SaveNextLoading').style.display = "block";
+                    // lets validate the content first
+                    var validated = true;
+                    var emailvalidated = true;
+                    var birthdatevalidated=true;
+                    var emailphonevalidated=true;
+                    var partnervalidated=true;
+                    $scope.emailstyle = '';
+                    $scope.telstyle = '';
+                    $scope.namestyle = '';
+                    $scope.lastnamestyle = '';
+                    $scope.birthdaystyle = '';
+                    $scope.birthmonthstyle= '';
+                    $scope.genderstyle= '';
+                    $scope.partnerstyle='';
+
+                    if(!$scope.guestdata.FirstName || $scope.guestdata.FirstName == ''){
+                        // the first name is required
+                        $log.log('firstname is blank');
+                        $scope.namestyle = {'background-color': $scope.validationfailColor};
+                        validated = false;
+                    }
+
+                    if(!$scope.guestdata.LastName || $scope.guestdata.LastName == ''){
+                        // the first name is required
+                        $log.log('lastname is blank');
+                        $scope.lastnamestyle = {'background-color': $scope.validationfailColor};
+                        validated = false;
+                    }
+
+                    var mobileRegex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+                    $log.log(' regex test: ' + mobileRegex.test($scope.guestdata.PersonEmail) );
+
+                    if((!$scope.guestdata.PersonEmail || $scope.guestdata.PersonEmail == '') && (!$scope.guestdata.PersonMobilePhone || $scope.guestdata.PersonMobilePhone == '')){
+                        // means both values are blank
+                        $log.log('both values are blank');
+                        validated = false;
+                        $scope.telstyle = {'background-color': $scope.validationfailColor};
+                        $scope.emailstyle = {'background-color': $scope.validationfailColor};
+                        emailphonevalidated=false
+                        emailvalidated=true;
+                    }
+
+                    if(!$scope.guestdata.PersonMobilePhone || $scope.guestdata.PersonMobilePhone == '')
+                    {
+                        // mneans phone is blank, so email MUST be set, and valid
+                        if($scope.guestdata.PersonEmail && $scope.guestdata.PersonEmail != '' ){
+                            if(!mobileRegex.test($scope.guestdata.PersonEmail) ){
+                                $log.log('email is invalid' + $scope.guestdata.PersonEmail);
+                                $scope.emailstyle = {'background-color': $scope.validationfailColor};
+                                emailphonevalidated=true;
+                                emailvalidated = false;
+                                validated = false;
+                            }
+                        }
+                        // no need for an 'else' because the previous test should have caught the empty email and telephone
+                    }else if(!$scope.guestdata.PersonEmail || $scope.guestdata.PersonEmail != '')
+                    {
+                        // then it doesnt matter what, if the email is set, but incorrect, then it needs moaning about
+                        if($scope.guestdata.PersonEmail && $scope.guestdata.PersonEmail != '' ){
+                            if(!mobileRegex.test($scope.guestdata.PersonEmail) ){
+                                $log.log('2nd test email is invalid' + $scope.guestdata.PersonEmail);
+                                $scope.emailstyle = {'background-color': $scope.validationfailColor};
+                                emailvalidated = false;
+                                emailphonevalidated = true;
+                                validated = false;
+                            }
+                        }
+                    }
+
+                    if($scope.guestdata.Birth_Day__c && $scope.guestdata.Birth_Day__c!='' && $scope.guestdata.Birth_Day__c!='0'){
+                        if(($scope.guestdata.Birth_Day__c>29 && $scope.guestdata.Birth_Month__c=='February') || !$scope.guestdata.Birth_Month__c || $scope.guestdata.Birth_Month__c=='' || $scope.guestdata.Birth_Month__c=='0' ||
+                           ($scope.guestdata.Birth_Day__c>30 && ($scope.guestdata.Birth_Month__c=='April' ||
+                                                                 $scope.guestdata.Birth_Month__c=='June' || $scope.guestdata.Birth_Month__c=='September'
+                                                                 || $scope.guestdata.Birth_Month__c=='November'))){
+                            $log.log('Birthday is invalid');
+                            $scope.birthdaystyle = {'background-color': $scope.validationfailColor};
+                            $scope.birthmonthstyle = {'background-color': $scope.validationfailColor};
+                            birthdatevalidated = false;
+                            validated = false;
+
+                        }
+
+                    }
+
+                    if($scope.guestdata.Birth_Month__c && $scope.guestdata.Birth_Month__c!='' && $scope.guestdata.Birth_Month__c!='0'){
+                        if(!$scope.guestdata.Birth_Day__c || $scope.guestdata.Birth_Day__c=='' || $scope.guestdata.Birth_Day__c=='0'){
+                            $log.log('Birthday is invalid');
+                            $scope.birthdaystyle = {'background-color': $scope.validationfailColor};
+                            $scope.birthmonthstyle = {'background-color': $scope.validationfailColor};
+                            birthdatevalidated = false;
+                            validated = false;
+
+                        }
+                    }
+                    //if partner id is not defined but partner Name has text in it, then it means the user input is not valid as it does not match a lookup value
+                    if(!$scope.partnerid && $scope.partnerName!=''){
+                        $log.log('Partner is invalid');
+                        $scope.partnerstyle = {'background-color': $scope.validationfailColor};
+                        partnervalidated = false;
+                        validated = false;
+                    }
+
+                    if(birthdatevalidated){
+                        document.getElementById('bdayInvalidID').style.display = "none";
+                    }
+                    else{
+                        document.getElementById('bdayInvalidID').style.display = "block";
+                        }
+
+                    if(emailphonevalidated){
+                        document.getElementById('emailPhoneInvalidID').style.display = "none";
+                    }
+                    else{
+                        document.getElementById('emailPhoneInvalidID').style.display = "block";
+                        }
+                    if(emailvalidated){
+                        document.getElementById('emailInvalidID').style.display = "none";
+                    }
+                    else{
+                        document.getElementById('emailInvalidID').style.display = "block";
+                        }
+                    if(partnervalidated){
+                        document.getElementById('partnerInvalidID').style.display = "none";
+                    }
+                    else{
+                        document.getElementById('partnerInvalidID').style.display = "block";
+                        }
+
+                    $log.log('Validation test: '+validated);
+                    if(validated){
+                        $log.log('Phone: '+$scope.guestdata.PersonMobilePhone); //Search for duplicates in case that we are creating a new guest
+                        if (!$scope.guestdata.Id) {
+                            Visualforce.remoting.Manager.invokeAction(
+                                '{!$RemoteAction.VIPBBConsentExtension.searchDuplicates}',
+								$scope.guestdata.FirstName, $scope.guestdata.LastName, ($scope.guestdata.PersonEmail ? $scope.guestdata.PersonEmail : ''), ($scope.guestdata.PersonMobilePhone ? $scope.guestdata.PersonMobilePhone : ''),
+                                function (result, event) {
+                                    if (event.status) {
+                                        if (result && result.length > 0) {
+                                            let isEmailDup = false;
+											for (let duplicate of result) {
+												for (let field in duplicate) {
+													duplicate[field] = $scope.customUnescape(duplicate[field]);
+                                                    //console.log(field + " => " + duplicate[field]);
+                                                    if($scope.guestdata.PersonEmail == duplicate[field]){
+                                                        isEmailDup = true;
+                                                    }
+                                                    
+                                                    console.log(isEmailDup);
+												}
+											}
+                                            $scope.duplicateRecords = result;
+                                            if(!isEmailDup){
+                                            	$j("#duplicatesModal").modal("show");
+                                            }else{
+                                                $j("#duplicatesModalEmail").modal("show");
+                                            }
+                                            $scope.$apply();
+                                            // Enable back the button to prevent double click
+                                            document.getElementById('SaveNextButton').style.display = "block";
+                                            document.getElementById('SaveNextLoading').style.display = "none";
+                                              $j('#loadingmodal').hide();
+                                        } else {
+                                            $scope.saveVIPGuest();
+                                        }
+                                    } else {
+                                        $scope.message = event.message;
+                                        alert('An error has ocurred. Contact your administrator.');
+                                    }
+                                }, {escape: true}
+
+                            );
+                        } else {
+                            $scope.saveVIPGuest();
+                        }
+                    } else {
+                    	// Enable back the button to prevent double click
+                          $j('#loadingmodal').hide();
+                    	document.getElementById('SaveNextButton').style.display = "block";
+                    	document.getElementById('SaveNextLoading').style.display = "none";
+                    }
+                
+                
+                }
+                $scope.searchPartners = function(){
+                    console.log('hi');
+                    $scope.contactList = [];
+                    if( ($scope.partnerName  != undefined && $scope.partnerName.length > 2) ){
+
+                        Visualforce.remoting.Manager.invokeAction(
+                            '{!$RemoteAction.VIPBBConsentExtension.searchPartner}',
+                            $scope.partnerName,
+                            function(result, event){
+                                console.log(result);
+                                if (event.status) {
+                                    $scope.showPartnerListSearch  = true;
+                                    $j('#myModal').show();
+                                    $scope.contactList = result;
+                                     if (result && result.length > 0) {
+                                         $scope.partnerMessageResults=$scope.labelvalue('SelectPartner');
+                                         }
+                                    else{
+                                        $scope.partnerMessageResults=$scope.labelvalue('NoPartnerFound');
+                                        }
+                                } else if (event.type === 'exception') {
+                                    $scope.message = event;
+                                } else {
+                                    $scope.message = event;
+                                }
+                                $scope.$apply();
+                            },
+                            {escape: false}
+                        );
+
+                    }else{
+                        $scope.showPartnerListSearch  = false;
+                    }
+                }
+
+                $scope.saveVIPGuest = function () {
+                    var partnerID = $j('#partnerid').val();
+                    var pName = $j('#partnerNameP').val();
+                    Visualforce.remoting.Manager.invokeAction(
+                        '{!$RemoteAction.VIPBBConsentExtension.saveGuest}',
+                        ($scope.guestdata.Id ? $scope.guestdata.Id : ''), $scope.guestdata.FirstName, $scope.guestdata.LastName, ($scope.guestdata.PersonEmail ? $scope.guestdata.PersonEmail : ''), ($scope.guestdata.PersonMobilePhone ? $scope.guestdata.PersonMobilePhone : ''), $scope.hfsCaseId,
+                        (($scope.guestdata.Birth_Day__c && $scope.guestdata.Birth_Day__c!="0") ? $scope.guestdata.Birth_Day__c : ''), (($scope.guestdata.Birth_Month__c && $scope.guestdata.Birth_Month__c!="0") ? $scope.guestdata.Birth_Month__c : '' ),(($scope.guestdata.Gender__c && $scope.guestdata.Gender__c!="0") ? $scope.guestdata.Gender__c : ''),(($scope.guestdata.Preferred_method_of_contact__c && $scope.guestdata.Preferred_method_of_contact__c!="0") ? $scope.guestdata.Preferred_method_of_contact__c : ''),($scope.guestdata.Professional_Buyer__c ? $scope.guestdata.Professional_Buyer__c : false),partnerID,
+                        ($scope.guestdata.PostalCode ? $scope.guestdata.PostalCode : ''),function (result, event) {
+                            $log.log('about to call result....' + result + ' and event: ' + event);
+                            if (event.status) {
+                                  $j('#loadingmodal').hide();
+                                if (result.startsWith("ERROR")) {
+                                    // means something couldnt save :(
+                                    $scope.message = result;
+                                }
+                                else if (result.startsWith("NEWID")) {
+                                    $scope.guestdata.Id = result.substring(5);
+                                    //$window.location.href = '/apex/VIPBBTerms?ID=' + result.substring(5) + '&lang=' + $scope.selectedlanguage;
+                                    isLightningRedirect('/apex/VIPBBTerms?ID=' + result.substring(5) + '&lang=' + $scope.selectedlanguage);
+                                    $log.log('result.substring(5) === ....' + result.substring(5));
+                                }
+                                    else if (result.startsWith("SAVEDID")) {
+                                        // means no error, and exsisting guest was saved
+                                        //$window.location.href = '/apex/VIPBBTerms?ID=' + result.substring(7) + '&lang=' + $scope.selectedlanguage;
+                                        isLightningRedirect('/apex/VIPBBTerms?ID=' + result.substring(7) + '&lang=' + $scope.selectedlanguage);
+                                    }
+                            } else if (event.type === 'exception') {
+                                  $j('#loadingmodal').hide();
+                                $scope.message = event;
+                            } else {
+                                  $j('#loadingmodal').hide();
+                                $scope.message = event;
+                            }
+                            $scope.$apply();
+                        },
+                        {escape:true}
+                    );
+                }
+                $scope.selectedContact = function(partner){
+                    $scope.showPartnerListSearch  = false;
+                    $scope.partnerName = $sce.trustAsHtml(partner.Name);
+                    $scope.partnerid = partner.Id;
+                    $scope.contactList = [];
+                    console.log('Tables ' +  $scope.brandName  );
+                }
+
+                $scope.gotoDecline = function() {
+                    //$window.location.href = '/apex/VIPBBDeclineThankYou?lang=' + $scope.selectedlanguage;
+                    isLightningRedirect('/apex/VIPBBDeclineThankYou?lang=' + $scope.selectedlanguage);
+                }
+
+                $scope.closeModal = function(){
+                    $scope.showPartnerListSearch  = false;
+                }
+
+                $scope.updateLanguage = function() {
+                    // this isnt working very well, so im going to just reload the page, with a new language
+                    //   $log.log('aChanged Language .... ' + $scope.selectedlanguage );
+                    if($scope.accID != ''){
+                        //$window.location.href = '/apex/VIPBBConsent?ID=' + $scope.accID + '&lang=' + $scope.selectedlanguage;
+                        isLightningRedirect('/apex/VIPBBConsent?ID=' + $scope.accID + '&lang=' + $scope.selectedlanguage);
+                    }
+                    else
+                    {
+                        //$window.location.href = '/apex/VIPBBConsent?lang=' + $scope.selectedlanguage;
+                        isLightningRedirect('/apex/VIPBBConsent?lang=' + $scope.selectedlanguage);
+                    }
+                    /*
+             $log.log('Should be getting new values .... ');
+
+               Visualforce.remoting.Manager.invokeAction(
+                        '{!$RemoteAction.VIPBBConsentExtension.getLanguageLabels}',
+                         $scope.selectedlanguage ,
+                        function(result, event){
+                            if (event.status) {
+                                if(result.startsWith("ERROR") ){
+                                    // display error
+                                    $log.log('ERROR .... ' + result );
+                                }
+                                else
+                                {
+                                    $log.log('NEW Language .... ' + result );
+                                    $scope.languagelabels = result;
+                                    $scope.$apply();
+
+                                }
+
+                            }
+
+                });*/
+
+         }
+
+         $scope.labelvalue = function(labelname){
+             var returnval = '';
+             for (x in $scope.languagelabels) {
+
+                 if($scope.languagelabels[x].LabelName == labelname){
+                     returnval = $scope.languagelabels[x].LabelValue;
+                     //  $log.log('Label name .... ' + $scope.languagelabels[x].LabelName  );
+                     //   $log.log('Label value .... ' + $scope.languagelabels[x].LabelValue );
+                 }
+                 //  document.getElementById("demo").innerHTML += myObj[x] + "<br>";
+                 // document.getElementById("demo").innerHTML += $scope.languagelabels[x].Name+ "<br>";
+             }
+             return returnval;
+         };
+
+                $scope.redirectSearch = function (record) {
+                    //window.location.href = '/apex/VIPBBSearch?email=' + record.PersonEmail;
+                    isLightningRedirect('/apex/VIPBBSearch?email=' + record.PersonEmail);
+                };
+
+            }]);
+
+            </script>
+    </head>
+
+    <body>
+    <div ng-controller="VIPBBServiceCtrl">
+        <div class="full-width">{{labelvalue('VIPConsentTopHeading')}}
+            <div style="float:right;">
+                <select class="selectlanguagelist" name="language" ng-model="selectedlanguage" ng-change="updateLanguage(this)">
+                    <option value="en">English</option>
+                    <option value="fr">Français</option>
+                    <option value="es">Español</option>
+                    <option value="ca">Català</option>
+                    <option value="de">Deutsch</option>
+                    <option value="nl">Nederlands</option>
+                    <option value="it">Italiano</option>
+                </select>
+            </div>
+        </div>
+        <br/>
+        <div class="jumbotron text-center">
+            <h2>{{labelvalue('WelcomeVIPHeading')}}</h2>
+        </div>
+        
+        <div id="loadingmodal" name="loadingmodal" class="modal" role="dialog">
+            <div class="modal-dialog">
+                <div id="loader">
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="container" style="margin-left: auto; margin-right: auto; z-index: 100; position: relative;padding-left: 0px; padding-right: 0px;">
+            <!-- test -->
+
+            <div class="container py-5" >
+
+                <form name="form">
+                    <div class="form-group row">
+                        <div class="col-sm-12" style="text-align: center;">
+                            <p>{{labelvalue('PleaseComplete')}}</p>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-6">
+                            <!--<label for="inputFirstname" >{{labelvalue('FirstName')}}</label>-->
+                            <input type="text" ng-model="guestdata.FirstName" class="form-control inputbox" name="firstname" placeholder="{{labelvalue('FirstName')}}" ng-style="namestyle"/>
+                        </div>
+                        <div class="col-sm-6">
+                            <!--<label for="inputAddressLine1">{{labelvalue('LastName')}}</label>-->
+                            <input type="text" ng-model="guestdata.LastName" class="form-control inputbox" name="lastname" placeholder="{{labelvalue('LastName')}}" ng-style="lastnamestyle" />
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-sm-6">
+                            <!--<label for="inputLastname">{{labelvalue('Email')}}</label>-->
+                            <input type="text" ng-model="guestdata.PersonEmail" class="form-control inputbox" name="email" placeholder="{{labelvalue('Email')}}" ng-style="emailstyle" />
+                        </div>
+                        <div class="col-sm-6">
+                            <!--<label for="inputAddressLine2">{{labelvalue('Tel')}}</label>-->
+                            <input type="text" ng-model="guestdata.PersonMobilePhone" class="form-control inputbox" name="telnumber" placeholder="{{labelvalue('Tel')}}" ng-style="telstyle" />
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-6">
+                            <div class="col-sm-3" style="float: left; padding-left: 0px; width:50%">
+                                <!--<label for="day" style="color: #999;font-family: BrownStdThin; font-size: 20px; padding-left:15px; float: left; text-transform: uppercase;font-weight: normal;">{{labelvalue('Birthday')}}</label>-->
+                                <select ng-model="guestdata.Birth_Day__c" class="safari" name="birthday" ng-style="birthdaystyle">
+                                    <option value="0" selected="selected">{{labelvalue('Birthday')}}</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12">12</option>
+                                    <option value="13">13</option>
+                                    <option value="14">14</option>
+                                    <option value="15">15</option>
+                                    <option value="16">16</option>
+                                    <option value="17">17</option>
+                                    <option value="18">18</option>
+                                    <option value="19">19</option>
+                                    <option value="20">20</option>
+                                    <option value="21">21</option>
+                                    <option value="22">22</option>
+                                    <option value="23">23</option>
+                                    <option value="24">24</option>
+                                    <option value="25">25</option>
+                                    <option value="26">26</option>
+                                    <option value="27">27</option>
+                                    <option value="28">28</option>
+                                    <option value="29">29</option>
+                                    <option value="30">30</option>
+                                    <option value="31">31</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-3" style="padding-right: 0px; width: 50%">
+                                <!--<label for="month" style="color: transparent; font-size: 20px">disguise label </label>-->
+                                <select  ng-model="guestdata.Birth_Month__c" class="safari" name="birthmonth"  ng-style="birthmonthstyle" >
+                                    <option value="0" selected="selected"></option>
+                                    <option value="January">{{labelvalue('January')}}</option>
+                                    <option value="February">{{labelvalue('February')}}</option>
+                                    <option value="March">{{labelvalue('March')}}</option>
+                                    <option value="April">{{labelvalue('April')}}</option>
+                                    <option value="May">{{labelvalue('May')}}</option>
+                                    <option value="June">{{labelvalue('June')}}</option>
+                                    <option value="July">{{labelvalue('July')}}</option>
+                                    <option value="August">{{labelvalue('August')}}</option>
+                                    <option value="September">{{labelvalue('September')}}</option>
+                                    <option value="October">{{labelvalue('October')}}</option>
+                                    <option value="November">{{labelvalue('November')}}</option>
+                                    <option value="December">{{labelvalue('December')}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-6" >
+                            <!--<label for="inputAddressLine2" style="color: #999;font-family: BrownStdThin; font-size: 20px; padding-left:15px; float: left; text-transform: uppercase; font-weight: normal;">{{labelvalue('Gender')}}</label>-->
+                            <select  ng-model="guestdata.Gender__c" class="safari" name="gender" >
+                                <option value="0" selected="selected">{{labelvalue('Gender')}}</option>
+                                <option value="Male">{{labelvalue('Male')}}</option>
+                                <option value="Female">{{labelvalue('Female')}}</option>
+                                <option value="Unknown">Unknown</option>
+                                <option value="Non-Binary">Non-Binary</option>
+                            </select>
+                        </div>
+                       
+            <!-----   <div class="col-sm-6">
+                    <select  ng-model="guestdata.Preferred_method_of_contact__c" class="safari" name="Preferred method of contact" >
+                                <option value="0" selected="selected">Preferred method of contact</option>
+                                <option value="Phone">Phone</option>
+                                <option value="Email">Email</option>
+                                <option value="Text">Text</option>
+                                <option value="WhatsApp">WhatsApp</option>
+                                <option value="WeChat">WeChat</option>
+                                <option value="Post">Post</option>
+                            </select>    
+                      </div>  ---->
+                  </div>        
+                    <div class="form-group row" style="margin-bottom: 0px">
+                        <div class="col-sm-6">
+                            <p id="bdayInvalidID" style="margin-bottom: 0px">{{labelvalue('BirthdayInvalid')}}</p>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <p id="emailPhoneInvalidID" style="margin-bottom: 0px">{{labelvalue('EmailTelInvalid')}}</p>
+                            <p id="emailInvalidID" style="margin-bottom: 0px">{{labelvalue('EmailInvalid')}}</p>
+                        </div>
+                    </div>
+                    <div class="form-group row" style="margin-bottom: 0px">
+                        <div class="col-sm-6" style="text-align: left;padding-left: 30px;">
+                            <!--<input type="checkbox" name="emailconsent" ng-model="guestdata.Marketing_Consent_Email__c" class="largerCheckbox"/>-->
+                           <!--- <label class="checklabel" style="margin-right: 15px;">{{labelvalue('ProfessionalBuyer')}}</label>-->
+                           <!--- <input type="checkbox" name="professionalBuyer" ng-model="guestdata.Professional_Buyer__c" class="largerCheckbox"/>-->
+                        </div>
+                        <div class="col-sm-6">
+                         <!--   <input id="partnerNameP" class="form-control inputbox" type="text" name="partnerNameP" ng-model="partnerName" ng-style="partnerstyle" placeholder="{{labelvalue('SearchPartner')}}" aria-autocomplete="list" ng-keyup="searchPartners()" />-->
+                            <input id="partnerid" name="partnerid" hidden="hidden" ng-model="partnerid" />
+                        </div>
+                    </div>
+                    <div class="form-group row" style="margin-bottom: 0px">
+                        <div class="col-sm-6">
+                        </div>
+                        <div class="col-sm-6">
+                            <p id="partnerInvalidID" style="margin-bottom: 0px">{{labelvalue('PartnerInvalid')}}</p>
+                        </div>
+                    </div>
+                     <div class="form-group row">
+                        <div class="col-sm-6">
+                            <input type="text" ng-model="guestdata.PostalCode" class="form-control inputbox" name="postalcode" placeholder="{{labelvalue('PostalCode')}}" ng-style="namestyle"/>
+                        </div>
+                     </div>
+
+                    <div class="form-group row">
+                        <div class="col-sm-6">
+                            <a href="#" class="submitbutton"  ng-click="gotoDecline()" >{{labelvalue('CancelButton')}}</a>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <a href="#" class="submitbutton"  ng-click="gotoTerms()" id="SaveNextButton">{{labelvalue('SaveNextButton')}}</a>
+                            <a href="#" class="submitbutton"  id="SaveNextLoading" style="display: none">{{labelvalue('SaveNextButton')}}</a>
+                        </div>
+                    </div>
+
+                </form>
+
+            </div>
+
+
+
+            <!-- test end -->
+
+        </div>
+
+        <div id="overlayimage text-center" >
+            <img style="margin-left: auto; margin-right: auto;margin-top: 40px; width:300px; display: block; padding-top: 20px;" src="{!URLFOR($Resource.VIPRedesignImages, 'BVLogo.png')}" />
+        </div>
+
+
+        <div id="duplicatesModal" class="modal fade" role="dialog" tabindex="-1" aria-labelledby="myModalLabel" style="display:none;">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header" style=" font-weight: bold; font-size: medium;">
+                        <button name="close" type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+
+                    <div id="mainPanel" class="modal-body" style="margin-right: auto;margin-left: auto;">
+                        <p align="center" style="padding-bottom: 30px">{{labelvalue('PossibleDuplicates')}}</p>
+
+                        <!--<table align="center" style="margin-top: 1.5em;" class="table table-hover">-->
+                        <table class="table table-hover borderless" border="1">
+                            <tr class="info">
+                                <th>{{labelvalue('FirstName')}}</th>
+                                <th>{{labelvalue('LastName')}}</th>
+                                <th>{{labelvalue('Email')}}</th>
+                                <th>{{labelvalue('Tel')}}</th>
+                            </tr>
+                            <tr ng-repeat="duplicate in duplicateRecords" ng-click="redirectSearch(duplicate)">
+                                <td>{{duplicate.FirstName}}</td>
+                                <td>{{duplicate.LastName}}</td>
+                                <td>{{duplicate.PersonEmail}}</td>
+                                <td>{{duplicate.PersonMobilePhone}}</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="modal-footer">
+                        <div class="col-sm-6">
+                            <a id="hfs_btn_no" class="submitbutton" data-dismiss="modal" style="margin-top:0px; height:50px;">
+                                <span class="alignbuttontext">{{labelvalue('No')}}</span>
+                            </a>
+                        </div>
+                        <div class="col-sm-6">
+                            <a id="hfs_submit_btn" class="submitbutton" ng-click="saveVIPGuest();" style="margin-top:0px; height:50px;">
+                                <span class="alignbuttontext">{{labelvalue('Yes')}}</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="duplicatesModalEmail" class="modal fade" role="dialog" tabindex="-1" aria-labelledby="myModalLabel" style="display:none;">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header" style=" font-weight: bold; font-size: medium;">
+                        <button name="close" type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+
+                    <div id="mainPanel" class="modal-body" style="margin-right: auto;margin-left: auto;">
+                        <p align="center" style="padding-bottom: 30px">{{labelvalue('PossibleDuplicatesEmail')}}</p>
+
+                        <!--<table align="center" style="margin-top: 1.5em;" class="table table-hover">-->
+                        <table class="table table-hover borderless" border="1">
+                            <tr class="info">
+                                <th>{{labelvalue('FirstName')}}</th>
+                                <th>{{labelvalue('LastName')}}</th>
+                                <th>{{labelvalue('Email')}}</th>
+                                <th>{{labelvalue('Tel')}}</th>
+                            </tr>
+                            <tr ng-repeat="duplicate in duplicateRecords" ng-click="redirectSearch(duplicate)">
+                                <td>{{duplicate.FirstName}}</td>
+                                <td>{{duplicate.LastName}}</td>
+                                <td>{{duplicate.PersonEmail}}</td>
+                                <td>{{duplicate.PersonMobilePhone}}</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="modal-footer">
+                        <div class="col-sm-12">
+                            <div class="col-sm-6" style="left: 25%">
+                                <a id="hfs_btn_no" class="submitbutton" data-dismiss="modal" style="margin-top:0px; height:50px;">
+                                    <span class="alignbuttontext">{{labelvalue('Close')}}</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="myModal" name="myModal" class="modal" role="dialog" ng-show="showPartnerListSearch">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content" >
+                    <div class="modal-header" style="padding-bottom:0px;">
+                        <button type="button" class="close" data-dismiss="modal" ng-click="closeModal()">&times;</button>
+                        <p align="center">{{partnerMessageResults}}</p>
+                    </div>
+                    <div class="modal-body" style="padding-bottom:0px;padding-top:0px;">
+                        <div class="list-group">
+                            <a href="#" class="list-group-item" ng-click="selectedContact(partnerName)" ng-repeat="partnerName  in contactList" style="color:#123e6c !important;">{{partnerName.Name}}</a>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <a id="closebtn" class="submitbutton" data-dismiss="modal" ng-click="closeModal()" style="margin-top:0px; height:50px;width:50%; margin-left:auto;margin-right:auto;">
+                            <span class="alignbuttontext">{{labelvalue('Close')}}</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </body>
+    </html>
+</apex:page>

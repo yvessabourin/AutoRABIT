@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>CUST_NAME</field>
+    </columns>
+    <columns>
+        <field>FK_NAME</field>
+    </columns>
+    <currency>EUR</currency>
+    <description>Choose a time interval of 10/11 days at a time.
+&quot;-&quot; stands for &quot;Not checked in&quot;
+&quot;Attended&quot; stands for &quot;Checked in&quot;
+&quot;Grand Total&quot; stand for &quot;Registered&quot;</description>
+    <filter>
+        <criteriaItems>
+            <column>conference360__Event_Item_Purchase__c.conference360__Event_Name__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>contains</operator>
+            <value>Parking</value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
+    <format>Matrix</format>
+    <groupingsAcross>
+        <field>FK_$conference360__Attendee__c.conference360__Event_Start_Date__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsAcross>
+    <groupingsAcross>
+        <dateGranularity>Day</dateGranularity>
+        <field>FK_$conference360__Attendee__c.Event_Item_Name__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsAcross>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>FK_$conference360__Attendee__c.conference360__Attendance_Status__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>Check-ins per time slot/day</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CustomEntity$conference360__Event_Item_Purchase__c@conference360__Event_Item_Purchase__c.conference360__Attendee__c</reportType>
+    <scope>organization</scope>
+    <showDetails>false</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>FK_$conference360__Attendee__c.Event_Start_Date__c</dateColumn>
+        <endDate>2020-12-10</endDate>
+        <interval>INTERVAL_CUSTOM</interval>
+        <startDate>2020-12-01</startDate>
+    </timeFrameFilter>
+</Report>

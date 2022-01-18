@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Time_from_Purchase_to_Request_mins__c</fullName>
+    <externalId>false</externalId>
+    <formula>((  Request_Date_Time__c -  Receipt_Date_Time__c  )*1440)</formula>
+    <label>Time from Purchase to Request (mins)</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

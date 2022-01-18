@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Marketing_Consent_Holding_Date__c</fullName>
+    <description>The date that the guest has provided holding consent</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Date Private Client gave offline consent to hold data</inlineHelpText>
+    <label>Marketing Consent Holding Date</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>DateTime</type>
+</CustomField>

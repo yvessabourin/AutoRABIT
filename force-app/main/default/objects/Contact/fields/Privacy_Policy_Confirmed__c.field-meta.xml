@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Privacy_Policy_Confirmed__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Did the Contact tick the Privacy Policy Box on the MICE Lead form (this is carried through upon conversion)</description>
+    <externalId>false</externalId>
+    <label>Privacy Policy Confirmed</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

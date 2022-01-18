@@ -1,0 +1,6 @@
+<design:component label="Rich Text Display">
+
+    <design:attribute name="textSource" label="Text Source" description="HTML Formatted text to display. Verify syntax is correct. Custom labels can be embedded in text using the syntax {!$Label.[labelName]}"/>
+    <design:attribute name="useVillage" label="Use Village Text" description="Override text source with value entered against User's village record (Daily Sales Message field)"/>
+    
+</design:component>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>HFS_Item__c$Name</field>
+    </columns>
+    <columns>
+        <aggregateTypes>Average</aggregateTypes>
+        <field>HFS_Item__c$Time_in_Storage_mins__c</field>
+    </columns>
+    <columns>
+        <aggregateTypes>Average</aggregateTypes>
+        <field>HFS_Item__c$Request_to_Storage_Time_mins__c</field>
+    </columns>
+    <columns>
+        <aggregateTypes>Average</aggregateTypes>
+        <field>HFS_Item__c$Receipt_Amount__c</field>
+    </columns>
+    <columns>
+        <aggregateTypes>Average</aggregateTypes>
+        <field>HFS_Item__c$Time_from_Purchase_to_Request_mins__c</field>
+    </columns>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>HFS_Item__c$HFS_Experience__c.Village__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>db-stats-Item averages</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>SCS_Items__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>HFS_Item__c$CreatedDate</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

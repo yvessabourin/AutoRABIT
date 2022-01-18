@@ -1,0 +1,145 @@
+<apex:page sidebar="false" showHeader="true" lightningStylesheets="true" standardController="Marketing_Activity__c" extensions="reAssignMarketingActivities" 
+recordSetVar="MarkActs" docType="html-5.0">
+
+<apex:includeScript value="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"/>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></link>
+<style rendered="{!$User.UITheme != 'Theme3'}">
+        input{
+            font-size: 1.25rem !important;
+        }
+</style>
+<script type= "text/javascript">
+    
+    $j = jQuery.noConflict();
+
+    var count = 0;
+    
+    $j(document).ready(function(){
+        console.log('loaded');
+
+        selects = $j("select[id*='theInviteStatus']");    
+        selects.each(function(){
+                jsUpdateCancelRemove(this);
+           
+        });
+
+
+        $j('.statusSelect').change(function(){
+            jsUpdateCancelRemove(this);
+
+       });
+       
+
+    });
+
+        function jsUpdateCancelRemove(element) {  
+
+            
+            //if(element.value == 'Cancelled' || element.value == 'Removed'){
+              if(element.value == 'Cancelled'){          
+                $j(element).parent().siblings().children('.RFRC__c').show();
+                count ++ ;
+            }
+            else {
+                $j(element).parent().siblings().children('.RFRC__c').hide();
+         
+                }
+
+            
+           if(count != 0){
+            $j( "div[id*='RFRCcolheader']" ).show();
+           }
+           else{
+            $j( "div[id*='RFRCcolheader']" ).hide();
+           }
+
+           console.log(count);
+        
+    }
+
+
+</script>
+
+
+<div>
+
+<apex:form id="theform" >
+
+<b><apex:outputLabel value="Set all Status'                          " for="invitestatus" /></b>
+    <apex:inputfield value="{!selectoption.Status__c}" id="massinvitestatus"/>
+     <b></b>
+     <apex:commandButton action="{!setAllStatus}" value="Update"/>
+     <p></p>
+
+
+     <p></p>
+     
+
+    <apex:pageBlock id="thepageblock" >
+
+  <apex:pageMessage severity="Error" summary="{!errormessage}" rendered="{!errorcount > 0 }"></apex:pageMessage>
+
+
+            <apex:pageBlockTable value="{!wMAstoEdit}" var="select" id="thepageblocktable" columns="8" >
+
+                <apex:column >
+
+                 <apex:facet name="header">
+                   Selected Records<br/>to update
+                 </apex:facet>
+                <apex:inputCheckbox value="{!select.selected}"  id="selectBox" styleClass="selectBox"/>
+                </apex:column>
+
+                <apex:column headerValue="Name" >
+                <apex:outputField value="{!select.theMA.name}" />
+                </apex:column> 
+
+                <apex:column headerValue="Status" >
+                <apex:inputField value="{!select.theMA.Status__c}" id="theInviteStatus" styleClass="statusSelect"/>
+                </apex:column>
+
+                <apex:column headerValue="Reason for Cancellation" >
+                  <apex:inputField value="{!select.theMA.Reason_for_Removal_or_Cancellation__c}" />
+                </apex:column>
+
+                <apex:column headerValue="Start Date" >
+                  <apex:inputField value="{!select.theMA.Start_Date__c}" />
+                </apex:column>
+
+                <apex:column headerValue="End Date" >
+                  <apex:inputField value="{!select.theMA.End_Date__c}" />
+                </apex:column>
+
+                <apex:column headerValue="Transfer to Oracle" >
+                  <apex:inputField value="{!select.theMA.Transfer_To_Oracle__c}" />
+                </apex:column>
+
+                <apex:column headerValue="Re-Send to Oracle" >
+                  <apex:inputField value="{!select.theMA.Re_send_to_Oracle_for_NewActivity__c}" />
+                </apex:column>               
+                              
+                <!-- rendered="{!select.theMA.Status__c == 'Cancelled'|| select.theMA.Status__c == 'Removed'}" -->
+                
+            </apex:pageBlockTable>
+    
+    <!-- test -->
+    <apex:commandButton action="{!selectAll}" value="Select All"/>
+    <apex:commandButton action="{!deselectAll}" value="Deselect All"/>
+
+    </apex:pageBlock>
+
+    
+    
+    <apex:pageBlock >
+    <apex:commandButton action="{!Cancel}" value="Cancel"/>
+    
+    <apex:commandButton action="{!saveSelected}" value="Save Selected Records" />
+    </apex:pageBlock>
+
+  </apex:form>  
+
+</div>
+
+
+
+</apex:page>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Update_Guest_Source_Partner</fullName>
+    <active>true</active>
+    <description>Where Partner name is currently populated, update ‘Guest Source’ to be value ‘Partner’.</description>
+    <errorConditionFormula>AND (
+
+NOT(ISBLANK( Partner_Program_Membership_1__c )) ,
+NOT (ISPICKVAL( Guest_Source__c ,&quot;Partnership&quot; ))
+
+)</errorConditionFormula>
+    <errorDisplayField>Guest_Source__c</errorDisplayField>
+    <errorMessage>If Partner Name field is populated, Guest source Field to be  Partnership.</errorMessage>
+</ValidationRule>

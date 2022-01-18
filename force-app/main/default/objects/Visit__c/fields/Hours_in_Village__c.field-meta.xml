@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Hours_in_Village__c</fullName>
+    <description>How many hours the guests were in the village</description>
+    <externalId>false</externalId>
+    <formula>( Check_Out_Date_Time__c - Visit_Date_Time__c )*24</formula>
+    <inlineHelpText>How many hours the guests were in the village</inlineHelpText>
+    <label>Dwell Time</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

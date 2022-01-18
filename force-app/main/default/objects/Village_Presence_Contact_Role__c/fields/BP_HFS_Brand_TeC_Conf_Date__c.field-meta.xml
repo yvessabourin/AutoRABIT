@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>BP_HFS_Brand_TeC_Conf_Date__c</fullName>
+    <description>Timestamp for HFS Brand T&amp;Cs user´s confirmation</description>
+    <externalId>false</externalId>
+    <label>HFS Brand T&amp;Cs Confirmation</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackTrending>false</trackTrending>
+    <type>DateTime</type>
+</CustomField>

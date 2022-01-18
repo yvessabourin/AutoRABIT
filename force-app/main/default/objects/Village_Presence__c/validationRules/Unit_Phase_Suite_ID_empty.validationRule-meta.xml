@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Unit_Phase_Suite_ID_empty</fullName>
+    <active>false</active>
+    <errorConditionFormula>OR(ISBLANK(Unit__r.Phase_ID__c ), ISBLANK( Unit__r.Suite_ID__c )  )</errorConditionFormula>
+    <errorDisplayField>Unit__c</errorDisplayField>
+    <errorMessage>The Phase ID and/or Suite ID are empty on this Unit, please complete them before linking it to this Village Presence</errorMessage>
+</ValidationRule>

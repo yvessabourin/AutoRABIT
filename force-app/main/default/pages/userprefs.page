@@ -1,0 +1,40 @@
+<apex:page showHeader="false" standardController="User" extensions="ProfileTabUserController" >
+<apex:pageMessages />
+    <apex:form >
+         <apex:pageBlock title="VR1 User Preferences">
+        
+        <apex:pageBlockButtons >
+                    <apex:commandButton value="Save" action="{!save}"/>
+        </apex:pageBlockButtons>
+            
+
+            <apex:pageBlockSection collapsible="false" title="Scheduled (future) Meeting Alerts" >
+                      <apex:inputfield value="{!user.Receive_B2B_Emails__c}"/>
+                      <apex:inputfield value="{!user.Receive_Weekly_B2B_Emails__c}"/>
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockSection collapsible="false" title="B2B Meeting Alerts">
+                      <apex:inputfield value="{!user.B2B_Alerts__c}"   />
+                      <apex:inputfield value="{!user.Send_Custom_B2B_Email__c}"/>
+            </apex:pageBlockSection>
+            
+             <apex:pageBlockSection collapsible="false" title="Other Settings" >
+                       <apex:inputfield value="{!user.Tweet_Department__c}"/>
+                       <apex:inputfield value="{!user.Village__c}"/>
+            </apex:pageBlockSection>
+            
+             <apex:pageBlockSection collapsible="false" title="More Email Settings" >
+                 <apex:inputfield value="{!user.DigestFrequency}" label="Digest Frequency"/>
+                 <apex:outputLink target="_top" value="/_ui/core/feeds/notification/FeedsNotificationPrefEdit?setupid=CollaborationEmailSettings&retURL=%2F_ui%2fcore%2Fuserprofile%2fUserProfilePage?tab=Preferences" id="theLink">More VR1 Email Preferences</apex:outputLink>     
+                 
+            </apex:pageBlockSection>
+            
+            
+        </apex:pageBlock> 
+        
+                
+
+    
+    </apex:form>
+
+</apex:page>

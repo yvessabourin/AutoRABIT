@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>VIP_Card_Exchange__c$Name</field>
+    </columns>
+    <currency>EUR</currency>
+    <filter>
+        <criteriaItems>
+            <column>VIP_Card_Exchange__c$Visit__c.Partnership_Promotion__c.Name</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>false</isUnlocked>
+            <operator>startsWith</operator>
+            <value>BV-HOTELS-LOCAL</value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
+    <format>Matrix</format>
+    <groupingsAcross>
+        <dateGranularity>Month</dateGranularity>
+        <field>VIP_Card_Exchange__c$Visit__c.Visit_Date_Time__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsAcross>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>VIP_Card_Exchange__c$Visit__c.Partnership_Promotion__c.Partner_Name__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>Jan - Dec 2020</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>VIP_Card_Exchanges_for_Partnership_Promotions__c</reportType>
+    <scope>organization</scope>
+    <showDetails>false</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>VIP_Card_Exchange__c$Visit__c.Visit_Date_Time__c</dateColumn>
+        <endDate>2020-09-02</endDate>
+        <interval>INTERVAL_CUSTOM</interval>
+        <startDate>2020-01-01</startDate>
+    </timeFrameFilter>
+</Report>

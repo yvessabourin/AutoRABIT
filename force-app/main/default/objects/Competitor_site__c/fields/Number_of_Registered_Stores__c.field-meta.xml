@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Number_of_Registered_Stores__c</fullName>
+    <description>A count of the Competitor Stores registered against this Site</description>
+    <externalId>false</externalId>
+    <inlineHelpText>A count of the Competitor Stores registered against this Site</inlineHelpText>
+    <label>Number of Registered Stores</label>
+    <summaryForeignKey>Competitor_Store__c.Competitor_Site__c</summaryForeignKey>
+    <summaryOperation>count</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

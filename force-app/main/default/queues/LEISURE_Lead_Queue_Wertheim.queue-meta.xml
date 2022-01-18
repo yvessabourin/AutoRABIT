@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Queue xmlns="http://soap.sforce.com/2006/04/metadata">
+    <doesSendEmailToMembers>true</doesSendEmailToMembers>
+    <name>LEISURE Lead Queue - Wertheim</name>
+    <queueMembers>
+        <users>
+            <user>alaepple@valueretail.com</user>
+            <user>adrach@valueretail.com</user>
+            <user>doeztuerk@valueretail.com</user>
+            <user>dcooreman@valueretail.com</user>
+            <user>ewoitzik@valueretail.com</user>
+            <user>jruettling@valueretail.com</user>
+            <user>msottru@valueretail.com</user>
+            <user>sschneider@valueretail.com</user>
+            <user>ticteamwv@valueretail.com</user>
+            <user>ywang@valueretail.com</user>
+            <user>yhong@valueretail.com</user>
+        </users>
+    </queueMembers>
+    <queueSobject>
+        <sobjectType>Lead</sobjectType>
+    </queueSobject>
+</Queue>

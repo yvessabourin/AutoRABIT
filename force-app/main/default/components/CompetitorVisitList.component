@@ -1,0 +1,21 @@
+<apex:component controller="getCompetitorVisits" access="global">
+    <apex:attribute name="siteId" type="Id" description="Id of the competitor site" assignTo="{!compSiteId}"/>
+     
+    <table border = "1" cellspacing = "3" id="visitTable1" cellpadding="5">
+        <tr>
+            <td><b><u>Visit Number</u></b></td>
+            <td><b><u>Type</u></b></td>
+            <td><b><u>Date of Visit</u></b></td>    
+            <td><b><u>Visited By</u></b></td>            
+        </tr>
+        <apex:repeat value="{!visits}" var="v">
+        <tr>
+            <td><a href="{!theURL}/{!v.id}">{!v.Name}</a></td>
+            <td>{!v.recordtype.Name}</td>
+            <td>{!v.Date_of_Visit__c}</td>
+            <td>{!v.BVSC_Employees_Name__c}</td>              
+        </tr>
+        </apex:repeat>     
+    </table>   
+
+</apex:component>

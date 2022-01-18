@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Proposed_Activity_Budget__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>The budget currently being used by the related Marketing Activities (references the Activity Budget field)</inlineHelpText>
+    <label>Accumulated Budget</label>
+    <summarizedField>Marketing_Activity__c.Budget__c</summarizedField>
+    <summaryForeignKey>Marketing_Activity__c.Marketing_Campaign__c</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

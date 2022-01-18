@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QuickAction xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Creates a travel Trade meeting against the account record</description>
+    <fieldOverrides>
+        <field>Date_of_Meeting__c</field>
+        <formula>TODAY()</formula>
+    </fieldOverrides>
+    <fieldOverrides>
+        <field>Name</field>
+        <formula>&quot;Travel Trade Meeting with &quot; + Account.Name</formula>
+    </fieldOverrides>
+    <fieldOverrides>
+        <field>Tourism_Account__c</field>
+        <formula>Account.Id</formula>
+    </fieldOverrides>
+    <fieldOverrides>
+        <field>VR_Representative__c</field>
+        <formula>$User.Id</formula>
+    </fieldOverrides>
+    <label>New Travel Trade Meeting</label>
+    <optionsCreateFeedItem>true</optionsCreateFeedItem>
+    <quickActionLayout>
+        <layoutSectionStyle>TwoColumnsLeftToRight</layoutSectionStyle>
+        <quickActionLayoutColumns>
+            <quickActionLayoutItems>
+                <emptySpace>false</emptySpace>
+                <field>Name</field>
+                <uiBehavior>Required</uiBehavior>
+            </quickActionLayoutItems>
+            <quickActionLayoutItems>
+                <emptySpace>false</emptySpace>
+                <field>Date_of_Meeting__c</field>
+                <uiBehavior>Required</uiBehavior>
+            </quickActionLayoutItems>
+            <quickActionLayoutItems>
+                <emptySpace>false</emptySpace>
+                <field>Meeting_Location__c</field>
+                <uiBehavior>Edit</uiBehavior>
+            </quickActionLayoutItems>
+            <quickActionLayoutItems>
+                <emptySpace>false</emptySpace>
+                <field>Meeting_Minutes__c</field>
+                <uiBehavior>Edit</uiBehavior>
+            </quickActionLayoutItems>
+        </quickActionLayoutColumns>
+        <quickActionLayoutColumns>
+            <quickActionLayoutItems>
+                <emptySpace>false</emptySpace>
+                <field>Tourism_Account__c</field>
+                <uiBehavior>Required</uiBehavior>
+            </quickActionLayoutItems>
+            <quickActionLayoutItems>
+                <emptySpace>false</emptySpace>
+                <field>Tourism_Contact__c</field>
+                <uiBehavior>Edit</uiBehavior>
+            </quickActionLayoutItems>
+        </quickActionLayoutColumns>
+    </quickActionLayout>
+    <targetObject>Travel_Trade_Meeting__c</targetObject>
+    <targetParentField>Tourism_Account__c</targetParentField>
+    <type>Create</type>
+</QuickAction>

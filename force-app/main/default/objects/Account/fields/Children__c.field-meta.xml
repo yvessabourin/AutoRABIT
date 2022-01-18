@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Children__c</fullName>
+    <description>The children of the guest</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Enter relevant information about Private Clients children</inlineHelpText>
+    <label>Private Client’s Children</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>TextArea</type>
+</CustomField>

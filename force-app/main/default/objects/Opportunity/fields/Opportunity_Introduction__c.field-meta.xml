@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Opportunity_Introduction__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Select the principal source or origin of this opportunity</inlineHelpText>
+    <label>Opportunity Introduction</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>VR Internal</fullName>
+                <default>false</default>
+                <label>VR Internal</label>
+            </value>
+            <value>
+                <fullName>Consultant</fullName>
+                <default>false</default>
+                <label>Consultant</label>
+            </value>
+            <value>
+                <fullName>Agent (Commission)</fullName>
+                <default>false</default>
+                <label>Agent (Commission)</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

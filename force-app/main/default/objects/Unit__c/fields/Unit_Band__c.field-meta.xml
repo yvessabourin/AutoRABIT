@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Unit_Band__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF( Size_GEA__c  &lt; 50, &quot;&lt; 50&quot;,  IF( Size_GEA__c  &lt;= 100, &quot;51-100&quot;,  IF( Size_GEA__c  &lt;= 150, &quot;101-150&quot;,  IF( Size_GEA__c  &lt;= 250, &quot;151-250&quot;,  IF( Size_GEA__c &lt;= 500 , &quot;251-500&quot;,  IF( Size_GEA__c  &lt;= 700, &quot;501-700&quot;, &quot;700+&quot;) ) ) ) ) )</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>The unit band based on the GEA in square metres</inlineHelpText>
+    <label>Unit Band</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

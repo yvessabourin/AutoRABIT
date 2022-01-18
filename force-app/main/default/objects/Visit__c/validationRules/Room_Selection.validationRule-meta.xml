@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Room_Selection</fullName>
+    <active>false</active>
+    <description>Room selection validation based on village name Bicester</description>
+    <errorConditionFormula>AND(  Village__r.Name =&apos;Bicester&apos;,
+NOT(ISBLANK ( Room__c )),
+       Room__r.Room_Name__c &lt;&gt;&apos;Room 1&apos;,
+       Room__r.Room_Name__c &lt;&gt;&apos;Room 2&apos;,
+       Room__r.Room_Name__c &lt;&gt;&apos;Room 3&apos;,
+       Room__r.Room_Name__c &lt;&gt;&apos;Room 4&apos;)</errorConditionFormula>
+    <errorDisplayField>Room__c</errorDisplayField>
+    <errorMessage>If Village is Bicester then please select from Room 1 to Room 4 Only.</errorMessage>
+</ValidationRule>

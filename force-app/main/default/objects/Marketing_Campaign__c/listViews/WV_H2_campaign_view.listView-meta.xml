@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>WV_H2_campaign_view</fullName>
+    <columns>NAME</columns>
+    <columns>Start_Date__c</columns>
+    <columns>End_Date__c</columns>
+    <columns>Number_of_Activities__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Village__c</field>
+        <operation>contains</operation>
+        <value>Wertheim</value>
+    </filters>
+    <filters>
+        <field>Start_Date__c</field>
+        <operation>greaterOrEqual</operation>
+        <value>10/27/2017</value>
+    </filters>
+    <filters>
+        <field>End_Date__c</field>
+        <operation>lessThan</operation>
+        <value>12/31/2017</value>
+    </filters>
+    <label>WV H2 campaign view</label>
+    <language>en_US</language>
+</ListView>

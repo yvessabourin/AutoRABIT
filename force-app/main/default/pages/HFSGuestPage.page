@@ -1,0 +1,2983 @@
+<apex:page standardController="Case" sidebar="false" showHeader="false" standardStylesheets="false"  applyBodyTag="false" docType="html-5.0" extensions="HandsFreeShoppingGuestExtension">
+
+            <apex:includeScript value="{!URLFOR($Resource.HFS_qrv4, '/instascan.js')}"/>
+            <apex:includeScript value="{!URLFOR($Resource.HFS_qrv4, '/adapter.min.js')}"/>
+            <apex:includeScript value="{!URLFOR($Resource.HFS_qrv4, '/jquery.min.js')}"/>
+            <apex:includeScript value="{!URLFOR($Resource.DMScan, '/index.min.js')}"/>
+
+    <audio id="audio" src="{!URLFOR($Resource.HFS_beep, '/beep-06.wav')}" autostart="false" ></audio>
+
+    <html xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" ng-app="hfsguestApp" >    
+        <head>
+            <meta charset="utf-8" />
+            <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+            <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0" />
+            <meta name="apple-mobile-web-app-capable" content="yes"/>
+            <title>TIC Home Page</title>
+
+
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+            <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap3-dialog/1.34.9/css/bootstrap-dialog.min.css" rel="stylesheet" type="text/css" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap3-dialog/1.34.9/js/bootstrap-dialog.min.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+               <link rel="stylesheet" href="{!URLFOR($Resource.NewTICStyles)}" />
+           	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.2/moment-with-locales.js"></script>
+    		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.45/js/bootstrap-datetimepicker.min.js"></script>
+    		<script type="text/css" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.43/css/bootstrap-datetimepicker.min.css"></script>
+            <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular.min.js"></script>
+            
+
+            
+            <style type="text/css">
+                
+                    body{
+                        
+                        min-height: 100vh;     
+                        overflow: scroll; 
+                        background: url({!URLFOR($Resource.TICDashboard, 'HFshop.png')})
+                         no-repeat center center fixed; 
+                        -webkit-background-size: cover; 
+                        -moz-background-size: cover; 
+                        -o-background-size: cover; 
+                        background-size: cover;
+                        padding-bottom:200px;
+
+                    }
+                
+          
+                /* checkbox thingy */
+                
+                /* Core */
+                
+                .filters input {
+                display: none;
+                }
+                
+                .filters .icon {
+                text-align: center;
+                display: inline-block;
+                }
+                
+                .filters .icon .fa {
+                visibility: hidden;
+                }
+                
+                .filters input:checked + .icon .fa {
+                visibility: visible;
+                }
+                
+                
+                /* IE8 and lower disabling hack because it does not support the :checked selector */
+                
+                .filters input {
+                display: inline\9;
+                }
+                
+                .filters .icon {
+                display: none\9;
+                }
+                
+                
+                /* Optional */
+                
+                .filters {
+                /* prevent accidental selection when clicking */
+                user-select: none;
+                -ms-user-select: none;
+                -moz-user-select: none;
+                -webkit-user-select: none;
+                opacity: 0.9;
+                }
+                
+                .filters label {
+                cursor: pointer;
+                opacity: 0.9;
+                }
+                
+                
+                /* Checkbox styling */
+                
+                .filters input {
+                margin: 0 .1em; /* Use something similar to .icon */
+                }
+                
+                .filters .icon {
+                background: #fcf4d2;
+                border: 1px solid;
+                border-color: #cac3a8 #f9f0c2 #f9f0c2 #cac3a8;
+                border-radius: .3em;
+                text-align: center;
+                /*font-size: .8em;*/
+                color: #666;
+                margin: 0 .1em;
+                /* height: 1em;
+                width: 1em; */
+                padding: 0.15em;
+                line-height: 1.1em;
+                /**
+                * Values for height, width and line-height
+                * may need to be adjusted depending on your font.
+                */
+                }
+                
+                
+                /* Inline menu styling */
+                
+                .filters {
+                list-style: none;
+                padding: 8px;
+                display: inline-block;
+                }
+                
+                .filters li {
+                display: inline-block;
+                margin-right: 0.3em;
+                }
+                
+                
+                /* Extra beautify */
+                
+                
+                .filters {
+                border-radius: 4px;
+                box-shadow: 0 0 7px rgba(0,0,0,0.15);
+                background: #fff;
+                }
+                
+ #datetimepickercontrol {
+      z-index: 9600 !important; /* has to be larger than 1050 */
+     position: absolute !important;
+    }
+            </style>
+            
+            
+            <script>
+            $j = jQuery.noConflict();
+            var homeUrl;
+            
+            var canvas;
+            var context;
+            var drawingUtil;
+            var isDrawing = false;
+            var accountId = '';
+            var prevX = 0;
+            var prevY = 0;
+            var currX = 0;
+            var currY = 0;
+            var accountId;
+            var villagename = '{!JSENCODE(userVillage)}';
+            
+           
+
+
+
+            $j(document).ready(function(){
+                
+                let lugaggeAndLoansPermission = {!$Permission.LGL_Permission};
+        
+                if (lugaggeAndLoansPermission) {
+                    $j('#lgldash').show();
+                }
+                
+                function setTodaysDate(fieldID) {
+                    
+                    var now = new Date();
+                    var day = ("0" + now.getDate()).slice(-2);
+                    var month = ("0" + (now.getMonth() + 1)).slice(-2);              
+                    var today = now.getFullYear()+"-"+(month)+"-"+(day) ;            
+                    $j('#'+fieldID+'').val(today);
+                                     
+                    }
+                
+                setTodaysDate('Date_of_Incident__c');
+                
+                if(villagename == 'Bicester'){
+                    $j('#AddHFSItem1').addClass('fa fa-gbp');
+                    }
+                else{
+                    $j('#AddHFSItem1').addClass('fa fa-eur');
+                    }
+                  
+     $j(function () {
+                    $j('#datetimepicker1').datetimepicker({
+                        locale: 'en',
+                         format: 'LT'
+                    });               
+
+                });
+                
+
+                //SCAN TEMPORAY RSILVA
+
+                $j('#autoG').hide();  
+
+                  //SCAN TEMPORAY RSILVA
+
+                if('{!JSENCODE(IF(isHFSHistoric,"true", "false"))}' == 'true'){ 
+                    $j('#hfsH').show();         
+                }else{                    
+                    $j('#hfsH').hide();
+                }
+
+
+
+                function DrawingUtil() {
+                    isDrawing = false;
+                    canvas.addEventListener("mousedown", start, false);
+                    canvas.addEventListener("mousemove", draw, false);
+                    canvas.addEventListener("mouseup", stop, false);
+                    canvas.addEventListener("mouseout", stop, false);
+                    canvas.addEventListener("touchstart", start, false);
+                    canvas.addEventListener("touchmove", draw, false);
+                    canvas.addEventListener("touchend", stop, false);
+                    
+                    $j('#clearsig').click(clearSign);
+                    
+                    w = canvas.width;
+                    h = canvas.height;
+                }
+                
+                
+                function start(event) {
+                    event.preventDefault();
+                    isDrawing = true;
+                    
+                    if(event.clientX){
+                        currX = event.clientX - canvas.offsetLeft;
+                        currY = event.clientY - canvas.offsetTop;
+                    }
+                    else
+                    {
+                        
+                        // it is probably a mobile, and need to use touch
+                        var touch = event.touches[0];
+                        var currX = touch.pageX - canvas.offsetLeft;
+                        var currY = touch.pageY - canvas.offsetTop;
+                    }
+                    
+                    context.beginPath();
+                    context.fillStyle = "cadetblue";
+                    context.fillRect(currX, currY, 2, 2);
+                    console.log('context.fillRect(currX, currY, 2, 2); = ' + context + '---' + currX + ' x ' + currY);
+                    context.closePath();
+                    // since its starting, there should be no previous
+                    // the next previous should be the current
+                    prevX = currX;
+                    prevY = currY;
+                    console.log('PREV = ' + prevX + ' x ' + prevY);
+                }
+                
+                function draw(event) {
+                    event.preventDefault();
+                    if (isDrawing) {
+                        console.log('DRAWING');
+                        if(event.clientX){
+                            currX = event.clientX - canvas.offsetLeft;
+                            currY = event.clientY - canvas.offsetTop;
+                        }
+                        else
+                        {
+                            // it is probably a mobile, and need to use touch
+                            var touch = event.touches[0];
+                            currX = touch.pageX - canvas.offsetLeft;
+                            currY = touch.pageY - canvas.offsetTop;
+                        }
+                        
+                        context.beginPath();
+                        context.moveTo(prevX, prevY);
+                        context.lineTo(currX, currY);
+                        context.strokeStyle = "cadetblue";
+                        context.lineWidth = "2";
+                        context.stroke();
+                        context.closePath();
+                        prevX = currX;
+                        prevY = currY;
+                        
+                        console.log('Should be stroking here');
+                        
+                    }
+                }
+                
+                function stop(event) {
+                    if (isDrawing) {
+                        context.stroke();
+                        context.closePath();
+                        isDrawing = false;
+                        console.log('STOPPED');
+                        prevX = currX;
+                        prevY = currY;
+                    }
+                }
+                
+                function clearSign() {
+                    context.clearRect(0,0,w,h);
+                }
+                
+                canvas = document.getElementById("signatureCanvas");
+                context = canvas.getContext("2d");
+                console.log('GOT CANVAS CONTEXT');
+                context.strokeStyle = "black";
+                context.lineWidth = "2";
+                drawingUtil = new DrawingUtil(canvas);
+                
+                
+            });
+            
+            </script>
+            <!-- NEW ANGULAR SCRIPT -->
+            <script>
+            
+            // AngularJs
+            // var groupEventApp = angular.module('LookupExample', []);
+            var hfsguestApp = angular.module('hfsguestApp', []);
+            var tableStringBar = '';
+            var tableStringOversized = '';
+            var stringTables = '';
+
+
+            hfsguestApp.controller('GuestCaseCtrl',['$log','$scope', '$window','$sce' ,  function($log,$scope,$window,$sce){
+                
+                $scope.IncidentReasons = [];
+                
+                $scope.viewIncidents = {!viewIncidents};
+                console.log('can viewIncidents = ' + $scope.viewIncidents);
+                
+                $scope.statusValues = [
+                    { label: "<-- Please Select an Option -->", value: "<-- Please Select an Option -->"},
+                    { label: "Open", value: "Open"},
+                    { label: "Closed", value: "Closed"}
+                    ];
+                $scope.theselectStatus = $scope.statusValues[0];
+                
+                
+                $scope.yesNoOptions = [
+                    { label: "<-- Please Select an Option -->", value: "<-- Please Select an Option -->"},
+                    { label: "Yes", value: "Yes"},
+                    { label: "No", value: "No"}
+                    ];
+                $scope.BagsReturnedval = $scope.yesNoOptions[0];
+                $scope.RetailManagerAwareSelect = $scope.yesNoOptions[0];
+                $scope.isResolvedSelect = $scope.yesNoOptions[0];
+                
+                               
+                $scope.IncidentTypes = [
+                    { label: "<-- Please Select an Option -->", value: "<-- Please Select an Option -->"},
+                    { label: "HFS Bags Wrong Handover", value: "HFS Bags Wrong Handover"},
+                    { label: "HFS Bags Missing", value: "HFS Bags Missing"},
+                    { label: "Brand HFS Refusals", value: "Brand HFS Refusals"},
+                    { label: "Other", value: "Other"}               
+                ];              
+                $scope.selectName = $scope.IncidentTypes[0];
+                $scope.theEIselectName = $scope.IncidentTypes[0];
+                
+                console.log($scope.IncidentTypes);
+                
+                $scope.case = ('{!JSENCODE(CaseInfo)}' != '') ? JSON.parse('{!JSENCODE(CaseInfo)}') : null;
+                $scope.caseitems = ('{!JSENCODE(CaseItems)}' != '') ? JSON.parse('{!JSENCODE(CaseItems)}') : null;
+				for (let ci of $scope.caseitems) {
+					ci.formattedCurrency = ci.Bag_Barcodes_Manual__c;
+					ci.Bag_Barcodes_Manual__c = null;
+				}
+				$scope.isVIP = ('{!JSENCODE(IF(isVIP,"true", "false"))}' == 'true');
+				$scope.privilegeType = '{!JSENCODE(privilegeType)}';
+                $scope.$log = $log;
+                $scope.villagename = '{!userVillage}';
+                $scope.hasClickCollect = {!hasClickCollect};
+                $scope.isClickCollect = {!isClickCollect};
+
+                $scope.result_c = '';
+
+                $scope.HFSIncidents = ('{!JSENCODE(HFSIncidents)}' != '') ? JSON.parse('{!JSENCODE(HFSIncidents)}') : null;
+                $scope.GuestBags = ('{!JSENCODE(GuestBags)}' != '') ? JSON.parse('{!JSENCODE(GuestBags)}') : null;
+                $scope.GuestBagsCollection = ('{!JSENCODE(GuestBagsCollection)}' != '') ? JSON.parse('{!JSENCODE(GuestBagsCollection)}') : null;
+
+                
+                $scope.showBrandListSearch  = false;
+                $scope.showchangeitemmodal  = false;
+                
+                $scope.brandName  = '';
+                $scope.selectedItem = '';
+                $scope.selectedItemID = '';
+                $scope.selectedItemvalue = '';   
+                //$scope.brandNameG  = '';
+
+                $scope.brandNameB  = '';
+                $scope.brandNameD  = '';
+
+                $scope.hfsitembagcount = '';
+
+
+                //$scope.table = { fields: [] , oversized: []};
+  
+                $scope.tables =  [{field:'',oversize:''}] ;
+
+                $scope.tablesDrop =  [{field:'',oversize:'',brand:''}] ;
+                $scope.tablesDrop.splice(0);
+                $scope.tablesDropTotalBags = 0;
+                $scope.tablesDropTotalEstimatedValue = 0;
+
+                //$scope.Bagdrop =  [{field:'',oversize:'',brand:''}] ;
+                $scope.guestBagDropDetails ='';
+                $scope.agreecheckbox1 = '';
+
+                /*
+                  $scope.addFormField = function() {
+                    $scope.table.fields.push('');
+                  }
+
+                */
+                $scope.pickuplocations = ('{!JSENCODE(pickuplocations)}' != '') ? JSON.parse('{!JSENCODE(pickuplocations)}') : null;
+                //$scope.selectedpickuplocation =  $scope.pickuplocations[0].val
+
+                //$scope.choices = [{id: 'choice1', name: 'choice1'}];
+   
+                   /*
+                   $scope.showAddChoice = function(choice) {
+                     return choice.id === $scope.choices[$scope.choices.length-1].id;
+                   };
+                */
+                $scope.isBagDropf = false;
+               
+               
+                $scope.selectables = [
+                    { label: "Awaiting Pick-up from Brand", value: "Awaiting Pick-up from Brand"},
+                    { label:"Ready for Guest Collection", value: "Ready for Guest Collection"},
+                    { label: "Guest Collected", value: "Guest Collected"}
+                ];
+
+                if('{!JSENCODE(IF(isLostQRcode,"true", "false"))}' == 'true'){
+                    $j('#lostQR').show();         
+                }else{                    
+                    $j('#lostQR').hide();
+                }
+
+                if('{!JSENCODE(IF(isCheckoutBags,"true", "false"))}' == 'true'){
+                    $j('#checkoutBags').show();         
+                }else{                    
+                    $j('#checkoutBags').hide();
+                }
+
+                if('{!JSENCODE(IF(isNewItem,"true", "false"))}' == 'true'){
+                    $j('#btnadditem').show();         
+                }else{                    
+                    $j('#btnadditem').hide();
+                }
+                
+                
+                
+                var caseBagCount = '{!caseBagCount}';
+            	console.log('caseBagCount ' + caseBagCount);
+					
+			    if(caseBagCount > 0){
+                $j('#checkOutNoBags').hide();
+                }
+                else{
+                $j('#checkOutNoBags').show();
+                }
+
+                if('{!JSENCODE(IF(isClosed,"true", "false"))}' == 'true'){
+                    $j('#btnadditem').hide();  
+                    $j('#checkOutNoBags').hide();
+                    $j('#btnaddbagdropitem').hide();  
+                    $j('#checkoutBags').hide();  
+                    $j('#lostQR').hide();        
+                    $j('#isBagTransfer').hide(); 
+                    $j('#is30mW').hide();   
+                    // $j('#clearOutNotes').hide();   
+                    
+                        if('{!JSENCODE(IF(isAgedItem,"true", "false"))}' == 'true'){
+                            $j('#clearOutNotes').show();         
+                        }else{                    
+                            $j('#clearOutNotes').hide();
+                        }
+         
+                }else if(!('{!JSENCODE(IF(isClosed,"true", "false"))}' == 'true') && !('{!JSENCODE(IF(isAgedItem,"true", "false"))}' == 'true') ){
+                    $j('#clearOutNotes').hide();      
+                }    
+               
+                $scope.cleanTable = function(){
+                    $scope.tablesDrop.splice(0);                    
+                }
+
+                $scope.whatClassIsItemRow = function(caseitem){
+                    
+                    if(caseitem.Status__c === 'Awaiting Pick-up from Brand'){
+                        return 'danger';
+                    }
+                    else if(caseitem.Status__c === 'Ready for Guest Collection'){
+                        return 'success';
+                    }                     
+                        else{
+                            return 'active';
+                        }
+                    
+                }
+                
+                $scope.changeIncidentReasonsOther  = function(type){
+                    if(type.label == 'Other' ){
+						$scope.IncidentReasonOther = true;                        
+                    }
+                };
+                
+                
+                              
+                 $scope.changeIncidentReasons = function(type){
+                     
+                    /////// HFS Bags Wrong Handover                   
+                    if(type.label == 'HFS Bags Wrong Handover' ){                        
+                        $scope.BagsReturnedSection = true;
+                        $scope.DescriptionSection = true;
+                        $scope.IncidentReason = false;
+                        $scope.IncidentReasons = [];
+                        $scope.IsResolvedSection = false;
+                        $scope.NotesSection = true;
+                        $scope.StatusSection = true;
+                        $scope.ImpactSection = true;
+                        $scope.RetailManagerAwareSection = false;
+                        $scope.BrandInvolvedSection = false;
+                        $scope.IncidentReasonOther = false;
+                        //$scope.apply();
+						console.log(type.label);
+           
+                    }
+                     
+                     /////// HFS Bags Missing
+                     else if(type.label == 'HFS Bags Missing'){
+                        $scope.IncidentReasons = [
+                            { label: "<-- Please Select an Option -->", value: "<-- Please Select an Option -->"},
+                            { label: "Bags given to another Guest", value: "Bags given to another Guest"},
+                            { label: "Bag(s) at Brand but not picked up", value: "Bag(s) at Brand but not picked up"},
+                            { label: "Other", value: "Other"}                           
+                        	];
+                         
+                        $scope.BagsReturnedSection = true;
+                        $scope.DescriptionSection = true;
+                        $scope.IncidentReason = true;
+                        $scope.IsResolvedSection = false;
+                        $scope.NotesSection = true;
+                        $scope.StatusSection = true;
+                        $scope.ImpactSection = true;
+                        $scope.RetailManagerAwareSection = false;
+                        $scope.BrandInvolvedSection = false;
+                        $scope.IncidentReasonOther = false;
+                        $scope.theselectName = $scope.IncidentReasons[0];
+                        console.log(type.label);        
+                    }                         
+                    /////// Brand HFS Refusals
+                    else if(type.label == 'Brand HFS Refusals'){
+                        $scope.IncidentReasons = [
+                            { label: "<-- Please Select an Option -->", value: "<-- Please Select an Option -->"},
+                            { label: "Technical Fault", value: "Technical Fault"},
+                            { label: "Brand was really busy", value: "Brand was really busy"},
+                            { label: "Lacking Knowledge / Experience of HFS", value: "Lacking Knowledge / Experience of HFS"},
+                            { label: "Brand said they didn't refuse when asked", value: "Brand said they didn't refuse when asked"},
+                            { label: "Other", value: "Other"}    
+                        ];
+                        
+                        $scope.BagsReturnedSection = false;
+                        $scope.DescriptionSection = false;
+                        $scope.IncidentReason = true;
+                        $scope.IsResolvedSection = false;
+                        $scope.NotesSection = true;
+                        $scope.StatusSection = true;
+                        $scope.ImpactSection = false;
+                        $scope.RetailManagerAwareSection = true;
+                        $scope.BrandInvolvedSection = true;
+                        $scope.IncidentReasonOther = false;
+                        $scope.theselectName = $scope.IncidentReasons[0];
+                        console.log(type.label);             
+                    }                 
+                    /////// Other    
+                    else{
+                        $scope.BagsReturnedSection = true;
+                        $scope.DescriptionSection = true;
+                        $scope.IncidentReason = false;
+                        $scope.IsResolvedSection = true;
+                        $scope.NotesSection = true;
+                        $scope.StatusSection = true;
+                        $scope.ImpactSection = false;
+                        $scope.RetailManagerAwareSection = false;
+                        $scope.BrandInvolvedSection = false;
+                        $scope.IncidentReasonOther = false;
+                        $scope.IncidentReasons = [];
+                        console.log(type.label);
+                    }                   
+                };
+                
+             
+                
+                
+                
+                
+                
+                $scope.popUpIncidentData = function(theIncident) {     
+                    
+                    if(theIncident.Status__c == 'Closed' && theIncident.Is_Resolved__c == 'Yes'){                      
+                         $j('#updateIncidentButton').prop('disabled', true);
+                        }
+                    else{
+                        $j('#updateIncidentButton').prop('disabled', false);
+                        }
+                    
+                    //////////////----------------------------
+                    if(theIncident.RecordType.Name == 'HFS Bags Wrong Handover' ){                        
+                        $scope.BagsReturnedSection = true;
+                        $scope.DescriptionSection = true;
+                        $scope.IncidentReason = false;
+                        $scope.IncidentReasons = [];
+                        $scope.IsResolvedSection = true;
+                        $scope.NotesSection = true;
+                        $scope.StatusSection = true;
+                        $scope.ImpactSection = true;
+                        $scope.RetailManagerAwareSection = false;
+                        $scope.BrandInvolvedSection = false;
+                        $scope.IncidentReasonOther = false;				          
+                    }
+                     
+                     /////// HFS Bags Missing
+                     else if(theIncident.RecordType.Name == 'HFS Bags Missing'){
+                        $scope.IncidentReasons = [
+                            { label: "<-- Please Select an Option -->", value: "<-- Please Select an Option -->"},
+                            { label: "Bags given to another Guest", value: "Bags given to another Guest"},
+                            { label: "Bag(s) at Brand but not picked up", value: "Bag(s) at Brand but not picked up"},
+                            { label: "Other", value: "Other"}                           
+                        	];
+                         
+                        $scope.BagsReturnedSection = true;
+                        $scope.DescriptionSection = true;
+                        $scope.IncidentReason = true;
+                        $scope.IsResolvedSection = true;
+                        $scope.NotesSection = true;
+                        $scope.StatusSection = true;
+                        $scope.ImpactSection = true;
+                        $scope.RetailManagerAwareSection = false;
+                        $scope.BrandInvolvedSection = false;
+                        $scope.IncidentReasonOther = false;
+                        $scope.theselectName = $scope.IncidentReasons[0];                           
+                    }                         
+                    /////// Brand HFS Refusals
+                    else if(theIncident.RecordType.Name == 'Brand HFS Refusals'){
+                        $scope.IncidentReasons = [
+                            { label: "<-- Please Select an Option -->", value: "<-- Please Select an Option -->"},
+                            { label: "Technical Fault", value: "Technical Fault"},
+                            { label: "Brand was really busy", value: "Brand was really busy"},
+                            { label: "Lacking Knowledge / Experience of HFS", value: "Lacking Knowledge / Experience of HFS"},
+                            { label: "Brand said they didn't refuse when asked", value: "Brand said they didn't refuse when asked"},
+                            { label: "Other", value: "Other"}    
+                        ];
+                        
+                        $scope.BagsReturnedSection = false;
+                        $scope.DescriptionSection = false;
+                        $scope.IncidentReason = true;
+                        $scope.IsResolvedSection = true;
+                        $scope.NotesSection = true;
+                        $scope.StatusSection = true;
+                        $scope.ImpactSection = false;
+                        $scope.RetailManagerAwareSection = true;
+                        $scope.BrandInvolvedSection = true;
+                        $scope.IncidentReasonOther = false;
+                        $scope.theselectName = $scope.IncidentReasons[0];                          
+                    }                 
+                    /////// Other    
+                    else{
+                        $scope.BagsReturnedSection = true;
+                        $scope.DescriptionSection = true;
+                        $scope.IncidentReason = false;
+                        $scope.IsResolvedSection = true;
+                        $scope.NotesSection = true;
+                        $scope.StatusSection = true;
+                        $scope.ImpactSection = false;
+                        $scope.RetailManagerAwareSection = false;
+                        $scope.BrandInvolvedSection = false;
+                        $scope.IncidentReasonOther = false;
+                        $scope.IncidentReasons = [];
+                      }
+                    if(theIncident.Incident_Reason__c == 'Other'){
+                        $scope.IncidentReasonOther = true;
+                        }
+                    //////////////----------------------------
+                    
+                    console.log('Incident_Reason__c -- ' + theIncident.Incident_Reason__c);  
+                    
+                    console.log(theIncident.Name);
+                    console.log(theIncident.Id);
+                    
+                    $scope.BagsReturnedval = '';
+                    $scope.isResolvedSelect = '';
+                    $scope.theselectStatus = '';
+                    $scope.selectName = '';
+                    $scope.theEIselectName = '';
+                    $scope.RetailManagerAwareSelect = '';
+                       
+                    $j('#EIName').text(theIncident.Name);
+                    $j('#EIName').attr("href", '/' + theIncident.Id);
+                    $j('#theIncidentId').val(theIncident.Id);
+                    $j('#EIBrand_Involved__c').val(theIncident.Brand_Involved__c);
+                    $j('#EIImpact__c').val(theIncident.Impact__c);
+                    $j('#EIResolution_Notes__c').val(theIncident.Resolution_Notes__c);
+                    $j('#EIIncident_Description__c').val(theIncident.Incident_Description__c);
+                    $j('#EIDate_of_Incident__c').val(theIncident.Date_of_Incident__c);
+                    
+                    $j('#EIIncident_Type').val(theIncident.RecordType.Name);
+                    $j('#EIIncident_Reason__c').val(theIncident.Incident_Reason__c);
+                    $j('#EIIncident_Reason_Other__c').val(theIncident.Incident_Reason_Other__c);
+                    
+                    
+                                   
+                    var s;
+                    for (s = 0; s < $scope.yesNoOptions.length; s++) {
+                        if(($scope.yesNoOptions[s].label == theIncident.Is_Retail_Manager_Aware__c)){
+                            $scope.RetailManagerAwareSelect = $scope.yesNoOptions[s];
+                        }
+                    }
+                                        
+                    var n;
+                    for (n = 0; n < $scope.yesNoOptions.length; n++) {
+                        if(($scope.yesNoOptions[n].label == theIncident.Is_Resolved__c)){
+                            $scope.isResolvedSelect = $scope.yesNoOptions[n];
+                        }
+                    }
+                          
+                    var m;
+                    for (m = 0; m < $scope.yesNoOptions.length; m++) {
+                    	if(($scope.yesNoOptions[m].label == theIncident.Bag_s_returned_to_guest__c)){
+                            $scope.BagsReturnedval = $scope.yesNoOptions[m];
+                        }
+                    }
+                    
+                    var k;
+                    for (k = 0; k < $scope.statusValues.length; k++) {
+                    	if(($scope.statusValues[k].label == theIncident.Status__c)){
+                            $scope.theselectStatus = $scope.statusValues[k];
+                        }
+                    }
+                                     
+                    var i;
+                    for (i = 0; i < $scope.IncidentTypes.length; i++) {
+                    	if(($scope.IncidentTypes[i].label == theIncident.RecordType.Name)){
+                            $scope.selectName = $scope.IncidentTypes[i];
+                        }
+                    }
+                    
+                    var j;
+                    if(theIncident.RecordType.Name == 'HFS Bags Missing'){
+                   	  		$scope.IncidentReasons = [
+                            { label: "<-- Please Select an Option -->", value: "<-- Please Select an Option -->"},
+                            { label: "Bags given to another Guest", value: "Bags given to another Guest"},
+                            { label: "Bag(s) at Brand but not picked up", value: "Bag(s) at Brand but not picked up"},
+                            { label: "Other", value: "Other"}                            
+                        	];
+                        }else{
+                            $scope.IncidentReasons = [
+                            { label: "<-- Please Select an Option -->", value: "<-- Please Select an Option -->"},
+                            { label: "Technical Fault", value: "Technical Fault"},
+                            { label: "Brand was really busy", value: "Brand was really busy"},
+                            { label: "Lacking Knowledge / Experience of HFS", value: "Lacking Knowledge / Experience of HFS"},
+                            { label: "Brand said they didn't refuse when asked", value: "Brand said they didn't refuse when asked"},
+                            { label: "Other", value: "Other"}                             
+                        	];
+                            }
+                    for (j = 0; j < $scope.IncidentReasons.length; j++) {
+                    	if(($scope.IncidentReasons[j].label == theIncident.Incident_Reason__c)){
+                            $scope.theEIselectName = $scope.IncidentReasons[j];
+                            console.log('$scope.theEIselectName --- ' + $scope.theEIselectName);
+                        }
+                    }
+                    
+                    $j('#EditIncidentModal').modal('show');
+                    
+               };
+                
+                $scope.updateHFSIncident = function(){
+                    var theIncidentId = $j('#theIncidentId').val();
+                    var theDate =  $j('#EIDate_of_Incident__c').val();
+                    var Incident_Type__c =  $j('#EIIncident_Type option:selected').text();
+                    var Incident_Reason__c =  $j('#EIIncident_Reason__c option:selected').text();
+                    var Incident_Reason_Other__c =  $j('#EIIncident_Reason_Other__c').val();
+                    var status__c =  $j('#EIstatus__c option:selected').text();
+                    var Incident_Description__c =  $j('#EIIncident_Description__c').val();
+                    var Resolution_Notes__c =  $j('#EIResolution_Notes__c').val();
+                    var BagsReturned =  $j('#EIBagsReturned option:selected').text();
+                    var IssueResolved =  $j('#EIIssueResolved option:selected').text();
+                    var RetailManagerAware =  $j('#EIRetailManagerAware option:selected').text();
+                    var Impact__c =  $j('#EIImpact__c').val();
+                    var Brand_Involved__c =  $j('#EIBrand_Involved__c').val();     
+                    console.log('theIncidentId: ' + theIncidentId);
+                    console.log(theDate);
+                    console.log(Incident_Type__c);
+                    console.log(Incident_Reason__c);
+                    console.log(Incident_Reason_Other__c);
+                    console.log(status__c);
+                    console.log(Incident_Description__c);
+                    console.log(Resolution_Notes__c);
+                    console.log(BagsReturned);
+                    console.log(IssueResolved);
+                    console.log(RetailManagerAware);
+                    console.log(Impact__c);
+                    console.log(Brand_Involved__c);
+                    
+                    HandsFreeShoppingGuestExtension.updateHFSIncident(theIncidentId, Incident_Reason_Other__c,status__c,Incident_Description__c,Resolution_Notes__c,BagsReturned,IssueResolved,RetailManagerAware,Impact__c,Brand_Involved__c , function(result, event, scope) {  
+                                // send the details to the server
+                                console.log(result);                                       
+                                // now we need to redirect the user to the guest details screen
+                                if (result.indexOf('ERROR') > -1){
+                                    alert('\n ERROR --- An error has occured, please show the error below to your Salesforce Administrator\n' + '\n' + result); 
+                                    console.log(result);      
+                                    location.reload();                                                              
+                                } else {
+                                    if(result != 'Success'){
+                                            alert('\n An error has occured, please show the error below to your Salesforce Administrator\n' + '\n' + result);
+                                        	console.log(result);  
+                                            location.reload();
+                                        }
+                                        else{                                       	
+                                            alert('You have successfully updated this HFS Incident');
+                                            console.log(result);  
+                                            location.reload();
+                                        }
+                                }
+                            });  
+                    
+                };
+                
+                
+                
+                $scope.saveHFSIncident = function(){
+                    var caseId = '{!caseID}';
+                    var theDate =  $j('#Date_of_Incident__c').val();
+                    var Incident_Type__c =  $j('#Incident_Type option:selected').text();
+                    var Incident_Reason__c =  $j('#Incident_Reason__c option:selected').text();
+                    var Incident_Reason_Other__c =  $j('#Incident_Reason_Other__c').val();
+                    var status__c =  $j('#status__c option:selected').text();
+                    var Incident_Description__c =  $j('#Incident_Description__c').val();
+                    var Resolution_Notes__c =  $j('#Resolution_Notes__c').val();
+                    var BagsReturned =  $j('#BagsReturned option:selected').text();
+                    var IssueResolved =  $j('#IssueResolved option:selected').text();
+                    var RetailManagerAware =  $j('#RetailManagerAware option:selected').text();
+                    var Impact__c =  $j('#Impact__c').val();
+                    var Brand_Involved__c =  $j('#Brand_Involved__c').val();                    
+                    
+                    if(Incident_Type__c == '<-- Please Select an Option -->'){
+                    	alert('Please select an Incident Type'); 
+                        $j('#Incident_Type').css("border","solid 3px red");
+                    }                    
+                    else if(Incident_Type__c == 'HFS Bags Missing' && Incident_Reason__c == '<-- Please Select an Option -->'  ){
+                    	alert('Please select a Reason Type'); 
+                        $j('#Incident_Reason__c').css("border","solid 3px red");
+                    }                    
+                    else if(Incident_Type__c == 'Brand HFS Refusals' && Incident_Reason__c == '<-- Please Select an Option -->'  ){
+                    	alert('Please select a Reason Type'); 
+                        $j('#Incident_Reason__c').css("border","solid 3px red");
+                    }                    
+                    else if(Incident_Reason__c == 'Other' && Incident_Reason_Other__c == ''){
+                    	alert('Please enter an other reason for this HFS Incident'); 
+                        $j('#Incident_Reason_Other__c').css("border","solid 3px red");
+                    }                   
+                    else if(status__c == '<-- Please Select an Option -->'){
+                    	alert('Please enter a Status value for this HFS Incident'); 
+                        $j('#status__c').css("border","solid 3px red");
+                    }                    
+                                     
+                    ////////////HFS BAGS Wrong Handover Validations START ///////////////////
+                    else if(Incident_Type__c == 'HFS Bags Wrong Handover' && BagsReturned == '<-- Please Select an Option -->'){
+                        alert('Please state if the Guest was reunited with their bag(s)'); 
+                        $j('#BagsReturned').css("border","solid 3px red");                   	
+                    }  
+                    else if(Incident_Type__c == 'HFS Bags Wrong Handover' && Incident_Description__c == ''){
+                        alert('Please enter a description for this HFS Incident'); 
+                        $j('#Incident_Description__c').css("border","solid 3px red");              
+                    }                   
+                    //else if(Incident_Type__c == 'HFS Bags Wrong Handover' && Resolution_Notes__c == ''){
+                    //    alert('Please enter some resolution notes for this HFS Incident');
+                    //    $j('#Resolution_Notes__c').css("border","solid 3px red");              
+                    //}                    
+                    else if(Incident_Type__c == 'HFS Bags Wrong Handover' && Impact__c == ''){
+                        alert('Please enter some impact details for this HFS Incident'); 
+                        $j('#Impact__c').css("border","solid 3px red");              
+                    }
+                    ////////////HFS BAGS Missing Validations START ///////////////////
+                    else if(Incident_Type__c == 'HFS Bags Missing' && BagsReturned == '<-- Please Select an Option -->'){
+                        alert('Please state if the Guest was reunited with their bag(s)'); 
+                        $j('#BagsReturned').css("border","solid 3px red");                   	
+                    } 
+                    else if(Incident_Type__c == 'HFS Bags Missing' && Incident_Description__c == ''){
+                        alert('Please enter a description for this HFS Incident'); 
+                        $j('#Incident_Description__c').css("border","solid 3px red");              
+                    }                   
+                    //else if(Incident_Type__c == 'HFS Bags Missing' && Resolution_Notes__c == ''){
+                    //    alert('Please enter some resolution notes for this HFS Incident');
+                    //    $j('#Resolution_Notes__c').css("border","solid 3px red");              
+                    //}                    
+                    else if(Incident_Type__c == 'HFS Bags Missing' && Impact__c == ''){
+                        alert('Please enter some impact details for this HFS Incident'); 
+                        $j('#Impact__c').css("border","solid 3px red");              
+                    }
+                    ////////////Brand HFS Refusals Validations START ///////////////////     
+                    //else if(Incident_Type__c == 'Brand HFS Refusals' && Resolution_Notes__c == ''){
+                    //    alert('Please enter some resolution notes for this HFS Incident');
+                    //    $j('#Resolution_Notes__c').css("border","solid 3px red");              
+                    //}                    
+                    else if(Incident_Type__c == 'Brand HFS Refusals' && Brand_Involved__c == ''){
+                        alert('Please enter a brand for this HFS Incident'); 
+                        $j('#Brand_Involved__c').css("border","solid 3px red");              
+                    } 
+                    else if(Incident_Type__c == 'Brand HFS Refusals' && RetailManagerAware == '<-- Please Select an Option -->'){
+                        alert('Please state if the Retail Manager is aware for this HFS Incident'); 
+                        $j('#RetailManagerAware').css("border","solid 3px red");              
+                    }
+                    else if(Incident_Type__c == 'Brand HFS Refusals' && Brand_Involved__c == ''){
+                        alert('Please enter a Brand for this HFS Incident'); 
+                        $j('#Brand_Involved__c').css("border","solid 3px red");              
+                    }
+                    ////////////Other Validations START ///////////////////
+                    else if(Incident_Type__c == 'Other' && BagsReturned == '<-- Please Select an Option -->'){
+                        alert('Please state if the Guest was reunited with their bag(s)'); 
+                        $j('#BagsReturned').css("border","solid 3px red");                   	
+                    } 
+                    else if(Incident_Type__c == 'Other' && Incident_Description__c == ''){
+                        alert('Please enter a description for this HFS Incident'); 
+                        $j('#Incident_Description__c').css("border","solid 3px red");              
+                    }                   
+                    // else if(Incident_Type__c == 'Other' && Resolution_Notes__c == ''){
+                    //    alert('Please enter some resolution notes for this HFS Incident');
+                    //    $j('#Resolution_Notes__c').css("border","solid 3px red");              
+                    //}                    
+                    else if(Incident_Type__c == 'Other' && IssueResolved == '<-- Please Select an Option -->'){
+                        alert('Please state if this HFS incident is resolved'); 
+                        $j('#IssueResolved').css("border","solid 3px red");              
+                    }
+                    else{
+                        	if (confirm('Are you sure?')) {
+                                        $j('#captureIncidentModal').modal('hide');                                
+      							HandsFreeShoppingGuestExtension.saveHFSIncident(caseId, theDate,Incident_Type__c,Incident_Reason__c,Incident_Reason_Other__c,status__c,Incident_Description__c,Resolution_Notes__c,BagsReturned,IssueResolved,RetailManagerAware,Impact__c,Brand_Involved__c , function(result, event, scope) {  
+                                // send the details to the server
+                                console.log(result);                                       
+                                // now we need to redirect the user to the guest details screen
+                                if (result.indexOf('ERROR') > -1){
+                                    alert('\n ERROR --- An error has occured, please show the error below to your Salesforce Administrator\n' + '\n' + result); 
+                                    console.log(result);      
+                                    location.reload();                                                              
+                                } else {
+                                    if(result != 'Success'){
+                                            alert('\n An error has occured, please show the error below to your Salesforce Administrator\n' + '\n' + result);
+                                        	console.log(result);  
+                                            location.reload();
+                                        }
+                                        else{                                       	
+                                            alert('You have successfully recorded a HFS Incident');
+                                            console.log(result);  
+                                            location.reload();
+                                        }
+                                }
+                            });      
+                                        } else {
+											location.reload();
+                                        }                       
+                        }                
+                };
+
+                $scope.whatClassIabel = function(casevalue){
+                    
+                    if(casevalue.Status__c === 'Awaiting Pick-up from Brand'){
+                        return 'glyphicon glyphicon-pencil';
+                    }else{
+                        return 'label label-default';
+                    }
+                };
+                
+                $scope.UpdateItem = function(caseitem){
+
+                    /*
+                    if(caseitem.Status__c === 'Awaiting Pick-up from Brand'){
+                        
+                        $j('#guestDetails').hide();
+                        $j('#btnadditem').hide();
+
+
+                        $j('#brandNameG').attr("disabled", true);
+                        $j('#hfsitemform').show();
+
+                        
+
+                        $j('#guestPurchaseDetails').hide();
+                        $j('#guestBagDetails').hide();
+                        $j('#btnaddbagdropitem').hide();
+
+                    }
+                    */
+
+
+
+                    // display the popup, and populate the dropdown
+                    /*
+                    console.log('clicked item');
+                    $scope.selectedItem = caseitem.Village_Presence__r.Name;
+                    $scope.selectedItemID = caseitem.Id;
+                    $scope.selectedItemvalue = caseitem.Status__c;      
+                    $scope.showchangeitemmodal  = true;    
+                    $j('#myitemModal').show();   
+                    */
+                }
+
+
+            
+                $scope.AddBagDropItemF = function(){
+                    // display the popup, and populate the dropdown
+                    var BagDropOri =  $j('#bagdroplocation option:selected').text();
+                    var BagDropDes = $scope.case.HFS_Collection_Location__c;
+
+                    if(BagDropOri != 'Bag drop location' && $j('#hfsitembagcount').val() != ''){
+
+
+                        $j('#bagdroplocation').attr('disabled', true);
+
+                        if( $j('#hfsitembagcount').val() != 0 && $j('#hfsitembagcount').val() !=''){
+
+                            if($j('#hfsitembagcount').val() > 15){
+                                $j('#hfsitembagcount').val() = 15;
+                            }
+
+                            for(tot = 0; tot < $j('#hfsitembagcount').val() ; tot++){
+                               $scope.tablesDrop.push({field: $scope.tables[tot].field, oversize:$scope.tables[tot].oversize, brand: $scope.brandName});
+                               $scope.tablesDropTotalBags= $scope.tablesDropTotalBags + 1;
+                            }
+
+                        }
+                        //Rica
+                        $scope.tablesDropTotalEstimatedValue =  $scope.tablesDropTotalEstimatedValue + parseInt($j('#hfsitemspendDrop').val());
+
+                        if(BagDropOri !=  BagDropDes){ //If different CP, check if same Storage location
+                            Visualforce.remoting.Manager.invokeAction(
+                                '{!$RemoteAction.HandsFreeShoppingGuestExtension.getStorageLocationBool}',
+                               BagDropOri, BagDropDes,
+                                function(result){
+                                    $j("#checkboxterms1").prop("checked", !result);   
+                                }, 
+                                {escape: true}
+                            );
+                        }else{
+                            $j("#checkboxterms1").prop("checked", true);
+                        }
+
+                        $j('#submitbagdrop').show(); 
+                        $j('#agreecheckbox1').show();
+                        $j('#addbagdropB').hide();
+
+                    }else{
+
+                        alert('Values missing');
+                    }
+                    
+                    
+                    
+                    //OUT OF SCOPE
+                    //$scope.brandName = '';
+                    //$j('#hfsitemspendDrop').val('');
+                    //$scope.hfsitembagcount = '';
+                    //this.saveBagDropItemF();
+ 
+                }
+
+                //OUT OF SCOPE
+                /*
+                $scope.saveBagDropItemF = function(){
+                    // display the popup, and populate the dropdown
+    
+                    //stringTables = '';
+
+                        for (var i = 0; i <  $scope.tablesDrop.length ; i++) {
+
+                            if(stringTables != ''){
+                                stringTables+=',';
+                            }
+
+                            stringTables +=  $scope.tablesDrop[i].field + ',' +  $scope.tablesDrop[i].oversize + ',' +  $scope.tablesDrop[i].brand;
+                   
+                        }
+                        console.log('Tables ' + stringTables );  
+
+
+                }
+
+                */
+
+                $scope.UpdateGuestBag = function(GuestBag){
+                    // display the popup, and populate the dropdown
+                    console.log('clicked UpdateGuestBag');
+
+                }
+                
+                $scope.checkOutNoBags = function(){
+                    
+                    var caseId = '{!caseID}';
+                    
+                    // display the popup, and populate the dropdown
+                    if (confirm('Are you sure?')) {
+                                        $j('#captureIncidentModal').modal('hide');                                
+      							HandsFreeShoppingGuestExtension.checkOutNoBags(caseId, function(result, event, scope) {  
+                                // send the details to the server
+                                console.log(result);                                       
+                                // now we need to redirect the user to the guest details screen
+                                if (result.indexOf('ERROR') > -1){
+                                    alert('\n ERROR --- An error has occured, please show the error below to your Salesforce Administrator\n' + '\n' + result); 
+                                    console.log(result);      
+                                    location.reload();                                                              
+                                } else {
+                                    if(result != 'Success'){
+                                            alert('\n An error has occured, please show the error below to your Salesforce Administrator\n' + '\n' + result);
+                                        	console.log(result);  
+                                            location.reload();
+                                        }
+                                        else{                                       	
+                                            alert("You have successfully updated the Guest Experience to 'Did Not Participate'");
+                                            console.log(result);  
+                                            location.reload();
+                                        }
+                                }
+                      			});      
+                    } else {
+                        //location.reload();
+                    }                                            
+                }
+
+                $scope.redirectBlackbook = function(){
+					
+					redirectToUrl( '/apex/VIPBBConsent?hfsId={!caseID}');					                              
+                }
+                
+                
+
+                $scope.whatClassIsItemRowBAG = function(caseitem){  
+                    //Background color             
+                    return 'active';                      
+                }
+                
+
+                //below function will make Remote Action call to Fetch contacts based on searched text 
+                $scope.searchBrands = function(){
+                    console.log('hi');
+                    $scope.contactList = [];
+                    if( ($scope.brandName  != undefined && $scope.brandName.length > 2) ){
+                        
+                        Visualforce.remoting.Manager.invokeAction(
+                            '{!$RemoteAction.HandsFreeShoppingGuestExtension.searchBrand}',
+                            $scope.brandName , $scope.villagename,
+                            function(result, event){
+                                console.log(result);
+                                if (event.status) {
+                                    $scope.showBrandListSearch  = true;
+                                    $j('#myModal').show();
+                                    $scope.contactList = result;
+                                } else if (event.type === 'exception') {
+                                    $scope.message = event;
+                                } else {
+                                    $scope.message = event;
+                                }
+                                $scope.$apply();
+                            }, 
+                            {escape: false}
+                        );
+                        
+                    }else{
+                        $scope.showBrandListSearch  = false;
+                    }
+                }
+
+
+
+
+                $scope.enterBags = function(){
+                    
+                    if( $j('#hfsitembagcount').val() != 0 && $j('#hfsitembagcount').val() !=''){
+                        
+                         $scope.tables.splice(0);              
+                          
+                        if($j('#hfsitembagcount').val() > 15){
+                            $j('#hfsitembagcount').val('15');
+                        }
+
+
+                        for(tot = 0; tot < $j('#hfsitembagcount').val() ; tot++){
+                           $scope.tables.push({field:'',oversize:'false'});
+     
+                        }
+
+
+                        $j('#myModalBags').show(); 
+                        $scope.showBagListSearch  = true;                       
+                    }
+                }
+
+/*
+                $scope.SaveEnterBags = function(){
+                    
+                    if( $j('#hfsitembagcount').val() != 0 && $j('#hfsitembagcount').val() !=''){
+                        
+                        var tot = 0;
+                        
+                        for(tot = 0; tot < $j('#hfsitembagcount').val() ; tot++){
+                  
+                           // $scope.choices[tot].id = $j('#choice1').val() ;
+                        }
+
+                        JSON.parse('{!JSENCODE(bagBarcode)}') = $scope.table.fields.toString();
+
+                        console.log('Array ' + $scope.table.fields); 
+                        console.log('Array ' + JSON.parse('{!JSENCODE(bagBarcode)}')); 
+                    }
+                }
+*/
+
+                // Selected Contact
+                $scope.selectedContact = function(brand){
+                    $scope.showBrandListSearch  = false;
+                    $scope.brandName  = $sce.trustAsHtml(brand.Name);
+                    $scope.brandid = brand.Id;                   
+                    $scope.contactList = [];
+                    console.log('Tables ' +  $scope.brandName  );  
+                }
+                
+                $scope.closeModal = function(){
+                    $scope.showBrandListSearch  = false;
+                }
+
+                $scope.autoGenerate = function(){
+
+                    var bagcount = $j('#hfsitembagcount').val();
+
+                    if( bagcount != 0 && bagcount !=''){
+
+                            Visualforce.remoting.Manager.invokeAction(
+                            '{!$RemoteAction.HandsFreeShoppingGuestExtension.autoGenerate}',bagcount,
+                                    function(result,event){
+                                        console.log(result);
+                                        if (event.status) {
+                                            for (var i = 0; i <  bagcount ; i++) {
+                                                $scope.tables[i].field = result[i];                       
+                                            }  
+                                        } else if (event.type === 'exception') {
+                                            $scope.message = event;
+                                        } else {
+                                            $scope.message = event;
+                                        }
+                                        $scope.$apply();
+                                    }, 
+                                    {escape: true}
+                            );
+                    }
+                }
+
+
+                $scope.closeModalBags = function(){
+
+
+                    if( $j('#hfsitembagcount').val() != 0 && $j('#hfsitembagcount').val() !=''){
+
+                        stringTables = '';                
+
+                        for (var i = 0; i <  $j('#hfsitembagcount').val() ; i++) {
+
+                            if(stringTables != ''){
+                                stringTables+=',';
+                            }
+
+                            stringTables +=  $scope.tables[i].field + ',' +  $scope.tables[i].oversize;
+                   
+                        }
+                        console.log('TablesF ' + stringTables );  
+                    }
+
+
+                    $scope.showBagListSearch  = false;
+                }
+
+                $scope.tbcText = function($scope, item){
+
+                    if( item.field != 'TBC'){
+                        item.field = 'TBC';
+                    }else{
+                        item.field = '';
+                    }
+
+                }
+
+                $scope.isaddShop = function($scope){
+                    this.isBagDropf = true;
+                }
+
+                $scope.isaddBagDrop = function($scope){
+                    this.isBagDropf = false;
+                }
+
+                $scope.isBagDrop = function($scope){
+                    
+                    if( this.isBagDropf){
+                        return false;
+                    }else{
+                       return true;
+                    }
+    
+                }                
+                
+                $scope.closeitemModal = function(){
+                    $scope.showchangeitemmodal  = false;
+                }
+                
+                $scope.saveitem = function(){
+                    $scope.showchangeitemmodal  = false;
+                    Visualforce.remoting.Manager.invokeAction(
+                        '{!$RemoteAction.HandsFreeShoppingGuestExtension.updateShoppingItem}',
+                        $scope.selectedItemID , $scope.selectedItemvalue,
+                        function(result, event){
+                            console.log(result);
+                            if (event.status) {
+                                // means a successful update
+                                location.reload();
+                            } else if (event.type === 'exception') {
+                                $scope.message = event;
+                            } else {
+                                $scope.message = event;
+                            }
+                            $scope.$apply();
+                        }, 
+                        {escape: true}
+                    );
+                }
+                
+                // Below function will be useful for navigating to new layout when create new contact is selected on UI    
+                $scope.openNewContactScreen = function(){
+                    if((typeof sforce != 'undefined') && (sforce != null) ){
+                        //  sforce.one.createRecord('Contact');
+                    }else{
+                        //   window.open('/'+$scope.contactObjectKey+'/e','_self');
+                    }
+                    
+                }
+                
+				$scope.getCodeColor = function() {
+					var style = {};
+					if ($scope.case.HFS_Code_Changed__c) {
+						style['font-weight'] = 'bold';
+						style['background-color'] = '#3297FD';
+					}
+					return style;
+				};
+                
+            }]);
+                       
+            
+            </script>
+            
+            
+            
+            <script>
+            
+            $j = jQuery.noConflict();
+            var homeUrl;
+            var scanner = '';
+            const codeReader = new ZXing.BrowserDatamatrixCodeReader();
+     
+            
+            $j(document).ready(function() {
+
+                $j("#guestcheckout").click(function() {
+                    // this is for when the guest saves the HFS (ie. the signature comes from the second canvas)
+                    var strDataURI = canvas.toDataURL();
+                    var signatureURL  = strDataURI.replace(/^data:image\/(png|jpg);base64,/, "");
+                    var hfsID = '{!caseID}';
+                    HandsFreeShoppingGuestExtension.checkoutGuest( hfsID, signatureURL , false, function(result, event) {  
+                        // send the details to the server
+                        console.log(result);
+                        if (result.indexOf('ERROR') > -1){
+                            alert('ERROR, guest could not be saved');                                                                    
+                        } else {
+                            console.log('trying to redirect' + result);                      
+                            redirectToUrl('/apex/HFSDash');
+                        }
+                    });
+                });
+                
+                $j("#checkboxterms").click(function() {
+                    $j("#guestcheckout").attr("disabled", !this.checked);
+                });
+                
+                    if( ('{!$User.UIThemeDisplayed}' == 'Theme4t' || '{!$User.UIThemeDisplayed}' == 'Theme4d' ) ) {
+                        // running in mobile
+                        homeUrl = '/_ui/core/chatter/ui/ChatterPage';
+                    } else { //desktop
+                        homeUrl = '/home/home.jsp';
+                    }                        
+                
+            });
+            
+            function cancelAction(){
+                redirectToUrl(homeUrl);
+            };
+            
+            function showError( errormessage){
+                $j('#errorModal').show();
+                $j('#errormessage').html(errormessage);
+            }    
+            
+            function closeErrorModal(){
+                $j('#errorModal').hide();
+                $j('#errormessage').html('');
+            }
+            
+            function addShoppingItem(){
+               
+                $j('#guestDetails').hide();
+                $j('#btnadditem').hide();
+
+                $j('#hfsitemform').show();
+
+                $j('#guestPurchaseDetails').hide();
+                $j('#guestBagDetails').hide();
+                $j('#btnaddbagdropitem').hide();
+                 $j('#HFSIncidentDetails').hide();
+                
+            }
+
+            function addBagDropItem(){
+                $j('#guestDetails').hide();
+                $j('#btnadditem').hide();;
+				$j('#HFSIncidentDetails').hide();
+                
+                $j('#bagdroplocation').attr('disabled', false);
+
+                $j('#bagdropform').show();
+                $j('#addbagdropB').show();
+                $j('#submitbagdrop').hide();
+
+                $j('#guestPurchaseDetails').hide();
+                $j('#guestBagDetails').hide();
+                $j('#btnaddbagdropitem').hide();
+                $j('#submitbagdrop').hide();
+                $j('#agreecheckbox1').hide();
+                $j('#bagtransform').hide();
+
+            }
+
+            function addBagTransfer(){
+                $j('#guestDetails').hide();
+                $j('#btnadditem').hide();
+                $j('#bagtransferpick').val('{!JSENCODE(collectionLocationCode)}');    
+                $j('#bagtransform').show();
+                $j('#guestPurchaseDetails').hide();
+                $j('#guestBagDetails').hide();
+                $j('#btnaddbagdropitem').hide();
+                $j('#submitbagdrop').hide();
+                $j('#agreecheckbox1').hide();
+            }
+                             
+            
+            function showGuestSignout(){
+                
+
+                $j('#guestDetails').hide();
+                $j('#btnadditem').hide();
+                $j('#guestsignoutform').hide();
+                $j('#guestsbags').show();
+                $j('#guestPurchaseDetails').hide();
+                $j('#guestBagDetails').hide();
+                $j('#btnaddbagdropitem').hide();
+
+            }
+
+           
+            
+            function cancelShoppingItem(){
+                $j('#HFSIncidentDetails').show();
+                $j('#guestDetails').show();
+                $j('#hfsitemform').hide();
+                $j('#bagdropform').hide();
+                $j('#guestPurchaseDetails').show();
+                $j('#guestBagDetails').show();
+                if('{!JSENCODE(IF(isNewItem,"true", "false"))}' == 'true'){
+                    $j('#btnadditem').show(); 
+                    
+                }else{                    
+                    $j('#btnadditem').hide();
+                }
+                $j('#btnaddbagdropitem').show();
+                $j('#guestPurchaseDetails').show();
+                $j('#bagtransform').hide();
+                
+
+            }
+            function cancelCheckout(){
+                
+                $j('#guestDetails').show();
+                $j('#guestsignoutform').hide();                
+                $j('#guestBagDetails').show(); 
+                if('{!JSENCODE(IF(isNewItem,"true", "false"))}' == 'true'){
+                    $j('#btnadditem').show(); 
+                }else{                    
+                    $j('#btnadditem').hide();
+                }
+                $j('#btnaddbagdropitem').show();
+                $j('#guestPurchaseDetails').show();
+                
+            }
+
+            function StartScanBag(){
+
+                var caseID = '{!Case.id}';
+                this.HandsFreeShoppingGuestExtension.updateCaseScanBagCollection( result_c.value , caseID,function(result){
+                   
+                    console.log(result)
+                });
+
+            }
+
+
+            //OUT OF SCOPE
+            /*
+            function saveBagDrop(){                
+               
+                var estimatedSpend = $j("tablesDropTotalEstimatedValue").val();
+                var bagCount = $j("tablesDropTotalBags").val();     
+                var caseID = '{!Case.id}';
+
+                //Generate final string
+                //document.getElementById('saveBagDropItemF()');
+                //saveBagDropItemF();
+
+                console.log('String ' + stringTables);
+
+                if(parseInt(estimatedSpend) < parseInt(bagCount)){
+                    showError('Bag Count cannot be greater than Estimated Spend');
+                    $j("#hfsitemspend").css("border-color", "#FF0000");
+                    $j("#hfsitemspend").css("background-color", "#f2dede");
+                    $j("#hfsitembagcount").css("border-color", "#FF0000");
+                    $j("#hfsitembagcount").css("background-color", "#f2dede");
+                }
+                else if(bagCount > 2){
+                    
+                    showError('Bag Count cannot be greater than 2 digits');
+                    $j("#hfsitembagcount").css("border-color", "#FF0000");
+                    $j("#hfsitembagcount").css("background-color", "#f2dede");
+                    
+                }
+                    else{
+                        
+                        $j('#guestDetails').show();
+                        $j('#btnadditem').show();
+                        $j('#hfsitemform').hide();
+                        $j('#guestPurchaseDetails').show();
+                        $j('#guestBagDetails').show();
+                        
+                        this.HandsFreeShoppingGuestExtension.saveBagDropExt(estimatedSpend,  bagCount , stringTables, caseID,  function(result, event, scope) {  
+                            // send the details to the server
+                            console.log(result);
+                            // now we need to redirect the user to the guest details screen
+                            if (result.indexOf('ERROR') > -1){
+                                console.log('an error has occurred: ' + result); 
+                                alert('ERROR, guest could not be saved');      
+                                location.reload();                                                              
+                            } else {
+                                console.log('trying to redirect' + result); 
+                                //window.location.href = '/apex/HFSGuestPage?ID=' + result;
+                                location.reload();
+                            }
+                        }); 
+                    }   
+            }
+            */
+
+            function saveShoppingItem(){ //Add new Item (Non coniq)
+                
+                /*do your IF statement*/
+                 
+                var estimatedSpend = $j('#hfsitemspend').val();
+                var bagCount = $j('#hfsitembagcount').val();
+                var brandID = $j('#brandid').val();
+                var caseID = '{!Case.id}';
+                var brandshopName = $j('#brandNameD').val();
+
+                var collectlocationname =  $j('#bagdroplocation option:selected').text();
+                var collectlocationcode =  $j('#bagdroplocation').val();
+
+                console.log(' Name ' + collectlocationname+ ' Code ' + collectlocationcode + ' Estimated ' + estimatedSpend + ' Bag count ' + bagCount + ' BrandID '  + brandID + ' Case ID ' + caseID + ' BrandShopNameItem ' + brandshopName);
+
+                if( bagCount == '' || estimatedSpend == '' || brandID == ''){
+                    alert('Fields missing');
+                
+                }else if( stringTables[0] == ',' ){
+                    alert('Barcodes missing, please try again...');
+                    location.reload();  
+                }else if( stringTables.includes(',,')){
+                    alert('Barcodes missing, please try again...');
+                    location.reload();  
+                }else{
+                        
+                        $j('#guestDetails').show();
+                        if({!isNewItem}){
+                            $j('#btnadditem').show();         
+                        }else{                    
+                            $j('#btnadditem').hide();
+                        }
+                        $j('#hfsitemform').hide();
+                        $j('#guestPurchaseDetails').show();
+                        $j('#guestBagDetails').show();
+                        
+                        HandsFreeShoppingGuestExtension.saveShoppingItem(  brandID,  estimatedSpend,  bagCount , stringTables, caseID, brandshopName, null , true, false,function(result, event, scope) {  
+                            // send the details to the server
+                            console.log(result);
+                            // now we need to redirect the user to the guest details screen
+                            if (result.indexOf('ERROR') > -1){
+                                console.log('an error has occurred: ' + result); 
+                                alert(result);    
+                                location.reload();                                                              
+                            } else {
+                                console.log('trying to redirect' + result); 
+                                //window.location.href = '/apex/HFSGuestPage?ID=' + result;
+                                location.reload();
+                            }
+                        }); 
+                    }   
+            }
+
+            function saveShoppingItemB(){ //Bag drop Item
+                
+                /*do your IF statement*/
+                 
+                var estimatedSpend = $j('#hfsitemspendB').val();
+                var bagCount = $j('#hfsitembagcount').val();
+                var brandID = $j('#brandid').val();
+                var caseID = '{!Case.id}';
+                var brandshopName = $j('#brandNameB').val();
+
+                var collectlocationname =  $j('#bagdroplocation option:selected').text();
+                var collectlocationcode =  $j('#bagdroplocation').val();
+
+                var checkedValue = $j('#checkboxterms1:checked').is(":checked");
+
+                console.log(' Name ' + collectlocationname+ ' Code ' + collectlocationcode + ' Estimated ' + estimatedSpend + ' Bag count ' + bagCount + ' BrandID '  + brandID + ' Case ID ' + caseID + ' BrandShopNameBagD ' + brandshopName);
+                
+                if(parseInt(estimatedSpend) < parseInt(bagCount)){
+                    showError('Bag Count cannot be greater than Estimated Spend');
+                    $j("#hfsitemspendB").css("border-color", "#FF0000");
+                    $j("#hfsitemspendB").css("background-color", "#f2dede");
+                    $j("#hfsitembagcount").css("border-color", "#FF0000");
+                    $j("#hfsitembagcount").css("background-color", "#f2dede");
+                }
+                else if(bagCount.length > 2){
+                    
+                    showError('Bag Count cannot be greater than 2 digits');
+                    $j("#hfsitembagcount").css("border-color", "#FF0000");
+                    $j("#hfsitembagcount").css("background-color", "#f2dede");
+                    
+                }
+                    else{
+                        
+                        $j('#guestDetails').show();
+                        if({!isNewItem}){
+                            $j('#btnadditem').show();
+                        }else{                    
+                            $j('#btnadditem').hide();
+                        }
+                        $j('#hfsitemform').hide();
+                        $j('#guestPurchaseDetails').show();
+                        $j('#guestBagDetails').show();
+
+                        if('{!JSENCODE(IF(isRunner,"true", "false"))}' == 'true'){
+                            HandsFreeShoppingGuestExtension.saveShoppingItem(  brandID,  estimatedSpend,  bagCount , stringTables, caseID, brandshopName, collectlocationname, checkedValue, true, function(result, event, scope) {  
+                                // send the details to the server
+                                console.log(result);
+                                // now we need to redirect the user to the guest details screen
+                                if (result.indexOf('ERROR') > -1){
+                                    console.log('an error has occurred: ' + result);
+                                    alert(result); 
+                                    location.reload();
+                                } else {
+                                    console.log('trying to redirect' + result); 
+                                    //window.location.href = '/apex/HFSGuestPage?ID=' + result;
+                                    location.reload();
+                                }
+                            });
+                        } else {
+                            var currentUserName = '{!JSENCODE(userName)}'
+                            alert('The currently logged in account ' + currentUserName + ' is not set up as a HFS Runner and cannot have this Job auto-assigned. Please add this account into the HFS Runners list');
+                            location.reload();
+                        }
+                    }
+            }
+
+
+             function transferBags(){ //Bag transfer
+
+                var caseID = '{!Case.id}';
+                var SourceTransf =  $j('#bagtransferpick option:selected').text();
+                var DestTransf =  $j('#bagtransferdrop option:selected').text();
+                var brandID = $j('#brandid').val();
+
+                console.log('SourceTransf: ' + SourceTransf+ ' DestTransf: ' + DestTransf + ' CaseID: ' + caseID + 'brandID: ' + brandID);
+
+                if(DestTransf != 'New guest Collection Point'){
+   
+                    HandsFreeShoppingGuestExtension.saveBagTransfer(brandID, caseID,SourceTransf,DestTransf,  function(result, event, scope) {  
+                                // send the details to the server
+                                console.log(result);
+                                // now we need to redirect the user to the guest details screen
+                                if (result.indexOf('ERROR') > -1){
+                                    console.log('an error has occurred: ' + result); 
+                                    alert(result);      
+                                    location.reload();                                                              
+                                } else {
+                                    console.log('trying to redirect' + result); 
+                                    console.log('result :' + result);
+                                    redirectToUrl('/apex/HFSGuestPage?ID=' + result);
+                                    //location.reload();
+                                }
+                            }); 
+
+                }else{
+                    alert('Please select New Guest Collection');
+                }    
+
+            }
+
+
+            function saveShoppingTransfer(){ //Bag transfer
+                
+                /*do your IF statement*/
+                 
+                var caseID = '{!Case.id}';
+                var SourceTransf =  $j('#bagtransferpick option:selected').text();
+                var DestTransf =  $j('#bagtransferdrop option:selected').text();
+
+                
+                console.log('SourceTransf: ' + SourceTransf+ ' DestTransf: ' + DestTransf + ' CaseID: ' + caseID);
+                
+                if(DestTransf != 'New guest Collection Point'){
+   
+                    HandsFreeShoppingGuestExtension.saveShoppingItem(  null ,  0,  0 , null, caseID, DestTransf,SourceTransf, true, false, function(result, event, scope) {  
+                                // send the details to the server
+                                console.log(result);
+                                // now we need to redirect the user to the guest details screen
+                                if (result.indexOf('ERROR') > -1){
+                                    console.log('an error has occurred: ' + result); 
+                                    alert(result);      
+                                    location.reload();                                                              
+                                } else {
+                                    console.log('trying to redirect' + result); 
+                                    redirectToUrl('/apex/HFSGuestPage?ID=' + result);
+                                    //location.reload();
+                                }
+                            }); 
+
+                }else{
+                    alert('Please select New Guest Collection');
+                }    
+                      
+            }
+
+            function redirectToUrl(url){
+                if(  ('{!$User.UIThemeDisplayed}' == 'Theme4t' || '{!$User.UIThemeDisplayed}' == 'Theme4d' || '{!$User.UIThemeDisplayed}' == 'Theme4u') && (typeof sforce != 'undefined') && (sforce != null) ) {
+                    // running in mobile
+                    console.log('VIP Mobile ..');
+                    sforce.one.navigateToURL(url);
+                } else { //desktop
+                    console.log('VIP Desktop..');                
+                    window.location.href = url;                    
+                }  
+            }
+            
+            function gotoPage(pg){               
+                var url = '/apex/' + pg;               
+                redirectToUrl(url);
+            };
+
+                    function startCamera(){
+                        console.log(codeReader)
+                        codeReader.getVideoInputDevices()
+                        .then((videoInputDevices) => {
+                            const sourceSelect = document.getElementById('sourceSelect')
+                            var firstDeviceId = videoInputDevices[0].deviceId;
+                            if(videoInputDevices.length == 1){
+                                firstDeviceId = videoInputDevices[0].deviceId;
+                            }
+                            if(videoInputDevices.length == 2){
+                                firstDeviceId = videoInputDevices[1].deviceId;
+                            }
+                                    document.getElementById('cancelButton').addEventListener('click', () => {
+                                        $j(".modal-backdrop").remove();
+                                        $j('body').css('padding-right', '');
+                                        codeReader.reset();
+                                        console.log('Stopped.');
+                                    })
+                                    codeReader.decodeFromInputVideoDevice(firstDeviceId, 'preview').then((result) => {
+                                    consolelog(result);
+                                }).catch((err) => {
+                            		alert('Warning Message Only: Please ensure the Camera Scanning Device is on / set to scan the DM Code you wish to use. If set, please proceed');
+                                    console.error(err);
+                                    document.getElementById('result').textContent = err;
+                                })
+                                console.log(`Started continous decode from camera with id ${firstDeviceId}`)
+                        })
+                        .catch((err) => {
+                            alert(err);
+                            console.error(err)
+                        })
+
+
+
+
+                        /*
+                        scanner = new Instascan.Scanner({ video: document.getElementById('preview'), mirror: false});
+                        scanner.addListener('scan', function (content) {
+                            consolelog(content);
+                        });
+
+                        hasGetUserMedia();
+
+                        Instascan.Camera.getCameras()
+                        //.then(cameras => cameras.filter(camera => camera.name.indexOf('back') !== -1))
+                        .then(function (cameras) {
+                            if (cameras.length > 0) {
+                                if( (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1)){
+                                    // running in mobile
+                                    console.log('VIP Mobile ..');
+                                    scanner.start(cameras[1]);
+                                } else { //Desktop
+                                    console.log('VIP Desktop..');
+                                    scanner.start(cameras[0]);
+                                }                                  
+                                //consolelog(JSON.stringify(cameras));
+                            } else {
+                                alert('No cameras found.');
+                            }
+                        }).catch(function (e) {
+                            //consolelog(e);
+                        });*/
+                    };
+
+                    function stopCamera(){
+                        codeReader.reset();
+                    };
+                             
+                                        
+                                        
+                    function clearout(){
+                        
+                        var closeAgent = document.getElementById('Closing_Agent__c').value;                
+                        var closeString = document.getElementById('Historic_Close_Reason__c').value;
+                        var caseID = '{!Case.id}';
+                                        
+                        console.log('closeString - ' + closeString + ' -----  ClosingAgent - ' + closeAgent);
+                                        
+                        if(!closeAgent || !closeString  ){        
+                                        
+                        	if(!closeAgent && closeString ){
+									alert('Please enter the name of the person closing the Historic HFS Experience i.e. Your Full Name');
+                                    document.getElementById('Closing_Agent__c').style.borderColor = "red";
+                        	}
+                            
+                            if(closeAgent && !closeString ){
+									alert('Please enter a reason for closing the Historic HFS Experience');
+                                    document.getElementById('Historic_Close_Reason__c').style.borderColor = "red";
+                        	}
+                               
+                            if(!closeAgent && !closeString ){
+									alert('please enter your Full Name and a reason for closing the Historic HFS Experience');
+                                    document.getElementById('Historic_Close_Reason__c').style.borderColor = "red";
+                              		document.getElementById('Closing_Agent__c').style.borderColor = "red";
+                        	}
+                                                                                                                                                                                               
+                        }
+                        else{
+                                        
+                                        if (confirm('Are you sure you want to Closeout this HFS Experience?')) {
+                                        $j('#HistoricCloseModal').modal('hide');
+                                        //
+                                         HandsFreeShoppingGuestExtension.clearoutHistoricItems(closeAgent, closeString, caseID, function(result, event, scope) {  
+                                // send the details to the server
+                                console.log(result);                                       
+                                // now we need to redirect the user to the guest details screen
+                                if (result.indexOf('ERROR') > -1){
+                                    console.log('an error has occurred: ' + result); 
+                                    alert(result);      
+                                    location.reload();                                                              
+                                } else {
+                                    if(result.length != 18){
+                                            alert('\n An error has occured, please show the error below to your Salesforce Administrator\n' + '\n' + result);
+                                            location.reload();
+                                        }
+                                        else{
+                                        	
+                                            alert('You have successfully closed all related Purchases, Bags and Jobs related to this experience');
+                                       		console.log('trying to redirect' + result); 
+                                           	redirectToUrl('/apex/HFSGuestPage?ID=' + result);
+                                         	location.reload();
+                                        }
+                                }
+                            });    
+                                        //
+                                           
+                                        } else {
+                                        	$j('#HistoricCloseModal').modal('hide');
+                                        	document.getElementById('Closing_Agent__c').value = '';
+                                        	document.getElementById('Closing_Agent__c').style.borderColor = "initial";
+                                        	document.getElementById('Historic_Close_Reason__c').value = '';
+                                        	document.getElementById('Historic_Close_Reason__c').style.borderColor = "initial";
+                                        }
+                                        
+                                        
+                                               
+                                       
+                            
+                                        
+                        }
+                                        
+                                        
+                                        
+                                        
+                             
+                                        
+                    };
+
+                    function consolelog(message){
+
+                        document.getElementById('output_scan').value = message;
+                        //document.getElementById('output_scan').value = message;
+                        //LostQRcode(message);
+                        //location.reload();
+
+/*
+
+                        $j("#ScanModal .close").click()
+                   //   $j("#ScanModal").removeClass("in");
+                        $j(".modal-backdrop").remove();
+                   //   $j('body').removeClass('modal-open');
+                        $j('body').css('padding-right', '');
+                   //   $j("#ScanModal").hide();
+
+*/
+
+                       //addAnonguest();
+                       //console.log(message);
+                    };
+
+                    function hasGetUserMedia() {
+                        //consolelog(navigator.mediaDevices);
+                        //consolelog(navigator.mediaDevices.getUserMedia);
+                        return !!(navigator.mediaDevices &&
+                                  navigator.mediaDevices.getUserMedia);
+                    }
+                    
+            function ConfirmGuestWarning30(){
+                $j('#GuestWarning').modal("show");
+                                        //alert('popup');
+                 
+            }
+
+            function CloseGuestWarning30(){
+                $j('#GuestWarning').hide();
+            }
+
+            function GuestWarning(){
+                var url_string = window.location.href;
+                var url = new URL(url_string);
+                var record_id = url.searchParams.get("ID");
+                var time = $j('#collTime').val();                       
+                this.HandsFreeShoppingGuestExtension.updateCaseXXMinutes(record_id,time, function(result){
+                    console.log(result);
+                    // now we need to redirect the user to the guest details screen
+                     if (result.indexOf('ERROR') > -1){
+                        console.log('An error has occurred: ' + result); 
+                        alert('The Guest had already inform that.');  
+                        location.reload();                                                              
+                    } else {
+                        location.reload();
+                    }
+                });
+            }
+                                        
+            function GuestWarning30(){
+                var url_string = window.location.href;
+                var url = new URL(url_string);
+                var record_id = url.searchParams.get("ID");
+                this.HandsFreeShoppingGuestExtension.updateCase30Minutes(record_id, function(result){
+                    console.log(result);
+                    // now we need to redirect the user to the guest details screen
+                     if (result.indexOf('ERROR') > -1){
+                        console.log('An error has occurred: ' + result); 
+                        alert('The Guest had already inform that.');  
+                        location.reload();                                                              
+                    } else {
+                        location.reload();
+                    }
+                });
+            }
+
+ 
+
+            function LostQRcodeConfirm(newQrcode){
+
+
+                $j('#ScanModalConfirm').show();
+
+
+            }
+
+            function LostQRcode(newQrcode){
+
+                var hfsID = '{!caseID}';
+                var newQrcode = document.getElementById('output_scan').value;
+
+                if(newQrcode != ''){
+                    this.HandsFreeShoppingGuestExtension.updateQRcode(hfsID,newQrcode ,function(result){
+                        console.log(result);
+                        $j('#ModalConfirm').modal('show'); 
+                        $j('#ConfirmButton').click(function(e){
+                        location.reload();
+                        });
+                        
+                    });
+
+                }
+            }
+
+            function showDifferentButtons(){
+
+                $j('#btnadditem').show();
+                $j('#btnaddbagdropitem').show();
+                $j('#guestPurchaseDetails').show();
+                
+            }
+
+            function GoToCheckOut(){
+
+                //beep
+                //PlaySound();
+                redirectToUrl('/apex/HFSGuestCheckOutPage?ID=' + '{!Case.id}');
+
+
+            }
+
+
+            function PlaySound() {
+                  var sound = document.getElementById("audio");
+                  sound.play()
+              }
+           
+            </script>
+            
+
+
+            <script type="text/javascript">
+                $j(window).on('load',function(){
+                    //showDifferentButtons();
+                });
+            </script>
+
+
+        </head>
+        <body>
+            <!-- Main Navigation -->
+            <div class="my-nav">
+                <div class="site-navbar navbar navbar-fixed-top" role="navigation">
+                    <div class="container">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+                            <a class="navbar-brand" onclick="gotoPage('TIC_Dashboard');">Tourist Information Center</a> 
+                        </div>
+                        <div id="navbar" class="navbar-collapse collapse">
+                            <ul class="nav navbar-nav navbar-right">
+                                <li> <a  href="#guest"  onclick="gotoPage('Promotion_Search');" >Guest Check In</a> </li>
+                                <li> <a  href="#search"  onclick="gotoPage('GuestSearch');">Guest Search</a> </li>
+                                <li> <a  href="#card"  onclick="gotoPage('VIPCardSearch');">Card Search</a> </li>
+                                <li> <a  href="#clean"  onclick="gotoPage('VIPCardCleardown');">VIP Card Cleanup</a> </li>
+                                <li> <a  href="#hfsH"  name="hfsH" id="hfsH" onclick="gotoPage('HFSHistoric');" >Historic HFS – Awaiting Collection</a> </li>
+                                <li> <a  href="#hfs"  onclick="gotoPage('HFSDash');" class="active">Hands Free Shopping</a> </li>
+                    			<li style="display:none;" id="lgldash"> <a  name="lgldash" id="lgldash" onclick="gotoPage('LGL_Dash');">Luggage &amp; Loans</a> </li>
+                                <li> <a  href="#exit" onclick="cancelAction();" >Exit</a> </li>
+                            </ul>
+                        </div>
+                        <!--/.nav-collapse -->
+                    </div>
+                </div>
+            </div>
+            <!-- /.Main Navigation -->
+            <!-- Fullwidth Header -->
+            <!-- Intro Header -->
+            <br />
+            <br />
+            
+            <div class="jumbotron text-center">
+                <h2>&nbsp;</h2>
+            </div>
+            
+            <!-- main content -->
+            <div class="container" ng-controller="GuestCaseCtrl"> 
+                
+                <a onclick="javascript:gotoPage('HFSDash');" class="btn btn-default"><i class="glyphicon glyphicon-home"></i></a>&nbsp;&nbsp;<a href="#Add" class="btn btn-default" role="button" id="btnadditem" name="btnadditem" ng-click="isaddShop()" onclick="addShoppingItem();">Add New Shopping Item</a>&nbsp;&nbsp;<a href="#Add" class="btn btn-default" role="button" id="btnaddbagdropitem" name="btnaddbagdropitem" ng-click="isaddBagDrop()" onclick="addBagDropItem();" hidden="hidden" >Add New Bag Drop Items</a>  
+                &nbsp;<a href="#ClickCollect" class="btn btn-default" role="button" id="btnclickcollect" name="btnclickcollect" onclick="gotoPage('HFSDash?showClickCollect=true');" ng-show="{!isClickCollect = true}" hidden="hidden" >Call &amp; Collect</a>
+
+                <br />
+                <br />
+                <div class="panel panel-primary" id="guestDetails" name="guestDetails">
+                    <div class="panel-heading">Guest Details</div>  
+                    <div class="panel-body default" style="color:#FFF;">
+                        <h2 style="color:#FFF;">{{case.Service_Guest_Number__c}}</h2>
+                        Guest Name: {{case.SuppliedName}}<br/>
+                        Guest Phone: {{case.SuppliedPhone}}<br/>
+                        Guest Account: {{privilegeType}}<br/>
+                        Collection Location: {{case.HFS_Collection_Location__c}}<br />
+                        Code Scan Type: {{case.HFS_Leaflet_Type__c}}<br />
+                        Code Scanned: <span ng-style="getCodeColor()">{{case.Client_QR_Code__c}}</span><br />
+                        Status: {{case.Status}}<br />
+                        Service Type: {{case.Type}}<br />
+                        <div ng-show="hasClickCollect">
+                            Click &amp; Collect?: {{case.HFS_Click_And_Collect__c ? 'YES' : 'NO'}}<br />
+                            <div ng-show="case.HFS_Collection_Date__c">
+                                Collection Date: {{case.HFS_Collection_Date__c | date:"dd-MM"}}
+                            </div>
+                        </div>
+                        <br />
+                        <button type="button" id="checkoutBags" name="checkoutBags" class="btn btn-default" onclick="GoToCheckOut();">Checkout Bags</button>
+                        <button type="button" id="is30mW" name="is30mW" class="btn btn-default" data-toggle="modal" data-target="#GuestWarning" >Collection Warning</button>
+                        <button type="button" id="lostQR" name="lostQR" class="btn btn-default" data-toggle="modal" data-target="#ScanModal" onclick="startCamera();">Lost Guest Code</button>   
+
+                        <button type="button" class="btn btn-default"  id="isBagTransfer" name="isBagTransfer" onclick="addBagTransfer();">Change Collection Point</button>   
+                        
+                        <button type="button" id="captureIncident" name="captureIncident" class="btn btn-default ng-hide" data-toggle="modal" data-target="#captureIncidentModal" ng-show="viewIncidents">Record Incident</button>
+						
+                        <button type="button" id="checkOutNoBags" ng-click="checkOutNoBags();" class="btn btn-default">Checkout / No Bags</button>
+                        
+                        <button type="button" id="clearOutNotes" name="clearOutNotes" class="btn btn-default" data-toggle="modal" data-target="#HistoricCloseModal">Housekeeping</button> 
+						
+						<button type="button" id="redirectBlackBook" name="redirectBlackBook" ng-click="redirectBlackbook();" ng-hide="isVIP" class="btn btn-default">Register to Black Book</button>                   
+                    </div>
+                </div>
+
+                <div class="panel panel-primary" id="guestPurchaseDetails" name="guestPurchaseDetails">
+                    <div class="panel-heading">Guest Purchase Details</div>
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr class="active">
+                                        <th>Brand name</th>
+                                        <th>Status</th>
+                                        <th>Bag count</th>
+                                        <th>Creation time</th>
+										<th>Tracked Spend</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="caseitem in caseitems | filter:query" ng-class="whatClassIsItemRow(caseitem)" >  
+                                    <td>{{caseitem.Village_Presence__r.Name || 'Bag Transfer'}}</td> 
+                                    <td>{{caseitem.Status__c}}</td>       
+                                    <td>{{caseitem.Item_Count__c}}</td> 
+                                    <td>{{caseitem.Start_Time__c | date:"h:mma"}}</td>
+									<td>{{caseitem.formattedCurrency}}</td>
+                                </tr> 
+                                <tr ng-hide="caseitems.length" class="info" >
+                                    <td colspan="5">No collections yet</td>
+                                </tr>         
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+
+                <div class="panel panel-primary" id="guestBagDetails" name="guestBagDetails">
+                    <div class="panel-heading">Guest Bag Details</div>  
+
+                        <div class="table-responsive" style="overflow: hidden;">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr class="active">
+                                        <th>Brand</th>
+                                        <th>Barcode</th>
+                                        <th>Storage location</th>
+                                        <th>Bag at correct guest location?</th>
+                                        <th>Guest collected?</th>
+                                        <th>Oversized bag?</th>
+                                        <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="GuestBag in GuestBags | filter:query" ng-click="UpdateGuestBag(GuestBag)" ng-class="whatClassIsItemRowBAG(GuestBag)">
+                                    <td>{{GuestBag.HFS_Purchase__r.Village_Presence__r.Name}}</td>
+                                    <td>{{GuestBag.Barcode__c }}</td>                                  
+                                    <td ng-if="GuestBag.Status__c != 'Bag with GSA' ">{{GuestBag.HFS_Storage_Location__r.Name}}</td>
+                                    <td ng-if="GuestBag.Status__c == 'Bag with GSA' ">Delivered with Quick Handover</td>                                                   
+                                    <td>{{GuestBag.Storage_Matches_Guest_Collection_Point__c?'yes':'no'}}</td>                                   
+                                    <td>{{GuestBag.Delivered_to_Guest__c?'yes':'no'}}</td>
+                                    <td >{{GuestBag.Oversized__c?'yes':''}} </td>
+                                    <td >{{GuestBag.Status__c}} </td>
+                                </tr> 
+                                <tr ng-hide="GuestBags.length" class="info" >
+                                    <td colspan="7">No bags yet</td>
+                                </tr>         
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                
+                
+                <div class="panel panel-primary ng-hide" id="HFSIncidentDetails" name="HFSIncidentDetails" ng-show="viewIncidents"  >
+                    <div class="panel-heading">HFS Incidents</div>  
+
+                        <div class="table-responsive" style="overflow: hidden;">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr class="active">
+                                        <th>Type</th>
+                                        <th>Date</th>
+                                        <th>Incident Reason</th>
+                                        <th>Status</th>
+                                        <th>Resolved</th>
+                                        <th>Bags Returned</th>
+                                
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="incident in HFSIncidents" ng-class="whatClassIsItemRowBAG(incident)" ng-click="popUpIncidentData(incident)" style="cursor: pointer;">
+                                    <td>{{incident.RecordType.Name}}</td>
+                                    <td>{{incident.Date_of_Incident__c }}</td>                                  
+                                <!--    <td ng-if="GuestBag.Status__c != 'Bag with GSA' ">{{GuestBag.HFS_Storage_Location__r.Name}}</td> -->
+                                <!--    <td ng-if="GuestBag.Status__c == 'Bag with GSA' ">Delivered with Quick Handover</td>                 -->                                   
+                                    <td>{{incident.Incident_Reason__c}}</td>                                   
+                                    <td>{{incident.Status__c}}</td>
+                                    <td >{{incident.Is_Resolved__c}} </td>
+                                    <td >{{incident.Bag_s_returned_to_guest__c}} </td>
+                                </tr> 
+                                <tr ng-hide="HFSIncidents.length" class="info" >
+                                    <td colspan="6">No Incidents yet</td>
+                                </tr>         
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                <!-- section to allow user to add shopping collection items -->
+                
+                <!-- OPEN HFS ITEM FORM -->
+                <div id="hfsitemform" name="hfsitemform" style="display:none;">
+                    <div class="panel panel-default disable" id="hfspanel" name="hfspanel">
+                        <div class="panel-heading">Add HFS Item 1</div>
+                        <div class="panel-body">
+                            <form class="form-horizontal">
+                                <div class="input-group" id="brandName" name="brandName">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-shopping-cart"></i></span>
+                                    <input  id="brandNameD" class="form-control" type="text" name="brandNameD" ng-model="brandName" placeholder="Search Brand (minimum of 3 characters)" aria-autocomplete="list" ng-required="true"  ng-keyup="searchBrands()" />
+                                    <input id="brandid" name="brandid" hidden="hidden" ng-model="brandid" />
+                                </div>
+                                <br />
+                                <div class="input-group">
+                                    
+   <!--  //------------------// -->     <span class="input-group-addon">
+                                        <i id="AddHFSItem1" ></i></span>
+                                    <input id="hfsitemspend" type="text" class="form-control" name="hfsitemspend" placeholder="Estimated Spend" />
+                                </div>
+                                <br />
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-gift"></i></span>
+                                    <input id="hfsitembagcount" ng-model="hfsitembagcount" type="text" class="form-control" name="hfsitembagcount" aria-autocomplete="list" ng-required="true" placeholder="Number of bags (15 max.)"  ng-keyup="enterBags()"/>
+                                </div> 
+                                <br />
+                                <a href="#" class="btn btn-default" role="button" id="savehfsuser" name="savehfsuser"  onclick="saveShoppingItem();">Save HFS Item</a>&nbsp;&nbsp;&nbsp;
+                                <a href="#" class="btn btn-default" role="button" id="cancelhfs" name="cancelhfs" onclick="cancelShoppingItem();">Cancel</a>
+                                
+                            </form>
+                            
+                        </div>
+                    </div>
+                    
+                </div>
+                <!-- CLOSE HFS ITEM FORM -->
+
+
+
+               <!-- OPEN BAG TRANSFER FORM and RESUME-->
+                <div id="bagtransform" name="bagtransform" style="display:none;">
+                    <div class="panel panel-default disable" id="hfspanel" name="hfspanel">
+                        <div class="panel-heading">Change Collection Point</div>
+                        <div class="panel-body">
+                            <form class="form-horizontal">
+                                <div class="input-group">                                    
+                                    <span class="input-group-addon"><i class="fa fa-dropbox"></i></span> 
+                                    <select class="form-control" id="bagtransferpick" name="bagtransferpick" required="true"  >
+                                        <option value="placeholder" selected="selected" disabled="disabled">Bag pick-up location</option>
+                                        <option ng-repeat="option in pickuplocations" value="{{option.val}}">{{option.name}}</option>
+                                    </select>
+                                    <span class="input-group-btn"><i class="glyphicon glyphicon-menu-down"></i></span>
+
+                                    <span class="input-group-addon"><i class="fa fa-dropbox"></i></span> 
+                                    <select class="form-control" id="bagtransferdrop" name="bagtransferdrop" required="true"  >
+                                        <option value="placeholder" selected="selected" disabled="disabled">New guest Collection Point</option>
+                                        <option ng-repeat="option in pickuplocations" value="{{option.val}}">{{option.name}}</option>
+                                    </select>
+                                    <span class="input-group-btn"><i class="glyphicon glyphicon-menu-down"></i></span>
+
+
+                                </div>
+ 
+                                <br />
+                                <br />
+
+                                <a href="#" class="btn btn-default" role="button" id="submitbagtransf" name="submitbagtransf" data-toggle="modal" data-target="#BagTransConf">Submit</a>&nbsp;&nbsp;&nbsp;
+
+                                <a href="#" class="btn btn-default" role="button" id="cancelbagtrans" name="cancelbagtrans" onclick="cancelShoppingItem();">Cancel</a>  &nbsp;&nbsp;&nbsp;
+                         
+
+                            </form>                            
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bad transfer confirmation -->
+                <div id="BagTransConf" name="BagTransConf" class="modal fade" role="dialog" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-sm" >                                            
+                                            <!-- Modal content-->
+                                    <div class="modal-content" >   
+                                        <div class="modal-header" style =" font-weight: bold; font-size: medium;"> Are you sure?
+                                    </div>
+
+                                    <div class="modal-body">  
+                                        <br/>         
+                                        <button type="button" class="btn pull-left" onclick="transferBags();">Yes</button>
+                                        <button type="button" class="btn pull-right" data-dismiss="modal" aria-hidden="true">No</button>
+                                        <br/>
+                                        <br/>
+                                    </div>
+                            </div>                                            
+                        </div>
+                </div>
+                <!--  Bad transfer confirmation -->
+
+
+               <!-- OPEN BAG DROP ITEM FORM and TABLE-->
+                <div id="bagdropform" name="bagdropform" style="display:none;">
+                    <div class="panel panel-default disable" id="hfspanel" name="hfspanel">
+                        <div class="panel-heading">Add Bag Drop Items</div>
+                        <div class="panel-body">
+                            <form class="form-horizontal">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-dropbox"></i></span> 
+                                    <select class="form-control" id="bagdroplocation" name="bagdroplocation" required="true">
+                                        <option value="placeholder" selected="selected" disabled="disabled">Bag drop location</option>
+                                        <option ng-repeat="option in pickuplocations" value="{{option.val}}">{{option.name}}</option>
+                                    </select>
+                                    <span class="input-group-btn"><i class="glyphicon glyphicon-menu-down"></i></span>
+                                </div>
+                                <br />
+                                <div class="input-group">
+                                  <span class="input-group-addon"><i class="glyphicon glyphicon-shopping-cart"></i></span>
+                                    <input  id="brandNameB" class="form-control" type="text" name="brandNameB" ng-model="brandName" placeholder="Search Brand (minimum of 3 characters)" aria-autocomplete="list" ng-required="true" ng-keyup="searchBrands()" />
+                                    <input id="brandid" name="brandid" hidden="hidden" ng-model="brandid" />
+                                </div>
+                                <br />
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-gbp"></i></span>
+                                    <input id="hfsitemspendB" type="text" class="form-control" name="hfsitemspendB" placeholder="Estimated Spend" />
+                                </div>
+                                <br />
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-gift"></i></span>
+                                    <input id="hfsitembagcount" ng-model="hfsitembagcount" type="text" class="form-control" name="hfsitembagcount" aria-autocomplete="list" ng-required="true" placeholder="Number of bags (15 max.)" ng-keyup="enterBags()"/>
+                                </div> 
+                                <br />
+                                <a href="#" class="btn btn-default" role="button" id="submitbagdrop" name="submitbagdrop" hidden='hidden' onclick="saveShoppingItemB();">Submit Bag Drop</a>
+
+                                <a href="#" class="btn btn-default" role="button" id="addbagdropB" name="addbagdropB"  ng-click="AddBagDropItemF()">Add Bag Drop Item</a>&nbsp;&nbsp;&nbsp;
+
+                                <a href="#" class="btn btn-default" role="button" id="cancelhfs" name="cancelhfs" onclick="cancelShoppingItem();" ng-click="cleanTable()">Cancel</a>  &nbsp;&nbsp;&nbsp;
+                         
+
+                                <ul class="filters" id="agreecheckbox1" name="agreecheckbox1" >
+                                    <li>
+                                        <label>
+                                            <input type="checkbox" checked="checked" id="checkboxterms1" name="checkboxterms1" />
+                                            <span class="icon"><i class="fa fa-check"></i></span>
+                                                I would like to request a runner
+                                        </label>
+                                    </li>  
+                                </ul>
+
+                            </form>                            
+                        </div>
+                    </div>
+
+
+                <div class="panel panel-primary" id="guestBagDropDetails" name="guestBagDropDetails">
+                    <div class="panel-heading">Bag drop Details</div>  
+
+                        <div class="table table-responsive" >
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr class="active">
+                                        <th>Brand</th>
+                                        <th>Barcode</th>
+                                        <th>Oversized bag?</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="GuestBag in tablesDrop | filter:query " >
+                                        <td>{{GuestBag.brand}}</td>
+                                        <td>{{GuestBag.field }}</td>
+                                        <td>{{GuestBag.oversize == true?'yes':''}}</td>
+                                    </tr> 
+                                    <tr ng-hide="tablesDrop.length" class="info" >
+                                        <td colspan="5">No bags yet</td>
+                                    </tr>         
+                                </tbody>
+                        </table>
+                    </div>
+                </div>
+
+
+
+                    
+                </div>
+                <!-- CLOSE BAG DROP ITEM FORM -->
+                
+                <!-- OPEN GUEST BAG SUMMARY -->
+                <div id="guestsbags" name="guestsbags" style="display:none;" ng-controller="GuestCaseCtrl" >
+                    <div class="panel panel-primary" id="guestBagDetailsScan" name="guestBagDetails">
+                        <div class="panel-heading">Summary - Guest Bag Details</div>  
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr class="active">
+                                        <th>Brand</th>
+                                        <th>Barcode</th>
+                                        <th>Storage Location</th>
+                                        <th>Scanned</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="GuestBag in GuestBags | filter:query" ng-click="UpdateGuestBag(GuestBag)" ng-class="whatClassIsItemRowBAG(GuestBag)">
+                                    <td>{{GuestBag.HFS_Purchase__r.Village_Presence__r.Brand__r.Name}}</td>
+                                    <td>{{GuestBag.Barcode__c }}</td>
+                                    <td>{{GuestBag.HFS_Storage_Location__r.Name || 'Not Defined Yet' }}</td>
+                                    <td>{{GuestBag.Scanned_for_collection__c?'yes':'no'}}</td> 
+                                </tr> 
+                                <tr ng-hide="GuestBags.length" class="info" >
+                                    <td colspan="4">No bags yet</td>
+                                </tr>  
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <input id="result_c" name="result_c" ng-model= "result_c" value ="" ng-change="change(this);"></input>
+                    <br/>
+                    <br/>
+                     <!-- <div id="preview"  ></div> -->
+                    <br/>
+                    <br/>
+  
+                    <a href="#" class="btn btn-default" role="button" id="showBagSignoutB" name="showBagSignoutB" ng-click="GoToCheckOut();">Procced to checkout</a> 
+
+                </div>
+                <!-- OPEN GUEST BAG SUMMARY   class="col-md-2 col-md-offset-2"-->
+                <br/>
+                <br/>
+
+                <!-- Scanned BAGs Summary -->
+                <div id="guestsbagsummary" name="guestsbagsummary" style="display:none;" ng-controller="GuestCaseCtrl" >
+                    <div class="panel panel-primary" id="guestBagDetailsScan2" name="guestBagDetails2">
+                        <div class="panel-heading">Summary - Scanned Guest Bag</div>  
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr class="active">
+                                        <th>Brand</th>
+                                        <th>Barcode</th>
+                                        <th>Scanned</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="GuestBagC in GuestBagsCollection | filter:query" ng-class="whatClassIsItemRowBAG(GuestBagC)">
+                                    <td>{{GuestBagC.HFS_Purchase__r.Village_Presence__r.Brand__r.Name}}</td>
+                                    <td>{{GuestBagC.Barcode__c }}</td>
+                                    <td>{{GuestBagC.Scanned_for_collection__c || 'No' }}</td>
+                                </tr> 
+                                <tr ng-hide="GuestBagsCollection.length" class="info" >
+                                    <td colspan="4">No bags yet</td>
+                                </tr>  
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- Scanned BAGs Summary -->
+        
+            
+            <!-- Incident Modal -->
+                   
+                <div id="EditIncidentModal" name="EditIncidentModal" class="modal fade" role="dialog" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true" >
+
+                                        <div class="modal-dialog modal-lg" >
+                                            
+                                            <!-- Modal content-->
+                                            <div class="modal-content" >   
+
+                                                <div class="modal-header" style =" font-weight: bold; font-size: medium;"> 
+                       
+                                                </div>
+
+                                                <div class="modal-body" style="margin-right: auto;margin-left: auto;">  
+            <p ><a id="EIName" href="" target="_blank" style="text-decoration: underline;">text</a></p> 
+            <p/>
+                                               
+            <p><b>Date:</b> <input class="form-control" type="date" id="EIDate_of_Incident__c" rows="2" style="width:20%;" disabled="true"></input></p>  
+            <p/>
+                                                    
+          <!--  <p>Incident Type:  <select id="EIIncident_Type" class="form-control" style="width:50%;" ng-model="selectName" ng-options="x.label for x in IncidentTypes" >{{x.label}}</select> </p>
+            <p/> -->
+                                                    
+            <p><b>Incident Type:</b>  <output id="EIIncident_Type" name="EIIncident_Type" for="a b"></output> </p>
+            <p/>
+                                            
+            <p class="ng-hide" ng-show="IncidentReason"><b>Incident Reason:</b>  <output id="EIIncident_Reason__c" class="ng-hide" ng-show="IncidentReason" name="EIIncident_Reason__c"></output> </p>
+            <p/>
+                                            
+         <!--   <p class="ng-hide" ng-show="IncidentReason"><b>Incident Reason:</b> <select id="EIIncident_Reason__c" class="form-control" ng-show="IncidentReason" style="width:50%;" ng-model="theEIselectName" ng-options="x.label for x in IncidentReasons" >{{x.label}}</select> </p>                                                  
+            <p/>   -->
+                                            
+            <p class="ng-hide" ng-show="IncidentReasonOther"><b>Other Incident Reason:</b> <input id="EIIncident_Reason_Other__c" rows="5" class="form-control ng-hide" ng-show="IncidentReasonOther" style="width:50%;" ></input></p>               
+            <p/>
+            
+            <p class="ng-hide" ng-show="StatusSection"><b>Status:</b> <select  class="form-control ng-hide" ng-show="StatusSection" style="width:50%;" id="EIstatus__c" ng-model="theselectStatus" ng-options="x.label for x in statusValues">{{x.label}}</select> </p>  
+			<p/>
+        
+			<p class="ng-hide" ng-show="BagsReturnedSection"><b>Bag(s) Returned to Guest: </b> <select id="EIBagsReturned" class="form-control ng-hide" ng-show="BagsReturnedSection" style="width:50%;" ng-model="BagsReturnedval" value="BagsReturnedval" ng-options="x.label for x in yesNoOptions">{{x.label}}</select> </p>
+            <p/>
+                                                	
+            <p class="ng-hide" ng-show="DescriptionSection"><b>Description:</b> </p><input id="EIIncident_Description__c" rows="10" class="form-control ng-hide" ng-show="DescriptionSection" style="width:50%;"></input>        
+            <p/>
+        
+			<p class="ng-hide" ng-show="NotesSection" ><b>Resolution Notes:</b> </p><input id="EIResolution_Notes__c" rows="10" class="form-control ng-hide" ng-show="NotesSection" style="width:50%;" ></input>
+           	<p/>
+                       
+          <!--  <p class="ng-hide" ng-show="IsResolvedSection">Resolved:  <input type="checkbox" id="IssueResolved" class="form-check-label ng-hide" ng-show="IsResolvedSection"></input></p>  -->
+            <p class="ng-hide" ng-show="IsResolvedSection"><b>Resolved:</b> <select  class="form-control ng-hide" ng-show="IsResolvedSection" style="width:50%;" id="EIIssueResolved" ng-model="isResolvedSelect" ng-options="x.label for x in yesNoOptions">{{x.label}}</select> </p>  
+
+			<p/>   
+
+            <p class="ng-hide" ng-show="RetailManagerAwareSection"><b>Retail Manager Aware:</b> <select  class="form-control ng-hide" ng-show="RetailManagerAwareSection" style="width:50%;" id="EIRetailManagerAware" ng-model="RetailManagerAwareSelect" ng-options="x.label for x in yesNoOptions">{{x.label}}</select> </p>  
+            <p/>
+
+            <p class="ng-hide" ng-show="ImpactSection"><b>Impact:</b> </p><input ng-show="ImpactSection" id="EIImpact__c" rows="10" class="form-control ng-hide" style="width:50%;" ></input>
+			<p/>
+
+            <p  class="ng-hide" ng-show="BrandInvolvedSection"><b>Brand Involved:</b> </p><input id="EIBrand_Involved__c" rows="5" class="form-control ng-hide" ng-show="BrandInvolvedSection" style="width:50%;" ></input>
+            <p/>
+			<input type="hidden" id="theIncidentId" name="theIncidentId" ></input>
+
+
+                                                </div>
+
+                                                <div class="modal-footer">
+   												   <button id="updateIncidentButton" type="button" class="btn pull-left" data-toggle="modal" ng-click="updateHFSIncident()">Save HFS Incident</button>
+                                              <!--     <button type="button" id="cancelButton" class="btn pull-right" data-dismiss="modal" aria-hidden="true" onclick="cancelClearout();">Cancel</button>  -->
+                                                </div>
+
+                                            </div>
+                                            
+                                        </div>
+                                    </div>          
+     
+            <!-- Incident Modal END --> 
+
+
+                <!-- CLOSE BAG DROP ITEM FORM -->
+                <div id="guestsignoutform" name="guestsignoutform" style="display:none;">
+                      <div class="panel panel-default disable" id="hfspanel" name="hfspanel">
+                        <div class="panel-heading">Guest Signout</div>
+                        <div class="panel-body">
+                            <form class="form-horizontal">
+                                <br />
+                                <canvas id="signatureCanvas" name="signatureCanvas" height="150px" width="450px" style="border: 3px solid antiquewhite; border-radius: 8px; background-color: #AFAFAF;" ></canvas>
+                                <br />
+                                <div class="input-group">          
+                                    <a href="#clear" id="clearsig" name="clearsig" class="btn btn-default" role="button" >Clear Signature</a>
+                                    <br />
+                                    <br />
+                                    <ul class="filters" id="agreecheckbox" name="agreecheckbox">
+                                        <li>
+                                            <label>
+                                                <input type="checkbox" checked="" id="checkboxterms" name="checkboxterms" />
+                                                <span class="icon"><i class="fa fa-check"></i></span>
+                                                I am happy with the service and have collected all my shopping
+                                            </label>
+                                        </li>  
+                                    </ul>
+                                    <br />
+                                    <a href="#" class="btn btn-default" role="button" id="guestcheckout" name="guestcheckout" disabled="disabled" >Complete Checkout</a>
+                                    <a href="#" class="btn btn-default" role="button" id="cancelcheckout" name="cancelcheckout" onclick="cancelCheckout();">Cancel</a> 
+                                </div> 
+                            </form>
+                            
+                        </div>
+                    </div>
+                </div>
+                <!-- CLOSE GUEST SIGNOUT FORM -->
+                
+
+                <!-- select BAGS Modal -->
+                <div id="myModalBags" name="myModalBags" class="modal" role="dialog" ng-show="showBagListSearch">
+                    <div class="modal-dialog">
+                        
+                        <!-- Modal content-->
+                        <div class="modal-content" >
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" ng-click="closeModalBags()">&times;</button>
+                                <h4 class="modal-title">New Bags</h4>
+                            </div>
+                            <div class="modal-body">
+
+                              <div class="row" style="display: flex; justify-content: space-around">
+                                <div class="col-sm-4" >
+                                    <h5 >Barcode</h5>
+                                </div>
+                                <div class="col-sm-4" >
+                                    <h5 >Oversized?</h5>    
+                                </div>
+                                <div class="col-sm-4"  ng-hide="isBagDrop()">
+                                    <h5 >TBC?</h5>    
+                                </div>
+                              </div>
+
+                              <div class="row" style="display: flex; justify-content: space-around" ng-repeat="item in tables track by $index" >
+                                <div class="col-sm-4" >
+                                    <input id="tablebarcode" name="tablebarcode" type='text' ng-model='item.field' placeholder='Barcode'/>  
+                                </div>
+
+                                <div class="col-sm-4" >
+                                    <input id="oversizeC" name="oversizeC" type='checkbox' ng-model='item.oversize'/> 
+                                </div>
+                                <div class="col-sm-4"  ng-hide="isBagDrop()">
+                                    <input id="tbcC" name="tbcC" type='checkbox' ng-click="tbcText($scope, item)"/> 
+                                </div>
+                              </div>  
+
+                            </div>
+                            <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" name="autoG" id="autoG" ng-click="autoGenerate()" hidden="true" disabled="disabled">Generate IDs</button>
+                                   <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="closeModalBags()">Save</button>  
+                                    <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="closeModalBags()">Cancel</button>  
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+
+
+
+
+                <!--  select BAGS MODAL END -->
+            
+            <!-- Capture Incident Modal -->
+                                    <div id="captureIncidentModal" name="captureIncidentModal" class="modal fade" role="dialog" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+
+                                        <div class="modal-dialog modal-lg" >
+                                            
+                                            <!-- Modal content-->
+                                            <div class="modal-content" >   
+
+                                                <div class="modal-header" style =" font-weight: bold; font-size: medium;"> 
+                       
+                                                </div>
+
+                                                <div class="modal-body" style="margin-right: auto;margin-left: auto;">  
+                                               
+            <p>Date: <input class="form-control" type="date" id="Date_of_Incident__c" rows="2" style="width:20%;" ></input></p>
+            <p/>
+                                                    
+            <p>Incident Type:  <select id="Incident_Type" class="form-control" style="width:50%;" ng-model="selectName" value="selectName" ng-options="x.label for x in IncidentTypes" ng-change="changeIncidentReasons(selectName)">{{x.label}}</select> </p>
+            <p/>
+                                            
+            <p class="ng-hide" ng-show="IncidentReason">Incident Reason: <select id="Incident_Reason__c" class="form-control" style="width:50%;" ng-model="theselectName" ng-change="changeIncidentReasonsOther(theselectName)" ng-options="x.label for x in IncidentReasons"  ng-show="IncidentReason">{{x.label}}</select> </p>                                                  
+            <p/>
+                                            
+            <p class="ng-hide" ng-show="IncidentReasonOther">Other Incident Reason: <input id="Incident_Reason_Other__c" rows="5" class="form-control ng-hide" style="width:50%;" ng-show="IncidentReasonOther"></input></p>               
+            <p/>
+            
+            <p class="ng-hide" ng-show="StatusSection">Status: <select  class="form-control ng-hide" style="width:50%;" id="status__c" ng-model="theselectStatus" ng-options="x.label for x in statusValues" ng-show="StatusSection">{{x.label}}</select> </p>  
+			<p/>
+        
+			<p class="ng-hide" ng-show="BagsReturnedSection">Bag(s) Returned to Guest:  <select id="BagsReturned" class="form-control ng-hide" style="width:50%;" ng-show="BagsReturnedSection" ng-model="BagsReturnedval" value="BagsReturnedval" ng-options="x.label for x in yesNoOptions">{{x.label}}</select> </p>
+            <p/>
+                                                	
+            <p class="ng-hide" ng-show="DescriptionSection">Description: </p><input id="Incident_Description__c" rows="10" class="form-control ng-hide" style="width:50%;" ng-show="DescriptionSection"></input>        
+            <p/>
+        
+			<p >Resolution Notes: </p><input id="Resolution_Notes__c" rows="10" class="form-control" style="width:50%;"></input>
+           	<p/>
+                       
+          <!--  <p class="ng-hide" ng-show="IsResolvedSection">Resolved:  <input type="checkbox" id="IssueResolved" class="form-check-label ng-hide" ng-show="IsResolvedSection"></input></p>  -->
+            <p >Resolved: <select  class="form-control" style="width:50%;" id="IssueResolved" ng-model="isResolvedSelect" ng-options="x.label for x in yesNoOptions">{{x.label}}</select> </p>  
+
+			<p/>   
+
+            <p class="ng-hide" ng-show="RetailManagerAwareSection">Retail Manager Aware: <select  class="form-control ng-hide" style="width:50%;" id="RetailManagerAware" ng-model="RetailManagerAwareSelect" ng-options="x.label for x in yesNoOptions" ng-show="StatusSection">{{x.label}}</select> </p>  
+            <p/>
+
+            <p class="ng-hide" ng-show="ImpactSection">Impact: </p><input id="Impact__c" rows="10" class="form-control ng-hide" style="width:50%;" ng-show="ImpactSection"></input>
+			<p/>
+
+            <p class="ng-hide" ng-show="BrandInvolvedSection">Brand Involved: </p><input id="Brand_Involved__c" rows="5" class="form-control ng-hide" style="width:50%;" ng-show="BrandInvolvedSection"></input>
+            <p/>
+
+
+                                                </div>
+
+                                                <div class="modal-footer">
+   												   <button type="button" class="btn pull-left" data-toggle="modal" ng-click="saveHFSIncident()">Save HFS Incident</button>
+                                                   <button type="button" id="cancelButton" class="btn pull-right" data-dismiss="modal" aria-hidden="true" onclick="cancelClearout();">Cancel</button>
+                                                </div>
+
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+          <!--  Capture Incident MODAL END -->
+            
+            <!-- Historic Close Modal -->
+                                    <div id="HistoricCloseModal" name="ScanModal" class="modal fade" role="dialog" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+
+                                        <div class="modal-dialog modal-lg" >
+                                            
+                                            <!-- Modal content-->
+                                            <div class="modal-content" >   
+
+                                                <div class="modal-header" style =" font-weight: bold; font-size: medium;"> 
+                         
+
+                                                </div>
+
+                                                <div class="modal-body" style="margin-right: auto;margin-left: auto;">  
+                                 					<p>Your Full Name: </p><input id="Closing_Agent__c" rows="10" style="width:100%;"></input>
+                                                <p/>
+                                                    <p>Historic Close Reason: </p><input id="Historic_Close_Reason__c" rows="10" style="width:100%;"></input>
+
+
+                                                </div>
+
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn pull-left" data-toggle="modal" onclick="clearout();" >Closeout</button>
+                                                   <button type="button" id="cancelButton" class="btn pull-right" data-dismiss="modal" aria-hidden="true" onclick="cancelClearout();">Cancel</button>
+                                                </div>
+
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+          <!--  Historic Close MODAL END -->
+
+                                    <!-- select Scan Modal -->
+                                    <div id="ScanModal" name="ScanModal" class="modal fade" role="dialog" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
+
+                                        <div class="modal-dialog modal-lg" >
+                                            
+                                            <!-- Modal content-->
+                                            <div class="modal-content" >   
+
+                                                <div class="modal-header" style =" font-weight: bold; font-size: medium;"> Scan new guest code
+                                                <button name = "close" type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+
+                                                </div>
+
+                                                <div class="modal-body" style="margin-right: auto;margin-left: auto;">  
+                                                   <video playsinline="true" id="preview" style="width:50%; height: 50%;margin: auto;"></video>
+                                                    <p>Detected guest code: </p><input id="output_scan" style="width:40%;">                                                 
+                                                    </input>
+
+
+                                                </div>
+
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn pull-left" data-toggle="modal" data-target="#ScanModalConfirm">Save</button>
+                                                   <button type="button" id="cancelButton" class="btn pull-right" data-dismiss="modal" aria-hidden="true" onclick="stopCamera();">Cancel</button>
+                                                </div>
+
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                    <!--  select Scan MODAL END -->
+
+
+
+                                   <!-- select Scan Modal -->
+                                    <div id="ScanModalConfirm" name="ScanModalConfirm" class="modal fade" role="dialog" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
+
+                                        <div class="modal-dialog modal-sm" >
+                                            
+                                            <!-- Modal content-->
+                                            <div class="modal-content" >   
+                                                <div class="modal-header" style =" font-weight: bold; font-size: medium;"> Are you sure?
+                                                </div>
+
+                                                <div class="modal-body">  
+                                                      <br/>         
+                                                      <button type="button" class="btn pull-left" onclick="LostQRcode();">Yes</button>
+                                                       <button type="button" class="btn pull-right" data-dismiss="modal" aria-hidden="true">No</button>
+                                                       <br/>
+                                                       <br/>
+                                                </div>
+
+
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                    <!--  select Scan MODAL END -->
+                                    <!-- confirmation modal -->
+                                    <div id="ModalConfirm" name="ModalConfirm" class="modal fade" role="dialog" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
+
+                                        <div class="modal-dialog modal-sm" >
+                                            
+                                            <!-- Modal content-->
+                                            <div class="modal-content" >   
+                                                <div class="modal-header" style =" font-weight: bold; font-size: medium;"> Guest code has been updated!
+                                                </div>
+
+                                                <div class="modal-body">  
+                                                      <br/>
+                                                       <button type="button" id="ConfirmButton" class="btn pull-right" data-dismiss="modal" aria-hidden="true">Ok</button>
+                                                       <br/>
+                                                       <br/>
+                                                </div>
+
+
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+
+
+        	
+        
+
+                <!-- select brand Modal -->
+                <div id="myModal" name="myModal" class="modal" role="dialog" ng-show="showBrandListSearch">
+                    <div class="modal-dialog">
+                        
+                        <!-- Modal content-->
+                        <div class="modal-content" >
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" ng-click="closeModal()">&times;</button>
+                                <h4 class="modal-title">&quot;{{brandName}}&quot; in Brands</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="list-group">Add HFS Item
+                                    <a href="#" class="list-group-item" ng-click="selectedContact(brandName)" ng-repeat="brandName  in contactList">{{brandName.Name}}</a>  
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="closeModal()">Close</button>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                <!--  select brand MODAL END -->
+                
+                <!-- change item status Modal -->
+                <div id="myitemModal" name="myitemModal" class="modal" role="dialog" ng-show="showchangeitemmodal">
+                    <div class="modal-dialog">
+                        
+                        <!-- Modal content-->
+                        <div class="modal-content" >
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" ng-click="closeitemModal()">&times;</button>
+                                <h4 class="modal-title">Change &quot;{{selectedItem}}&quot; Status</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-refresh"></i></span>
+                                    <select class="form-control"  ng-model="selectedItemvalue" id="itemstatus" name="itemstatus">
+                                        <option value="placeholder" disabled="disabled">Item Status</option>
+                                        <option ng-repeat="sel in selectables" ng-selected="selectedItemvalue == sel.value" value="{{sel.value}}">{{sel.label}}</option>
+                                    </select>
+                                    <span class="input-group-btn"><i class="glyphicon glyphicon-menu-down"></i></span>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" ng-click="saveitem()">Save</button>&nbsp;&nbsp;<button type="button" class="btn btn-default" data-dismiss="modal" ng-click="closeitemModal()">Close</button>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+                <!-- error Modal -->
+                <div id="errorModal" name="errorModal" class="modal" role="dialog" >
+                    <div class="modal-dialog">
+                        
+                        <!-- Modal content-->
+                        <div class="modal-content" >
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" onclick="closeErrorModal()">&times;</button>
+                                <h4 class="modal-title">ERROR</h4>
+                            </div>
+                            <div class="modal-body" id="errormessage" name="errormessage">
+                                
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal" onclick="closeErrorModal()">Close</button>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                <!--  error MODAL END -->
+
+        
+                <!-- Guest Warning 30 confirmation -->
+                <div id="GuestWarning" name="GuestWarning" class ="modal fade" role="dialog" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true" >
+                    <div class="modal-dialog modal-md" role="document" >
+                         <!-- Modal content-->
+                        <div class="modal-content" >
+                    <div class ="modal-header" style="font-weight: bold; font-size: medium;">Guest Collection Time
+                    </div> 
+
+                    <div class="modal-body" style="height: 200px; overflow-y: scroll;">
+                            <div  class="row" >       
+       							<div class="col-sm-5">
+                            		<div class="input-group">                 
+                             			<span class="tooltiptext">Check In Date</span>
+                                         <div class='input-group date' id='datetimepicker1'>
+                                            <span class="input-group-addon">
+                                                <span class="glyphicon glyphicon-calendar"></span>
+                                            </span>
+                                            <input type='text' class="form-control datepickerInput" id="collTime" placeholder="Expected Collection Time"/>
+                                        </div>
+                             		</div>
+                                </div>
+                                <div class="col-sm-2">&nbsp;OR&nbsp;</div>                        
+                                <div class="col-sm-5"><button type="button" class="btn pull-right" data-dimiss="modal" onclick="GuestWarning30()">30 Minutes from now</button></div>
+                        	</div>
+                          <div  class="row" >              
+            				<div class="col-sm-12"> 
+                                &nbsp;
+                              </div></div>
+                            <div  class="row" >              
+            				<div class="col-sm-6">                      
+                        		<button type="button" class="btn pull-left" data-dimiss="modal" onclick="GuestWarning()">Submit</button>                       
+                            </div>
+                            <div class="col-sm-6"><button type="button" class="btn pull-right" data-dismiss="modal" onclick="CloseGuestWarning30()">Cancel</button></div>
+                        </div>
+                   </div>
+                </div>
+            </div>
+         </div>
+</div>
+
+                 <!-- Guest Warning 30 confirmation end -->
+
+
+
+        </body>
+    </html>
+</apex:page>

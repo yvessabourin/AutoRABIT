@@ -1,0 +1,29 @@
+<aura:component >
+
+    <aura:attribute name="searchKey" type="String"/>
+    <!-- <aura:handler name="change" value="{!v.searchKey}" action="{!c.searchKeyChange}" />  -->
+    <div>
+<!--
+        <form onreset="{!c.searchKeyChange}">
+            <center><input autofocus="true" type="search" id="search" results="5" name="q"
+                    placeholder="Enter search string" oninput="{!c.searchKeyChange}"/>
+               
+                <input id="nameid" type="text" data-clear-btn="true" name="text-2" value="" placeholder="Namezz"/>
+            </center>
+        </form>
+
+-->        
+    <div>
+        <div class="wrapper">
+            <ui:inputText class="searchKey"  value="{!v.searchKey}" keyup="{!c.searchKeyChange}"
+                    paste="{!c.searchKeyChange}" placeholder="Search..."/>
+            <button class="btn btn-link" onclick="{!c.clearText}">X</button>
+        </div>
+    </div>
+            
+            <!-- <center><input type="reset" value="Clear" id="reset" /></center>  -->      
+  		
+        
+    </div>
+
+</aura:component>

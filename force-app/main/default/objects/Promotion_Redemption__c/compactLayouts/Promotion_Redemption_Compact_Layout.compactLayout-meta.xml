@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Promotion_Redemption_Compact_Layout</fullName>
+    <fields>Voucher_Code__c</fields>
+    <fields>Redeem_Date__c</fields>
+    <fields>Guest_Email__c</fields>
+    <fields>Guest_First_Name__c</fields>
+    <fields>Guest_Last_Name__c</fields>
+    <fields>Email_opt_in__c</fields>
+    <label>Promotion Redemption Compact Layout</label>
+</CompactLayout>

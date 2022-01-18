@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>X2021_NEWSLETTERPLAN_GERMANY</fullName>
+    <columns>NAME</columns>
+    <columns>Start_Date__c</columns>
+    <columns>Marketing_Campaign__c</columns>
+    <columns>Marketing_Campaign_Village__c</columns>
+    <columns>Channel__c</columns>
+    <columns>Sub_Channel__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>NAME</field>
+        <operation>contains</operation>
+        <value>Newsletter</value>
+    </filters>
+    <filters>
+        <field>Channel__c</field>
+        <operation>contains</operation>
+        <value>CRM</value>
+    </filters>
+    <filters>
+        <field>Marketing_Campaign_Village__c</field>
+        <operation>contains</operation>
+        <value>Ingolstadt,Wertheim</value>
+    </filters>
+    <filters>
+        <field>Start_Date__c</field>
+        <operation>greaterOrEqual</operation>
+        <value>1/1/2021</value>
+    </filters>
+    <filters>
+        <field>End_Date__c</field>
+        <operation>lessOrEqual</operation>
+        <value>12/31/2021</value>
+    </filters>
+    <label>2021 NEWSLETTERPLAN GERMANY</label>
+    <language>en_US</language>
+</ListView>

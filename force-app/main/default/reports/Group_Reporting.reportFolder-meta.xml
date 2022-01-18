@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ReportFolder xmlns="http://soap.sforce.com/2006/04/metadata">
+    <folderShares>
+        <accessLevel>EditAllContents</accessLevel>
+        <sharedTo>cprummer@valueretail.com</sharedTo>
+        <sharedToType>User</sharedToType>
+    </folderShares>
+    <folderShares>
+        <accessLevel>EditAllContents</accessLevel>
+        <sharedTo>wvogt@valueretail.com</sharedTo>
+        <sharedToType>User</sharedToType>
+    </folderShares>
+    <folderShares>
+        <accessLevel>View</accessLevel>
+        <sharedTo>Group_Leasing</sharedTo>
+        <sharedToType>RoleAndSubordinates</sharedToType>
+    </folderShares>
+    <name>Group Leasing Reporting</name>
+</ReportFolder>

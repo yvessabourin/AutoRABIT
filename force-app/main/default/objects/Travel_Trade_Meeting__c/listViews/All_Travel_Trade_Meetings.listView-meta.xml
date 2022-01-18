@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All_Travel_Trade_Meetings</fullName>
+    <columns>NAME</columns>
+    <columns>Date_of_Meeting__c</columns>
+    <columns>Meeting_Location__c</columns>
+    <columns>Tourism_Account__c</columns>
+    <columns>Tourism_Contact__c</columns>
+    <columns>VR_Representative__c</columns>
+    <columns>UPDATEDBY_USER</columns>
+    <columns>LAST_UPDATE</columns>
+    <filterScope>Everything</filterScope>
+    <label>All Travel Trade Meetings</label>
+    <sharedTo>
+        <role>Group_Tourism</role>
+    </sharedTo>
+</ListView>

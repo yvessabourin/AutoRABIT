@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>CUST_NAME</field>
+    </columns>
+    <columns>
+        <field>FK_NAME</field>
+    </columns>
+    <columns>
+        <field>Visit__c.Total_Visit_Spend_VIP_Card__c.CONVERT</field>
+    </columns>
+    <columns>
+        <field>Visit__c.Total_Visit_Spend_HFS__c</field>
+    </columns>
+    <currency>GBP</currency>
+    <filter>
+        <criteriaItems>
+            <column>Visit__c.VIP_Cards_Exchanged__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>greaterThan</operator>
+            <value>0</value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
+    <format>Tabular</format>
+    <name>VIP Card</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CustomEntity$Visit__c@Visit__c.Account__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>Visit__c.Visit_Date_Time__c</dateColumn>
+        <interval>INTERVAL_LASTTHISMONTH</interval>
+    </timeFrameFilter>
+</Report>

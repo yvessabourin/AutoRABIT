@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Unique_Department__c</fullName>
+    <caseSensitive>false</caseSensitive>
+    <description>This is a unique field that ensures a village can only have one instance of a department</description>
+    <externalId>false</externalId>
+    <label>Unique Department</label>
+    <length>50</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>true</unique>
+</CustomField>

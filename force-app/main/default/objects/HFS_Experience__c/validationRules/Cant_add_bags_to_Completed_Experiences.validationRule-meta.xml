@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Cant_add_bags_to_Completed_Experiences</fullName>
+    <active>true</active>
+    <errorConditionFormula>NOT(ISCHANGED(Status__c)) &amp;&amp; Requested_Items__c &gt; 0 &amp;&amp;   OR(ISPICKVAL(Status__c , &quot;Customer Collected&quot;), ISPICKVAL(Status__c , &quot;With TIC&quot;))</errorConditionFormula>
+    <errorMessage>You cannot add items to Closed HFS Experiences</errorMessage>
+</ValidationRule>

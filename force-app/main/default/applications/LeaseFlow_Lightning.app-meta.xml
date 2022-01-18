@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomApplication xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <content>LeaseFlowLightningHomePage</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+        <pageOrSobjectType>standard-home</pageOrSobjectType>
+    </actionOverrides>
+    <formFactors>Small</formFactors>
+    <formFactors>Large</formFactors>
+    <isNavAutoTempTabsDisabled>false</isNavAutoTempTabsDisabled>
+    <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
+    <label>LeaseFlow</label>
+    <navType>Standard</navType>
+    <profileActionOverrides>
+        <actionName>Tab</actionName>
+        <content>Finance_HomePage</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>standard-home</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>Finance Sales Certification</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>Tab</actionName>
+        <content>Admin_Home_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>standard-home</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>System Administrator - Read Only</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>Tab</actionName>
+        <content>Admin_Home_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>standard-home</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>Admin</profile>
+    </profileActionOverrides>
+    <setupExperience>all</setupExperience>
+    <tabs>standard-home</tabs>
+    <tabs>standard-Account</tabs>
+    <tabs>Village_Presence__c</tabs>
+    <tabs>Competitor_site__c</tabs>
+    <tabs>standard-report</tabs>
+    <tabs>Village__c</tabs>
+    <tabs>standard-Opportunity</tabs>
+    <tabs>Unit__c</tabs>
+    <tabs>Initiative__c</tabs>
+    <tabs>standard-Contact</tabs>
+    <tabs>Village_RatingV2__c</tabs>
+    <tabs>Room__c</tabs>
+    <tabs>PRX__Outreach_Automation__c</tabs>
+    <uiType>Lightning</uiType>
+</CustomApplication>

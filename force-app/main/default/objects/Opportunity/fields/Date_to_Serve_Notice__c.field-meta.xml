@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Date_to_Serve_Notice__c</fullName>
+    <description>The date in which notice has to be served in order to terminate the contract in line with the expected Exit date.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>The date in which notice has to be served in order to terminate the contract in line with the expected Exit date.</inlineHelpText>
+    <label>Date to Serve Notice</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+</CustomField>

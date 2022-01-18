@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Group_Currency__c</fullName>
+    <externalId>false</externalId>
+    <formula>TEXT( Village__r.Group_Currency__c  )</formula>
+    <inlineHelpText>The group currency pulled from the Village</inlineHelpText>
+    <label>Group Currency</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

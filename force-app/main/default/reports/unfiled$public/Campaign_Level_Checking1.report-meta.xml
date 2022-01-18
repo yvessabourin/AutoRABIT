@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Marketing_Campaign__c$Name</field>
+    </columns>
+    <columns>
+        <field>Marketing_Campaign__c$Status__c</field>
+    </columns>
+    <columns>
+        <field>Marketing_Campaign__c$Parent_Marketing_Campaign__c</field>
+    </columns>
+    <columns>
+        <field>Marketing_Campaign__c$Village__c</field>
+    </columns>
+    <description>Report to help the user to check that campaigns are associated to the correct parent campaigns if needed</description>
+    <format>Matrix</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Marketing_Campaign__c$Campaign_Level__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>Campaign Level Checking</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Marketing_Campaigns_with_Marketing_Activities__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>Marketing_Campaign__c$Start_Date__c</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

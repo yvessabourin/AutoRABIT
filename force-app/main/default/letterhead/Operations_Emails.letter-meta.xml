@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Letterhead xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <backgroundColor>#FFFFFF</backgroundColor>
+    <bodyColor>#FFFFFF</bodyColor>
+    <bottomLine>
+        <color>#FFFFFF</color>
+        <height>1</height>
+    </bottomLine>
+    <description>Used by the Ops team</description>
+    <footer>
+        <backgroundColor>#FFFFFF</backgroundColor>
+        <height>55</height>
+        <horizontalAlignment>Right</horizontalAlignment>
+        <verticalAlignment>Bottom</verticalAlignment>
+    </footer>
+    <header>
+        <backgroundColor>#FFFFFF</backgroundColor>
+        <height>60</height>
+        <horizontalAlignment>Left</horizontalAlignment>
+        <verticalAlignment>Top</verticalAlignment>
+    </header>
+    <middleLine>
+        <color>#FFFFFF</color>
+        <height>2</height>
+    </middleLine>
+    <name>Operations Emails</name>
+    <topLine>
+        <color>#FFFFFF</color>
+        <height>2</height>
+    </topLine>
+</Letterhead>

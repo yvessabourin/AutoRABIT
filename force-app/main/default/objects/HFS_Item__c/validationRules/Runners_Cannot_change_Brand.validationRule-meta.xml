@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Runners_Cannot_change_Brand</fullName>
+    <active>true</active>
+    <description>Do not allow runners to change Brand</description>
+    <errorConditionFormula>NOT(ISNEW())
+&amp;&amp;  ISCHANGED( Brand__c ) 
+&amp;&amp; $User.Profile_Name__c = &quot;TIC Runner&quot;</errorConditionFormula>
+    <errorMessage>Runners cannot change the Brand</errorMessage>
+</ValidationRule>

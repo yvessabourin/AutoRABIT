@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Coniq_Review_Alert__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF( Coniq_Days_Review_Overdue__c &lt;= 0, 
+IMAGE( &quot;/img/msg_icons/confirm16.png&quot;, &quot;OK&quot; ),
+IF( AND(Coniq_Days_Review_Overdue__c &gt; 0,Coniq_Days_Review_Overdue__c &lt; 10),
+IMAGE(&quot;/img/msg_icons/warning16.png&quot;, &quot;Overdue&quot;),
+IMAGE(&quot;/img/msg_icons/error16.png&quot;, &quot;REALLY Overdue&quot;)
+))</formula>
+    <inlineHelpText>Green = 0 Days Overdue
+Amber = 0 &gt; 10 Days Overdue
+Red = 10+ Days overdue</inlineHelpText>
+    <label>Coniq Review Alert</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

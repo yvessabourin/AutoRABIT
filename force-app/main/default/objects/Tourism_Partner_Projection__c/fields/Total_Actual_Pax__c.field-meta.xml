@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Total_Actual_Pax__c</fullName>
+    <externalId>false</externalId>
+    <formula>January_Actual__c + February_Actual__c + March_Actual__c + April_Actual__c + May_Actual__c + June_Actual__c + July_Actual__c + August_Actual__c + September_Actual__c + October_Actual__c + November_Actual__c + December_Actual__c</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Total Actual Pax</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Delivering_Jobs</fullName>
+    <active>true</active>
+    <label>Delivering Jobs</label>
+    <picklistValues>
+        <picklist>Job_Status__c</picklist>
+        <values>
+            <fullName>Accepted</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Assigned</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Bags Putaway</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Delivered</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Delivering</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>New</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Rejected</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Job_Type__c</picklist>
+        <values>
+            <fullName>Bag Drop</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Bag Transfer</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Leftover Pick-up Request</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Original Pick-up Request</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Shared Pick-up Request</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

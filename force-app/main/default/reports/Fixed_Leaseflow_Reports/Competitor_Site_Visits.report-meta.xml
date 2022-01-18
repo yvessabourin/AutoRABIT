@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Competitor_site__c$Name</field>
+    </columns>
+    <columns>
+        <field>Competitor_site__c.Activities$Description</field>
+    </columns>
+    <columns>
+        <field>Competitor_site__c.Activities$Non_VR_Outlet_Full_Price_Performance__c</field>
+    </columns>
+    <columns>
+        <field>Competitor_site__c.Activities$Owner</field>
+    </columns>
+    <columns>
+        <field>Competitor_site__c.Activities$ActivityDate</field>
+    </columns>
+    <columns>
+        <field>Competitor_site__c.Activities$Event_Department__c</field>
+    </columns>
+    <columns>
+        <field>Competitor_site__c.Activities$Subject</field>
+    </columns>
+    <format>Tabular</format>
+    <name>Competitor Site Visits</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Competitor_Sites_with_Activities__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>Competitor_site__c$CreatedDate</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All_China_Ratings</fullName>
+    <booleanFilter>(1 OR 2) and 3</booleanFilter>
+    <columns>NAME</columns>
+    <columns>Village__c</columns>
+    <columns>Rating__c</columns>
+    <columns>Year__c</columns>
+    <columns>Range_Minimum__c</columns>
+    <columns>Range_Maximum__c</columns>
+    <columns>Yield_Classification__c</columns>
+    <columns>Yield_Type__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Village__c</field>
+        <operation>equals</operation>
+        <value>Suzhou</value>
+    </filters>
+    <filters>
+        <field>Village__c</field>
+        <operation>equals</operation>
+        <value>Shanghai</value>
+    </filters>
+    <filters>
+        <field>Year__c</field>
+        <operation>equals</operation>
+        <value>2014</value>
+    </filters>
+    <label>All China Ratings</label>
+    <sharedTo>
+        <group>LeaseFlow</group>
+        <group>LeaseFlow_BAs</group>
+        <group>LeaseFlow_China</group>
+    </sharedTo>
+</ListView>

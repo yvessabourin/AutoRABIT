@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Receive_Weekly_B2B_Emails__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>To identify users who wish to receive weekly B2B summary email.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>To identify users who wish to receive weekly B2B summary email.</inlineHelpText>
+    <label>Receive Weekly B2B Emails</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Checkbox</type>
+</CustomField>

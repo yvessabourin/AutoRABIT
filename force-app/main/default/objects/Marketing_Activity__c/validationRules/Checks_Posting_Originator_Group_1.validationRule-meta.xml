@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Checks_Posting_Originator_Group_1</fullName>
+    <active>false</active>
+    <description>Defaulted to village user is assigned to or TBVSC Brand if user is works at a TBVSC Brand level</description>
+    <errorConditionFormula>IF($Setup.Global_Object_Validation__c.Marketing_Activity_Validations_Active__c, 
+IF( AND( ISPICKVAL( $User.Village__c , &quot;La Vallee&quot;) ) ,  OR( INCLUDES( Picklist_Multi_Select__c , &quot;Bicester&quot;) ||  INCLUDES(Picklist_Multi_Select__c, &quot;Fidenza&quot;)  ||  INCLUDES(Picklist_Multi_Select__c, &quot;Inglostadt&quot;)  ||  INCLUDES(Picklist_Multi_Select__c, &quot;Kildare&quot;) ||  INCLUDES(Picklist_Multi_Select__c, &quot;La Roca&quot;)  ||  INCLUDES(Picklist_Multi_Select__c, &quot;Las Rozas&quot;) ||  INCLUDES(Picklist_Multi_Select__c, &quot;Maasmechelen&quot;) ||  INCLUDES(Picklist_Multi_Select__c, &quot;Wertheim&quot;) ) &amp;&amp; AND(  $User.Central_Initiative__c = false) , false)
+|| IF( AND( ISPICKVAL( $User.Village__c , &quot;Maasmechelen&quot;) ) ,  OR( INCLUDES( Picklist_Multi_Select__c , &quot;Bicester&quot;) ||  INCLUDES(Picklist_Multi_Select__c, &quot;Fidenza&quot;)  ||  INCLUDES(Picklist_Multi_Select__c, &quot;Inglostadt&quot;)  ||  INCLUDES(Picklist_Multi_Select__c, &quot;Kildare&quot;) ||  INCLUDES(Picklist_Multi_Select__c, &quot;La Roca&quot;)  ||  INCLUDES(Picklist_Multi_Select__c, &quot;Las Rozas&quot;) ||  INCLUDES(Picklist_Multi_Select__c, &quot;La Vallee&quot;) ||  INCLUDES(Picklist_Multi_Select__c, &quot;Wertheim&quot;) ) &amp;&amp; AND(  $User.Central_Initiative__c = false) , false)
+|| IF( AND( ISPICKVAL( $User.Village__c , &quot;Wertheim&quot;) ) ,  OR( INCLUDES( Picklist_Multi_Select__c , &quot;Bicester&quot;) ||  INCLUDES(Picklist_Multi_Select__c, &quot;Fidenza&quot;)  ||  INCLUDES(Picklist_Multi_Select__c, &quot;Inglostadt&quot;)  ||  INCLUDES(Picklist_Multi_Select__c, &quot;Kildare&quot;) ||  INCLUDES(Picklist_Multi_Select__c, &quot;La Roca&quot;)  ||  INCLUDES(Picklist_Multi_Select__c, &quot;Las Rozas&quot;) ||  INCLUDES(Picklist_Multi_Select__c, &quot;La Vallee&quot;) ||  INCLUDES(Picklist_Multi_Select__c, &quot;Maasmechelen&quot;) ) &amp;&amp; AND(  $User.Central_Initiative__c = false) , false),
+false)</errorConditionFormula>
+    <errorDisplayField>Picklist_Multi_Select__c</errorDisplayField>
+    <errorMessage>Only TBVSC Brand level members of staff can select an alternative value(s)</errorMessage>
+</ValidationRule>

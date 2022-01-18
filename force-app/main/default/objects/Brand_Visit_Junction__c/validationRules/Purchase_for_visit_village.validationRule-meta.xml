@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Purchase_for_visit_village</fullName>
+    <active>true</active>
+    <description>the village presence must match the village selected in the visit</description>
+    <errorConditionFormula>Village_Presence__r.Village__c &lt;&gt; Visit__r.Village__c</errorConditionFormula>
+    <errorDisplayField>Village_Presence__c</errorDisplayField>
+    <errorMessage>The brand purchase must be for the village selected in the visit record.</errorMessage>
+</ValidationRule>

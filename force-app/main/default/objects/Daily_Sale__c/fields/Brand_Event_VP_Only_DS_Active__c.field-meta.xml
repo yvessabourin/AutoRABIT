@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Brand_Event_VP_Only_DS_Active__c</fullName>
+    <externalId>false</externalId>
+    <formula>Store__r.Brand_Event_VP_Only_Active__c</formula>
+    <inlineHelpText>Brand Event Village Presence ONLY. Net Sales recorded will also be taken as Brand Event sales. Events of less than two months duration, in a unit or Village private space. Events by invitation only and/or open to the public, either physical or virtual</inlineHelpText>
+    <label>Brand Event VP Only DS Active</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

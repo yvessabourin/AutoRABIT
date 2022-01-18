@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Allows the user to edit the Tier4* field on the account object. to identify that a Brand has Tier 4* priority</description>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.Remerch_Tier_4__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>Account Remerch Tier 4* Edit</label>
+</PermissionSet>

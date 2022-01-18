@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <processMetadataValues>
+            <name>textJson</name>
+            <value>
+                <stringValue>{&quot;mentions&quot;:[],&quot;message&quot;:&quot;@[{![HFS_Item__c].Runner__c}]&lt;br&gt;&lt;br&gt;An HFS item is ready to be collected from&amp;nbsp;&amp;nbsp;{![HFS_Item__c].Brand__c.Name}.&lt;br&gt;&lt;br&gt;Please go and collect the bag&lt;br&gt;&quot;}</stringValue>
+            </value>
+        </processMetadataValues>
+        <name>myRule_1_A1</name>
+        <label>Alert Runner</label>
+        <locationX>100</locationX>
+        <locationY>200</locationY>
+        <actionName>chatterPost</actionName>
+        <actionType>chatterPost</actionType>
+        <inputParameters>
+            <name>text</name>
+            <value>
+                <stringValue>@[{!myVariable_current.Runner__c}]
+
+An HFS item is ready to be collected from  {!myVariable_current.Brand__r.Name}.
+
+Please go and collect the bag
+</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>type</name>
+        </inputParameters>
+        <inputParameters>
+            <name>subjectNameOrId</name>
+            <value>
+                <elementReference>myVariable_current.Id</elementReference>
+            </value>
+        </inputParameters>
+    </actionCalls>
+    <apiVersion>49.0</apiVersion>
+    <decisions>
+        <name>myDecision</name>
+        <label>Primary Decision</label>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <defaultConnectorLabel>default</defaultConnectorLabel>
+        <rules>
+            <name>myRule_1</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>formula_myRule_1</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>myRule_1_A1</targetReference>
+            </connector>
+            <label>Runner is set or changed</label>
+        </rules>
+    </decisions>
+    <formulas>
+        <processMetadataValues>
+            <name>originalFormula</name>
+            <value>
+                <stringValue>OR(ISNEW() &amp;&amp; NOT(ISBLANK([HFS_Item__c].Runner__c)) 
+, NOT(ISBLANK([HFS_Item__c].Runner__c)) &amp;&amp;ISCHANGED([HFS_Item__c].Runner__c)  
+ 
+
+
+)
+</stringValue>
+            </value>
+        </processMetadataValues>
+        <name>formula_myRule_1</name>
+        <dataType>Boolean</dataType>
+        <expression>OR(ISNEW() &amp;&amp; NOT(ISBLANK({!myVariable_current.Runner__c})) 
+, NOT(ISBLANK({!myVariable_current.Runner__c})) &amp;&amp;ISCHANGED({!myVariable_current.Runner__c})  
+ 
+
+
+)</expression>
+    </formulas>
+    <interviewLabel>Alert_Runner-3_HFS_Item__c</interviewLabel>
+    <label>Alert Runner</label>
+    <processMetadataValues>
+        <name>ObjectType</name>
+        <value>
+            <stringValue>HFS_Item__c</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>ObjectVariable</name>
+        <value>
+            <elementReference>myVariable_current</elementReference>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OldObjectVariable</name>
+        <value>
+            <elementReference>myVariable_old</elementReference>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>TriggerType</name>
+        <value>
+            <stringValue>onAllChanges</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>Workflow</processType>
+    <startElementReference>myDecision</startElementReference>
+    <status>Active</status>
+    <variables>
+        <name>myVariable_current</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+        <objectType>HFS_Item__c</objectType>
+    </variables>
+    <variables>
+        <name>myVariable_old</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+        <objectType>HFS_Item__c</objectType>
+    </variables>
+</Flow>

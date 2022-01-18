@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Trading_Name__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Enter the name uder which the brand wishes to trade for this lease</inlineHelpText>
+    <label>Trading Name</label>
+    <length>50</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

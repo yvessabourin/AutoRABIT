@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Region_1__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Enter the region that best defines the location of the village</inlineHelpText>
+    <label>Region 1</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Europe</fullName>
+                <default>false</default>
+                <label>Europe</label>
+            </value>
+            <value>
+                <fullName>China</fullName>
+                <default>false</default>
+                <label>China</label>
+            </value>
+            <value>
+                <fullName>Hong Kong</fullName>
+                <default>false</default>
+                <label>Hong Kong</label>
+            </value>
+            <value>
+                <fullName>UK &amp; Ireland</fullName>
+                <default>false</default>
+                <label>UK &amp; Ireland</label>
+            </value>
+            <value>
+                <fullName>Spain</fullName>
+                <default>false</default>
+                <label>Spain</label>
+            </value>
+            <value>
+                <fullName>Germany</fullName>
+                <default>false</default>
+                <label>Germany</label>
+            </value>
+            <value>
+                <fullName>Other EU</fullName>
+                <default>false</default>
+                <label>Other EU</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

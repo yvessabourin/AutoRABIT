@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All</fullName>
+    <columns>NAME</columns>
+    <columns>CREATED_DATE</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Village_Presence__c</field>
+        <operation>startsWith</operation>
+        <value>Le cr</value>
+    </filters>
+    <filters>
+        <field>CREATED_DATE</field>
+        <operation>equals</operation>
+        <value>3/11/2020 12:00 AM</value>
+    </filters>
+    <filters>
+        <field>Village_Name__c</field>
+        <operation>equals</operation>
+        <value>Bicester</value>
+    </filters>
+    <filters>
+        <field>Service_Guest_Number__c</field>
+        <operation>equals</operation>
+        <value>SP2</value>
+    </filters>
+    <label>All</label>
+    <language>en_US</language>
+    <sharedTo>
+        <group>Admins_group</group>
+    </sharedTo>
+</ListView>

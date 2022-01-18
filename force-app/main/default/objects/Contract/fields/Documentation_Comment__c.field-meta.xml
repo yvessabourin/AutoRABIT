@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Documentation_Comment__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Enter a brief comment as to where we are in the process and the next step</inlineHelpText>
+    <label>Documentation Comment</label>
+    <length>2048</length>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>LongTextArea</type>
+    <visibleLines>3</visibleLines>
+</CustomField>

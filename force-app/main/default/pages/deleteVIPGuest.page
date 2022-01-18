@@ -1,0 +1,17 @@
+<apex:page standardcontroller="Account" extensions="DeleteVIPGuest" lightningStylesheets="true">
+  
+   <apex:form >
+        <apex:pageBlock >
+          <apex:outputText value="{!Account.Name}" rendered="false"/>
+           <apex:pageMessages />
+            <apex:pageBlockSection title="Confirm Delete" collapsible="true" rendered="{!!HideConfirm}">
+            <apex:outputText >Are you sure you want to delete this record?</apex:outputText>
+                 <apex:commandButton value="Confirm Delete" action="{!DeleteVIPGuestRecord}"/>
+                 <apex:commandButton value="Cancel" action="{!ReturnBack}"/>
+            </apex:pageBlockSection>
+
+            <apex:commandButton value="Close" action="{!ReturnBack}"  rendered="{!ShowComplete}"/>
+        </apex:pageBlock>
+      
+    </apex:form>
+</apex:page>

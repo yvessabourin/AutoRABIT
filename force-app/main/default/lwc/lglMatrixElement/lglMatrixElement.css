@@ -1,0 +1,11 @@
+button {
+	width: 23px;
+}
+
+.lgl-edited {
+	background-color: rgb(250, 255, 189);
+}
+
+span {
+	transition: background-color 0.2s linear;
+}

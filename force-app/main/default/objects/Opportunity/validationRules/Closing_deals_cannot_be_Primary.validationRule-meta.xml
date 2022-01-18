@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Closing_deals_cannot_be_Primary</fullName>
+    <active>true</active>
+    <errorConditionFormula>$Setup.Global_Object_Validation__c.Deal_Validations_Active__c  &amp;&amp; 
+Primary_Deal__c = TRUE  &amp;&amp;
+OR( 
+TEXT( StageName ) = &apos;Closed&apos;, 
+TEXT( StageName ) = &apos;Terminated&apos;, 
+TEXT( StageName ) = &apos;Completed - New Brand opened in Village&apos;, 
+TEXT( StageName ) = &apos;Finished - Deal Failed&apos;, 
+TEXT( StageName ) = &apos;Completed - Brand Exited&apos;, 
+TEXT( StageName ) = &apos;Completed - Brand Relocated&apos;, 
+TEXT( StageName ) = &apos;Completed - Brand Refitted&apos;, 
+TEXT( StageName ) = &apos;Completed - Contract Updated&apos; 
+)</errorConditionFormula>
+    <errorDisplayField>Primary_Deal__c</errorDisplayField>
+    <errorMessage>Closing deals cannot be Primary, please untick the box</errorMessage>
+</ValidationRule>

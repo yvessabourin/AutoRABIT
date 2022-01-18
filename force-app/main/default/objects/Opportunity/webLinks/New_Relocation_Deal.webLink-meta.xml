@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>New_Relocation_Deal</fullName>
+    <availability>online</availability>
+    <displayType>massActionButton</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <linkType>url</linkType>
+    <masterLabel>Relocation</masterLabel>
+    <openType>replace</openType>
+    <protected>false</protected>
+    <requireRowSelection>false</requireRowSelection>
+    <url>{!
+IF(CONTAINS($User.UIThemeDisplayed, &apos;Theme4&apos;)
+,
+URLFOR(&quot;/lightning/o/Opportunity/new?recordTypeId=012b00000005Le5&quot; &amp;
+&quot;&amp;ent=Opportunity&amp;nooverride=0&amp;navigationLocation=RELATED_LIST&quot; &amp;
+&quot;&amp;backgroundContext=%2Flightning%2Fr%2FOpportunity%2F&quot; &amp; Village_Presence__c.Id &amp; &quot;%2Fview&quot; &amp;
+&quot;&amp;defaultFieldValues=&quot; &amp; &quot;Village_Presence__c=&quot; &amp; Village_Presence__c.Id &amp;
+&quot;,Name=&quot; &amp; URLENCODE(Village_Presence__c.Name) &amp;
+&quot;,AccountId=&quot; &amp; Village_Presence__c.BrandId__c &amp;
+&quot;,StageName=Pipeline,CloseDate=&quot; &amp; TEXT(TODAY()+730) &amp;
+&quot;,Village__c=&quot; &amp; Village__c.Id &amp;
+&quot;,Projected_Return_Local__c=&quot; &amp; TEXT(Village_Presence__c.Projected_Return_Local__c) &amp;
+&quot;,Projected_Sales_Yield_Local__c=&quot; &amp; TEXT(Village_Presence__c.Projected_Sales_Yield_Local__c) )
+,
+URLFOR(&quot;/006/e?CF00Nb0000009WpKY=&quot; &amp; Village_Presence__c.Name &amp;
+&quot;&amp;CF00Nb0000009WpKY_lkid=&quot; &amp; Village_Presence__c.Id &amp;
+&quot;&amp;opp3=&quot; &amp; Village_Presence__c.Name &amp;
+&quot;&amp;opp4=&quot; &amp; Village_Presence__c.Brand__c &amp;
+&quot;&amp;opp11=Pipeline&amp;CF00Nb0000008wHYw=&quot; &amp; Village_Presence__c.Village__c &amp;
+&quot;&amp;00Nb0000009YigM=&quot; &amp; TEXT(Village_Presence__c.Projected_Return_Local__c) &amp;
+&quot;&amp;00Nb0000009YiVY=&quot; &amp; TEXT(Village_Presence__c.Projected_Sales_Yield_Local__c) &amp;
+&quot;&amp;retURL=%2F&quot; &amp; Village_Presence__c.Id &amp;
+&quot;&amp;RecordType=012b00000005Le5&amp;ent=Opportunity&amp;nooverride=0&quot;)
+)}</url>
+</WebLink>

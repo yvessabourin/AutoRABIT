@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help>Introducir la cantidad de Transacciones de Virtual Shopping, si no hay Virtual Shopping para el día, introducir 0</help>
+    <label>Transacciones Virtual Shopping</label>
+    <name>Brand_Remote_Transactions__c</name>
+</CustomFieldTranslation>

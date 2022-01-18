@@ -1,0 +1,6 @@
+<table border="0" cellpadding="5" width="550" cellspacing="5" height="400" >
+<tr valign="top" height="400" >
+<td tEditID="c1r1" style=" background-color:#FFFFFF; bEditID:r3st1; color:#000000; bLabel:main; font-size:12pt; font-family:arial;" aEditID="c1r1" locked="0" >
+<![CDATA[Dear&nbsp;{!HFS_Item__c.Brand__c},<div><br></div><div>A Runner is on their way to collect the HFS item&nbsp;{!HFS_Item__c.Name}</div><div><br></div><div>Customer:&nbsp;{!HFS_Experience__c.Customer_Name__c}</div><div>Customer HFS Number:&nbsp;{!HFS_Experience__c.Name}</div><div>Runner:&nbsp;{!HFS_Item__c.Runner__c}</div><div>Bag number:&nbsp;{!HFS_Item__c.Bag_ID__c}</div><div><br></div><div>Please have the bags ready for collection within 5 minutes.</div><div><br></div><div>Regards,</div><div>Bicester Visitor Centre</div>]]></td>
+</tr>
+</table>

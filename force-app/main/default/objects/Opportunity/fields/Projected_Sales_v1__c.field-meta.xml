@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Projected_Sales_v1__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Enter the projected sales expectation for the 1st year of trading unless this has been pre-calculated from the sales yield and the unit size. To force a recalculation then just blank this field</inlineHelpText>
+    <label>Projected Sales v1</label>
+    <precision>13</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

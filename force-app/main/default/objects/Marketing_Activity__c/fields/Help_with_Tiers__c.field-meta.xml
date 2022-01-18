@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Help_with_Tiers__c</fullName>
+    <externalId>false</externalId>
+    <formula>HYPERLINK(&quot;/servlet/servlet.FileDownload?file=015b0000005o9GV&quot;, &quot;View Tier Help Document&quot; )</formula>
+    <label>Help with Tiers</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Village_Presence__c.Village_Presence_Contact_Roles__r$Name</field>
+    </columns>
+    <columns>
+        <field>Village_Presence__c.Village_Presence_Contact_Roles__r$Contact__c</field>
+    </columns>
+    <columns>
+        <field>Village_Presence__c.Village_Presence_Contact_Roles__r$Daily_Sales_Active_From__c</field>
+    </columns>
+    <columns>
+        <field>Village_Presence__c.Village_Presence_Contact_Roles__r$Daily_Sales_Active_To__c</field>
+    </columns>
+    <columns>
+        <field>Village_Presence__c.Village_Presence_Contact_Roles__r$Confirm_Daily_Sales_Records__c</field>
+    </columns>
+    <currency>EUR</currency>
+    <description>Lists the Contacts with a Village Presence Contact Role for all Daily Sale active Village Presences within a Village.</description>
+    <filter>
+        <criteriaItems>
+            <column>Village_Presence__c$Daily_Sales_Active__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>1</value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Village_Presence__c$Village__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Village_Presence__c$Name</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>Daily Sale Contacts by Village and Store</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Contact_Roles__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>Village_Presence__c.Village_Presence_Contact_Roles__r$CreatedDate</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

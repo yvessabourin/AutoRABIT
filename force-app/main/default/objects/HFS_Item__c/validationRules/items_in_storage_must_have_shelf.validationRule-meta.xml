@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>items_in_storage_must_have_shelf</fullName>
+    <active>true</active>
+    <description>If an item is in storage, it must be allocated to a shelf</description>
+    <errorConditionFormula>(ISPICKVAL(  Status__c , &quot;In Storage&quot;)  &amp;&amp; isblank(Shelf__c ))
+
+ ||
+(
+NOT(ISPICKVAL(  Status__c , &quot;In Storage&quot;))  &amp;&amp; NOT(isblank(Shelf__c ))
+
+)</errorConditionFormula>
+    <errorMessage>Only Items in Storage can (must) have an allocated shelf</errorMessage>
+</ValidationRule>

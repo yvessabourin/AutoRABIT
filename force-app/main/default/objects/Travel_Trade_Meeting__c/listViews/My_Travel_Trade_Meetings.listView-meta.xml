@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>My_Travel_Trade_Meetings</fullName>
+    <columns>Tourism_Account__c</columns>
+    <columns>Tourism_Contact__c</columns>
+    <columns>Date_of_Meeting__c</columns>
+    <columns>Meeting_Location__c</columns>
+    <columns>Meeting_Minutes__c</columns>
+    <filterScope>Mine</filterScope>
+    <label>My Travel Trade Meetings</label>
+</ListView>

@@ -1,0 +1,22 @@
+<apex:page standardController="HFS_Job__c" extensions="HFSRunnerAssignExtension" lightningStylesheets="true">
+    <apex:form >
+        <apex:outputPanel id="pageMessages" layout="block">
+            <apex:pageMessages escape="false" />
+        </apex:outputPanel>
+        <apex:pageBlock >
+            <apex:pageBlockSection title="Assign a Runner">
+                <apex:outputField value="{!HFS_Job__c.Name}" />
+                <apex:outputField value="{!HFS_Job__c.HFS_Purchase__c}" />
+                <apex:outputField value="{!HFS_Job__c.Creation__c}" />
+                <apex:selectList size="1" value="{!selectedAssignedRunner}" label="Runner : "> 
+                    <apex:selectOptions value="{!allRunners}" />
+                </apex:selectList>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+        <div align="center" >
+            <apex:commandButton value="Assign" action="{!assign}" rerender="pageMessages" />
+            <apex:commandButton value="Create New Job" action="{!createNewJob}" rerender="pageMessages" />
+            <apex:commandButton value="Back to Record" action="{!cancel}" />
+        </div>
+    </apex:form>
+</apex:page>

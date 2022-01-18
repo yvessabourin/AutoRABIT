@@ -1,0 +1,8 @@
+<apex:page standardController="Retail_Live_Email__c" extensions="displayImageExtension" showHeader="0" sidebar="0">
+<apex:form >
+<apex:repeat id="images" value="{!FileIds}" var="fileid">
+    <apex:image url="/servlet/servlet.FileDownload?file={!FileId}" height="300" />
+    <p></p>
+</apex:repeat>
+</apex:form>
+</apex:page>

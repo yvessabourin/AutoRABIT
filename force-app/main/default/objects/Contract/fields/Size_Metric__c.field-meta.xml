@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Size_Metric__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Select the size metric being used to calculate Base Rent, Service Charges or Management Fee and Deposit Amounts</inlineHelpText>
+    <label>Size Metric</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>sq.m</fullName>
+                <default>false</default>
+                <label>sq.m</label>
+            </value>
+            <value>
+                <fullName>sq.ft</fullName>
+                <default>false</default>
+                <label>sq.ft</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

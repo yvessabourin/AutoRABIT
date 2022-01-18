@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DashboardFolder xmlns="http://soap.sforce.com/2006/04/metadata">
+    <folderShares>
+        <accessLevel>View</accessLevel>
+        <sharedTo>ayeh@valueretail.com</sharedTo>
+        <sharedToType>User</sharedToType>
+    </folderShares>
+    <folderShares>
+        <accessLevel>View</accessLevel>
+        <sharedTo>ayehtemp@valueretailchina.com</sharedTo>
+        <sharedToType>User</sharedToType>
+    </folderShares>
+    <folderShares>
+        <accessLevel>EditAllContents</accessLevel>
+        <sharedTo>rlaw@valueretail.com</sharedTo>
+        <sharedToType>User</sharedToType>
+    </folderShares>
+    <folderShares>
+        <accessLevel>Manage</accessLevel>
+        <sharedTo>Bicester_Leasing</sharedTo>
+        <sharedToType>RoleAndSubordinatesInternal</sharedToType>
+    </folderShares>
+    <folderShares>
+        <accessLevel>Manage</accessLevel>
+        <sharedTo>China_Leasing</sharedTo>
+        <sharedToType>RoleAndSubordinatesInternal</sharedToType>
+    </folderShares>
+    <folderShares>
+        <accessLevel>EditAllContents</accessLevel>
+        <sharedTo>EU_Leasing</sharedTo>
+        <sharedToType>RoleAndSubordinatesInternal</sharedToType>
+    </folderShares>
+    <name>China Leasing Reports</name>
+</DashboardFolder>

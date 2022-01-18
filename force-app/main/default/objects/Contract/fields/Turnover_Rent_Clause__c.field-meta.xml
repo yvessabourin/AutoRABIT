@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Turnover_Rent_Clause__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Describe (in 1k characters) the Turnover Rent scenario for this deal</inlineHelpText>
+    <label>Turnover Rent Clause</label>
+    <length>2048</length>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>LongTextArea</type>
+    <visibleLines>8</visibleLines>
+</CustomField>

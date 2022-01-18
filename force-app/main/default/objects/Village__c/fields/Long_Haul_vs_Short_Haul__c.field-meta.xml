@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Long_Haul_vs_Short_Haul__c</fullName>
+    <description>Long Haul vs Short Haul</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Long Haul vs Short Haul</inlineHelpText>
+    <label>Long Haul vs Short Haul</label>
+    <length>10000</length>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>LongTextArea</type>
+    <visibleLines>5</visibleLines>
+</CustomField>

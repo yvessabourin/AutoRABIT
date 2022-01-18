@@ -1,0 +1,43 @@
+<template>
+	<c-lgl-notifications-component></c-lgl-notifications-component>
+
+	<form>
+		<!-- The Property hideGuestTypeField controls when to hide the Guest Type Field. If the property is true, the field is hidden -->
+		<lightning-combobox
+			if:false={hideGuestTypeField}
+			name="LGL_Guest_Type__c"
+			label="Guest Type"
+			placeholder="Select a Guest Type"
+			options={guestTypesList}
+			required
+			onchange={handleFieldChange}
+		>
+		</lightning-combobox>
+
+		<lightning-combobox
+			name="LGL_Request_Location__c"
+			label="Service Location"
+			placeholder="Select the Service location"
+			options={serviceLocationsList}
+			value={defaultLocation}
+			required
+			onchange={handleFieldChange}
+		>
+		</lightning-combobox>
+	</form>
+	<div class="slds-var-m-top_medium">
+		<lightning-tabset variant="scoped">
+			<template for:each={selectedServices} for:item="selectedService">
+				<lightning-tab key={selectedService.LGL_Service_Id__c} label={selectedService.Name}>
+					<c-lgl-service-settings
+						service-type={selectedService.LGL_Service_Id__c}
+						user-village={userVillage}
+						selected-location={selectedLocation}
+						service-offerings-map={serviceOfferingsMap}
+					>
+					</c-lgl-service-settings>
+				</lightning-tab>
+			</template>
+		</lightning-tabset>
+	</div>
+</template>

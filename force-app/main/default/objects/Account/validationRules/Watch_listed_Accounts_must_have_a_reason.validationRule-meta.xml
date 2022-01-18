@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Watch_listed_Accounts_must_have_a_reason</fullName>
+    <active>true</active>
+    <description>If an Account is watch listed then there must be a reason</description>
+    <errorConditionFormula>Watch_Listed__c =   ISBLANK(Watch_List_Reason__c)</errorConditionFormula>
+    <errorDisplayField>Watch_List_Reason__c</errorDisplayField>
+    <errorMessage>Watch listed Brands must have have a reason for being watch listed. If the Brand is not watch listed the Reason should be empty</errorMessage>
+</ValidationRule>

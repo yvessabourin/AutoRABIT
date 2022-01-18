@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Price_Point__c</fullName>
+    <externalId>false</externalId>
+    <label>Price Point</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Best above €100</fullName>
+                <default>false</default>
+                <label>Best above €100</label>
+            </value>
+            <value>
+                <fullName>Better €50 to €100</fullName>
+                <default>false</default>
+                <label>Better €50 to €100</label>
+            </value>
+            <value>
+                <fullName>Good under €50</fullName>
+                <default>false</default>
+                <label>Good under €50</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

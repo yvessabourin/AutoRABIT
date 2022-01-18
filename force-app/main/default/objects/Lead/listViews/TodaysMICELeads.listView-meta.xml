@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>TodaysMICELeads</fullName>
+    <columns>FULL_NAME</columns>
+    <columns>LEAD.COMPANY</columns>
+    <columns>Village_of_Visit_c__c</columns>
+    <columns>LEAD.EMAIL</columns>
+    <columns>LEAD.STATUS</columns>
+    <columns>LEAD.CREATED_DATE</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>LEAD.UNREAD</columns>
+    <columns>Secondary_MICE_Org_or_Agency_name__c</columns>
+    <columns>Account_Reference__c</columns>
+    <columns>Account_Reference_Number__c</columns>
+    <columns>Quick_Convert__c</columns>
+    <columns>Create_Group_Booking__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>LEAD.CREATED_DATE</field>
+        <operation>equals</operation>
+        <value>TODAY</value>
+    </filters>
+    <filters>
+        <field>LEAD.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Lead.Group_Booking_Lead</value>
+    </filters>
+    <label>Today&apos;s MICE Leads</label>
+    <language>en_US</language>
+</ListView>

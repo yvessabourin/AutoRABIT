@@ -1,0 +1,35 @@
+:host {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+	color: #333;
+}
+
+th {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+	padding: 8px;
+}
+
+td {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+	border-top: 1px solid rgb(221, 221, 221);
+	padding: 8px;
+}
+
+.lgl-empty-table td {
+	border-top: none;
+}
+
+.lgl-table > tbody > tr:hover {
+	background-color: #e8e8e8;
+	cursor: pointer;
+}
+
+.lgl-link-cell {
+	cursor: pointer;
+	text-decoration: underline;
+	color: #2595d4;
+}
+
+.lgl-table-footer {
+	font-weight: bold;
+	background-color: #d9d9d9;
+}

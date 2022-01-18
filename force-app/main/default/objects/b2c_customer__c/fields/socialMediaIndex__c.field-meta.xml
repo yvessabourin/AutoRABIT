@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>socialMediaIndex__c</fullName>
+    <description>Calculated score from Facebook that indicates how Socially aware they are</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Calculated score from Facebook that indicates how Socially aware they are</inlineHelpText>
+    <label>Social Media Index</label>
+    <precision>5</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

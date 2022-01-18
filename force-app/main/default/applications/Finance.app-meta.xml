@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomApplication xmlns="http://soap.sforce.com/2006/04/metadata">
+    <defaultLandingTab>standard-home</defaultLandingTab>
+    <isNavAutoTempTabsDisabled>false</isNavAutoTempTabsDisabled>
+    <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
+    <label>Finance</label>
+    <tabs>standard-Account</tabs>
+    <tabs>standard-Contact</tabs>
+    <tabs>Village_Presence__c</tabs>
+    <tabs>Village__c</tabs>
+    <tabs>Daily_Sales_Certification</tabs>
+    <tabs>standard-report</tabs>
+    <tabs>Risk_Factor__c</tabs>
+    <tabs>Room__c</tabs>
+    <tabs>PRX__Outreach_Automation__c</tabs>
+</CustomApplication>

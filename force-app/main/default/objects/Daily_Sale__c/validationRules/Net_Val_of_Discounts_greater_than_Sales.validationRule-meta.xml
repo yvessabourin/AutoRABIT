@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Net_Val_of_Discounts_greater_than_Sales</fullName>
+    <active>true</active>
+    <description>If a VIP Discount Amount is entered that is greater than the Total Net Sales that is entered and the Daily Sales record is saved then the error message will be displayed warning the brand user.  The brand user can change the data and save, or can select &apos;</description>
+    <errorConditionFormula>$Setup.Global_Object_Validation__c.Daily_Sales_Validations_Active__c &amp;&amp; ((NOT(ISBLANK( NET_Value_of_Discounts__c )) &amp;&amp; NOT(ISBLANK( Total_NET_SALES__c )) &amp;&amp; NET_Value_of_Discounts__c &gt; Total_NET_SALES__c &amp;&amp; NOT( Ignore_Validations__c )) || (NOT(ISBLANK( NET_Value_of_Discounts__c )) &amp;&amp; ISBLANK( Total_NET_SALES__c ) &amp;&amp; NOT( Ignore_Validations__c )))</errorConditionFormula>
+    <errorDisplayField>NET_Value_of_Discounts__c</errorDisplayField>
+    <errorMessage>The Net Value of Discounts amount cannot be greater than the total net sales. Please set the &apos;Ignore Validations&apos; flag and add a note to this record if you believe the values are correct.</errorMessage>
+</ValidationRule>

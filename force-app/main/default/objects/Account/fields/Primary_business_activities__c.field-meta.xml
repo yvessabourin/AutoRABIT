@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Primary_business_activities__c</fullName>
+    <externalId>false</externalId>
+    <label>Specialty</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Business</fullName>
+                <default>false</default>
+                <label>Business</label>
+            </value>
+            <value>
+                <fullName>Gay/Lesbian travel</fullName>
+                <default>false</default>
+                <label>Gay/Lesbian travel</label>
+            </value>
+            <value>
+                <fullName>Groups</fullName>
+                <default>false</default>
+                <label>Groups</label>
+            </value>
+            <value>
+                <fullName>Independent travel</fullName>
+                <default>false</default>
+                <label>Independent travel</label>
+            </value>
+            <value>
+                <fullName>Senior citizen travel</fullName>
+                <default>false</default>
+                <label>Senior citizen travel</label>
+            </value>
+            <value>
+                <fullName>Youth/Student travel</fullName>
+                <default>false</default>
+                <label>Youth/Student travel</label>
+            </value>
+            <value>
+                <fullName>A la carte</fullName>
+                <default>false</default>
+                <label>A la carte</label>
+            </value>
+            <value>
+                <fullName>Fly &amp; Stay</fullName>
+                <default>false</default>
+                <label>Fly &amp; Stay</label>
+            </value>
+            <value>
+                <fullName>Leisure</fullName>
+                <default>false</default>
+                <label>Leisure</label>
+            </value>
+            <value>
+                <fullName>MICE</fullName>
+                <default>false</default>
+                <label>MICE</label>
+            </value>
+            <value>
+                <fullName>Packaged tours</fullName>
+                <default>false</default>
+                <label>Packaged tours</label>
+            </value>
+            <value>
+                <fullName>Youth travel</fullName>
+                <default>false</default>
+                <label>Youth travel</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

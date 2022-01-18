@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Department__c</fullName>
+    <externalId>false</externalId>
+    <label>Department</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>BV Projects</fullName>
+                <default>false</default>
+                <label>BV Projects</label>
+            </value>
+            <value>
+                <fullName>Cleaning</fullName>
+                <default>false</default>
+                <label>Cleaning</label>
+            </value>
+            <value>
+                <fullName>Car Park</fullName>
+                <default>false</default>
+                <label>Car Park</label>
+            </value>
+            <value>
+                <fullName>Landscaping</fullName>
+                <default>false</default>
+                <label>Landscaping</label>
+            </value>
+            <value>
+                <fullName>Maintenance</fullName>
+                <default>false</default>
+                <label>Maintenance</label>
+            </value>
+            <value>
+                <fullName>Security</fullName>
+                <default>false</default>
+                <label>Security</label>
+            </value>
+            <value>
+                <fullName>Retail</fullName>
+                <default>false</default>
+                <label>Retail</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

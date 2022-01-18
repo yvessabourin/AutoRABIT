@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LEISURE_Lead_Queue_Bicester</fullName>
+    <columns>FULL_NAME</columns>
+    <columns>LEAD.TITLE</columns>
+    <columns>LEAD.EMAIL</columns>
+    <columns>LEAD.COMPANY</columns>
+    <columns>Expected_Arrival__c</columns>
+    <columns>Number_of_Visitors__c</columns>
+    <columns>Region__c</columns>
+    <columns>Secondary_MICE_Org_or_Agency_name__c</columns>
+    <columns>LEAD.CREATED_DATE</columns>
+    <columns>Account_Reference_Number__c</columns>
+    <filterScope>Queue</filterScope>
+    <label>LEISURE Lead Queue - Bicester</label>
+    <language>en_US</language>
+    <queue>LEISURE_Lead_Queue_Bicester</queue>
+    <sharedTo>
+        <group>Location_Bicester</group>
+        <role>Business_Systems</role>
+    </sharedTo>
+</ListView>

@@ -1,0 +1,8 @@
+.lgl-clickable-icon {
+	cursor: pointer;
+	transition: all 0.3s;
+}
+
+.lgl-rotated-icon {
+	transform: rotateY(360deg);
+}

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Email used to warn the users that have a certification to be certified in Italian</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Certify Now Template IT</name>
+    <style>none</style>
+    <subject>Richiesta Certificazione delle vendite (Value retail)</subject>
+    <textOnly>Buongiorno UserName,
+
+È  giunto il momento di certificare le vendite. La scadenza della certificazione è il certificationDeadline.
+
+Accedi al Portale del Brand utilizzando il link sottostante e sarai in grado di visualizzare tutti i dati in sospeso per cui è necessario certificare le vendite.
+
+Portale del Brand: website_here
+
+Si prega di notare che sarà necessario rivedere / compilare sia il NETTO VENDITE (IVA ESCLUSA) che gli SCONTI NETTI (IVA ESCLUSA).
+
+Vi facciamo presente che i seguenti sconti devono essere aggiunti alle vendite nette: sconti del 10% VIP, eventuali sconti interni del personale.
+
+In caso di problemi o domande, si prega di contattare il proprio contatto amministrativo di  Value Retail.
+
+Distinti saluti,
+
+Il Team di Value Retail</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

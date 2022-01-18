@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>La_Roca_Brands</fullName>
+    <columns>NAME</columns>
+    <columns>Unit__c</columns>
+    <columns>Status__c</columns>
+    <columns>Daily_Sales_Active__c</columns>
+    <columns>Brand_Remote_Sales_Active__c</columns>
+    <columns>F_B_Covers_Active__c</columns>
+    <columns>CertSales_Active__c</columns>
+    <columns>CertSales_CertPeriod_Type__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Village__c</field>
+        <operation>equals</operation>
+        <value>La Roca</value>
+    </filters>
+    <filters>
+        <field>Status__c</field>
+        <operation>equals</operation>
+        <value>Trading</value>
+    </filters>
+    <label>La Roca Brands</label>
+</ListView>

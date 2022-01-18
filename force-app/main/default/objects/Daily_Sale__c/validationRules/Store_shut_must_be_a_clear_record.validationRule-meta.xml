@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Store_shut_must_be_a_clear_record</fullName>
+    <active>false</active>
+    <errorConditionFormula>$Setup.Global_Object_Validation__c.Daily_Sales_Validations_Active__c 
+&amp;&amp; Store_Closed__c = true &amp;&amp;
+Brand_Reported_Amount__c &lt;&gt; 0</errorConditionFormula>
+    <errorDisplayField>Brand_Reported_Amount__c</errorDisplayField>
+    <errorMessage>If the store was closed then the reported amount must be 0</errorMessage>
+</ValidationRule>

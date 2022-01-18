@@ -1,0 +1,28 @@
+<template>
+	<table>
+		<thead>
+			<tr>
+				<th></th>
+				<template for:each={matrixHeaders.columns} for:item="column">
+					<th key={column}>{column}</th>
+				</template>
+			</tr>
+		</thead>
+		<tbody>
+			<template for:each={matrixHeaders.rows} for:item="row">
+				<tr key={row}>
+					<td>{row}</td>
+					<template for:each={matrixHeaders.columns} for:item="column">
+						<td key={column}>
+							<c-lgl-matrix-element
+								all-elements={serviceOfferings}
+								row-id={row}
+								column-id={column}
+							></c-lgl-matrix-element>
+						</td>
+					</template>
+				</tr>
+			</template>
+		</tbody>
+	</table>
+</template>

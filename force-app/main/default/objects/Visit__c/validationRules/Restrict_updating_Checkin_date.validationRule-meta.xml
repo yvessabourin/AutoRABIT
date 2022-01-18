@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Restrict_updating_Checkin_date</fullName>
+    <active>true</active>
+    <description>Restrict_updating_Check-in_date if the Current date has passed the Check-in_date.....</description>
+    <errorConditionFormula>AND(
+            Visit_Date_Time__c &lt; DATETIMEVALUE(TODAY()) &amp;&amp;  RecordType.DeveloperName  = &quot;Standard&quot; ,
+            OR(
+            ISCHANGED(Visit_Date_Time__c),
+            ISCHANGED(Check_Out_Date_Time__c) ,
+            ISCHANGED(Number_of_Guests__c) ,
+            ISCHANGED(Number_of_Children__c)
+            )
+            )</errorConditionFormula>
+    <errorMessage>You cannot edit the visit once the date of the check-in has passed.</errorMessage>
+</ValidationRule>

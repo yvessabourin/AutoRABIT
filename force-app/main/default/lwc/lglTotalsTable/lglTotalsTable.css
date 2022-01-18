@@ -1,0 +1,15 @@
+:host {
+	font-weight: bold;
+}
+
+.lgl-container {
+	background-color: #e2e2e2;
+}
+
+.lgl-container > .lgl-list-item {
+	padding-top: 0.5em;
+}
+
+.lgl-container > .lgl-list-item:first-child {
+	padding-top: 0;
+}

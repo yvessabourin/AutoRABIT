@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customPermissions>
+        <enabled>true</enabled>
+        <name>Deal_Budget_Editing</name>
+    </customPermissions>
+    <description>This will give specific Leasing users permission to edit the Deal Budget data fields as this section of the Deal is not editable to other Leasing users.  These specific users will then be able to complete data uploads into these deal fields.</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>Deal Budget Editing</label>
+</PermissionSet>

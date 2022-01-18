@@ -1,0 +1,503 @@
+<apex:page docType="html-5.0" applyBodyTag="false" applyHtmlTag="false" cache="true" showHeader="false" standardStylesheets="false"
+    standardController="Village_Presence__c" extensions="RetailLivePost" >
+<html> 
+<head> 
+    <title>Create Retail LIVE</title>
+    <meta charset="utf-8" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    
+    <!-- jQuery Mobile -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+
+    <!-- <apex:stylesheet value="https://code.jquery.com/mobile/1.3.0/jquery.mobile-1.3.0.min.css" />
+    <apex:includeScript value="https://code.jquery.com/jquery-1.9.1.min.js"/>
+    <apex:includeScript value="https://code.jquery.com/mobile/1.3.0/jquery.mobile-1.3.0.min.js"/> -->
+
+    <apex:stylesheet value="https://code.jquery.com/mobile/1.3.0/jquery.mobile-1.3.0.min.css" />
+    <apex:includeScript value="https://code.jquery.com/jquery-1.9.1.min.js"/>
+    <apex:includeScript value="https://code.jquery.com/mobile/1.3.0/jquery.mobile-1.3.0.min.js"/>
+        
+    <!-- Salesforce1 -->
+    <apex:includeScript value="/canvas/sdk/js/publisher.js" />
+            
+    <!-- custom scripts -->
+    <script>
+        var sf1Data;
+        $j = jQuery.noConflict();
+        Visualforce.remoting.timeout = 60000;
+        Visualforce.remoting.buffer = false;        
+        Visualforce.remoting.escape = false;
+        
+        // Process submit button clicked
+        Sfdc.canvas.publisher.subscribe({name: "publisher.post", onData:function(e) {
+            postRetailLive();
+        }}); 
+        
+        function postRetailLive() {
+            
+            subject = $j('#subjectText').val();
+            //subject =subjectText2.value;
+            
+            if(subject.length == 0){
+                //$j('#statusPopupID').popup('close');
+                $j('#processing').hide();
+                alert('Retail LIVE text must be entered before submitting');
+                return;
+            }
+            
+            //$j('#statusPopupID').popup('open');
+            $j('#processing').show();
+            var toListArray = [];
+            toString = $j('#toList').val();
+            if (toString.indexOf('@') > -1) {
+                toString = toString.replace('[', '');
+                toString = toString.replace(']', '');
+                toListArray = toString.split(',');
+                toString.replace(',', ';'); 
+            }
+            
+            if (toListArray.length == 0){
+               // $j('#statusPopupID').popup('close');
+               $j('#processing').hide();
+                alert('Entry must have at least one recipient in the To: field');                
+                return;
+            }
+            
+            var ccListArray = [];
+            ccString = $j('#ccList').val();
+            if (ccString.indexOf('@') > -1) {
+                ccString = ccString.replace('[', '');
+                ccString = ccString.replace(']', '');
+                ccListArray = ccString.split(',');
+                ccString.replace(',', ';');  
+            }
+            
+            var bccListArray = [];
+            bccString = $j('#bccList').val();
+            
+            if (bccString.indexOf('@') > -1) {
+                bccString = bccString.replace('[', '');
+                bccString = bccString.replace(']', '');
+                bccListArray = bccString.split(','); 
+            }
+                                    
+            // Pick up values
+            sf1Data.publicReplies = $j('#publicReplies').val();
+            sf1Data.subjectText = $j('#subjectText').val();
+            //sf1Data.subjectText = subjectText2.value;
+            sf1Data.toList = toListArray;
+            sf1Data.ccList = ccListArray;
+            sf1Data.bccList = bccListArray;
+            
+            //sf1Data.brandName = '{!Village_Presence__c.Brand__r.No_Whitespace_Name__c}';
+            var brand = '{!JSENCODE(Village_Presence__c.Brand__r.No_Whitespace_Name__c)}';
+            sf1Data.brandName = brand;
+                        
+            sf1Data.villageCode = '{!Village_Presence__c.Village__r.Village_Code__c}';
+            sf1Data.villagePresenceId = '{!Village_Presence__c.Id}';
+   
+            RetailLivePost.postRetailLive(sf1Data, function(result, event) {
+               // $j('#statusPopupID').popup('close');
+                $j('#processing').hide();
+                if(event.status) {
+                    if (result == 'Success') {
+                        alert(' Retail LIVE Posted Successfully ');
+                        Sfdc.canvas.publisher.publish({name: "publisher.close", payload:{refresh:"true"}});
+                    } else if (result == 'Duplicate Subject'){
+                        alert('Text entered for this Retail LIVE is already present and must be unique, please amend your text and try again.');
+                    } else {
+                        alert(result);
+                    }
+                } else {
+                    alert("Network Error - Please report issue if problem persists");
+                    alert(event.message);
+                }
+            });
+        }
+    
+        $j(document).ready(function() {            
+            
+            $j('#processing').hide();
+            
+            // Enable submit button
+            Sfdc.canvas.publisher.publish({name: "publisher.setValidForSubmit", payload:"true"});
+            sf1Data = {"apexType":"c.RetailLivePost.sf1Data"};
+            getContext();
+            $j('#charNum').text(244);
+            
+            var vcrList = new Array();
+            vcrList = $j('#toList').val().split(',');
+
+           //$j("#brandContacts > option").each(function() {
+ 
+           $j("select[id$='brandContacts'] > option").each(function() {
+                for (i=0; i < vcrList.length; i++) {                    
+                    console.log(this.value + ' - ' + vcrList[i]);
+                    if (this.value == vcrList[i]) {
+                        this.selected = true;                    
+                        //$j("#brandContacts").selectmenu("refresh");
+                         $j("select[id$='brandContacts']").selectmenu("refresh");
+                    }
+                }
+            });
+
+            //$j("select").change(function () {
+            $j("select[id$='brandContacts']").change(function () {
+                  var str = "";
+                  //$j("#brandContacts > option").each(function() {
+                  $j("select[id$='brandContacts'] > option").each(function() {
+                        if (this.selected){
+                            str += this.value + ",";
+                        }
+                      });
+                  if(str.length > 1){
+                      str = str.substring(0, str.length - 1);
+                  }
+                  $j("#toList").text(str);
+            })
+            .change();                     
+
+            $j('#msgdiv').hide();
+            document.getElementById('close').onclick = function(){
+                    $j('#msgdiv').hide();
+                    return false;
+                }; 
+        }); // End of Document ready function
+        
+        
+        function showMsgDiv(msg){
+            
+            if (msg){
+                $j('#msgtxt').html(msg);
+                $j('#msgdiv').show();                        
+            }
+        
+        }
+        
+        function getContext(){
+
+            if( (typeof sforce != 'undefined') && (sforce != null) ) {
+                 // running in mobile
+                 $j('#emailLink').css("display", "none");
+                 $j('#mobilePage').css("display", "block");
+                 $j('#emailLinkSf1').css("display", "block");
+            }
+            else {
+                 // running on desktop
+                 $j('#emailLink').css("display", "block");
+                 $j('#mobilePage').css("display", "none");
+                 $j('#emailLinkSf1').css("display", "none");
+                 
+                 $j("a[href^='mailto:']").on("click",function() {
+                    window.top.location = $j(this).prop("href");
+                    return false;
+                 });
+
+                 
+            }        
+        }
+
+        function countChar(val) {
+            var len = val.value.length;
+            if (len > 244) {
+              val.value = val.value.substring(0, 243);
+            } else {
+              $j('#charNum').text(244 - len);
+            }
+            Sfdc.canvas.publisher.publish({name: "publisher.setValidForSubmit", payload:"true"});
+
+            
+        };
+
+        function countChar2(val) {
+            var len = val.text().length;
+            if (len > 244) {
+              val.text() = val.text().substring(0, 243);
+            } else {
+              $j('#charNum').text(244 - len);
+            }
+            Sfdc.canvas.publisher.publish({name: "publisher.setValidForSubmit", payload:"true"});
+        };
+        /*** Code section for file attachments ***/
+        
+        var maxStringSize = 6000000;    //Maximum String size is 6,000,000 characters
+        var maxFileSize = 4350000;      //After Base64 Encoding, this is the max file size
+        var chunkSize = 950000;         //Maximum Javascript Remoting message size is 1,000,000 characters
+        var fileSize;
+        var positionIndex;
+        var doneUploading;
+        var resizeBody;
+        var fileListSize = 0;
+        var totalAttachmentLength = 0;
+        
+        //Method to prepare a file for attachment
+        function uploadFile() {
+console.log('upload 1 ....');
+            var files = document.getElementById('attachmentFile').files;
+console.log('upload 2 ...');
+            // restrict file attachments to only 1
+            if (files.length > 1){
+                showMsgDiv('Only one attachment allowed. If you wish to send multiple attachments please send your Retail LIVE using the Mail client!!');
+                document.getElementById('attachmentFile').value = null;
+                return false;
+            }
+console.log('upload 3 ...');
+            $j('#processing').show();
+            $j('#msgdiv').hide();            
+            for (var i = 0; i < files.length; i++) { //for multiple files          
+                (function(file) {
+                    var name = file.name; 
+                    fileListSize += file.size;        
+                    if(file.size <= maxFileSize) {
+                        var attachmentName = file.name;
+                        var fileReader = new FileReader();  
+                        fileReader.onload = function(e) {  
+                        var attachment = window.btoa(this.result);  //Base 64 encode the file before sending it                           
+                            positionIndex=0;
+                            fileSize = attachment.length;                            
+                            totalAttachmentLength += fileSize ;
+                             
+                            doneUploading = false;
+                            if(fileSize < maxStringSize) {
+                                uploadAttachment(null, attachmentName, attachment, file);
+                            } else {
+                                $j('#processing').hide();     
+                                showMsgDiv("Base 64 Encoded file is too large.  Maximum size is " + maxStringSize + " your file is " + fileSize + ".");
+                            }
+                        }
+                        fileReader.onerror = function(e) {
+                            $j('#processing').hide();     
+                            showMsgDiv("There was an error reading the file.  Please try again.");
+                        }
+                        fileReader.onabort = function(e) {
+                            $j('#processing').hide();     
+                            showMsgDiv("There was an error reading the file.  Please try again.");
+                        }
+                
+                        //Read the body of the file
+                        fileReader.readAsBinaryString(file);
+
+                    } else {
+                        $j('#processing').hide();     
+                        showMsgDiv("File must be under 4.3 MB in size.  Your file is too large.  Please try again.");        
+                    }
+                })(files[i]);
+                
+            }
+            $j('#attachmentFile').css("display", "none");
+            
+        }
+
+
+        function uploadAttachment(fileId, attachmentName, attachment, file) {
+            var attachmentBody = "";             
+            var msg = null;
+             
+            if (sf1Data.attachmentIdList == null || sf1Data.attachmentIdList == 'undefined'){
+                sf1Data.attachmentIdList = new Array();
+                sf1Data.attachmentNameList = new Array();
+            }
+
+            if (sf1Data.attachmentNameList.length > 0){
+                $j('#processing').hide();     
+                document.getElementById('attachmentFile').value = null;
+                msg = 'Only one attachment allowed. If you wish to send multiple attachments please sent your Retail LIVE using the Mail client';
+
+            }
+            
+            if (!msg){
+                        
+    console.log(fileSize + ' - ' + positionIndex + ' - ' + chunkSize);            
+                
+                if(fileSize <= positionIndex + chunkSize) {
+                //if(totalAttachmentLength <= positionIndex + chunkSize) {
+                    attachmentBody = attachment.substring(positionIndex);
+                    doneUploading = true;
+                } else {
+                    // Need to split the file into chunks and pass each chunk to the server sequentially
+                    attachmentBody = attachment.substring(positionIndex, positionIndex + chunkSize);
+                }
+          
+                RetailLivePost.uploadAttachment(
+                    attachmentBody, attachmentName, fileId, 
+                    function(result, event) {
+                        $j('#processing').hide();
+                        if(event.type === 'exception') {
+                            $j('#processing').hide();     
+                            showMsgDiv("Failed to upload attachment - If problem persists, consider using email client to create Retail LIVE - " + event.message);                        
+                        } else if(event.status) {
+    console.log(fileSize + ' - ' + positionIndex + ' - ' + chunkSize + ' - ' + doneUploading );  
+                            if(doneUploading == true) {
+                                // update array
+                                sf1Data.attachmentIdList[sf1Data.attachmentIdList.length] = result;
+                                sf1Data.attachmentNameList[sf1Data.attachmentNameList.length] = attachmentName;
+                                $j('#processing').hide();     
+                                var names = "";
+                                for (var x=0; x < sf1Data.attachmentNameList.length; x++){
+                                    names += ' << '  + sf1Data.attachmentNameList[x] + ' >> ' ;
+                                }
+    
+                                $j("#files").html(names);
+                                
+                            } else {
+                                // Another chunk (file part) needs to be sent, therefore make recursive call
+                                // also including the file id (VF Remoting result parameter) to append to the
+                                // already partly created file 
+                                positionIndex += chunkSize;
+                                uploadAttachment(result, attachmentName, attachment, file);
+                            }
+    
+                        } else {
+                            $j('#processing').hide();
+                            showMsgDiv("Failed to upload attachment - If problem persists, consider using email client to create Retail LIVE  - " + event.message);
+                        }
+                        
+                    },
+                    //{buffer: false, escape: false, timeout: 60000}
+                    {buffer: true, escape: true, timeout: 60000}
+                );
+            }
+        }
+        if (msg)
+            showMsgDiv(msg);        
+        /*** End of File Attachment code section  ***/
+        
+
+        
+    </script>
+    
+    <style>
+        h3 {
+            background-color: #F8F8FF;
+        }
+        
+        
+        div {
+            background-color: #FFFFFF;
+        }
+        
+        .mailto:link{
+            color:gray;
+            font-size: 10px;
+        }
+
+        #close {
+            float:right;
+            display:inline-block;
+            padding:2px 5px;
+            background:#ccc;
+        }
+        
+        #msgtxt {
+            color: red;
+        }
+        
+        #msgdiv {
+            border: 1px solid #ccc;
+            color: #555;
+            display: block;
+            padding: 10px;
+            box-sizing: border-box;
+        }        
+
+    </style>
+
+</head> 
+<body>
+<div data-role="page">
+    <div data-role="content">   
+
+        
+        <div id='processing' align="center">Processing ...  <img src="{!$Resource.ajaxSpinner}"/></div>
+        
+        <div id="msgdiv">
+            <span id='close'>X</span>
+            <p id="msgtxt" >
+                
+            </p>
+        </div>
+               
+        <h3><apex:image id="logo" value="{!$Resource.Retail_Live_Logo}" width="50" height="40"/> &nbsp; &nbsp; {!Village_Presence__c.Name}   
+        <hr/>
+        </h3>
+
+        <div id="emailLink">
+            <a href="mailto:{!sf1DataValues.toListEmail}?Subject={!$Setup.VR1_Configuration_Settings__c.Retail_Live_Subject_Prefix__c}&body=#{!Village_Presence__c.Village__r.Village_Code__c}#{!URLENCODE(Village_Presence__c.Brand__r.No_Whitespace_Name__c)}&cc={!$Setup.VR1_Configuration_Settings__c.Retail_Live_Email__c};{!sf1DataValues.ccListEmail}">Click to send a Retail LIVE email. </a>
+        </div>
+         <form >   
+            <div id="mobilePage" class="mobilePg">
+                
+                <div id="files" ></div>
+                <!-- <input type="file" name="fileAttachment" id="attachmentFile"  onchange="var files = this.files; alert(files.length); if (files.length > 1) {  alert('Only one attachment allowed. If you wish to send multiple attachments please send your Retail LIVE using the Mail client!!');} else {uploadFile();}" multiple="multiple"/> -->
+                <input type="file" name="fileAttachment" id="attachmentFile" data-mini="true" onchange="uploadFile();" multiple="multiple" placeholder="Select only one attachment"/>
+            
+                <div id="charNum" style="float: left;"></div><div> &nbsp; chars. left </div>
+                <textarea required="required" name="subjectText" maxlength="244"  id="subjectText" rows="4" oninput="countChar(this);" placeholder="Please Enter your Retail LIVE text here ..." ></textarea>
+                <!-- <apex:inputTextarea rendered="true" id="subjectText2" onchange="countChar(this);" onkeyup="countChar(this);" html-placeholder="Please Enter your Retail LIVE text here ..." /> 
+                <script>
+                        var subjectText2= document.getElementById("{!$Component.subjectText2}");
+                </script> -->
+                
+                <hr/>    
+                <label for="toList">To:</label>                         
+
+                
+                <!-- <select name="brandContacts" id="brandContacts1" multiple="multiple" data-native-menu="false" tabindex="-1" size="8">
+                    <apex:repeat id="contactsList" value="{!AccountContacts}" var="contact">
+                        <option value="{!contact.value}">{!contact.label}</option>
+                    </apex:repeat>        
+                </select>
+                -->
+                
+                <apex:form >
+                    <apex:selectList multiselect="true"  id="brandContacts" size="8" >
+                        <apex:selectOptions id="contactsList" value="{!AccountContacts}" />
+                    </apex:selectList>
+                    <script>
+                        var brandContacts = document.getElementById("{!$Component.brandContacts}");
+                    </script>
+                </apex:form> 
+                               
+                <textarea style="display: none;" name="toList" id="toList" placeholder="Enter comma seperated Brand email addresses, or setup some Village Presence Contact Roles to automatally populate this field">{!sf1DataValues.toListString}</textarea>
+                <textarea style="display: none;" name="toListEmail" id="toList">{!sf1DataValues.toListEmail}</textarea>
+                  
+                <label for="publicReplies">Send Retail LIVE Address in</label>
+                <select name="publicReplies" id="publicReplies" data-role="slider" value="true">
+                    <option value="false">Bcc</option>
+                    <option value="true" selected="true">Cc</option>
+                </select>
+     
+                <label for="ccList">Cc:</label>
+                <textarea name="ccList" id="ccList" placeholder="Enter comma seperated email addresses to be cc'd">{!sf1DataValues.ccListString}</textarea>
+                
+                <label for="bccList">Bcc:</label>
+                <textarea name="bccList" id="bccList"  placeholder="Enter comma seperated email addresses to be bcc'd">{!sf1DataValues.bccListString}</textarea>             
+                
+                <br/>
+                <center><a href="javascript:postRetailLive();" data-role="button" data-inline="true" data-mini="true" data-theme="b">Send</a></center>
+                <br/>
+                
+                <div id="emailLinkSf1">
+                    <a class="mailto" href="mailto:{!sf1DataValues.toListString}?Subject={!$Setup.VR1_Configuration_Settings__c.Retail_Live_Subject_Prefix__c}&body=#{!Village_Presence__c.Village__r.Village_Code__c}#{!URLENCODE(Village_Presence__c.Brand__r.No_Whitespace_Name__c)}&cc={!$Setup.VR1_Configuration_Settings__c.Retail_Live_Email__c},{!sf1DataValues.ccListString}">Click to send a Retail LIVE email Using Mail Client. </a>
+                </div>
+            </div>                
+           
+            
+            
+        </form>
+        <br/>
+        
+        
+    </div><!-- /content -->
+    
+</div><!-- /page -->
+</body>
+</html>
+
+<script>
+    window.onkeydown=function(){window.focus();}
+</script>
+
+
+
+</apex:page>

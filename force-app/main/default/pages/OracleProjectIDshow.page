@@ -1,0 +1,12 @@
+<apex:page standardController="Marketing_Campaign__c" extensions="OracleProjectIdShowHandler">
+    <apex:pageBlock >
+        <apex:pageBlockSection columns="2" >
+            <apex:pageBlockSectionItem >
+                [Oracle] Primary Project No.<apex:outputText label="" value="{!bu1} - {!primaryNumber}"/>
+            </apex:pageBlockSectionItem>
+            <apex:pageBlockSectionItem >
+                [Oracle] Secondary Project No.<apex:outputText label="" value="{!bu2} - {!secondaryNumber}"/> 
+            </apex:pageBlockSectionItem>
+        </apex:pageBlockSection>
+    </apex:pageBlock> 
+</apex:page>

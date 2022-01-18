@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All_2020_Ratings</fullName>
+    <columns>NAME</columns>
+    <columns>Village__c</columns>
+    <columns>Year__c</columns>
+    <columns>Yield_Classification__c</columns>
+    <columns>Rating__c</columns>
+    <columns>UPDATEDBY_USER</columns>
+    <columns>LAST_UPDATE</columns>
+    <columns>Range_Minimum__c</columns>
+    <columns>Range_Maximum__c</columns>
+    <columns>CREATED_DATE</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Year__c</field>
+        <operation>equals</operation>
+        <value>2020</value>
+    </filters>
+    <filters>
+        <field>Village__c</field>
+        <operation>notContain</operation>
+        <value>Suz,Shang</value>
+    </filters>
+    <label>All 2020 Ratings</label>
+    <language>en_US</language>
+</ListView>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Favourite_Restaurants__c</fullName>
+    <description>What Restaurants the guest likes</description>
+    <externalId>false</externalId>
+    <inlineHelpText>What Restaurants the guest likes</inlineHelpText>
+    <label>Favourite Restaurants</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>TextArea</type>
+</CustomField>

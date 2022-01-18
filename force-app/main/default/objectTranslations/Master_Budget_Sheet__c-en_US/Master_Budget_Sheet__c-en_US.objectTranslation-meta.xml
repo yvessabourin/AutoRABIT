@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Master Budget Sheet</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Master Budget Sheets</value>
+    </caseValues>
+    <startsWith>Consonant</startsWith>
+    <webLinks>
+        <label></label>
+        <name>Clone</name>
+    </webLinks>
+    <webLinks>
+        <label></label>
+        <name>Clone_Ltg</name>
+    </webLinks>
+    <webLinks>
+        <label></label>
+        <name>Submit_to_agency</name>
+    </webLinks>
+</CustomObjectTranslation>

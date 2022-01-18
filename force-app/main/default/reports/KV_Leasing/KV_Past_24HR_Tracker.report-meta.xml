@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Opportunity$Account</field>
+    </columns>
+    <columns>
+        <field>Opportunity$Comments__c</field>
+    </columns>
+    <columns>
+        <field>Opportunity$Next_Step_Update_Description__c</field>
+    </columns>
+    <columns>
+        <field>Opportunity$StageName</field>
+    </columns>
+    <currency>EUR</currency>
+    <description>KV Daily Tracker updates</description>
+    <filter>
+        <criteriaItems>
+            <column>Opportunity$Village__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>contains</operator>
+            <value>Kildare</value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Opportunity$LastModifiedDate</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>KV Past 24HR Tracker</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Deals__c</reportType>
+    <roleHierarchyFilter>Group_Marketing</roleHierarchyFilter>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>Opportunity$LastModifiedDate</dateColumn>
+        <endDate>2017-09-19</endDate>
+        <interval>INTERVAL_CUSTOM</interval>
+        <startDate>2017-09-18</startDate>
+    </timeFrameFilter>
+</Report>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Account.Visits__r$Visit_Date_Time__c</field>
+    </columns>
+    <columns>
+        <field>Account$Name</field>
+    </columns>
+    <columns>
+        <field>Account$CreatedDate</field>
+    </columns>
+    <columns>
+        <field>Account.Visits__r$Total_Visit_Spend__c</field>
+    </columns>
+    <columns>
+        <field>Account.Visits__r.Brand_Visit_Junctions__r$Village_Presence__c</field>
+    </columns>
+    <columns>
+        <field>Account.Visits__r$Number_of_new_Brands_Introduced__c</field>
+    </columns>
+    <columns>
+        <field>Account$Domestic_or_International__c</field>
+    </columns>
+    <columns>
+        <field>Account.Visits__r$Services_Used__c</field>
+    </columns>
+    <currency>EUR</currency>
+    <format>Tabular</format>
+    <name>Personal Shopping: YTD Sales Report</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Accounts_with_visits_with_brand_purchase__c</reportType>
+    <rowLimit>10</rowLimit>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <sortColumn>Account.Visits__r$Visit_Date_Time__c</sortColumn>
+    <sortOrder>Asc</sortOrder>
+    <timeFrameFilter>
+        <dateColumn>Account.Visits__r$Visit_Date_Time__c</dateColumn>
+        <interval>INTERVAL_CURRENT</interval>
+    </timeFrameFilter>
+</Report>

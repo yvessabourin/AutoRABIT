@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Occupancy_Cost__c</fullName>
+    <externalId>false</externalId>
+    <formula>Occupancy_Cost_Local__c   *  FX_Rate__c</formula>
+    <inlineHelpText>This is Annual Base Rent  plus Net T/O Rent plus Service Charge</inlineHelpText>
+    <label>Occupancy Cost</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

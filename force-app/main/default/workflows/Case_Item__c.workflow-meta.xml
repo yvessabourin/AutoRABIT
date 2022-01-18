@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fieldUpdates>
+        <fullName>Change_Purchase_Status_In_Transit</fullName>
+        <field>Status__c</field>
+        <literalValue>In transit</literalValue>
+        <name>Change Purchase Status In Transit</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Purchase_Status_to_Ready_to_G_Coll</fullName>
+        <field>Status__c</field>
+        <literalValue>Ready for Guest Collection</literalValue>
+        <name>Purchase Status to Ready to G Coll</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <rules>
+        <fullName>Purchase Status to In Transit</fullName>
+        <actions>
+            <name>Change_Purchase_Status_In_Transit</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>Scanned_Bags__c =  Total_Bags__c &amp;&amp; HFS_Bag_Transfer__c = false &amp;&amp; Total_Bags__c  != 0</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Purchase Status to Ready for Guest Collection</fullName>
+        <actions>
+            <name>Purchase_Status_to_Ready_to_G_Coll</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>Bags_in_Storage_Location__c = Total_Bags__c &amp;&amp; HFS_Bag_Transfer__c = false &amp;&amp; Total_Bags__c != 0</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+</Workflow>

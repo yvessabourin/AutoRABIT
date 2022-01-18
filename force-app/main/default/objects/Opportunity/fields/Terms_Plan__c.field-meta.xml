@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Terms_Plan__c</fullName>
+    <description>Terms Standard or within budget and overall Village plan</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Terms Standard or within budget and overall Village plan</inlineHelpText>
+    <label>Standard/Approved Variation Terms</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>No- Tier 1</fullName>
+                <default>false</default>
+                <label>No- Tier 1</label>
+            </value>
+            <value>
+                <fullName>No - Tier 2</fullName>
+                <default>false</default>
+                <label>No - Tier 2</label>
+            </value>
+            <value>
+                <fullName>No - Tier 2a</fullName>
+                <default>false</default>
+                <label>No - Tier 2a</label>
+            </value>
+            <value>
+                <fullName>No - Tier 2b</fullName>
+                <default>false</default>
+                <label>No - Tier 2b</label>
+            </value>
+            <value>
+                <fullName>No - Tier 2c</fullName>
+                <default>false</default>
+                <label>No - Tier 2c</label>
+            </value>
+            <value>
+                <fullName>No - Tier 3a</fullName>
+                <default>false</default>
+                <label>No - Tier 3a</label>
+            </value>
+            <value>
+                <fullName>No - Tier 3b</fullName>
+                <default>false</default>
+                <label>No - Tier 3b</label>
+            </value>
+            <value>
+                <fullName>No - Tier 4</fullName>
+                <default>false</default>
+                <label>No - Tier 4</label>
+            </value>
+            <value>
+                <fullName>No - Tier 4*</fullName>
+                <default>false</default>
+                <label>No - Tier 4*</label>
+            </value>
+            <value>
+                <fullName>No - Tier 5</fullName>
+                <default>false</default>
+                <label>No - Tier 5</label>
+            </value>
+            <value>
+                <fullName>Yes- Tier 1</fullName>
+                <default>false</default>
+                <label>Yes- Tier 1</label>
+            </value>
+            <value>
+                <fullName>Yes - Tier 2</fullName>
+                <default>false</default>
+                <label>Yes - Tier 2</label>
+            </value>
+            <value>
+                <fullName>Yes - Tier 2a</fullName>
+                <default>false</default>
+                <label>Yes - Tier 2a</label>
+            </value>
+            <value>
+                <fullName>Yes - Tier 2b</fullName>
+                <default>false</default>
+                <label>Yes - Tier 2b</label>
+            </value>
+            <value>
+                <fullName>Yes - Tier 2c</fullName>
+                <default>false</default>
+                <label>Yes - Tier 2c</label>
+            </value>
+            <value>
+                <fullName>Yes - Tier 3a</fullName>
+                <default>false</default>
+                <label>Yes - Tier 3a</label>
+            </value>
+            <value>
+                <fullName>Yes - Tier 3b</fullName>
+                <default>false</default>
+                <label>Yes - Tier 3b</label>
+            </value>
+            <value>
+                <fullName>Yes - Tier 4</fullName>
+                <default>false</default>
+                <label>Yes - Tier 4</label>
+            </value>
+            <value>
+                <fullName>Yes - Tier 4*</fullName>
+                <default>false</default>
+                <label>Yes - Tier 4*</label>
+            </value>
+            <value>
+                <fullName>Yes - Tier 5</fullName>
+                <default>false</default>
+                <label>Yes - Tier 5</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

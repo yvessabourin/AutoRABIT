@@ -1,0 +1,45 @@
+<CustomerOverview>
+<Customer CustomerId="123456-7890-1234-1234-123456789012" VersionId="123456-7890-1234-1234-123456789012" DateCreated="2016-03-09T17:37:39Z" Language="en-gb" Gender="1" VillagePrimary="BV" DateOfBirth="1984-04-04" Source="Sales">
+  <Properties>
+    <item type="PHONENUMBER">04444444444</item>
+    <item type="NATIONALITY">British</item>
+    <item type="BARCODENUMBER"></item>
+    <item type="OPTOUTEMAIL">1</item>
+    <item type="OPTOUTMOBILE">0</item>
+    <item type="OPTOUTPOSTAL"></item>
+  </Properties>
+  <References>
+    <item type="EMAIL">Jay@tee.com</item>
+  </References>
+  <name Title="Mr" Given="Jay" Family="Tee" />
+  <address AddressLine1="44 High Street" AddressLine2="" County="" City="Brighton" PostCode="BR4 4DD" Country="GB" />
+</Customer>
+  <CustomerStatus CustomerId="123456-7890-1234-1234-123456789012" IsActive="false" IsDeleted="false" IsClearedDelete="false" IsLockedOut="false" IsRepermission="false" OptInStatus="OptOut" DateCreated="2015-11-25T11:27:16Z" DateUpdated="2015-11-25T11:27:19Z" VersionId="d8d6935d-0d18-4aa3-83e7-bc80a7086db5">
+    <Properties />
+  </CustomerStatus>
+  <CustomerPreferences />
+  <CustomerVisitSummary CustomerId="123456-7890-1234-1234-123456789012" FastMatchId="123456-7890-1234-1234-123456789012" DateCreated="2016-06-02T08:22:59Z" DateUpdated="2016-06-04T18:47:01Z" VersionId="355e4ffa-baec-4c8e-a538-bd18992287da">
+    <Villages>
+      <Village Id="BV" PurchaseCount="2" VisitCount="2" TotalAmount="108.43">
+        <Visits>
+          <Visit Date="20140307" WifiUsage="false" PurchaseCount="1" Amount="103.0" CurrencyCode="EUR" />
+          <Visit Date="20160604" WifiUsage="false" PurchaseCount="1" Amount="5.43" CurrencyCode="EUR" />
+        </Visits>
+      </Village>
+    </Villages>
+    <Brands />
+    <OfferRedemptions>
+      <OfferRedemption IdCode="11780" RedemptionDate="20140307" />
+      <OfferRedemption IdCode="17280" RedemptionDate="20160604" />
+    </OfferRedemptions>
+  </CustomerVisitSummary>
+  <EmailEventSummary Id="123456-7890-1234-1234-123456789012" FastMatchId="123456-7890-1234-1234-123456789012" VersionId="b75f94eb-17af-433f-81e7-5dfa9f7a4812" DateCreated="2016-05-31T18:48:54Z" DateUpdated="2016-06-07T23:14:38Z">
+    <LatestEvents>
+      <EmailEvent Type="Skipped" DateCaptured="2016-04-21T18:01:31+00:00" />
+      <EmailEvent Type="Opened" DateCaptured="2016-03-26T00:00:00Z" />
+      <EmailEvent Type="Clicked" DateCaptured="2016-06-01T00:00:00Z" />
+      <EmailEvent Type="Sent" DateCaptured="2016-06-01T00:00:00Z" />
+    </LatestEvents>
+  </EmailEventSummary>
+  <ResponseErrors />
+</CustomerOverview>

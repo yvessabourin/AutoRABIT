@@ -1,0 +1,8 @@
+<aura:component implements="flexipage:availableForAllPageTypes,force:appHostable">
+    
+    <aura:attribute name="title" type="String" default="Campaign Search" />
+   
+    <c:SearchBar />
+    <c:RedemptionCampaigns />
+
+</aura:component>

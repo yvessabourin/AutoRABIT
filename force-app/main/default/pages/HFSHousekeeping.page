@@ -1,0 +1,481 @@
+<apex:page standardController="Case" sidebar="false" showHeader="false" standardStylesheets="false"  applyBodyTag="false" docType="html-5.0" extensions="HandsFreeShoppingDashExtention">
+    
+    <html xmlns="http://www.w3.org/2000/svg" xmlns:xlink="c" ng-app="hfsApp" >    
+        <head>
+            <meta charset="utf-8" />
+            <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+           
+            <meta name="viewport" content="width=device-width, initial-scale=1" />
+            <title>TIC Home Page</title>
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+            <link rel="stylesheet" href="{!URLFOR($Resource.NewTICStyles)}" />
+            <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.11/angular.min.js"></script>
+           
+                <style type="text/css">
+                    
+                    body{
+                        height: 2000px;   
+                        overflow: auto; 
+                        background: url({!URLFOR($Resource.TICDashboard, 'HFshop.png')})
+                         no-repeat center center fixed; 
+                        -webkit-background-size: cover; 
+                        -moz-background-size: cover; 
+                        -o-background-size: cover; 
+                        background-size: cover; 
+
+                    }
+            </style>
+            
+            <script>
+                // define the app
+                var hfsApp = angular.module('hfsApp', []);
+            
+            // add the controller
+                hfsApp.controller('CaseCtrl', function ($scope,$window,$interval,$log) {
+                $scope.cases = {!cases} ;
+                $scope.AllPickupLocations = {!PickupLocations};  
+                $scope.AllPendingCases = [];
+                $scope.GuestID_manual_input = '';
+
+                $scope.showBrandListSearch  = false;
+          
+           
+                
+                $scope.showCase = function(caseID) {
+
+                    if({!isHFShost}){
+                                
+                    }else{                    
+                        redirectToUrl('/apex/HFSGuestPage?ID=' + caseID);
+                    }
+
+                };
+                    
+                    
+                $scope.popUpCloseData = function(thecase) {                    
+                    console.log('test - ' + thecase.Historic_Close_Reason + '  ----   '  + thecase.ID);
+                    $j('#HistoricCloseP').text('Service Guest Number: ' + thecase.Service_Guest_Number);
+                        $j('#HistoricCloseP1').text('Name: ' + thecase.SuppliedName);
+                        $j('#HistoricCloseP2').text('Bags: ' + thecase.ItemsBagCount);
+                        $j('#HistoricCloseP3').text('Payment Status: ' + thecase.Payment_Status);
+                        $j('#HistoricCloseP4').text('Collection Point: ' + thecase.HFS_Collection_Location);
+                        $j('#HistoricCloseP5').text('Phone Number: ' + thecase.SuppliedPhone);
+                        $j('#HistoricCloseP6').text('Late Close Reason: ' + thecase.Historic_Close_Reason);
+                        $j('#HistoricCloseA1').attr("href", '/apex/HFSGuestPage?ID=' + thecase.ID)
+                        $j('#HistoricCloseModal').modal('show');
+                };
+                 
+                
+                $scope.whatClassIsRow = function(casevalue){
+                    
+                    if(casevalue.Payment_Status === 'Payment on Collection'){
+                        return 'danger';
+                    }
+                    else if(casevalue.Payment_Status === 'Paid' && casevalue.ItemsAwaiting != '0' ){
+                        return 'warning';
+                    }
+                        else if(casevalue.Payment_Status === 'Paid' && casevalue.ItemsAwaiting === '0'){
+                            return 'success';
+                        }
+                            else if(casevalue.Payment_Status === 'Paid' && casevalue.ItemCount === '0' ){
+                                return 'info';
+                            }
+                                else{
+                                    return 'active';
+                                }
+                    
+                };
+                    
+                $scope.updateHFSHousekeepingRecords = function(){
+                    
+                    var idlist = [];                     
+                    for(var i=0; i < $scope.AllPendingCases.length ; i++){
+                        idlist.push( $scope.AllPendingCases[i].ID);
+                    }
+                    
+                    if(idlist.length < 1){
+                        alert('There are no records to update');
+                    }else{
+    
+                    console.log('idlist - ' + idlist);
+                        
+                        Visualforce.remoting.Manager.invokeAction(
+                            '{!$RemoteAction.HandsFreeShoppingDashExtention.updateHFSHousekeepingRecords}',
+                            idlist, function(result, event){
+                                console.log(result);
+                                if(result.includes('An error occured, please send this to your administrator')){
+                                    alert('\n ERROR --- An error has occured, please show the error below to your Salesforce Administrator\n' + '\n' + result);                                                       
+                                } 
+                                else{
+                                       alert('You have successfully updated the selected HFS Experiences');
+                                                        console.log(result);                                 
+                                                        $scope.AllPendingCases = angular.fromJson(result);                  
+                                       }
+                                $scope.$apply();
+                            }, 
+                            {escape: false}
+                        );
+                        
+                   }
+                    
+               };
+                    
+                $scope.getHFSHousekeepingRecords = function(){
+                       var startDate = document.getElementById('startdatefield').value;  
+                       var endDate = document.getElementById('enddatefield').value;
+                                
+                        if(!startDate || !endDate  ){        
+                                        
+                            if(!startDate && endDate ){
+                                    alert('Please enter a start date');
+                                    document.getElementById('startdatefield').style.borderColor = "red";
+                            }
+                            
+                            if(startDate && !endDate ){
+                                    alert('Please enter an end date');
+                                    document.getElementById('enddatefield').style.borderColor = "red";
+                            }
+                               
+                            if(!startDate && !endDate ){
+                                    alert('please enter a start and an end date');
+                                    document.getElementById('startdatefield').style.borderColor = "red";
+                                    document.getElementById('enddatefield').style.borderColor = "red";
+                            }
+                                                                                                                                                                                               
+                        }
+                    else if(startDate > endDate){
+                        alert('please ensure the start date is before the end date');
+                    }
+                    else{
+                         Visualforce.remoting.Manager.invokeAction(
+                            '{!$RemoteAction.HandsFreeShoppingDashExtention.getHFSHousekeepingRecords}',
+                            startDate , endDate,'{!userVillage}',
+                            function(result, event){
+                                console.log(result);
+ 
+                                if (event.status) {
+                                    console.log(result);
+                                    $scope.AllPendingCases = angular.fromJson(result);                          
+                                } else if (event.type === 'exception') {
+                                    $scope.message = event;
+                                } else {
+                                    $scope.message = event;
+                                }
+                                $scope.$apply();
+                            }, 
+                            {escape: false}
+                        );
+                    }
+                };
+                    
+                    
+                
+                $scope.whatClassIabel = function(casevalue){
+                    
+                    if(casevalue.ItemsAwaiting != '0' ){
+                        return 'label label-danger';
+                    }
+                    else if(casevalue.ItemsCollected === '0' && casevalue.ItemsAwaiting === '0' ){
+                        return 'label label-info';
+                    }
+                        else if(casevalue.ItemsCollected != '0' && casevalue.ItemsAwaiting === '0' ){
+                            return 'label label-success';
+                        }                      
+                            else{
+                                return 'label label-default';
+                            }
+                };
+
+                $scope.GuestID_Search = function(){
+
+                    console.log('IN');
+                    $scope.contactList = [];
+                    
+
+                    if( $scope.GuestID_manual_input  != undefined && $scope.GuestID_manual_input.length > 0){
+                        
+                        Visualforce.remoting.Manager.invokeAction(
+                            '{!$RemoteAction.HandsFreeShoppingDashExtention.searchGuestID}',
+                            $scope.GuestID_manual_input , '{!userVillage}',
+                            function(result, event){
+                                console.log(result);
+                                if (event.status) {
+                                    $scope.showBrandListSearch  = true;
+                                    $j('#GuestIdModal').show();
+                                    $j('#preview').hide();
+                                    $scope.contactList = result;
+                                } else if (event.type === 'exception') {
+                                    $scope.message = event;
+                                } else {
+                                    $scope.message = event;
+                                }
+                                $scope.$apply();
+                            }, 
+                            {escape: true}
+                        );
+                        
+                    }else{
+                        $scope.showBrandListSearch  = false;
+                        $j('#preview').show();
+                    }
+                };
+
+                // Selected Contact
+                $scope.SelectGuestID = function(GuestID){
+
+                     console.log(GuestID);
+
+                      Visualforce.remoting.Manager.invokeAction(
+                            '{!$RemoteAction.HandsFreeShoppingDashExtention.goToGuestPage}',
+                            GuestID,
+                            function(result, event){
+                                console.log(result);
+                                if (event.status) {
+                                    redirectToUrl( '/apex/HFSGuestPage?ID=' + result) ;
+
+                                } else if (event.type === 'exception') {
+                                    $scope.message = event;
+                                } else {
+                                    $scope.message = event;
+                                }
+                                $scope.$apply();
+                            }, 
+                            {escape: true}
+                        );
+
+                };
+            });
+            
+            </script>
+            
+            <script>
+            
+            $j = jQuery.noConflict();
+            var homeUrl;
+            var contactList = [];
+           // var showGuestListSearch = false;
+            
+            $j(document).ready(function() {
+ 
+                
+                function consolelog(message){
+                    
+                    document.getElementById('GuestID_manual_input').value = message;
+                    this.HandsFreeShoppingDashExtention.getlocations(message, function(result){
+                        console.log(result);    
+                        if(result != null ){                          
+                            redirectToUrl( '/apex/HFSGuestPage?ID=' + result);
+                        }
+                        console.log('location2 ' +result );  
+                    });
+                };
+                            
+                //SCAN TEMPORAY RSILVA
+                
+
+                if({!isHFShost}){
+                  $j('#guestsearchB').hide();              
+               }
+
+                
+                if( ('{!$User.UIThemeDisplayed}' == 'Theme4t' || '{!$User.UIThemeDisplayed}' == 'Theme4d' ) ) {
+                    // running in mobile
+                    homeUrl = '/_ui/core/chatter/ui/ChatterPage';
+                } else { //desktop
+                    homeUrl = '/home/home.jsp';
+                }                        
+                
+            });
+            
+            function redirectToUrl(url){
+                if(  ('{!$User.UIThemeDisplayed}' == 'Theme4t' || '{!$User.UIThemeDisplayed}' == 'Theme4d' || '{!$User.UIThemeDisplayed}' == 'Theme4u') && (typeof sforce != 'undefined') && (sforce != null) ) {
+                    // running in mobile
+                    console.log('VIP Mobile ..');
+                    sforce.one.navigateToURL(url);
+                } else { //desktop
+                    console.log('VIP Desktop..');                
+                    //window.open(url, '_blank');
+                    window.location.href = url;                    
+                }  
+            };
+            
+            function cancelAction(){
+                redirectToUrl(homeUrl);
+            };
+            
+            function gotoPage(pg){               
+                var url = '/apex/' + pg;               
+                redirectToUrl(url);
+            };
+
+            function goToGuestPage(){
+                var inputManual = document.getElementById('input_manual').value;               
+                this.HandsFreeShoppingDashExtention.goToGuestPage(inputManual, function(result){                   
+                    redirectToUrl('/apex/HFSGuestPage?ID=' + result) ;
+                });
+            };
+        
+
+            </script>
+
+        </head>
+        <body>
+            <!-- Main Navigation -->
+            <div class="my-nav">
+                <div class="site-navbar navbar navbar-fixed-top" role="navigation">
+                    <div class="container">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+                            <a class="navbar-brand" onclick="gotoPage('TIC_Dashboard');">Tourist Information Center</a> 
+                        </div>
+                        <div id="navbar" class="navbar-collapse collapse">
+                            <ul class="nav navbar-nav navbar-right">
+                                <li> <a  href="#guest"  onclick="gotoPage('Promotion_Search');" >Guest Check In</a> </li>
+                                <li> <a  href="#search"  onclick="gotoPage('GuestSearch');">Guest Search</a> </li>
+                                <li> <a  href="#card"  onclick="gotoPage('VIPCardSearch');">Card Search</a> </li>
+                                <li> <a  href="#clean"  onclick="gotoPage('VIPCardCleardown');">VIP Card Cleanup</a> </li>
+                                <li> <a  href="#hfsH"  name="hfsH" id="hfsH"  onclick="gotoPage('HFSHistoric');" class="active">Historic HFS – Awaiting Collection</a> </li>
+                                <li> <a  href="#hfs"  onclick="gotoPage('HFSDash');">Hands Free Shopping</a> </li>
+                                <li> <a  href="#exit" onclick="cancelAction();" >Exit</a> </li>
+                            </ul>
+                        </div>
+                        <!--/.nav-collapse -->
+                    </div>
+                </div>
+            </div>
+            <!-- /.Main Navigation -->
+            <!-- Fullwidth Header -->
+            <!-- Intro Header -->
+            
+            
+            <div class="jumbotron text-center">
+                <h2>&nbsp;</h2>
+            </div>
+            
+            
+            
+            
+            <!-- main content -->
+            <div class="container" ng-controller="CaseCtrl">  
+                
+           <!-- select Scan Modal -->
+            <div id="guestscan" name="guestscan" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"   >
+                
+                <div class="modal-dialog modal-lg" role="document">
+                    
+                    <!-- Modal content-->
+                    <div class="modal-content" >   
+                        <div class="modal-header" style =" font-weight: bold; font-size: medium;"> Scan QR Code or insert Service Guest Number
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+
+                        <div class="modal-body" >
+                            <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                            <input  id="GuestID_manual_input" class="form-control" type="text" name="GuestID_manual_input" ng-model="GuestID_manual_input" placeholder="Search for GuestID..." aria-autocomplete="list" ng-required="true" ng-keyup="GuestID_Search()"/> 
+                            </div>
+                             <br />
+                            <video id="preview"></video>
+                            <!--
+                            <p>Insert Service Guest Number: </p><input id="input_manual" />  
+                            <button type="button" class="btn btn-default" onclick="goToGuestPage()">Search</button>     
+                            -->                    
+                        </div>                                  
+                                 <div id="GuestIdModal" name="GuestIdModal" role="dialog"  ng-show="showBrandListSearch">
+                                   <table class="table table-striped">
+                                   <thead>
+                                     <tr>
+                                        <th scope="col">GuestID</th>
+                                     </tr>
+                                   </thead>
+                                   <tbody>
+                                    <tr>                      
+                                       <td>
+                                        <a class="list-group-item" ng-click="SelectGuestID(GuestID)" ng-repeat="GuestID in contactList">{{GuestID}}</a>
+                                       </td>
+                                       </tr>
+                                       <tr class="info" ng-hide="contactList.length || null" >
+                                          <td >No Guests ID found</td>
+                                        </tr>
+                                      </tbody>
+                                    </table>
+                                    </div>
+                     
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                         
+                    </div>
+                    
+                </div>
+            </div>
+            <!--  select Scan MODAL END -->                
+                <div class="panel panel-primary" >
+                    
+                <button id="go" type="button" class="btn btn-default" style="float: right; margin-right:3px; margin-top:3px;" ng-click="updateHFSHousekeepingRecords();">Update Records</button> 
+                    
+                <button id="go" type="button" class="btn btn-default" style="float: right; margin-right:3px; margin-top:3px;" ng-click="getHFSHousekeepingRecords();">Go!</button>  
+                
+                <input id="enddatefield" type="date" style="float: right; margin-right:6px; margin-top:6px;" name="enddate"></input> 
+                <p style="float: right; margin-right:10px; margin-top:10px;">to</p>
+                <input id="startdatefield" type="date" style="float: right; margin-right:6px; margin-top:6px;" name="startdate"></input> 
+                <p style="float: right; margin-right:10px; margin-top:10px;">from</p>
+
+                <div class="panel-heading" style="background-color: #AFAFAF;" data-target="#demo2">Enter date ranges</div>   
+                <button id="showLateClosers" type="button" class="btn btn-default" style="float: right; margin-right:3px; margin-top:3px;" onclick="gotoPage('HFSDash');">Exit</button>  
+                <div class="panel-heading" style="background-color: #AFAFAF;"   data-target="#demo2">Housekeeping records for {!userVillage}</div>  
+    
+                    <div class="table-responsive" id="demo2" name="demo2" >
+                        <table class="table table-hover sortable" >
+                            <thead>
+                                <tr class="active">
+                                 <!--    <th>Selected</th>  -->
+                                    <th>Service Type</th>
+                                    <th>Service Date</th>   
+                                    <th>GuestID</th>
+                                    <th>Status</th>
+                                    <th>Name</th>
+                                    <th>Collections</th>
+                                    <th>Bags</th>       
+                                    <th>Payment Status</th>
+                                    <th>Collection Status</th>
+                                    <th>Collection Point</th>
+                                    <th>Phone Number</th>
+                                    <th>Collection Time</th>
+                            <!--    <th>Is Resolved</th>   -->
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="case in AllPendingCases" ng-class="whatClassIsRow(case)" style="cursor: pointer;">     
+                              <!--      <td><input type="checkbox" id="checkbox" value="{{case.selected}}"></input></td>  -->
+                                    <td>{{case.Type}}</td>
+                                    <td>{{case.ServiceDate}}</td>
+                                    <td>{{case.Service_Guest_Number}}</td> 
+                                    <td>{{case.Status}}</td>
+                                    <td>{{case.SuppliedName}}</td>
+                                    <td>{{case.ItemCount}}</td>
+                                    <td>{{case.ItemsBagCount}}</td>
+                                    <td>{{case.Payment_Status}}</td>
+                                    <td><span class="label label-default" ng-class="whatClassIabel(case)">{{case.ItemsCollected}} / {{case.ItemsAwaiting}}</span> </td>
+                                    <td>{{case.HFS_Collection_Location}}</td>
+                                    <td>{{case.SuppliedPhone}}</td>
+                                    <td>{{case.Guest30minutes | date:"h:mma"}}</td>                                          
+                                </tr>
+                                <tr class="info" ng-hide="AllPendingCases.length" >
+                                    <td colspan="12">No Housekeeping records available</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+          
+
+            </div>
+
+
+        </body>
+    </html>
+</apex:page>

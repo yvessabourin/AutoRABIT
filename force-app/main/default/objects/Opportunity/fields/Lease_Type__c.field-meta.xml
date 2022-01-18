@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Lease_Type__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Select the type of lease planned</inlineHelpText>
+    <label>Lease Type</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Permanent</fullName>
+                <default>true</default>
+                <label>Permanent</label>
+            </value>
+            <value>
+                <fullName>Temporary</fullName>
+                <default>false</default>
+                <label>Temporary</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

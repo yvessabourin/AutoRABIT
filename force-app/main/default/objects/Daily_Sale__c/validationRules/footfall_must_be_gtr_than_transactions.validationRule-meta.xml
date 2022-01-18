@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>footfall_must_be_gtr_than_transactions</fullName>
+    <active>true</active>
+    <description>The number of  transactions should not be greater than the number of footfall</description>
+    <errorConditionFormula>$Setup.Global_Object_Validation__c.Daily_Sales_Validations_Active__c 
+&amp;&amp; Number_of_Transactions__c &gt;  Footfall__c 
+&amp;&amp; NOT( Ignore_Validations__c )</errorConditionFormula>
+    <errorDisplayField>Footfall__c</errorDisplayField>
+    <errorMessage>The number of  transactions should not be greater than the footfall. Please set the &apos;Ignore Validations&apos; flag and add a note to this record if you believe the values are correct</errorMessage>
+</ValidationRule>

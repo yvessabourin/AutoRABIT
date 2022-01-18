@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Lead_Negotiator_VR_Required</fullName>
+    <active>true</active>
+    <description>If the deal is at &apos;Negotiation&apos; Stage and subsequent stages then &apos;Lead Negotiator VR&apos; must be populated</description>
+    <errorConditionFormula>$Setup.Global_Object_Validation__c.Deal_Validations_Active__c 
+&amp;&amp; Stage_Value__c &gt; 1
+&amp;&amp;  ISBLANK(   Lead_Negotiator_for_VR__c )</errorConditionFormula>
+    <errorDisplayField>Lead_Negotiator_for_VR__c</errorDisplayField>
+    <errorMessage>You cannot advance this deal past the &apos;Negotiation&apos; Stage without completing the &apos;Lead Negotiator VR&apos; field on the Deal.</errorMessage>
+</ValidationRule>

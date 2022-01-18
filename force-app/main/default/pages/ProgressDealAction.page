@@ -1,0 +1,158 @@
+<apex:page standardController="Opportunity" extensions="ProgressDealController" docType="html-5.0">
+
+      <!--Include Stylesheets for the Mobile look and feel -->
+      <apex:stylesheet value="{!URLFOR($Resource.Mobile_Design_Templates, 
+                'Mobile-Design-Templates-master/common/css/app.min.css')}"/>
+      <apex:includeScript value="{!URLFOR($Resource.Mobile_Design_Templates, 
+                'Mobile-Design-Templates-master/common/js/jQuery2.0.2.min.js')}"/>
+      <apex:includeScript value="{!URLFOR($Resource.Mobile_Design_Templates, 
+                'Mobile-Design-Templates-master/common/js/jquery.touchwipe.min.js')}"/>
+      <apex:includeScript value="{!URLFOR($Resource.Mobile_Design_Templates, 
+                'Mobile-Design-Templates-master/common/js/main.min.js')}"/>
+                
+      <script type='text/javascript' src='/canvas/sdk/js/publisher.js'></script>
+        
+        
+        <script>
+
+                    
+            var synchedDeal;
+            $(document).ready(function(){
+
+                $('#warningPanel').css("display", "none");
+                
+                //This method will activate the publish button so the form can be submitted 
+                Sfdc.canvas.publisher.publish({name: "publisher.setValidForSubmit", payload:"true"});
+
+            });
+            
+            function showWarning2(){
+                if ( autoSynch.checked){
+                    $('#warningPanel').css("display", "block");
+                } else {
+                    $('#warningPanel').css("display", "none");
+                }
+            
+            }
+            
+            function stageUpdate2(){
+
+                showWarning2();
+            }
+            
+            
+            function postSave(){
+               
+                //Sfdc.canvas.publisher.publish({name: 'publisher.close', payload:{ refresh:'true'}}); 
+
+                var url=  vpUpdatePageUrl.value;
+                if (url.length > 0) {
+                     url = url.replace('updateVillagePresence', 'updateVillagePresenceAction');
+                     sforce.one.navigateToURL(url);          
+                } else {
+                    Sfdc.canvas.publisher.publish({name: 'publisher.close', payload:{ refresh:'true'}}); 
+                }
+            }
+            
+        </script>      
+
+<html lang="en"/>
+
+    <head>
+        <section class="border-bottom">
+        <div class="header">
+            <h3>
+                <apex:outputLabel for="dealName"> Name : </apex:outputLabel> &nbsp; &nbsp;
+                <apex:outputField value="{!deal.Name}" id="dealName"/> <br/>
+                <br/>
+                <apex:outputLabel for="dealType"> Deal Type :  </apex:outputLabel> &nbsp; &nbsp;
+                <apex:outputField value="{!deal.Type}" id="dealType"/> <br/>
+                <br/>
+                <apex:outputLabel for="leaseType"> Lease Type :  </apex:outputLabel> &nbsp; &nbsp;
+                <apex:outputField value="{!deal.Lease_Type__c}" id="leaseType"/><br/>
+            </h3>
+            <hr/>
+        </div>
+        </section> 
+    </head>
+
+    <body>
+        <apex:form >
+            <apex:actionFunction action="{!stageUpdate}" name="stageUpdate" reRender="dealFlds, dealSynched, warningMsg" oncomplete="stageUpdate2();"  />
+            <apex:actionFunction action="{!showWarning}" name="showWarning" reRender="warningMsg"  />
+            <apex:actionFunction action="{!saveRecordSf1}" name="saveRecord" oncomplete="postSave();" reRender="warningMsg"   />
+            
+            <div class="full forcePageBlock forceRecordLayout">
+                  
+                  <section class="border-bottom">
+                      <div class="content">
+                          <apex:outputPanel id="dealFlds">
+                          <h4> Stage and Village Presence Synch Details </h4> <br/>
+                          
+                          <div class="form-control-group">
+                                <div class="form-control form-control-text">
+
+                                <apex:inputField value="{!deal.StageName}" onchange="stageUpdate();" id="stageName" label="Stage" style="width:400px;"/>
+                                </div>
+                          </div>
+
+                        <apex:inputHidden value="{!vpUpdatePageUrl}" id="vpUpdatePageUrl"/>
+                        <script>
+                            var vpUpdatePageUrl=document.getElementById("{!$Component.vpUpdatePageUrl}");
+                        </script>                    
+                  
+                          <div class="form-control-group">
+                              <div class="form-control form-control-text">
+                                <apex:outputLabel value="Synch with Village Presence" for="autosynch" />&nbsp;&nbsp;
+                                <apex:inputField value="{!deal.Auto_Sync__c}" id="autoSynch"
+                                     onchange="showWarning2();" 
+                                     />
+                                <script>
+                                    var autoSynch = document.getElementById("{!$Component.autoSynch}");
+                                </script>
+
+                               </div>
+
+                          </div>                  
+                          </apex:outputPanel>
+                    </div>
+                    </section>
+
+                                
+                <apex:outputPanel id="synchedDeal" rendered="{!dealSynched}">
+                    <section class="border-bottom">
+                    <div class="content">
+                    <h3> Current Deal synched with Village Presence </h3>
+                    
+                    <a href="javascript:sforce.one.navigateToSObject('{!synchedDeal.Id}','detail')">{!synchedDeal.Name}</a> 
+                        <apex:outputPanel id="warningMsg" style="font-style:italic; color:red" rendered="{!deal.Auto_Sync__c}">
+                           
+                                <apex:outputText >Clicking Save will remove the currently synched deal ({!synchedDeal.Name}) from the Village Presence and replace it with this deal ({!deal.Name})</apex:outputText>
+                            
+                        </apex:outputPanel>
+                        <div id="warningPanel" style="font-style:italic; color:red">
+                            <p>Clicking Save will remove the currently synched deal ({!synchedDeal.Name}) from the Village Presence and replace it with this deal ({!deal.Name})</p>
+                        </div>
+                        
+                    </div>                        
+                </section>   
+
+                </apex:outputPanel>
+                
+                       
+           </div>
+            
+
+        </apex:form>
+        
+         <script type='text/javascript'>  
+            Sfdc.canvas.publisher.subscribe({name: "publisher.post", onData:function(e) {
+                // This subscribe fires when the user hits 'Submit' in the publisher
+                saveRecord();
+
+             }});                                           
+         </script>
+                 
+    </body>
+        
+</apex:page>

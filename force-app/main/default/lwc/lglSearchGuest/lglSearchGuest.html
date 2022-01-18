@@ -1,0 +1,37 @@
+<template>
+	<c-lgl-notifications-component></c-lgl-notifications-component>
+
+	<section class="lgl-search-block">
+		<lightning-input
+			class="slds-col"
+			name="searchGuests"
+			label="Search for a Guest"
+			type="search"
+			onkeyup={handleKeyUp}
+			is-loading={loading}
+		>
+		</lightning-input>
+
+		<lightning-button-icon
+			class="slds-var-m-left_xx-small"
+			icon-name="utility:search"
+			variant="border-filled"
+			alternative-text="Search"
+			onclick={handleSearchButton}
+			title="Search"
+		>
+		</lightning-button-icon>
+	</section>
+
+	<section if:true={hasSearched} class="slds-var-m-top_medium">
+		<c-lgl-table
+			slot="bodyContent"
+			columns={searchResultsTableColumns}
+			rows={guestSearchResults}
+			table-key="Id"
+			empty-table-text="Results not found"
+			onrowselection={handleGuestSelect}
+		>
+		</c-lgl-table>
+	</section>
+</template>

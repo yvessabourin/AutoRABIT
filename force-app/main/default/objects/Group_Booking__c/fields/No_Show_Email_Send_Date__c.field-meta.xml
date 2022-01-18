@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>No_Show_Email_Send_Date__c</fullName>
+    <description>Shows the date-time that the No-Show email was sent</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Shows the date-time that the No-Show email was sent</inlineHelpText>
+    <label>No Show Email Send Date</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>DateTime</type>
+</CustomField>

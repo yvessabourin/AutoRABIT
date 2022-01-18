@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label></label>
+    <name>Price_Point__c</name>
+    <picklistValues>
+        <masterLabel>Best above €100</masterLabel>
+        <translation></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Better €50 to €100</masterLabel>
+        <translation></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Good under €50</masterLabel>
+        <translation></translation>
+    </picklistValues>
+</CustomFieldTranslation>

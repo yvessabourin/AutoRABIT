@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>TIC_Visit_View_Ltg</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <height>600</height>
+    <linkType>url</linkType>
+    <masterLabel>TIC Visit View</masterLabel>
+    <openType>sidebar</openType>
+    <protected>false</protected>
+    <url>{!URLFOR(&apos;/apex/VisitVIPCardIssue&apos;, null,
+            [
+            visitId=Visit__c.Id,
+            visitDate=TEXT(DAY(DATEVALUE(Visit__c.Visit_Date_Time__c))) &amp; &quot;/&quot; &amp; TEXT(MONTH(DATEVALUE(Visit__c.Visit_Date_Time__c))) &amp; &quot;/&quot; &amp; TEXT(YEAR(DATEVALUE(Visit__c.Visit_Date_Time__c))) &amp; &quot; &quot; &amp; TEXT(HOUR(TIMEVALUE(Visit__c.Visit_Date_Time__c))) &amp; &quot;:&quot; &amp; TEXT(MINUTE(TIMEVALUE(Visit__c.Visit_Date_Time__c))),
+            checkOut=TEXT(DAY(DATEVALUE(Visit__c.Check_Out_Date_Time__c))) &amp; &quot;/&quot; &amp; TEXT(MONTH(DATEVALUE(Visit__c.Check_Out_Date_Time__c))) &amp; &quot;/&quot; &amp; TEXT(YEAR(DATEVALUE(Visit__c.Check_Out_Date_Time__c))) &amp; &quot; &quot; &amp; TEXT(HOUR(TIMEVALUE(Visit__c.Check_Out_Date_Time__c))) &amp; TEXT(MINUTE(TIMEVALUE(Visit__c.Check_Out_Date_Time__c))),
+            promoId=Visit__c.Parent_Id__c,
+            promoName=Visit__c.Booking_Partnership_Name__c,
+            location=TEXT(Visit__c.Location__c),
+            modeOfTransport=TEXT(Visit__c.Mode_of_Transport__c),
+            country=TEXT(Visit__c.Country_of_Origin__c),
+            type=TEXT(Visit__c.Type__c),
+            guestNumber=Visit__c.Number_of_Guests__c,
+            visitNotes=Visit__c.Visit_Notes__c,
+            vipCards=Visit__c.VIP_Cards_Exchanged__c,
+												childNumber=Visit__c.Number_of_Children__c,
+												vehiclereg=Visit__c.Vehicle_Registration_Number__c
+            ]
+            )}</url>
+</WebLink>

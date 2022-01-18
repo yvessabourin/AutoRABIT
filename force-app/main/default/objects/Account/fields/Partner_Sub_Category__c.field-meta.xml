@@ -1,0 +1,515 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Partner_Sub_Category__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Associations = Tourism Boards, Chamber of Commerce, Professional. Memberships = Private clubs, Sports Clubs, Other = Music &amp; Film, Talent Agency, Media, Beauty, Auction house, Real  Estate.</inlineHelpText>
+    <label>Partner Sub-Category</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Partner_Category__c</controllingField>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Agency</fullName>
+                <default>false</default>
+                <label>Agency</label>
+            </value>
+            <value>
+                <fullName>Airline</fullName>
+                <default>false</default>
+                <label>Airline</label>
+            </value>
+            <value>
+                <fullName>Apartment/ Self-Catering</fullName>
+                <default>false</default>
+                <label>Apartment/ Self-Catering</label>
+            </value>
+            <value>
+                <fullName>Associations</fullName>
+                <default>false</default>
+                <label>Associations</label>
+            </value>
+            <value>
+                <fullName>Attractions</fullName>
+                <default>false</default>
+                <label>Attractions</label>
+            </value>
+            <value>
+                <fullName>Automotive</fullName>
+                <default>false</default>
+                <label>Automotive</label>
+            </value>
+            <value>
+                <fullName>B&amp;B</fullName>
+                <default>false</default>
+                <label>B&amp;B</label>
+            </value>
+            <value>
+                <fullName>Banks</fullName>
+                <default>false</default>
+                <label>Banks</label>
+            </value>
+            <value>
+                <fullName>Buyers</fullName>
+                <default>false</default>
+                <label>Buyers</label>
+            </value>
+            <value>
+                <fullName>Car Services</fullName>
+                <default>false</default>
+                <label>Car Services</label>
+            </value>
+            <value>
+                <fullName>Chamber of Commerce</fullName>
+                <default>false</default>
+                <label>Chamber of Commerce</label>
+            </value>
+            <value>
+                <fullName>Concierge</fullName>
+                <default>false</default>
+                <label>Concierge</label>
+            </value>
+            <value>
+                <fullName>Concierge/ HNW</fullName>
+                <default>false</default>
+                <label>Concierge/ HNW</label>
+            </value>
+            <value>
+                <fullName>Consulting</fullName>
+                <default>false</default>
+                <label>Consulting</label>
+            </value>
+            <value>
+                <fullName>Corporate Offline Travel Agent</fullName>
+                <default>false</default>
+                <label>Corporate Offline Travel Agent</label>
+            </value>
+            <value>
+                <fullName>Digital Travel Platform</fullName>
+                <default>false</default>
+                <label>Digital Travel Platform</label>
+            </value>
+            <value>
+                <fullName>Diplomatic</fullName>
+                <default>false</default>
+                <label>Diplomatic</label>
+            </value>
+            <value>
+                <fullName>DMC - Destination Mangement Company</fullName>
+                <default>false</default>
+                <label>DMC - Destination Mangement Company</label>
+            </value>
+            <value>
+                <fullName>Education</fullName>
+                <default>false</default>
+                <label>Education</label>
+            </value>
+            <value>
+                <fullName>Employee Benefits Platform</fullName>
+                <default>false</default>
+                <label>Employee Benefits Platform</label>
+            </value>
+            <value>
+                <fullName>Entertainment</fullName>
+                <default>false</default>
+                <label>Entertainment</label>
+            </value>
+            <value>
+                <fullName>European</fullName>
+                <default>false</default>
+                <label>European</label>
+            </value>
+            <value>
+                <fullName>Funding Program</fullName>
+                <default>false</default>
+                <label>Funding Program</label>
+            </value>
+            <value>
+                <fullName>Government</fullName>
+                <default>false</default>
+                <label>Government</label>
+            </value>
+            <value>
+                <fullName>Heritage</fullName>
+                <default>false</default>
+                <label>Heritage</label>
+            </value>
+            <value>
+                <fullName>Hostel</fullName>
+                <default>false</default>
+                <label>Hostel</label>
+            </value>
+            <value>
+                <fullName>Hotel</fullName>
+                <default>false</default>
+                <label>Hotel</label>
+            </value>
+            <value>
+                <fullName>Influencer/Blogger</fullName>
+                <default>false</default>
+                <label>Influencer/Blogger</label>
+            </value>
+            <value>
+                <fullName>Insurance</fullName>
+                <default>false</default>
+                <label>Insurance</label>
+            </value>
+            <value>
+                <fullName>International</fullName>
+                <default>false</default>
+                <label>International</label>
+            </value>
+            <value>
+                <fullName>Language school</fullName>
+                <default>false</default>
+                <label>Language school</label>
+            </value>
+            <value>
+                <fullName>Law</fullName>
+                <default>false</default>
+                <label>Law</label>
+            </value>
+            <value>
+                <fullName>Leisure</fullName>
+                <default>false</default>
+                <label>Leisure</label>
+            </value>
+            <value>
+                <fullName>Leisure Offline Travel Agent</fullName>
+                <default>false</default>
+                <label>Leisure Offline Travel Agent</label>
+            </value>
+            <value>
+                <fullName>Memberships</fullName>
+                <default>false</default>
+                <label>Memberships</label>
+            </value>
+            <value>
+                <fullName>MICE Offline Travel Agent</fullName>
+                <default>false</default>
+                <label>MICE Offline Travel Agent</label>
+            </value>
+            <value>
+                <fullName>Natural</fullName>
+                <default>false</default>
+                <label>Natural</label>
+            </value>
+            <value>
+                <fullName>Offline Travel Agent</fullName>
+                <default>false</default>
+                <label>Offline Travel Agent</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+            <value>
+                <fullName>Paid Media</fullName>
+                <default>false</default>
+                <label>Paid Media</label>
+            </value>
+            <value>
+                <fullName>Payment</fullName>
+                <default>false</default>
+                <label>Payment</label>
+            </value>
+            <value>
+                <fullName>PCO - Professional Conference Organiser</fullName>
+                <default>false</default>
+                <label>PCO - Professional Conference Organiser</label>
+            </value>
+            <value>
+                <fullName>Pharma</fullName>
+                <default>false</default>
+                <label>Pharma</label>
+            </value>
+            <value>
+                <fullName>Press</fullName>
+                <default>false</default>
+                <label>Press</label>
+            </value>
+            <value>
+                <fullName>Professional</fullName>
+                <default>false</default>
+                <label>Professional</label>
+            </value>
+            <value>
+                <fullName>Property</fullName>
+                <default>false</default>
+                <label>Property</label>
+            </value>
+            <value>
+                <fullName>Purpose Built</fullName>
+                <default>false</default>
+                <label>Purpose Built</label>
+            </value>
+            <value>
+                <fullName>Rail Operators</fullName>
+                <default>false</default>
+                <label>Rail Operators</label>
+            </value>
+            <value>
+                <fullName>Road Operators</fullName>
+                <default>false</default>
+                <label>Road Operators</label>
+            </value>
+            <value>
+                <fullName>Sea Operators</fullName>
+                <default>false</default>
+                <label>Sea Operators</label>
+            </value>
+            <value>
+                <fullName>Specialist Expat</fullName>
+                <default>false</default>
+                <label>Specialist Expat</label>
+            </value>
+            <value>
+                <fullName>Supermarket &amp; Fuel</fullName>
+                <default>false</default>
+                <label>Supermarket &amp; Fuel</label>
+            </value>
+            <value>
+                <fullName>Technology</fullName>
+                <default>false</default>
+                <label>Technology</label>
+            </value>
+            <value>
+                <fullName>Telecomm</fullName>
+                <default>false</default>
+                <label>Telecomm</label>
+            </value>
+            <value>
+                <fullName>Tourism Board</fullName>
+                <default>false</default>
+                <label>Tourism Board</label>
+            </value>
+            <value>
+                <fullName>Tour Operator</fullName>
+                <default>false</default>
+                <label>Tour Operator</label>
+            </value>
+            <value>
+                <fullName>University/College</fullName>
+                <default>false</default>
+                <label>University/College</label>
+            </value>
+            <value>
+                <fullName>Corporate</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Corporate</label>
+            </value>
+            <value>
+                <fullName>Corporate Travel</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Corporate Travel</label>
+            </value>
+            <value>
+                <fullName>Employee Benefits</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Employee Benefits</label>
+            </value>
+            <value>
+                <fullName>Media</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Media</label>
+            </value>
+            <value>
+                <fullName>N/A</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>N/A</label>
+            </value>
+            <value>
+                <fullName>Telecommunications</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Telecommunications</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Accomodation</controllingFieldValue>
+            <valueName>Apartment/ Self-Catering</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Accomodation</controllingFieldValue>
+            <valueName>B&amp;B</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Accomodation</controllingFieldValue>
+            <valueName>Hostel</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Accomodation</controllingFieldValue>
+            <valueName>Hotel</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Marketing</controllingFieldValue>
+            <valueName>Agency</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Marketing</controllingFieldValue>
+            <valueName>Influencer/Blogger</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Marketing</controllingFieldValue>
+            <valueName>Press</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Transportation</controllingFieldValue>
+            <valueName>Airline</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Transportation</controllingFieldValue>
+            <valueName>Car Services</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Transportation</controllingFieldValue>
+            <valueName>Rail Operators</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Transportation</controllingFieldValue>
+            <valueName>Road Operators</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Transportation</controllingFieldValue>
+            <valueName>Sea Operators</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Corporate Other</controllingFieldValue>
+            <valueName>Automotive</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Corporate Other</controllingFieldValue>
+            <valueName>Concierge</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Corporate Other</controllingFieldValue>
+            <valueName>Consulting</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Corporate Other</controllingFieldValue>
+            <valueName>Employee Benefits Platform</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Corporate Other</controllingFieldValue>
+            <valueName>Entertainment</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Corporate Other</controllingFieldValue>
+            <valueName>Law</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Corporate Other</controllingFieldValue>
+            <valueName>Other</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Corporate Other</controllingFieldValue>
+            <valueName>Pharma</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Corporate Other</controllingFieldValue>
+            <valueName>Property</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Corporate Other</controllingFieldValue>
+            <valueName>Supermarket &amp; Fuel</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Corporate Other</controllingFieldValue>
+            <valueName>Technology</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Corporate Other</controllingFieldValue>
+            <valueName>Telecomm</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Travel Trade</controllingFieldValue>
+            <valueName>Attractions</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Travel Trade</controllingFieldValue>
+            <valueName>Corporate Offline Travel Agent</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Travel Trade</controllingFieldValue>
+            <valueName>Digital Travel Platform</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Travel Trade</controllingFieldValue>
+            <valueName>DMC - Destination Mangement Company</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Travel Trade</controllingFieldValue>
+            <valueName>Funding Program</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Travel Trade</controllingFieldValue>
+            <valueName>Leisure Offline Travel Agent</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Travel Trade</controllingFieldValue>
+            <valueName>MICE Offline Travel Agent</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Travel Trade</controllingFieldValue>
+            <valueName>PCO - Professional Conference Organiser</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Travel Trade</controllingFieldValue>
+            <valueName>Tour Operator</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Institutional</controllingFieldValue>
+            <valueName>Associations</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Institutional</controllingFieldValue>
+            <valueName>Buyers</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Institutional</controllingFieldValue>
+            <valueName>Diplomatic</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Institutional</controllingFieldValue>
+            <valueName>Education</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Institutional</controllingFieldValue>
+            <valueName>Government</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Institutional</controllingFieldValue>
+            <valueName>Memberships</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Institutional</controllingFieldValue>
+            <valueName>Paid Media</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Institutional</controllingFieldValue>
+            <valueName>Specialist Expat</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Financial</controllingFieldValue>
+            <valueName>Banks</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Financial</controllingFieldValue>
+            <valueName>Insurance</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Financial</controllingFieldValue>
+            <valueName>Payment</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

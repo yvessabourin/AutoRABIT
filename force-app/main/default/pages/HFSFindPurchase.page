@@ -1,0 +1,8 @@
+<apex:page controller="HFSFindHelperController" lightningStylesheets="true">
+	<apex:form >
+		<h3 style="font-size: 15px">Introduce the Purchase Code:</h3>
+		<br/>
+		<apex:inputText value="{!purchaseCode}"/>
+		<apex:commandButton value="Search" action="{!autoRun}"/>
+	</apex:form>
+</apex:page>

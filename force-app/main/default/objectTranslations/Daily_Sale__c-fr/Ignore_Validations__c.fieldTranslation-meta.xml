@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help>Si un message d&apos;erreur apparaît lors de la validation des données alors que celles-ci sont correctes, cocher cette case et ajouter un commentaire</help>
+    <label>Ignorer les erreurs</label>
+    <name>Ignore_Validations__c</name>
+</CustomFieldTranslation>

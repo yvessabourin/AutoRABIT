@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All_Trading_Brands_with_No_RM</fullName>
+    <booleanFilter>1 AND 2 AND 3 AND 4</booleanFilter>
+    <columns>Village__c</columns>
+    <columns>Unit__c</columns>
+    <columns>NAME</columns>
+    <columns>Daily_Sales_Active__c</columns>
+    <columns>Daily_Sale_Active_Date__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Status__c</field>
+        <operation>equals</operation>
+        <value>Trading</value>
+    </filters>
+    <filters>
+        <field>Retail_Manager__c</field>
+        <operation>equals</operation>
+    </filters>
+    <filters>
+        <field>Village__c</field>
+        <operation>notEqual</operation>
+        <value>Shanghai</value>
+    </filters>
+    <filters>
+        <field>Village__c</field>
+        <operation>notEqual</operation>
+        <value>Suzhou</value>
+    </filters>
+    <label>All EU Trading Brands with No RM</label>
+    <language>en_US</language>
+    <sharedTo>
+        <allInternalUsers></allInternalUsers>
+    </sharedTo>
+</ListView>

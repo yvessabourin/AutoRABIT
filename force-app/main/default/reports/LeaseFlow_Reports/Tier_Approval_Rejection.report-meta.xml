@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Deal_Business_History__c$Deal__c.Village__c</field>
+    </columns>
+    <columns>
+        <field>Deal_Business_History__c$Approval_Decision__c</field>
+    </columns>
+    <columns>
+        <field>Deal_Business_History__c$Approved_Date__c</field>
+    </columns>
+    <columns>
+        <field>Deal_Business_History__c$Deal__c.Account</field>
+    </columns>
+    <columns>
+        <field>Deal_Business_History__c$Deal__c.Lease_Type__c</field>
+    </columns>
+    <columns>
+        <field>Deal_Business_History__c$Tier_Level__c</field>
+    </columns>
+    <columns>
+        <field>Deal_Business_History__c$Deal__c.Type</field>
+    </columns>
+    <columns>
+        <field>Deal_Business_History__c$Tier_Level_Rationale__c</field>
+    </columns>
+    <filter>
+        <criteriaItems>
+            <column>Deal_Business_History__c$Approved_Date__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>greaterOrEqual</operator>
+            <value>8/31/2016 12:00 AM</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Deal_Business_History__c$Tier_Level__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Tier 4,Tier 4*</value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
+    <format>Summary</format>
+    <name>Tier Approval/Rejection</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Deal_Business_Histories_plus__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <sortColumn>Deal_Business_History__c$Deal__c.Village__c</sortColumn>
+    <sortOrder>Asc</sortOrder>
+    <timeFrameFilter>
+        <dateColumn>Deal_Business_History__c$Approved_Date__c</dateColumn>
+        <interval>INTERVAL_CURFY</interval>
+    </timeFrameFilter>
+</Report>

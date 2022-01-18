@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Visit_Record_Types__c</fullName>
+    <description>Picklist with all Visit Record Type API names.</description>
+    <externalId>false</externalId>
+    <label>Visit Record Types</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>true</sorted>
+            <value>
+                <fullName>Personal_Shopping_Visit</fullName>
+                <default>false</default>
+                <label>Personal_Shopping_Visit</label>
+            </value>
+            <value>
+                <fullName>Standard</fullName>
+                <default>false</default>
+                <label>Standard</label>
+            </value>
+            <value>
+                <fullName>VIP_Visit</fullName>
+                <default>false</default>
+                <label>VIP_Visit</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

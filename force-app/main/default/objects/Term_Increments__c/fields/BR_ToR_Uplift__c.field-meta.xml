@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>BR_ToR_Uplift__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Enter the % of previous years ToR to be used to set the Base Rent</inlineHelpText>
+    <label>BR ToR Uplift %</label>
+    <precision>5</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Percent</type>
+</CustomField>

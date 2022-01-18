@@ -1,0 +1,11 @@
+<apex:page standardController="Marketing_Campaign__c" showHeader="False" sidebar="False" extensions="SyncCampaignController"  >
+<apex:form >
+<apex:pageMessage id="pagewarning" rendered="{!displayWarning}" severity="Warning"  summary="{!warningMessage}" strength="1"/>
+<apex:pageMessage id="pageerror" rendered="{!displayError}" severity="Error"  summary="{!errorMessage}" strength="1"/>
+<apex:pageMessage id="pagemessage" rendered="{!displayMessage}" severity="Info"  summary="{!pageMessage}" strength="1"/>
+
+<!-- <apex:commandButton id="sync" value="Sync Campaign" action="{!syncroniseMarketingCampaign}" rendered="{!showButton}"/> -->
+<apex:commandButton id="gencsv" value="Generate CSV" action="{!generateCSV}" rendered="{!showButton}"/> 
+
+</apex:form>
+</apex:page>

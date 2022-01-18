@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QuickAction xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Creates a Contract from the Opportunity</description>
+    <fieldOverrides>
+        <field>AccountId</field>
+        <formula>Opportunity.AccountId</formula>
+    </fieldOverrides>
+    <fieldOverrides>
+        <field>Name</field>
+        <formula>&quot;TBA&quot;</formula>
+    </fieldOverrides>
+    <fieldOverrides>
+        <field>Status</field>
+        <literalValue>Draft</literalValue>
+    </fieldOverrides>
+    <label>Create Contract</label>
+    <optionsCreateFeedItem>true</optionsCreateFeedItem>
+    <quickActionLayout>
+        <layoutSectionStyle>TwoColumnsLeftToRight</layoutSectionStyle>
+        <quickActionLayoutColumns>
+            <quickActionLayoutItems>
+                <emptySpace>false</emptySpace>
+                <field>Name</field>
+                <uiBehavior>Required</uiBehavior>
+            </quickActionLayoutItems>
+        </quickActionLayoutColumns>
+        <quickActionLayoutColumns/>
+    </quickActionLayout>
+    <targetObject>Contract</targetObject>
+    <targetParentField>Opportunity__c</targetParentField>
+    <targetRecordType>Contract.Tenancy_Contract</targetRecordType>
+    <type>Create</type>
+</QuickAction>

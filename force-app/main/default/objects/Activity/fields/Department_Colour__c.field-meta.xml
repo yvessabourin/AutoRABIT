@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Department_Colour__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(ISPICKVAL(Event_Department__c , &apos;Retail&apos;) , &apos;#04B404&apos;, 
+IF(ISPICKVAL(Event_Department__c , &apos;Retail Development&apos;) , &apos;#FACC2E&apos;, 
+IF(ISPICKVAL(Event_Department__c , &apos;Leasing/Commercialisation&apos;) , &apos;#FA5882&apos;,
+IF(ISPICKVAL(Event_Department__c , &apos;Combined Retail &amp; Leasing&apos;) , &apos;#BF00FF&apos;, 
+IF(ISPICKVAL(Event_Department__c , &apos;Operations/Security&apos;) , &apos;#F7BE81&apos;, 
+IF(ISPICKVAL(Event_Department__c , &apos;Finance&apos;) , &apos;#BFFF00&apos;, 
+IF(ISPICKVAL(Event_Department__c , &apos;Marketing&apos;) , &apos;#81F7F3&apos;, &apos;white&apos;)))))))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Department Colour</label>
+    <required>false</required>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

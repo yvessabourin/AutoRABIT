@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Bags_at_wrong_Collection_Point__c</fullName>
+    <externalId>false</externalId>
+    <label>Bags at wrong Collection Point</label>
+    <summaryFilterItems>
+        <field>HFS_Bag__c.At_InCorrect_Storage_Location__c</field>
+        <operation>equals</operation>
+        <value>True</value>
+    </summaryFilterItems>
+    <summaryForeignKey>HFS_Bag__c.HFS_Purchase__c</summaryForeignKey>
+    <summaryOperation>count</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

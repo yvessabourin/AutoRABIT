@@ -1,0 +1,21 @@
+<apex:page showHeader="false" showChat="false" standardController="Marketing_Activity__c">
+<!--
+<apex:outputText >{!Marketing_Activity__c.Central_Campaign__r.id}</apex:outputText>
+
+<apex:outputText >calendars: {!IF(Marketing_Activity__c.Sub_Type__c='Tactical','Tactical_Campaigns,','')}</apex:outputText>
+
+
+<SLCA2:calendar namespace="SLCA2" calendar="Tactical_Campaigns,vill" settings="['r_d','r_y','r_c','r_s']" urlparams="sb=0&v=g&pv2={!id}">
+
+
+<SLCA2:calendar namespace="SLCA2" calendar="{!IF(Marketing_Activity__c.Sub_Type__c!='Tactical','Tactical_Campaigns,','')}vill" settings="['r_d','r_y','r_c','r_s']" urlparams="sb=0&v=g&pv2={!id}">
+
+
+
+</SLCA2:calendar>
+
+-->
+ 
+ 
+ 
+</apex:page>

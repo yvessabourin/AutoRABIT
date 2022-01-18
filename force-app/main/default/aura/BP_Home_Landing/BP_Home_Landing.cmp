@@ -1,0 +1,72 @@
+<aura:component controller="BP_Home_Landing_Controller" implements="force:appHostable,flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes" access="global" >
+
+    <aura:attribute name="isDailySalesActive" type="Boolean" default="false"/>  
+    <aura:attribute name="isHFSActive" type="Boolean" default="false"/>
+    <aura:attribute name="isCertifiedActive" type="Boolean" default="false"/>  
+    
+     <!-- Handlers -->    
+    <aura:handler name="init" value="{! this }" action="{! c.init }" />    
+    
+    
+    <div class="c-container"> 
+        <div class="slds-text-align_center">
+        <div class="slds-text-heading_large"> {!$Label.c.DAILY_SALE_WELCOME}</div>
+        <br/>
+        <lightning:layout verticalAlign="center"> 
+            
+              <aura:renderIf isTrue="{!v.isHFSActive}">
+            
+                <lightning:layoutItem flexibility="auto" padding="around-small">
+                    <div class="custom-box">                
+                        <lightning:button class="slds-size_small" onclick="{!c.BrandTermsAction}">
+                            <strong>{!$Label.c.DAILY_SALE_HFS_BRAND_TERMS}</strong>
+                            <img src="{!($Resource.TICDashboard + '/handsfreeshop.svg')}"/>
+                        </lightning:button>
+                    </div>
+                </lightning:layoutItem>
+            </aura:renderIf> 
+            
+            <aura:renderIf isTrue="{!v.isHFSActive}">
+                
+                <lightning:layoutItem flexibility="auto" padding="around-small">
+                    <div class="custom-box">
+                        <lightning:button class="slds-size_small" onclick="{!c.BrandOperationalGuide}">
+                            <strong>{!$Label.c.DAILY_SALE_HFS_OPERATIONAL_GUIDES}</strong>
+                            <img src="{!($Resource.TICDashboard + '/guestsearch.svg')}"/>
+                        </lightning:button>                    
+                    </div>
+                </lightning:layoutItem>
+            </aura:renderIf> 
+            
+            <aura:renderIf isTrue="{!v.isDailySalesActive}">
+                <lightning:layoutItem flexibility="auto" padding="around-small">
+                    <div class="custom-box">
+                        <lightning:button class="slds-size_small" onclick="{!c.BrandSalesEntry}">   
+                            <div>
+                            	<img src="{!($Resource.TICDashboard + '/dailysales.svg')}"/>
+                                <strong>{!$Label.c.DAILY_SALE_ENTRY}</strong>
+                        	</div>
+                        </lightning:button>
+                    </div>
+                </lightning:layoutItem>
+            </aura:renderIf> 
+            
+            <aura:renderIf isTrue="{!v.isCertifiedActive}">
+                <lightning:layoutItem flexibility="auto" padding="around-small">
+                    <div class="custom-box">
+                        <lightning:button class="slds-size_small" onclick="{!c.BrandSalesCertification}">
+                            <div>
+                            	<img src="{!($Resource.TICDashboard + '/salescert.svg')}"/>
+                                <strong>{!$Label.c.DAILY_SALE_CERTIFICATION}</strong>
+                            </div>
+                        </lightning:button>               
+                    </div>
+                </lightning:layoutItem>
+            </aura:renderIf> 
+            
+        </lightning:layout>            
+    	</div>
+    </div>
+
+    
+</aura:component>

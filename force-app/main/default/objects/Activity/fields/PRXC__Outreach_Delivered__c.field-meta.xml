@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PRXC__Outreach_Delivered__c</fullName>
+    <deprecated>false</deprecated>
+    <externalId>false</externalId>
+    <inlineHelpText>The time the SMS/Email was delivered to the recipient.</inlineHelpText>
+    <label>Outreach Delivered</label>
+    <required>false</required>
+    <type>DateTime</type>
+</CustomField>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Tenant_Break_Rights__c</fullName>
+    <defaultValue>&quot;None&quot;</defaultValue>
+    <externalId>false</externalId>
+    <inlineHelpText>Enter any specific breaks rights accorded to the tenant under the terms of this lease</inlineHelpText>
+    <label>Tenant Break Rights</label>
+    <length>4096</length>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>LongTextArea</type>
+    <visibleLines>3</visibleLines>
+</CustomField>

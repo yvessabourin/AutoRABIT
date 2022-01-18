@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MICE_Bookings_for_La_Vallee</fullName>
+    <columns>CAMPAIGN.NAME</columns>
+    <columns>Group_Booking__c</columns>
+    <columns>Village__c</columns>
+    <columns>Calculated_Status__c</columns>
+    <columns>Total_Redemptions__c</columns>
+    <columns>Partner__c</columns>
+    <columns>PARENT_NAME</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CAMPAIGN.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Campaign.MICE_Redeemable_Campaign</value>
+    </filters>
+    <filters>
+        <field>Village__c</field>
+        <operation>equals</operation>
+        <value>La Vallée</value>
+    </filters>
+    <label>MICE Bookings for La Vallée</label>
+    <sharedTo>
+        <group>Location_La_Vallee</group>
+        <role>Group_TIC</role>
+        <role>La_Vallee_TIC</role>
+        <roleAndSubordinates>Group_Tourism</roleAndSubordinates>
+    </sharedTo>
+</ListView>

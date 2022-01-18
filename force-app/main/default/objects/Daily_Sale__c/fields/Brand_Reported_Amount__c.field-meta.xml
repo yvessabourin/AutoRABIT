@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Brand_Reported_Amount__c</fullName>
+    <description>This field is looks at in the INT_Reported_Amount formula field and passed through to MRI via that field if the OVERRIDE RPT AMOUNT field is NULL</description>
+    <externalId>false</externalId>
+    <inlineHelpText>This is the Total Net Sales and the total Net Value of Discounts for the day added together.</inlineHelpText>
+    <label>Brand Reported Amount</label>
+    <precision>9</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

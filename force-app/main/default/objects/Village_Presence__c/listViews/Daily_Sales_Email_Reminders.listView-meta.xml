@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Daily_Sales_Email_Reminders</fullName>
+    <columns>NAME</columns>
+    <columns>Village__c</columns>
+    <columns>Daily_Sale_Email_Reminders__c</columns>
+    <columns>Send_Daily_Sale_Email_Reminders__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Daily_Sales_Active__c</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <label>Daily Sales Email Reminders</label>
+    <language>en_US</language>
+</ListView>

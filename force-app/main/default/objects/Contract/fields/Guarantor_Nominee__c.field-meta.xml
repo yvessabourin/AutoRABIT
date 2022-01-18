@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Guarantor_Nominee__c</fullName>
+    <defaultValue>&quot;TBC&quot;</defaultValue>
+    <externalId>false</externalId>
+    <inlineHelpText>The individual nominated by the guarantor with the power to sign official documents</inlineHelpText>
+    <label>Guarantor Nominee</label>
+    <length>50</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fieldUpdates>
+        <fullName>Update_Last_On_Site_Visit_Field</fullName>
+        <field>Last_On_Site_Visit__c</field>
+        <formula>Date_of_Visit__c</formula>
+        <name>Update Last On-Site Visit Field</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+        <targetObject>Competitor_Site__c</targetObject>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Next_On_Site_Visit_Field</fullName>
+        <field>Next_On_Site_Visit__c</field>
+        <formula>IF(  TEXT(Competitor_Site__r.Priority_level__c) = &apos;1&apos;,   Date_of_Visit__c  + 56 ,
+
+IF(  TEXT(Competitor_Site__r.Priority_level__c) = &apos;2&apos;,  Date_of_Visit__c  + 112 ,
+
+IF(  TEXT(Competitor_Site__r.Priority_level__c) = &apos;3&apos;,  Date_of_Visit__c + 182 ,NULL
+
+) 
+) 
+)</formula>
+        <name>Update Next On-Site Visit	 Field</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+        <targetObject>Competitor_Site__c</targetObject>
+    </fieldUpdates>
+    <rules>
+        <fullName>Update Last On-Site Visit and Next On-Site</fullName>
+        <actions>
+            <name>Update_Last_On_Site_Visit_Field</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Update_Next_On_Site_Visit_Field</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Competitor_Visit__c.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Site Visit</value>
+        </criteriaItems>
+        <description>updates the Last On-Site Visit and Next On-Site Visit based on priority level</description>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+</Workflow>
