@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>Sync_Segmentation_Data</name>
+        <label>Sync Segmentation Data</label>
+        <locationX>776</locationX>
+        <locationY>206</locationY>
+        <actionName>OpportunitySegmentSynchButtonFlow</actionName>
+        <actionType>apex</actionType>
+        <connector>
+            <targetReference>Check_Errors</targetReference>
+        </connector>
+        <faultConnector>
+            <targetReference>Assign_Failure_Message</targetReference>
+        </faultConnector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>oppIdList</name>
+            <value>
+                <elementReference>recordId</elementReference>
+            </value>
+        </inputParameters>
+        <outputParameters>
+            <assignToReference>resultText</assignToReference>
+            <name>output</name>
+        </outputParameters>
+    </actionCalls>
+    <apiVersion>49.0</apiVersion>
+    <assignments>
+        <name>Assign_Failure_Message</name>
+        <label>Assign Failure Message</label>
+        <locationX>922</locationX>
+        <locationY>443</locationY>
+        <assignmentItems>
+            <assignToReference>resultText</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Flow.FaultMessage</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Sync_Segmentation_Data_Result</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_Success_Message</name>
+        <label>Assign Success Message</label>
+        <locationX>644</locationX>
+        <locationY>446</locationY>
+        <assignmentItems>
+            <assignToReference>resultText</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Segmentation was Reset to Brand Settings with success.</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Sync_Segmentation_Data_Result</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <name>Check_Errors</name>
+        <label>Check Errors</label>
+        <locationX>776</locationX>
+        <locationY>326</locationY>
+        <defaultConnector>
+            <targetReference>Sync_Segmentation_Data_Result</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Exist Errors</defaultConnectorLabel>
+        <rules>
+            <name>No_Errors</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>resultText</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue></stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>resultText</leftValueReference>
+                <operator>EqualTo</operator>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Success_Message</targetReference>
+            </connector>
+            <label>No Errors</label>
+        </rules>
+    </decisions>
+    <interviewLabel>Sync Segmentation Data {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Sync Segmentation Data</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>Flow</processType>
+    <screens>
+        <name>Sync_Segmentation_Data_Result</name>
+        <label>Sync Segmentation Data Result</label>
+        <locationX>776</locationX>
+        <locationY>662</locationY>
+        <allowBack>false</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <fields>
+            <name>ResultDisplayText</name>
+            <fieldText>&lt;p style=&quot;text-align: center;&quot;&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;{!resultText}&lt;/span&gt;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>false</showHeader>
+    </screens>
+    <startElementReference>Sync_Segmentation_Data</startElementReference>
+    <status>Active</status>
+    <variables>
+        <name>recordId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>resultText</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

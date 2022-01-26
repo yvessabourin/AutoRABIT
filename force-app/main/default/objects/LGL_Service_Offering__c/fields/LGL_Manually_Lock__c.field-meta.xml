@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LGL_Manually_Lock__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Check that allows a particular offering to be locked during the day. For example, and because for the Left Luggage service is hard to determine (based on numbers) whether if the service is available or full, this check allows the Hospitality team to track the availability of the Service. This checkbox is updated from the Luggage &amp; Loans App</description>
+    <externalId>false</externalId>
+    <label>Manually Lock Offering</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

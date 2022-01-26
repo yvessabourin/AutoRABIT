@@ -1,0 +1,3 @@
+<design:component>
+<design:attribute name="VilPreId" label="Id of the village Presence Record" />
+</design:component>

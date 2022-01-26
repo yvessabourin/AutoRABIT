@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Ingolstadt_Tourism</fullName>
+    <columns>NAME</columns>
+    <columns>Channel__c</columns>
+    <columns>Business_Function__c</columns>
+    <columns>Budget__c</columns>
+    <columns>RECORDTYPE</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Marketing_Campaign_Village__c</field>
+        <operation>contains</operation>
+        <value>Ingolstadt</value>
+    </filters>
+    <filters>
+        <field>Start_Date__c</field>
+        <operation>greaterOrEqual</operation>
+        <value>1/1/2018</value>
+    </filters>
+    <filters>
+        <field>End_Date__c</field>
+        <operation>lessOrEqual</operation>
+        <value>12/31/2018</value>
+    </filters>
+    <filters>
+        <field>Marketing_Campaign__c</field>
+        <operation>notContain</operation>
+        <value>FOCUS,SUB,Privilege</value>
+    </filters>
+    <filters>
+        <field>Business_Function__c</field>
+        <operation>contains</operation>
+        <value>Local Tourism,Local Tourism Services</value>
+    </filters>
+    <label>Ingolstadt Tourism</label>
+    <language>en_US</language>
+</ListView>

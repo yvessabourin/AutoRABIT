@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <outboundMessages>
+        <fullName>Obm_ODSDelete</fullName>
+        <apiVersion>32.0</apiVersion>
+        <endpointUrl>https://api.valueretail.com/sf/OdsDeleteLog/v1.0/ObmOdsDeleteLog.asmx</endpointUrl>
+        <fields>Deleted_By_User_ID__c</fields>
+        <fields>Deleted_Date_Time__c</fields>
+        <fields>Deleted_Record_ID__c</fields>
+        <fields>Id</fields>
+        <fields>sObject__c</fields>
+        <includeSessionId>false</includeSessionId>
+        <integrationUser>b2capi@valueretail.com</integrationUser>
+        <name>Obm_ODSDelete</name>
+        <protected>false</protected>
+        <useDeadLetterQueue>false</useDeadLetterQueue>
+    </outboundMessages>
+    <rules>
+        <fullName>Delete ODS Record</fullName>
+        <actions>
+            <name>Obm_ODSDelete</name>
+            <type>OutboundMessage</type>
+        </actions>
+        <active>false</active>
+        <criteriaItems>
+            <field>ODS_Delete_Log__c.sObject__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>User.ProfileId</field>
+            <operation>notEqual</operation>
+            <value>B2C ODS API</value>
+        </criteriaItems>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+</Workflow>

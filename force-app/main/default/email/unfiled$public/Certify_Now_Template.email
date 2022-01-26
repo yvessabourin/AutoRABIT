@@ -1,0 +1,17 @@
+<html>
+<p>Hi UserName,</p>
+
+<p>It’s time to certify sales. The certification deadline is <b>certificationDeadline</b>.</p>
+
+<p>Please go to the Brand Portal using the link below and you will be able to view any outstanding records where you need to certify the sales.</p>
+
+<p>Brand Portal: <a href="website_here">website_here</a></p>
+
+<p>Please note that you will have to review/fill in both the NET SALES (EXCLUDING VAT) and the NET DISCOUNTS (EXCLUDING VAT).</p>
+<p>Please be aware that the following discounts are to be reported in addition to net sales: 10% VIP discounts, any internal staff discounts.</p>
+
+<p>If you have any problems or questions, please contact your Value Retail Finance contact.</p>
+
+<p>Best Regards,</p>
+<p>Value Retail Team</p>
+</html>

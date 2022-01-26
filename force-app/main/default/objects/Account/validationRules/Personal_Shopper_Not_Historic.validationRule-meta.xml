@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Personal_Shopper_Not_Historic</fullName>
+    <active>false</active>
+    <description>Users should NOT be able to select the option &quot;Historic&quot;</description>
+    <errorConditionFormula>AND($RecordType.DeveloperName = &quot;VIP_Guest&quot;, TEXT(Vip_Marketing_Consent_Email__c)=&quot;Historic&quot;,$Profile.Name = &apos;Personal Shopper for Clientelling App&apos;)</errorConditionFormula>
+    <errorMessage>You cannot select the Historic option.</errorMessage>
+</ValidationRule>

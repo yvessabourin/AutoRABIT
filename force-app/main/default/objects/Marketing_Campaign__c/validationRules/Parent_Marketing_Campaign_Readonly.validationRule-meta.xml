@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Parent_Marketing_Campaign_Readonly</fullName>
+    <active>false</active>
+    <description>Parent_Marketing_Campaign_Readonly</description>
+    <errorConditionFormula>AND(
+NOT(ISNEW()),
+ISCHANGED(Parent_Marketing_Campaign__c)
+)</errorConditionFormula>
+    <errorMessage>Parent Marketing Campaign is a Read Only field.</errorMessage>
+</ValidationRule>

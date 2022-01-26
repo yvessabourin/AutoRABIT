@@ -1,0 +1,148 @@
+<apex:page controller="bulkAddBrandParticipantsController" lightningStylesheets="true">
+
+    <style type="text/css">
+        .tableClass{background-color: whitesmoke}
+        .noBack{}
+    </style>
+
+    <apex:form >
+        <c:ProcessSpinner MessageText="Please wait ...." />
+
+        <apex:pageBlock title="Bulk add/remove Brands to {!cMarketingActivity.Name } Activity">
+            <apex:pageBlockButtons >
+                <apex:commandButton action="{!save}" value="Save" status="processingStatus" disabled="{!NOT(enableSave)}" onclick="this.onclick=function(){return false;}"/>
+                <apex:commandButton action="{!cancel}" value="Cancel"/>
+                <apex:commandButton action="{!deleteRecord}" value="Delete"/>
+            </apex:pageBlockButtons>
+
+            <apex:pageMessages id="pgMsgs"/>
+
+            <apex:pageBlockSection collapsible="false" title="Participating Brand Values" columns="1">
+                <apex:pageBlockSectionItem labelStyle="vertical-align:middle;">
+                    <apex:outputLabel value="Status" for="statusus"/>
+
+                    <apex:selectList id="Statuses" value="{!defaultstatus}" size="1" required="true">
+                        <apex:selectOptions value="{!Statuses}"/>
+                    </apex:selectList>
+                </apex:pageBlockSectionItem>
+
+                <apex:pageBlockSectionItem labelStyle="vertical-align:middle;">
+                    <apex:outputLabel value="Discount" for="discount"/>
+
+                    <apex:panelGrid columns="2">
+                        <apex:selectList id="Discounts" value="{!defaultDiscount}" size="1">
+                            <apex:selectOptions value="{!Discounts}" />
+                        </apex:selectList>
+
+                        <apex:inputText style="height:14px" title="Discount %" value="{!ApplyDiscount_Percentage}" id="discountPercentage"/>
+                    </apex:panelGrid>
+                </apex:pageBlockSectionItem>
+
+                <apex:pageBlockSectionItem labelStyle="vertical-align:middle;">
+                    <apex:outputLabel style="text-align: left" value="Minimum Purchase" for="purchase" />
+
+                    <apex:panelGrid columns="2">
+                        <apex:selectList id="MinimumPurchases" value="{!defaultMinimumPurchase}" size="1">
+                            <apex:selectOptions value="{!MinimumPurchases}" />
+                        </apex:selectList>
+
+                        <apex:inputText style="height:14px" title="Minimum Purchase Amount" value="{!ApplyMinimumPurchase_Amount}" id="minimumAmount"/>
+                    </apex:panelGrid>
+                </apex:pageBlockSectionItem>
+
+                <apex:pageBlockSectionItem labelStyle="vertical-align:middle;">
+                    <apex:outputLabel value="Gift With Purchase" for="giftPurchase"/>
+
+                    <apex:panelGrid columns="2">
+                        <apex:selectList id="GiftWithPurchases" value="{!defaultGiftWithPurchase}" size="1">
+                            <apex:selectOptions value="{!GiftWithPurchases}"/>
+                        </apex:selectList>
+
+                        <apex:inputText style="height:14px" title="Gift With Purchase Type" value="{!ApplyGiftWithPurchase_Type}" id="purchasetype"/>
+                    </apex:panelGrid>
+                </apex:pageBlockSectionItem>
+
+                <apex:pageBlockSectionItem labelStyle="vertical-align:middle;">
+                    <apex:outputLabel value="Feature Details" for="detail"/>
+                    <apex:inputText title="Feature Details" value="{!ApplyFeature_Details}" id="detail"/>
+                </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>
+
+            <apex:pageBlockTable value="{!ParticipantBrandList}" var="PB" rowClasses="odd,even" styleClass="tableClass" id="theTable">
+                <apex:column width="50px" styleClass="{!IF(PB.AlreadyExists == true,"tableClass","noBack")}">
+                    <apex:facet name="header">Link/Unlink? >
+                        <apex:inputCheckbox value="{!allSelected}" >
+                            <apex:actionSupport event="onclick" action="{!checkAll}" reRender="theTable" status="processingStatus" />
+                        </apex:inputCheckbox>
+                    </apex:facet>
+
+                    <apex:inputCheckbox value="{!PB.selected}"/>
+                </apex:column>
+
+                <apex:column width="200px" styleClass="{!IF(PB.AlreadyExists == true,"tableClass","noBack")}">
+                    <apex:facet name="header">Brand</apex:facet>
+                    <apex:outputLink target="_new" value="/{!PB.VP_id}"> <apex:outputText >{!PB.VP_Name }</apex:outputText></apex:outputLink>
+                </apex:column>
+
+                <apex:column width="200px" styleClass="{!IF(PB.AlreadyExists == true,"tableClass","noBack")}">
+                    <apex:facet name="header">Status</apex:facet>
+                    <apex:outputText >{!PB.Status}</apex:outputText>
+                </apex:column>
+
+                <apex:column width="200px" styleClass="{!IF(PB.AlreadyExists == true,"tableClass","noBack")}">
+                    <apex:facet name="header">Primary Contact</apex:facet>
+                    <apex:outputText >{!PB.Primary_Marketing_Contact}</apex:outputText>
+                </apex:column>
+
+                <apex:column width="200px" styleClass="{!IF(PB.AlreadyExists == true,"tableClass","noBack")}">
+                    <apex:facet name="header">Pre-Approvals</apex:facet>
+                    <apex:outputText >{!PB.Pre_approval}</apex:outputText>
+                </apex:column>
+
+                 <apex:column width="200px" styleClass="{!IF(PB.AlreadyExists == true,"tableClass","noBack")}">
+                    <apex:facet name="header">Pre-Approval Expiry</apex:facet>
+
+                    <apex:outputText value="{0,date,MM'/'dd'/'yyyy}">
+                        <apex:param value="{!PB.Approval_End_Date}" />
+                    </apex:outputText>
+                </apex:column>
+
+                <apex:column width="200px" styleClass="{!IF(PB.AlreadyExists == true,"tableClass","noBack")}">
+                    <apex:facet name="header">Approval Comments</apex:facet>
+                    <apex:outputText >{!PB.Approval_Comment}</apex:outputText>
+                </apex:column>
+
+                <apex:column width="200px" styleClass="{!IF(PB.AlreadyExists == true,"tableClass","noBack")}">
+                    <apex:facet name="header">Marketing Manager</apex:facet>
+                    <apex:outputText >{!PB.Marketing_Manager}</apex:outputText>
+                </apex:column>
+
+                <apex:column width="200px" styleClass="{!IF(PB.AlreadyExists == true,"tableClass","noBack")}">
+                    <apex:facet name="header">Expected Exit Date</apex:facet>
+                    <apex:outputText >{!PB.brand_exit_date}</apex:outputText>
+                </apex:column>
+
+                <apex:column width="200px" styleClass="{!IF(PB.AlreadyExists == true,"tableClass","noBack")}">
+                    <apex:facet name="header">Market Position</apex:facet>
+                    <apex:outputText >{!PB.Market_Position}</apex:outputText>
+                </apex:column>
+
+                <apex:column width="200px" styleClass="{!IF(PB.AlreadyExists == true,"tableClass","noBack")}">
+                    <apex:facet name="header">Group Marketing Brand</apex:facet>
+                    <apex:inputCheckbox disabled="true" value="{!PB.Group_Marketing}"> </apex:inputCheckbox>
+                </apex:column>
+
+                <apex:column width="200px" styleClass="{!IF(PB.AlreadyExists == true,"tableClass","noBack")}">
+                    <apex:facet name="header">Department</apex:facet>
+                    <apex:outputText >{!PB.Department}</apex:outputText>
+                </apex:column>
+
+                <apex:column width="200px" styleClass="{!IF(PB.AlreadyExists == true,"tableClass","noBack")}">
+                    <apex:facet name="header">Village Presence Status</apex:facet>
+                    <apex:outputText >{!PB.VPStatus}</apex:outputText>
+                </apex:column>
+
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

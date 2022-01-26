@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>latestVIPRoomDate__c</fullName>
+    <description>Most recent VIP room date</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Most recent VIP room date</inlineHelpText>
+    <label>Latest VIP Room Date</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+</CustomField>

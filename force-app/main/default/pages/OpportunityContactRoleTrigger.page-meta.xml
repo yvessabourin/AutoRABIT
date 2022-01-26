@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ApexPage xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>29.0</apiVersion>
+    <availableInTouch>false</availableInTouch>
+    <confirmationTokenRequired>false</confirmationTokenRequired>
+    <description>Inline VF page used to mimic a trigger on the OpportunityContactRole object which currently does not support triggers.</description>
+    <label>OpportunityContactRoleTrigger</label>
+</ApexPage>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>IVWV_InVillage_Plan3</fullName>
+    <columns>Status__c</columns>
+    <columns>Marketing_Campaign_Village__c</columns>
+    <columns>Marketing_Campaign__c</columns>
+    <columns>NAME</columns>
+    <columns>Start_Date__c</columns>
+    <columns>End_Date__c</columns>
+    <columns>Sub_Channel__c</columns>
+    <columns>Sub_Channel_Type__c</columns>
+    <columns>Objective__c</columns>
+    <columns>Responsible_Person__c</columns>
+    <columns>Partner_Name__c</columns>
+    <columns>Parent_Group_Marketing_Campaign__c</columns>
+    <columns>Reach__c</columns>
+    <columns>Expected_Footfall__c</columns>
+    <columns>Activity_Cost__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Start_Date__c</field>
+        <operation>greaterThan</operation>
+        <value>5/1/2017</value>
+    </filters>
+    <filters>
+        <field>Marketing_Campaign_Village__c</field>
+        <operation>contains</operation>
+        <value>Wertheim,Ingolstadt</value>
+    </filters>
+    <filters>
+        <field>Status__c</field>
+        <operation>notContain</operation>
+        <value>Removed</value>
+    </filters>
+    <filters>
+        <field>Channel__c</field>
+        <operation>equals</operation>
+        <value>In Village</value>
+    </filters>
+    <label>IVWV InVillage Plan</label>
+    <language>en_US</language>
+    <sharedTo>
+        <roleAndSubordinates>German_Marketing</roleAndSubordinates>
+        <roleAndSubordinates>German_Tourism</roleAndSubordinates>
+        <roleAndSubordinates>Ingolstadt_Marketing</roleAndSubordinates>
+    </sharedTo>
+</ListView>

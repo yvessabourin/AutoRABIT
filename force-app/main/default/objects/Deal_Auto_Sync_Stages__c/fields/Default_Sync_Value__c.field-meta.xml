@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Default_Sync_Value__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>The default auto synch value to set on the deal when the deal is set to this stage. The auto synch value determines whether Deal data will be automatically copied to the associated village presence during the deal process.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>The default auto synch value to set on the deal when the deal is set to this stage. The auto synch value determines whether Deal data will be automatically copied to the associated village presence during the deal process.</inlineHelpText>
+    <label>Default Sync Value</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

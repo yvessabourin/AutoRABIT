@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Segmentation__c</fullName>
+    <description>New PICKLIST field created to replace the old MULTIPICKLIST Segmentation field</description>
+    <externalId>false</externalId>
+    <label>Segmentation</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Audience_Category__c</controllingField>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Member - Tier 1  (Low Spend)</fullName>
+                <default>false</default>
+                <label>Member - Tier 1  (Low Spend)</label>
+            </value>
+            <value>
+                <fullName>Member - Tier 2 (Medium Spend)</fullName>
+                <default>false</default>
+                <label>Member - Tier 2 (Medium Spend)</label>
+            </value>
+            <value>
+                <fullName>Member - Tier 3 (High Spend)</fullName>
+                <default>false</default>
+                <label>Member - Tier 3 (High Spend)</label>
+            </value>
+            <value>
+                <fullName>Non-Member Low Spend</fullName>
+                <default>false</default>
+                <label>Non-Member Low Spend</label>
+            </value>
+            <value>
+                <fullName>Non-Member Medium Spend</fullName>
+                <default>false</default>
+                <label>Non-Member Medium Spend</label>
+            </value>
+            <value>
+                <fullName>Non-Member High Spend</fullName>
+                <default>false</default>
+                <label>Non-Member High Spend</label>
+            </value>
+            <value>
+                <fullName>Member Private Client Services</fullName>
+                <default>false</default>
+                <label>Member Private Client Services</label>
+            </value>
+            <value>
+                <fullName>Non-Member Private Client Services</fullName>
+                <default>false</default>
+                <label>Non-Member Private Client Services</label>
+            </value>
+            <value>
+                <fullName>Not Applicable</fullName>
+                <default>false</default>
+                <label>Not Applicable</label>
+            </value>
+            <value>
+                <fullName>1. Luxury Experience Seekers</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>1. Luxury Experience Seekers</label>
+            </value>
+            <value>
+                <fullName>2. Savvy Brand Loyalists</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>2. Savvy Brand Loyalists</label>
+            </value>
+            <value>
+                <fullName>3. Authentic Brand Seekers</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>3. Authentic Brand Seekers</label>
+            </value>
+            <value>
+                <fullName>3. Authentic Brand Seekers]</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>3. Authentic Brand Seekers]</label>
+            </value>
+            <value>
+                <fullName>4. Casual Shoppers</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>4. Casual Shoppers</label>
+            </value>
+            <value>
+                <fullName>4. Casual Shoppers]</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>4. Casual Shoppers]</label>
+            </value>
+            <value>
+                <fullName>5. Escape to the Village</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>5. Escape to the Village</label>
+            </value>
+            <value>
+                <fullName>5. Escape to the Village]</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>5. Escape to the Village]</label>
+            </value>
+            <value>
+                <fullName>6. Limited Spenders</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>6. Limited Spenders</label>
+            </value>
+            <value>
+                <fullName>6. Limited Spenders]</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>6. Limited Spenders]</label>
+            </value>
+            <value>
+                <fullName>Blue</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Blue</label>
+            </value>
+            <value>
+                <fullName>Gold</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Gold</label>
+            </value>
+            <value>
+                <fullName>Green</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Green</label>
+            </value>
+            <value>
+                <fullName>Orange</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Orange</label>
+            </value>
+            <value>
+                <fullName>Pink</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Pink</label>
+            </value>
+            <value>
+                <fullName>Purple</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Purple</label>
+            </value>
+            <value>
+                <fullName>Teal</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Teal</label>
+            </value>
+            <value>
+                <fullName>[1. Luxury Experience Seekers</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>[1. Luxury Experience Seekers</label>
+            </value>
+            <value>
+                <fullName>[2. Savvy Brand Loyalists</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>[2. Savvy Brand Loyalists</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Domestic Expat Student</controllingFieldValue>
+            <controllingFieldValue>Domestic Expat Other</controllingFieldValue>
+            <controllingFieldValue>Domestic - Tourist</controllingFieldValue>
+            <controllingFieldValue>Domestic - Virtual Shopping</controllingFieldValue>
+            <controllingFieldValue>Non-Domestic - Virtual Shopping</controllingFieldValue>
+            <controllingFieldValue>Domestic Local</controllingFieldValue>
+            <controllingFieldValue>Non-Domestic - Tourist</controllingFieldValue>
+            <valueName>Member - Tier 2 (Medium Spend)</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Domestic Expat Student</controllingFieldValue>
+            <controllingFieldValue>Domestic Expat Other</controllingFieldValue>
+            <controllingFieldValue>Domestic - Tourist</controllingFieldValue>
+            <controllingFieldValue>Domestic - Virtual Shopping</controllingFieldValue>
+            <controllingFieldValue>Non-Domestic - Virtual Shopping</controllingFieldValue>
+            <controllingFieldValue>Domestic Local</controllingFieldValue>
+            <controllingFieldValue>Non-Domestic - Tourist</controllingFieldValue>
+            <valueName>Member - Tier 3 (High Spend)</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Domestic Expat Student</controllingFieldValue>
+            <controllingFieldValue>Domestic Expat Other</controllingFieldValue>
+            <controllingFieldValue>Domestic - Tourist</controllingFieldValue>
+            <controllingFieldValue>Domestic - Virtual Shopping</controllingFieldValue>
+            <controllingFieldValue>Non-Domestic - Virtual Shopping</controllingFieldValue>
+            <controllingFieldValue>Domestic Local</controllingFieldValue>
+            <controllingFieldValue>Non-Domestic - Tourist</controllingFieldValue>
+            <valueName>Non-Member Low Spend</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Domestic Expat Student</controllingFieldValue>
+            <controllingFieldValue>Domestic Expat Other</controllingFieldValue>
+            <controllingFieldValue>Domestic - Tourist</controllingFieldValue>
+            <controllingFieldValue>Domestic - Virtual Shopping</controllingFieldValue>
+            <controllingFieldValue>Non-Domestic - Virtual Shopping</controllingFieldValue>
+            <controllingFieldValue>Domestic Local</controllingFieldValue>
+            <controllingFieldValue>Non-Domestic - Tourist</controllingFieldValue>
+            <valueName>Non-Member Medium Spend</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Domestic Expat Student</controllingFieldValue>
+            <controllingFieldValue>Domestic Expat Other</controllingFieldValue>
+            <controllingFieldValue>Domestic - Tourist</controllingFieldValue>
+            <controllingFieldValue>Domestic - Virtual Shopping</controllingFieldValue>
+            <controllingFieldValue>Non-Domestic - Virtual Shopping</controllingFieldValue>
+            <controllingFieldValue>Domestic Local</controllingFieldValue>
+            <controllingFieldValue>Non-Domestic - Tourist</controllingFieldValue>
+            <valueName>Non-Member High Spend</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Domestic Expat Student</controllingFieldValue>
+            <controllingFieldValue>Domestic Expat Other</controllingFieldValue>
+            <controllingFieldValue>Domestic - Tourist</controllingFieldValue>
+            <controllingFieldValue>Domestic - Virtual Shopping</controllingFieldValue>
+            <controllingFieldValue>Non-Domestic - Virtual Shopping</controllingFieldValue>
+            <controllingFieldValue>Domestic Local</controllingFieldValue>
+            <controllingFieldValue>Non-Domestic - Tourist</controllingFieldValue>
+            <valueName>Member Private Client Services</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Domestic Expat Student</controllingFieldValue>
+            <controllingFieldValue>Domestic Expat Other</controllingFieldValue>
+            <controllingFieldValue>Domestic - Tourist</controllingFieldValue>
+            <controllingFieldValue>Domestic - Virtual Shopping</controllingFieldValue>
+            <controllingFieldValue>Non-Domestic - Virtual Shopping</controllingFieldValue>
+            <controllingFieldValue>Domestic Local</controllingFieldValue>
+            <controllingFieldValue>Non-Domestic - Tourist</controllingFieldValue>
+            <valueName>Non-Member Private Client Services</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Tourist - Not Specified</controllingFieldValue>
+            <controllingFieldValue>Not Applicable</controllingFieldValue>
+            <valueName>Not Applicable</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

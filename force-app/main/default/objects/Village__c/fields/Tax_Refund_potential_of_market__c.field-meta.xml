@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Tax_Refund_potential_of_market__c</fullName>
+    <description>Tax Refund potential of market</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Tax Refund potential of market</inlineHelpText>
+    <label>Tax Refund potential of market</label>
+    <length>10000</length>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>LongTextArea</type>
+    <visibleLines>5</visibleLines>
+</CustomField>

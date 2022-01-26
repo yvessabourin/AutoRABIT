@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VLR_GracePeriodRule</fullName>
+    <active>true</active>
+    <description>Cert Sales Reported Sales Grace Period Days should be greater than or equal to the CertSales CertPeriod Open Days.</description>
+    <errorConditionFormula>IF(CertSales_CertPeriod_Open_Days__c &lt;= CertSales_Report_Sales_Grace_Period_Days__c, false, true)</errorConditionFormula>
+    <errorDisplayField>CertSales_Report_Sales_Grace_Period_Days__c</errorDisplayField>
+    <errorMessage>Cert Sales Reported Sales Grace Period Days should be greater than or equal to the CertSales CertPeriod Open Days.</errorMessage>
+</ValidationRule>

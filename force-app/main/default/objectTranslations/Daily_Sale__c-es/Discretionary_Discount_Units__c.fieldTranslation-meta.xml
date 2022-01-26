@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help></help>
+    <label>Unidades con descuento &quot;discrecional&quot;</label>
+    <name>Discretionary_Discount_Units__c</name>
+</CustomFieldTranslation>

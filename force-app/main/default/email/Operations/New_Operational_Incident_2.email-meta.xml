@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Operations_Emails</letterhead>
+    <name>New Operational Incident 2</name>
+    <style>freeForm</style>
+    <subject>A New {!Operational_Incident__c.Category__c} Incident has been raised</subject>
+    <textOnly>{!Operational_Incident__c.Name}
+Location: {!Operational_Incident__c.Location__c}
+
+Link: {!Operational_Incident__c.Link}
+
+Priority: {!Operational_Incident__c.Priority__c}
+Reported by: {!Operational_Incident__c.Reported_By__c}
+Village: {!Operational_Incident__c.Village__c}
+Due Date: {!Operational_Incident__c.Due_Date__c}
+
+{!Operational_Incident__c.Description__c}</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Service_Data_Type__c</fullName>
+    <description>The type of data for the service.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>The type of data for the service</inlineHelpText>
+    <label>Service Data Type</label>
+    <required>true</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Guest Type</fullName>
+                <default>false</default>
+                <label>Guest Type</label>
+            </value>
+            <value>
+                <fullName>HFS Collection Location</fullName>
+                <default>false</default>
+                <label>HFS Collection Location</label>
+            </value>
+            <value>
+                <fullName>HFS Payment Status</fullName>
+                <default>false</default>
+                <label>HFS Payment Status</label>
+            </value>
+            <value>
+                <fullName>LGL Deposit Status</fullName>
+                <default>false</default>
+                <label>LGL Deposit Status</label>
+            </value>
+            <value>
+                <fullName>LGL Guest Type</fullName>
+                <default>false</default>
+                <label>LGL Guest Type</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

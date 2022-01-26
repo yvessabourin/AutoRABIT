@@ -1,0 +1,15 @@
+<apex:page standardController="Commitment_Letter__c" extensions="addtoCommitmentsController" docType="html-5.0" >
+
+    <apex:form id="myForm">
+         
+         <apex:pageBlock >
+                <apex:pageBlockSection columns="1">
+                <apex:inputfield value="{!commitmentOpp.Village_Chain_Deal_Link__c}" id="villagePresenceSelected" required="false" label="Select Existing Deal" />
+                </apex:pageBlockSection>
+                
+                <APEX:commandButton id="AddDealbutton" value="Add Existing Deal to Commitment" action="{!addDealtoCommitment}" rendered="True" />               
+                    
+        </apex:pageBlock>
+        
+    </apex:form>        
+</apex:page>

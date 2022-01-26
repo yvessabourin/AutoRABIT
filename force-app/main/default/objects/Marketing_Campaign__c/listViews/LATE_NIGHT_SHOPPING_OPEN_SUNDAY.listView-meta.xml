@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LATE_NIGHT_SHOPPING_OPEN_SUNDAY</fullName>
+    <columns>NAME</columns>
+    <columns>Parent_Marketing_Campaign__c</columns>
+    <columns>Start_Date__c</columns>
+    <columns>Number_of_Activities__c</columns>
+    <columns>Campaign_Marketing_Budget__c</columns>
+    <columns>Proposed_Activity_Budget__c</columns>
+    <columns>Accumulated_Campaign_Cost__c</columns>
+    <columns>Accumulated_Campaign_Expected_Footfall__c</columns>
+    <columns>Accumulated_Campaign_Expected_NewMembers__c</columns>
+    <columns>Accumulated_Campaign_Expected_Sales__c</columns>
+    <columns>Accumulated_Campaign_Reach__c</columns>
+    <columns>Responsible_Person__c</columns>
+    <columns>Accountable__c</columns>
+    <columns>Consulted__c</columns>
+    <columns>Informed__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Village__c</field>
+        <operation>equals</operation>
+        <value>Wertheim</value>
+    </filters>
+    <filters>
+        <field>Campaign_Name_with_Village__c</field>
+        <operation>contains</operation>
+        <value>Late Night Shopping,Open Sunday</value>
+    </filters>
+    <filters>
+        <field>Start_Date__c</field>
+        <operation>greaterThan</operation>
+        <value>1/1/2017</value>
+    </filters>
+    <label>LATE NIGHT SHOPPING &amp; OPEN SUNDAY</label>
+    <language>en_US</language>
+    <sharedTo>
+        <role>German_Marketing</role>
+    </sharedTo>
+</ListView>

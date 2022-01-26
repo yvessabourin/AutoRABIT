@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Guest_Source__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>What is the reason for the VIP Account registration?</inlineHelpText>
+    <label>Guest Source</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Brand_Event</fullName>
+                <default>false</default>
+                <label>Brand Event</label>
+            </value>
+            <value>
+                <fullName>Brand_Referral</fullName>
+                <default>false</default>
+                <label>Brand Referral</label>
+            </value>
+            <value>
+                <fullName>Brand Support</fullName>
+                <default>false</default>
+                <label>Brand Support</label>
+            </value>
+            <value>
+                <fullName>Word_of_Mouth</fullName>
+                <default>false</default>
+                <label>Guest Referral</label>
+            </value>
+            <value>
+                <fullName>In_Village_Referral</fullName>
+                <default>false</default>
+                <label>In Village Referral</label>
+            </value>
+            <value>
+                <fullName>Marketing_Activity</fullName>
+                <default>false</default>
+                <label>Marketing Activity</label>
+            </value>
+            <value>
+                <fullName>Village_Specific</fullName>
+                <default>false</default>
+                <label>Membership</label>
+            </value>
+            <value>
+                <fullName>Partnership</fullName>
+                <default>false</default>
+                <label>Partnership</label>
+            </value>
+            <value>
+                <fullName>Personal_Shopper</fullName>
+                <default>false</default>
+                <label>Personal Shopper</label>
+            </value>
+            <value>
+                <fullName>PR/Influencer</fullName>
+                <default>false</default>
+                <label>PR/Influencer</label>
+            </value>
+            <value>
+                <fullName>P/C - Apartment (BV Only)</fullName>
+                <default>false</default>
+                <label>Private Clients Team - Apartment</label>
+            </value>
+            <value>
+                <fullName>P/C - PR (BV Only)</fullName>
+                <default>false</default>
+                <label>Private Clients Team - PR</label>
+            </value>
+            <value>
+                <fullName>P/C - Tourism (BV Only)</fullName>
+                <default>false</default>
+                <label>Private Clients Team - Tourism</label>
+            </value>
+            <value>
+                <fullName>Website</fullName>
+                <default>false</default>
+                <label>Website</label>
+            </value>
+            <value>
+                <fullName>WeChat</fullName>
+                <default>false</default>
+                <label>WeChat</label>
+            </value>
+            <value>
+                <fullName>WhatsApp</fullName>
+                <default>false</default>
+                <label>WhatsApp</label>
+            </value>
+            <value>
+                <fullName>Campaign</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Campaign</label>
+            </value>
+            <value>
+                <fullName>Personal Shopping</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Personal Shopping</label>
+            </value>
+            <value>
+                <fullName>Private_Clients_Team</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Private Clients Team</label>
+            </value>
+            <value>
+                <fullName>Regular Guest</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Regular Guest</label>
+            </value>
+            <value>
+                <fullName>Special Event</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Special Event</label>
+            </value>
+            <value>
+                <fullName>VR Management Referral</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>VR Management Referral</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

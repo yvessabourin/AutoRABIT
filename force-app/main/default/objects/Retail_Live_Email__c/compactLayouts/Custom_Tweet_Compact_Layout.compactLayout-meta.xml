@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Custom_Tweet_Compact_Layout</fullName>
+    <fields>Subject_Unique__c</fields>
+    <fields>OwnerId</fields>
+    <fields>Village__c</fields>
+    <fields>Brand_Reference__c</fields>
+    <label>Custom Tweet Compact Layout</label>
+</CompactLayout>

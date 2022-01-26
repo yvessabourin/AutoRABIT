@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help></help>
+    <label></label>
+    <name>Village_Specific__c</name>
+    <picklistValues>
+        <masterLabel>FV Exclusive</masterLabel>
+        <translation></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>LVV Prestige</masterLabel>
+        <translation></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Membership</masterLabel>
+        <translation></translation>
+    </picklistValues>
+</CustomFieldTranslation>

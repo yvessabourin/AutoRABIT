@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Build_Redeemable_Campaigns_Ltg</fullName>
+    <availability>online</availability>
+    <description>Page takes the user to a wizard VF page to enter Campaigns</description>
+    <displayType>button</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <height>600</height>
+    <linkType>url</linkType>
+    <masterLabel>Build Redeemable Campaigns</masterLabel>
+    <openType>sidebar</openType>
+    <protected>false</protected>
+    <url>{!URLFOR(&apos;/apex/RedeemableCampaignWizard&apos;, null, [Id=Campaign.Id])}</url>
+</WebLink>

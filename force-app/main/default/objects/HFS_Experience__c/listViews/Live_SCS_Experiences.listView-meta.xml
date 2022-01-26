@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Live_SCS_Experiences</fullName>
+    <columns>NAME</columns>
+    <columns>Experience_Date_Time__c</columns>
+    <columns>Customer__c</columns>
+    <columns>Pickup_Location__c</columns>
+    <columns>Status__c</columns>
+    <columns>Shelf__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Status__c</field>
+        <operation>equals</operation>
+        <value>Live,Customer Requested</value>
+    </filters>
+    <filters>
+        <field>My_Village_Experience__c</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <label>Live SCS Experiences</label>
+    <language>en_US</language>
+</ListView>

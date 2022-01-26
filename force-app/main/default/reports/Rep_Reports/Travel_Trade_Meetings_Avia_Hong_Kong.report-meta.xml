@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>ACCOUNT.NAME</field>
+    </columns>
+    <columns>
+        <field>Travel_Trade_Meeting__c.Tourism_Contact__c</field>
+    </columns>
+    <columns>
+        <field>Travel_Trade_Meeting__c.Date_of_Meeting__c</field>
+    </columns>
+    <columns>
+        <field>Travel_Trade_Meeting__c.Meeting_Minutes__c</field>
+    </columns>
+    <columns>
+        <field>Travel_Trade_Meeting__c.Next_Steps__c</field>
+    </columns>
+    <columns>
+        <field>Travel_Trade_Meeting__c.VR_Representative__c</field>
+    </columns>
+    <columns>
+        <field>Travel_Trade_Meeting__c.Villages_of_Interest__c</field>
+    </columns>
+    <currency>EUR</currency>
+    <filter>
+        <criteriaItems>
+            <column>Travel_Trade_Meeting__c.VR_Representative__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>false</isUnlocked>
+            <operator>contains</operator>
+            <value>Avia Hong Kong</value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
+    <format>Tabular</format>
+    <name>Travel Trade Meetings Avia Hong Kong</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>AccountCustomEntity$Travel_Trade_Meeting__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>Travel_Trade_Meeting__c.Date_of_Meeting__c</dateColumn>
+        <interval>INTERVAL_LASTMONTH</interval>
+    </timeFrameFilter>
+</Report>

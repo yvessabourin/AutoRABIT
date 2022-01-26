@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Tier_Level_Required</fullName>
+    <active>false</active>
+    <description>You can&apos;t progress to the &apos;Lease Signed - Awaiting Unit&apos; stage or any subsequent stage without having the Deal Approval Request fields &apos;Tier Level&apos; and &apos;Tier Level Rationale&apos; completed</description>
+    <errorConditionFormula>$Setup.Global_Object_Validation__c.Deal_Validations_Active__c 
+&amp;&amp; Stage_Value__c &gt; 6
+&amp;&amp; OR(ISBLANK(TEXT(Tier_Level__c)),ISBLANK( Tier_Level_Rationale__c) )
+&amp;&amp; OR(RecordTypeName__c = &quot;New Brand&quot;, RecordTypeName__c = &quot;Relocation&quot;, RecordTypeName__c = &quot;Exit&quot;, RecordTypeName__c = &quot;Contract Change&quot;)
+&amp;&amp;  TEXT(Type) &lt;&gt; &quot;Shop Refit&quot;
+&amp;&amp; CreateGift__c = true
+&amp;&amp;  PRIORVALUE(CreateGift__c) = true</errorConditionFormula>
+    <errorDisplayField>Tier_Level__c</errorDisplayField>
+    <errorMessage>You can&apos;t progress to the &apos;Lease Signed - Awaiting Unit&apos; stage or any subsequent stage without having the Deal Approval Request fields &apos;Tier Level&apos; and &apos;Tier Level Rationale&apos; completed.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Professional_Buyer_checkbox_FALSE</fullName>
+    <active>true</active>
+    <description>Cannot save value here if ‘Professional Buyer’ checkbox is FALSE.</description>
+    <errorConditionFormula>AND( Professional_Buyer__c  = FALSE,
+OR(
+    NOT( ISBLANK(  Professional_buyers__c  )), NOT( ISBLANK(  Method_of_Payment__c  )))
+)</errorConditionFormula>
+    <errorMessage>Professional Buyer check Box FALSE</errorMessage>
+</ValidationRule>

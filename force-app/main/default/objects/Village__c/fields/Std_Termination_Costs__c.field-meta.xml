@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Std_Termination_Costs__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Enter the standard termination repayment costs for leases in this village</inlineHelpText>
+    <label>Std Termination Costs</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>1st year 50%</fullName>
+                <default>false</default>
+                <label>1st year 50%</label>
+            </value>
+            <value>
+                <fullName>2nd year 30%</fullName>
+                <default>false</default>
+                <label>2nd year 30%</label>
+            </value>
+            <value>
+                <fullName>3rd year 20%</fullName>
+                <default>false</default>
+                <label>3rd year 20%</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>3</visibleLines>
+</CustomField>

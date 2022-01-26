@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Lease_Deed_Variation__c</fullName>
+    <defaultValue>&quot;Not Applicable&quot;</defaultValue>
+    <externalId>false</externalId>
+    <inlineHelpText>Enter the variations to the Leasebook that will appear on the lease deed</inlineHelpText>
+    <label>Lease Deed Variation</label>
+    <length>24576</length>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>LongTextArea</type>
+    <visibleLines>12</visibleLines>
+</CustomField>

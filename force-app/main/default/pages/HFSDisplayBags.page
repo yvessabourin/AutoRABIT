@@ -1,0 +1,24 @@
+<apex:page standardController="HFS_Job__c" extensions="HFSDisplayBagsController" lightningStylesheets="true" action="{!updateBags}">
+    <body style="font-family: sans-serif;font-size:9pt;">
+    <p><h3>Job number: {!HFS_Job__c.Name} </h3></p>
+    <p><h3>Pickup Location: {!HFS_Job__c.Pickup_Location__c}</h3></p>
+    <p><h3>Storage Point: {!HFS_Job__c.HFS_Guest_Collection_Point__c}</h3></p>
+    <p><h3>Guest: {!HFS_Job__c.Guest_ID_Code__c}</h3></p>
+    <apex:outputPanel id="pageMessages">
+        <apex:pageMessages escape="false" />
+    </apex:outputPanel>
+    <apex:pageBlock >
+        <apex:pageBlockTable value="{!allJobBags}" var="bag">
+            <apex:column value="{!bag.Barcode__c}" />
+            <apex:column value="{!bag.Scanned__c}" />
+            <apex:column value="{!bag.HFS_Storage_Location__c}" />
+        </apex:pageBlockTable>
+    </apex:pageBlock>
+    <apex:form >
+        <div align="center">
+            <apex:commandButton style="right:10px;position:relative;" value="Scan" action="{!scanBag}" rendered="{!assignedJob}"/>
+            <apex:commandButton style="left:10px;position:relative;" value="Deliver" action="{!finishJob}" rendered="{!assignedJob}"/>
+        </div>
+    </apex:form>
+</body>
+</apex:page>

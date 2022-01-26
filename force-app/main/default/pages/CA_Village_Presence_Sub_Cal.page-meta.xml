@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ApexPage xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>33.0</apiVersion>
+    <availableInTouch>false</availableInTouch>
+    <confirmationTokenRequired>false</confirmationTokenRequired>
+    <description>Calendar shown in a sub VF page on the Village Presence page layout. Shows Village Campaigns where the brand is a participant</description>
+    <label>CA_Village_Presence_Sub_Cal</label>
+</ApexPage>

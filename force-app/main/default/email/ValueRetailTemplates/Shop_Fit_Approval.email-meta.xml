@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Shop Fit Approval Notification</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>ValueRetailStandardLetterhead</letterhead>
+    <name>Shop Fit Approval</name>
+    <style>freeForm</style>
+    <subject>Shop Fit Approval Request for {!Shop_Fit_Visuals__c.Shop_Fit_Log__c}</subject>
+    <textOnly>Approval or Comment Request
+
+
+{!Shop_Fit_Log__c.Name}
+
+
+{!Shop_Fit_Log__c.Unit__c}
+
+
+{!Shop_Fit_Log__c.Account_Brand__c}
+
+
+{!Shop_Fit_Log__c.Type__c}
+
+
+{!Shop_Fit_Log__c.Tier__c}
+
+
+{!Shop_Fit_Log__c.Specific_Issues__c}
+
+
+click here to see the full details: {!Shop_Fit_Log__c.Link}</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

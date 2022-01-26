@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <aggregates>
+        <calculatedFormula>Group_Booking__c.Number_of_Visitors_Expected__c:SUM</calculatedFormula>
+        <datatype>number</datatype>
+        <developerName>FORMULA1</developerName>
+        <isActive>true</isActive>
+        <isCrossBlock>false</isCrossBlock>
+        <masterLabel>Total of Expected Visitors</masterLabel>
+        <scale>2</scale>
+    </aggregates>
+    <columns>
+        <field>CUST_NAME</field>
+    </columns>
+    <columns>
+        <field>Group_Booking__c.Number_of_Visitors_Expected__c</field>
+    </columns>
+    <columns>
+        <field>Group_Booking__c.Name_of_Event__c</field>
+    </columns>
+    <columns>
+        <field>Group_Booking__c.Organisation__c</field>
+    </columns>
+    <filter>
+        <criteriaItems>
+            <column>Group_Booking__c.Status__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>false</isUnlocked>
+            <operator>notEqual</operator>
+            <value>Cancelled,No Show</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Group_Booking__c.Group_Type__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>false</isUnlocked>
+            <operator>notEqual</operator>
+            <value>Leisure</value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Group_Booking__c.Visitors_Country_of_Origin__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>AS9 - Top Ten Countries</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CustomEntity$Group_Booking__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>Group_Booking__c.Reporting_Arrival_Date__c</dateColumn>
+        <interval>INTERVAL_CURY</interval>
+    </timeFrameFilter>
+</Report>

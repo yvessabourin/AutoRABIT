@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LR_Brands_with_Missing_days_in_the_Cert</fullName>
+    <columns>NAME</columns>
+    <columns>Store__c</columns>
+    <columns>Certification_Batch__c</columns>
+    <columns>Trading_Date__c</columns>
+    <columns>Status__c</columns>
+    <columns>Brand_Status__c</columns>
+    <columns>RECORDTYPE</columns>
+    <columns>Period_Start_Date__c</columns>
+    <columns>Lease_ID__c</columns>
+    <columns>MRI_Suite_Id__c</columns>
+    <columns>MRI_Phase_Id__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Trading_Date__c</field>
+        <operation>greaterThan</operation>
+        <value>3/31/2020</value>
+    </filters>
+    <filters>
+        <field>Village_Code__c</field>
+        <operation>equals</operation>
+        <value>LR</value>
+    </filters>
+    <filters>
+        <field>Certification_Batch__c</field>
+        <operation>equals</operation>
+    </filters>
+    <label>LR Brands Missing days in the Cert batch</label>
+    <language>en_US</language>
+    <sharedTo>
+        <group>Admins_group</group>
+    </sharedTo>
+</ListView>

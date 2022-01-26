@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<HomePageComponent xmlns="http://soap.sforce.com/2006/04/metadata">
+    <body>&lt;a href=&quot;https://valueretail.my.salesforce.com/00Ob0000003yUQB&quot; target=&quot;_blank&quot;&gt;Remerchandising Tracker&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://valueretail.my.salesforce.com/00Ob0000004E9qk&quot; target=&quot;_blank&quot;&gt;2016 Budget&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://valueretail.my.salesforce.com/00Ob0000004AiVR&quot;&gt;Tier Structure&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://valueretail.my.salesforce.com/00Ob0000004EDHA&quot; target=&quot;_blank&quot;&gt;Lease Expiries&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://valueretail.my.salesforce.com/01Zb0000000atKz&quot; target=&quot;_blank&quot;&gt;Negotiations Dashboard&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://valueretail.my.salesforce.com/01Zb0000000arUl&quot; target=&quot;_blank&quot;&gt;Data Quality Dashboard&lt;/a&gt;</body>
+    <pageComponentType>htmlArea</pageComponentType>
+    <width>narrow</width>
+</HomePageComponent>

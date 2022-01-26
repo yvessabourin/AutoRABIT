@@ -1,0 +1,248 @@
+<apex:page standardController="Opportunity" extensions="updateVillagePresenceController" lightningStyleSheets="true">
+    
+    <apex:pageMessages id="pgMsgs"/>
+          
+    <style>
+        .currentval{
+            color:red;
+        }
+
+    </style>
+    
+    <script>
+    
+        function navigateCancel(){
+
+            if( (typeof sforce != 'undefined') && (sforce != null) ) {
+                // Salesforce1 navigation
+                sforce.one.navigateToSObject("{!dealId}");
+            }
+            else {
+                // Set the window's URL using a Visualforce expression
+                window.location.href = 
+                    '{!URLFOR($Action.Opportunity.View, dealId)}';
+            }         
+        
+        }
+        
+    </script>
+    
+    <apex:form >
+        <h2>Please confirm the details that will be applied to the Village Presence Record.</h2>
+        <h2>If you wish to amend any values, please click cancel to return to the Deal record and amend as required.</h2>
+        <br/><br/>
+        
+        <apex:PageBlock title="{!Opportunity.Name}" >
+            <apex:pageBlockButtons >
+                <div id="formControls">
+                    <apex:commandButton action="{!saveVillagePresence}"  value="Confirm" reRender="updateReturn, pgMsgs" disabled="{!NOT(enableSaveBtn)}" />
+                    <apex:commandButton action="{!cancelUpdate}" value="Cancel" oncomplete="navigateCancel();" reRender="updateReturn"/>
+                </div>
+            </apex:pageBlockButtons>
+            
+            <apex:pageBlockSection columns="1" title="Village Presence Details (Current values in brackets) " collapsible="false">
+
+                    <apex:outputField id="status" 
+                         value="{!villagePresence.Status__c}" label="Status">
+                         <font color="grey"> {!IF(currentVillagePresence.Status__c == NULL, NULL, '(' + currentVillagePresence.Status__c + ')'  )} </font> 
+                    </apex:outputField>
+
+                    <apex:outputField id="unit" 
+                        value="{!villagePresence.Unit__c}" label="Unit">
+                        <font color="grey"> {!IF(currentUnit == NULL, NULL, '(' + currentUnit + ')'  )} </font>                        
+                    </apex:outputField>
+                    <apex:outputField id="leaseType" 
+                        value="{!villagePresence.Lease_Type__c}" label="Lease Type" >
+                        <font color="grey"> {!IF(currentVillagePresence.Lease_Type__c == NULL, 
+                            NULL, '(' + currentVillagePresence.Lease_Type__c + ')'  )} </font>
+                    </apex:outputField>
+
+                    <apex:outputField id="leaseID" 
+                        value="{!villagePresence.Lease_ID__c}" label="Lease Id" >
+                        <font color="grey"> {!IF(currentVillagePresence.Lease_ID__c== NULL, 
+                            NULL, '(' + currentVillagePresence.Lease_ID__c + ')'  )}  </font> 
+                    </apex:outputField>
+
+                    <apex:outputField id="contractType" 
+                        value="{!villagePresence.Contract_Type__c}" label="Contract Type" >
+                        <font color="grey">{!IF(currentVillagePresence.Contract_Type__c== NULL, 
+                            NULL, '(' + currentVillagePresence.Contract_Type__c + ')'  )}  </font> 
+                    </apex:outputField>
+
+                    <apex:outputField id="standardTerms" 
+                        value="{!villagePresence.Standard_Terms__c}" label="Standard Terms" >
+                        <font color="grey">{!IF(currentVillagePresence.Standard_Terms__c== NULL, 
+                            NULL, '(' + currentVillagePresence.Standard_Terms__c + ')'  )}  </font> 
+                    </apex:outputField>
+
+                    <apex:outputField id="matureDate" 
+                        value="{!villagePresence.Matures_to_Standard_On__c}" label="Matures to Standard On">
+                             <font color='grey'> <apex:outputPanel rendered="{!NOT(ISBLANK(villagePresence.Matures_to_Standard_On__c))}">
+                                 (<apex:outputText value="{0,date,dd/MM/yyyy}"> 
+                                     <apex:param value="{!currentVillagePresence.Matures_to_Standard_On__c}" /> 
+                                   </apex:outputText>)</apex:outputPanel> 
+                             </font>
+                    </apex:outputField>
+
+                    <apex:outputField id="strategy" 
+                        value="{!villagePresence.Strategy__c}" label="Strategy" >
+                        <font color="grey">{!IF(currentVillagePresence.Strategy__c== NULL, 
+                            NULL, '(' + currentVillagePresence.Strategy__c + ')'  )} </font>   
+                    </apex:outputField>
+
+                    <apex:outputField id="TORSchedule" 
+                        value="{!villagePresence.TOR_Schedule_Description__c}" label="TOR Schedule" >
+                        <font color="grey">{!IF(currentVillagePresence.TOR_Schedule_Description__c== NULL, 
+                            NULL, '(' + currentVillagePresence.TOR_Schedule_Description__c + ')'  )} </font>   
+                    </apex:outputField>
+                                        
+                    <apex:outputField id="distributor" 
+                        value="{!villagePresence.Distributor__c}" label="Distributor" >
+                        <font color="grey">{!IF(currentVillagePresence.Distributor__c== NULL, 
+                            NULL, '(' + currentVillagePresence.Distributor__c + ')'  )} </font>   
+                    </apex:outputField>
+                                        
+             </apex:pageBlockSection>
+             
+             <apex:pageBlockSection columns="1" title="Key Dates (Current values in brackets) " collapsible="false">
+                    
+                    <apex:outputField id="openDate" 
+                        value="{!villagePresence.Initial_Opened_Date__c}" label="Initial Open Date">
+                             <font color='grey'> <apex:outputPanel rendered="{!NOT(ISBLANK(villagePresence.Initial_Opened_Date__c))}">
+                                 (<apex:outputText value="{0,date,dd/MM/yyyy}"> 
+                                     <apex:param value="{!currentVillagePresence.Initial_Opened_Date__c}" /> 
+                                   </apex:outputText>)</apex:outputPanel> 
+                             </font>
+                    </apex:outputField>
+                    
+                    
+                    <apex:outputField id="newnessDate" 
+                        value="{!villagePresence.Newness_Date__c}" label="Last Shop Fit Date">
+                             <font color='grey'> <apex:outputPanel rendered="{!NOT(ISBLANK(villagePresence.Newness_Date__c))}">
+                                 (<apex:outputText value="{0,date,dd/MM/yyyy}"> 
+                                     <apex:param value="{!currentVillagePresence.Newness_Date__c}" /> 
+                                   </apex:outputText>)</apex:outputPanel> 
+                             </font>
+                    </apex:outputField>
+<!--
+                    <apex:outputField id="expectedOpenDate" 
+                        value="{!villagePresence.Expected_Open_Date__c}" label="Expected Open Date">
+                             <font color='grey'> <apex:outputPanel rendered="{!NOT(ISBLANK(villagePresence.Expected_Open_Date__c))}">
+                                 (<apex:outputText value="{0,date,dd/MM/yyyy}"> 
+                                     <apex:param value="{!currentVillagePresence.Expected_Open_Date__c}" /> 
+                                   </apex:outputText>)</apex:outputPanel> 
+                             </font>
+                    </apex:outputField>                    
+-->
+                    <apex:outputField id="contractTenantBreakDate" 
+                        value="{!villagePresence.Contract_Tenant_Break_Date__c}" label="Contract Tenant Break Date">
+                             <font color='grey'> <apex:outputPanel rendered="{!NOT(ISBLANK(villagePresence.Contract_Tenant_Break_Date__c))}">
+                                 (<apex:outputText value="{0,date,dd/MM/yyyy}"> 
+                                     <apex:param value="{!currentVillagePresence.Contract_Tenant_Break_Date__c}" /> 
+                                   </apex:outputText>)</apex:outputPanel> 
+                             </font>
+                    </apex:outputField>
+
+                    
+                    
+                    <apex:outputField id="contractExpiryDate" 
+                        value="{!villagePresence.Contract_Expiry_Date__c}" label="Contract Expiry Date" >
+                             <font color='grey'> <apex:outputPanel rendered="{!NOT(ISBLANK(villagePresence.Contract_Expiry_Date__c))}">
+                                 (<apex:outputText value="{0,date,dd/MM/yyyy}"> 
+                                     <apex:param value="{!currentVillagePresence.Contract_Expiry_Date__c}" /> 
+                                   </apex:outputText>)</apex:outputPanel> 
+                             </font>
+                    </apex:outputField>
+                    
+                    <apex:outputField id="lastRemerchandiseDate" 
+                        value="{!villagePresence.Last_Remerchandising_Date__c}" label="Last Remerchandising Date">
+                             <font color='grey'> <apex:outputPanel rendered="{!NOT(ISBLANK(villagePresence.Last_Remerchandising_Date__c))}">
+                                 (<apex:outputText value="{0,date,dd/MM/yyyy}"> 
+                                     <apex:param value="{!currentVillagePresence.Last_Remerchandising_Date__c}" /> 
+                                   </apex:outputText>)</apex:outputPanel> 
+                             </font>
+                    </apex:outputField>
+                                        
+             </apex:pageBlockSection>
+             
+             
+             <apex:pageBlockSection columns="1" title="Projections and Ratings (Current values in brackets) " collapsible="false">
+             
+                    <apex:outputField id="projectedSales" 
+                        value="{!villagePresence.Projected_Sales_Yield_Local__c}" label="Projected Sales" >
+                        <font color="grey">{!IF(currentVillagePresence.Projected_Sales_Yield_Local__c== NULL, 
+                            NULL, '(' & TEXT(currentVillagePresence.Projected_Sales_Yield_Local__c) & ')'  )}  </font>
+                    </apex:outputField> 
+
+                    <apex:outputField id="projectedReturn" 
+                        value="{!villagePresence.Projected_Return_Local__c}" label="Projected Return" >
+                        <font color="grey">{!IF(currentVillagePresence.Projected_Return_Local__c == NULL, 
+                            NULL, '(' & TEXT(currentVillagePresence.Projected_Return_Local__c) & ')'  )}  </font> 
+                    </apex:outputField>
+
+                    <apex:outputField id="salesRating" 
+                        value="{!villagePresence.Sales_Rating__c}" label="Sales Rating" >
+                       <font color="grey">{!IF(currentVillagePresence.Sales_Rating__c == NULL, 
+                           NULL, '(' & TEXT(currentVillagePresence.Sales_Rating__c) & ')'  )}   </font>
+                    </apex:outputField>
+
+                    <apex:outputField id="incomeRating" 
+                        value="{!villagePresence.Income_Rating__c}" label="Income Rating" >
+                        <font color="grey">{!IF(currentVillagePresence.Income_Rating__c== NULL, 
+                            NULL, '(' & TEXT(currentVillagePresence.Income_Rating__c) & ')'  )}   </font>
+                    </apex:outputField>
+
+                    <apex:outputField id="positionRating" 
+                        value="{!villagePresence.Position_Rating__c}" label="Position Rating" >
+                        <font color="grey">{!IF(currentVillagePresence.Position_Rating__c== NULL, 
+                            NULL, '(' & TEXT(currentVillagePresence.Position_Rating__c) & ')'  )}  </font>
+                    </apex:outputField>
+
+                    <apex:outputField id="tourismRating" 
+                        value="{!villagePresence.Tourism_Rating__c}" label="Tourism Rating" >
+                        <font color="grey">{!IF(currentVillagePresence.Tourism_Rating__c== NULL, 
+                            NULL, '(' & TEXT(currentVillagePresence.Tourism_Rating__c) & ')'  )}  </font>
+                    </apex:outputField>
+
+             </apex:pageBlockSection>
+             
+             
+             <!--
+             <apex:pageBlockSection columns="1" title="Key Personnel (Current values in brackets) " collapsible="false">
+
+                    <apex:outputField id="eubrandcaptain" 
+                        value="{!villagePresence.EU_Brand_Captain__c}" label="EU Brand Captain" >
+                        <font color="grey">{!IF(currentVillagePresence.EU_Brand_Captain__c== NULL, 
+                            NULL, '(' + currentVillagePresence.EU_Brand_Captain__c + ')'  )} </font>   
+                    </apex:outputField>
+
+                    <apex:outputField id="GRSCaptain" 
+                        value="{!villagePresence.GRS_Captain__c}" label="GRS Captain" >
+                        <font color="grey">{!IF(currentVillagePresence.GRS_Captain__c== NULL, 
+                            NULL, '(' + currentVillagePresence.GRS_Captain__c + ')'  )} </font>   
+                    </apex:outputField>
+                    
+                    <apex:outputField id="chinabrandcaptain" 
+                        value="{!villagePresence.China_brand_Captain__c}" label="China Brand Captain" >
+                        <font color="grey">{!IF(currentVillagePresence.China_Brand_Captain__c== NULL, 
+                            NULL, '(' + currentVillagePresence.China_Brand_Captain__c + ')'  )} </font>   
+                    </apex:outputField>                                        
+
+            <br/> 
+
+
+            </apex:pageBlockSection>
+            -->
+            
+        </apex:pageBlock>
+
+        <apex:inputHidden value="{!updateReturn}" id="updateReturn"/>
+        <script>
+            var updateReturn=document.getElementById("{!$Component.updateReturn}");
+        </script>            
+
+        
+    </apex:form>    
+
+ 
+</apex:page>

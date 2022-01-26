@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Virtual_Sales_Higher_Transactions</fullName>
+    <active>false</active>
+    <description>The number of Brand Virtual Shopping transactions cannot be higher than the total Transactions for the day</description>
+    <errorConditionFormula>OR(Brand_Remote_Transactions__c &gt; Number_of_Transactions__c, AND( NOT(ISNULL(Brand_Remote_Transactions__c)),ISNULL(Number_of_Transactions__c) ) ) 
+&amp;&amp; NOT( Ignore_Validations__c )</errorConditionFormula>
+    <errorDisplayField>Brand_Remote_Transactions__c</errorDisplayField>
+    <errorMessage>The Brand Virtual Shopping Transactions cannot be higher than the total number of transactions for the day.</errorMessage>
+</ValidationRule>

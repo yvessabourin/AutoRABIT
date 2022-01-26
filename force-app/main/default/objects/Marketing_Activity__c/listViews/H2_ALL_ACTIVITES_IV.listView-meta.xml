@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>H2_ALL_ACTIVITES_IV</fullName>
+    <columns>Status__c</columns>
+    <columns>NAME</columns>
+    <columns>Marketing_Campaign__c</columns>
+    <columns>Parent_Group_Marketing_Campaign__c</columns>
+    <columns>Channel__c</columns>
+    <columns>Start_Date__c</columns>
+    <columns>End_Date__c</columns>
+    <columns>Budget__c</columns>
+    <columns>Activity_Cost__c</columns>
+    <columns>Marketing_Activity_Ref__c</columns>
+    <columns>Other_Notes__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Marketing_Campaign_Village__c</field>
+        <operation>contains</operation>
+        <value>Ingolstadt</value>
+    </filters>
+    <filters>
+        <field>Start_Date__c</field>
+        <operation>greaterThan</operation>
+        <value>12/31/2018</value>
+    </filters>
+    <filters>
+        <field>Status__c</field>
+        <operation>notEqual</operation>
+        <value>Cancelled,Removed</value>
+    </filters>
+    <filters>
+        <field>End_Date__c</field>
+        <operation>lessThan</operation>
+        <value>1/1/2020</value>
+    </filters>
+    <filters>
+        <field>NAME</field>
+        <operation>contains</operation>
+    </filters>
+    <label>ADMIN CHECK ALL ACTIVITES  2019 IV</label>
+    <language>en_US</language>
+    <sharedTo>
+        <role>German_Marketing</role>
+    </sharedTo>
+</ListView>

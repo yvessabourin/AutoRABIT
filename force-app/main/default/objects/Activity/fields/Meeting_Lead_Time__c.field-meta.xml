@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Meeting_Lead_Time__c</fullName>
+    <description>How long before the meeting took place was the meeting logged</description>
+    <externalId>false</externalId>
+    <formula>ActivityDate - DATEVALUE( CreatedDate)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>How long before the meeting took place was the meeting logged</inlineHelpText>
+    <label>Meeting Lead Time</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

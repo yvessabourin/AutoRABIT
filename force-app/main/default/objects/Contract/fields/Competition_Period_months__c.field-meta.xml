@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Competition_Period_months__c</fullName>
+    <defaultValue>12</defaultValue>
+    <externalId>false</externalId>
+    <inlineHelpText>Enter the number of months that the tenant is prohibitted from opening a competing outlet after termination of this contract/lease</inlineHelpText>
+    <label>Competition Period (months)</label>
+    <precision>3</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

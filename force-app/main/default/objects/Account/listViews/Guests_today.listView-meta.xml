@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Guests_today</fullName>
+    <columns>ACCOUNT.CREATED_DATE</columns>
+    <columns>PC_EMAIL</columns>
+    <columns>CREATEDBY_USER.ALIAS</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>PC_LEAD_SOURCE</columns>
+    <columns>Primary_Village__c</columns>
+    <columns>Lead_Source_Text__c</columns>
+    <columns>PC_FIRST_NAME</columns>
+    <columns>PC_LAST_NAME</columns>
+    <columns>PC_PHONE3</columns>
+    <columns>Nationality__c</columns>
+    <columns>PC_BIRTHDATE</columns>
+    <columns>Preferred_Language__c</columns>
+    <columns>Country_of_Residence__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>ACCOUNT.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>PersonAccount.Guest</value>
+    </filters>
+    <filters>
+        <field>ACCOUNT.CREATED_DATE</field>
+        <operation>equals</operation>
+        <value>TODAY</value>
+    </filters>
+    <label>Guests (new today)</label>
+    <language>en_US</language>
+    <sharedTo>
+        <group>Admins_group</group>
+        <roleAndSubordinates>Global_API_Access</roleAndSubordinates>
+    </sharedTo>
+</ListView>

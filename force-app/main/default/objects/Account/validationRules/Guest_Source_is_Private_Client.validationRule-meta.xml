@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Guest_Source_is_Private_Client</fullName>
+    <active>true</active>
+    <description>If guest source has one the private client team values then this field has to be populated.</description>
+    <errorConditionFormula>AND(
+ OR(
+  ISPICKVAL(Guest_Source__c, &apos;P/C - Apartment (BV Only)&apos;), 
+  ISPICKVAL(Guest_Source__c, &apos;P/C - PR (BV Only)&apos;),
+  ISPICKVAL(Guest_Source__c, &apos;P/C - Tourism (BV Only)&apos;)) 
+ ,
+ ISBLANK(Private_Client_Team__c) 
+)</errorConditionFormula>
+    <errorDisplayField>Private_Client_Team__c</errorDisplayField>
+    <errorMessage>This field needs to be populated</errorMessage>
+</ValidationRule>

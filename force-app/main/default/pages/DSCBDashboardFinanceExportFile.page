@@ -1,0 +1,6 @@
+<apex:page standardController="Daily_Sales_Certification_Batch__c" extensions="DSCBDashboardFinanceController" action="{!exportToExcel}" contentType="application/vnd.ms-excel#Daily_Sales_Certification_Export.csv">
+{!$ObjectType.Daily_Sale__c.fields.Trading_Date__c.Label},{!$ObjectType.Daily_Sale__c.fields.MRI_Suite_Id__c.Label},{!$ObjectType.Daily_Sale__c.fields.Store_Closed__c.Label},{!$ObjectType.Daily_Sale__c.fields.Total_NET_SALES__c.Label},{!$ObjectType.Daily_Sale__c.fields.Certified_Amount_NetTotal_Input__c.Label},{!$ObjectType.Daily_Sale__c.fields.NET_Value_of_Discounts__c.Label},{!$ObjectType.Daily_Sale__c.fields.Certified_Amount_Discount_Input__c.Label},{!$ObjectType.Daily_Sale__c.fields.Brand_Reported_Amount__c.Label},{!$ObjectType.Daily_Sale__c.fields.Certified_Amount__c.Label},{!$ObjectType.Daily_Sale__c.fields.Variance_Amount__c.Label},{!$ObjectType.Daily_Sale__c.fields.Certification_Comment__c.Label},{!$ObjectType.Daily_Sale__c.fields.Lease_ID__c.Label}
+	<apex:repeat value="{!lstwrapper}" var="certDS">
+{!certDS.tradingDate},{!certDS.mriUnit},{!certDS.storeClose},{!certDS.totalNETSales},{!certDS.certifiedNETSales},{!certDS.netDiscounts},{!certDS.certifiedNETDiscounts},{!certDS.reportedAmount},{!certDS.certifiedAmount},{!certDS.varianceAmount},{!certDS.comment},{!certDS.leaseID}
+	</apex:repeat>
+</apex:page>

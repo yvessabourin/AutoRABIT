@@ -1,0 +1,13 @@
+<apex:page standardController="Campaign" showHeader="false">
+<apex:sectionHeader title="Child Campaigns" subtitle="Village Level Campaigns "/>
+    <apex:pageBlock > 
+        <apex:pageBlockTable value="{!Campaign.ChildCampaigns}" var="child">
+            
+            <apex:column headervalue="Name"><apex:outputLink value="/{!child.id}" target="_top">{!child.name}</apex:outputLink></apex:column>
+            <apex:column value="{!child.Village__c}"/>
+            <apex:column value="{!child.Communication_Channel__c}"/>
+            <apex:column value="{!child.Total_Redemptions__c}"/>
+          
+        </apex:pageBlockTable> 
+    </apex:pageBlock>
+</apex:page>

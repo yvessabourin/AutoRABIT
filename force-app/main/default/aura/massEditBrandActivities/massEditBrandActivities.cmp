@@ -1,0 +1,126 @@
+<aura:component controller="MultipleParticipatingBrandsController" implements="flexipage:availableForAllPageTypes,force:lightningQuickAction,lightning:isUrlAddressable,force:hasRecordId" access="global" >
+    
+    <aura:attribute name="statusOptionsTable" type="List" />
+    <aura:attribute name="statusOptions" type="List" />
+    <aura:attribute name="booleanOptions" type="List" /> 
+    <aura:attribute name="statusValue" type="String" default=""/>
+    <aura:attribute name="marketingActivityName" type="String" />
+    <aura:attribute name="recId" type="String" />
+    <aura:attribute name="data" type="Object" />
+    <aura:attribute name="columns" type="List" />
+    <aura:attribute name="errors" type="Object" default="[]"/>
+    <aura:attribute name="draftValues" type="Object" default="[]"/>
+    <aura:attribute name="draftValuesMap" type="Map" default="{}"/>
+    <aura:attribute name="selectedRows" type="List" default="[]"/>
+    <aura:attribute name="selectedRowsId" type="List" default="[]"/>
+    <aura:attribute name="cannotApplySelect" type="Boolean" default="true"/>
+    <aura:attribute name="statusChangedRows" type="Map" default="{}"/>
+    
+    <aura:attribute name="isLoading" type="Boolean" default="false"/>
+    <aura:attribute name="openRow" type="Object" />
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <div style="background: #fff;">
+        <div>
+            <lightning:layout class="slds-theme_shade">
+                <lightning:layoutItem>
+                    <div class="slds-text-heading_small slds-p-around_medium"><h2 class="">Mass Edit Brands to <strong>{!v.marketingActivityName}</strong></h2></div>
+                </lightning:layoutItem>
+                <lightning:layoutItem alignmentBump="left">
+                    <lightning:button name="addRemoveButton" label="Add/Remove Participating Brands" class="slds-m-top_medium" onclick="{! c.handleAddRemove }"/>
+                    <lightning:button name="closeButton" label="Return to Record" class="slds-m-right_medium slds-m-top_medium" onclick="{! c.handleClose }"/>
+                </lightning:layoutItem>
+            </lightning:layout>
+        </div>
+        
+        <div class="slds-text-heading_small slds-theme_shade slds-p-horizontal_medium"><h3 class="slds-p-around_x-small">Participating Brand Values</h3></div>
+        
+        <div style="padding: 10px;">
+            <lightning:card>
+                 <aura:if isTrue="{!v.data.length > 0}">
+                <div style="padding: 0px 40px 10px 40px;" >
+                    <lightning:layout>
+                        <lightning:layoutItem size="3" padding="horizontal-small">
+                            <div>
+                                <lightning:comboBox label="Discount" aura:id="discountOpts" name="discountOpts" options="{!v.booleanOptions}" class="small_combobox slds-show_inline-block" placeholder="" value=""/>
+                                <lightning:input aura:id="discountVal" type="text" name="discountVal" class="small_input slds-show_inline-block slds-m-left_small" />
+                            </div>
+                        </lightning:layoutItem>
+                        <lightning:layoutItem size="3" padding="horizontal-small">
+                            <div>
+                                <lightning:comboBox label="Minimum Purchase" aura:id="minimumPurchaseOpts" name="minimumPurchaseOpts" options="{!v.booleanOptions}" class="small_combobox slds-show_inline-block" placeholder="" value="" />
+                                <lightning:input aura:id="minimumPurchaseVal" type="text" name="minimumPurchaseVal" class="small_input slds-show_inline-block slds-m-left_small" />
+                            </div>
+                        </lightning:layoutItem>
+                        <lightning:layoutItem size="3" padding="horizontal-small">
+                            <div>
+                                <lightning:comboBox label="Gift With Purchase" aura:id="giftWithPurchaseOpts" name="giftWithPurchaseOpts" options="{!v.booleanOptions}" class="small_combobox slds-show_inline-block" placeholder="" value="" />
+                                <lightning:input aura:id="giftWithPurchaseVal" type="text" name="giftWithPurchaseVal" class="small_input slds-show_inline-block slds-m-left_small" />
+                            </div>
+                        </lightning:layoutItem>
+                    </lightning:layout>
+                    <lightning:layout>
+                        <lightning:layoutItem size="3" padding="horizontal-small">
+                            <lightning:comboBox label="Status" aura:id="status" name="status" options="{!v.statusOptionsTable}" class="slds-show_inline-block" placeholder="" value=""/>
+                        </lightning:layoutItem>
+                        <lightning:layoutItem size="3" padding="horizontal-small">
+                            <lightning:input label="Feature Details" aura:id="featureDetailsVal" type="text" name="featureDetailsVal" class="big_input" />
+                        </lightning:layoutItem>
+                        <lightning:layoutItem size="2" padding="horizontal-small" alignmentBump="left">
+                            <lightning:button name="applyMassChange" label="Apply to selected" class="slds-m-top_medium" onclick="{! c.handleApplyToSelected }" disabled="{! v.cannotApplySelect }"/>
+                        </lightning:layoutItem>
+                    </lightning:layout>
+                    
+                </div>
+                </aura:if>
+                <aura:if isTrue="{!v.isLoading}">
+                    <lightning:spinner alternativeText="Loading.." variant="brand"/>
+                    
+                    <aura:set attribute="else">
+                        <div class="c-container slds-p-around_medium">
+                            <aura:if isTrue="{!v.data.length > 0}">
+                                <div style="height: 54vh;" id="datatable_container">
+                                    <lightning:datatable keyField="Id" aura:id="partBrandsTable" data="{! v.data }" columns="{! v.columns }" hideCheckboxColumn="false" wrapTextMaxLines="2"
+                                                         errors="{! v.errors }" draftValues="{! v.draftValues }" onsave="{! c.handleSaveEdition }" onrowaction="{! c.handleRowAction }"
+                                                         oncellchange = "{!c.handleCellChange}" oncancel="{!c.handleCancel}" onrowselection="{! c.handleSelected }" selectedRows="{! v.selectedRowsId }"/>
+                                </div>
+                                <aura:set attribute="else">
+                                    <ui:message title="Information" severity="warning">
+                                        <br/>
+                                        There is no Participating Brand records for <strong>{!v.marketingActivityName}.</strong><br/>
+                                        Use the button on the header to add new Participating Brands.
+                                    </ui:message>
+                                </aura:set>
+                            </aura:if>
+                        </div>
+                    </aura:set>
+                </aura:if>
+            </lightning:card>
+        </div>
+    </div>
+    <div role="dialog" tabindex="-1" aria-labelledby="header43" aura:id="Modalbox" class="slds-modal">
+        <div class="slds-modal__container">
+            <div class="slds-modal__header">
+                <h2 id="header43" class="slds-text-heading--medium">Edit Status</h2>
+            </div>
+            <div class="slds-modal__content slds-p-around--medium">
+                <lightning:layout>
+                    <lightning:layoutItem flexibility="auto" padding="around-small">
+                        <div class="custom-box slds-text-align_right slds-m-vertical_large">Status</div>
+                    </lightning:layoutItem>
+                    <lightning:layoutItem flexibility="auto" padding="around-small">
+                        <div class="custom-box">
+                            <lightning:comboBox name="statusRow" options="{!v.statusOptions}" value="{!v.statusValue}" class="slds-show_inline-block" placeholder="" style="margin-bottom: 150px;" />
+                        </div>
+                    </lightning:layoutItem>
+                </lightning:layout>
+            </div>
+            <div class="slds-modal__footer" >
+                <lightning:button variant="base" label="Cancel" title="Cancel" onclick="{! c.handleCancelModal }"/>
+                <lightning:button variant="brand" label="Save" title="Save" onclick="{! c.handleSaveModal }"/>
+            </div>
+        </div>
+    </div>
+    <div class="slds-backdrop " aura:id="Modalbackdrop"></div>
+    
+</aura:component>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <aggregateTypes>Sum</aggregateTypes>
+        <field>Visit__c$VIP_Cards_Exchanged__c</field>
+    </columns>
+    <columns>
+        <aggregateTypes>Sum</aggregateTypes>
+        <field>Visit__c$Number_of_Guests__c</field>
+    </columns>
+    <currency>EUR</currency>
+    <filter>
+        <criteriaItems>
+            <column>Visit__c$Partnership_Promotion__c.Marketing_Activity_Ref__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>MA-088823,MA-088397,MA-088388,MA-087769,MA-087766,MA-088820,MA-087717,MA-088386</value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
+    <format>Matrix</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Visit__c$Partnership_Promotion__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>AliPay Luxury Priv_All Villages</name>
+    <params>
+        <name>co</name>
+        <value>0</value>
+    </params>
+    <reportType>Partnership_Promotion_Visits__c</reportType>
+    <scope>organization</scope>
+    <showDetails>false</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>Visit__c$Visit_Date_Time__c</dateColumn>
+        <endDate>2019-08-15</endDate>
+        <interval>INTERVAL_CUSTOM</interval>
+        <startDate>2019-07-15</startDate>
+    </timeFrameFilter>
+</Report>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Additional_Storage_Required__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Add comments about any additional storage requirements that the brand in the village may have. Include a date in the comment.</inlineHelpText>
+    <label>Additional Storage Required</label>
+    <length>2000</length>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>LongTextArea</type>
+    <visibleLines>2</visibleLines>
+</CustomField>

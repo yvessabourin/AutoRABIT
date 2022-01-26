@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fieldUpdates>
+        <fullName>Change_RecordType_to_Finish</fullName>
+        <field>RecordTypeId</field>
+        <lookupValue>Finish</lookupValue>
+        <lookupValueType>RecordType</lookupValueType>
+        <name>Change RecordType to Finish</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Change_RecordType_to_POST_Submit</fullName>
+        <field>RecordTypeId</field>
+        <lookupValue>POST_Submit</lookupValue>
+        <lookupValueType>RecordType</lookupValueType>
+        <name>Change RecordType to POST-Submit</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Change_RecordType_to_PRE_Submit</fullName>
+        <field>RecordTypeId</field>
+        <lookupValue>PRE_Submit</lookupValue>
+        <lookupValueType>RecordType</lookupValueType>
+        <name>Change RecordType to PRE-Submit</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <rules>
+        <fullName>Change RecordType to Finish</fullName>
+        <actions>
+            <name>Change_RecordType_to_Finish</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <booleanFilter>1 OR 2</booleanFilter>
+        <criteriaItems>
+            <field>Daily_Sales_Certification_Batch__c.Status__c</field>
+            <operation>equals</operation>
+            <value>Approved</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Daily_Sales_Certification_Batch__c.Status__c</field>
+            <operation>equals</operation>
+            <value>Batch Complete</value>
+        </criteriaItems>
+        <description>By changing the record type of the certification batch, we are changing the pick list values available for selection. In this case, status values available are: Approved, Batch Complete, Re-Opened</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Change RecordType to POST-Sub</fullName>
+        <actions>
+            <name>Change_RecordType_to_POST_Submit</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Daily_Sales_Certification_Batch__c.Status__c</field>
+            <operation>equals</operation>
+            <value>Pending Approval</value>
+        </criteriaItems>
+        <description>By changing the record type of the certification batch, we are changing the pick list values available for selection. In this case, status values available are: Approved, Pending Approval, Rejected</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Change RecordType to PRE-Submit</fullName>
+        <actions>
+            <name>Change_RecordType_to_PRE_Submit</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <booleanFilter>1 OR 2 OR 3 OR 4</booleanFilter>
+        <criteriaItems>
+            <field>Daily_Sales_Certification_Batch__c.Status__c</field>
+            <operation>equals</operation>
+            <value>Generated</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Daily_Sales_Certification_Batch__c.Status__c</field>
+            <operation>equals</operation>
+            <value>Being Prepared</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Daily_Sales_Certification_Batch__c.Status__c</field>
+            <operation>equals</operation>
+            <value>Rejected</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Daily_Sales_Certification_Batch__c.Status__c</field>
+            <operation>equals</operation>
+            <value>Re-opened</value>
+        </criteriaItems>
+        <description>By changing the record type of the certification batch, we are changing the pick list values available for selection. In this case, status values available are: Generated, Being Prepared, Pending Approval, Rejected, Re-opened, Open</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+</Workflow>

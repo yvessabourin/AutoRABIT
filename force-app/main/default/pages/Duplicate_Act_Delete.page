@@ -1,0 +1,47 @@
+<apex:page controller="duplicateAccountDelete" sidebar="False" >
+
+
+
+<apex:form >
+    <apex:pageBlock >
+        <apex:pageBlockButtons location="Top">
+        <APEX:commandButton id="deleteDupes" value="Delete Duplicate Accounts" action="{!deleteaccounts}" /> 
+        </apex:pageBlockButtons>
+          <apex:outputText value="Number of Duplicates : {!actCount}"></apex:outputText>
+    </apex:pageBlock>
+  
+</apex:form>
+
+<apex:pageBlock title="Accounts to Delete">
+<apex:pageBlockTable value="{!acts}" var="ac">
+
+<apex:column headerValue="Duplicate Account Name">
+<apex:outputLink value="{!URLFOR($Action.Account.View, ac.id)}" target="_blank">{!ac.name}</apex:outputLink>
+</apex:column>
+
+<apex:column headerValue="Duplicate of Account">
+<apex:outputLink value="{!URLFOR($Action.Account.View, ac.Duplicate_of_Account__r.id)}" target="_blank">{!ac.Duplicate_of_Account__r.Name}</apex:outputLink>
+</apex:column>
+
+
+
+</apex:pageBlockTable>
+<p></p>
+
+</apex:pageBlock>
+
+        <apex:outputPanel id="redirectPanel" >
+                <apex:outputText rendered="{!shouldRedirect}">
+                    <script type="text/javascript">
+                     window.top.location.href = '/apex/duplicate_act_delete';
+                      
+                    </script>
+                </apex:outputText>
+                
+                
+                
+          
+        </apex:outputPanel>
+
+
+</apex:page>

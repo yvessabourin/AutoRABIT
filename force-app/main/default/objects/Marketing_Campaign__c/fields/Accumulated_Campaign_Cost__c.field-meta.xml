@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Accumulated_Campaign_Cost__c</fullName>
+    <description>roll up on Marketing Activity</description>
+    <externalId>false</externalId>
+    <inlineHelpText>The sum of the related activity costs</inlineHelpText>
+    <label>Accumulated Campaign Cost</label>
+    <summarizedField>Marketing_Activity__c.Activity_Cost__c</summarizedField>
+    <summaryFilterItems>
+        <field>Marketing_Activity__c.Status__c</field>
+        <operation>notEqual</operation>
+        <value>Cancelled</value>
+    </summaryFilterItems>
+    <summaryForeignKey>Marketing_Activity__c.Marketing_Campaign__c</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

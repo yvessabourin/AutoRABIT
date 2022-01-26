@@ -1,0 +1,107 @@
+<apex:page controller="InvestorCalendarController" action="{!pageLoad}">
+      
+<!--    <apex:stylesheet value="{!URLFOR($Resource.FullCalendar3, 'fullcalendar-3.2.0/fullcalendar.css')}"/>
+    <apex:stylesheet value="{!URLFOR($Resource.FullCalendar3, 'fullcalendar-3.2.0/fullcalendar.print.css')}"/> -->
+    
+    <link href="{!$Resource.FullCalendar3}/fullcalendar-3.2.0/fullcalendar.css" rel="stylesheet" />
+    <link href="{!$Resource.FullCalendar3}/fullcalendar-3.2.0/fullcalendar.print.css" rel="stylesheet" media="print" />
+    
+    <apex:includeScript value="{!URLFOR($Resource.FullCalendar3, 'fullcalendar-3.2.0/lib/moment.min.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.FullCalendar3, 'fullcalendar-3.2.0/lib/jquery.min.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.FullCalendar3, 'fullcalendar-3.2.0/lib/jquery-ui.min.js')}"/>
+
+    <apex:includeScript value="{!URLFOR($Resource.FullCalendar3, 'fullcalendar-3.2.0/fullcalendar.min.js')}"/>
+
+       
+    <script>
+        //We need to wrap everything in a doc.ready function so that the code fires after the DOM is loaded
+        $(document).ready(function() {  
+            //Call the fullCallendar method. You can replace the '#calendar' with the ID of the dom element where you want the calendar to go.          
+            $('#calendar').fullCalendar({
+                header: {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: 'month,agendaWeek,agendaDay'
+                },
+                aspectRatio: 2.8,
+                editable: false,
+                eventRender: function(event, element) {
+                    element.attr('title', event.tip);
+                },
+                events:
+                [
+                    //At run time, this APEX Repeat will reneder the array elements for the events array
+                    <apex:repeat value="{!events}" var="e">
+                        {
+                            title: "{!e.title}",
+                            start: '{!e.startString}',
+                            end: '{!e.endString}',
+                            url: '{!e.url}',
+                            allDay: {!e.allDay},
+                            className: '{!e.className}',
+                            tip: "{!e.title}"
+                        },
+                    </apex:repeat>
+                ],
+                eventClick: function(event) {
+                    if (event.url) {
+                        window.open(event.url, "_blank");
+                        return false;
+                    }
+                }
+                           
+            });
+            console.log('mm'); 
+        });
+    </script>
+     
+    <!--some styling-->
+    <style>
+        #cal-options {float:left;}
+        #cal-legend { float:right;}
+        #cal-legend ul {margin:0;padding:0;list-style:none;}
+        #cal-legend ul li {margin:0;padding:5px;float:left;}
+        #cal-legend ul li span {display:block; height:12px; width:12px; margin-right:3px; float:left; border-radius:2px;}
+        #calendar {margin-top:20px;}
+        #calendar a:hover {color:#fff !important;}
+        #calendar {contentHeight: 400px; height:300px;}
+         
+        .fc-event-inner {padding:3px;}
+        .fc-time-grid .fc-slats td {
+            height: 0.5em;
+         }
+        .event-investor {background:#56458c;border-color:#56458c;}
+        .event-personal {background:#1797c0;border-color:#1797c0;}
+        #container {
+            width: 1010px;
+            height: 560px;
+        }
+        
+    </style>
+     
+    <apex:sectionHeader title="Investor Meetings"/>
+    <apex:outputPanel id="calPanel">
+        <apex:form >
+            <!--
+            <div id="cal-options">
+                <apex:commandButton value="{!IF(includeMyEvents,'Hide My Events','Show My Events')}" action="{!toggleMyEvents}"/>
+            </div>
+            <div id="cal-legend">
+                <ul>
+                    <li><span class="event-investor"></span>Investor Meetings</li>
+                    <li style="{!IF(includeMyEvents,'','display:none')}"><span class="event-personal"></span>My Events</li>
+                </ul>
+            -->
+                <div style="clear:both;"><!--fix floats--></div>
+            <!--
+            </div>
+            -->
+            <div style="clear:both;"><!--fix floats--></div>            
+            
+            <div id="container">
+                <div id="calendar"></div>
+            </div>
+        </apex:form>
+    </apex:outputPanel>
+    
+</apex:page>

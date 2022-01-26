@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ConnectedApp xmlns="http://soap.sforce.com/2006/04/metadata">
+    <contactEmail>shalu.jadoun@zensar.com</contactEmail>
+    <description>App to allow authorised access to salesforce - oracle integration, to receive data from oracle.</description>
+    <label>Marketing - Finance Integration</label>
+    <oauthConfig>
+        <callbackUrl>https://test.salesforce.com</callbackUrl>
+        <certificate>MIIEjzCCA3egAwIBAgITVgAAXK2FU42hC2qggwAAAABcrTANBgkqhkiG9w0BAQsFADBdMRMwEQYKCZImiZPyLGQBGRYDY29tMRswGQYKCZImiZPyLGQBGRYLdmFsdWVyZXRhaWwxKTAnBgNVBAMTIFZhbHVlIFJldGFpbCBJbnRyYW5ldCBJc3N1aW5nIENBMB4XDTIxMDEyMTE2MDAyMloXDTIxMDkyNzEwNTMxMVowQTELMAkGA1UEBhMCR0IxMjAwBgNVBAMTKWF1dGgucHJvZC5kYXRhaW50ZWdyYXRpb24udmFsdWVyZXRhaWwuY29tMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAoPsHX5n/LSkl0e/E/+A0692wcV5fmycXhKGjYI3PeUO3traUCTv8Uaq/pycUqdjdOx4i7CopehTI+hjOYwZ1mcIoEv2poG1O+pCGvrSwWBh7wqBVKCV1VL1pBrphETSw0dRrmJcEB+PWIsO/KUDeUwHFSeReBeYvao8h0JYV12S01/JZIwL9f8dZ9WFRuaODPDNnHAPhy7KJZ+y+wEdhxS+UV2r8k3Em3XGPZeFDHu+gHIMgR2D4tVMjzYErJ6+48b+FstdMeQV/FwOJ1+Z8Khl6dhGA8sTGERHxHLdPJHCq8jNTX0r9EehxMp2Y1+2UgjSE7uAUI1Ib2DXAIbb11QIDAQABo4IBYjCCAV4wHQYDVR0OBBYEFIc4gCJo5Gy8no8CoOvx0yGO5UDxMB8GA1UdIwQYMBaAFJ/x3FjCPG0VDjGqWG8m3lSJC/bvMEgGA1UdHwRBMD8wPaA7oDmGN2h0dHA6Ly9wa2kudmFsdWVyZXRhaWwuY29tL3BraS8wMV9pbnRyYW5ldGlzc3VpbmdjYS5jcmwwUwYIKwYBBQUHAQEERzBFMEMGCCsGAQUFBzAChjdodHRwOi8vcGtpLnZhbHVlcmV0YWlsLmNvbS9wa2kvMDFfaW50cmFuZXRpc3N1aW5nY2EuY3J0MAsGA1UdDwQEAwIFoDA+BgkrBgEEAYI3FQcEMTAvBicrBgEEAYI3FQiD0YpShZ6BVYftgxCH+pkJhqGsa4FfhMONdIe3nCECAWQCAQQwEwYDVR0lBAwwCgYIKwYBBQUHAwIwGwYJKwYBBAGCNxUKBA4wDDAKBggrBgEFBQcDAjANBgkqhkiG9w0BAQsFAAOCAQEAtsrXStrUwGpR532sgHZJ7RvH9IspoN1JV5YY3x0ufr0M92ibxJB/BnXg6MKfjzX5JCmDgPFO3v/nG3ah19YO+xGditl//eft7Av19rcOukvFlVRw1HuJVvnO/i+bV7PduUMlhbFyNxlcitynZPIc3ZCRWLf0/Sv45hECWXPV1+r4qj0lwTT5LZLdhAimyNpIUdhWZAvqQqmOi1WMr5qoYBgxk7QvfgyZuo3O4ikpKBCFzzGGmc+tRbioFaA6N4iXGHAwFROTyG7CKTC97mmtpmBp7DFqfAADUQeIY0Yu/48vxHlB2dLfVy0WvjvF0PhRxIqIJgLdusgwV38Z9LozzA==</certificate>
+        <consumerKey>3MVG9sSN_PMn8tjSodyD28jSJp3cRlddnsI8ws_uoDNlhR7lc6D03XhORvRUO.z1snhG5P.bMDxL7d8TCrMQD</consumerKey>
+        <isAdminApproved>true</isAdminApproved>
+        <isConsumerSecretOptional>false</isConsumerSecretOptional>
+        <isIntrospectAllTokens>false</isIntrospectAllTokens>
+        <isSecretRequiredForRefreshToken>false</isSecretRequiredForRefreshToken>
+        <scopes>Api</scopes>
+        <scopes>Full</scopes>
+        <scopes>RefreshToken</scopes>
+    </oauthConfig>
+    <oauthPolicy>
+        <ipRelaxation>ENFORCE</ipRelaxation>
+        <refreshTokenPolicy>infinite</refreshTokenPolicy>
+    </oauthPolicy>
+    <permissionSetName>Salesforce DI Integration Management</permissionSetName>
+</ConnectedApp>

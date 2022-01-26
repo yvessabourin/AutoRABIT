@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomApplication xmlns="http://soap.sforce.com/2006/04/metadata">
+    <brand>
+        <headerColor>#0070D2</headerColor>
+        <shouldOverrideOrgTheme>false</shouldOverrideOrgTheme>
+    </brand>
+    <description>Used by PCS team.</description>
+    <formFactors>Small</formFactors>
+    <formFactors>Large</formFactors>
+    <isNavAutoTempTabsDisabled>false</isNavAutoTempTabsDisabled>
+    <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
+    <label>Private Client Services</label>
+    <navType>Standard</navType>
+    <tabs>standard-home</tabs>
+    <tabs>VIP_Black_Book_Search</tabs>
+    <tabs>standard-Account</tabs>
+    <tabs>Visit__c</tabs>
+    <tabs>standard-report</tabs>
+    <tabs>standard-Dashboard</tabs>
+    <tabs>PRX__Outreach_Automation__c</tabs>
+    <uiType>Lightning</uiType>
+    <utilityBar>Private_Client_Services_UtilityBar</utilityBar>
+</CustomApplication>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Runners_Cannot_change_the_Runner_on_item</fullName>
+    <active>true</active>
+    <description>Do not allow runners to change Runners once set</description>
+    <errorConditionFormula>NOT(ISNEW())
+&amp;&amp;  ISCHANGED(Runner__c) 
+&amp;&amp; NOT(ISBLANK(PRIORVALUE(Runner__c)))
+ 
+&amp;&amp; $User.Profile_Name__c = &quot;TIC Runner&quot;</errorConditionFormula>
+    <errorMessage>Runners cannot change assigned runners once set.</errorMessage>
+</ValidationRule>

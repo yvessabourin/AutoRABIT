@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Remote_Visit__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Remote Visit</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Tick, if the contact with the guest was held remotely</inlineHelpText>
+    <label>Remote Visit</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

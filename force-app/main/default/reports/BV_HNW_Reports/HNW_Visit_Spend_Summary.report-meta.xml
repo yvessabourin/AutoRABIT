@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <buckets>
+        <bucketType>number</bucketType>
+        <developerName>BucketField_63378362</developerName>
+        <masterLabel>Total Visit Spend</masterLabel>
+        <nullTreatment>z</nullTreatment>
+        <sourceColumnName>Visit__c.Total_Visit_Spend__c</sourceColumnName>
+        <useOther>false</useOther>
+        <values>
+            <sourceValues>
+                <to>0</to>
+            </sourceValues>
+            <value>No Spend</value>
+        </values>
+        <values>
+            <sourceValues>
+                <from>0</from>
+                <to>1,000</to>
+            </sourceValues>
+            <value>From 0 to 1k</value>
+        </values>
+        <values>
+            <sourceValues>
+                <from>1,000</from>
+                <to>2,000</to>
+            </sourceValues>
+            <value>From 1k to 2k</value>
+        </values>
+        <values>
+            <sourceValues>
+                <from>2,000</from>
+                <to>3,000</to>
+            </sourceValues>
+            <value>From 2k to 3k</value>
+        </values>
+        <values>
+            <sourceValues>
+                <from>3,000</from>
+                <to>5,000</to>
+            </sourceValues>
+            <value>From 3k to 5k</value>
+        </values>
+        <values>
+            <sourceValues>
+                <from>5,000</from>
+            </sourceValues>
+            <value>More than 5k</value>
+        </values>
+    </buckets>
+    <columns>
+        <field>FK_ACC_ID</field>
+    </columns>
+    <columns>
+        <field>CUST_ID</field>
+    </columns>
+    <columns>
+        <field>CUST_NAME</field>
+    </columns>
+    <columns>
+        <field>FK_NAME</field>
+    </columns>
+    <columns>
+        <field>Visit__c.Visit_Date_Time__c</field>
+    </columns>
+    <columns>
+        <field>CUST_CREATED_DATE</field>
+    </columns>
+    <columns>
+        <field>Visit__c.Total_Visit_Spend__c</field>
+    </columns>
+    <columns>
+        <field>Visit__c.Total_Visit_Spend__c.CONVERT</field>
+    </columns>
+    <currency>GBP</currency>
+    <format>Matrix</format>
+    <groupingsAcross>
+        <dateGranularity>Day</dateGranularity>
+        <field>BucketField_63378362</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsAcross>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Visit__c.Village__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>HNW Guest Visit Spend Bands</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CustomEntity$Visit__c@Visit__c.Account__c</reportType>
+    <scope>organization</scope>
+    <showDetails>false</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>Visit__c.Visit_Date_Time__c</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

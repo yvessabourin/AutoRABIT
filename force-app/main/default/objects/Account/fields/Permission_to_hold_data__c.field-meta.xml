@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Permission_to_hold_data__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Did the guest grant permission for us to hold their data?</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Consent given to process Private Client&apos;s data</inlineHelpText>
+    <label>Consent to Process Data Given</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

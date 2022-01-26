@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Group_Data_Migration</fullName>
+    <columns>NAME</columns>
+    <columns>Name_of_Event__c</columns>
+    <columns>Organisation__c</columns>
+    <columns>Status__c</columns>
+    <columns>Expected_Arrival__c</columns>
+    <columns>Village__c</columns>
+    <columns>Transfer_Redemptions_Now__c</columns>
+    <columns>Transfer_Redemptions_on_Go_Live__c</columns>
+    <columns>Old_Redemption_Campaign_ID__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Status__c</field>
+        <operation>contains</operation>
+        <value>Cancelled</value>
+    </filters>
+    <filters>
+        <field>RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Group_Booking__c.Group_Booking</value>
+    </filters>
+    <filters>
+        <field>Expected_Arrival__c</field>
+        <operation>greaterThan</operation>
+        <value>8/19/2016 12:00 AM</value>
+    </filters>
+    <label>Group Data Migration</label>
+    <language>en_US</language>
+</ListView>

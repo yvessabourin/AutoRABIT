@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Lead_Mandatory_Fields</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(IsConverted,
+   OR(
+    ISBLANK( MobilePhone )
+),
+AND(
+OR(
+     ISBLANK( Phone )
+),
+    ISBLANK( Email ) 
+ 
+)
+
+)</errorConditionFormula>
+    <errorMessage>At least one of Mobile, Phone or Email address must be entered before you can save the record</errorMessage>
+</ValidationRule>

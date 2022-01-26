@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Notification of a Complex Shop Fit when submitted for approval</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>GRP_Leaseflow_Header</letterhead>
+    <name>Complex Shop Fit Alert</name>
+    <style>freeForm</style>
+    <subject>Complex Shop Fit Notification for {!Shop_Fit_Log__c.Name}</subject>
+    <textOnly>This is a notification that a complex shop fit has been submitted for approval
+
+
+Name: {!Shop_Fit_Log__c.Name}
+
+
+Brand: {!Shop_Fit_Log__c.Account_Brand__c}
+
+
+Unit: {!Shop_Fit_Log__c.Unit__c} {!Shop_Fit_Log__c.Unit__c}
+
+
+Complexities: {!Shop_Fit_Log__c.Specific_Issues__c}
+
+
+TI: {!Shop_Fit_Log__c.TI__c}  {!Shop_Fit_Log__c.TI_Category__c}
+
+
+Date Required: {!Shop_Fit_Log__c.Required_Date__c}</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

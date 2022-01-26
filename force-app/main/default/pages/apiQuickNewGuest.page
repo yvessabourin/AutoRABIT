@@ -1,0 +1,426 @@
+<apex:page sidebar="false" showHeader="false" standardStylesheets="false"  applyBodyTag="false" docType="html-5.0" controller="VisitRedemptionsHelper" lightningStylesheets="true" >
+    <html xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">    
+    
+    <head>
+      <apex:stylesheet value="{!URLFOR($Resource.SLDS0121, 'assets/styles/salesforce-lightning-design-system-vf.css')}" />
+    </head>    
+
+       <div class="slds">
+       
+            <div class="slds-page-header" role="banner">
+                <div class="slds-grid">
+                    <div class="slds-col slds-has-flexi-truncate slds-size--1-of-3 slds-col--padded-large">
+                        <button class="slds-button slds-button--brand slds-button--small" onclick="cancelAction();">Cancel</button>
+                    </div>
+                    <div class="slds-col slds-has-flexi-truncate slds-size--1-of-3 slds-col--padded-large">
+
+                        <h2 class="slds-text-heading--large slds-m-bottom--large slds-align-middle">
+                            Enter New Guest Information
+                        </h2>
+     <!--       <div class="slds-text-body--small">"{!$CurrentPage.parameters.promoId}"</div>   -->
+                    </div>
+                    <div class="slds-col slds-has-flexi-truncate slds-size--1-of-3  slds-col--padded-large">
+                        
+                        <button  class="slds-button slds-button--brand slds-button--small   slds-float--right" onclick=" $j('#saving').show();saveCustomer();">Save and Record Visit</button> 
+                    </div>
+                 </div>
+            </div>
+            
+                <div id="emailH" class="slds-form-element  slds-size--1-of-1  slds-is-required" align="center">
+                    <label class="slds-form-element__label" for="email">Email Address</label>
+                    <div  class="slds-form-element__control slds-is-required slds-col   ">
+                        <input id="email" class="slds-input--small slds-is-required" type="email"                                                                 
+                                    title="Please enter a valid email address" />
+                    </div>
+                </div>
+                
+                <div class="slds-form-element slds-size--1-of-1 " align="center">
+                    <label class="slds-form-element__label" for="fstName">First Name</label>
+                    <div class="slds-form-element__control slds-col">
+                        <input id="fstName" class="slds-input--small" type="text" placeholder="" />
+                    </div>
+                </div>
+    
+                <div class="slds-form-element slds-size--1-of-1 " align="center">
+                    <label class="slds-form-element__label" for="lstName">Surname</label>
+                    <div class="slds-form-element__control slds-col">
+                        <input id="lstName" class="slds-input--small" type="text" placeholder="" />
+                    </div>
+                </div>                
+                
+                <div class="slds-form-element slds-size--1-of-1 " align="center">
+                    <label class="slds-form-element__label" for="phone">Mobile Phone</label>
+                    <div class="slds-form-element__control slds-col">
+                        <input id="phone" class="slds-input--small" type="text" 
+                                      title="please enter a valid telephone number, Use +, any number, spaces, hyphens and x (for extensions)" />
+                    </div>
+                </div>
+                
+                <div class="slds-form-element slds-size--1-of-1" align="center">
+                    <label class="slds-form-element__label" for="Country">Country of Residence</label>
+                    <div class="slds-form-element__control Country" id="Country" >                        
+
+                    </div>
+                </div> 
+                <br/>
+                
+                <div id="preferencesSection">
+                    <h3 class="slds-section-title--divider" align="center">Opt-In Statuses</h3>            
+    
+                    <div class="slds-form-element slds-size--1-of-1" align="center">
+                        <label class="slds-form-element__label" for="optoutEmail">Opt In Email</label>
+                        <div class="slds-form-element__control optoutEmail" id="optoutEmail" >                        
+        
+                        </div>
+                    </div>
+                    
+                    <div class="slds-form-element slds-size--1-of-1" align="center">
+                        <label class="slds-form-element__label" for="optoutMobile">Opt In Mobile</label>
+                        <div class="slds-form-element__control optoutMobile" id="optoutMobile" >                        
+        
+                        </div>
+                    </div>                         
+        
+                    <div class="slds-form-element slds-size--1-of-1" align="center">
+                        <label class="slds-form-element__label" for="optoutPostal">Opt In Postal</label>
+                        <div class="slds-form-element__control optoutPostal" id="optoutPostal" >                        
+        
+                        </div>
+                    </div>                
+                </div>
+                                            
+            <div align="center" id='saving'>Saving ...  <img src="{!$Resource.ajaxSpinner}"/></div>
+            <div align="center" id='retrievingCountries'>Retrieving Country List ...  <img src="{!$Resource.ajaxSpinner}"/></div>
+                         
+            <!--
+            <footer role="contentinfo" class="slds-p-around--large">
+
+                <a href="/apex/Promotion_Search" >Search Promo</a>
+            
+                <div class="slds-float--right">
+                    <a id="home">Home</a>
+                </div>
+            </footer>
+            -->
+            
+        </div>
+        
+        <!-- <apex:includeScript value="https://code.jquery.com/jquery-1.9.1.min.js"/> -->
+        <apex:includeScript value="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"/>
+        <!-- custom scripts -->
+        <script>
+            
+            $j = jQuery.noConflict();
+            var homeUrl;
+            var bookingTransport = '';
+            var bookingLocation = '';
+            var bookingCountry = '';
+            var bookingType = '';
+            var promoNotes = '';
+                        
+            $j(document).ready(function() {
+                
+                //$j('#preferencesSection').hide();
+                
+                $j('#retrievingCountries').show();
+                $j('#saving').hide();
+                
+                getPreferenceDropdowns();
+                getCountryDropdown();
+                
+                if( (typeof sforce != 'undefined') && (sforce != null) ) {
+                 // running in mobile
+                    homeUrl = '/_ui/core/chatter/ui/ChatterPage';
+                } else { //desktop
+                    homeUrl = '/home/home.jsp';
+                }                 
+                $j('#home').attr('href', homeUrl);                
+          
+                bookingTransport = '{!JSENCODE($CurrentPage.parameters.modeOfTransport)}';
+                bookingLocation = '{!JSENCODE($CurrentPage.parameters.location)}';
+                bookingType = '{!JSENCODE($CurrentPage.parameters.type)}';
+                bookingCountry = '{!JSENCODE($CurrentPage.parameters.country)}';
+                promoNotes =  '{!JSENCODE($CurrentPage.parameters.promoNotes)}';
+                
+                
+                // default opt-in statuses to Yes
+                $j('#optoutEmailvalue').val('0');
+                $j('#optoutMobilevalue').val('0');
+                $j('#optoutPostalvalue').val('0');                
+            })            
+
+            function regex_escape(str) {
+                return str.replace(new RegExp('[.\\\\+*?\\[\\^\\]$(){}=!<>|:\\-]', 'g'), '\\$&');
+            }            
+            
+            var email = document.getElementById("email");
+            email.value = decodeURIComponent(('{!JSENCODE($CurrentPage.parameters.email)}' + '').replace(/\+/g, '%2B'));
+            
+            
+            var fstName = document.getElementById("fstName");
+            fstName.value = '{!JSENCODE($CurrentPage.parameters.firstName)}';
+                
+            var lstName =  document.getElementById("lstName");
+            lstName.value = '{!JSENCODE($CurrentPage.parameters.lastName)}';
+            
+            var phone =  document.getElementById("phone");
+           
+            var promoId = '{!JSENCODE($CurrentPage.parameters.promoId)}';
+            var promoName = '{!JSENCODE($CurrentPage.parameters.promoName)}';  
+            
+            Visualforce.remoting.timeout = 120000;
+            Visualforce.remoting.buffer = false;        
+            Visualforce.remoting.escape = false;
+            
+            
+            function cancelAction(){
+            
+                if( (typeof sforce != 'undefined') && (sforce != null) ) {
+                 // running in mobile
+                    sforce.one.back(true);
+                } else { //desktop
+                    window.history.back();
+                }     
+            
+            
+            }
+                                            
+            function saveCustomer(){
+
+                var country = document.getElementById("Countryvalue");
+
+                console.log(country); 
+
+                var emailAddress = nulltoEmptyString(email.value);
+                   
+                var firstName = nulltoEmptyString(fstName.value);
+                var lastName = nulltoEmptyString(lstName.value);
+                var mobilePhone = nulltoEmptyString(phone.value);
+                var countryResidence = country.options[country.selectedIndex].text;
+                var countryCode = country.options[country.selectedIndex].value;
+
+
+                var optoutEmail = $j('#optoutEmailvalue').val();
+                var optoutMobile = $j('#optoutMobilevalue').val();
+                var optoutPostal = $j('#optoutPostalvalue').val();
+                                
+                var valid = true;
+
+                console.log('Promo Id .. ' + promoId );
+                console.log('email .. ' + emailAddress );
+                console.log('phone .. ' + mobilePhone );
+                console.log('first name .. ' + firstName );
+                console.log('last name .. ' + lastName );
+                console.log('country Residence .. ' + countryResidence );
+                console.log('country Code .. ' + countryCode );
+                
+                if (!validateEmail(emailAddress)){
+                    $j('#saving').hide();
+                    alert('Email address is not valid');
+                    valid = false;                   
+                    $j('#email').addClass("slds-has-error");                  
+                } else {
+                    $j('#email').removeClass("slds-has-error");
+                }
+
+                if (!validateOptOuts(optoutEmail, optoutMobile, optoutPostal)){
+                    $j('#saving').hide();
+                    valid = false;
+                }
+                                
+                if(valid) { 
+                           
+                    VisitRedemptionsHelper.quickCreateGuest(emailAddress,mobilePhone,firstName,lastName, countryCode, promoId, optoutEmail, optoutMobile, optoutPostal, function(result, event) {
+                            $j('#saving').hide();
+                            console.log(result);
+                            promoName  = promoName.replace(/'/g, "\\'");
+                            if (emailAddress)
+                                emailAddress = emailAddress.replace(/\+/g, '%2B');
+                            var url = encodeURI('/apex/VisitVIPCardIssue?promoId=' + promoId + '&promoName=' + promoName + '&promoNotes=' + promoNotes + '&location=' + bookingLocation + '&modeOfTransport=' + bookingTransport +  '&type=' + bookingType +'&email='+emailAddress + '&firstName=' + firstName + '&lastName=' + lastName + '&mobile=' + mobilePhone + '&country=' + countryCode);
+                            
+                            if(event.status) {
+                                if (result.indexOf('error') > -1){
+                                    alert('Customer details could not be saved at the present time. Please try again later. You can still issue the VIP card with no customer details on the next screen');                                                                    
+                                } else {
+                                    var guestId = result;
+                                    url += '&guestId=' + guestId;
+                                }                                                                                             
+                                if( (typeof sforce != 'undefined') && (sforce != null) ) {
+                                 // running in mobile
+                                    sforce.one.navigateToURL(url);
+                                } else { //desktop
+                                    window.location.href = url ;
+                                }           
+                            } else {
+                                alert(result);
+            
+                            }
+            
+                    },{buffer: false, escape: false, timeout: 90000} );                                 
+                }
+            }
+            
+            function validateEmail(email) { 
+              
+                var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+                return re.test(email);
+            }
+
+
+            function getCountryDropdown(){
+                
+                VisitRedemptionsHelper.getCountryDropdown(function(result, event) {
+                    
+                    $j('#retrievingCountries').hide();
+                    console.log(result);                        
+
+                    if(event.status) {
+                        
+                        var html = getDropdownValues(result, 'Country');
+                        $j( "div.Country").html(function() {
+                           return html;
+                        });                                                
+                        
+                    } else {
+                        console.log('ERROR  ' + result);
+     
+    
+                    }
+    
+                },{buffer: false, escape: false, timeout: 90000} );
+                    
+            }
+            
+            function getDropdownValues(values, key){
+
+                var html = '';
+                var obj = JSON.parse(values);
+                
+                if (obj.hasOwnProperty(key)) {
+                    console.log(key + " -> " + obj[key]);
+                    var items = obj[key];
+
+                    html += '<select id="' + key + 'value" class="slds-select" style="width: 20%;" value="" required="">';
+                    html +=  '<option></option>';
+                    
+                    for (var i=0; i < items.length; i++){
+                        var item = items[i];
+                        var countryISO = Object.keys(item)[0];
+                        var countryText = item[countryISO];
+                        console.log('ISO = ' + countryISO + ' .. Text = ' + countryText);                        
+                        html += '<option value=' + countryISO +'>' + countryText + '</option>';                        
+                    }
+                    html += '</select>'; 
+                    
+                }
+                
+                return html;          
+            
+            }
+            
+            function getPreferenceDropdownsOLD(){
+  
+
+                var html = '';
+                var items = new Array('Yes', 'No');
+                var itemValues = new Array('true', 'false');
+                var keys = new Array('optinEmail', 'optinSMS');
+                
+                for (var k=0; k < keys.length; k++) {
+                    var key = keys[k];
+                    html = '';
+                    html += '<select id="' + key + 'value" class="slds-select" style="width: 20%;" value="" required="">';
+                    html +=  '<option></option>';
+                        
+                    for (var i=0; i < items.length; i++){
+                        var item = items[i];
+                        var itemValue = itemValues[i];
+                      
+                        html += '<option value=' + itemValue +'>' + item + '</option>';                        
+                    }
+                    html += '</select>';
+                    console.log (key);
+                    var id = 'div.' + key;
+                    $j(id).html(function() {
+                       return html;
+                    });
+                } 
+                       
+            
+            }
+            
+            function getPreferenceDropdowns(){
+  
+                var html = '';
+                var items = new Array('Yes', 'No');
+                var itemValues = new Array('0', '1');
+                var keys = new Array('optoutEmail', 'optoutMobile', 'optoutPostal');
+                
+                for (var k=0; k < keys.length; k++) {
+                    var key = keys[k];
+                    html = '';
+                    html += '<select id="' + key + 'value" class="slds-select" style="width: 20%;" value="" required="">';
+                    html +=  '<option></option>';
+                        
+                    for (var i=0; i < items.length; i++){
+                        var item = items[i];
+                        var itemValue = itemValues[i];
+                      
+                        html += '<option value=' + itemValue +'>' + item + '</option>';                        
+                    }
+                    html += '</select>';
+                    console.log (key);
+                    var id = 'div.' + key;
+                    $j(id).html(function() {
+                       return html;
+                    });
+                } 
+                       
+            
+            }
+
+            function validateOptOuts(optoutEmail, optoutMobile, optoutPostal){
+                
+                var valid = true;
+                
+                if (!optoutEmail){
+                    $j('#optoutEmail').addClass("slds-has-error"); 
+                    valid = false;
+                } else {
+                    $j('#optoutEmail').removeClass("slds-has-error"); 
+                }
+                
+                if (!optoutMobile){
+                    $j('#optoutMobile').addClass("slds-has-error"); 
+                    valid = false;
+                } else {
+                    $j('#optoutMobile').removeClass("slds-has-error"); 
+                }
+                
+                if (!optoutPostal){
+                    $j('#optoutPostal').addClass("slds-has-error"); 
+                    valid = false;
+                } else {
+                    $j('#optoutPostal').removeClass("slds-has-error"); 
+                }
+                                      
+                if (!valid){
+                    alert('Please enter a value for all opt-in statuses');
+                }
+                
+                return valid;
+            } 
+            
+            function nulltoEmptyString(val){
+                if (val){
+                    return val;
+                } else {
+                    return '';
+                }
+            }
+                                                    
+        </script>
+        
+        
+    </html>
+</apex:page>

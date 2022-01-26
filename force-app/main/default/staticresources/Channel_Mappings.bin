@@ -1,0 +1,1192 @@
+[
+ {
+   "Channel": "Community",
+   "subchannel": "Community Event",
+   "subchanneltype": "Event",
+   "newchannel": "Events",
+   "newSubchannel": "Corporate Event"
+ },
+ {
+   "Channel": "Community",
+   "subchannel": "Community Sponsoring",
+   "subchanneltype": "Sponsoring",
+   "newchannel": "Events",
+   "newSubchannel": "Sponsorship"
+ },
+ {
+   "Channel": "CRM",
+   "subchannel": "CRM Email",
+   "subchanneltype": "Brand",
+   "newchannel": "CRM",
+   "newSubchannel": "Email"
+ },
+ {
+   "Channel": "CRM",
+   "subchannel": "CRM Email",
+   "subchanneltype": "Competition",
+   "newchannel": "CRM",
+   "newSubchannel": "Email"
+ },
+ {
+   "Channel": "CRM",
+   "subchannel": "CRM Email",
+   "subchanneltype": "Gift Card",
+   "newchannel": "CRM",
+   "newSubchannel": "Email"
+ },
+ {
+   "Channel": "CRM",
+   "subchannel": "CRM Email",
+   "subchanneltype": "Private Sale",
+   "newchannel": "CRM",
+   "newSubchannel": "Email"
+ },
+ {
+   "Channel": "CRM",
+   "subchannel": "CRM Email",
+   "subchanneltype": "Product",
+   "newchannel": "CRM",
+   "newSubchannel": "Email"
+ },
+ {
+   "Channel": "CRM",
+   "subchannel": "CRM Email",
+   "subchanneltype": "Seasonal",
+   "newchannel": "CRM",
+   "newSubchannel": "Email"
+ },
+ {
+   "Channel": "CRM",
+   "subchannel": "CRM Email",
+   "subchanneltype": "Survey",
+   "newchannel": "CRM",
+   "newSubchannel": "Email"
+ },
+ {
+   "Channel": "CRM",
+   "subchannel": "CRM Email",
+   "subchanneltype": "Welcome",
+   "newchannel": "CRM",
+   "newSubchannel": "Email"
+ },
+ {
+   "Channel": "CRM",
+   "subchannel": "CRM Facebook",
+   "subchanneltype": "Brand",
+   "newchannel": "Social Media",
+   "newSubchannel": "Facebook"
+ },
+ {
+   "Channel": "CRM",
+   "subchannel": "CRM Facebook",
+   "subchanneltype": "Competition",
+   "newchannel": "Social Media",
+   "newSubchannel": "Facebook"
+ },
+ {
+   "Channel": "CRM",
+   "subchannel": "CRM Facebook",
+   "subchanneltype": "Gift Card",
+   "newchannel": "Social Media",
+   "newSubchannel": "Facebook"
+ },
+ {
+   "Channel": "CRM",
+   "subchannel": "CRM Facebook",
+   "subchanneltype": "Private Sale",
+   "newchannel": "Social Media",
+   "newSubchannel": "Facebook"
+ },
+ {
+   "Channel": "CRM",
+   "subchannel": "CRM Facebook",
+   "subchanneltype": "Product",
+   "newchannel": "Social Media",
+   "newSubchannel": "Facebook"
+ },
+ {
+   "Channel": "CRM",
+   "subchannel": "CRM Facebook",
+   "subchanneltype": "Seasonal",
+   "newchannel": "Social Media",
+   "newSubchannel": "Facebook"
+ },
+ {
+   "Channel": "CRM",
+   "subchannel": "CRM Facebook",
+   "subchanneltype": "Survey",
+   "newchannel": "Social Media",
+   "newSubchannel": "Facebook"
+ },
+ {
+   "Channel": "CRM",
+   "subchannel": "CRM Facebook",
+   "subchanneltype": "Welcome",
+   "newchannel": "Social Media",
+   "newSubchannel": "Facebook"
+ },
+ {
+   "Channel": "CRM",
+   "subchannel": "CRM WeChat",
+   "subchanneltype": "Brand",
+   "newchannel": "Social Media",
+   "newSubchannel": "WeChat"
+ },
+ {
+   "Channel": "CRM",
+   "subchannel": "CRM WeChat",
+   "subchanneltype": "Competition",
+   "newchannel": "Social Media",
+   "newSubchannel": "WeChat"
+ },
+ {
+   "Channel": "CRM",
+   "subchannel": "CRM WeChat",
+   "subchanneltype": "Gift Card",
+   "newchannel": "Social Media",
+   "newSubchannel": "WeChat"
+ },
+ {
+   "Channel": "CRM",
+   "subchannel": "CRM WeChat",
+   "subchanneltype": "Private Sale",
+   "newchannel": "Social Media",
+   "newSubchannel": "WeChat"
+ },
+ {
+   "Channel": "CRM",
+   "subchannel": "CRM WeChat",
+   "subchanneltype": "Product",
+   "newchannel": "Social Media",
+   "newSubchannel": "WeChat"
+ },
+ {
+   "Channel": "CRM",
+   "subchannel": "CRM WeChat",
+   "subchanneltype": "Seasonal",
+   "newchannel": "Social Media",
+   "newSubchannel": "WeChat"
+ },
+ {
+   "Channel": "CRM",
+   "subchannel": "CRM WeChat",
+   "subchanneltype": "Survey",
+   "newchannel": "Social Media",
+   "newSubchannel": "WeChat"
+ },
+ {
+   "Channel": "CRM",
+   "subchannel": "CRM WeChat",
+   "subchanneltype": "Welcome",
+   "newchannel": "Social Media",
+   "newSubchannel": "WeChat"
+ },
+ {
+   "Channel": "CRM",
+   "subchannel": "Postal Mailing",
+   "subchanneltype": "Brand",
+   "newchannel": "CRM",
+   "newSubchannel": "Direct Mail"
+ },
+ {
+   "Channel": "CRM",
+   "subchannel": "Postal Mailing",
+   "subchanneltype": "Competition",
+   "newchannel": "CRM",
+   "newSubchannel": "Direct Mail"
+ },
+ {
+   "Channel": "CRM",
+   "subchannel": "Postal Mailing",
+   "subchanneltype": "Gift Card",
+   "newchannel": "CRM",
+   "newSubchannel": "Direct Mail"
+ },
+ {
+   "Channel": "CRM",
+   "subchannel": "Postal Mailing",
+   "subchanneltype": "Private Sale",
+   "newchannel": "CRM",
+   "newSubchannel": "Direct Mail"
+ },
+ {
+   "Channel": "CRM",
+   "subchannel": "Postal Mailing",
+   "subchanneltype": "Product",
+   "newchannel": "CRM",
+   "newSubchannel": "Direct Mail"
+ },
+ {
+   "Channel": "CRM",
+   "subchannel": "Postal Mailing",
+   "subchanneltype": "Seasonal",
+   "newchannel": "CRM",
+   "newSubchannel": "Direct Mail"
+ },
+ {
+   "Channel": "CRM",
+   "subchannel": "Postal Mailing",
+   "subchanneltype": "Survey",
+   "newchannel": "CRM",
+   "newSubchannel": "Direct Mail"
+ },
+ {
+   "Channel": "CRM",
+   "subchannel": "Postal Mailing",
+   "subchanneltype": "Welcome",
+   "newchannel": "CRM",
+   "newSubchannel": "Direct Mail"
+ },
+ {
+   "Channel": "CRM",
+   "subchannel": "Printed Registration Form",
+   "subchanneltype": "Printed Registration Form",
+   "newchannel": "CRM",
+   "newSubchannel": "Registration Card"
+ },
+ {
+   "Channel": "CRM",
+   "subchannel": "Printed Survey",
+   "subchanneltype": "Printed Survey",
+   "newchannel": "CRM",
+   "newSubchannel": "Printed Survey"
+ },
+ {
+   "Channel": "CRM",
+   "subchannel": "SMS",
+   "subchanneltype": "Competition",
+   "newchannel": "CRM",
+   "newSubchannel": "SMS"
+ },
+ {
+   "Channel": "CRM",
+   "subchannel": "SMS",
+   "subchanneltype": "Offer",
+   "newchannel": "CRM",
+   "newSubchannel": "SMS"
+ },
+ {
+   "Channel": "In Village",
+   "subchannel": "Aboard",
+   "subchanneltype": "Aboard",
+   "newchannel": "Visual Merchandising",
+   "newSubchannel": "A-board - Visual Merchandising"
+ },
+ {
+   "Channel": "In Village",
+   "subchannel": "Art Gallery",
+   "subchanneltype": "Art Gallery",
+   "newchannel": "Events",
+   "newSubchannel": "Corporate Event"
+ },
+ {
+   "Channel": "In Village",
+   "subchannel": "Empty Unit Vinyls",
+   "subchanneltype": "Empty Unit Vinyls",
+   "newchannel": "Visual Merchandising",
+   "newSubchannel": "Unit Vinyls "
+ },
+ {
+   "Channel": "In Village",
+   "subchannel": "Guest Welcome Centre",
+   "subchanneltype": "Guest Welcome Centre",
+   "newchannel": "VIP",
+   "newSubchannel": "VIP Invitation"
+ },
+ {
+   "Channel": "In Village",
+   "subchannel": "In Store Signage",
+   "subchanneltype": "In Store Signage",
+   "newchannel": "Visual Merchandising",
+   "newSubchannel": "Signage - Visual Merchandising"
+ },
+ {
+   "Channel": "In Village",
+   "subchannel": "In Village Event",
+   "subchanneltype": "Event",
+   "newchannel": "Events",
+   "newSubchannel": "Corporate Event"
+ },
+ {
+   "Channel": "In Village",
+   "subchannel": "Shuttle",
+   "subchanneltype": "Bus Cover",
+   "newchannel": "Media",
+   "newSubchannel": "Transport (inc Shopping Express, Trains)"
+ },
+ {
+   "Channel": "In Village",
+   "subchannel": "Shuttle",
+   "subchanneltype": "On Board Brochure",
+   "newchannel": "Media",
+   "newSubchannel": "Transport (inc Shopping Express, Trains)"
+ },
+ {
+   "Channel": "In Village",
+   "subchannel": "Shuttle",
+   "subchanneltype": "On Board Video",
+   "newchannel": "Media",
+   "newSubchannel": "Transport (inc Shopping Express, Trains)"
+ },
+ {
+   "Channel": "In Village",
+   "subchannel": "Shuttle Drop Off Area",
+   "subchanneltype": "Shuttle Drop Off Area",
+   "newchannel": "Visual Merchandising",
+   "newSubchannel": "In-Village Installations"
+ },
+ {
+   "Channel": "In Village",
+   "subchannel": "Store Vinyls",
+   "subchanneltype": "Store Vinyls",
+   "newchannel": "Visual Merchandising",
+   "newSubchannel": "Unit Vinyls "
+ },
+ {
+   "Channel": "In Village",
+   "subchannel": "Village Leaflet",
+   "subchanneltype": "Village Leaflet",
+   "newchannel": "Collateral",
+   "newSubchannel": "Leaflet"
+ },
+ {
+   "Channel": "In Village",
+   "subchannel": "VIP Lounge",
+   "subchanneltype": "VIP Lounge",
+   "newchannel": "Events",
+   "newSubchannel": "VIP Event"
+ },
+ {
+   "Channel": "Media Offline",
+   "subchannel": "Inflight",
+   "subchanneltype": "Inflight Magazine Advertising",
+   "newchannel": "Media",
+   "newSubchannel": "Inflight Magazine"
+ },
+ {
+   "Channel": "Media Offline",
+   "subchannel": "Inflight",
+   "subchanneltype": "Inflight Magazine Advertorial",
+   "newchannel": "Media",
+   "newSubchannel": "Inflight Magazine"
+ },
+ {
+   "Channel": "Media Offline",
+   "subchannel": "Inflight",
+   "subchanneltype": "Inflight Video",
+   "newchannel": "Media",
+   "newSubchannel": "Video"
+ },
+ {
+   "Channel": "Media Offline",
+   "subchannel": "Media Offline Cinema",
+   "subchanneltype": "Cinema",
+   "newchannel": "Media",
+   "newSubchannel": "Video"
+ },
+ {
+   "Channel": "Media Offline",
+   "subchannel": "Media Offline Out of Home",
+   "subchanneltype": "Out of Home",
+   "newchannel": "Media",
+   "newSubchannel": "Video"
+ },
+ {
+   "Channel": "Media Offline",
+   "subchannel": "Media Offline Print",
+   "subchanneltype": "Magazine Advertising",
+   "newchannel": "Media",
+   "newSubchannel": "Magazine"
+ },
+ {
+   "Channel": "Media Offline",
+   "subchannel": "Media Offline Print",
+   "subchanneltype": "Magazine Advertorial",
+   "newchannel": "Media",
+   "newSubchannel": "Magazine"
+ },
+ {
+   "Channel": "Media Offline",
+   "subchannel": "Media Offline Print",
+   "subchanneltype": "Newspaper Advertising",
+   "newchannel": "Media",
+   "newSubchannel": "Newspaper"
+ },
+ {
+   "Channel": "Media Offline",
+   "subchannel": "Media Offline Print",
+   "subchanneltype": "Newspaper Advertorial",
+   "newchannel": "Media",
+   "newSubchannel": "Newspaper"
+ },
+ {
+   "Channel": "Media Offline",
+   "subchannel": "Media Offline Radio",
+   "subchanneltype": "Radio Advertising",
+   "newchannel": "Media",
+   "newSubchannel": "Radio"
+ },
+ {
+   "Channel": "Media Offline",
+   "subchannel": "Media Offline Radio",
+   "subchanneltype": "Radio Advertorial",
+   "newchannel": "Media",
+   "newSubchannel": "Radio"
+ },
+ {
+   "Channel": "Media Offline",
+   "subchannel": "Media Offline TV",
+   "subchanneltype": "TV",
+   "newchannel": "Media",
+   "newSubchannel": "TV"
+ },
+ {
+   "Channel": "Media Online",
+   "subchannel": "Media Online Digital",
+   "subchanneltype": "Display",
+   "newchannel": "Media",
+   "newSubchannel": "Display"
+ },
+ {
+   "Channel": "Media Online",
+   "subchannel": "Media Online Digital",
+   "subchanneltype": "KOL",
+   "newchannel": "Media",
+   "newSubchannel": "Online Video"
+ },
+ {
+   "Channel": "Media Online",
+   "subchannel": "Media Online Digital",
+   "subchanneltype": "PPC",
+   "newchannel": "Media",
+   "newSubchannel": "Paid Search"
+ },
+ {
+   "Channel": "Media Partnership",
+   "subchannel": "Media Partnership Digital",
+   "subchanneltype": "Digital",
+   "newchannel": "Digital",
+   "newSubchannel": "Partner Website"
+ },
+ {
+   "Channel": "Media Partnership",
+   "subchannel": "Media Partnership Email",
+   "subchanneltype": "Email",
+   "newchannel": "CRM",
+   "newSubchannel": "Email"
+ },
+ {
+   "Channel": "Media Partnership",
+   "subchannel": "Media Partnership Print",
+   "subchanneltype": "Print",
+   "newchannel": "Media",
+   "newSubchannel": "Magazine"
+ },
+ {
+   "Channel": "Media Partnership",
+   "subchannel": "Media Partnership Radio",
+   "subchanneltype": "Radio",
+   "newchannel": "Media",
+   "newSubchannel": "Radio"
+ },
+ {
+   "Channel": "Mobile App",
+   "subchannel": "Mobile App",
+   "subchanneltype": "Mobile App",
+   "newchannel": "Digital",
+   "newSubchannel": "Mobile App"
+ },
+ {
+   "Channel": "PR",
+   "subchannel": "Blogger",
+   "subchanneltype": "Event",
+   "newchannel": "PR",
+   "newSubchannel": "Blogger"
+ },
+ {
+   "Channel": "PR",
+   "subchannel": "Blogger",
+   "subchanneltype": "Gifting",
+   "newchannel": "PR",
+   "newSubchannel": "Blogger"
+ },
+ {
+   "Channel": "PR",
+   "subchannel": "Blogger",
+   "subchanneltype": "Interview",
+   "newchannel": "PR",
+   "newSubchannel": "Blogger"
+ },
+ {
+   "Channel": "PR",
+   "subchannel": "Blogger",
+   "subchanneltype": "Photo Shoot",
+   "newchannel": "PR",
+   "newSubchannel": "Blogger"
+ },
+ {
+   "Channel": "PR",
+   "subchannel": "Blogger",
+   "subchanneltype": "Press Release",
+   "newchannel": "PR",
+   "newSubchannel": "Blogger"
+ },
+ {
+   "Channel": "PR",
+   "subchannel": "Blogger",
+   "subchanneltype": "Round Table",
+   "newchannel": "PR",
+   "newSubchannel": "Blogger"
+ },
+ {
+   "Channel": "PR",
+   "subchannel": "Blogger",
+   "subchanneltype": "Video Shoot",
+   "newchannel": "PR",
+   "newSubchannel": "Blogger"
+ },
+ {
+   "Channel": "PR",
+   "subchannel": "Blogger",
+   "subchanneltype": "Visit",
+   "newchannel": "PR",
+   "newSubchannel": "Blogger"
+ },
+ {
+   "Channel": "PR",
+   "subchannel": "Influencer",
+   "subchanneltype": "Event",
+   "newchannel": "PR",
+   "newSubchannel": "Influencer"
+ },
+ {
+   "Channel": "PR",
+   "subchannel": "Influencer",
+   "subchanneltype": "Gifting",
+   "newchannel": "PR",
+   "newSubchannel": "Influencer"
+ },
+ {
+   "Channel": "PR",
+   "subchannel": "Influencer",
+   "subchanneltype": "Interview",
+   "newchannel": "PR",
+   "newSubchannel": "Influencer"
+ },
+ {
+   "Channel": "PR",
+   "subchannel": "Influencer",
+   "subchanneltype": "Photo Shoot",
+   "newchannel": "PR",
+   "newSubchannel": "Influencer"
+ },
+ {
+   "Channel": "PR",
+   "subchannel": "Influencer",
+   "subchanneltype": "Press Release",
+   "newchannel": "PR",
+   "newSubchannel": "Influencer"
+ },
+ {
+   "Channel": "PR",
+   "subchannel": "Influencer",
+   "subchanneltype": "Round Table",
+   "newchannel": "PR",
+   "newSubchannel": "Influencer"
+ },
+ {
+   "Channel": "PR",
+   "subchannel": "Influencer",
+   "subchanneltype": "Video Shoot",
+   "newchannel": "PR",
+   "newSubchannel": "Influencer"
+ },
+ {
+   "Channel": "PR",
+   "subchannel": "Influencer",
+   "subchanneltype": "Visit",
+   "newchannel": "PR",
+   "newSubchannel": "Influencer"
+ },
+ {
+   "Channel": "PR",
+   "subchannel": "Press",
+   "subchanneltype": "Event",
+   "newchannel": "PR",
+   "newSubchannel": "Press"
+ },
+ {
+   "Channel": "PR",
+   "subchannel": "Press",
+   "subchanneltype": "Gifting",
+   "newchannel": "PR",
+   "newSubchannel": "Press"
+ },
+ {
+   "Channel": "PR",
+   "subchannel": "Press",
+   "subchanneltype": "Interview",
+   "newchannel": "PR",
+   "newSubchannel": "Press"
+ },
+ {
+   "Channel": "PR",
+   "subchannel": "Press",
+   "subchanneltype": "Photo Shoot",
+   "newchannel": "PR",
+   "newSubchannel": "Press"
+ },
+ {
+   "Channel": "PR",
+   "subchannel": "Press",
+   "subchanneltype": "Press Release",
+   "newchannel": "PR",
+   "newSubchannel": "Press"
+ },
+ {
+   "Channel": "PR",
+   "subchannel": "Press",
+   "subchanneltype": "Round Table",
+   "newchannel": "PR",
+   "newSubchannel": "Press"
+ },
+ {
+   "Channel": "PR",
+   "subchannel": "Press",
+   "subchanneltype": "Video Shoot",
+   "newchannel": "PR",
+   "newSubchannel": "Press"
+ },
+ {
+   "Channel": "PR",
+   "subchannel": "Press",
+   "subchanneltype": "Visit",
+   "newchannel": "PR",
+   "newSubchannel": "Press"
+ },
+ {
+   "Channel": "PR",
+   "subchannel": "PR TV Broadcast",
+   "subchanneltype": "TV Broadcast",
+   "newchannel": "PR",
+   "newSubchannel": "Press"
+ },
+ {
+   "Channel": "PR",
+   "subchannel": "Sponsorship",
+   "subchanneltype": "Event",
+   "newchannel": "PR",
+   "newSubchannel": "Press"
+ },
+ {
+   "Channel": "PR",
+   "subchannel": "Sponsorship",
+   "subchanneltype": "Gifting",
+   "newchannel": "PR",
+   "newSubchannel": "Press"
+ },
+ {
+   "Channel": "PR",
+   "subchannel": "Sponsorship",
+   "subchanneltype": "Interview",
+   "newchannel": "PR",
+   "newSubchannel": "Press"
+ },
+ {
+   "Channel": "PR",
+   "subchannel": "Sponsorship",
+   "subchanneltype": "Photo Shoot",
+   "newchannel": "PR",
+   "newSubchannel": "Press"
+ },
+ {
+   "Channel": "PR",
+   "subchannel": "Sponsorship",
+   "subchanneltype": "Press Release",
+   "newchannel": "PR",
+   "newSubchannel": "Press"
+ },
+ {
+   "Channel": "PR",
+   "subchannel": "Sponsorship",
+   "subchanneltype": "Round Table",
+   "newchannel": "PR",
+   "newSubchannel": "Press"
+ },
+ {
+   "Channel": "PR",
+   "subchannel": "Sponsorship",
+   "subchanneltype": "Video Shoot",
+   "newchannel": "PR",
+   "newSubchannel": "Press"
+ },
+ {
+   "Channel": "PR",
+   "subchannel": "Sponsorship",
+   "subchanneltype": "Visit",
+   "newchannel": "PR",
+   "newSubchannel": "Press"
+ },
+ {
+   "Channel": "Social Media",
+   "subchannel": "Facebook",
+   "subchanneltype": "Organic",
+   "newchannel": "Social Media",
+   "newSubchannel": "Facebook"
+ },
+ {
+   "Channel": "Social Media",
+   "subchannel": "Facebook",
+   "subchanneltype": "Paid",
+   "newchannel": "Social Media",
+   "newSubchannel": "Facebook"
+ },
+ {
+   "Channel": "Social Media",
+   "subchannel": "Foursquare",
+   "subchanneltype": "Organic",
+   "newchannel": "Social Media",
+   "newSubchannel": "Foursquare"
+ },
+ {
+   "Channel": "Social Media",
+   "subchannel": "Foursquare",
+   "subchanneltype": "Paid",
+   "newchannel": "Social Media",
+   "newSubchannel": "Foursquare"
+ },
+ {
+   "Channel": "Social Media",
+   "subchannel": "Google+",
+   "subchanneltype": "Google+",
+   "newchannel": "Social Media",
+   "newSubchannel": "Google+"
+ },
+ {
+   "Channel": "Social Media",
+   "subchannel": "Instagram",
+   "subchanneltype": "Organic",
+   "newchannel": "Social Media",
+   "newSubchannel": "Instagram"
+ },
+ {
+   "Channel": "Social Media",
+   "subchannel": "Instagram",
+   "subchanneltype": "Paid",
+   "newchannel": "Social Media",
+   "newSubchannel": "Instagram"
+ },
+ {
+   "Channel": "Social Media",
+   "subchannel": "LinkedIn",
+   "subchanneltype": "Organic",
+   "newchannel": "Social Media",
+   "newSubchannel": "LinkedIn"
+ },
+ {
+   "Channel": "Social Media",
+   "subchannel": "LinkedIn",
+   "subchanneltype": "Paid",
+   "newchannel": "Social Media",
+   "newSubchannel": "LinkedIn"
+ },
+ {
+   "Channel": "Social Media",
+   "subchannel": "Pinterest",
+   "subchanneltype": "Organic",
+   "newchannel": "Social Media",
+   "newSubchannel": "Pinterest "
+ },
+ {
+   "Channel": "Social Media",
+   "subchannel": "Pinterest",
+   "subchanneltype": "Paid",
+   "newchannel": "Social Media",
+   "newSubchannel": "Pinterest "
+ },
+ {
+   "Channel": "Social Media",
+   "subchannel": "SnapChat",
+   "subchanneltype": "SnapChat",
+   "newchannel": "Social Media",
+   "newSubchannel": "Snapchat"
+ },
+ {
+   "Channel": "Social Media",
+   "subchannel": "Twitter",
+   "subchanneltype": "Organic",
+   "newchannel": "Social Media",
+   "newSubchannel": "Twitter"
+ },
+ {
+   "Channel": "Social Media",
+   "subchannel": "Twitter",
+   "subchanneltype": "Paid",
+   "newchannel": "Social Media",
+   "newSubchannel": "Twitter"
+ },
+ {
+   "Channel": "Social Media",
+   "subchannel": "VK",
+   "subchanneltype": "Organic",
+   "newchannel": "Social Media",
+   "newSubchannel": "VK"
+ },
+ {
+   "Channel": "Social Media",
+   "subchannel": "VK",
+   "subchanneltype": "Paid",
+   "newchannel": "Social Media",
+   "newSubchannel": "VK"
+ },
+ {
+   "Channel": "Social Media",
+   "subchannel": "WeChat",
+   "subchanneltype": "Organic",
+   "newchannel": "Social Media",
+   "newSubchannel": "WeChat"
+ },
+ {
+   "Channel": "Social Media",
+   "subchannel": "WeChat",
+   "subchanneltype": "Paid",
+   "newchannel": "Social Media",
+   "newSubchannel": "WeChat"
+ },
+ {
+   "Channel": "Social Media",
+   "subchannel": "Weibo",
+   "subchanneltype": "Organic",
+   "newchannel": "Social Media",
+   "newSubchannel": "Weibo"
+ },
+ {
+   "Channel": "Social Media",
+   "subchannel": "Weibo",
+   "subchanneltype": "Paid",
+   "newchannel": "Social Media",
+   "newSubchannel": "Weibo"
+ },
+ {
+   "Channel": "Social Media",
+   "subchannel": "YouTube",
+   "subchanneltype": "Organic",
+   "newchannel": "Social Media",
+   "newSubchannel": "YouTube"
+ },
+ {
+   "Channel": "Social Media",
+   "subchannel": "YouTube",
+   "subchanneltype": "Paid",
+   "newchannel": "Social Media",
+   "newSubchannel": "YouTube"
+ },
+ {
+   "Channel": "Tourism & Corporate Partners",
+   "subchannel": "Partner Managed",
+   "subchanneltype": "Paid",
+   "newchannel": "VIP",
+   "newSubchannel": "VIP Invitation"
+ },
+ {
+   "Channel": "Tourism & Corporate Partners",
+   "subchannel": "Partner Managed",
+   "subchanneltype": "Unpaid",
+   "newchannel": "VIP",
+   "newSubchannel": "VIP Invitation"
+ },
+ {
+   "Channel": "Tourism & Corporate Partners",
+   "subchannel": "Partners Brochure",
+   "subchanneltype": "Paid",
+   "newchannel": "Collateral",
+   "newSubchannel": "Brochure"
+ },
+ {
+   "Channel": "Tourism & Corporate Partners",
+   "subchannel": "Partners Brochure",
+   "subchanneltype": "Unpaid",
+   "newchannel": "Collateral",
+   "newSubchannel": "Brochure"
+ },
+ {
+   "Channel": "Tourism & Corporate Partners",
+   "subchannel": "Partners Event",
+   "subchanneltype": "Paid",
+   "newchannel": "Events",
+   "newSubchannel": "Corporate Event"
+ },
+ {
+   "Channel": "Tourism & Corporate Partners",
+   "subchannel": "Partners Event",
+   "subchanneltype": "Unpaid",
+   "newchannel": "Events",
+   "newSubchannel": "Corporate Event"
+ },
+ {
+   "Channel": "Tourism & Corporate Partners",
+   "subchannel": "Partners Magazine",
+   "subchanneltype": "Paid",
+   "newchannel": "Media",
+   "newSubchannel": "Magazine"
+ },
+ {
+   "Channel": "Tourism & Corporate Partners",
+   "subchannel": "Partners Magazine",
+   "subchanneltype": "Unpaid",
+   "newchannel": "Media",
+   "newSubchannel": "Magazine"
+ },
+ {
+   "Channel": "Tourism & Corporate Partners",
+   "subchannel": "Partners Mobile App",
+   "subchanneltype": "Paid",
+   "newchannel": "Digital",
+   "newSubchannel": "Mobile App"
+ },
+ {
+   "Channel": "Tourism & Corporate Partners",
+   "subchannel": "Partners Mobile App",
+   "subchanneltype": "Unpaid",
+   "newchannel": "Digital",
+   "newSubchannel": "Mobile App"
+ },
+ {
+   "Channel": "Tourism & Corporate Partners",
+   "subchannel": "Partners Newsletter - Shared",
+   "subchanneltype": "Paid",
+   "newchannel": "CRM",
+   "newSubchannel": "Email"
+ },
+ {
+   "Channel": "Tourism & Corporate Partners",
+   "subchannel": "Partners Newsletter - Shared",
+   "subchanneltype": "Unpaid",
+   "newchannel": "CRM",
+   "newSubchannel": "Email"
+ },
+ {
+   "Channel": "Tourism & Corporate Partners",
+   "subchannel": "Partners Newsletter - Solus",
+   "subchanneltype": "Paid",
+   "newchannel": "CRM",
+   "newSubchannel": "Email"
+ },
+ {
+   "Channel": "Tourism & Corporate Partners",
+   "subchannel": "Partners Newsletter - Solus",
+   "subchanneltype": "Unpaid",
+   "newchannel": "CRM",
+   "newSubchannel": "Email"
+ },
+ {
+   "Channel": "Tourism & Corporate Partners",
+   "subchannel": "Partners Printed Material",
+   "subchanneltype": "Paid",
+   "newchannel": "Collateral",
+   "newSubchannel": "Leaflet"
+ },
+ {
+   "Channel": "Tourism & Corporate Partners",
+   "subchannel": "Partners Printed Material",
+   "subchanneltype": "Unpaid",
+   "newchannel": "Collateral",
+   "newSubchannel": "Leaflet"
+ },
+ {
+   "Channel": "Tourism & Corporate Partners",
+   "subchannel": "Partners TV",
+   "subchanneltype": "Paid",
+   "newchannel": "Media",
+   "newSubchannel": "TV"
+ },
+ {
+   "Channel": "Tourism & Corporate Partners",
+   "subchannel": "Partners TV",
+   "subchanneltype": "Unpaid",
+   "newchannel": "Media",
+   "newSubchannel": "TV"
+ },
+ {
+   "Channel": "Tourism & Corporate Partners",
+   "subchannel": "Partners Website",
+   "subchanneltype": "Paid",
+   "newchannel": "Digital",
+   "newSubchannel": "Partner Website"
+ },
+ {
+   "Channel": "Tourism & Corporate Partners",
+   "subchannel": "Partners Website",
+   "subchanneltype": "Unpaid",
+   "newchannel": "Digital",
+   "newSubchannel": "Partner Website"
+ },
+ {
+   "Channel": "Travel Trade",
+   "subchannel": "Digital Media",
+   "subchanneltype": "Digital Media",
+   "newchannel": "Digital",
+   "newSubchannel": "Village Website"
+ },
+ {
+   "Channel": "Travel Trade",
+   "subchannel": "Fam Trip",
+   "subchanneltype": "Fam Trip",
+   "newchannel": "Events",
+   "newSubchannel": "Familiarisation Trips"
+ },
+ {
+   "Channel": "Travel Trade",
+   "subchannel": "Hotel",
+   "subchanneltype": "Event",
+   "newchannel": "Events",
+   "newSubchannel": "Corporate Event"
+ },
+ {
+   "Channel": "Travel Trade",
+   "subchannel": "Hotel",
+   "subchanneltype": "Printed Material",
+   "newchannel": "Collateral",
+   "newSubchannel": "Leaflet"
+ },
+ {
+   "Channel": "Travel Trade",
+   "subchannel": "Hotel",
+   "subchanneltype": "Print Media",
+   "newchannel": "Collateral",
+   "newSubchannel": "Leaflet"
+ },
+ {
+   "Channel": "Travel Trade",
+   "subchannel": "Hotel",
+   "subchanneltype": "Video",
+   "newchannel": "Media",
+   "newSubchannel": "Video"
+ },
+ {
+   "Channel": "Travel Trade",
+   "subchannel": "Hotel",
+   "subchanneltype": "Website",
+   "newchannel": "Digital",
+   "newSubchannel": "Village Website"
+ },
+ {
+   "Channel": "Travel Trade",
+   "subchannel": "Newsletter",
+   "subchanneltype": "Newsletter",
+   "newchannel": "CRM",
+   "newSubchannel": "Email"
+ },
+ {
+   "Channel": "Travel Trade",
+   "subchannel": "Printed Material",
+   "subchanneltype": "Printed Material",
+   "newchannel": "Collateral",
+   "newSubchannel": "Leaflet"
+ },
+ {
+   "Channel": "Travel Trade",
+   "subchannel": "Print Media",
+   "subchanneltype": "Print Media",
+   "newchannel": "Collateral",
+   "newSubchannel": "Leaflet"
+ },
+ {
+   "Channel": "Travel Trade",
+   "subchannel": "Sales Mission",
+   "subchanneltype": "Domestic",
+   "newchannel": "Events",
+   "newSubchannel": "Sales Mission"
+ },
+ {
+   "Channel": "Travel Trade",
+   "subchannel": "Sales Mission",
+   "subchanneltype": "Source",
+   "newchannel": "Events",
+   "newSubchannel": "Sales Mission"
+ },
+ {
+   "Channel": "Travel Trade",
+   "subchannel": "Trade Event",
+   "subchanneltype": "Trade Event",
+   "newchannel": "Events",
+   "newSubchannel": "Trade Events"
+ },
+ {
+   "Channel": "Travel Trade",
+   "subchannel": "Video",
+   "subchanneltype": "Video",
+   "newchannel": "Media",
+   "newSubchannel": "Video"
+ },
+ {
+   "Channel": "Village Online",
+   "subchannel": "Brand",
+   "subchanneltype": "Brand",
+   "newchannel": "Digital",
+   "newSubchannel": "Village Website"
+ },
+ {
+   "Channel": "Village Online",
+   "subchannel": "Campaign",
+   "subchanneltype": "Campaign",
+   "newchannel": "Digital",
+   "newSubchannel": "Village Website"
+ },
+ {
+   "Channel": "Village Online",
+   "subchannel": "Chic Travel",
+   "subchanneltype": "Chic Travel",
+   "newchannel": "Digital",
+   "newSubchannel": "Village Website"
+ },
+ {
+   "Channel": "Village Online",
+   "subchannel": "Home",
+   "subchanneltype": "Home",
+   "newchannel": "Digital",
+   "newSubchannel": "Village Website"
+ },
+ {
+   "Channel": "Village Online",
+   "subchannel": "Offers",
+   "subchanneltype": "Offer",
+   "newchannel": "Digital",
+   "newSubchannel": "Village Website"
+ },
+ {
+   "Channel": "Village Online",
+   "subchannel": "Olapic",
+   "subchanneltype": "Olapic",
+   "newchannel": "Digital",
+   "newSubchannel": "Village Website"
+ },
+ {
+   "Channel": "Village Online",
+   "subchannel": "Partners",
+   "subchanneltype": "Partners",
+   "newchannel": "Digital",
+   "newSubchannel": "Village Website"
+ },
+ {
+   "Channel": "Village Online",
+   "subchannel": "Privilege",
+   "subchanneltype": "Privilege",
+   "newchannel": "Digital",
+   "newSubchannel": "Village Website"
+ },
+ {
+   "Channel": "Village Online",
+   "subchannel": "Products",
+   "subchanneltype": "Product",
+   "newchannel": "Digital",
+   "newSubchannel": "Village Website"
+ },
+ {
+   "Channel": "Village Online",
+   "subchannel": "Style Notes",
+   "subchanneltype": "Style Notes",
+   "newchannel": "Digital",
+   "newSubchannel": "Village Website"
+ }
+]

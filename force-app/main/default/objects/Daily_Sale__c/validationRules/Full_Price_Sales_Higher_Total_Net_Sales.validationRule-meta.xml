@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Full_Price_Sales_Higher_Total_Net_Sales</fullName>
+    <active>true</active>
+    <description>The Current Season Bestsellers Sales cannot be higher than the Total Net Sales.  The Total Net Sales should include all sales for the day.</description>
+    <errorConditionFormula>OR(Full_Price_Sales__c &gt; Total_NET_SALES__c,  AND( NOT(ISNULL(Full_Price_Sales__c)),ISNULL(Total_NET_SALES__c) ) ) &amp;&amp; NOT( Ignore_Validations__c )</errorConditionFormula>
+    <errorDisplayField>Full_Price_Sales__c</errorDisplayField>
+    <errorMessage>The Current Season Bestsellers Sales cannot be higher than the Total Net Sales.  The Total Net Sales should include all sales for the day.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,202 @@
+<apex:page standardController="Village_Presence__c" docType="html-5.0" lightningStylesheets="true">
+    <apex:pageBlock >
+
+    <head>
+
+
+    <script>
+        // get geolocations from associated competitor sites
+        geoLocations = new Array();
+        nameLocations = new Array();
+        distancesFromVillage = new Array();
+        types = new Array();
+        stores = new Array();
+        
+        <apex:repeat value="{!Village_Presence__c.Competitor_Store__r}" var="store">
+            geoLocations[geoLocations.length] = "{!store.Competitor_Site__r.Site_coordinates_Text__c}";
+            nameLocations[nameLocations.length] = "{!store.Competitor_Site__r.Name}";
+            distancesFromVillage[distancesFromVillage.length] = "{!store.Competitor_Site__r.Distance_From_Village__c}";
+            types[types.length] = "{!store.Competitor_Site__r.Type__c}";
+            stores[stores.length] = "{!store.Id}";
+        </apex:repeat>
+
+        // get village geoLocation to use as centre point
+        centreGeo = "{!Village_Presence__c.Village__r.Village_GeoLocation_Text__c}";
+
+        function getIconColour(type){
+            var returnVal = 'https://maps.google.com/mapfiles/ms/icons/purple-dot.png';
+           
+            if (type == 'Developing Full Price'){
+                returnVal = 'https://maps.google.com/mapfiles/ms/icons/red-dot.png';
+                
+            }
+            
+            if (type == 'Developing Outlet'){
+                returnVal = 'https://maps.google.com/mapfiles/ms/icons/yellow-dot.png';
+            
+            }
+
+            if (type == 'Existing Full Price'){
+                returnVal = 'https://maps.google.com/mapfiles/ms/icons/blue-dot.png';
+            }
+
+            if (type == 'Existing Outlet'){
+                returnVal = 'https://maps.google.com/mapfiles/ms/icons/orange-dot.png';
+            }        
+    
+            return returnVal;
+        
+        }     
+ 
+         var icons = {
+          DevelopingFullPrice: {
+            name: 'Developing Full Price',
+            icon: 'https://maps.google.com/mapfiles/ms/icons/red-dot.png'
+          },
+          DevelopingOutlet: {
+            name: 'Developing Outlet',
+            icon: 'https://maps.google.com/mapfiles/ms/icons/yellow-dot.png'
+          },
+          ExistingFullPrice: {
+            name: 'Existing Full Price',
+            icon: 'https://maps.google.com/mapfiles/ms/icons/blue-dot.png'
+          },
+          
+          ExistingOutlet: {
+            name: 'Existing Outlet',
+            icon: 'https://maps.google.com/mapfiles/ms/icons/orange-dot.png'
+          },
+          
+          Undefined: {
+            name: 'Undefined',
+            icon: 'https://maps.google.com/mapfiles/ms/icons/purple-dot.png'
+          }          
+        };
+ 
+        
+        function formatLegend(){
+            var legend = document.getElementById('legend');
+            for (var key in icons) {
+              var type = icons[key];
+              var name = type.name;
+              var icon = type.icon;
+              var div = document.createElement('div');
+              div.innerHTML = '<img src="' + icon + '"> ' + name;
+              legend.appendChild(div);
+            }
+    
+            map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(legend);
+      }
+      
+
+    </script>
+
+    <script type="text/javascript" src="https://maps.google.com/maps/api/js?key=AIzaSyDwUQV-hNPaIyPVeqCcYRgDKcBdM52F-7k&sensor=false&libraries=places"></script>
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script> 
+    
+    <script type="text/javascript"> 
+ 
+    $(document).ready(function() {
+  
+        var myOptions = {
+            center: new google.maps.LatLng(0, 0),
+            zoom: 3,
+            mapTypeId: google.maps.MapTypeId.ROADMAP,
+            mapTypeControl: true
+        }
+  
+        //var map;
+        var marker;
+        var infowindow = null;
+  
+        var geocoder = new google.maps.Geocoder();
+
+        //create map
+        map = new google.maps.Map(document.getElementById("map"), myOptions);
+    
+        //center map
+        //var v = centreGeo.split(" ");
+        //var cLatlng =  new google.maps.LatLng(v[0], v[1]);
+        //map.setCenter(cLatlng);
+
+        //create marker
+        //marker = new google.maps.Marker({
+        //    position: cLatlng,
+        //    map: map,
+        //    icon: 'https://maps.google.com/mapfiles/ms/icons/green-dot.png',
+        //    title: "{!Village_Presence__c.Name}"
+        //});
+
+        var infowindow = new google.maps.InfoWindow({
+            maxWidth: 200
+        });
+    
+        var markers = new Array();
+        for (index = 0; index < geoLocations.length; index++) {
+            var x = geoLocations[index].split(" ");
+            var myLatlng = new google.maps.LatLng(x[0], x[1]);
+
+            //create marker
+            marker = new google.maps.Marker({
+                position: myLatlng,
+                map: map,
+                title: nameLocations[index],
+                icon: getIconColour(types[index]),
+            });
+            markers.push(marker);
+
+            //var storeUrl = 'sforce.one.navigateToSObject(\'' + stores[index] + '\')';
+            google.maps.event.addListener(marker, 'click', (function(marker, index) {
+                return function() {
+                  infowindow.setContent('<a href="javascript:' + 'sforce.one.navigateToSObject(\'' + stores[index] + '\')' + '">' + '<b>' + nameLocations[index] + '</a></br>' + distancesFromVillage[index] + '</b>');
+                  infowindow.open(map, marker);
+                }
+            })(marker, index));
+        }
+  
+        function resizeIframe() {
+            var me = window.name;
+            if (me) {
+                var iframes = parent.document.getElementsByName(me);
+                if (iframes && iframes.length == 1) {
+                    height = document.body.offsetHeight;
+                    iframes[0].style.height = height + "px";
+                }
+            }
+        }
+        formatLegend();  
+    });
+    </script>
+ 
+    <style>
+        #map {
+            font-family: Arial;
+            font-size:12px;
+            line-height:normal !important;
+            height:500px;
+            background:transparent;
+        }
+
+        #legend {
+          background: white;
+          padding: 10px;
+        }
+
+    </style>
+ 
+    </head>
+ 
+    <body>
+        <div id="map"></div> 
+
+
+        <div id="legend">
+          
+        </div>
+    </body> 
+
+
+
+    </apex:pageBlock>
+
+</apex:page>

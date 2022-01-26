@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>New_Village_Presence_Lightning</fullName>
+    <availability>online</availability>
+    <displayType>massActionButton</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <linkType>url</linkType>
+    <masterLabel>New Village Presence</masterLabel>
+    <openType>replace</openType>
+    <protected>false</protected>
+    <requireRowSelection>false</requireRowSelection>
+    <url>{!
+IF(CONTAINS($User.UIThemeDisplayed, &apos;Theme4&apos;)
+,
+URLFOR( &quot;/lightning/o/Village_Presence__c/new?defaultFieldValues=&quot; &amp; &quot;Name=&quot; &amp; URLENCODE(Village_Presence__c.Id) &amp;
+&quot;,Brand__c=&quot; &amp; Account.Id &amp;
+&quot;,Name=&quot; &amp; Account.Name &amp; &quot; in &lt;select a village&gt;&quot;)
+,
+URLFOR(&quot;/a0C/e?CF00Nb0000009WpDr=&quot; &amp; Account.Name &amp;
+&quot;&amp;CF00Nb0000009WpDr_lkid=&quot; &amp; Account.Id &amp;
+&quot;&amp;retURL=%2F&quot; &amp; Account.Id &amp;
+&quot;&amp;Name=&quot; &amp; Account.Name &amp; &quot; in &lt;select a village&gt;&quot; )
+)}</url>
+</WebLink>

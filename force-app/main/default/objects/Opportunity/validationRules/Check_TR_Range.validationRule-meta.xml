@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Check_TR_Range</fullName>
+    <active>true</active>
+    <errorConditionFormula>OR( Tourism_Rating__c &lt; 0 , Tourism_Rating__c &gt; 10)</errorConditionFormula>
+    <errorDisplayField>Tourism_Rating__c</errorDisplayField>
+    <errorMessage>The Tourism Rating must be in the range 1-10 if entered</errorMessage>
+</ValidationRule>

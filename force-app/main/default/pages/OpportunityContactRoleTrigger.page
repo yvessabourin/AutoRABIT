@@ -1,0 +1,10 @@
+<apex:page standardController="Opportunity" extensions="OpportunityTeamMemberSync" action="{!triggerUpdateOppBrandLeadNegotiator}" >
+<!--  Do we need to reload the page? -->
+<apex:outputPanel id="reloadPanel" rendered="{!reloadNeeded}" >
+    <script type="text/javascript">
+        // redirect the top level window
+        window.top.location.href = '{!JSENCODE(pageURL)}';
+    </script>   
+</apex:outputPanel>
+
+</apex:page>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ExternalDataSource xmlns="http://soap.sforce.com/2006/04/metadata">
+    <authProvider>SharepointAuth</authProvider>
+    <customConfiguration>{&quot;sharepointConnectorUrl&quot;:&quot;https://valueretail1.sharepoint.com/teams/Marketing&quot;,&quot;singleSiteCollection&quot;:&quot;false&quot;}</customConfiguration>
+    <isWritable>false</isWritable>
+    <label>Sharepoint Marketing 2</label>
+    <principalType>PerUser</principalType>
+    <protocol>Oauth</protocol>
+    <type>ContentHubSharepointOffice365</type>
+</ExternalDataSource>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Annual_Sales_Uplift_Projection__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Enter the annual sales projection uplift expected for this brand, if this is left blank the Village default will be used</inlineHelpText>
+    <label>Annual Sales Uplift Projection</label>
+    <precision>5</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Percent</type>
+</CustomField>

@@ -1,0 +1,125 @@
+<apex:page controller="RedemptionCampaignSearchController" showHeader="false" sidebar="false" standardStylesheets="false" >
+    
+    <script>
+        
+        function runProcess(){                                   
+
+            if (redemptionCode.value.length != 14 && redemptionCode.value.length!= 16){
+                alert('Redemption Code must be 14 or 16 Characters long');
+                return;
+            }                        
+            if (navURL.value == 'Invalid'){
+                alert("Invalid Redemption Code Entered!");
+                return;
+            }
+            if (navURL.value.indexOf('ERROR') > -1){
+                alert(navURL.value);
+                return;
+            }
+            if (navURL.value == 'home'){
+                redemptionCode.value = '';
+            } else if (navURL.value.indexOf('&Id') > -1){            
+                window.top.location.href = navURL.value;
+                redemptionCode.value = '';
+            } else {
+                window.top.location.href = '/apex/CampaignSearch?search=' + searchString.value + 
+                                                '&redeemCode=' + redemptionCode.value + 
+                                                '&addCustomer=' + navURL.value; 
+                                                /* + 
+                                                '&location=' + loc.value +
+                                                '&visitType=' + visitType.value +
+                                                '&country=' + country.value +
+                                                '&transport=' + transport.value +                                              
+                                                '&uiMode=true';*/
+            }
+        }
+
+                
+    </script>
+    <apex:stylesheet value="{!URLFOR($Resource.bootstrap, '/dist/css/bootstrap.css')}"/>
+
+    <apex:form style="background-color:#CFEEF8; height:530px">
+        
+        <apex:actionFunction action="{!searchCampaign}" name="searchCampaign" id="searchCampaign"  />
+        <apex:pageBlock >
+            <apex:pageBlockButtons location="bottom">
+                <apex:commandButton action="{!searchCampaign}" value="Process Redemption"  oncomplete="runProcess();" reRender="op1, pgMsgs" />
+            </apex:pageBlockButtons>
+                <apex:outputPanel id="op1">
+                <apex:actionRegion >
+                <apex:pageBlockSection id="pbSection" columns="1">
+
+                    <apex:outputLabel value="Search Campaign:"/>                   
+                    <apex:inputText id="searchString"  value="{!searchString}" style="width:150px"/>
+                    <script>
+                        var searchString = document.getElementById("{!$Component.searchString}");
+                    </script>
+
+                    <br/>
+
+                    <apex:outputLabel value="VIP Card Code:"/>
+                    <apex:inputText id="redemptionCode"  value="{!redemptionCode}" style="width:150px" maxlength="16" />
+                    <script>
+                        var redemptionCode = document.getElementById("{!$Component.redemptionCode}");
+                    </script>
+                    <br/>
+
+                    <apex:outputLabel >Visit Type:<font color="red"> &#42;</font></apex:outputLabel>
+                    <apex:selectList value="{!visitType}" size="1" multiselect="false" style="width:150px" required="true" id="visitType" >
+                        <apex:selectOptions value="{!visitTypes}"  />
+                    </apex:selectList>                                        
+                    <script>
+                        var visitType = document.getElementById("{!$Component.visitType}");
+                    </script>                    
+
+                    <apex:outputLabel >Country of Residence:<font color="red"> &#42;</font></apex:outputLabel>
+                    <apex:selectList value="{!country}" size="1" multiselect="false" style="width:150px" required="true" id="country">
+                        <apex:selectOptions value="{!countries}"  />
+                    </apex:selectList>
+                    <script>
+                        var country = document.getElementById("{!$Component.country}");
+                    </script>
+
+                    <apex:outputLabel >Transport Mode:<font color="red"> &#42;</font></apex:outputLabel>
+                    <apex:selectList value="{!transport}" size="1" multiselect="false" style="width:150px" required="true" id="transport">
+                        <apex:selectOptions value="{!transportModes}"  />
+                    </apex:selectList>
+                    <script>
+                        var transport = document.getElementById("{!$Component.transport}");
+                    </script>
+
+                    <apex:outputLabel >Location:<font color="red"> &#42;</font></apex:outputLabel>
+                    <apex:selectList value="{!location}" size="1" multiselect="false" style="width:150px" required="true" id="location">
+                        <apex:selectOptions value="{!locations}"  />
+                    </apex:selectList>
+                    <script>
+                        var loc = document.getElementById("{!$Component.location}");
+                    </script>
+                    
+                    <br/>
+                    
+                    <apex:outputLabel value="Enter Customer Details ?"/>
+                    <apex:inputCheckbox id="customerDetails" value="{!customerDetails}"  />                    
+                    <script>
+                        var customerDetails = document.getElementById("{!$Component.customerDetails}");
+                    </script>
+                    <br/>
+                                      
+                </apex:pageBlockSection>
+
+                
+                <apex:inputHidden id="navURL" value="{!navURL}" />
+                <script>
+                    var navURL = document.getElementById("{!$Component.navURL}");
+                </script>                
+                </apex:actionRegion>
+            
+             
+                </apex:outputPanel>
+    
+        </apex:pageBlock> 
+        <apex:pageMessages id="pgMsgs" escape="false" />
+    </apex:form>
+    
+    
+</apex:page>

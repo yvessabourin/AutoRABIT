@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Owner_in_Same_Team__c</fullName>
+    <description>Identifies whether record owner has the same role as the currently logged in user (useful for report filters)</description>
+    <externalId>false</externalId>
+    <formula>IF(Owner:User.UserRoleId =  $UserRole.Id, TRUE, FALSE)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Identifies whether record owner has the same role as the currently logged in user (useful for report filters)</inlineHelpText>
+    <label>Owner in Same Team</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

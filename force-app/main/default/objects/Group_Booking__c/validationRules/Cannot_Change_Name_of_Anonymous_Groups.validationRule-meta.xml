@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Cannot_Change_Name_of_Anonymous_Groups</fullName>
+    <active>true</active>
+    <errorConditionFormula>$Setup.Global_Object_Validation__c.Group_Booking_Validations_Active__c
+&amp;&amp;
+
+CONTAINS(PRIORVALUE( Name_of_Event__c),&quot;Anonymous&quot;)</errorConditionFormula>
+    <errorMessage>You cannot change the name of an Anonymous Group Partnership</errorMessage>
+</ValidationRule>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VIP_Black_Book</fullName>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>ACCOUNT.CURRENCY_ISO_CODE</columns>
+    <columns>CREATEDBY_USER.ALIAS</columns>
+    <columns>ACCOUNT.CREATED_DATE</columns>
+    <columns>VIP_Guest_Type__c</columns>
+    <columns>ACCOUNT.PHONE1</columns>
+    <columns>CORE.USERS.FIRST_NAME</columns>
+    <columns>CORE.USERS.LAST_NAME</columns>
+    <columns>Permission_to_hold_data__c</columns>
+    <columns>Marketing_Consent_Given__c</columns>
+    <columns>Marketing_Consent_Email__c</columns>
+    <columns>Marketing_Consent_Phone__c</columns>
+    <columns>Introduced_By__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>ACCOUNT.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>PersonAccount.VIP_Guest</value>
+    </filters>
+    <label>VIP Black Book</label>
+    <language>en_US</language>
+    <sharedTo>
+        <group>VIP_Bicester</group>
+        <group>VIP_Fidenza</group>
+        <group>VIP_Global</group>
+        <group>VIP_Ingolstadt</group>
+        <group>VIP_Kildare</group>
+        <group>VIP_LaRoca</group>
+        <group>VIP_La_Vallee</group>
+        <group>VIP_Las_Rozas</group>
+        <group>VIP_Maasmechelen</group>
+        <group>VIP_Wertheim</group>
+        <roleAndSubordinatesInternal>VIP_Guest_Management</roleAndSubordinatesInternal>
+    </sharedTo>
+</ListView>

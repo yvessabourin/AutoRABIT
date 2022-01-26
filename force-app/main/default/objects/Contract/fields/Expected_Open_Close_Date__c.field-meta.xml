@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Expected_Open_Close_Date__c</fullName>
+    <externalId>false</externalId>
+    <formula>Opportunity__r.Expected_Open_Exit_Date__c</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>The expected as opposed to the budgeted  open or exit date for this opportunity</inlineHelpText>
+    <label>Expected Open/Close Date</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Date</type>
+</CustomField>

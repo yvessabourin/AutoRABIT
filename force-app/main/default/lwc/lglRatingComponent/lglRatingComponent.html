@@ -1,0 +1,22 @@
+<template>
+	<div class="lgl-rating-container">
+		<label>{label}</label>
+		<div class="lgl-sublabel">{valuesDescription}</div>
+		<div class="slds-grid">
+			<template for:each={radioItems} for:item="radioItem">
+				<div key={radioItem} class="slds-var-m-right_xx-small lgl-radio">
+					<div>
+						<input
+							value={radioItem}
+							id={radioItem}
+							name={radioGroupName}
+							type="radio"
+							onchange={handleRadioSelection}
+						/>
+					</div>
+					<label for={radioItem}>{radioItem}</label>
+				</div>
+			</template>
+		</div>
+	</div>
+</template>

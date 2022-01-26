@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Village_Presence__c$Name</field>
+    </columns>
+    <columns>
+        <field>Village_Presence__c$Unit__c</field>
+    </columns>
+    <columns>
+        <field>Village_Presence__c$Retail_Manager__c</field>
+    </columns>
+    <columns>
+        <field>Village_Presence__c$Status__c</field>
+    </columns>
+    <columns>
+        <field>Village_Presence__c$LastModifiedDate</field>
+    </columns>
+    <columns>
+        <field>Village_Presence__c$CreatedBy</field>
+    </columns>
+    <columns>
+        <field>Village_Presence__c$LastModifiedBy</field>
+    </columns>
+    <columns>
+        <field>Village_Presence__c$Total_Rating__c</field>
+    </columns>
+    <columns>
+        <field>Village_Presence__c$Projected_Income_Local__c</field>
+    </columns>
+    <columns>
+        <field>Village_Presence__c$Projected_Income_Yield_Local__c</field>
+    </columns>
+    <description>Looks at all Village Presences that have been updated in the last 30 days</description>
+    <filter>
+        <criteriaItems>
+            <column>Village_Presence__c$LastModifiedBy</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>false</isUnlocked>
+            <operator>notEqual</operator>
+            <value>Data Migration User</value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Village_Presence__c$Village__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>Updated Village Presence Records</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Village_Presences__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>Village_Presence__c$LastModifiedDate</dateColumn>
+        <interval>INTERVAL_LAST30</interval>
+    </timeFrameFilter>
+</Report>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Follow_Up_Assignee__c</fullName>
+    <description>[beta] Used for searching for a single user to assign the resultant tasks to</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Please enter the name of the person who will be assigned the follow up tasks. If a unique user is not found then the tasks will be assigned to the meeting creator. You can use an asterisk character to perform a wildcard search.</inlineHelpText>
+    <label>Follow Up Assignee</label>
+    <length>55</length>
+    <required>false</required>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

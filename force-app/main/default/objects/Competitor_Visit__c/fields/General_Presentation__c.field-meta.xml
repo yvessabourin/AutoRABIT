@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>General_Presentation__c</fullName>
+    <externalId>false</externalId>
+    <label>General Presentation</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Clean Floors</fullName>
+                <default>false</default>
+                <label>Clean Floors</label>
+            </value>
+            <value>
+                <fullName>Free Parking</fullName>
+                <default>false</default>
+                <label>Free Parking</label>
+            </value>
+            <value>
+                <fullName>Clean Windows</fullName>
+                <default>false</default>
+                <label>Clean Windows</label>
+            </value>
+            <value>
+                <fullName>Good Lighting</fullName>
+                <default>false</default>
+                <label>Good Lighting</label>
+            </value>
+            <value>
+                <fullName>Music</fullName>
+                <default>false</default>
+                <label>Music</label>
+            </value>
+            <value>
+                <fullName>Landscape Outside</fullName>
+                <default>false</default>
+                <label>Landscape Outside</label>
+            </value>
+            <value>
+                <fullName>Parking Availability</fullName>
+                <default>false</default>
+                <label>Parking Availability</label>
+            </value>
+            <value>
+                <fullName>Brochures</fullName>
+                <default>false</default>
+                <label>Brochures</label>
+            </value>
+            <value>
+                <fullName>Good Acoustic</fullName>
+                <default>false</default>
+                <label>Good Acoustic</label>
+            </value>
+            <value>
+                <fullName>Promotional Marketing</fullName>
+                <default>false</default>
+                <label>Promotional Marketing</label>
+            </value>
+            <value>
+                <fullName>Navigational Signage</fullName>
+                <default>false</default>
+                <label>Navigational Signage</label>
+            </value>
+            <value>
+                <fullName>Directory/Map</fullName>
+                <default>false</default>
+                <label>Directory/Map</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>5</visibleLines>
+</CustomField>

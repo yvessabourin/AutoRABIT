@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Marketing_consent_phone_invalid_value</fullName>
+    <active>false</active>
+    <description>Does not allow the value &apos;Historic&apos; to be picked.</description>
+    <errorConditionFormula>ISPICKVAL(Vip_Marketing_Consent_Phone__c, &apos;Historic&apos;)</errorConditionFormula>
+    <errorDisplayField>Vip_Marketing_Consent_Phone__c</errorDisplayField>
+    <errorMessage>Invalid value</errorMessage>
+</ValidationRule>

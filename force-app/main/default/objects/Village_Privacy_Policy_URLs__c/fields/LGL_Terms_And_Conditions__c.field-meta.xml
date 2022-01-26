@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LGL_Terms_And_Conditions__c</fullName>
+    <description>Terms and conditions for the Lugagge &amp; Loans new Service Request Form</description>
+    <externalId>false</externalId>
+    <label>Lugagge &amp; Loans Terms</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Url</type>
+</CustomField>

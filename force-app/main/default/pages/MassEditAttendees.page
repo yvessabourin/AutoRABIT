@@ -1,0 +1,105 @@
+<apex:page standardController="Trade_Event__c" extensions="MassEditTradeEventAttendees" docType="html-5.0" lightningStylesheets="true">
+
+
+<link rel="stylesheet" href="{!URLFOR($Resource.JQueryMobile)}"></link> 
+
+<style type="text/css">
+</style>
+
+
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+ <script type="text/javascript">
+        $j = jQuery.noConflict();
+            function jsUpdateCheckbox(element) {  
+            if(element.checked){               
+                $j(element).parent().parent().find('.selectBox').attr('checked', element.checked);       
+                } 
+                else{
+                    $j(element).parent().parent().find('.selectBox').attr('checked', !element.checked); 
+                }
+            }          
+</script>
+
+<script type="text/javascript">
+        $j = jQuery.noConflict();
+            function jsUpdateCheckboxInvite(element) {  
+                  
+                $j(element).parent().parent().find('.selectBox').attr('checked', true);       
+                
+            }          
+</script>
+
+<div>
+
+<apex:form id="theform" >
+
+    <b><apex:outputLabel value="Set all Invite Status'                          " for="invitestatus" /></b>
+    <apex:inputfield value="{!selectOptions.Invite_Status__c}" id="invitestatus"/>
+     <b></b>
+     <apex:commandButton action="{!setAllStatus}" value="Update"/>
+     <p></p>
+     <b><apex:outputLabel value="Set  All Follow Up Status'                          " for="followUp" /></b>
+     <apex:inputfield value="{!selectOptions.Followed_Up__c}" id="followUp"/>
+     <b></b>
+     <apex:commandButton action="{!setAllFollowUps}" value="Update"/>
+
+     <p></p>
+
+
+    <apex:pageBlock id="thepageblock" >
+
+            <apex:pageBlockTable value="{!attendeesToEdit}" var="select" id="thepageblocktable" columns="8" >
+
+                <apex:column >
+                 <apex:facet name="header">
+                   Selected Records<br/>to update
+                 </apex:facet>
+                <!-- This is our selected Boolean property in our wrapper class -->
+                <apex:inputCheckbox value="{!select.selected}"  id="selectBox" styleClass="selectBox"/>
+                </apex:column>
+
+                <apex:column headerValue="Name" >
+                <!-- This is our selected Boolean property in our wrapper class -->
+                <apex:outputField value="{!select.attendee.Contact__c}" />
+                </apex:column>
+
+                <apex:column headerValue="Title" >
+                <!-- This is our selected Boolean property in our wrapper class -->
+                <apex:outputField value="{!select.attendee.Title__c}" />
+                </apex:column>
+
+                <apex:column headerValue="Invite Status" >
+                <!-- This is our selected Boolean property in our wrapper class -->
+                <apex:inputField value="{!select.attendee.Invite_Status__c}" id="theInviteStatus" onchange="jsUpdateCheckboxInvite(this)"/>
+                </apex:column>
+                
+                <apex:column headerValue="Followed Up" >
+                <!-- This is our selected Boolean property in our wrapper class --> 
+                <apex:inputField value="{!select.attendee.Followed_Up__c}" onchange="jsUpdateCheckbox(this)" >
+                   <!--  <apex:actionSupport event="onchange" action="jsRemote()"/> -->
+                </apex:inputField>
+                </apex:column>
+
+            </apex:pageBlockTable>
+    
+    <!-- test -->
+    <apex:commandButton action="{!selectAll}" value="Select All"/>
+    <apex:commandButton action="{!deselectAll}" value="Deselect All"/>
+
+    </apex:pageBlock>
+
+    
+    
+    <apex:pageBlock >
+    <apex:commandButton action="{!Cancel}" value="Cancel"/>
+    
+    <apex:commandButton action="{!saveSelected}" value="Save Selected Records"/>
+    </apex:pageBlock>
+
+  </apex:form>  
+
+</div>
+ 
+
+
+</apex:page>

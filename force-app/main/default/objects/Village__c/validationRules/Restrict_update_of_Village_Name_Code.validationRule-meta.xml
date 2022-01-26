@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Restrict_update_of_Village_Name_Code</fullName>
+    <active>true</active>
+    <description>Restrict update of Village Name &amp; Code</description>
+    <errorConditionFormula>AND ( 
+OR ( 
+ISCHANGED (Name) , 
+ISCHANGED (Village_Code__c) ) &amp;&amp; 
+$User.Profile_Name__c = &apos;Finance Sales Certification&apos; 
+)</errorConditionFormula>
+    <errorMessage>You do not have permission to edit the Village Name and Village Code.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FlowDefinition xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Updates 	Blackbook_Guest_Status__c Visit field depending on whether the record that triggered the flow is the first record of a certain account or not. 
+Updates Personal_Shopping_engagements__c Account field with the counter for how many Personal Shopping Visits the associated account has.
+Updates One_Time_Visitor__c Account field depending on whether the associated account has one visit or not.</description>
+    <masterLabel>Visit records control</masterLabel>
+</FlowDefinition>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FlowDefinition xmlns="http://soap.sforce.com/2006/04/metadata">
+    <activeVersionNumber>12</activeVersionNumber>
+    <description>Creates a task and emails the retail mgr 365 days after the Village Presence/brand starts trading in a village</description>
+    <masterLabel>Notify Retail Manager Final</masterLabel>
+</FlowDefinition>

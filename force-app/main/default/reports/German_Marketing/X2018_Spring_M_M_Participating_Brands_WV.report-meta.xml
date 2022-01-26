@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Participating_Brand__c$Village_Presence__c.Unit__c</field>
+    </columns>
+    <columns>
+        <field>Participating_Brand__c$Village_Presence__c.Brand__c</field>
+    </columns>
+    <columns>
+        <field>Participating_Brand__c$Feature_Details__c</field>
+    </columns>
+    <columns>
+        <field>Participating_Brand__c$Status__c</field>
+    </columns>
+    <columns>
+        <field>Participating_Brand__c$Village_Presence__c.Status__c</field>
+    </columns>
+    <columns>
+        <field>Participating_Brand__c$Marketing_Activity__c.Name</field>
+    </columns>
+    <currency>EUR</currency>
+    <description>2018 M&amp;M Spring WV Grafics briefing</description>
+    <filter>
+        <criteriaItems>
+            <column>Participating_Brand__c$Marketing_Activity__c.Marketing_Campaign_Village__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>contains</operator>
+            <value>Wertheim</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Participating_Brand__c$Marketing_Activity__c.Marketing_Campaign__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>contains</operator>
+            <value>SUB Spring 2018 Miles &amp; More Shopping Days Spring</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Participating_Brand__c$Village_Presence__c.Status__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Deal Pending,Trading,in Refit</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Participating_Brand__c$Status__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Yes</value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
+    <format>Summary</format>
+    <name>2018 Spring M&amp;M Participating Brands WV</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Participating_Brands__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <sortColumn>Participating_Brand__c$Village_Presence__c.Unit__c</sortColumn>
+    <sortOrder>Desc</sortOrder>
+    <timeFrameFilter>
+        <dateColumn>Participating_Brand__c$CreatedDate</dateColumn>
+        <endDate>2018-12-31</endDate>
+        <interval>INTERVAL_CUSTOM</interval>
+        <startDate>2017-12-01</startDate>
+    </timeFrameFilter>
+</Report>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Personal_Shopper__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <externalId>false</externalId>
+    <inlineHelpText>Enter name of the Personal Shopper that resulted in this VIP Account being created.</inlineHelpText>
+    <label>Personal Shopper</label>
+    <lookupFilter>
+        <active>true</active>
+        <filterItems>
+            <field>User.Profile_Name__c</field>
+            <operation>equals</operation>
+            <value>Personal Shopper for Clientelling App</value>
+        </filterItems>
+        <isOptional>false</isOptional>
+    </lookupFilter>
+    <referenceTo>User</referenceTo>
+    <relationshipName>Visits</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

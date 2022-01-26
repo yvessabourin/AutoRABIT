@@ -1,0 +1,15 @@
+<apex:page standardController="Marketing_Campaign__c" extensions="marketingCampaignActionsControllerExt"  showHeader="true" sidebar="true" lightningStylesheets="true">
+
+	<apex:form >
+		<center>
+			<apex:pageMessage id="pagewarning" rendered="{!displayWarning}" severity="Warning"  summary="{!warningMessage}" strength="1"/>
+			<apex:pageMessage id="pageerror" rendered="{!displayError}" severity="Error"  summary="{!errorMessage}" strength="1"/>
+			<apex:pageMessage id="pagemessage" rendered="{!displayMessage}" severity="Info"  summary="{!pageMessage}" strength="1"/>
+
+			<apex:commandButton action="{!EditCampaignLevel}" value="Edit Campaign Level" rendered="{!showLevelButton}"/>&nbsp;
+			<apex:commandButton id="gencsv" value="Generate CSV" action="{!generateCSV}" rendered="{!showCSVButton}"/>
+			<apex:commandButton id="gencsvproj" value="Generate CSV with Projections" action="{!generateCSVprojections}" rendered="{!showCSVProjButton}"/>
+		</center>
+    </apex:form>
+
+</apex:page>

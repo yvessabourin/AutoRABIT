@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Lease_ID_rqd_before_Deal_can_be_Com</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(BEGINS(TEXT(StageName),&quot;Completed&quot; ) ,
+ISBLANK(Lease_ID__c)
+)</errorConditionFormula>
+    <errorDisplayField>Unit__c</errorDisplayField>
+    <errorMessage>Please enter a LeaseID on the Deal before progressing it to &apos;Completed&apos;</errorMessage>
+</ValidationRule>

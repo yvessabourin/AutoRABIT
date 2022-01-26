@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Bag_Count_CANNOT_be_Greater_than_Spend</fullName>
+    <active>false</active>
+    <errorConditionFormula>Estimated_Spend__c &lt; Item_Count__c</errorConditionFormula>
+    <errorMessage>Bag Count cannot be greater than Estimated Spend</errorMessage>
+</ValidationRule>

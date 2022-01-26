@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <aggregateTypes>Sum</aggregateTypes>
+        <field>VIP_Card_Exchange__c$Visit__c.Number_of_Guests__c</field>
+    </columns>
+    <columns>
+        <field>VIP_Card_Exchange__c$Name</field>
+    </columns>
+    <currency>EUR</currency>
+    <filter>
+        <booleanFilter>(1 AND 2 AND 3) AND 4</booleanFilter>
+        <criteriaItems>
+            <column>VIP_Card_Exchange__c$Visit__c.Partnership_Promotion__c.Name</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>false</isUnlocked>
+            <operator>notEqual</operator>
+            <value></value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>VIP_Card_Exchange__c$Visit__c.Village__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>Las Rozas</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>VIP_Card_Exchange__c$Visit__c.Partnership_Promotion__c.Marketing_Campaign__c.Marketing_Campaign_Ref__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>MC-00987,MC-00982</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>VIP_Card_Exchange__c$Visit__c.Country_of_Origin__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Afghanistan,Albania,Algeria,Azerbaijan,Bahrain,Bangladesh,Benin,Bosnia and Herzegovina,Brunei Darussalam,Burkina Faso,Cameroon,Chad,Comoros,Côte d&apos;Ivoire,Egypt,Gabon,Gambia,Guinea,Guyana,Indonesia,&quot;Iran, Islamic Republic of&quot;,Iraq,Jordan,Kazakhstan,Kuwait,Kyrgyzstan,Lebanon,Libya,Malaysia,Maldives,Mauritania,Morocco,Mozambique,Niger,Nigeria,Oman,Pakistan,&quot;Palestine, State of&quot;,Qatar,Saudi Arabia,Senegal,Sierra Leone,Somalia,Sudan,Suriname,Syrian Arab Republic,Tajikistan,Togo,Tunisia,Turkey,Turkmenistan,Uganda,United Arab Emirates,Uzbekistan,Yemen</value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
+    <format>Matrix</format>
+    <groupingsAcross>
+        <dateGranularity>Day</dateGranularity>
+        <field>VIP_Card_Exchange__c$Visit__c.Country_of_Origin__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsAcross>
+    <name>ME FIT 2017</name>
+    <params>
+        <name>co</name>
+        <value>0</value>
+    </params>
+    <reportType>VIP_Card_Exchanges_for_Partnership_Promotions__c</reportType>
+    <scope>organization</scope>
+    <showDetails>false</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>VIP_Card_Exchange__c$Visit__c.Visit_Date_Time__c</dateColumn>
+        <endDate>2017-07-16</endDate>
+        <interval>INTERVAL_CUSTOM</interval>
+        <startDate>2017-06-26</startDate>
+    </timeFrameFilter>
+</Report>

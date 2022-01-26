@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>New_B2B_Meeting_L</fullName>
+    <availability>online</availability>
+    <description>Button for the top of the page (Lightning)</description>
+    <displayType>button</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <linkType>url</linkType>
+    <masterLabel>New B2B Meeting</masterLabel>
+    <openType>replace</openType>
+    <protected>false</protected>
+    <url>/lightning/o/Event/new?count=2&amp;nooverride=1{!Account.Id}&amp;retURL=%2F{!Account.Id}&amp;defaultFieldValues=
+WhatId={!Account.Id}</url>
+</WebLink>

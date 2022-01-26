@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Reason_for_Cancellation_Removal_reqd</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(  ISBLANK( Reason_for_Removal_or_Cancellation__c )      ,ISPICKVAL( Status__c  , &apos;Cancelled&apos;) || ISPICKVAL( Status__c  , &apos;Removed&apos;))</errorConditionFormula>
+    <errorDisplayField>Reason_for_Removal_or_Cancellation__c</errorDisplayField>
+    <errorMessage>Please enter a reason for Cancelling or Removing this Brand Permission record.</errorMessage>
+</ValidationRule>

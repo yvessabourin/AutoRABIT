@@ -1,0 +1,256 @@
+<apex:page showHeader="false" standardStylesheets="false" sidebar="false" applyHtmlTag="false" applyBodyTag="false" docType="html-5.0" standardController="VIP_Card_Exchange__c" extensions="VisitRedemptionsHelper">    
+
+    <html xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">    
+
+        <!-- Remote Objects declaration -->
+        <apex:remoteObjects jsNamespace="RemoteObjectModel">
+            <apex:remoteObjectModel name="Account" jsShorthand="Guest" fields="Id,Name">
+                <apex:remoteObjectField name="FirstName" jsShorthand="firstName"/>
+                <apex:remoteObjectField name="LastName" jsShorthand="lastName"/>
+                <apex:remoteObjectField name="PersonEmail" jsShorthand="email"/>
+                <apex:remoteObjectField name="Primary_Village__c" jsShorthand="primaryVillage"/>
+                <apex:remoteObjectField name="RecordTypeId" jsShorthand="recordtypeid"/>
+            </apex:remoteObjectModel>
+            
+            <apex:remoteObjectModel name="VIP_Card_Exchange__c" jsShorthand="VIPCard" fields="Id,Guest__c">
+            </apex:remoteObjectModel>
+                        
+        </apex:remoteObjects>
+        
+   
+            
+        <head>
+            <apex:stylesheet value="{!URLFOR($Resource.SLDS0121, 'assets/styles/salesforce-lightning-design-system-vf.css')}" />  
+        </head>    
+        
+        <style>
+
+        </style>
+        
+        <div class="slds">
+           <div align="center" id='saving'>Saving ...  <img src="{!$Resource.ajaxSpinner}"/></div>
+           <div class="slds-grid slds-wrap" >
+               
+                               
+                <div  class="slds-form-element  slds-size--1-of-1" align="center">
+                    <label class="slds-form-element__label" for="email">Email Address</label>
+                    <div id="emailH" class="slds-form-element__control slds-col   ">
+                        <input id="email" class="slds-input--small slds-is-required" type="email"                                                                 
+                                    title="Please enter a valid email address" oninput="searchCustomer();"/>
+                    </div>
+                </div>
+                
+                <div class="slds-form-element slds-size--1-of-1 " align="center">
+                    <label class="slds-form-element__label" for="fstName">First Name</label>
+                    <div class="slds-form-element__control slds-col">
+                        <input id="fstName" class="slds-input--small" type="text" placeholder="" />
+                    </div>
+                </div>
+    
+                <div class="slds-form-element slds-size--1-of-1 " align="center">
+                    <label class="slds-form-element__label" for="lstName">Surname</label>
+                    <div class="slds-form-element__control slds-col">
+                        <input id="lstName" class="slds-input--small" type="text" placeholder="" />
+                    </div>
+                </div>
+                <div id="linkBtn" class="slds-form-element slds-size--1-of-1 " align="center">                        
+                    <hr></hr>
+                    <div >
+                        <button class="slds-button slds-button--brand slds-button--small" onclick="linkGuest();">Link</button> 
+                    </div>
+                </div>           
+           </div>
+        
+
+        </div>
+
+
+       <!-- <apex:includeScript value="https://code.jquery.com/jquery-1.9.1.min.js"/> -->
+        <apex:includeScript value="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"/>
+       <!-- Salesforce1 -->
+        <apex:includeScript value="/canvas/sdk/js/publisher.js" />
+        <!-- custom scripts -->
+        
+        <script>
+            
+            $j = jQuery.noConflict();
+            var homeUrl;
+            
+            $j(document).ready(function() {
+
+                $j('#saving').hide();
+                
+                Sfdc.canvas.publisher.publish({name: "publisher.setValidForSubmit", payload:"true"});
+                 
+                if( (typeof sforce != 'undefined') && (sforce != null) ) {
+                 // running in mobile
+                    homeUrl = '/_ui/core/chatter/ui/ChatterPage';
+                    //$j('#linkBtn').css("display", "none");
+                } else { //desktop
+                    homeUrl = '/home/home.jsp';
+                    //$j('#linikBtn').css("display", "block");
+                }                 
+                
+                $j("#email").focus();           
+            })       
+                        
+            var email = document.getElementById("email");
+            var fstName = document.getElementById("fstName");
+            var lstName =  document.getElementById("lstName");
+            
+            var cardId = '{!$CurrentPage.parameters.cardId}';
+            var guestId = null;
+             
+            function searchCustomer() {
+                // Create a new Remote Object
+
+                var emailAddress = email.value;
+                var firstName = fstName.value;
+                var lastName = lstName.value;
+                var doSearch = false;
+                
+                var cst = new RemoteObjectModel.Guest();
+                
+                if (emailAddress){
+                    if (emailAddress.indexOf('@') > -1 && emailAddress.indexOf('.') > -1){
+                        doSearch = true;
+                    } else {
+                        fstName.value = '';
+                        lstName.value = '';
+                        guestId = null;
+                    }
+                }
+                
+                if (doSearch) {
+                
+                    var query = '{ "where": { ';
+                    if(emailAddress) 
+                        query +=  '"email": {"eq": ' + '"' + emailAddress + '"' + '},';                    
+                    query += '"recordtypeid": {"eq": "{!guestRecType}"}';
+                    query +=  ' },';
+                    query += '"orderby": [ {"lastName": "ASC"}, {"firstName": "ASC"} ],';
+                    query += '"limit": 1 }';
+                    var qryObj = JSON.parse(query);                      
+                    console.log(query);
+                    console.log(qryObj);                        
+                         
+                    // Use the Remote Object to query for guest record
+                    cst.retrieve(qryObj,                         
+                    function(err, records, event){
+                        if(err) {
+                            alert(err.message);
+                        }
+                        else {
+  
+                            if (records.length > 0) {    
+                                
+                                records.forEach(function(record) {
+                                    var eml = record.get("email");
+                                    var fname = record.get("firstName");
+                                    var lname = record.get("lastName");
+                                    
+                                    email.value = eml;
+                                    fstName.value = fname;
+                                    lstName.value = lname;
+                                    guestId = record.get("Id");
+                                
+                                });
+                                
+                            } else {
+
+                            }
+                        }
+                    });
+                }
+                
+                $j('#searching').hide();
+            }            
+            
+            // Process submit button clicked
+            Sfdc.canvas.publisher.subscribe({name: "publisher.post", onData:function(e) {
+                linkGuest();
+            }}); 
+            
+            function linkGuest(){
+                
+                var vipCardId = '{!VIP_Card_Exchange__c}';
+                var emailAddress = email.value;
+                var firstName = fstName.value;
+                var lastName = lstName.value;
+
+                if (!validateEmail(emailAddress)){
+                    $j('#saving').hide();
+                    alert('Email address is not valid');                   
+                    $j('#email').addClass("slds-has-error");
+                    return;                  
+                } else {
+                    $j('#email').removeClass("slds-has-error");
+                }
+                $j('#saving').show();                                
+                if (!guestId){ //need to create guest
+
+                    VisitRedemptionsHelper.quickCreateGuest(emailAddress,'',firstName,lastName, '', function(result, event) {
+                            $j('#saving').hide();
+                            console.log(result);
+                                                        
+                            if(event.status) {
+                                if (result.indexOf('error') > -1){
+                                    alert('Customer details could not be saved at the present time. Please try again later.');                                                                    
+                                } else {
+                                    guestId = result;
+                                    
+                                    if(guestId && vipCardId){
+                    
+                                        var record = new RemoteObjectModel.VIP_Card_Exchange__c({
+                                                Id: vipCardId,
+                                                Guest__c : guestId 
+                                            });
+                                        record.update(updateCallback);
+                                        Sfdc.canvas.publisher.publish({name: "publisher.close", payload:{refresh:"true"}});
+                                    }                                     
+                                }                                                                                                        
+                            } else {
+                                alert(result);
+                                return;
+                            }
+            
+                    },{buffer: false, escape: false, timeout: 90000} );                                                
+                } else {
+                    // just need to associate existing guest
+                    if(guestId && vipCardId){
+                    
+                        var record = new RemoteObjectModel.VIP_Card_Exchange__c({
+                                Id: vipCardId,
+                                Guest__c : guestId 
+                            });
+                        record.update(updateCallback);
+                        Sfdc.canvas.publisher.publish({name: "publisher.close", payload:{refresh:"true"}});                
+                    }
+                }
+                               
+            }
+
+            // Callback to handle DML Remote Objects calls
+            function updateCallback(err, ids){
+                if (err) { 
+                    alert(err); 
+                }
+                               
+                if ((typeof sforce == 'undefined' || sforce == null) || ('{!$User.UIThemeDisplayed}' != 'Theme4t' && '{!$User.UIThemeDisplayed}' != 'Theme4d') ) {
+                    window.top.location='/{!VIP_Card_Exchange__c.id}'; 
+                }
+                
+                          
+            }
+            
+            function validateEmail(email) { 
+              
+                var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+                return re.test(email);
+            }                        
+            
+        </script>
+        
+    </html>
+        
+</apex:page>

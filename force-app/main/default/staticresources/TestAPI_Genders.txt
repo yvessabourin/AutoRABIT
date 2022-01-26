@@ -1,0 +1,6 @@
+<Enumeration Type="Genders">
+	<Item Key="0" Language="en-gb">Not Known</Item>
+	<Item Key="1" Language="en-gb">Male</Item>
+	<Item Key="2" Language="en-gb">Female</Item>
+	<Item Key="9" Language="en-gb">Not Applicable</Item>
+</Enumeration>

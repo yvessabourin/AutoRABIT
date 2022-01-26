@@ -1,0 +1,22 @@
+<aura:component controller="DisableCustomeruserController" implements="flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickActionWithoutHeader" access="global" >
+	
+    <aura:attribute name="recordId" type="String" access="global"></aura:attribute>
+	<aura:attribute name="customerStatus" type="String" access="global"></aura:attribute>
+    
+    <aura:handler name="init" action="{!c.doInit}" value="{!this}" />
+
+	<p class="slds-text-title--caps slds-line-height--reset">{!v.customerStatus}</p>
+    <hr/>
+    
+    <ui:button aura:id="btnDisable" label="{!$Label.c.DAILY_SALE_DISABLE_USER_BTN}" press="{!c.disableUser}"/>
+    
+    <ui:button aura:id="btnEnable" label="{!$Label.c.DAILY_SALE_RE_ENABLE_USER_BTN}" press="{!c.enableUser}"/>
+	
+    <br/>
+    <hr/>
+    
+    <div class="slds-form-element slds-text-align--right">
+        <ui:button label="{!$Label.c.DAILY_SALE_CANCEL_BTN}" press="{!c.handleCancel}"
+                   class="slds-button slds-button--neutral" />
+    </div>    
+</aura:component>

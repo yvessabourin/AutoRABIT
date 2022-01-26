@@ -1,0 +1,138 @@
+<apex:page standardController="Daily_Sale__c" sidebar="false" showHeader="false" standardStylesheets="false"  applyBodyTag="false" docType="html-5.0">
+
+<script>
+
+    
+    function closeWindow(cmd) {
+        if (cmd=='quit')
+        {
+            window.opener.location.reload();
+            open(location, '_self').close();
+
+        }   
+        return false;
+    }
+    
+    function checkError(){
+        try {
+            var err = pgMsgs.textContent;
+            if (err.length > 0){ 
+                //alert(err);                
+            } else {
+                return closeWindow('quit');
+            }
+            return false;
+        } catch (e){
+            console.log(e.message);
+        }
+    }
+
+
+        
+    function refreshParent() 
+    {
+        window.opener.location.reload(true);
+    }
+
+   
+</script>  
+
+ <html xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">    
+    
+ <meta name="viewport" content="width=320; initial-scale=1.0; maximum-scale=1.0; 
+           user-scalable=0;"/>
+        
+    <head>
+      <apex:stylesheet value="{!URLFOR($Resource.SLDS0121, 'assets/styles/salesforce-lightning-design-system-vf.css')}" />
+    </head>    
+    <body onunload="javascript:refreshParent()"> 
+        <div class="slds">
+            <!--
+            <div class="slds-page-header" role="banner" >
+                <div class="slds-grid">
+                    <div class="slds-col  slds-size--1-of-1 ">        
+                        <h2 class="slds-text-heading--medium slds-m-bottom--medium slds-align-middle" >
+                           {!Daily_Sale__c.Name} - {!Daily_Sale__c.Store_Formula__c} - <apex:outputText value="{0, date,EEEE MMMM d','  yyyy}">
+                                                                                            <apex:param value="{!Daily_Sale__c.Trading_Date__c}" /> 
+                                                                                        </apex:outputText>
+                        </h2>
+                    </div>
+                </div>
+    
+            </div>
+            -->
+            
+            <div class="slds-page-header" role="banner">
+                    <div class="slds-col slds-has-flexi-truncate slds-size--1-of-1 slds-col--padded-large">
+
+                        <h4 class="slds-text-heading--small slds-m-bottom--small slds-align-middle">
+                            {!Daily_Sale__c.Name} - {!Daily_Sale__c.Store_Formula__c} - <apex:outputText value="{0, date,EEEE MMMM d','  yyyy}">
+                                                                                            <apex:param value="{!Daily_Sale__c.Trading_Date__c}" /> 
+                                                                                        </apex:outputText>
+                        </h4>
+
+                        
+                    </div>
+                <div class="slds-grid">
+                    <div class="slds-col slds-has-flexi-truncate slds-size--1-of-2 slds-col--padded-large">
+                        <button class="slds-button slds-button--brand slds-button--small" onclick="return closeWindow('quit');">{!$Label.DAILY_SALE_CANCEL_BTN}</button>
+                    </div>
+
+                    <div class="slds-col slds-has-flexi-truncate slds-size--1-of-2  slds-col--padded-large">
+                        
+                        <button  id="btnSave" class="slds-button slds-button--brand slds-button--small   slds-float--right" onclick="saveRecord();">{!$Label.DAILY_SALE_SAVE_BTN}</button> 
+                    </div>
+                 </div>
+            </div>
+            
+
+                            
+            <apex:form styleClass="slds-form--horizontal" id="frm">
+                
+                <apex:pageMessages id="msgs">
+                </apex:pageMessages>
+                <script>
+                    var pgMsgs = document.getElementById("{!$Component.msgs}");
+                </script> 
+         
+                <apex:repeat value="{!$ObjectType.Daily_Sale__c.FieldSets.Community_Entry_Screen}" var="f"> 
+        
+                    
+                    
+                    <p style="float:left">{!f.Label}</p>
+                    
+
+                    <apex:InputField styleclass="slds-input" value="{!Daily_Sale__c[f]}"   />
+
+                    <hr/>
+                     
+                   
+                </apex:repeat>         
+  
+
+                <!--                 
+                <apex:commandButton styleclass="slds-button--neutral slds-button--large" onclick="return closeWindow('quit');" value="Cancel"> </apex:commandButton>     
+                &nbsp;&nbsp;
+               
+                <apex:commandButton styleclass="slds-button--brand slds-button--large " value="Save"  rerender="msgs" > 
+                    <apex:actionSupport event="onclick" action="{!quickSave}" oncomplete="return checkError();"   status="saving" rerender="msgs, frm"/>
+                </apex:commandButton>
+                -->
+                
+                <apex:actionStatus id="saving" 
+                               startText=" (saving...)" 
+                               stopText="" />
+
+                <apex:actionStatus id="saving2" 
+                               startText=" (saving...)" 
+                               stopText="" />
+
+                <apex:actionFunction name="saveRecord" action="{!quickSave}" oncomplete="return checkError();"  status="saving" rerender="msgs, frm" />
+
+            </apex:form>
+        </div>
+    </body>    
+ </html>
+
+  
+</apex:page>

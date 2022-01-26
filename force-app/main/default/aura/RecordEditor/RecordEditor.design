@@ -1,0 +1,7 @@
+<design:component label="RecordEditor">
+    
+    <design:attribute name="greeting" default="Record Editor" />
+    <design:attribute name="recordId" default="{!recordId}" />
+    
+    
+</design:component>

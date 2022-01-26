@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Shared_User_Email_Addresses__c</fullName>
+    <description>If the user is a shared user then this is where the email addresses for the non-master user can go</description>
+    <externalId>false</externalId>
+    <inlineHelpText>If the account is shared, enter the other email addresses of the users who share the user account; separated by a semi-colon</inlineHelpText>
+    <label>Shared User Email Addresses</label>
+    <length>255</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

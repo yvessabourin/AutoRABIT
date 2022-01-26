@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help>Eingabe der Gesamt-Nettoeinnahmen der Special Curated Selection Produkte (Produkt für TBVSC mit einem Rabatt von 10% auf den Verkaufspreis), wenn keine verkauft wurden geben Sie 0 ein.</help>
+    <label>Special Curated Selection Nettoeinnahmen</label>
+    <name>Discretionary_Discount_Sales__c</name>
+</CustomFieldTranslation>

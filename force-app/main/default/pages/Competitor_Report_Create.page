@@ -1,0 +1,160 @@
+<apex:page standardController="Competitor_site__c" sidebar="false" showHeader="true" 
+extensions="CompetitorSiteExtension"  id="thepage" docType="html-5.0" > 
+
+<style>
+ 
+   #spinner{
+display: none;
+width:200px; 
+    height: 50px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    text-align:center;
+    padding:10px;
+    font:normal 16px Tahoma, Geneva, sans-serif;
+    margin-left: -100px;
+    margin-top: -100px;
+    z-index:2;
+    overflow: auto;
+    border:1px solid #CCC;
+    background-color:white;
+    z-index:100;
+    padding:5px;
+    line-height:20px;
+     }
+     #opaque {
+         position: fixed;
+         top: 0px;
+         left: 0px;
+         width: 100%;
+         height: 100%;
+         z-index: 1;
+         display: none;
+         background-color: gray;
+         filter: alpha(opacity=30);
+         opacity: 0.3;
+         -moz-opacity:0.3;
+         -khtml-opacity:0.3
+     }
+     * html #opaque {
+         position: absolute;
+     }
+  
+  
+</style> 
+  <div id="opaque"/>
+  <div id="spinner">
+  <p align="center" style='{font-family:"Arial", Helvetica, sans-serif; font-size:20px;}'>
+  <apex:image value="/img/loading32.gif"/>&nbsp;Please wait</p>
+  </div>
+<script>
+  
+  function showSpinner()
+  {
+       document.getElementById('opaque').style.display='block';
+     
+       var popUp = document.getElementById('spinner');
+      
+       popUp.style.display = 'block';
+  
+  } 
+   
+</script>
+
+<div class="slds">
+       
+            
+
+<apex:form rendered="true">
+  
+
+
+
+
+<center>
+You are about to create a Competitor Site Visit at "{!Competitor_site__c.name}", you will be able to upload your files to Salesforce for "sharing" in the 
+"Competitor Site Visits" Chatter Group, either now or later.
+<p></p>
+You can upload more files later in the chatter feed of the event,
+the event can be found in the related lists on the "Competitor Site" record.
+
+<p></p>
+<p></p>
+<br></br>
+
+<apex:outputtext value="Crossover Brand Info" />
+<br></br>
+<apex:inputTextarea value="{!crossoverbrands}" cols="40" rows="5" id="cb" required="true" />
+<p></p>
+<p></p>
+
+<apex:outputtext value="Experience Info"/>
+<br></br>
+<apex:inputTextarea value="{!experience}" cols="40" rows="5"  id="ex" required="true"  />
+<p></p>
+<p></p>
+
+<apex:outputtext value="Shopfit Info"/>
+<br></br>
+<apex:inputTextarea value="{!shopfits}" cols="40" rows="5"  id="sf" required="true"  />
+<p></p>
+<p></p>
+
+<apex:outputtext value="Food and Beverage Info"/>
+<br></br>
+<apex:inputTextarea value="{!FoodandBeverage}" cols="40" rows="5"  id="fb" required="true"  />
+<p></p>
+<p></p>
+
+<apex:outputtext value="Hospitality Info"/>
+<br></br>
+<apex:inputTextarea value="{!Hospitality}" cols="40" rows="5"  id="hosp" required="true"  />
+<p></p>
+<p></p>
+
+<apex:outputtext value="Accessibility Info"/>
+<br></br>
+<apex:inputTextarea value="{!Accesability}" cols="40" rows="5" id="access" required="true"  />
+<p></p>
+<p></p>
+
+<apex:outputtext value="Guest Profile Info"/>
+<br></br>
+<apex:inputTextarea value="{!GuestProfile}" cols="40" rows="5"  id="GP" required="true" />
+<p></p>
+<p></p>
+
+<apex:outputtext value="Date of Visit"/>
+<br></br>
+<apex:input value="{!startdate}" id="sd" type="date" required="true" />
+<br></br>
+<br></br>
+
+
+<apex:outputtext value="Arrival Time"/>
+<br></br>
+<apex:input value="{!starttime}" id="st" type="time" required="true"/>
+<br></br>
+<br></br>
+
+<apex:outputtext value="Departure Time"/>
+<br></br>
+<apex:input value="{!endtime}" id="ed" type="time" required="true" />
+<br></br>
+<br></br>
+
+<apex:outputtext value="By clicking continue you ackowledge that you will create the Competitor Site Visit record"/>
+<br></br>
+
+<apex:commandButton value="Create Site Visit" action="{!addAttachements}"  />
+<p></p>
+<p></p>
+<br></br>
+
+</center>
+</apex:form>
+</div>
+
+
+</apex:page>

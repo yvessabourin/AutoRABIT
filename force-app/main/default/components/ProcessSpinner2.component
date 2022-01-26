@@ -1,0 +1,58 @@
+<apex:component >
+    <!-- Adding styles required for loading or processing popup  -->
+     <style>
+         .popupBackground {
+             background-color:black;
+             opacity: 0.20;
+             filter: alpha(opacity = 20);
+             width: 100%;
+             height: 100%;
+             top: 0;
+             left: 0;
+             z-index: 998;
+             position: absolute;
+         }
+         .popupPanel {
+             border: solid 1px;
+             background-color: white;
+             left: 50%;
+             width: 200px;
+             margin-left: -100px;
+             top: 50%;
+             height: 80px;
+             margin-top: -25px;
+             z-index: 999;
+             position: fixed;
+         }
+     
+         div.pbSubheader{
+             font color:black;
+         }
+          
+
+     
+     </style>
+
+    <apex:attribute name="MessageText" description="Message to display while spinner is spinning"
+                    type="String" required="true"/>
+                    
+    <!-- "Loading" or "Processing" popup  -->
+    <apex:actionStatus id="processingStatus" stopText=""  >
+        <apex:facet name="start">
+            <div>
+                <div class="popupBackground" />
+                <div class="popupPanel">
+                    <table border="0" width="100%" height="60%">
+                        <tr>
+                            <td style="text-align: center; font-family: Calibri; font-size: 13px; font-weight: normal; padding: 5px;"><b>{!MessageText}</b></td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: center; padding: 5px;"><img src="{!$Resource.ajaxSpinner}"/></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </apex:facet>
+    </apex:actionStatus>     
+     
+</apex:component>

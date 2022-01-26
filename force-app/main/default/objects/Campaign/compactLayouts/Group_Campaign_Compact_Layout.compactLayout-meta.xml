@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Group_Campaign_Compact_Layout</fullName>
+    <fields>Name</fields>
+    <fields>Partner__c</fields>
+    <fields>StartDate</fields>
+    <fields>EndDate</fields>
+    <fields>Multi_Channel_Campaign__c</fields>
+    <fields>Multi_Village_Campaign__c</fields>
+    <label>Group Campaign Compact Layout</label>
+</CompactLayout>

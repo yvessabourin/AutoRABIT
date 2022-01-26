@@ -1,0 +1,16 @@
+<template>
+	<template if:false={showLockableCell}>
+		<c-lgl-badge used-elements={cell.itemsInUse} total-elements={cell.totalItems}></c-lgl-badge>
+	</template>
+	<template if:true={showLockableCell}>
+		<div class="slds-grid">
+			<div class={lockableCellClass}>{cell.itemsInUse}</div>
+			<div if:true={showLockIcon}>
+				<c-lgl-animated-icon
+					icon-name="utility:lock"
+					oniconclick={handleLockClick}
+				></c-lgl-animated-icon>
+			</div>
+		</div>
+	</template>
+</template>

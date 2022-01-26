@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Year_1_10_Increment_Count__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>The number of increments in Years 1 - 10</inlineHelpText>
+    <label>Year 1 - 10 Increment Count</label>
+    <summaryFilterItems>
+        <field>Term_Increments__c.Year__c</field>
+        <operation>lessOrEqual</operation>
+        <value>10</value>
+    </summaryFilterItems>
+    <summaryForeignKey>Term_Increments__c.Contract__c</summaryForeignKey>
+    <summaryOperation>count</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <type>Summary</type>
+</CustomField>

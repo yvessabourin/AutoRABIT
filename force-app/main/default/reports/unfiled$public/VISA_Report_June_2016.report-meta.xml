@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Promotion_Redemption__c$Redeemable_Campaign__c</field>
+    </columns>
+    <columns>
+        <field>Promotion_Redemption__c$Name</field>
+    </columns>
+    <columns>
+        <field>Promotion_Redemption__c$Redeem_Date__c</field>
+    </columns>
+    <filter>
+        <criteriaItems>
+            <column>Promotion_Redemption__c$Redeemable_Campaign__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>false</isUnlocked>
+            <operator>contains</operator>
+            <value>visa</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Promotion_Redemption__c$Redeemable_Campaign__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>false</isUnlocked>
+            <operator>notContain</operator>
+            <value>LV,KV,LR,LZ,MV,IV</value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
+    <format>Tabular</format>
+    <name>VISA Report June 2016</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>VIP_Redemptions__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>Promotion_Redemption__c$CreatedDate</dateColumn>
+        <endDate>2016-06-30</endDate>
+        <interval>INTERVAL_CUSTOM</interval>
+        <startDate>2016-06-01</startDate>
+    </timeFrameFilter>
+</Report>

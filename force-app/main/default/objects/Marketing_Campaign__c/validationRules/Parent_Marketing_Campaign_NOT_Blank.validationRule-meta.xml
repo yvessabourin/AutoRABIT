@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Parent_Marketing_Campaign_NOT_Blank</fullName>
+    <active>false</active>
+    <description>Campaigns must have a Parent except for &quot;Themes&quot;</description>
+    <errorConditionFormula>AND(ISBLANK(Parent_Marketing_Campaign__c ),  TEXT(Campaign_Level__c) != &quot;THEME&quot;)</errorConditionFormula>
+    <errorDisplayField>Parent_Marketing_Campaign__c</errorDisplayField>
+    <errorMessage>Only Themes can be saved without a Parent marketing Campaign</errorMessage>
+</ValidationRule>

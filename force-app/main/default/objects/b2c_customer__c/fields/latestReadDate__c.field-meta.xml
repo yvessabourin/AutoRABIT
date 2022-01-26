@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>latestReadDate__c</fullName>
+    <description>Date last opened an email</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Date last opened an email</inlineHelpText>
+    <label>Latest Read Date</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+</CustomField>

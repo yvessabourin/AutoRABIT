@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LaRoca_Completed_Group_Bookings</fullName>
+    <columns>NAME</columns>
+    <columns>Name_of_Event__c</columns>
+    <columns>Group_Type__c</columns>
+    <columns>Arrival_Date__c</columns>
+    <columns>Visitors_Country_of_Origin__c</columns>
+    <columns>Number_of_Visitors__c</columns>
+    <columns>VR_Representative__c</columns>
+    <columns>Status__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Status__c</field>
+        <operation>equals</operation>
+        <value>Completed,Proposed,Confirmed,Cancelled</value>
+    </filters>
+    <filters>
+        <field>Village__c</field>
+        <operation>equals</operation>
+        <value>La Roca</value>
+    </filters>
+    <filters>
+        <field>Arrival_Date__c</field>
+        <operation>equals</operation>
+        <value>9/19/2018</value>
+    </filters>
+    <label>La Roca Completed Group Bookings</label>
+    <language>en_US</language>
+    <sharedTo>
+        <group>Location_La_Roca</group>
+    </sharedTo>
+</ListView>

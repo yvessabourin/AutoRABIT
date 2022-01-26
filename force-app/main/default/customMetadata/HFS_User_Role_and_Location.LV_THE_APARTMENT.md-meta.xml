@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>LV THE APARTMENT</label>
+    <protected>false</protected>
+    <values>
+        <field>GSA_Role_and_Location__c</field>
+        <value xsi:type="xsd:string">HFS GSA LV APARTMENT</value>
+    </values>
+    <values>
+        <field>Runner_Role_and_Location__c</field>
+        <value xsi:type="xsd:string">HFS RUNNER LV APARTMENT</value>
+    </values>
+    <values>
+        <field>Village__c</field>
+        <value xsi:type="xsd:string">La Vallée</value>
+    </values>
+</CustomMetadata>

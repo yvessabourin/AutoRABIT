@@ -1,0 +1,511 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>Alert_on_HoT_Signed</fullName>
+        <description>Alert on HoT Signed</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>Brand Advocate</recipient>
+            <type>accountTeam</type>
+        </recipients>
+        <recipients>
+            <recipient>Leasing Captain</recipient>
+            <type>accountTeam</type>
+        </recipients>
+        <recipients>
+            <recipient>Legal Lead</recipient>
+            <type>accountTeam</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>ValueRetailTemplates/EU_HoT_Alert_HTML</template>
+    </alerts>
+    <fieldUpdates>
+        <fullName>Get_Landlord</fullName>
+        <field>Landlord__c</field>
+        <formula>Village__r.Landlord__c</formula>
+        <name>Get Landlord</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Get_Non_Compete_Dist</fullName>
+        <field>Non_Compete_Distance__c</field>
+        <formula>Village__r.Std_Non_Compete_Distance__c</formula>
+        <name>Get Non Compete Dist</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Get_Std_Fit_Out_Weeks</fullName>
+        <field>Fitting_Out_Period_weeks__c</field>
+        <formula>Village__r.Std_Fit_Out_weeks__c</formula>
+        <name>Get Std Fit Out Weeks</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Get_dft_Trading_Name</fullName>
+        <field>Trading_Name__c</field>
+        <formula>Account.Name</formula>
+        <name>Get dft Trading Name</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Get_std_Base_Rent</fullName>
+        <field>Notional_Base_Rent__c</field>
+        <formula>Village__r.Std_Base_Rent__c</formula>
+        <name>Get std Base Rent</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Get_std_Contract_Term</fullName>
+        <field>ContractTerm</field>
+        <formula>Village__r.Std_Lease_Term_months__c</formula>
+        <name>Get std Contract Term</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Get_std_Deposit_Prd</fullName>
+        <field>Deposit_Period_months__c</field>
+        <formula>Village__r.Std_Deposit_Period_months__c</formula>
+        <name>Get std Deposit Prd</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Get_std_Fit_Out</fullName>
+        <field>Fitting_out_Period_days__c</field>
+        <formula>Village__r.Std_Fit_Out_days__c</formula>
+        <name>Get std Fit Out</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Get_std_LFDA_Fee</fullName>
+        <field>LFDA_Fee__c</field>
+        <formula>Village__r.Std_LFDA_Fee__c</formula>
+        <name>Get std LFDA Fee</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Get_std_Legal_Fees</fullName>
+        <field>Legal_Costs__c</field>
+        <formula>Village__r.Std_Legal_Fees__c</formula>
+        <name>Get std Legal Fees</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Get_std_Mgmt_Fee</fullName>
+        <field>Service_Charge__c</field>
+        <formula>Village__r.Std_Management_Fee__c</formula>
+        <name>Get std Mgmt Fee</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Get_std_Mkt_Fees</fullName>
+        <field>Initial_Marketing_Fee__c</field>
+        <formula>Village__r.Std_Marketing_Fee__c</formula>
+        <name>Get std Mkt Fees</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Get_std_Notice_Prd</fullName>
+        <field>Notice_Period_months__c</field>
+        <formula>Village__r.Std_Notice_Period_months__c</formula>
+        <name>Get std Notice Prd</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Get_std_Shop_Fit</fullName>
+        <field>Shop_fit_Contribution_percent__c</field>
+        <formula>Village__r.Std_Shop_fit_contribution__c</formula>
+        <name>Get std Shop Fit%</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Get_std_Shop_Fit_Cost</fullName>
+        <field>Shop_fit_cost__c</field>
+        <formula>Village__r.Std_Shop_Fit_Cost__c</formula>
+        <name>Get std Shop Fit Cost</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Get_std_Turnover_Rent</fullName>
+        <field>Turnover_Rent__c</field>
+        <formula>Village__r.Std_Required_ToR__c</formula>
+        <name>Get std Turnover Rent</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Get_std_Uplift</fullName>
+        <field>Annual_Sales_Uplift_Projection__c</field>
+        <formula>Village__r.Projected_Annual_Sales_Uplift__c</formula>
+        <name>Get std Uplift</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Get_std_Yield</fullName>
+        <field>Yield__c</field>
+        <formula>Village__r.Std_Yield_Expectation__c</formula>
+        <name>Get std Yield</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Set_Status_Activated</fullName>
+        <description>Activate the contract when HoT signed</description>
+        <field>Status</field>
+        <literalValue>Activated</literalValue>
+        <name>Set Status Activated</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Sales_from_Yield</fullName>
+        <field>Estimated_Sales__c</field>
+        <formula>Unit_Size__c  *  Yield__c</formula>
+        <name>Update Sales from Yield 1</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Sales_from_Yield_2</fullName>
+        <field>Estimated_Sales__c</field>
+        <formula>Notional_Size__c  *  Yield__c</formula>
+        <name>Update Sales from Yield 2</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Security_Deposit</fullName>
+        <field>Security_Deposit_Total__c</field>
+        <formula>Deposit_on_Signing_HoT__c  +  Balance_on_Signing_Lease__c</formula>
+        <name>Update Security Deposit</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Total_Ex_VAT</fullName>
+        <field>Total_ex_VAT__c</field>
+        <formula>Total_Charges__c  +  Total_Deposit__c  +  Total_Fees__c</formula>
+        <name>Update Total Ex VAT</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Yield_from_Sales</fullName>
+        <field>Yield__c</field>
+        <formula>Estimated_Sales__c  /   Unit_Size__c</formula>
+        <name>Update Yield from Sales 1</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Yield_from_Sales_2</fullName>
+        <field>Yield__c</field>
+        <formula>Estimated_Sales__c  /  Notional_Size__c</formula>
+        <name>Update Yield from Sales 2</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <rules>
+        <fullName>Activate Contract</fullName>
+        <actions>
+            <name>Alert_on_HoT_Signed</name>
+            <type>Alert</type>
+        </actions>
+        <actions>
+            <name>Set_Status_Activated</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>false</active>
+        <criteriaItems>
+            <field>Contract.Offer_Status__c</field>
+            <operation>equals</operation>
+            <value>HoT Signed</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Contract.Status</field>
+            <operation>notEqual</operation>
+            <value>Activated</value>
+        </criteriaItems>
+        <description>Activate the contract when HoT signed</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Set Std Defaults 1</fullName>
+        <actions>
+            <name>Get_std_Base_Rent</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Get_std_Contract_Term</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Get_std_Deposit_Prd</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Get_std_Fit_Out</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Get_std_LFDA_Fee</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Get_std_Legal_Fees</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Get_std_Mgmt_Fee</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Get_std_Mkt_Fees</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Get_std_Notice_Prd</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Get_std_Shop_Fit_Cost</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>false</active>
+        <criteriaItems>
+            <field>Contract.Terms__c</field>
+            <operation>equals</operation>
+            <value>Standard</value>
+        </criteriaItems>
+        <description>1st 10 std default field updates</description>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Set Std Defaults 2</fullName>
+        <actions>
+            <name>Get_Landlord</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Get_Std_Fit_Out_Weeks</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Get_dft_Trading_Name</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Get_std_Shop_Fit</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Get_std_Turnover_Rent</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Get_std_Uplift</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Get_std_Yield</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>false</active>
+        <criteriaItems>
+            <field>Contract.Terms__c</field>
+            <operation>equals</operation>
+            <value>Standard</value>
+        </criteriaItems>
+        <description>Remaining std default field updates</description>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Update Sales 1</fullName>
+        <actions>
+            <name>Update_Sales_from_Yield</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>false</active>
+        <criteriaItems>
+            <field>Contract.Unit_Size__c</field>
+            <operation>greaterThan</operation>
+            <value>0</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Contract.Yield__c</field>
+            <operation>greaterThan</operation>
+            <value>0</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Contract.Estimated_Sales__c</field>
+            <operation>equals</operation>
+            <value>0</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Update Sales 2</fullName>
+        <actions>
+            <name>Update_Sales_from_Yield_2</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>false</active>
+        <criteriaItems>
+            <field>Contract.Notional_Size__c</field>
+            <operation>greaterThan</operation>
+            <value>0</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Contract.Yield__c</field>
+            <operation>greaterThan</operation>
+            <value>0</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Contract.Estimated_Sales__c</field>
+            <operation>equals</operation>
+            <value>0</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Update Security Deposit</fullName>
+        <actions>
+            <name>Update_Security_Deposit</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>false</active>
+        <criteriaItems>
+            <field>Contract.Security_Deposit_Total__c</field>
+            <operation>equals</operation>
+            <value>0.00</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Update Total Ex VAT</fullName>
+        <actions>
+            <name>Update_Total_Ex_VAT</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>false</active>
+        <criteriaItems>
+            <field>Contract.Total_Charges__c</field>
+            <operation>notEqual</operation>
+            <value>0</value>
+        </criteriaItems>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Update Yield 1</fullName>
+        <actions>
+            <name>Update_Yield_from_Sales</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>false</active>
+        <criteriaItems>
+            <field>Contract.Unit_Size__c</field>
+            <operation>greaterThan</operation>
+            <value>0</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Contract.Estimated_Sales__c</field>
+            <operation>greaterThan</operation>
+            <value>0</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Contract.Yield__c</field>
+            <operation>equals</operation>
+            <value>0</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Update Yield 2</fullName>
+        <actions>
+            <name>Update_Yield_from_Sales_2</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>false</active>
+        <criteriaItems>
+            <field>Contract.Notional_Size__c</field>
+            <operation>greaterThan</operation>
+            <value>0</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Contract.Estimated_Sales__c</field>
+            <operation>greaterThan</operation>
+            <value>0</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Contract.Yield__c</field>
+            <operation>equals</operation>
+            <value>0</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+</Workflow>

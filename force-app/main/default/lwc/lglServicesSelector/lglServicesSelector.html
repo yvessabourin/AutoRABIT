@@ -1,0 +1,37 @@
+<template>
+	<h2>Select the Service/s you need and click +</h2>
+	<div class="slds-grid slds-grid_vertical-align-end">
+		<lightning-combobox
+			name="services"
+			label="Service Type"
+			placeholder="Select a Service Type"
+			options={serviceTypesList}
+			class="slds-col"
+			required
+		>
+		</lightning-combobox>
+
+		<div class="slds-var-m-left_xx-small">
+			<lightning-button-icon
+				icon-name="utility:add"
+				variant="border-filled"
+				alternative-text="Add Service"
+				title="Add Service"
+				onclick={handleAddService}
+			>
+			</lightning-button-icon>
+		</div>
+	</div>
+	<div class="slds-var-m-top_small">
+		<lightning-pill
+			class="slds-var-m-right_xxx-small"
+			for:each={selectedServicePills}
+			for:item="selectedServicePill"
+			key={selectedServicePill.name}
+			name={selectedServicePill.name}
+			label={selectedServicePill.label}
+			onremove={handleRemoveService}
+		>
+		</lightning-pill>
+	</div>
+</template>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Film footage</fullName>
+        <default>false</default>
+        <label>Film footage</label>
+    </customValue>
+    <customValue>
+        <fullName>Headlines and body copy</fullName>
+        <default>false</default>
+        <label>Headlines and body copy</label>
+    </customValue>
+    <customValue>
+        <fullName>Campaign Guidelines</fullName>
+        <default>false</default>
+        <label>Campaign Guidelines</label>
+    </customValue>
+    <customValue>
+        <fullName>Strategy documents</fullName>
+        <default>false</default>
+        <label>Strategy documents</label>
+    </customValue>
+    <customValue>
+        <fullName>Photography</fullName>
+        <default>false</default>
+        <label>Photography</label>
+    </customValue>
+    <customValue>
+        <fullName>Campaign Reporting</fullName>
+        <default>false</default>
+        <label>Campaign Reporting</label>
+    </customValue>
+    <customValue>
+        <fullName>Brand Reporting</fullName>
+        <default>false</default>
+        <label>Brand Reporting</label>
+    </customValue>
+    <customValue>
+        <fullName>Reportage photography</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Reportage photography</label>
+    </customValue>
+    <customValue>
+        <fullName>Pack shots</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Pack shots</label>
+    </customValue>
+    <customValue>
+        <fullName>Hero photography</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Hero photography</label>
+    </customValue>
+    <customValue>
+        <fullName>Gifts</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Gifts</label>
+    </customValue>
+    <customValue>
+        <fullName>Carousel ads</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Carousel ads</label>
+    </customValue>
+    <customValue>
+        <fullName>Canvas ads</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Canvas ads</label>
+    </customValue>
+    <customValue>
+        <fullName>Still life photography</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Still life photography</label>
+    </customValue>
+    <description>Types of Assets that can be linked to Campaigns and Activities</description>
+    <masterLabel>Asset Type</masterLabel>
+    <sorted>true</sorted>
+</GlobalValueSet>

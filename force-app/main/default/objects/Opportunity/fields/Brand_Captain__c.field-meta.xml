@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Brand_Captain__c</fullName>
+    <description>This is an old field for EU Brand Captain that is no longer used.  This field cannot be easily removed from Salesforce as it is included in Apex Classes and various Report Types.</description>
+    <externalId>false</externalId>
+    <label>EUBC</label>
+    <length>25</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

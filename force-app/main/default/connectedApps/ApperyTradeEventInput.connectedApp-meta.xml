@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ConnectedApp xmlns="http://soap.sforce.com/2006/04/metadata">
+    <contactEmail>cchimonides@valueretail.com</contactEmail>
+    <label>ApperyTradeEventInput</label>
+    <oauthConfig>
+        <callbackUrl>https://appery.io/app/salesforce/apperyio-salesforce-callback</callbackUrl>
+        <consumerKey>3MVG9sSN_PMn8tjSodyD28jSJp1qgQZoG1GzkJEs6O1WXheULW21NX9Qo2.WgmZ5NFcm83TTWcNSfnkZbLhFc</consumerKey>
+        <isAdminApproved>false</isAdminApproved>
+        <isConsumerSecretOptional>false</isConsumerSecretOptional>
+        <isIntrospectAllTokens>false</isIntrospectAllTokens>
+        <isSecretRequiredForRefreshToken>false</isSecretRequiredForRefreshToken>
+        <scopes>Api</scopes>
+        <scopes>Web</scopes>
+    </oauthConfig>
+    <oauthPolicy>
+        <ipRelaxation>ENFORCE</ipRelaxation>
+        <refreshTokenPolicy>infinite</refreshTokenPolicy>
+    </oauthPolicy>
+</ConnectedApp>

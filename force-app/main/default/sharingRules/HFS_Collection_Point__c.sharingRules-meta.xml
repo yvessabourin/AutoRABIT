@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sharingCriteriaRules>
+        <fullName>All_BV_HFS</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>All BV HFS</label>
+        <sharedTo>
+            <group>All_BV_HFS</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>Village__c</field>
+            <operation>equals</operation>
+            <value>Bicester</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>All_FV_HFS</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>All FV HFS</label>
+        <sharedTo>
+            <group>All_FV_HFS</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>Village__c</field>
+            <operation>equals</operation>
+            <value>Fidenza</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>All_WV_HFS</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>All WV HFS</label>
+        <sharedTo>
+            <group>All_WV_HFS</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>Village__c</field>
+            <operation>equals</operation>
+            <value>Wertheim</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>HFS_Ingolstadt_Sharing</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>HFS Ingolstadt Sharing</label>
+        <sharedTo>
+            <group>All_IV_HFS</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>Village__c</field>
+            <operation>equals</operation>
+            <value>Ingolstadt</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>HFS_Kildare_Sharing</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>HFS Kildare Sharing</label>
+        <sharedTo>
+            <group>All_KV_HFS</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>Village__c</field>
+            <operation>equals</operation>
+            <value>Kildare</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>HFS_La_Vallee_Sharing</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>HFS La Vallée Sharing</label>
+        <sharedTo>
+            <group>All_LV_HFS</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>Village__c</field>
+            <operation>equals</operation>
+            <value>La Vallée</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+</SharingRules>

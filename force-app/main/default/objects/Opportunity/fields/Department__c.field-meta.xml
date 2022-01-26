@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Department__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Department for this deal</inlineHelpText>
+    <label>Department</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Apparel</fullName>
+                <default>false</default>
+                <label>Apparel</label>
+            </value>
+            <value>
+                <fullName>Beauty</fullName>
+                <default>false</default>
+                <label>Beauty</label>
+            </value>
+            <value>
+                <fullName>Eyewear</fullName>
+                <default>false</default>
+                <label>Eyewear</label>
+            </value>
+            <value>
+                <fullName>Food And Drink</fullName>
+                <default>false</default>
+                <label>Food And Drink</label>
+            </value>
+            <value>
+                <fullName>Footwear</fullName>
+                <default>false</default>
+                <label>Footwear</label>
+            </value>
+            <value>
+                <fullName>Handbags And Accessories</fullName>
+                <default>false</default>
+                <label>Handbags And Accessories</label>
+            </value>
+            <value>
+                <fullName>Homewares</fullName>
+                <default>false</default>
+                <label>Homewares</label>
+            </value>
+            <value>
+                <fullName>Intimates And Hosiery</fullName>
+                <default>false</default>
+                <label>Intimates And Hosiery</label>
+            </value>
+            <value>
+                <fullName>Jewellery And Watches</fullName>
+                <default>false</default>
+                <label>Jewellery And Watches</label>
+            </value>
+            <value>
+                <fullName>Kids</fullName>
+                <default>false</default>
+                <label>Kids</label>
+            </value>
+            <value>
+                <fullName>NA</fullName>
+                <default>false</default>
+                <label>NA</label>
+            </value>
+            <value>
+                <fullName>Sports And Leisure</fullName>
+                <default>false</default>
+                <label>Sports And Leisure</label>
+            </value>
+            <value>
+                <fullName>Travel</fullName>
+                <default>false</default>
+                <label>Travel</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

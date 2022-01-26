@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Participating_Brand__c$Name</field>
+    </columns>
+    <columns>
+        <field>Participating_Brand__c$Marketing_Activity__c.Marketing_Campaign__c</field>
+    </columns>
+    <columns>
+        <field>Participating_Brand__c$Status__c</field>
+    </columns>
+    <currency>EUR</currency>
+    <description>IVWV comparing Premium Group Pass &amp; M&amp;M</description>
+    <filter>
+        <criteriaItems>
+            <column>Participating_Brand__c$Campaign__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>contains</operator>
+            <value>Premium Group Pass,Miles &amp; More</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Participating_Brand__c$Marketing_Activity__c.Marketing_Campaign_Village__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>contains</operator>
+            <value>Wertheim,Ingolstadt</value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Participating_Brand__c$Marketing_Activity__c.Marketing_Campaign_Village__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Participating_Brand__c$Village_Presence__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>IVWV Premium Group M&amp;M Participation</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Participating_Brands__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>Participating_Brand__c$CreatedDate</dateColumn>
+        <endDate>2017-03-31</endDate>
+        <interval>INTERVAL_CUSTOM</interval>
+        <startDate>2016-10-03</startDate>
+    </timeFrameFilter>
+</Report>

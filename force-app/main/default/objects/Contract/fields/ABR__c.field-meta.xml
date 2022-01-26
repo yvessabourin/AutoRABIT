@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ABR__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF( Security_Deposit_Total__c  &gt; 0,  Security_Deposit_Total__c , IF(ISPICKVAL( Size_Metric__c , &quot;sq.m&quot;), Notional_Base_Rent__c * Unit_Size__c , Notional_Base_Rent__c  *  Unit_Size_sqft__c ))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>ABR</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

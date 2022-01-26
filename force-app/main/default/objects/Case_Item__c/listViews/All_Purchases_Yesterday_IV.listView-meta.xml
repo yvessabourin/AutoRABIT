@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All_Purchases_Yesterday_IV</fullName>
+    <columns>CREATED_DATE</columns>
+    <columns>NAME</columns>
+    <columns>Village_Presence__c</columns>
+    <columns>Case__c</columns>
+    <columns>Estimated_Spend__c</columns>
+    <columns>Service_Guest_Number__c</columns>
+    <columns>Status__c</columns>
+    <columns>Total_Bags__c</columns>
+    <columns>CREATEDBY_USER</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CREATED_DATE</field>
+        <operation>equals</operation>
+        <value>YESTERDAY</value>
+    </filters>
+    <filters>
+        <field>Village_Name__c</field>
+        <operation>equals</operation>
+        <value>Ingolstadt</value>
+    </filters>
+    <label>All Purchases Yesterday</label>
+    <language>en_US</language>
+    <sharedTo>
+        <group>Admins_group</group>
+        <group>HFS_Owners_Ingolstadt</group>
+        <group>IV_HFS_Co_ordinators</group>
+        <group>Runners_IV</group>
+    </sharedTo>
+</ListView>

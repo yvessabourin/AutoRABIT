@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fieldUpdates>
+        <fullName>update_Customer_Name_Field</fullName>
+        <field>Name</field>
+        <formula>IF(
+
+ISBLANK(salutation__c)  &amp;&amp;  
+ISBLANK(firstName__c)  &amp;&amp; 
+ISBLANK(lastName__c)
+
+
+, &quot;NULL&quot;, salutation__c  &amp; &quot; &quot; &amp; firstName__c  &amp; &quot; &quot; &amp; lastName__c)</formula>
+        <name>update Customer Name Field</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <outboundMessages>
+        <fullName>ObmCustomer</fullName>
+        <apiVersion>32.0</apiVersion>
+        <endpointUrl>https://zzapi.valueretail.com/sf/customer/v1.0/ObmCustomer.asmx</endpointUrl>
+        <fields>CreatedById</fields>
+        <fields>CreatedDate</fields>
+        <fields>Id</fields>
+        <fields>IsDeleted</fields>
+        <fields>LastModifiedById</fields>
+        <fields>LastModifiedDate</fields>
+        <fields>Name</fields>
+        <fields>OwnerId</fields>
+        <fields>SystemModstamp</fields>
+        <fields>address1__c</fields>
+        <fields>address2__c</fields>
+        <fields>advocacyScore__c</fields>
+        <fields>b2Cpassword__c</fields>
+        <fields>categoriesOfInterest__c</fields>
+        <fields>city__c</fields>
+        <fields>countryInEnglish__c</fields>
+        <fields>country__c</fields>
+        <fields>county__c</fields>
+        <fields>customerID__c</fields>
+        <fields>dateOfBirth__c</fields>
+        <fields>email__c</fields>
+        <fields>facebookFollower__c</fields>
+        <fields>firstName__c</fields>
+        <fields>gender__c</fields>
+        <fields>lastName__c</fields>
+        <fields>leadSourceText__c</fields>
+        <fields>leadSource__c</fields>
+        <fields>mobile__c</fields>
+        <fields>nationality__c</fields>
+        <fields>optInEmail__c</fields>
+        <fields>optInMobile__c</fields>
+        <fields>optInPostal__c</fields>
+        <fields>optInPrivacyAgreement__c</fields>
+        <fields>optInProfiling__c</fields>
+        <fields>optInThirdParty__c</fields>
+        <fields>over18__c</fields>
+        <fields>postcode__c</fields>
+        <fields>preferredLanguage__c</fields>
+        <fields>primaryVillage__c</fields>
+        <fields>salutation__c</fields>
+        <fields>villagesOfInterest__c</fields>
+        <includeSessionId>false</includeSessionId>
+        <integrationUser>b2capi@valueretail.com</integrationUser>
+        <name>ObmCustomer</name>
+        <protected>false</protected>
+        <useDeadLetterQueue>false</useDeadLetterQueue>
+    </outboundMessages>
+    <rules>
+        <fullName>Default B2C Customer Owner</fullName>
+        <active>false</active>
+        <criteriaItems>
+            <field>b2c_customer__c.customerID__c</field>
+            <operation>equals</operation>
+        </criteriaItems>
+        <description>All B2C Customers will be owned by this user.</description>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Populate Customer Name field</fullName>
+        <actions>
+            <name>update_Customer_Name_Field</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>ISCHANGED(  salutation__c ) ||  ISCHANGED( firstName__c ) ||    ISCHANGED( lastName__c ) ||  ISNEW()</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Sync data with ODS</fullName>
+        <actions>
+            <name>ObmCustomer</name>
+            <type>OutboundMessage</type>
+        </actions>
+        <active>false</active>
+        <criteriaItems>
+            <field>User.ProfileId</field>
+            <operation>notEqual</operation>
+            <value>B2C ODS API</value>
+        </criteriaItems>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+</Workflow>

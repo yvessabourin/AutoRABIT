@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Local_Presence__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Enter the local presence and strategy (max 1024)</inlineHelpText>
+    <label>Local Presence</label>
+    <length>1024</length>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>LongTextArea</type>
+    <visibleLines>3</visibleLines>
+</CustomField>

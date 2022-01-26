@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Asset_Link__c</fullName>
+    <description>A link to where the asset is stored (sharepoint link etc...)</description>
+    <externalId>false</externalId>
+    <inlineHelpText>A link to where the asset is stored (sharepoint link etc...)</inlineHelpText>
+    <label>Asset Link</label>
+    <length>255</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

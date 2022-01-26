@@ -1,0 +1,26 @@
+:host {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+}
+
+.lgl-info {
+	background-color: #5cb85c;
+}
+
+.lgl-full {
+	background-color: #d9534f;
+}
+
+.lgl-empty {
+	background-color: #5bc0de;
+}
+
+.lgl-badge {
+	padding: 0.2em 0.6em 0.3em;
+	font-weight: 700;
+	color: #fff;
+	white-space: nowrap;
+	vertical-align: baseline;
+	border-radius: 0.25em;
+	max-width: 50px;
+	text-align: center;
+}

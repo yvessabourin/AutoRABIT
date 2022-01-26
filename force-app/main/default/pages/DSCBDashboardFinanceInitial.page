@@ -1,0 +1,48 @@
+<apex:page controller="DSCBDashboardFinanceInitialController" lightningStylesheets="True" cache="true" readOnly="true">
+    <script>
+    window.history.forward();
+    function preventBack(){
+
+    window.history.forward(1);
+
+    }
+    </script>
+    <apex:pageMessages rendered="{!messageVillage}">
+    </apex:pageMessages>
+    <apex:form rendered="{!noVillages}">
+        <apex:pageBlock title="Filters">
+            <apex:pageBlockSection >
+                <apex:selectList multiselect="false" size="1" value="{!village}" label="Village : ">
+                    <apex:actionSupport event="onchange" action="{!getValues}"/>
+                    <apex:selectOptions value="{!allVillages}"/>
+                </apex:selectList><p/>
+                <apex:selectList multiselect="false" size="1" value="{!periodType}" label="Period Type: ">
+                    <apex:actionSupport event="onchange" action="{!getPeriodValue}"/>
+                    <apex:selectOptions value="{!periodTypeValuesList}"/>
+                </apex:selectList><p/>
+                <apex:selectList multiselect="false" size="1" value="{!period}" label="Period Name: " disabled="{!enablePeriodNames}">
+                    <apex:actionSupport event="onchange" action="{!getValues}"/>
+                    <apex:selectOptions value="{!allPeriodNames}"/>
+                </apex:selectList><p/>
+                <apex:selectList multiselect="false" size="1" value="{!status}" label="Status : ">
+                    <apex:actionSupport event="onchange" action="{!getValues}"/>
+                    <apex:selectOptions value="{!allStatus}"/>
+                </apex:selectList><p/>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+        <apex:pageBlock title="Dashboard">
+            <apex:pageBlockTable value="{!villageCertifications}" var="vpcert" rowClasses="odd,even" styleClass="tableClass">
+                <apex:column >
+                    <apex:facet name="header">Certification Name</apex:facet>
+                    <apex:outputLink value="{!dashboardPage}{!vpcert.Id}">{!vpcert.Name}</apex:outputLink>
+                </apex:column>
+                <apex:column >
+                    <apex:facet name="header">Status</apex:facet>
+                    <apex:outputText value="{!vpcert.Status__c}"></apex:outputText>
+                </apex:column>
+            </apex:pageBlockTable>
+            <apex:pageMessages >
+            </apex:pageMessages>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

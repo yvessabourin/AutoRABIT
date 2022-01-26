@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Budget_Type__c</fullName>
+    <externalId>false</externalId>
+    <label>Budget Type</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>New Brand</fullName>
+                <default>false</default>
+                <label>New Brand</label>
+            </value>
+            <value>
+                <fullName>Renewal</fullName>
+                <default>false</default>
+                <label>Renewal</label>
+            </value>
+            <value>
+                <fullName>Amendment</fullName>
+                <default>false</default>
+                <label>Amendment</label>
+            </value>
+            <value>
+                <fullName>Rebrand</fullName>
+                <default>false</default>
+                <label>Rebrand</label>
+            </value>
+            <value>
+                <fullName>Termination</fullName>
+                <default>false</default>
+                <label>Termination</label>
+            </value>
+            <value>
+                <fullName>temp to perm</fullName>
+                <default>false</default>
+                <label>temp to perm</label>
+            </value>
+            <value>
+                <fullName>perm to temp</fullName>
+                <default>false</default>
+                <label>perm to temp</label>
+            </value>
+            <value>
+                <fullName>extension</fullName>
+                <default>false</default>
+                <label>extension</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

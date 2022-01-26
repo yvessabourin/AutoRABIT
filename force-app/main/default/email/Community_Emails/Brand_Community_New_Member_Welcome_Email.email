@@ -1,0 +1,10 @@
+Hi {!Receiving_User.FirstName}, 
+
+You have been activated in the Value Retail Brand Community. To set up a password please go to {!Community_Url} 
+
+Once you have set a password you will be logged in. We recommend that you bookmark the address.
+
+Username: {!Receiving_User.Username} 
+
+Best Regards, 
+The Value Retail Team

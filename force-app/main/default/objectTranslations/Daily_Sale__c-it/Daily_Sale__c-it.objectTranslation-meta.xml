@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Vendite Giornaliere</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Vendite Giornaliere</value>
+    </caseValues>
+    <fieldSets>
+        <label></label>
+        <name>Community_Confirm_List</name>
+    </fieldSets>
+    <fieldSets>
+        <label></label>
+        <name>Community_Entry_Screen</name>
+    </fieldSets>
+    <fieldSets>
+        <label></label>
+        <name>Data_Extract_View</name>
+    </fieldSets>
+    <fieldSets>
+        <label></label>
+        <name>History_List_View</name>
+    </fieldSets>
+    <fieldSets>
+        <label></label>
+        <name>In_Progress_Fields</name>
+    </fieldSets>
+    <fieldSets>
+        <label></label>
+        <name>Reminder_Email</name>
+    </fieldSets>
+    <gender>Feminine</gender>
+    <nameFieldLabel></nameFieldLabel>
+    <recordTypes>
+        <description></description>
+        <label></label>
+        <name>Current</name>
+    </recordTypes>
+    <recordTypes>
+        <label></label>
+        <name>Discretionary_Discount</name>
+    </recordTypes>
+    <recordTypes>
+        <label></label>
+        <name>Discretionary_Discount_NOT_Editable</name>
+    </recordTypes>
+    <recordTypes>
+        <description></description>
+        <label></label>
+        <name>F_B_Covers</name>
+    </recordTypes>
+    <recordTypes>
+        <label></label>
+        <name>F_B_Covers_NOT_Editable</name>
+    </recordTypes>
+    <recordTypes>
+        <label></label>
+        <name>Full_Price</name>
+    </recordTypes>
+    <recordTypes>
+        <label></label>
+        <name>Full_Price_Discretionary_Discount</name>
+    </recordTypes>
+    <recordTypes>
+        <label></label>
+        <name>Full_Price_Discretionary_Discount_NOT_Editable</name>
+    </recordTypes>
+    <recordTypes>
+        <description></description>
+        <label></label>
+        <name>Full_Price_NOT_Editable</name>
+    </recordTypes>
+    <recordTypes>
+        <description></description>
+        <label></label>
+        <name>Gross</name>
+    </recordTypes>
+    <recordTypes>
+        <label></label>
+        <name>Gross_NOT_Editable</name>
+    </recordTypes>
+    <recordTypes>
+        <description></description>
+        <label></label>
+        <name>Historical</name>
+    </recordTypes>
+    <recordTypes>
+        <description></description>
+        <label></label>
+        <name>Net</name>
+    </recordTypes>
+    <recordTypes>
+        <label></label>
+        <name>Net_NOT_Editable</name>
+    </recordTypes>
+    <sharingReasons>
+        <label></label>
+        <name>Status_managed_changes</name>
+    </sharingReasons>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Cannot_update_Confirmed_records</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>Le Vendite Special Curated Selection non possono essere più alte del Totale Vendite Netto. Il Totale Vendite Netto dovrebbe includere tutte le vendite della giornata.</errorMessage>
+        <name>Discr_Disco_Sales_Higher_Total_Net_Sales</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>Questo campo obbligatorio deve essere compilato</errorMessage>
+        <name>Discr_Disco_Sales_Mandatory</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>Le Unità Special Curated Selection non possono essere superiori al totale unità vendute della giornata.</errorMessage>
+        <name>Discr_Disco_Units_Higher_Total_Units</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>Questo campo obbligatorio deve essere compilato</errorMessage>
+        <name>Discr_Disco_Units_Mandatory</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>Hai inserito 0 footfall. Se la cifra foofall è sconosciuto Si prega di lasciare vuoto questo campo, Altrimenti, inserire il valore noto. Si prega di impostare il flag di &apos;Ignora convalide&apos; e aggiungere una nota su questo record se 0 è il valore corretto.</errorMessage>
+        <name>Footfall_is_Zero</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>Le Vendite Current Season Bestsellers non possono essere più alte del Totale Vendite Netto. Il Totale Vendite Netto dovrebbe includere tutte le vendite della giornata.</errorMessage>
+        <name>Full_Price_Sales_Higher_Total_Net_Sales</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>Questo campo obbligatorio deve essere compilato</errorMessage>
+        <name>Full_Price_Sales_Mandatory</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>Le Unità Current Season Bestsellers non possono essere superiori al totale unità vendute della giornata.</errorMessage>
+        <name>Full_Price_Units_Higher_Total_Units</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>Questo campo obbligatorio deve essere compilato</errorMessage>
+        <name>Full_Price_Units_Mandatory</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Grace_Period_Expired</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>Si prega di inserire una nota nel campo note se si desidera ignorare le convalida</errorMessage>
+        <name>Ignore_Validations_must_have_brand_note</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>Il valore netto dello sconto non può essere maggiore del totale netto delle vendite</errorMessage>
+        <name>Net_Val_of_Discounts_greater_than_Sales</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>Il numero di transazioni con carte di VIP non deve superare il numero totale di transazioni. Si prega di impostare il flag &apos;Ignora convalide&apos; e aggiungere una nota a questo record se si crede i valori sono corretti</errorMessage>
+        <name>No_of_VIPs_gtr_than_no_of_transactions</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>Numero di carte VIP dovrebbe essere maggiore rispetto al numero di unità vendute. Si prega di impostare il flag &apos;Ignora convalide&apos; e aggiungere una nota a questo record se si crede i valori sono corretti.</errorMessage>
+        <name>No_of_VIPs_gtr_than_no_of_units_sold</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>Il numero di transazioni non deve essere superiore rispetto alle vendite nette totali. Si prega di verificare i dati.Si prega di attivare il marchio &apos;Ignora convalida&apos; e aggiungere una nota a questo record se si ritiene che i valori sono corretti</errorMessage>
+        <name>No_of_transactions_not_gtr_NET_Sales</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>Il numero di commensali non può essere inferiore al numero di transazioni. Si prega di impostare il flag &apos;Ignora convalide&apos; e aggiungere una nota a questo record se si crede i valori sono corretti</errorMessage>
+        <name>Number_of_covers_less_than_transactions</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>Il numero di transazioni non può essere maggiore di unità vendute. Si prega di impostare il flag &apos;Ignora convalida&apos; e aggiungere una nota a questo record se si crede i valori sono corretti</errorMessage>
+        <name>Number_of_units_must_be_gtr_than_transac</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>Le vendite di Brand Private Appointment immesse non possono essere superiori alle vendite totali immesse per il giorno.</errorMessage>
+        <name>Priv_App_Sales_Higher_Total_Net_Sales</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>Le unità vendute di Brand Private Appointment non possono essere superiori alle unità totali vendute nella giornata.</errorMessage>
+        <name>Priv_App_Sales_Higher_Total_Units</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>Le transazioni effettuate di Brand Private Appointment non possono essere superiori al numero totale di transazioni della giornata.</errorMessage>
+        <name>Priv_App_Sales_Higher_Transactions</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>Le vendite duty free totale non può essere superiore all&apos;importo riportato. Si prega di verificare le vostre figure. Impostare l&apos;indicatore &apos;Ignora convalida&apos; e aggiungere una nota a questo record se si ritiene che i valori sono corretti</errorMessage>
+        <name>Reported_amount_gtr_than_tax_amt_GROSS</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>Le vendite duty free totale non può essere superiore all&apos;importo riportato. Si prega di verificare le vostre figure. Impostare l&apos;indicatore &apos;Ignora convalida&apos; e aggiungere una nota a questo record se si ritiene che i valori sono corretti</errorMessage>
+        <name>Reported_amount_gtr_than_tax_amt_NET</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>Il numero di transazioni Tax Free non può essere maggiore del numero di transazioni. Verifica le figure.</errorMessage>
+        <name>Reported_transactions_gtr_than_tax_trans</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Sales_Certification_Submission</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>Nel record di vendita, è stato segnalato che il negozio era chiuso, per favore assicurati che il campo relativo alle vendite sia pari a 0. Se si tratta di un refuso e la boutique era aperta al pubblico, ti chiediamo la cortesia di modificare il campo &quot;negozio chiuso&quot;.</errorMessage>
+        <name>Store_Closed_with_Sales</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Store_Not_Editable</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>Se la boutique è stata chiusa, si prega di introdurre 0.</errorMessage>
+        <name>Store_shut_must_be_a_clear_record</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>TOR_Process_Completion</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>È introdotto un numero molto elevato, verificare i valori immessi. Si prega di attivare il marchio &apos;Ignora convalida&apos; e aggiungere una nota a questo record se si ritiene che i valori sono corretti.</errorMessage>
+        <name>Total_net_sales_too_high</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>VLR_TOR_Exception_Certification</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>Le vendite di Brand Virtual Shopping non possono essere superiori alle vendite nette totali. Le vendite nette totali dovrebbero includere tutte le vendite della giornata.</errorMessage>
+        <name>Virtual_Sales_Higher_Total_Net_Sales</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>Le unità vendute di Brand Virtual Shopping non possono essere superiori alle unità totali vendute nella giornata.</errorMessage>
+        <name>Virtual_Sales_Higher_Total_Units</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>Le transazioni effettuate di Brand Virtual Shopping non possono essere superiori al numero totale di transazioni della giornata.</errorMessage>
+        <name>Virtual_Sales_Higher_Transactions</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>Il numero di transazioni non deve superare il numero di footall. Si prega di impostare il flag &apos;Ignora convalida&apos; e aggiungere una nota a questo record se si crede i valori sono corretti</errorMessage>
+        <name>footfall_must_be_gtr_than_transactions</name>
+    </validationRules>
+    <webLinks>
+        <label></label>
+        <name>Confirm_all</name>
+    </webLinks>
+    <webLinks>
+        <label></label>
+        <name>Go_Back</name>
+    </webLinks>
+</CustomObjectTranslation>

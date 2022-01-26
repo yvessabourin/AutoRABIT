@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Ye1__c</fullName>
+    <externalId>false</externalId>
+    <formula>DATE(YEAR(TODAY()) + 1,MONTH( First_Financial_Year_End__c) ,DAY( First_Financial_Year_End__c ) )</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Ye1</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Date</type>
+</CustomField>

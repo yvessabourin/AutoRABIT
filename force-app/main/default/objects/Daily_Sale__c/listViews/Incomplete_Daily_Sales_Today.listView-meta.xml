@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Incomplete_Daily_Sales_Today</fullName>
+    <columns>NAME</columns>
+    <columns>Store_Formula__c</columns>
+    <columns>Status__c</columns>
+    <columns>LAST_UPDATE</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Status__c</field>
+        <operation>equals</operation>
+        <value>Reported Incomplete</value>
+    </filters>
+    <filters>
+        <field>LAST_UPDATE</field>
+        <operation>greaterThan</operation>
+        <value>12/13/2017 12:00 AM</value>
+    </filters>
+    <label>Incomplete Daily Sales Records Today</label>
+    <language>en_US</language>
+</ListView>

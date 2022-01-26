@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Objective__c</fullName>
+    <externalId>false</externalId>
+    <label>Objective</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Brand Awareness</fullName>
+                <default>false</default>
+                <label>Brand Awareness</label>
+            </value>
+            <value>
+                <fullName>Village Awareness</fullName>
+                <default>false</default>
+                <label>Village Awareness</label>
+            </value>
+            <value>
+                <fullName>Privilege/Key Promotion</fullName>
+                <default>false</default>
+                <label>Privilege/Key Promotion</label>
+            </value>
+            <value>
+                <fullName>Traffic</fullName>
+                <default>false</default>
+                <label>Traffic</label>
+            </value>
+            <value>
+                <fullName>Conversions</fullName>
+                <default>false</default>
+                <label>Conversions</label>
+            </value>
+            <value>
+                <fullName>Engagement</fullName>
+                <default>false</default>
+                <label>Engagement</label>
+            </value>
+            <value>
+                <fullName>Reach</fullName>
+                <default>false</default>
+                <label>Reach</label>
+            </value>
+            <value>
+                <fullName>Awareness</fullName>
+                <default>false</default>
+                <label>Awareness</label>
+            </value>
+            <value>
+                <fullName>Video Views</fullName>
+                <default>false</default>
+                <label>Video Views</label>
+            </value>
+            <value>
+                <fullName>Page Likes</fullName>
+                <default>false</default>
+                <label>Page Likes</label>
+            </value>
+            <value>
+                <fullName>Lead Generation</fullName>
+                <default>false</default>
+                <label>Lead Generation</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

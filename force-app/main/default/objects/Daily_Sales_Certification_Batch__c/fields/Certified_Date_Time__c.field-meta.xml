@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Certified_Date_Time__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>The date and time when the Certification Batch was submitted by the Brand Head Office</inlineHelpText>
+    <label>Certified Date Time</label>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>DateTime</type>
+</CustomField>

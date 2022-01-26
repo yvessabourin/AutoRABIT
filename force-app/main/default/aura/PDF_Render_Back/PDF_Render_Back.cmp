@@ -1,0 +1,10 @@
+<aura:component controller="BP_PDF_Render_Controller" implements="force:appHostable,flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes" access="global">
+	
+    <div style=" text-align: right;">  
+        <div align="center" draggable="false" >
+        
+    	<lightning:button variant="brand" label="{!$Label.c.BP_Back}" title="{!$Label.c.BP_Back_Help}" onclick="{! c.backFunction }" />
+    	</div>
+    </div>
+        
+</aura:component>

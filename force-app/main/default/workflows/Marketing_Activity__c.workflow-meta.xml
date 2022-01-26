@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fieldUpdates>
+        <fullName>MA_Error_Message_Update</fullName>
+        <field>Error_Message__c</field>
+        <name>MA-Error Message Update</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Null</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>MA_ReSendToOracleStop</fullName>
+        <field>Re_send_to_Oracle_for_NewActivity__c</field>
+        <literalValue>0</literalValue>
+        <name>MA-ReSendToOracleStop</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Populate_Group_or_Village_Activity_for_f</fullName>
+        <field>Group_or_Village_Activity_for_filter__c</field>
+        <formula>IF(Marketing_Campaign__r.RecordType.Name = &quot;Village Campaign&quot;, &quot;Village Activity&quot;, &quot;Group Activity&quot;)</formula>
+        <name>Populate_Group_or_Village_Activity_for_f</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update</fullName>
+        <field>Reason_for_Removal_or_Cancellation__c</field>
+        <name>Update Reason for Removal or Cancel</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Null</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Budget_Field</fullName>
+        <description>Budget__c (Marketing Activity Budget) field to be updated via workflow to reflect the new rollup summary field Activity Split Budget Summary. 
+The original&apos;s field type could not be changed so must be a copy of the rollup.........</description>
+        <field>Budget__c</field>
+        <formula>Activity_Split_Budget_Summary__c</formula>
+        <name>Update Budget Field</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <rules>
+        <fullName>Check Campaign End Date</fullName>
+        <active>false</active>
+        <formula>Start_Date__c  &gt;  Marketing_Campaign__r.End_Date__c</formula>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>MA-ReSendOracleStopRule</fullName>
+        <actions>
+            <name>MA_Error_Message_Update</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>MA_ReSendToOracleStop</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>OR(Oracle_Task_Number__c != NULL,  Oracle_Secondary_Task_Number__c != NULL)</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Populate_Group_or_Village_Activity_for_filter</fullName>
+        <actions>
+            <name>Populate_Group_or_Village_Activity_for_f</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Update_Budget_Field</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Marketing_Activity__c.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>General Activity,Partnership Promotion</value>
+        </criteriaItems>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+</Workflow>

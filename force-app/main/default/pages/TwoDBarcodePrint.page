@@ -1,0 +1,30 @@
+<apex:page showHeader="false" controller="QRCodePrintController" title="Print Barcode Labels" lightningStylesheets="true">
+    <style type="text/css">
+        body{
+        margin-top:0px;
+        margin-left:20px;
+        }
+        
+        h1 {
+        vertical-align:12px;
+        }
+    </style>
+    
+    <apex:form rendered="{!noBarcodeNumber}">
+        <apex:messages />
+        <apex:commandButton action="{!redirectToRecord}" value="Close" />
+    </apex:form>
+    
+    <apex:form rendered="{!not(noBarcodeNumber)}">
+        <script>
+        window.print();
+        </script>
+        
+        <body>
+            <h1 ondblclick="window.print()" title="Double-click image to print"></h1>
+            <br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="https://barcode.valueretail.com/gensvg?type=DataMatrix&fmt=gif&qz=disable&msg={!cmid}" width="60px" height="60px" alt="2DBarcode" ondblclick="window.print()" title="Double-click image to print"/>
+            <h1 ondblclick="window.print()" title="Double-click image to print">{!cmid}</h1>
+        </body>
+    </apex:form>  
+</apex:page>

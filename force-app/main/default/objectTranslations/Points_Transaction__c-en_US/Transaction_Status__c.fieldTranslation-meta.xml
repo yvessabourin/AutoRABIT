@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label></label>
+    <name>Transaction_Status__c</name>
+    <picklistValues>
+        <masterLabel>CREDITING COMPLETE</masterLabel>
+        <translation></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>CREDITING FAILED</masterLabel>
+        <translation></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>CUSTOMER VERIFIED</masterLabel>
+        <translation></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>CUSTOMER VERIFY FAILED</masterLabel>
+        <translation></translation>
+    </picklistValues>
+</CustomFieldTranslation>

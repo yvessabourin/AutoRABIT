@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>originalRegistrationDate__c</fullName>
+    <description>Date the customer originally registered</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Date the customer originally registered</inlineHelpText>
+    <label>Original Registration Date</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+</CustomField>

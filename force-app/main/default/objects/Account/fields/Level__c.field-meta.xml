@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Level__c</fullName>
+    <externalId>false</externalId>
+    <label>Level</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Partner_Detail__c</controllingField>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>N/A</fullName>
+                <default>false</default>
+                <label>N/A</label>
+            </value>
+            <value>
+                <fullName>Tier 1</fullName>
+                <default>false</default>
+                <label>Level 1</label>
+            </value>
+            <value>
+                <fullName>Tier 2</fullName>
+                <default>false</default>
+                <label>Level 2</label>
+            </value>
+            <value>
+                <fullName>Level 1</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Level 1 (deprecated)</label>
+            </value>
+            <value>
+                <fullName>Level 2</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Level 2 (deprecated)</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>University</controllingFieldValue>
+            <controllingFieldValue>Global</controllingFieldValue>
+            <controllingFieldValue>HNW</controllingFieldValue>
+            <controllingFieldValue>HNW (Orient Express)</controllingFieldValue>
+            <controllingFieldValue>Leisure</controllingFieldValue>
+            <controllingFieldValue>Ministeries</controllingFieldValue>
+            <controllingFieldValue>4_5</controllingFieldValue>
+            <controllingFieldValue>Chauffeur Services</controllingFieldValue>
+            <controllingFieldValue>Corporate Travel</controllingFieldValue>
+            <controllingFieldValue>Direct Agent Sales</controllingFieldValue>
+            <controllingFieldValue>Social/sports</controllingFieldValue>
+            <valueName>Tier 1</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Other</controllingFieldValue>
+            <controllingFieldValue>Mass: More than 500K</controllingFieldValue>
+            <controllingFieldValue>Micro: Under 50K</controllingFieldValue>
+            <controllingFieldValue>Mid: 100K to 500K</controllingFieldValue>
+            <controllingFieldValue>N/A</controllingFieldValue>
+            <valueName>N/A</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Local</controllingFieldValue>
+            <controllingFieldValue>Mice/ Corporate</controllingFieldValue>
+            <controllingFieldValue>OTA</controllingFieldValue>
+            <controllingFieldValue>Other (3*, 2* &amp; 1*)</controllingFieldValue>
+            <controllingFieldValue>Car Hire</controllingFieldValue>
+            <controllingFieldValue>College</controllingFieldValue>
+            <controllingFieldValue>Cultural</controllingFieldValue>
+            <controllingFieldValue>Embassy/ Diplomatic</controllingFieldValue>
+            <controllingFieldValue>Employee Benefits</controllingFieldValue>
+            <controllingFieldValue>Regular</controllingFieldValue>
+            <valueName>Tier 2</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

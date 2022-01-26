@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Opt_Out_Campaign_Date__c</fullName>
+    <description>If the Response from the Campaign was one that deems the contact to be opted out of future campaigns, this field captures the date of the opt out</description>
+    <externalId>false</externalId>
+    <inlineHelpText>This is the date that the Contact opted out from email marketing</inlineHelpText>
+    <label>Opt Out Campaign Date</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>DateTime</type>
+</CustomField>

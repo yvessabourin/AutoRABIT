@@ -1,0 +1,220 @@
+<apex:page controller="GuestSearchController" sidebar="false" showHeader="false" standardStylesheets="false"  applyBodyTag="false" docType="html-5.0" lightningStylesheets="false">
+<!-- autorabit test again-->
+    <html xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">    
+    <head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>TIC Home Page</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></link>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+ <link rel="stylesheet" href="{!URLFOR($Resource.NewTICStyles)}"></link>
+    <script src="{!URLFOR($Resource.NewTICScripts)}"></script>
+<style type="text/css">
+
+body{
+    background: url({!URLFOR($Resource.TICDashboard, 'villageview.jpg')}) no-repeat center center fixed; 
+   -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+
+}
+
+#footer {
+   margin: auto;
+    width: 50%;
+
+   bottom:0;
+   height:20px;   /* Height of the footer */
+  
+  /* background-color: #282828;
+   opacity: 0.3;*/
+  
+  background-color:rgba(40,40,40,0.3)
+}
+
+#imagecredit {
+   text-align: center;
+    color: #FFFFFF;
+}
+
+#imagecredit a {
+
+  color: #FFFFFF;
+}
+
+.nav>li>a {
+	padding: 10px 10px;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+}
+
+</style>
+    <script>
+   
+        $j = jQuery.noConflict();
+        var homeUrl;
+
+        let lugaggeAndLoansPermission = {!$Permission.LGL_Permission};
+                
+
+        $j(document).ready(function() {
+          
+          if (lugaggeAndLoansPermission) {
+            $j('#lgldash').show();
+            $j('#lgltile').show();
+          }
+
+          if({!showHFSButton}){
+             $j('#hfsbutton').show();
+              $j('#hfslistitem').show();
+             
+          }
+          else
+          {
+            $j('#hfsbutton').hide();
+             $j('#hfslistitem').hide();
+          }
+
+          if({!showHFSHistoric}){
+             $j('#hfshistoric').show();    
+        
+          }
+          else
+          {
+            $j('#hfshistoric').hide();      
+          }
+
+     
+            if( ('{!$User.UIThemeDisplayed}' == 'Theme4t' || '{!$User.UIThemeDisplayed}' == 'Theme4d' ) ) {
+             // running in mobile
+                homeUrl = '/_ui/core/chatter/ui/ChatterPage';
+            } else { //desktop
+                homeUrl = '/home/home.jsp';
+            }                        
+          
+        })
+
+        function cancelAction(){
+        
+            if(  ('{!$User.UIThemeDisplayed}' == 'Theme4t' || '{!$User.UIThemeDisplayed}' == 'Theme4d' || '{!$User.UIThemeDisplayed}' == 'Theme4u') && (typeof sforce != 'undefined') && (sforce != null) ) {
+             // running in mobile
+                console.log('VIP Mobile ..');
+                sforce.one.navigateToURL(homeUrl);
+            } else { //desktop
+                console.log('VIP Desktop..');
+                window.location.href = homeUrl;
+            }       
+        
+        
+        }
+            
+     
+        
+    </script>
+
+</head>
+<body>
+      <!-- Main Navigation -->
+      <div class="my-nav">
+         <div class="site-navbar navbar navbar-fixed-top" role="navigation">
+            <div class="container">
+               <div class="navbar-header">
+                  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+                  <a class="navbar-brand" href="#"><i class="fa fa-long-arrow-up"></i> Tourist Information Center <i class="fa fa-long-arrow-down"></i></a> 
+               </div>
+               <div id="navbar" class="navbar-collapse collapse">
+                  <ul class="nav navbar-nav navbar-right">
+                   <li> <a  href="#group"  onclick="gotoPage('GroupBooking_Search');" >Group Check In</a> </li>
+                     <li> <a  href="#guest"  onclick="gotoPage('Promotion_Search');" >Guest Check In</a> </li>
+                     <li> <a  href="#search"  onclick="gotoPage('GuestSearch');">Guest Search</a> </li>
+                     <li> <a  href="#card"  onclick="gotoPage('VIPCardSearch');">Card Search</a> </li>
+                     <li> <a  href="#clean"  onclick="gotoPage('VIPCardCleardown');">VIP Card Cleanup</a> </li>
+                     <li > <a id="hfslistitem" name="hfslistitem" href="#hfs"  onclick="gotoPage('HFSDash');">Hands Free Shopping</a> </li>
+                     <li style="display: none;" id="lgldash" > <a name="lgldash" href="#"  onclick="gotoPage('LGL_Dash');">Luggage &amp; Loans</a> </li>
+                     <li>  <a  href="#exit" onclick="cancelAction();" >Exit</a> </li>
+                  </ul>
+               </div>
+               <!--/.nav-collapse -->
+            </div>
+         </div>
+      </div>
+      <!-- /.Main Navigation -->
+      <!-- Fullwidth Header -->
+      <!-- Intro Header -->
+
+      
+<div class="jumbotron text-center">
+  <h2>&nbsp;</h2>
+</div>
+
+<!-- main content -->
+<div class="container">    
+  <div class="row">
+      <div class="col-sm-3">
+     <a href="#guest" onclick="gotoPage('GroupBooking_Search');" >
+      <div class="panel panel-primary">
+        <div class="panel-heading">Group Check in</div>
+        <div class="panel-body"><img src="{!URLFOR($Resource.TICDashboard, 'groupbus.svg')}" class="img-responsive" style="width:100%" alt="Image" data-toggle="tooltip" title="To check in a group" /></div>        
+      </div></a>
+    </div>
+    <div class="col-sm-3">
+     <a href="#guest" onclick="gotoPage('Promotion_Search');" >
+      <div class="panel panel-primary">
+        <div class="panel-heading">Guest Check in</div>
+        <div class="panel-body"><img src="{!URLFOR($Resource.TICDashboard, 'guestcheckin.svg')}" class="img-responsive" style="width:100%" alt="Image" data-toggle="tooltip" title="To check in a guest" /></div>        
+      </div></a>
+    </div>
+       <div class="col-sm-3" id="hfsbutton" name="hfsbutton"> 
+       <a href="#hfs" onclick="gotoPage('HFSDash');" >
+      <div class="panel panel-primary">
+        <div class="panel-heading">Shopping Collection</div>
+        <div class="panel-body"><img src="{!URLFOR($Resource.TICDashboard, 'handsfreeshop.svg')}" class="img-responsive" style="width:100%" alt="Image" data-toggle="tooltip" title="Shopping collection service" /></div>
+      </div></a>
+    </div>
+    <div id="lgltile" style="display:none;" class="col-sm-3">
+      <a onclick="gotoPage('LGL_Dash');">
+        <div class="panel panel-primary">
+          <div class="panel-heading">Luggage &amp; Loans</div>
+          <div class="panel-body">
+            <img src="{!URLFOR($Resource.TICDashboard, 'scooter.svg')}" class="img-responsive" style="width:100%" alt="Image" data-toggle="tooltip"
+              title="Luggage &amp; Loans" />
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+    <div class="row">
+    <div class="col-sm-3">
+     <a href="#card" onclick="gotoPage('VIPCardSearch');" >
+      <div class="panel panel-primary">
+        <div class="panel-heading">Card Search</div>
+        <div class="panel-body"><img src="{!URLFOR($Resource.TICDashboard, 'cardsearch.svg')}" class="img-responsive" style="width:100%" alt="Image" data-toggle="tooltip" title="To search for a card" /></div>        
+      </div></a>
+    </div>
+    <div class="col-sm-3"> 
+     <a href="#clean"  onclick="gotoPage('VIPCardCleardown');" >
+      <div class="panel panel-primary">
+        <div class="panel-heading">VIP Card Cleanup</div>
+        <div class="panel-body"><img src="{!URLFOR($Resource.TICDashboard, 'cardclean.svg')}" class="img-responsive" style="width:100%" alt="Image" data-toggle="tooltip" title="To cleanup unused cards"/></div>
+      </div></a>
+    </div>
+            <div class="col-sm-3"> 
+         <a href="#search" onclick="gotoPage('GuestSearch');" >
+      <div class="panel panel-primary">
+        <div class="panel-heading">Guest Search</div>
+        <div class="panel-body"><img src="{!URLFOR($Resource.TICDashboard, 'guestsearch.svg')}" class="img-responsive" style="width:100%" alt="Image" data-toggle="tooltip" title="To search for a guest" /></div>
+      </div></a>
+    </div>
+</div>
+<div id="footer"><div id="imagecredit">Icons made by <a href="https://www.flaticon.com/authors/vectors-market" title="Vectors Market">Vectors Market</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div></div>
+  </div>
+  </body>
+    </html>
+    
+</apex:page>

@@ -1,0 +1,127 @@
+<apex:page standardController="Product_Loan__c" extensions="ProductLoanFormPDFExtension" sidebar="false" showHeader="false" renderAs="pdf" applyHtmlTag="false">
+    <head>
+   
+    <style>
+
+    table#headerdata,table#mheaderdata tr, table#headerdata td {
+    font-size: 15px;
+    border: 0px solid black;
+    padding: 3px;
+    table-layout: fixed;
+    width: 100%;
+    text-align: left;
+    vertical-align: top;
+
+  
+    }
+
+    table#mheaderdata th {
+    font-size: 9px;
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
+    }
+
+
+    table#productItemTable  {
+    font-size: 2px;
+    table-layout: fixed;
+
+    }
+
+    table#productItemTable td {
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
+
+    }
+
+
+
+    table#emptytable td {
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
+
+    }
+
+    td {
+    text-align: center;
+    height: 40px;
+    vertical-align: middle;
+    font-size: 10px;
+    }  
+
+    th {
+    font-size: 9px;
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
+    }  
+
+    </style> 
+
+    </head>
+
+    <body>
+
+    <center><apex:image url="{!$Resource.ValueRetailProductLoanFormHeader}" />
+
+    <table id="headerdata" border="0" cellpadding="10" width="100%" cellspacing="1">
+
+    <tr>
+    <td colspan="3" width="33%">Brand: <br/>{!Product_Loan__c.Brand__r.name}<br/><br/></td>
+    <td colspan="3" width="33%">Collection Date: 
+    <br/><apex:outputText value="{0, date, MMMM d','  yyyy}">
+    <apex:param value="{!Product_Loan__c.Collection_Date__c}" />
+    </apex:outputText>
+    <br/>
+    </td>
+    <td colspan="3" width="33%">Return Date: 
+    <br/><apex:outputText value="{0, date, MMMM d','  yyyy}">
+    <apex:param value="{!Product_Loan__c.Returned_Date__c}" />
+    </apex:outputText>
+    <br/>
+    </td>
+    </tr>
+
+    <tr>
+    <td colspan="3" width="33%">Loaned To: <br/>{!Product_Loan__c.Loaned_To__r.name}<br/><br/></td>
+    <td colspan="3" width="33%">Staff Name: <br/>{!Product_Loan__c.Brand_Employee_Name_On_Collection__c}<br/> </td>
+    <td colspan="3" width="33%">VR Name on Collection: <br/>{!Product_Loan__c.VR_Employee_Name_On_Collection__c}<br/> </td>
+    </tr>
+
+    <tr>
+    <td colspan="3" width="33%">Reason For Loan: <br/>{!Product_Loan__c.Reason_For_Loan__r.name} </td>
+    <td colspan="3" width="33%" style="border-bottom: 1px solid black; border-left: 1px solid black;">Staff Signature: <br/> <br/> <br/> </td>
+    <td colspan="3" width="33%" style="border-bottom: 1px solid black; border-left: 1px solid black;">Staff Signature: <br/> <br/> <br/> </td>
+    </tr>
+
+    <tr>
+    <td colspan="3" width="33%">Total Retail Value :<br/><apex:outputText value="{!Product_Loan__c.CurrencyIsoCode} {0, number, ###,###,##0.00}">
+    <apex:param value="{!Product_Loan__c.Total_Retail_Value__c}" />
+    </apex:outputText><br/></td>
+    <td colspan="3" width="33%">Staff Name: <br/> <br/> <br/></td>
+    <td colspan="3" width="33%">VR Name on Return: <br/> <br/> <br/></td>
+    </tr>
+
+    <tr>
+    <td colspan="3" width="33%">Total Outlet Value :<br/><apex:outputText value="{!Product_Loan__c.CurrencyIsoCode} {0, number, ###,###,##0.00}">
+    <apex:param value="{!Product_Loan__c.Total_Outlet_Value__c}" />
+    </apex:outputText> </td>
+    <td colspan="3" width="33%" style="border-bottom: 1px solid black; border-left: 1px solid black;">Staff Signature: <br/> <br/> <br/></td>
+    <td colspan="3" width="33%" style="border-bottom: 1px solid black; border-left: 1px solid black;">Staff Signature: <br/> <br/> <br/>  </td>
+    </tr>
+
+    </table>
+    </center>
+    <br/>
+    <br/>
+
+    <br/>
+    <center>PRODUCTS LOANED</center>
+    <br/>
+    <center>
+
+    <apex:outputText escape="false" value="{!html}"/> 
+      
+    </center>
+    </body>
+    
+</apex:page>

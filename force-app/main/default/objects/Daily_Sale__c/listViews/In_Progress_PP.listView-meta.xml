@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>In_Progress_PP</fullName>
+    <booleanFilter>1 AND 2 AND 3 AND 4 AND 5 AND 6</booleanFilter>
+    <columns>NAME</columns>
+    <columns>Store_Formula__c</columns>
+    <columns>Trading_Date__c</columns>
+    <columns>Brand_Reported_Amount__c</columns>
+    <columns>Valid_for_Confirmation__c</columns>
+    <columns>Brand_Status__c</columns>
+    <columns>Number_of_Transactions__c</columns>
+    <columns>Brand_Note__c</columns>
+    <columns>Store_Closed__c</columns>
+    <columns>Tax_Free_Sales_Amount__c</columns>
+    <columns>Tax_Free_Transactions__c</columns>
+    <columns>VIP_Cards__c</columns>
+    <columns>Units_Sold__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Status__c</field>
+        <operation>equals</operation>
+        <value>Created,Reported Incomplete,Reported Confirmed</value>
+    </filters>
+    <filters>
+        <field>CREATED_DATE</field>
+        <operation>equals</operation>
+        <value>LAST_90_DAYS</value>
+    </filters>
+    <filters>
+        <field>Brand_Status__c</field>
+        <operation>notEqual</operation>
+        <value>Confirmed</value>
+    </filters>
+    <filters>
+        <field>Grace_Period_Days_Applied__c</field>
+        <operation>equals</operation>
+    </filters>
+    <filters>
+        <field>Grace_Period_Expired_On_Date__c</field>
+        <operation>equals</operation>
+    </filters>
+    <filters>
+        <field>Store_Formula__c</field>
+        <operation>equals</operation>
+        <value>Philipp Plein Sport in Wertheim</value>
+    </filters>
+    <label>In Progress PP</label>
+    <language>en_US</language>
+</ListView>

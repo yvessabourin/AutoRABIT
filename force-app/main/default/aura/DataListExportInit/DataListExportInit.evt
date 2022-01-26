@@ -1,0 +1,4 @@
+<aura:event type="APPLICATION" description="Initialises export filters, based on available data in list" >
+    <aura:attribute name="filterOptions" type="String[]"/>
+    <aura:attribute name="label" type="String"/>
+</aura:event>

@@ -1,0 +1,14 @@
+<apex:page standardController="Marketing_Activity__c" sidebar="true">
+
+<flow:interview name="Marketing_Activity_Clone_Final" finishLocation="{!URLFOR('/a0y/o')}" buttonLocation="bottom">
+   <apex:param name="MAIdincoming" value="{!Marketing_Activity__c.id}"/>
+   <apex:param name="OrigName" value="{!Marketing_Activity__c.Name}"/>
+</flow:interview>
+
+<apex:form >
+<apex:pageBlock ><apex:pageBlockButtons location="top">
+  <apex:commandButton action="{!cancel}" value="Cancel" />
+</apex:pageBlockButtons></apex:pageBlock>
+</apex:form>
+
+</apex:page>

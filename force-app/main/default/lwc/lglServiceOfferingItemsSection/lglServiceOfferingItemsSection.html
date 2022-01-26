@@ -1,0 +1,9 @@
+<template>
+	<ul>
+		<template for:each={serviceOfferingItems} for:item="serviceOfferingItem">
+			<li key={serviceOfferingItem.LGL_Item_Number__c}>
+				{serviceOfferingItem.LGL_Item_Number__c}
+			</li>
+		</template>
+	</ul>
+</template>

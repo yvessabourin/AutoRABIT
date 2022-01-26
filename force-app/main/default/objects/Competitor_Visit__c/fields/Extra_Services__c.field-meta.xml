@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Extra_Services__c</fullName>
+    <description>..</description>
+    <externalId>false</externalId>
+    <label>Extra Services</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Tailoring</fullName>
+                <default>false</default>
+                <label>Tailoring</label>
+            </value>
+            <value>
+                <fullName>personalization</fullName>
+                <default>false</default>
+                <label>personalization</label>
+            </value>
+            <value>
+                <fullName>Information Hub (TIC)</fullName>
+                <default>false</default>
+                <label>Information Hub (TIC)</label>
+            </value>
+            <value>
+                <fullName>Hands-free Shopping</fullName>
+                <default>false</default>
+                <label>Hands-free Shopping</label>
+            </value>
+            <value>
+                <fullName>Valet Parking</fullName>
+                <default>false</default>
+                <label>Valet Parking</label>
+            </value>
+            <value>
+                <fullName>Charging Stations</fullName>
+                <default>false</default>
+                <label>Charging Stations</label>
+            </value>
+            <value>
+                <fullName>Tax Free</fullName>
+                <default>false</default>
+                <label>Tax Free</label>
+            </value>
+            <value>
+                <fullName>Loyalty Program</fullName>
+                <default>false</default>
+                <label>Loyalty Program</label>
+            </value>
+            <value>
+                <fullName>Shipping</fullName>
+                <default>false</default>
+                <label>Shipping</label>
+            </value>
+            <value>
+                <fullName>bag Storage Area</fullName>
+                <default>false</default>
+                <label>bag Storage Area</label>
+            </value>
+            <value>
+                <fullName>Gift Wrapping</fullName>
+                <default>false</default>
+                <label>Gift Wrapping</label>
+            </value>
+            <value>
+                <fullName>Beauty Services</fullName>
+                <default>false</default>
+                <label>Beauty Services</label>
+            </value>
+            <value>
+                <fullName>Dog Allowance</fullName>
+                <default>false</default>
+                <label>Dog Allowance</label>
+            </value>
+            <value>
+                <fullName>Personal Shopping</fullName>
+                <default>false</default>
+                <label>Personal Shopping</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>5</visibleLines>
+</CustomField>

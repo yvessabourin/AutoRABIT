@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VLR_CertificationPeriodCutOffDaysRule</fullName>
+    <active>false</active>
+    <description>Cert Sales Cert Period Cut Off Days needs to be greater than or equal to CertSales Reported Sales Grace Period Days.</description>
+    <errorConditionFormula>IF(CertSales_Report_Sales_Grace_Period_Days__c &lt;= CertSales_CertPeriod_Cut_Off_Days__c, false, true)</errorConditionFormula>
+    <errorDisplayField>CertSales_CertPeriod_Cut_Off_Days__c</errorDisplayField>
+    <errorMessage>Cert Sales Cert Period Cut Off Days needs to be greater than or equal to CertSales Reported Sales Grace Period Days.</errorMessage>
+</ValidationRule>

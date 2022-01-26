@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>HoT Approval Request</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>ValueRetailStandardLetterhead</letterhead>
+    <name>Terms Approval HTML</name>
+    <style>freeForm</style>
+    <subject>Request for HoT Approval for {!Contract.Account} in {!Contract.Village__c}</subject>
+    <textOnly>&lt;?xml:namespace prefix = v ns = &quot;urn:schemas-microsoft-com:vml&quot; /&gt; &lt;?xml:namespace prefix = o ns = &quot;urn:schemas-microsoft-com:office:office&quot; /&gt;
+
+PRIVATE &amp; CONFIDENTIAL – INTERNAL USE ONLY
+
+APPROVAL SHEET - LEASE AGREEMENT
+
+c.c. China Legal
+
+{!Contract.Account}
+
+Brand contact: {!Contract.00NP0000000jOCC}
+
+VR contact:  {!Contract.Lead_Negotiator__c}
+
+Anticipated Signature Date:  {!Contract.Anticipated_Signing_Date__c}
+
+Standard Terms   Variations/Comments
+Trading As:
+
+{!Contract.Trading_Name__c}
+
+Unit Number:
+
+{!Contract.00NP0000000jcbu}
+
+Size m² GEA:       {!Contract.Unit_Size__c} m²
+Lease Period:    10 Years   {!Contract.Contract_Term_years__c} Years
+Fitting out Period:   60 days
+
+{!Contract.Fitting_out_Period_days__c} days
+
+Base Rent:   360RMB/m²/month
+
+«Contract_Base_Rent» «Contract_Currency» m²/month
+
+Turnover Rent:   18%   «Contract_Turnover_Rent»%
+Management Fee:   117RMB/m²/month   «Contract_Management_Fee» «Contract_Currency» m²/month
+Security Deposit:   6 months   «Contract_Deposit_Period_months» months
+Notice Period – Termination and Relocation:   3 months   «Contract_Notice_Period» months
+Shop fit contribution:   0%   «Contract_Shop_fit_Contribution_percent»%
+Repayment of relocation or Termination Costs:   1st yr-50%, 2nd yr-30%, 3rd yr – 20%   «Contract_Repayment_Terms»
+
+Financial
+
+Expected Sales:
+
+
+«Contract_Estimated_Sales» «Contract_Currency» Year 1
+
+Expected Yield:   60,000RMB/m²/yr
+
+«Contract_Yield» «Contract_Currency» m²/year
+
+Payback Period:
+
+
+
+Additional Comments
+
+«Contract_SpecialTerms»
+
+
+«Contract_Conditions»
+
+Approval Signatures
+
+Signing Party   Signature   Date
+Lease Lead Negotiator:
+
+
+
+VR China President:
+
+
+
+VR China CEO/VR Chairman:</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

@@ -1,0 +1,96 @@
+<messaging:emailTemplate language="relatedTo.Language_on_Registration__c"
+  subject="New Click & Collect Registration"
+  recipientType="Contact"
+  relatedToType="Case"
+>
+  <messaging:htmlEmailBody >
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+      }
+    </style>
+
+    <body>
+      <div
+        style="
+          max-width: 600px;
+          margin: auto;
+          border: 1px solid #707070;
+          border-radius: 2px;
+        "
+      >
+        <div style="text-align: center">
+          <apex:outputpanel >
+            <apex:image id="theImage"
+              width="100%"
+              value="{!LEFT($Api.Partner_Server_URL_140, FIND('.com/',$Api.Partner_Server_URL_140)+3)}/servlet/servlet.ImageServer?id=01567000008EEQm&oid={!$Organization.Id}"
+            />
+          </apex:outputpanel>
+        </div>
+
+        <br/>
+        
+        <!-- German Message -->
+        <apex:outputpanel rendered="{!if(relatedTo.Language_on_Registration__c == '' || relatedTo.Language_on_Registration__c == 'de', true, false)}">
+        <div style="font-size: 16px; margin-top: 10px;text-align: center; font-family: Arial, sans-serif">
+          <div align="center" style="text-align: center">
+            Liebes {!relatedTo.HFS_Call_Collect_Brand_Name__c},
+          </div>
+
+          <p align="center" style="text-align: center">
+            vielen Dank, dass Sie sich für unseren
+            <strong>Call and Collect</strong> Service angemeldet haben.
+          </p>
+
+          <div style="text-align: center; font-family: Arial, sans-serif">
+            <p>
+              Hiermit bestätigen wir, dass der Einkauf für {!relatedTo.SuppliedName}
+              [{!relatedTo.Service_Guest_Number__c}] beim Guest Services Team in der 
+              <strong>Tourist Information</strong> eingegangen ist und auf die Abholung durch den Gast wartet. 
+              Sobald die Abholung erfolgte, erhalten Sie eine Bestätigungsemail.
+              <p>Bitte bewahren Sie diese E-Mail zu Ihrer Sicherheit auf.</p>
+              <p>Für weitere Fragen, rufen Sie bitte <strong> +49(0) 9342 91 99 100  </strong>.</p>
+            </p>
+            <p>
+              Mit freundlichen Grüßen, <br />
+              Ihr Guest Services Team
+            </p>
+          </div>
+        </div>
+        </apex:outputpanel>
+        <!-- German Message -->
+        
+        <!-- English Message -->
+        <apex:outputpanel rendered="{!if(relatedTo.Language_on_Registration__c == '' || relatedTo.Language_on_Registration__c == 'en', true, false)}">
+        <div style="font-size: 16px; margin-top: 10px;text-align: center; font-family: Arial, sans-serif">
+          <div align="center" style="text-align: center">
+            Dear {!relatedTo.HFS_Call_Collect_Brand_Name__c},
+          </div>
+
+          <p align="center" style="text-align: center">
+            Thank you for registering for our 
+            <strong>Call and Collect</strong> service.
+          </p>
+
+          <div style="text-align: center; font-family: Arial, sans-serif">
+            <p>
+              This is a confirmation that the shopping for {!relatedTo.SuppliedName}
+              [{!relatedTo.Service_Guest_Number__c}] has been received by the Guest Services 
+              Team at the <strong>Tourist Information</strong> and is awaiting the guest collection. 
+              We will notify you by email once the collection by our guest was completed.
+              <p>Please retain this email for your records.</p>
+              <p>If you require assistance, please call <strong> +49(0) 9342 91 99 100  </strong>.</p>
+            </p>
+            <p>
+              Kind regards, <br />
+              Guest Services Team
+            </p>
+          </div>
+        </div>
+        </apex:outputpanel>
+        <!-- English Message -->
+        
+      </div>
+    </body>
+  </messaging:htmlEmailBody>
+</messaging:emailTemplate>

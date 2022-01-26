@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <aggregateTypes>Sum</aggregateTypes>
+        <field>VIP_Card_Exchange__c$Visit__c.Number_of_Guests__c</field>
+    </columns>
+    <columns>
+        <field>VIP_Card_Exchange__c$Visit__c.Visit_Date_Time__c</field>
+    </columns>
+    <columns>
+        <field>VIP_Card_Exchange__c$Visit__c.Partnership_Promotion__c.Name</field>
+    </columns>
+    <currency>EUR</currency>
+    <filter>
+        <criteriaItems>
+            <column>VIP_Card_Exchange__c$Visit__c.Village__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>La Vallée</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>VIP_Card_Exchange__c$Visit__c.Partnership_Promotion__c.RecordType</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Marketing_Activity__c.Partnership_Promotion</value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <aggregateType>Sum</aggregateType>
+        <dateGranularity>Day</dateGranularity>
+        <field>VIP_Card_Exchange__c$Visit__c.Partnership_Promotion__c.Partner__c</field>
+        <sortByName>VIP_Card_Exchange__c$Visit__c.Number_of_Guests__c</sortByName>
+        <sortOrder>Desc</sortOrder>
+        <sortType>Aggregate</sortType>
+    </groupingsDown>
+    <name>Marketing Activies - LVV</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>VIP_Card_Exchanges_for_Partnership_Promotions__c</reportType>
+    <scope>organization</scope>
+    <showDetails>false</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>VIP_Card_Exchange__c$Visit__c.Visit_Date_Time__c</dateColumn>
+        <endDate>2016-11-17</endDate>
+        <interval>INTERVAL_CUSTOM</interval>
+        <startDate>2016-01-01</startDate>
+    </timeFrameFilter>
+</Report>

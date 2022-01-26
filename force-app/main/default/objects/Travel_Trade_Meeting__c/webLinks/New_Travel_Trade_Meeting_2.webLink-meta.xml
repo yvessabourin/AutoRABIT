@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>New_Travel_Trade_Meeting_2</fullName>
+    <availability>online</availability>
+    <displayType>massActionButton</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <linkType>url</linkType>
+    <masterLabel>New Travel Trade Meeting(c)</masterLabel>
+    <openType>replace</openType>
+    <protected>false</protected>
+    <requireRowSelection>true</requireRowSelection>
+    <url>{!
+IF(CONTAINS($User.UIThemeDisplayed, &apos;Theme4&apos;)
+,
+URLFOR(&quot;/lightning/o/Travel_Trade_Meeting__c/new?backgroundContext=%2Flightning%2Fr%2FTrade_Event_Attendee__c%2F&quot; &amp; Trade_Event_Attendee__c.Id &amp; &quot;%2Fview&quot;
+&amp; &quot;&amp;ent=Trade_Event_Attendee__c&amp;navigationLocation=RELATED_LIST&quot;
+&amp; &quot;&amp;defaultFieldValues=Name=Follow up from &quot; &amp; Trade_Event__c.Name
+&amp; &quot;,Trade_Event_Attendee__c=&quot; &amp; Trade_Event_Attendee__c.Id
+&amp; &quot;,Tourism_Contact__c=&quot; &amp;  Trade_Event_Attendee__c.ContactId__c 
+&amp; &quot;,Date_of_Meeting__c=&quot; &amp; TEXT(TODAY())
+)
+,
+URLFOR(&quot;/a03/e?ent=Trade_Event_Attendee__c&quot; &amp;
+&quot;&amp;CF00Nb0000009Y1Jj=&quot; &amp; Trade_Event_Attendee__c.Name &amp;
+&quot;&amp;CF00Nb0000009Y1Jj_lkid=&quot; &amp; Trade_Event_Attendee__c.Id &amp; 
+&quot;&amp;Name=Follow up from &quot; &amp; Trade_Event_Attendee__c.Trade_Event__c &amp;
+&quot;&amp;CF00Nb0000007PTi0=&quot; &amp; Trade_Event_Attendee__c.Contact__c &amp;
+&quot;&amp;saveURL=%2F&quot; &amp; Trade_Event_Attendee__c.Id &amp;
+&quot;&amp;retURL=%2F&quot; &amp; Trade_Event_Attendee__c.Id
+)
+)}</url>
+</WebLink>

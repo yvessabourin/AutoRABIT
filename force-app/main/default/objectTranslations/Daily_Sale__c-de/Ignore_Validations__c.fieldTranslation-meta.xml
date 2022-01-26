@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help>Falls Sie beim Speichern einer der Daten eine Fehlermeldung angezeigt bekommen sollten, jedoch glauben, dass die Angaben korrekt sind, setzen Sie bitte ein Häkchen in diese Box und fügen Sie die Begründung im Kommentarfeld hinzu.</help>
+    <label>Validierung ignorieren</label>
+    <name>Ignore_Validations__c</name>
+</CustomFieldTranslation>

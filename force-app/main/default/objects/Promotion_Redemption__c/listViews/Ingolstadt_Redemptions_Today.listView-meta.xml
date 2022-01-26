@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Ingolstadt_Redemptions_Today</fullName>
+    <columns>NAME</columns>
+    <columns>Voucher_Code__c</columns>
+    <columns>Redeemable_Campaign__c</columns>
+    <columns>Guest_Email__c</columns>
+    <columns>Email_opt_in__c</columns>
+    <columns>Guest_First_Name__c</columns>
+    <columns>Guest_Last_Name__c</columns>
+    <columns>Redeem_Date__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Redeemable_Campaign__c</field>
+        <operation>startsWith</operation>
+        <value>IV</value>
+    </filters>
+    <filters>
+        <field>Redeem_Date__c</field>
+        <operation>greaterThan</operation>
+        <value>TODAY</value>
+    </filters>
+    <label>Ingolstadt (Today)</label>
+    <language>en_US</language>
+</ListView>

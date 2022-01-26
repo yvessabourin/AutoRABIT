@@ -1,0 +1,40 @@
+<apex:page controller="CompSiteDashController">
+<div style="overflow: scroll; width: 390px; height: 200px;">
+    <apex:pageBlock >
+        <apex:pageblockTable value="{!compsites}" var="compsite" id="thepageblocktable" columns="4">
+      
+                <apex:column >
+                 <apex:facet name="header">
+                   Comp Site<br/>
+                 </apex:facet>
+                <apex:outputlink value="/{!compsite.id}" target="_blank"><apex:outputfield value="{!compsite.name}" /></apex:outputlink>
+                </apex:column>
+                
+                <apex:column >
+                 <apex:facet name="header">
+                   Days Since Last Visit<br/>
+                 </apex:facet>
+                <apex:outputfield value="{!compsite.Days_Since_Last_Site_Visit__c}" />
+                </apex:column>
+                
+                <apex:column >
+                 <apex:facet name="header">
+                   Last Site Visit<br/>
+                 </apex:facet>
+                <apex:outputfield value="{!compsite.Last_On_Site_Visit__c}"/>
+                </apex:column>
+                
+                <!--
+                <apex:column >
+                 <apex:facet name="header">
+                   Priority Level<br/>
+                 </apex:facet>
+                <apex:outputfield value="{!compsite.Priority_level__c}"/>
+                </apex:column>
+                -->
+                
+      
+        </apex:pageblockTable>
+    </apex:pageBlock>
+</div>
+</apex:page>

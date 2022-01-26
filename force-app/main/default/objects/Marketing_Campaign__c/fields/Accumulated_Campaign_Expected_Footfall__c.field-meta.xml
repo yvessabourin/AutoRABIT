@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Accumulated_Campaign_Expected_Footfall__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>The sum of the expected footfall in the associated marketing activities</inlineHelpText>
+    <label>Accumulated Campaign Expected Footfall</label>
+    <summarizedField>Marketing_Activity__c.Expected_Footfall__c</summarizedField>
+    <summaryFilterItems>
+        <field>Marketing_Activity__c.Status__c</field>
+        <operation>notEqual</operation>
+        <value>Cancelled</value>
+    </summaryFilterItems>
+    <summaryForeignKey>Marketing_Activity__c.Marketing_Campaign__c</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

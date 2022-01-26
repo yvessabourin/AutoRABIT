@@ -1,0 +1,361 @@
+<apex:page standardController="Case" sidebar="false" showHeader="false" standardStylesheets="false" applyBodyTag="false"
+	docType="html-5.0">
+
+	<apex:includeScript value="{!URLFOR($Resource.HFS_qrv5, '/instascan.js')}" />
+	<apex:includeScript value="{!URLFOR($Resource.HFS_qrv5, '/adapter.min.js')}" />
+	<apex:includeScript value="{!URLFOR($Resource.HFS_qrv5, '/jquery.min.js')}" />
+
+	<html xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<title>TIC Home Page</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" href="{!URLFOR($Resource.NewTICStyles)}" />
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular.min.js"></script>
+		<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+		<apex:includeScript value="{!$Resource.Sorttable}" />
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.10/vue.min.js"></script>
+
+
+
+		<style type="text/css">
+			html{
+				font-size: 20px;
+			}
+			body {
+				min-height: 100vh;
+				overflow: scroll;
+				background: url({!URLFOR($Resource.LGL_App, 'lgl_back_image.jpg')
+			}
+
+			) no-repeat center center fixed;
+			-webkit-background-size: cover;
+			-moz-background-size: cover;
+			-o-background-size: cover;
+			background-size: cover;
+			padding-bottom:200px;
+			}
+
+			.table-fixed thead {
+				width: 97%;
+			}
+
+			.table-fixed tbody {
+				height: 400px;
+				overflow-y: auto;
+				width: 100%;
+			}
+
+			.table-fixed thead,
+			.table-fixed tbody,
+			.table-fixed tr,
+			.table-fixed td,
+			.table-fixed th {
+				display: block;
+			}
+
+			.table-fixed tbody td,
+			.table-fixed thead>tr>th {
+				float: left;
+				border-bottom-width: 0;
+			}
+
+			.spreadAlign td:first-child {
+				text-align: left;
+			}
+
+			.spreadAlign td:last-child {
+				text-align: right;
+			}
+
+			.fixed-top {
+				position: sticky;
+				top: 0;
+				z-index: 1050;
+			}
+            /* FIX LOOK AND FEEL ON SMALL DEVICES */
+            @media only screen and (max-width: 650px) {
+            	/* Service Summary */
+              	.lgl-table {
+                	font-size: 0.8em
+              	}
+                .slds-scope .slds-grid {
+                    display: flex;
+                    flex-direction: row;
+                    flex-wrap: wrap;
+                }
+                /* Guest Handover */
+            	.slds-scope div.slds-size_3-of-8, .slds-scope div.slds-size--3-of-8 {
+                    width: 100%;
+                }
+            	.slds-scope div.slds-var-p-left_medium{
+                    padding-left: 0;
+                    margin-top: 10px;
+            	}
+            	div.lgl-rating-container{
+            		min-height: 140px;
+            	}
+                .slds-scope div.slds-size_2-of-8, .slds-scope div.slds-size--2-of-8{
+            		width: auto;
+                }
+            }
+		</style>
+		<script>
+			$Lightning.use("c:LWC_Container_App", function () {
+				$Lightning.createComponent("c:lglDash",
+					{
+					},
+					"main-dash",
+					function (cmp) {
+					}
+				);
+			});
+		</script>
+		<script type="text/javascript">
+
+			$j = jQuery.noConflict();
+
+			function makeTableScroll() {
+				var maxRows = 15;
+
+				var table = document.getElementById('replenishTable');
+				var wrapper = table.parentNode;
+				var rowsInTable = table.rows.length;
+				var height = 0;
+				if (rowsInTable > maxRows) {
+					for (var i = 0; i < maxRows; i++) {
+						height += table.rows[i].clientHeight;
+					}
+				}
+
+			}
+
+			function cancelAction() {
+
+				let homeUrl;
+
+				if (('{!$User.UIThemeDisplayed}' == 'Theme4t' || '{!$User.UIThemeDisplayed}' == 'Theme4d')) {
+					// running in mobile
+					homeUrl = '/_ui/core/chatter/ui/ChatterPage';
+					sforce.one.navigateToURL(homeUrl);
+				} else { //desktop
+					homeUrl = '/home/home.jsp';
+					window.location.href = homeUrl;
+				}
+			};
+
+			function gotoPage(pg) {
+
+				var url = '/apex/' + pg;
+
+				if (('{!$User.UIThemeDisplayed}' == 'Theme4t' || '{!$User.UIThemeDisplayed}' == 'Theme4d') || ((typeof sforce !=
+						'undefined') && (sforce != null))) {
+					// running in mobile
+					console.log('VIP Mobile ..');
+					//sforce.one.navigateToURL(url);                  
+					window.location.href = url;
+				} else { //desktop
+					console.log('VIP Desktop..');
+					//window.open(url, '_blank');
+					window.location.href = url;
+				}
+
+			};
+
+		</script>
+
+	</head>
+
+	<body>
+		<apex:includeLightning />
+		<!-- Main Navigation -->
+		<div class="my-nav fixed-top">
+			<div class="site-navbar navbar" role="navigation">
+				<div class="container">
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle" data-toggle="collapse"
+							data-target=".navbar-collapse"> <span class="sr-only">Toggle navigation</span> <span
+								class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
+						</button>
+						<a class="navbar-brand" onclick="gotoPage('TIC_Dashboard');">Tourist Information Center</a>
+					</div>
+					<div id="navbar" class="navbar-collapse collapse">
+						<ul class="nav navbar-nav navbar-right">
+							<li> <a href="#guest" onclick="gotoPage('Promotion_Search');">Guest Check In</a> </li>
+							<li> <a href="#search" onclick="gotoPage('GuestSearch');">Guest Search</a> </li>
+							<li> <a href="#card" onclick="gotoPage('VIPCardSearch');">Card Search</a> </li>
+							<li> <a href="#clean" onclick="gotoPage('VIPCardCleardown');">VIP Card Cleanup</a> </li>
+							<li> <a href="#hfsH" name="hfsH" id="hfsH" onclick="gotoPage('HFSHistoric');">Historic HFS –
+									Awaiting Collection</a> </li>
+							<li> <a href="#hfs" onclick="gotoPage('HFSDash');">Hands Free Shopping</a></li>
+							<li> <a href="#lgl" onclick="gotoPage('LGL_Dash');" class="active">Luggage &amp; Loans</a></li>
+							<li> <a href="#exit" onclick="cancelAction();">Exit</a> </li>
+						</ul>
+					</div>
+					<!--/.nav-collapse -->
+				</div>
+			</div>
+		</div>
+		<!-- /.Main Navigation -->
+		<!-- Fullwidth Header -->
+		<!-- Intro Header -->
+
+		<br />
+		<br />
+
+		<!-- main content -->
+		<div class="container">
+
+			<div id="spinner" name="spinner" class="modal" role="dialog">
+				<div class="modal-dialog">
+					<div id="loader">
+						<div class="dot"></div>
+						<div class="dot"></div>
+						<div class="dot"></div>
+						<div class="dot"></div>
+						<div class="dot"></div>
+						<div class="dot"></div>
+						<div class="dot"></div>
+						<div class="dot"></div>
+					</div>
+				</div>
+			</div>
+
+
+
+			<!-- <a onclick="gotoPage('LGL_Dash');" class="btn btn-default"><i
+					class="glyphicon glyphicon-home"></i></a>&nbsp;&nbsp; -->
+
+			<br />
+			<br />
+			
+			<div>
+
+			</div>
+
+			<div style="margin: 10px 0px;" id="main-dash">
+			<!--
+				<div class="panel-heading" style="background-color: #AFAFAF;" data-toggle="collapse"
+					data-target="#demo1">Service Summary:
+				</div>
+
+				<div class="table-responsive" id="demo1" name="demo1" style="background-color: #F5F5F5;">
+					<div class="row" style=" margin-left:auto; margin-right: auto;">
+						<div class="col-md-6"><br></br>
+							<table class="table table-hover sortable spreadAlign">
+
+								<tr>
+									<td><b>Pickup Location</b></td>
+									<td><b>Number of Experiences</b></td>
+								</tr>
+
+
+								<tr class="active">
+									<td>Bicester The Apartment</td>
+									<td><b>0</b></td>
+								</tr>
+							</table>
+						</div>
+						<div class="col-md-6">
+							<div id="piechart_3d"></div>
+						</div>
+					</div>
+
+					<div class="row" style=" margin-left:auto; margin-right: auto;">
+						<div class="col-md-6">
+							<table class="table table-hover spreadAlign">
+
+								<tr style="background-color: #E2E2E2;">
+									<td><b>Active Experiences:</b></td>
+									<td><b>0</b></td>
+								</tr>
+								<tr style="background-color: #E2E2E2;">
+									<td><b>Closed Experiences:</b></td>
+									<td><b>0</b></td>
+								</tr>
+								<tr style="background-color: #E2E2E2;">
+									<td><b>Did Not Participate Experiences:</b></td>
+									<td><b>0</b></td>
+								</tr>
+								<tr style="background-color: #E2E2E2;">
+									<td><b>Live Experiences:</b></td>
+									<td><b>0</b></td>
+								</tr>
+							</table>
+						</div>
+						<div class="col-md-6">
+							<table class="table table-hover spreadAlign">
+								<tr style="background-color: #E2E2E2;">
+									<td><b>Total Bags for the Day:</b></td>
+									<td><b>0</b></td>
+								</tr>
+								<tr style="background-color: #E2E2E2;">
+									<td><b>Total Collections for the Day:</b></td>
+									<td><b>0</b></td>
+								</tr>
+								<tr style="background-color: #E2E2E2;">
+									<td><b>Total Experiences for the Day:</b></td>
+									<td><b>0</b></td>
+								</tr>
+								<tr style="background-color: #E2E2E2;">
+									<td><b>Total Tracked Spend:</b></td>
+									<td><b>0</b></td>
+								</tr>
+							</table>
+						</div>
+					</div>
+				</div> -->
+			</div>
+			<div>
+
+			</div>
+			<!-- <div class="panel panel-primary" id="shoppingcollections">
+				<div class="panel-heading" style="background-color: #AFAFAF;" data-toggle="collapse"
+					data-target="#demo2">Left Luggage &amp; Loans Bicester Today</div>
+				<div class="table-responsive" id="demo2" name="demo2">
+					<table class="table table-hover sortable reducedPadding">
+						<thead>
+							<tr class="active">
+								<th>GuestID</th>
+								<th>Name</th>
+								<th>Services</th>
+								<th>Luggage Items</th>
+								<th>Loan Items</th>
+								<th>Payment Status</th>
+								<th>Status</th>
+								<th>Collection Point</th>
+								<th>Has HFS?</th>
+							</tr>
+						</thead>
+						<tbody >
+							<tr class="active" style="cursor: pointer;">
+								<td>VA1</td>
+								<td>Test Test</td>
+								<td>Left Luggage</td>
+								<td>1</td>
+								<td>2</td>
+								<td>Paid</td>
+								<td>Shopping</td>
+								<td>Bicester The Apartment</td>
+								<td><a>YES</a></td>
+							</tr>
+							<tr class="info" style="display:none;">
+								<td colspan="11">No Guests for today</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div> -->
+		</div>
+
+	</body>
+
+	</html>
+</apex:page>

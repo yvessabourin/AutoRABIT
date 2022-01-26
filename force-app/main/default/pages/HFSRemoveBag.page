@@ -1,0 +1,22 @@
+<apex:page standardController="HFS_Bag__c" lightningStylesheets="true" recordSetVar="Bag" extensions="HFSRemoveBagController">
+
+    <apex:form >
+        <apex:pageBlock title="Remove Bag">
+            <apex:pageMessages ></apex:pageMessages>
+            <apex:pageBlockSection title="Bag Details" columns="1">
+                <apex:outputtext value="{!idName}" label="Purchase Number"/>
+                <apex:outputtext value="{!guestId}" label="Guest ID"/>
+                <apex:inputField value="{!aBag.HFS_Remove_Reason__c}" required="true"/>
+                <apex:selectList value="{!selectedBag}" multiselect="false" size="1" Label="Bags" required="true">
+                    <apex:selectOptions value="{!categories}" />
+                </apex:selectList>
+            </apex:pageBlockSection>
+            <apex:pageBlockButtons >
+                <apex:commandButton action="{!RemoveBag}" value="Remove bag"/>
+                <apex:commandButton action="{!cancel}" value="Cancel"/>
+            </apex:pageBlockButtons>
+
+        </apex:pageBlock>
+    </apex:form>
+
+</apex:page>

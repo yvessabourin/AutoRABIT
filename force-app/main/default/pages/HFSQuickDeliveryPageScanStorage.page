@@ -1,0 +1,56 @@
+<apex:page lightningStylesheets="true">
+	<c:HFS_Barcode_Scanner boxLabel="Scan Storage Location "/>
+	<audio id="audio" src="{!URLFOR($Resource.HFS_beep, '/beep-06.wav')}" autostart="false"></audio>
+
+	<script>
+		function isLightningRedirect(inUrl){
+			if(  ('{!$User.UIThemeDisplayed}' == 'Theme4t' || '{!$User.UIThemeDisplayed}' == 'Theme4d' || '{!$User.UIThemeDisplayed}' == 'Theme4u') && (typeof sforce != 'undefined') && (sforce != null) ) {
+				sforce.one.navigateToURL(inUrl);
+			} else {
+				window.location = inUrl;
+			}
+		}
+	</script>
+
+	<script type="text/javascript">
+
+		function PlaySound() {
+			var sound = document.getElementById("audio");
+			sound.play()
+		}
+
+		function getManuallyBarcode() {
+			var storageBarCode = document.getElementById('result_c').value;
+
+			if (storageBarCode) {
+
+				var url_string = window.location.href;
+				var url = new URL(url_string);
+				var record_id = url.searchParams.get("Id");
+				var bagId = url.searchParams.get("bagId");
+				console.log('bagId --- ' + bagId + ' ---  the id :- ' + record_id + ' ---- storageBarCode -: ' + storageBarCode);
+				isLightningRedirect('/apex/QuickBagPutaway?qrCodeLocation=' + storageBarCode + '&id=' + record_id + '&bagId=' + bagId);
+			}
+		}
+
+        /*Quagga.onDetected(function(result) {
+            var code = result.codeResult.code;
+            var barCodeBag = document.getElementById('result_c').value = code;
+
+            if(barCodeBag){
+                PlaySound();
+                var url_string = window.location.href;
+                var url = new URL(url_string);
+                var record_id = url.searchParams.get("id");
+                var urlfinal = '/apex/HFSDeliveryPage?qrCodeLocation=' + barCodeBag + '&id=' + record_id;
+                if( (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1)){
+                    // running in mobile
+                    sforce.one.navigateToURL(urlfinal, true);
+                } else { //Desktop
+                    window.location.href = urlfinal;
+                }
+            }
+        });*/
+
+	</script>
+</apex:page>

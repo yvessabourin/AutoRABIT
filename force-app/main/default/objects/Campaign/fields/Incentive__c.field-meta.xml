@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Incentive__c</fullName>
+    <externalId>false</externalId>
+    <label>Incentive</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>% Value Off (Brand)</fullName>
+                <default>false</default>
+                <label>% Value Off (Brand)</label>
+            </value>
+            <value>
+                <fullName>% Value Off (Village)</fullName>
+                <default>false</default>
+                <label>% Value Off (Village)</label>
+            </value>
+            <value>
+                <fullName>Free Gift/Food/Drink (Brand)</fullName>
+                <default>false</default>
+                <label>Free Gift/Food/Drink (Brand)</label>
+            </value>
+            <value>
+                <fullName>Free Gift/Food/Drink (Village)</fullName>
+                <default>false</default>
+                <label>Free Gift/Food/Drink (Village)</label>
+            </value>
+            <value>
+                <fullName>Money Off (Brand)</fullName>
+                <default>false</default>
+                <label>Money Off (Brand)</label>
+            </value>
+            <value>
+                <fullName>Money Off (Village)</fullName>
+                <default>false</default>
+                <label>Money Off (Village)</label>
+            </value>
+            <value>
+                <fullName>None/Informational</fullName>
+                <default>false</default>
+                <label>None/Informational</label>
+            </value>
+            <value>
+                <fullName>Free Services</fullName>
+                <default>false</default>
+                <label>Free Services</label>
+            </value>
+            <value>
+                <fullName>Parent Campaign</fullName>
+                <default>false</default>
+                <label>Parent Campaign</label>
+            </value>
+            <value>
+                <fullName>Cash Back (Brand)</fullName>
+                <default>false</default>
+                <label>Cash Back (Brand)</label>
+            </value>
+            <value>
+                <fullName>Cash Back (Village)</fullName>
+                <default>false</default>
+                <label>Cash Back (Village)</label>
+            </value>
+            <value>
+                <fullName>Partner Miles/Points</fullName>
+                <default>false</default>
+                <label>Partner Miles/Points</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

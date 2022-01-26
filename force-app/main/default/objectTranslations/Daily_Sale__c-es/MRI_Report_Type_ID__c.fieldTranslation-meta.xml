@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label></label>
+    <name>MRI_Report_Type_ID__c</name>
+    <picklistValues>
+        <masterLabel>Reported</masterLabel>
+        <translation></translation>
+    </picklistValues>
+</CustomFieldTranslation>

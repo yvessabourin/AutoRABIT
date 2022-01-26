@@ -1,0 +1,83 @@
+<apex:page sidebar="false" showHeader="true" lightningStylesheets="True" standardController="In_Village_Brand_Activity__c" extensions="massEditInVilBrandActsController" recordSetVar="BrandActs" docType="html-5.0" >
+
+
+<div>
+
+<apex:form id="theform" >
+    <apex:outputLabel value="Set all Status'" for="invitestatus" /><br></br>
+    <apex:selectList id="invitestatus" value="{!selectedStatus}" size="1">
+        <!--<apex:selectOption itemValue="To Be Confirmed" itemLabel="To Be Confirmed"/>-->
+        <apex:selectOption itemValue="To Be Approved" itemLabel="To Be Approved"/>
+        <!--<apex:selectOption itemValue="Confirmed" itemLabel="Confirmed"/>-->
+        <apex:selectOption itemValue="Approved" itemLabel="Approved"/>
+        <apex:selectOption itemValue="Cancelled" itemLabel="Cancelled"/>
+        <!--<apex:selectOption itemValue="Removed" itemLabel="Removed"/>-->
+        <apex:selectOption itemValue="Completed" itemLabel="Completed"/>
+    </apex:selectList>
+
+
+<b>
+<!-- <apex:outputLabel value="Set all Status'" for="invitestatus" /></b>
+    <apex:inputfield value="{!selectoption.Status__c}" id="invitestatus"/>
+     <b> --> </b>
+     <apex:commandButton action="{!setAllStatus2}" value="Update"/>
+     <p></p>
+
+
+     <p></p>
+
+    <apex:pageBlock id="thepageblock" >
+
+            <apex:pageBlockTable value="{!wBAstoEdit}" var="select" id="thepageblocktable" columns="10" >
+
+                <apex:column >
+                 <apex:facet name="header">
+                   Selected Records<br/>to update
+                 </apex:facet>
+                <apex:inputCheckbox value="{!select.selected}"  id="selectBox" styleClass="selectBox"/>
+                </apex:column>
+
+                <apex:column headerValue="Name" >
+                <apex:outputField value="{!select.theBA.name}" />
+                </apex:column>
+
+                <apex:column headerValue="Status" >
+                <apex:inputField value="{!select.theBA.Status__c}" id="theStatus" onchange="jsUpdateCheckboxInvite(this)"/>
+                </apex:column>
+
+                <apex:column headerValue="MA Budget" >
+                <apex:inputField value="{!select.theBA.Marketing_Activity_Budget__c}" id="theMABudget" onchange="jsUpdateCheckboxInvite(this)"/>
+                </apex:column>
+
+                <apex:column headerValue="Expected Footfall" >
+                <apex:inputField value="{!select.theBA.Expected_Footfall__c}" id="theExpectedFootfall" onchange="jsUpdateCheckboxInvite(this)"/>
+                </apex:column>
+                
+                <apex:column headerValue="Reach" >
+                <apex:inputField value="{!select.theBA.Reach__c}" id="thereach" onchange="jsUpdateCheckboxInvite(this)"/>
+                </apex:column>
+
+              
+            </apex:pageBlockTable>
+    
+    <!-- test -->
+    <apex:commandButton action="{!selectAll}" value="Select All"/>
+    <apex:commandButton action="{!deselectAll}" value="Deselect All"/>
+
+    </apex:pageBlock>
+
+    
+    
+    <apex:pageBlock >
+    <apex:commandButton action="{!Cancel}" value="Cancel"/>
+    
+    <apex:commandButton action="{!saveSelected}" value="Save Selected Records"/>
+    </apex:pageBlock>
+
+  </apex:form>  
+
+</div>
+
+
+
+</apex:page>

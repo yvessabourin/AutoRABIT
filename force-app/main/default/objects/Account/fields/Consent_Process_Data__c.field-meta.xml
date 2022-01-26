@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Consent_Process_Data__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>The method in which the guest has consented to us holding there data for processing.</inlineHelpText>
+    <label>Consent to Process Data</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>In Village</fullName>
+                <default>false</default>
+                <label>In Village</label>
+            </value>
+            <value>
+                <fullName>Email</fullName>
+                <default>false</default>
+                <label>Email</label>
+            </value>
+            <value>
+                <fullName>Verbal</fullName>
+                <default>false</default>
+                <label>Verbal</label>
+            </value>
+            <value>
+                <fullName>Historic</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Historic</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

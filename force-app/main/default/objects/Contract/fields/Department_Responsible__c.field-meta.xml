@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Department_Responsible__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Enter the name of the department currently responsible for this lease</inlineHelpText>
+    <label>Department Responsible</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>VR Leasing</fullName>
+                <default>false</default>
+                <label>VR Leasing</label>
+            </value>
+            <value>
+                <fullName>VR Legal</fullName>
+                <default>false</default>
+                <label>VR Legal</label>
+            </value>
+            <value>
+                <fullName>VR China Lease</fullName>
+                <default>false</default>
+                <label>VR China Lease</label>
+            </value>
+            <value>
+                <fullName>VR China Legal</fullName>
+                <default>false</default>
+                <label>VR China Legal</label>
+            </value>
+            <value>
+                <fullName>VR Leasing Agent-HRC</fullName>
+                <default>false</default>
+                <label>VR Leasing Agent-HRC</label>
+            </value>
+            <value>
+                <fullName>VR Leasing Agent-C&amp;W</fullName>
+                <default>false</default>
+                <label>VR Leasing Agent-C&amp;W</label>
+            </value>
+            <value>
+                <fullName>VR Law Firm-Hogan Lovells</fullName>
+                <default>false</default>
+                <label>VR Law Firm-Hogan Lovells</label>
+            </value>
+            <value>
+                <fullName>VR Law Firm-ZhongLun</fullName>
+                <default>false</default>
+                <label>VR Law Firm-ZhongLun</label>
+            </value>
+            <value>
+                <fullName>Brand In-house Legal</fullName>
+                <default>false</default>
+                <label>Brand In-house Legal</label>
+            </value>
+            <value>
+                <fullName>Brand Leasing</fullName>
+                <default>false</default>
+                <label>Brand Leasing</label>
+            </value>
+            <value>
+                <fullName>Brand Leasing Agent</fullName>
+                <default>false</default>
+                <label>Brand Leasing Agent</label>
+            </value>
+            <value>
+                <fullName>Brand Law Firm</fullName>
+                <default>false</default>
+                <label>Brand Law Firm</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

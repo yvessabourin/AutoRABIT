@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help>Inserire il numero delle unità della Special Curated Selection, se non ci sono state unità vendute nel giorno inserire 0. Questo è un prodotto fuori produzione a full price ma non ancora disponibile off-price. Prodotto per TBVSC al -10% dal RRP.</help>
+    <label>Unità Special Curated Selection</label>
+    <name>Discretionary_Discount_Units__c</name>
+</CustomFieldTranslation>

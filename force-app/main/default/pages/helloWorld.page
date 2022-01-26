@@ -1,0 +1,10 @@
+<apex:page showHeader="false" sidebar="false">
+  
+  <!-- Begin Default Content REMOVE THIS -->
+  <h1>Congratulations</h1>
+  This is your new Page: helloWorld
+  <!-- End Default Content REMOVE THIS -->
+  
+  <apex:composition template="{!$Site.Template}">
+  </apex:composition>
+</apex:page>

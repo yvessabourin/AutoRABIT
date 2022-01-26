@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sorted>false</sorted>
+    <standardValue>
+        <fullName>Village registration</fullName>
+        <default>false</default>
+        <label>Village registration</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Web registration</fullName>
+        <default>false</default>
+        <label>Web registration</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Ecard Registration</fullName>
+        <default>false</default>
+        <label>Ecard Registration</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Database Hire</fullName>
+        <default>false</default>
+        <label>Database Hire</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Database Purchase</fullName>
+        <default>false</default>
+        <label>Database Purchase</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Partner database swap</fullName>
+        <default>false</default>
+        <label>Partner database swap</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Men&apos;s Health BV 06/06</fullName>
+        <default>false</default>
+        <label>Men&apos;s Health BV 06/06</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Shopaholic&apos;s Guide 2006</fullName>
+        <default>false</default>
+        <label>Shopaholic&apos;s Guide 2006</label>
+    </standardValue>
+    <standardValue>
+        <fullName>SAIMINICT</fullName>
+        <default>false</default>
+        <label>SAIMINICT</label>
+    </standardValue>
+    <standardValue>
+        <fullName>RET00MC</fullName>
+        <default>false</default>
+        <label>RET00MC</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Elle2007</fullName>
+        <default>false</default>
+        <label>Elle2007</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Bahamas08</fullName>
+        <default>false</default>
+        <label>Bahamas08</label>
+    </standardValue>
+    <standardValue>
+        <fullName>BVGoogle2008</fullName>
+        <default>false</default>
+        <label>BVGoogle2008</label>
+    </standardValue>
+    <standardValue>
+        <fullName>CGtE2008</fullName>
+        <default>false</default>
+        <label>CGtE2008</label>
+    </standardValue>
+    <standardValue>
+        <fullName>COS Summer Shopping Break Summer 2008</fullName>
+        <default>false</default>
+        <label>COS Summer Shopping Break Summer 2008</label>
+    </standardValue>
+    <standardValue>
+        <fullName>FVGoogle2008</fullName>
+        <default>false</default>
+        <label>FVGoogle2008</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Google2008</fullName>
+        <default>false</default>
+        <label>Google2008</label>
+    </standardValue>
+    <standardValue>
+        <fullName>LastMinute2008</fullName>
+        <default>false</default>
+        <label>LastMinute2008</label>
+    </standardValue>
+    <standardValue>
+        <fullName>LRCVGoogle2008</fullName>
+        <default>false</default>
+        <label>LRCVGoogle2008</label>
+    </standardValue>
+    <standardValue>
+        <fullName>LRZVGoogle2008</fullName>
+        <default>false</default>
+        <label>LRZVGoogle2008</label>
+    </standardValue>
+    <standardValue>
+        <fullName>LVGoogle2008</fullName>
+        <default>false</default>
+        <label>LVGoogle2008</label>
+    </standardValue>
+    <standardValue>
+        <fullName>MMVGoogle2008</fullName>
+        <default>false</default>
+        <label>MMVGoogle2008</label>
+    </standardValue>
+    <standardValue>
+        <fullName>SHG2007</fullName>
+        <default>false</default>
+        <label>SHG2007</label>
+    </standardValue>
+    <standardValue>
+        <fullName>WindowShoppingViral2008</fullName>
+        <default>false</default>
+        <label>WindowShoppingViral2008</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Other</fullName>
+        <default>false</default>
+        <label>Other</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Web Ecard Registration</fullName>
+        <default>false</default>
+        <label>Web Ecard Registration</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Web Bahamas08</fullName>
+        <default>false</default>
+        <label>Web Bahamas08</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Web BVGoogle2008</fullName>
+        <default>false</default>
+        <label>Web BVGoogle2008</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Web COS Summer Shopping Break Summer 08</fullName>
+        <default>false</default>
+        <label>Web COS Summer Shopping Break Summer 08</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Web FVGoogle2008</fullName>
+        <default>false</default>
+        <label>Web FVGoogle2008</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Web Google2008</fullName>
+        <default>false</default>
+        <label>Web Google2008</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Web LastMinute2008</fullName>
+        <default>false</default>
+        <label>Web LastMinute2008</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Web LRCVGoogle2008</fullName>
+        <default>false</default>
+        <label>Web LRCVGoogle2008</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Web LRZVGoogle2008</fullName>
+        <default>false</default>
+        <label>Web LRZVGoogle2008</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Web LVGoogle2008</fullName>
+        <default>false</default>
+        <label>Web LVGoogle2008</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Web MMVGoogle2008</fullName>
+        <default>false</default>
+        <label>Web MMVGoogle2008</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Web WindowShoppingViral2008</fullName>
+        <default>false</default>
+        <label>Web WindowShoppingViral2008</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Resort Hoppa</fullName>
+        <default>false</default>
+        <label>Resort Hoppa</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Clicktools web survey</fullName>
+        <default>false</default>
+        <label>Clicktools web survey</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Shopping Express</fullName>
+        <default>false</default>
+        <label>Shopping Express</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Tourism</fullName>
+        <default>false</default>
+        <label>Tourism</label>
+    </standardValue>
+    <standardValue>
+        <fullName>SFVIP</fullName>
+        <default>false</default>
+        <label>SFVIP</label>
+    </standardValue>
+    <standardValue>
+        <fullName>SFTIC</fullName>
+        <default>false</default>
+        <label>SFTIC</label>
+    </standardValue>
+    <standardValue>
+        <fullName>WIFI</fullName>
+        <default>false</default>
+        <label>WIFI</label>
+    </standardValue>
+    <standardValue>
+        <fullName>ODS</fullName>
+        <default>false</default>
+        <label>ODS</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Partner</fullName>
+        <default>false</default>
+        <label>Partner</label>
+    </standardValue>
+</StandardValueSet>

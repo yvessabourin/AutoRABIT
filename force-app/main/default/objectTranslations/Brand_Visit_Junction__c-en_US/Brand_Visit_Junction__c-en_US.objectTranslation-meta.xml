@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Brand Purchase</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Brands Purchased</value>
+    </caseValues>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Purchase_for_visit_village</name>
+    </validationRules>
+</CustomObjectTranslation>

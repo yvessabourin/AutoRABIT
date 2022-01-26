@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>HFS</letterhead>
+    <name>HFS Request from Brand</name>
+    <style>freeForm</style>
+    <subject>Your Hands Free Shopping Request has been received ref@ {!HFS_Item__c.Name}</subject>
+    <textOnly>Dear {!Village_Presence__c.Brand__c},
+
+Your request for Hands Free Shopping has been received. You will receive an email when a runner is on their way
+
+Customer: {!HFS_Experience__c.Customer_Name__c}
+Customer Number: {!HFS_Experience__c.Name}
+
+Thank you very much for using this service.
+
+Regards,
+Bicester Visitor Centre</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

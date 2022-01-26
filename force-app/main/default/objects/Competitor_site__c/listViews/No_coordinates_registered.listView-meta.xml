@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>No_coordinates_registered</fullName>
+    <columns>NAME</columns>
+    <columns>Operator__c</columns>
+    <columns>Type__c</columns>
+    <columns>Competitor_to_Village__c</columns>
+    <columns>Distance_From_Village__c</columns>
+    <columns>Number_of_Registered_Stores__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Distance_From_Village__c</field>
+        <operation>equals</operation>
+        <value>No coordinates registered</value>
+    </filters>
+    <label>No coordinates registered</label>
+</ListView>

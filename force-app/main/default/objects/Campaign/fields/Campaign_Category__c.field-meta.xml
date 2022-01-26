@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Campaign_Category__c</fullName>
+    <externalId>false</externalId>
+    <label>Campaign Category</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Mono Contact</fullName>
+                <default>false</default>
+                <label>Mono Contact</label>
+            </value>
+            <value>
+                <fullName>Direct Marketing</fullName>
+                <default>false</default>
+                <label>Direct Marketing</label>
+            </value>
+            <value>
+                <fullName>Competition/MGM/Existing Customer Survey</fullName>
+                <default>false</default>
+                <label>Competition/MGM/Existing Customer Survey</label>
+            </value>
+            <value>
+                <fullName>New Customer Survey</fullName>
+                <default>false</default>
+                <label>New Customer Survey</label>
+            </value>
+            <value>
+                <fullName>Parent Campaign</fullName>
+                <default>false</default>
+                <label>Parent Campaign</label>
+            </value>
+            <value>
+                <fullName>CRM System Campaign</fullName>
+                <default>false</default>
+                <label>CRM System Campaign</label>
+            </value>
+            <value>
+                <fullName>Competition</fullName>
+                <default>false</default>
+                <label>Competition</label>
+            </value>
+            <value>
+                <fullName>Survey</fullName>
+                <default>false</default>
+                <label>Survey</label>
+            </value>
+            <value>
+                <fullName>Partner Loyalty Program</fullName>
+                <default>false</default>
+                <label>Partner Loyalty Program</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

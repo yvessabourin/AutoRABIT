@@ -1,0 +1,32 @@
+.lgl-heading {
+	font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+	font-weight: bold;
+	background-color: #afafaf;
+	border: 1px solid #707070;
+	padding: 4px;
+	color: black;
+	cursor: pointer;
+	border-top-left-radius: 2px;
+	border-top-right-radius: 2px;
+}
+
+.lgl-collapse-icon {
+	position: relative;
+	top: -1px;
+	transition: transform 0.2s linear;
+}
+
+.lgl-rotated {
+	transform: rotate(90deg);
+}
+
+.lgl-collapse-section.lgl-collapsed {
+	max-height: 0;
+}
+
+.lgl-collapse-section {
+	--section-max-height: 200px;
+	transition: max-height 0.2s linear;
+	max-height: var(--section-max-height);
+	overflow: hidden;
+}

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Total_Guest_Spend__c</fullName>
+    <description>The total amount that the guest has spent in all their visits</description>
+    <externalId>false</externalId>
+    <inlineHelpText>The total amount spent by the Private Client across ALL related visits</inlineHelpText>
+    <label>Total Estimated Guest Spend</label>
+    <precision>12</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Currency</type>
+</CustomField>

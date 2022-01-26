@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Reported_amount_gtr_than_tax_amt_NET</fullName>
+    <active>true</active>
+    <description>The reported amount must be the same or greater than the tax amount</description>
+    <errorConditionFormula>$Setup.Global_Object_Validation__c.Daily_Sales_Validations_Active__c 
+&amp;&amp; NOT(ISBLANK(Tax_Free_Sales_Amount__c ))
+&amp;&amp; NOT(ISBLANK( Total_NET_SALES__c ))
+&amp;&amp; Tax_Free_Sales_Amount__c &gt;  Total_NET_SALES__c 
+&amp;&amp; NOT( Ignore_Validations__c )</errorConditionFormula>
+    <errorDisplayField>Tax_Free_Sales_Amount__c</errorDisplayField>
+    <errorMessage>The Tax Free Sales Amount cannot be greater than the Reported Amount. Please check your figures. 
+Please set the &apos;Ignore Validations&apos; flag and add a note to this record if you believe the values are correct</errorMessage>
+</ValidationRule>

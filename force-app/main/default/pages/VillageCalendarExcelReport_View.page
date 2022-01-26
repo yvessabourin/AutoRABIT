@@ -1,0 +1,218 @@
+<apex:page showHeader="true" sidebar="false" controller="VillageCalendarExcelReportControllerJS" docType="html-5.0">
+
+<html xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+    <head>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></link>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+   <style>
+   .campaignCell {
+    border-radius: 10px;
+   }
+
+   .leftHeading {
+
+   }
+
+    .buttonHidden { 
+     visibility: hidden;
+    }
+
+    .divHidden { 
+     visibility: hidden;
+    }
+
+    .highlightredborder {
+    border: 5px solid red;
+    }
+
+    table#my-table-id,table#my-table-id tr, table#my-table-id th, table#my-table-id td  {
+    /*border: 1px solid black; */
+    padding: 3px;
+    table-layout: fixed;
+    width: 140px;
+  
+    }
+    th, tr, td {
+    text-align: center;
+    vertical-align: middle;
+    }  
+    </style> 
+
+    <script type="text/javascript">
+
+
+        function ExportToExcel(){
+           var htmltable= document.getElementById('my-table-id');
+           var html = htmltable.outerHTML;
+           window.open('data:application/vnd.ms-excel,' + encodeURIComponent(html));
+        }
+
+
+        function runFocusQuery(){
+            var theQuarter = document.getElementById('quarterSelection').value;
+            console.log('theQuarter alert' + theQuarter);
+            var theYear = document.getElementById('year').value;
+            console.log('theYear alert' + theYear);
+            var inputVillage = document.getElementById('villageSelectionFocus').value;
+			var inputTBVSC =  document.getElementById("{!$Component.form.includeTBVSC}").checked;
+            var businessFOption = document.getElementById('{!$Component.form.businessFunctionOption}').value;
+            var channelOption = document.getElementById('{!$Component.form.channelOption}').value;
+            var focusOptions = document.getElementById('focusSelection');
+            var focusSelections = [];
+            for (i = 0; i < focusOptions.length; i++){
+                if (focusSelection[i].selected) {
+                console.log('focusOptions:' + i + '---' + focusOptions[i].value);
+                focusSelections.push(focusOptions[i].value);
+                }
+            }
+            if(focusSelections.length == 0){
+                for (i = 0; i < focusOptions.length; i++){
+                    focusSelections.push(focusOptions[i].value);
+                }
+            }
+
+            console.log('focusSelections:' + focusSelections);
+            
+            VillageCalendarExcelReportControllerJS.readThemeandCampaignsbyFocus(inputTBVSC,inputVillage,focusSelections,theYear,theQuarter,businessFOption,channelOption, function(result, event) {
+                        console.log('readThemeandCampaignsbyFocus fired');
+                        if(event.status) {
+                            jQuery(function($j) {
+                                var decoded = $j("<div/>").html(result).text();
+                                $j('#thediv').html(decoded);
+                                $j('#ExportButtonFocus').css("visibility", "visible");
+                                $j('.td1').css('background-color', '#8DE6E9');
+                                $j('.td2').css('background-color', '#E9CD8D');
+                            });
+                        }
+                    });
+        } 
+
+        function navigateToVFPage(){
+            var calendarChoice = document.getElementById('calendarSelectOptions').value;
+            if (calendarChoice == 'Retail Marketing Calendar'){
+                window.location = "MarketingCalendarExportPage";
+            }
+            else{
+                return null;
+            }
+        }
+
+
+    </script>
+
+    </head>
+
+    <body>
+    <center>
+    <table width="1500">
+    <caption><center><b>Campaign Calendar</b><br></br><br></br></center></caption>
+
+
+    
+    <tr>
+        <td align="center">
+            <label>Calendar: </label>
+            <select name="calendarSelection" id="calendarSelectOptions" sixe="1" onchange="navigateToVFPage()">
+                <option> Campaign Calendar </option>
+                <option> Retail Marketing Calendar </option>
+            </select>
+            <p/>
+        </td>
+    </tr>
+    
+    <tr>
+        <td align="center">
+            <label >Select a Village (Required) : </label>
+            <select name="villageSelection" id="villageSelectionFocus" size="1">
+                <option>All Villages</option>
+                <option>Bicester</option>
+                <option>Fidenza</option>
+                <option>Ingolstadt</option>
+                <option>Kildare</option>
+                <option>La Roca</option>
+                <option>La Vallée</option>
+                <option>Las Rozas</option>
+                <option>Maasmechelen</option>
+                <option>Wertheim</option>
+            </select>
+            <p/>
+            <apex:form id="form">
+                <label>Include TBVSC: </label>
+                <apex:inputCheckbox id="includeTBVSC" />
+                <p/>
+                <label>Business Function: </label>
+                <apex:selectList id="businessFunctionOption" size="1">
+                    <apex:selectOptions value="{!businessFunctionOptions}" />
+                </apex:selectList>
+                <p/>
+                <label>Channel: </label>
+                <apex:selectList id="channelOption" size="1">
+                    <apex:selectOptions value="{!channelOptions}"/>
+                </apex:selectList>
+            </apex:form>
+        </td>
+        
+        <td align="center">
+            <form name="focusSelectForm">
+            <select multiple="multiple" size="5" name="focusSelection" id="focusSelection">
+                <option value="Theme">Theme</option>
+                <option value="Awareness and Positioning">Awareness and Positioning</option>
+                <option value="Promotional Moments">Promotional Moments</option>
+                <option value="Tactical Product Focus">Tactical Product Focus</option>
+                <option value="International Moments">International Moments</option>
+                <option value="Retail Brand Moments">Retail Brand Moments</option>
+                <option value="Local Moments">Local Moments</option>
+                <option value="Destination Marketing Moments">Destination Marketing Moments</option>
+                <option value="International Moments">International Always On</option>
+                <option value="Non-Campaigns">Non-Campaigns</option>
+                <option value="BAU">BAU</option>
+            </select>
+            </form>
+        </td>
+
+        <td align="center" bgcolor="#ffe1b3">
+            <label >Please enter a Year : </label>
+            <input type="text" required="true" name="year" id="year"></input>
+        </td>
+
+        <td align="center" bgcolor="#ffe1b3">
+            <label >Select a Quarter (Optional) : </label>
+            <select name="quarterSelection" id="quarterSelection" size="1">
+                <option>NA</option>
+                <option>Q1</option>
+                <option>Q2</option>
+                <option>Q3</option>
+                <option>Q4</option>
+                <option>Q1-Q2</option>
+                <option>Q2-Q3</option>
+                <option>Q3-Q4</option>
+            </select>
+        </td>
+
+    </tr>
+    </table>
+    </center>
+
+    <br></br>
+    <br></br>
+
+    <center>
+        <button id="Querybuttonrolling" onclick="runFocusQuery();" rerender="cenas">Run Report</button><br></br><br></br>
+        <button id="ExportButtonFocus" class="buttonHidden" onclick="ExportToExcel();">Export to Excel</button>
+    </center>
+    <apex:pageMessages id="cenas"></apex:pageMessages>   
+
+    <br></br>
+    <br></br>
+
+    <center>
+    <div id="thediv" >
+    </div>
+    </center>
+ 
+    </body>
+ </html>    
+</apex:page>

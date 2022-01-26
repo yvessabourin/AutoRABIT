@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All_to_check_Kildare</fullName>
+    <columns>NAME</columns>
+    <columns>Store__c</columns>
+    <columns>Trading_Date__c</columns>
+    <columns>Brand_Reported_Amount__c</columns>
+    <columns>NET_Value_of_Discounts__c</columns>
+    <columns>Total_NET_SALES__c</columns>
+    <columns>Brand_Status__c</columns>
+    <columns>Valid_for_Confirmation__c</columns>
+    <columns>Status__c</columns>
+    <columns>Lease_ID__c</columns>
+    <columns>UPDATEDBY_USER</columns>
+    <columns>LAST_UPDATE</columns>
+    <columns>Store_Closed__c</columns>
+    <columns>Brand_Note__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Village_Code__c</field>
+        <operation>equals</operation>
+        <value>KV</value>
+    </filters>
+    <filters>
+        <field>Trading_Date__c</field>
+        <operation>equals</operation>
+        <value>LAST_N_DAYS:28</value>
+    </filters>
+    <filters>
+        <field>Trading_Date__c</field>
+        <operation>notEqual</operation>
+        <value>TODAY</value>
+    </filters>
+    <label>All To Check - Kildare (28 Days)</label>
+    <language>en_US</language>
+</ListView>

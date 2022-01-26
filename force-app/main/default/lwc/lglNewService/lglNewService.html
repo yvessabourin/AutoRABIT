@@ -1,0 +1,26 @@
+<template>
+	<div class="lgl-sub-container">
+		<section if:true={sectionVisibility.searchSection}>
+			<c-lgl-card title="Add New Service Request">
+				<c-lgl-search-guest
+					slot="bodyContent"
+					onrowselection={handleGuestSelection}
+				></c-lgl-search-guest>
+			</c-lgl-card>
+		</section>
+		<section
+			if:true={sectionVisibility.searchSection}
+			class="slds-var-m-top_medium lgl-action-panel"
+		>
+			<button type="button" onclick={handleNewService}>New Service Request</button>
+		</section>
+		<section if:true={sectionVisibility.newServiceForm}>
+			<c-lgl-new-service-form
+				guest-id={selectedGuestId}
+				service-offerings={serviceOfferings}
+				onsave={handleSaveEvent}
+				oncancel={handleCancelEvent}
+			></c-lgl-new-service-form>
+		</section>
+	</div>
+</template>

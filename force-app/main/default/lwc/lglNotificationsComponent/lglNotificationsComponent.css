@@ -1,0 +1,47 @@
+.lgl-notification {
+	display: inline-flex;
+	align-items: center;
+	border-radius: var(--sds-c-toast-radius-border, var(--lwc-borderRadiusMedium, 0.25rem));
+	min-width: var(--sds-c-toast-sizing-min-width, 30rem);
+	text-align: left;
+	justify-content: flex-start;
+}
+
+.lgl-success-icon {
+	background-color: var(--lwc-colorBackgroundToastSuccess, rgb(4, 132, 75));
+}
+
+.lgl-error-icon {
+	background-color: var(--lwc-colorBackgroundToastError, rgb(194, 57, 52));
+}
+
+.lgl-warning-icon {
+	background-color: rgb(255, 183, 93);
+}
+
+.lgl-close-button {
+	cursor: pointer;
+}
+
+.lgl-hide {
+	transition: opacity 0.3s linear;
+	opacity: 0;
+}
+
+.slds-notify_container {
+	top: 20vh;
+}
+
+.slide-in-top {
+	animation-name: show-from-top;
+	animation-duration: 0.6s;
+}
+
+@keyframes show-from-top {
+	from {
+		top: -30%;
+	}
+	to {
+		top: 20vh;
+	}
+}

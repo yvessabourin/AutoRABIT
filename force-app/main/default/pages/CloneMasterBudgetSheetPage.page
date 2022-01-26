@@ -1,0 +1,5 @@
+<apex:page standardController="Master_Budget_Sheet__c" extensions="CloneMasterBudgetSheetController" recordSetVar="MasterBudgetSheets" lightningStylesheets="true" showQuickActionVfHeader="false" showHeader="false" title="Clone">
+    <flow:interview name="Mass_Clone_Master_Budget_Sheet" finishLocation="{!URLFOR($Action.Master_Budget_Sheet__c.List, $ObjectType.Master_Budget_Sheet__c)}" buttonLocation="bottom">
+        <apex:param name="selectedRecords" value="{!selectedItems}" />
+    </flow:interview>
+</apex:page>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Conversion_Rate__c</fullName>
+    <externalId>false</externalId>
+    <formula>Number_of_Transactions__c /  Footfall__c</formula>
+    <inlineHelpText>Ratio of transactions compared to store footfall</inlineHelpText>
+    <label>Conversion Rate</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>1</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Percent</type>
+</CustomField>

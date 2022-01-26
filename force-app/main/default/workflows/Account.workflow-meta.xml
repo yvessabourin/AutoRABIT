@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fieldUpdates>
+        <fullName>Marketing_Consent_Email_Date</fullName>
+        <field>Marketing_Consent_Email_Date__c</field>
+        <formula>NOW()</formula>
+        <name>Marketing Consent Email Date</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Populate_Account_Name_Unique</fullName>
+        <description>Populates this unique field. Salesforce will throw an error if an account of the same name already exists</description>
+        <field>Account_Name_unique__c</field>
+        <formula>Name &amp;  RecordType.DeveloperName</formula>
+        <name>Populate  Account Name Unique</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Fiscal_End_Date</fullName>
+        <field>Fiscal_End_date__c</field>
+        <formula>DATE( YEAR(Fiscal_End_date__c)+1,MONTH(Fiscal_End_date__c),DAY(Fiscal_End_date__c))</formula>
+        <name>Update Fiscal End Date</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Fiscal_End_Date2</fullName>
+        <field>Fiscal_End_date__c</field>
+        <formula>DATE( YEAR(Fiscal_End_date__c)+1,MONTH(Fiscal_End_date__c),DAY(Fiscal_End_date__c))</formula>
+        <name>Update Fiscal End Date2</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Fiscal_End_Date_Workflow_Field</fullName>
+        <field>Fiscal_End_Date_Workflow_Trigger__c</field>
+        <formula>1</formula>
+        <name>Update Fiscal End Date Workflow Field</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Fiscal_End_Date_Workflow_Field2</fullName>
+        <field>Fiscal_End_Date_Workflow_Trigger__c</field>
+        <formula>0</formula>
+        <name>Update Fiscal End Date Workflow Field2</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <rules>
+        <fullName>Populate Account Name Unique</fullName>
+        <actions>
+            <name>Populate_Account_Name_Unique</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Account.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Partner,Brand,Brand Head Office</value>
+        </criteriaItems>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Update Fiscal End Date</fullName>
+        <active>true</active>
+        <criteriaItems>
+            <field>Account.Fiscal_End_date__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.Fiscal_End_Date_Workflow_Trigger__c</field>
+            <operation>equals</operation>
+            <value>0</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Update_Fiscal_End_Date</name>
+                <type>FieldUpdate</type>
+            </actions>
+            <actions>
+                <name>Update_Fiscal_End_Date_Workflow_Field</name>
+                <type>FieldUpdate</type>
+            </actions>
+            <offsetFromField>Account.Fiscal_End_date__c</offsetFromField>
+            <timeLength>365</timeLength>
+            <workflowTimeTriggerUnit>Days</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Update Fiscal End Date 2</fullName>
+        <active>true</active>
+        <criteriaItems>
+            <field>Account.Fiscal_End_date__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.Fiscal_End_Date_Workflow_Trigger__c</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Update_Fiscal_End_Date2</name>
+                <type>FieldUpdate</type>
+            </actions>
+            <actions>
+                <name>Update_Fiscal_End_Date_Workflow_Field2</name>
+                <type>FieldUpdate</type>
+            </actions>
+            <offsetFromField>Account.Fiscal_End_date__c</offsetFromField>
+            <timeLength>365</timeLength>
+            <workflowTimeTriggerUnit>Days</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+</Workflow>

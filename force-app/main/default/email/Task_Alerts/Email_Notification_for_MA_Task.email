@@ -1,0 +1,12 @@
+Dear {!Task.Assigned_to_Full_Name__c},
+
+You have a Marketing Activity task due related to "{!Task.Related_To_Name__c}".
+
+Click here to go to the task in Salesforce.
+{!Task.Link}
+
+Once completed please ensure you mark the Status as "Completed".
+
+Kind regards
+
+VR1

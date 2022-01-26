@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Lead_Source_Prefix__c</fullName>
+    <description>Prefix string to lead source field value</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Enter an identifying lead source prefix value (if required)</inlineHelpText>
+    <label>Lead Source Prefix</label>
+    <length>50</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

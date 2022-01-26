@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomApplication xmlns="http://soap.sforce.com/2006/04/metadata">
+    <formFactors>Small</formFactors>
+    <formFactors>Large</formFactors>
+    <isNavAutoTempTabsDisabled>false</isNavAutoTempTabsDisabled>
+    <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
+    <label>HFS App</label>
+    <navType>Standard</navType>
+    <profileActionOverrides>
+        <actionName>Tab</actionName>
+        <content>Finance_HomePage</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>standard-home</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>Finance Sales Certification</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>Tab</actionName>
+        <content>Admin_Home_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>standard-home</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>System Administrator - Read Only</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>Tab</actionName>
+        <content>Admin_Home_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>standard-home</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>Admin</profile>
+    </profileActionOverrides>
+    <setupExperience>all</setupExperience>
+    <tabs>standard-home</tabs>
+    <tabs>TIC_Home</tabs>
+    <tabs>standard-Dashboard</tabs>
+    <tabs>standard-report</tabs>
+    <tabs>standard-Case</tabs>
+    <tabs>HFS_Job__c</tabs>
+    <tabs>HFS_Runner__c</tabs>
+    <tabs>HFS_Search_Purchase</tabs>
+    <tabs>Case_Item__c</tabs>
+    <tabs>HFS_Find_Bags</tabs>
+    <tabs>HFS_Bag__c</tabs>
+    <tabs>HFS_Storage_Point__c</tabs>
+    <tabs>HFS_Find_Storage_Location</tabs>
+    <tabs>HFS_Storage_Location__c</tabs>
+    <tabs>HFS_Relation_Collection_Storage__c</tabs>
+    <tabs>HFS_Collection_Point__c</tabs>
+    <tabs>HFS_Dashboard</tabs>
+    <tabs>LogFile__c</tabs>
+    <tabs>LGL_Service_Type__c</tabs>
+    <tabs>LGL_Service_Offering__c</tabs>
+    <tabs>LGL_Service__c</tabs>
+    <tabs>Room__c</tabs>
+    <tabs>PRX__Outreach_Automation__c</tabs>
+    <uiType>Lightning</uiType>
+</CustomApplication>

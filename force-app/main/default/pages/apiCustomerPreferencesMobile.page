@@ -1,0 +1,119 @@
+<apex:page StandardController="Account" extensions="apiCustomerPreferenceController" sidebar="false" showHeader="false" standardStylesheets="false"  applyBodyTag="false" docType="html-5.0" id="thePage">
+ 
+   <html xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">    
+       
+       <apex:includeScript value="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"/>
+
+        <body> 
+        <apex:form id="theForm">
+        <apex:actionFunction action="{!savePreferenceMobile}" reRender="thePage"  name="savePreference" status="processingStatus" oncomplete="buildHtml();">
+            <apex:param id="preference" name="preference" assignTo="{!preference}" value=""/>
+            <apex:param id="preferenceValue" name="preferenceValue" assignTo="{!preferenceValue}" value=""/>
+        </apex:actionFunction>
+        <c:ProcessSpinner2 MessageText="Saving, please wait ...." />
+               
+
+        <div class="slds">
+
+            <div id="preferences" class="slds-form--stacked">        
+            
+        
+        
+            </div>
+        
+        </div>
+        </apex:form> 
+        </body>
+        
+        <script>
+            $j = jQuery.noConflict();          
+            var preferencesDiv = document.getElementById("preferences");
+
+            
+            $j(document).ready(function() {
+                buildHtml();          
+            }) 
+            
+            function buildHtml(){
+            
+                var preferenceList =   $j.parseJSON('{!JSENCODE(preferenceJSON)}');  
+                var html = '';
+                console.log(preferenceList);
+
+                for (var key in preferenceList) {
+                  if (preferenceList.hasOwnProperty(key))
+                    console.log(key + ' -- --- --- ' + preferenceList[key]);
+                        var theKey = key.split(' ').join('');
+                        html += '<div class="slds-form-element">';
+                        html += '<label class="slds-form-element__label" for="' + key + '">' + key + '</label>';
+                        
+                        html += '<div class="slds-form-element__control">';
+                        html += '<div class="slds-select_container">';
+                        html += '<select id="' + theKey + '" name="' + theKey + '" class="slds-select" onchange="savePref(\'' + key + '\' );">';
+                            
+                        if (preferenceList[key] == 'true'){                        
+                            html += '<option value="">-- Not Specified --</option>';
+                            html += '<option value="true" selected="selected">Yes</option>';
+                            html += '<option value="false">No</option>';
+                        } else if ( preferenceList[key] == 'false'){
+                            html += '<option value="">-- Not Specified --</option>';
+                            html += '<option value="true">Yes</option>';
+                            html += '<option value="false" selected="selected">No</option>';
+                        } else {
+                            html += '<option value="" selected="selected">-- Not Specified --</option>';
+                            html += '<option value="true" >Yes</option>';
+                            html += '<option value="false">No</option>';                        
+                        }
+
+                        html += '</select>';
+                        html += '</div>';
+                        html += '</div>';
+                        html += '</div>';                    
+                    
+                }                
+                preferencesDiv.innerHTML = html;
+
+            
+            }
+            
+            function savePref(key){
+                
+                var theKey = key.split(' ').join('');
+                var value =    document.getElementById(theKey).value;
+                
+                savePreference(key, value);
+
+            
+            }
+                              
+        </script>
+<!--                     
+    <apex:pageBlock >
+    
+       
+     <apex:pageMessages id="prefMsgs"/>
+  -->       
+        <!-- <apex:pageBlockSection id="pbs" columns="2"  collapsible="false" title="" >  -->            
+
+            <!--
+            <apex:form >
+                <apex:actionFunction action="{!savePreference}" reRender="pbs,prefMsgs"  name="savePreference" status="processingStatus">
+                    <apex:param id="preference" name="preference" assignTo="{!preference}" value=""/>
+                </apex:actionFunction>
+                <c:ProcessSpinner2 MessageText="Saving, please wait ...." />
+                <apex:repeat value="{!customer.preferenceMap}" var="key">               
+                    {!key}<div style="float:right"> <apex:selectList value="{!customer.preferenceMap[key]}" multiselect="false" label="{!key}" size="1" readonly="false" onchange="savePreference('{!key}');" >
+                        <apex:selectOptions value="{!PreferenceOptions}"/>
+                    </apex:selectList> </div>
+                    <br/><hr/>
+                    <!-- <apex:commandButton oncomplete="savePreference('{!key}');" value="Save"/>  -->                  
+                <!-- </apex:repeat>                                       
+            </apex:form> -->
+            -->
+            
+     <!--  </apex:pageBlockSection>  -->
+         
+    <!--  </apex:pageBlock> -->
+</html>
+
+</apex:page>

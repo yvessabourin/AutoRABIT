@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help>Une unité est un article unique acheté par le client. Toutes les unités remboursées sont soustraites du nombre d&apos;unités vendues.</help>
+    <label>Nombre de produits vendus</label>
+    <name>Units_Sold__c</name>
+</CustomFieldTranslation>

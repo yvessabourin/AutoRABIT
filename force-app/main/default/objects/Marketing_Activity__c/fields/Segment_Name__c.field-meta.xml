@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Segment_Name__c</fullName>
+    <description>..</description>
+    <externalId>false</externalId>
+    <label>Segment Name</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>One Star</fullName>
+                <default>false</default>
+                <label>One Star</label>
+            </value>
+            <value>
+                <fullName>Two Star</fullName>
+                <default>false</default>
+                <label>Two Star</label>
+            </value>
+            <value>
+                <fullName>Three Star</fullName>
+                <default>false</default>
+                <label>Three Star</label>
+            </value>
+            <value>
+                <fullName>Four Star</fullName>
+                <default>false</default>
+                <label>Four Star</label>
+            </value>
+            <value>
+                <fullName>Five Star</fullName>
+                <default>false</default>
+                <label>Five Star</label>
+            </value>
+            <value>
+                <fullName>Six Star</fullName>
+                <default>false</default>
+                <label>Six Star</label>
+            </value>
+            <value>
+                <fullName>Seven Star</fullName>
+                <default>false</default>
+                <label>Seven Star</label>
+            </value>
+            <value>
+                <fullName>Eight Star</fullName>
+                <default>false</default>
+                <label>Eight Star</label>
+            </value>
+            <value>
+                <fullName>Nine Star</fullName>
+                <default>false</default>
+                <label>Nine Star</label>
+            </value>
+            <value>
+                <fullName>Ten Star</fullName>
+                <default>false</default>
+                <label>Ten Star</label>
+            </value>
+            <value>
+                <fullName>Eleven Star</fullName>
+                <default>false</default>
+                <label>Eleven Star</label>
+            </value>
+            <value>
+                <fullName>Twelve Star</fullName>
+                <default>false</default>
+                <label>Twelve Star</label>
+            </value>
+            <value>
+                <fullName>0. Zero Spend</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>0. Zero Spend</label>
+            </value>
+            <value>
+                <fullName>1. Ultra-Low Spend</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>1. Ultra-Low Spend</label>
+            </value>
+            <value>
+                <fullName>10. Ultra-High Spend</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>10. Ultra-High Spend</label>
+            </value>
+            <value>
+                <fullName>11. Hyper High Spend</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>11. Hyper High Spend</label>
+            </value>
+            <value>
+                <fullName>2. Low Spend</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>2. Low Spend</label>
+            </value>
+            <value>
+                <fullName>3. Mediocre Spend</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>3. Mediocre Spend</label>
+            </value>
+            <value>
+                <fullName>4. Moderate Spend</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>4. Moderate Spend</label>
+            </value>
+            <value>
+                <fullName>5. Medium Spend</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>5. Medium Spend</label>
+            </value>
+            <value>
+                <fullName>6. Nearly High Spend</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>6. Nearly High Spend</label>
+            </value>
+            <value>
+                <fullName>7. High Spend</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>7. High Spend</label>
+            </value>
+            <value>
+                <fullName>8. Very High Spend</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>8. Very High Spend</label>
+            </value>
+            <value>
+                <fullName>9. Super High Spend</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>9. Super High Spend</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>6</visibleLines>
+</CustomField>

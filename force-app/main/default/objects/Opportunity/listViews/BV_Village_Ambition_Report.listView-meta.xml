@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>BV_Village_Ambition_Report</fullName>
+    <columns>Primary_Deal__c</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>Position_Rating__c</columns>
+    <columns>Lease_Type__c</columns>
+    <columns>OPPORTUNITY.STAGE_NAME</columns>
+    <columns>Unit__c</columns>
+    <columns>Ideal_Size__c</columns>
+    <columns>Priority__c</columns>
+    <columns>Deliverability__c</columns>
+    <columns>Next_Step_Update_Description__c</columns>
+    <columns>Projected_Sales_Yield_Local__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>OPPORTUNITY.STAGE_NAME</field>
+        <operation>equals</operation>
+        <value>Pipeline,In discussion</value>
+    </filters>
+    <filters>
+        <field>Village__c</field>
+        <operation>equals</operation>
+        <value>Bicester</value>
+    </filters>
+    <filters>
+        <field>OPPORTUNITY.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Opportunity.New_Brand</value>
+    </filters>
+    <filters>
+        <field>Deliverability__c</field>
+        <operation>equals</operation>
+        <value>High,Medium</value>
+    </filters>
+    <filters>
+        <field>Priority__c</field>
+        <operation>equals</operation>
+        <value>High,Med,Medium</value>
+    </filters>
+    <filters>
+        <field>Ideal_Size__c</field>
+        <operation>greaterOrEqual</operation>
+        <value>800</value>
+    </filters>
+    <label>BV - Village Ambition Report</label>
+</ListView>

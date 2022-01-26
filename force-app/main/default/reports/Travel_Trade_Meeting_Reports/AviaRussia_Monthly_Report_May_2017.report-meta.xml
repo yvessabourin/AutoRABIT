@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>ACCOUNT.NAME</field>
+    </columns>
+    <columns>
+        <field>Travel_Trade_Meeting__c.Tourism_Contact__c</field>
+    </columns>
+    <columns>
+        <field>CUST_NAME</field>
+    </columns>
+    <columns>
+        <field>Travel_Trade_Meeting__c.Date_of_Meeting__c</field>
+    </columns>
+    <columns>
+        <field>Travel_Trade_Meeting__c.Meeting_Minutes__c</field>
+    </columns>
+    <columns>
+        <field>Travel_Trade_Meeting__c.Next_Steps__c</field>
+    </columns>
+    <columns>
+        <field>Travel_Trade_Meeting__c.VR_Representative__c</field>
+    </columns>
+    <currency>EUR</currency>
+    <filter>
+        <criteriaItems>
+            <column>Travel_Trade_Meeting__c.VR_Representative__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>Avia Russia</value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
+    <format>Tabular</format>
+    <name>AviaRussia Monthly Report_ May 2017</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>AccountCustomEntity$Travel_Trade_Meeting__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <sortColumn>Travel_Trade_Meeting__c.Date_of_Meeting__c</sortColumn>
+    <sortOrder>Asc</sortOrder>
+    <timeFrameFilter>
+        <dateColumn>Travel_Trade_Meeting__c.Date_of_Meeting__c</dateColumn>
+        <endDate>2017-05-31</endDate>
+        <interval>INTERVAL_CUSTOM</interval>
+        <startDate>2017-05-01</startDate>
+    </timeFrameFilter>
+</Report>

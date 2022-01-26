@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Room_Selection1</fullName>
+    <active>false</active>
+    <description>Room selection validation based on village name Kildare</description>
+    <errorConditionFormula>AND(  Village__r.Name =&apos;Kildare&apos;,
+NOT(ISBLANK ( Room__c )),
+       Room__r.Room_Name__c &lt;&gt;&apos;Peter&apos;,
+       Room__r.Room_Name__c &lt;&gt;&apos;Paul&apos;,
+       Room__r.Room_Name__c &lt;&gt;&apos;Mary&apos;)</errorConditionFormula>
+    <errorDisplayField>Room__c</errorDisplayField>
+    <errorMessage>If Village is Kildare then please select Rooms: Peter, Paul and Mary Only.</errorMessage>
+</ValidationRule>

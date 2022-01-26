@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Ignore_Validations_must_have_brand_note</fullName>
+    <active>true</active>
+    <description>If a record is set to ignore validations then there must be a brand note</description>
+    <errorConditionFormula>$Setup.Global_Object_Validation__c.Daily_Sales_Validations_Active__c
+&amp;&amp; Ignore_Validations__c 
+&amp;&amp;  ISBLANK( Brand_Note__c )</errorConditionFormula>
+    <errorDisplayField>Brand_Note__c</errorDisplayField>
+    <errorMessage>Please enter a note in the notes field if you wish to ignore validations</errorMessage>
+</ValidationRule>

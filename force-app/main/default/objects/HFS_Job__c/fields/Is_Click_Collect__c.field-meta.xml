@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Is_Click_Collect__c</fullName>
+    <description>Indicates if the parent Case for the Job is of type Click &amp; Collect</description>
+    <externalId>false</externalId>
+    <formula>HFS_Purchase__r.Case__r.HFS_Click_And_Collect__c</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Is Click &amp; Collect?</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

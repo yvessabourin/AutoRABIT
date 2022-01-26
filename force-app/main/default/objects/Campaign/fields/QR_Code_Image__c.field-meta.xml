@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>QR_Code_Image__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF( Multi_Village_Campaign__c = true &amp;&amp;  RecordType.DeveloperName = &apos;Group_Campaign&apos; &amp;&amp;  NOT(ISBLANK(X18_digit_id__c)) , IMAGE(&apos;https://chart.googleapis.com/chart?chs=256x256&amp;cht=qr&amp;chl=&apos;+  X18_digit_id__c  , &apos;QR Code&apos; ), 
+
+IF(  Parent.Multi_Village_Campaign__c  = false &amp;&amp;  RecordType.DeveloperName = &apos;Redeemable_Campaign&apos; &amp;&amp;  NOT(ISBLANK(X18_digit_id__c)), IMAGE(&apos;https://chart.googleapis.com/chart?chs=256x256&amp;cht=qr&amp;chl=&apos;+ X18_digit_id__c , &apos;QR Code&apos; ), 
+
+IF (RecordType.DeveloperName = &apos;Group_Campaign&apos; &amp;&amp;  NOT(ISBLANK(X18_digit_id__c)), &quot;&lt;&lt;QR codes at Group Campaign level are only available for Multi-Village Campaigns&gt;&gt;&quot;, IMAGE(&apos;https://chart.googleapis.com/chart?chs=256x256&amp;cht=qr&amp;chl=&apos;+ Parent.X18_digit_id__c , &apos;QR Code&apos; ) )))</formula>
+    <label>QR Code Image</label>
+    <required>false</required>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>villageExperienceRating__c</fullName>
+    <description>From survey to indicate how Customers experience of Village was rated</description>
+    <externalId>false</externalId>
+    <inlineHelpText>From survey to indicate how Customers experience of Village was rated</inlineHelpText>
+    <label>Village Experience Rating</label>
+    <length>50</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

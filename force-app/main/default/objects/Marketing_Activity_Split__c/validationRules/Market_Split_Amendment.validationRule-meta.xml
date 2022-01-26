@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Market_Split_Amendment</fullName>
+    <active>true</active>
+    <description>The Split Type of the Marketing Activity record must be set to Manual before attempting to amend a Marketing Split record.</description>
+    <errorConditionFormula>Text(Marketing_Activity__r.Split_Type__c)   = &apos;Weekly&apos; &amp;&amp;   OR(ISCHANGED( Date__c ), ISCHANGED( Expected_Average_Spend__c ), ISCHANGED( Expected_Footfall__c ), ISCHANGED(  Expected_New_Members__c ), ISCHANGED( Expected_Sales__c ), ISCHANGED( Tracked_Average_Spend__c ), ISCHANGED( Tracked_Footfall__c ), ISCHANGED( Tracked_New_Members__c ), ISCHANGED( Tracked_Sales__c ))</errorConditionFormula>
+    <errorMessage>The Split Type of the Marketing Activity record must be set to Manual before attempting to amend a Marketing Split record.</errorMessage>
+</ValidationRule>

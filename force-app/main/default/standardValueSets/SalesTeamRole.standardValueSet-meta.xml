@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sorted>false</sorted>
+    <standardValue>
+        <fullName>EU Brand Captain</fullName>
+        <default>false</default>
+        <label>EU Brand Captain</label>
+    </standardValue>
+    <standardValue>
+        <fullName>China Brand Captain</fullName>
+        <default>false</default>
+        <label>China Brand Captain</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Brand Advocate</fullName>
+        <default>false</default>
+        <label>Brand Advocate</label>
+    </standardValue>
+    <standardValue>
+        <fullName>GRS Captain</fullName>
+        <default>false</default>
+        <label>GRS Captain</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Keep Informed</fullName>
+        <default>false</default>
+        <label>Keep Informed</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Leasing Captain</fullName>
+        <default>false</default>
+        <label>Leasing Captain</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Retail Captain</fullName>
+        <default>false</default>
+        <label>Retail Captain</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Service Director</fullName>
+        <default>false</default>
+        <label>Service Director</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Business Director</fullName>
+        <default>false</default>
+        <label>Business Director</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Lead Negotiator</fullName>
+        <default>false</default>
+        <label>Lead Negotiator</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Co-Negotiator</fullName>
+        <default>false</default>
+        <label>Co-Negotiator</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Leasing Coordinator</fullName>
+        <default>false</default>
+        <label>Leasing Coordinator</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Leasing Facilitator</fullName>
+        <default>false</default>
+        <label>Leasing Facilitator</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Business Analyst</fullName>
+        <default>false</default>
+        <label>Business Analyst</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Legal Lead</fullName>
+        <default>false</default>
+        <label>Legal Lead</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Paralegal</fullName>
+        <default>false</default>
+        <label>Paralegal</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Tourism Assistant</fullName>
+        <default>false</default>
+        <label>Tourism Assistant</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Tourism Consultant</fullName>
+        <default>false</default>
+        <label>Tourism Consultant</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Tourism Director</fullName>
+        <default>false</default>
+        <label>Tourism Director</label>
+    </standardValue>
+</StandardValueSet>

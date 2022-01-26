@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Full_Price_Units_Higher_Total_Units</fullName>
+    <active>true</active>
+    <description>The Current Season Bestsellers Units cannot be higher than the total Units Sold for the day.</description>
+    <errorConditionFormula>OR(Full_Price_Units__c &gt; Units_Sold__c, AND( NOT(ISNULL(Full_Price_Units__c)),ISNULL(Units_Sold__c) ) ) &amp;&amp; NOT( Ignore_Validations__c )</errorConditionFormula>
+    <errorDisplayField>Full_Price_Units__c</errorDisplayField>
+    <errorMessage>The Current Season Bestsellers Units cannot be higher than the total Units Sold for the day.</errorMessage>
+</ValidationRule>

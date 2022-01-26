@@ -1,0 +1,21 @@
+<apex:page showHeader="true" sidebar="true" standardController="Brand_Segmentation_Approval__c" extensions="SegmentationEmailExtension" action="{!emailSegmentationRecord}" >
+	
+	<apex:form >
+	<apex:commandButton value="Email" action="{!emailSegmentationRecord}" rendered="false" />
+	<apex:inputHidden value="{!Id}"/>
+	<apex:outputText value="{!Brand_Segmentation_Approval__c.Approval_Date__c} {!Brand_Segmentation_Approval__c.Name}  {!Brand_Segmentation_Approval__c.Assigned_To__c} {!Brand_Segmentation_Approval__c.Assigned_To__r.Email} {!Brand_Segmentation_Approval__c.Assigned_To__r.Name} {!Brand_Segmentation_Approval__c.Brand__c} {!Brand_Segmentation_Approval__c.Brand__r.Name} {!Brand_Segmentation_Approval__c.Brand_Gender__c}  {!Brand_Segmentation_Approval__c.Brand_Guest_Relevance__c}  {!Brand_Segmentation_Approval__c.Brand_Segment__c}  {!Brand_Segmentation_Approval__c.Brand_Subsegment__c}  {!Brand_Segmentation_Approval__c.Brand_VR_Positioning__c}  {!Brand_Segmentation_Approval__c.Email_Notification_Date__c}  {!Brand_Segmentation_Approval__c.Status__c}" rendered="false"/>
+
+  <apex:pageMessages ></apex:pageMessages>
+	<br />
+<br />
+<button onclick="goBack();return false;">Go Back</button>
+
+
+<script type="text/javascript">
+function goBack() {
+	window.history.back();
+   return false;
+}
+</script>
+	</apex:form>
+</apex:page>

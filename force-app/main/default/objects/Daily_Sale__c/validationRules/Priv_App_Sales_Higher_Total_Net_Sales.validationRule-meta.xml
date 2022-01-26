@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Priv_App_Sales_Higher_Total_Net_Sales</fullName>
+    <active>false</active>
+    <description>The Brand Private Appointment Sales entered cannot be higher than the Total Sales entered for the day.</description>
+    <errorConditionFormula>$Setup.Global_Object_Validation__c.Daily_Sales_Validations_Active__c 
+&amp;&amp; ( OR(Brand_Private_Appointment_Sales__c &gt; Total_NET_SALES__c, AND( NOT(ISNULL(Brand_Private_Appointment_Sales__c)),ISNULL(Total_NET_SALES__c) ) ) &amp;&amp; NOT( Ignore_Validations__c ) )
+&amp;&amp; ( RecordType.DeveloperName = &apos;Current&apos; )</errorConditionFormula>
+    <errorDisplayField>Brand_Private_Appointment_Sales__c</errorDisplayField>
+    <errorMessage>The Brand Private Appointment Sales cannot be higher than the Total Net Sales.  The Total Net Sales should include all sales for the day.</errorMessage>
+</ValidationRule>

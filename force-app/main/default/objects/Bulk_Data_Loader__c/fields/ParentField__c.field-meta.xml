@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ParentField__c</fullName>
+    <description>The reference to the Parent object (if applicable). Format should be Object Reference field = Parent Field.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>The reference to the Parent object (if applicable). Format should be Object Reference field = Parent Object Field. eg AccountId=Account.Id</inlineHelpText>
+    <label>ParentField</label>
+    <length>50</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Participating_Brand__c$Campaign__c</field>
+    </columns>
+    <columns>
+        <field>Participating_Brand__c$Village_Presence__c</field>
+    </columns>
+    <columns>
+        <field>Participating_Brand__c$Feature_Details__c</field>
+    </columns>
+    <columns>
+        <field>Participating_Brand__c$Status__c</field>
+    </columns>
+    <currency>GBP</currency>
+    <filter>
+        <criteriaItems>
+            <column>Participating_Brand__c$Marketing_Activity__c.Marketing_Campaign__c.Village__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>La Vallée</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Participating_Brand__c$Marketing_Activity__c.Marketing_Campaign__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>LV19 - Avant Premières FW</value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
+    <format>Summary</format>
+    <name>LVV Participating Brands</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Participating_Brands__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <sortColumn>Participating_Brand__c$Feature_Details__c</sortColumn>
+    <sortOrder>Asc</sortOrder>
+    <timeFrameFilter>
+        <dateColumn>Participating_Brand__c$CreatedDate</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

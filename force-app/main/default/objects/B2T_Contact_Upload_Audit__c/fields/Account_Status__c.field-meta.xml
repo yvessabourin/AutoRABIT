@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Account_Status__c</fullName>
+    <externalId>false</externalId>
+    <label>Account Status</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>New Account Created</fullName>
+                <default>false</default>
+                <label>New Account Created</label>
+            </value>
+            <value>
+                <fullName>Existing Account Found</fullName>
+                <default>false</default>
+                <label>Existing Account Found</label>
+            </value>
+            <value>
+                <fullName>Multiple Existing Accounts</fullName>
+                <default>false</default>
+                <label>Multiple Existing Accounts</label>
+            </value>
+            <value>
+                <fullName>Lead Created</fullName>
+                <default>false</default>
+                <label>Lead Created</label>
+            </value>
+            <value>
+                <fullName>Upload Error</fullName>
+                <default>false</default>
+                <label>Upload Error</label>
+            </value>
+            <value>
+                <fullName>Processing</fullName>
+                <default>false</default>
+                <label>Processing</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

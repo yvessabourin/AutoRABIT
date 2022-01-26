@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>52.0</apiVersion>
+    <decisions>
+        <name>Expected_Arrival_date_populated</name>
+        <label>Expected Arrival date populated?</label>
+        <locationX>380</locationX>
+        <locationY>311</locationY>
+        <defaultConnector>
+            <targetReference>Updates_Walk_in_Booked_to_Walk_in</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No Expected Arrival Date</defaultConnectorLabel>
+        <rules>
+            <name>Has_Expected_Arrival_Date</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Arrival_Date__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+            </conditions>
+            <connector>
+                <targetReference>Has_it_been_five_days_past_the_expected_arrival_date</targetReference>
+            </connector>
+            <label>Has Expected Arrival Date</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Has_Check_in_date</name>
+        <label>Has Check in date?</label>
+        <locationX>380</locationX>
+        <locationY>983</locationY>
+        <defaultConnector>
+            <targetReference>Has_it_been_five_days_or_more_since_the_expected_arrival_date</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No Check in date</defaultConnectorLabel>
+        <rules>
+            <name>Check_in_date_populated</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Visit_Date_Time__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+            </conditions>
+            <connector>
+                <targetReference>Update_Visit_Status_to_Completed</targetReference>
+            </connector>
+            <label>Check in date populated</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Has_it_been_five_days_or_more_since_the_expected_arrival_date</name>
+        <label>Has it been five days or more since the expected arrival date?</label>
+        <locationX>578</locationX>
+        <locationY>1103</locationY>
+        <defaultConnector>
+            <targetReference>Updates_Visit_Status_to_Confirmed</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Hasn&apos;t been five days since expected arrival date</defaultConnectorLabel>
+        <rules>
+            <name>Has_been_five_days_or_more</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Flow.CurrentDate</leftValueReference>
+                <operator>GreaterThanOrEqualTo</operator>
+                <rightValue>
+                    <elementReference>FiveDaysPastExpectedArrivalDate</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Updates_Visit_Status_to_No_Show</targetReference>
+            </connector>
+            <label>Has been five days or more</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Has_it_been_five_days_past_the_expected_arrival_date</name>
+        <label>Has it been five days past the expected arrival date?</label>
+        <locationX>182</locationX>
+        <locationY>431</locationY>
+        <defaultConnector>
+            <targetReference>Updates_Walk_in_booked_to_Booked</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>It hasn&apos;t been five days</defaultConnectorLabel>
+        <rules>
+            <name>It_has_been_five_days</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Visit_Date_Time__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Flow.CurrentDate</leftValueReference>
+                <operator>GreaterThanOrEqualTo</operator>
+                <rightValue>
+                    <elementReference>FiveDaysPastExpectedArrivalDate</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Visit_status_No_Show</targetReference>
+            </connector>
+            <label>It has been five days</label>
+        </rules>
+    </decisions>
+    <formulas>
+        <name>FiveDaysPastExpectedArrivalDate</name>
+        <dataType>Date</dataType>
+        <expression>{!$Record.Arrival_Date__c}+5</expression>
+    </formulas>
+    <formulas>
+        <name>YesterdayDate</name>
+        <dataType>Date</dataType>
+        <expression>TODAY()+(-1)</expression>
+    </formulas>
+    <interviewLabel>Visit Walk In (Taz0 {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Visit Walk In (Taz)</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>Update_Visit_status_No_Show</name>
+        <label>Update Visit status No-Show</label>
+        <locationX>50</locationX>
+        <locationY>551</locationY>
+        <inputAssignments>
+            <field>Visit_Status__c</field>
+            <value>
+                <stringValue>No-show</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Visit_Status_to_Completed</name>
+        <label>Update Visit Status to Completed</label>
+        <locationX>182</locationX>
+        <locationY>1103</locationY>
+        <inputAssignments>
+            <field>Visit_Status__c</field>
+            <value>
+                <stringValue>Completed</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Updates_Visit_Status_to_Confirmed</name>
+        <label>Updates Visit Status to Confirmed</label>
+        <locationX>710</locationX>
+        <locationY>1223</locationY>
+        <inputAssignments>
+            <field>Visit_Status__c</field>
+            <value>
+                <stringValue>Confirmed</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Updates_Visit_Status_to_No_Show</name>
+        <label>Updates Visit Status to No-Show</label>
+        <locationX>446</locationX>
+        <locationY>1223</locationY>
+        <inputAssignments>
+            <field>Visit_Status__c</field>
+            <value>
+                <stringValue>No-show</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Updates_Walk_in_booked_to_Booked</name>
+        <label>Updates Walk in/Booked to Booked</label>
+        <locationX>314</locationX>
+        <locationY>551</locationY>
+        <connector>
+            <targetReference>Has_Check_in_date</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Walk_in_Booked__c</field>
+            <value>
+                <stringValue>Booked</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Updates_Walk_in_Booked_to_Walk_in</name>
+        <label>Updates Walk in/Booked to Walk in</label>
+        <locationX>578</locationX>
+        <locationY>431</locationY>
+        <connector>
+            <targetReference>Has_Check_in_date</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Walk_in_Booked__c</field>
+            <value>
+                <stringValue>Walk in</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>254</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Expected_Arrival_date_populated</targetReference>
+        </connector>
+        <object>Visit__c</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Draft</status>
+</Flow>

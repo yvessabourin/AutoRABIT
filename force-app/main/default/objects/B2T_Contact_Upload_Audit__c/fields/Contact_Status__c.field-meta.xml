@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Contact_Status__c</fullName>
+    <externalId>false</externalId>
+    <label>Contact Status</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>New Contact Created</fullName>
+                <default>false</default>
+                <label>New Contact Created</label>
+            </value>
+            <value>
+                <fullName>Existing Contact Found</fullName>
+                <default>false</default>
+                <label>Existing Contact Found</label>
+            </value>
+            <value>
+                <fullName>Multiple Existing Contacts</fullName>
+                <default>false</default>
+                <label>Multiple Existing Contacts</label>
+            </value>
+            <value>
+                <fullName>Upload Error</fullName>
+                <default>false</default>
+                <label>Upload Error</label>
+            </value>
+            <value>
+                <fullName>Processing</fullName>
+                <default>false</default>
+                <label>Processing</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

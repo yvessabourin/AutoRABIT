@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>In Village Brand Activity</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>In Village Brand Activities</value>
+    </caseValues>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>No_More_Than_1_Related_Activity_Record</name>
+    </validationRules>
+    <webLinks>
+        <label></label>
+        <name>Clone_In_Village_Brand_Activites</name>
+    </webLinks>
+    <webLinks>
+        <label></label>
+        <name>Mass_Edit_In_Village_Activities</name>
+    </webLinks>
+</CustomObjectTranslation>

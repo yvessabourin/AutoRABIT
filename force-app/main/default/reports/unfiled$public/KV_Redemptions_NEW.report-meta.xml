@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Promotion_Redemption__c$Voucher_Code__c</field>
+    </columns>
+    <columns>
+        <field>Promotion_Redemption__c$Redeem_Date__c</field>
+    </columns>
+    <filter>
+        <criteriaItems>
+            <column>Promotion_Redemption__c$Redeemable_Campaign__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>false</isUnlocked>
+            <operator>startsWith</operator>
+            <value>KV</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Promotion_Redemption__c$Redeemable_Campaign__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>false</isUnlocked>
+            <operator>notContain</operator>
+            <value>KV15 - Education</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Promotion_Redemption__c$Redeemable_Campaign__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>false</isUnlocked>
+            <operator>notContain</operator>
+            <value>groups</value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Promotion_Redemption__c$Redeemable_Campaign__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>KV Redemptions_NEW</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Promotion_Redemptions__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>Promotion_Redemption__c$Redeem_Date__c</dateColumn>
+        <interval>INTERVAL_TODAY</interval>
+    </timeFrameFilter>
+</Report>

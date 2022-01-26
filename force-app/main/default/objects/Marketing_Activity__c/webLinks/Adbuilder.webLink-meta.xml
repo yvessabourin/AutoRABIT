@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Adbuilder</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <linkType>javascript</linkType>
+    <masterLabel>Adbuilder</masterLabel>
+    <openType>onClickJavaScript</openType>
+    <protected>false</protected>
+    <url>{!REQUIRESCRIPT(&quot;/soap/ajax/30.0/connection.js&quot;)} 
+{!REQUIRESCRIPT(&quot;/soap/ajax/30.0/apex.js&quot;)}
+var obj =&quot;{!Marketing_Activity__c.Creative_Agency_Access_To_Salesforce__c}&quot;;
+var request = new sforce.SObject(&quot;Marketing_Activity__c&quot;);
+request.id = &quot;{!Marketing_Activity__c.Id}&quot;;
+if(typeof obj === &quot;undefined&quot; || obj === &quot;&quot;){
+alert(&quot;Please select the Creative Agency Access To Salesforce&quot;);
+}else{
+window.location.href=&quot;https://{!$Label.Adbuilder_Button_Link}/setup/ui/recordtypeselect.jsp?ent={!$Label.Adbuilder_Button_RecordTypeId}&amp;retURL=%2F{!$Label.Adbuilder_Button_Link2}%2Fo&amp;save_new_url=%2F{!$Label.Adbuilder_Button_Link2}%2Fe%3FretURL%3D%252F{!$Label.Adbuilder_Button_Link2}%252Fo&amp;{!$Label.Adbuilder_Button_FieldId}={!Marketing_Activity__c.Name}&quot;;
+}</url>
+</WebLink>

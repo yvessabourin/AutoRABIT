@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Confirmed_Records</fullName>
+    <columns>NAME</columns>
+    <columns>Store_Formula__c</columns>
+    <columns>Store__c</columns>
+    <columns>Brand_Status__c</columns>
+    <columns>Brand_Reported_Amount__c</columns>
+    <filterScope>Everything</filterScope>
+    <label>Confirmed Records</label>
+    <language>en_US</language>
+</ListView>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Tenancy_Posts__c</fullName>
+    <defaultValue>true</defaultValue>
+    <description>Determines whether to post to Tenancy chatter groups when Events are created against Opportunities.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Determines whether to post to Tenancy chatter groups when Events are created against Opportunities.</inlineHelpText>
+    <label>Tenancy Posts</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

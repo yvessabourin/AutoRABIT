@@ -1,0 +1,18 @@
+<apex:page standardController="Competitor_Visit__c" extensions="CompetitorVisitImagesController" lightningStylesheets="True">
+<apex:form rendered="{!show}">
+<input type="button" value="Print" onclick="window.print()" /> 
+</apex:form>
+
+<br></br>
+     
+<apex:pageBlock >
+<apex:pageBlockSection >
+<apex:repeat value="{!fileIdsLtg}" var="at">
+    <apex:pageBlockSectionItem >
+    <apex:image url="/sfc/servlet.shepherd/version/download/{!at}"  width="400" />
+    </apex:pageBlockSectionItem>
+</apex:repeat>
+</apex:pageBlockSection>
+</apex:pageBlock>
+
+</apex:page>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Entitled_Services__c</fullName>
+    <description>The VIP services that the guest is entitled to use</description>
+    <externalId>false</externalId>
+    <inlineHelpText>The VIP services that the guest is entitled to use. select multiple</inlineHelpText>
+    <label>Services Entitled To</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetName>VIP_Services</valueSetName>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>No_More_Than_1_Related_Activity_Record</fullName>
+    <active>true</active>
+    <errorConditionFormula>Related_MA_Count__c &gt; 1</errorConditionFormula>
+    <errorMessage>No more than 1 Related Marketing Activity can be added or created.</errorMessage>
+</ValidationRule>

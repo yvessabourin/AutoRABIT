@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All_HFS_Case_KV</fullName>
+    <columns>CASES.CASE_NUMBER</columns>
+    <columns>Service_Guest_Number__c</columns>
+    <columns>CASES.NAME</columns>
+    <columns>HFS_Collection_Location__c</columns>
+    <columns>Payment_Status__c</columns>
+    <columns>CASES.STATUS</columns>
+    <columns>CASES.CREATED_DATE</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Village__c</field>
+        <operation>equals</operation>
+        <value>Kildare</value>
+    </filters>
+    <label>All HFS Cases</label>
+    <language>en_US</language>
+    <sharedTo>
+        <group>Admins_group</group>
+        <group>KV_HFS_Co_ordinators</group>
+    </sharedTo>
+</ListView>

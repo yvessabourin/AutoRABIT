@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All_Marketing_Activities_WV</fullName>
+    <columns>Marketing_Campaign__c</columns>
+    <columns>NAME</columns>
+    <columns>Channel__c</columns>
+    <columns>Sub_Channel__c</columns>
+    <columns>Start_Date__c</columns>
+    <columns>End_Date__c</columns>
+    <columns>Reach__c</columns>
+    <columns>Objective__c</columns>
+    <columns>Message__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Start_Date__c</field>
+        <operation>greaterOrEqual</operation>
+        <value>9/1/2017</value>
+    </filters>
+    <filters>
+        <field>End_Date__c</field>
+        <operation>lessOrEqual</operation>
+        <value>12/30/2017</value>
+    </filters>
+    <filters>
+        <field>Marketing_Campaign_Village__c</field>
+        <operation>contains</operation>
+        <value>Wertheim</value>
+    </filters>
+    <filters>
+        <field>Status__c</field>
+        <operation>notContain</operation>
+        <value>Removed</value>
+    </filters>
+    <label>All Marketing Activities WV</label>
+    <language>en_US</language>
+    <sharedTo>
+        <role>Ingolstadt_Marketing</role>
+    </sharedTo>
+</ListView>

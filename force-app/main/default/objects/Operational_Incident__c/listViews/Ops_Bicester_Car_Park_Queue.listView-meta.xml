@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Ops_Bicester_Car_Park_Queue</fullName>
+    <columns>NAME</columns>
+    <columns>Category__c</columns>
+    <columns>Closure_Comments__c</columns>
+    <columns>Completed_By__c</columns>
+    <columns>Date_Completed__c</columns>
+    <columns>Due_Date__c</columns>
+    <columns>Location__c</columns>
+    <columns>Priority__c</columns>
+    <filterScope>Queue</filterScope>
+    <filters>
+        <field>Status__c</field>
+        <operation>notEqual</operation>
+        <value>Completed</value>
+    </filters>
+    <label>Ops Bicester Car Park Queue</label>
+    <queue>Ops_Bicester_Car_Park</queue>
+    <sharedTo>
+        <allInternalUsers></allInternalUsers>
+    </sharedTo>
+</ListView>

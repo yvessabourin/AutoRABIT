@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Daily_Sales_Active_To__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Enter the date for which the user should no longer be able to see daily sales records.  If this field is left empty then the user will be able to see the daily sales records indefinitely unless the user is deactivated.</inlineHelpText>
+    <label>Daily Sales Active To</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+</CustomField>

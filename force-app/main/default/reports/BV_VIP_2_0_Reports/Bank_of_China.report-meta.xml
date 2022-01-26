@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>VIP_Card_Exchange__c$Name</field>
+    </columns>
+    <description>2015 vs 2016</description>
+    <filter>
+        <booleanFilter>(1 OR 2 OR 3) AND 4</booleanFilter>
+        <criteriaItems>
+            <column>VIP_Card_Exchange__c$Visit__c.Partnership_Promotion__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>false</isUnlocked>
+            <operator>contains</operator>
+            <value>BOC</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>VIP_Card_Exchange__c$Visit__c.Partnership_Promotion__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>false</isUnlocked>
+            <operator>contains</operator>
+            <value>Bank of China</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>VIP_Card_Exchange__c$Visit__c.Partnership_Promotion__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>false</isUnlocked>
+            <operator>contains</operator>
+            <value>Bank-of-China</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>VIP_Card_Exchange__c$Visit__c.Partnership_Promotion__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>false</isUnlocked>
+            <operator>notContain</operator>
+            <value>LV</value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
+    <format>Matrix</format>
+    <groupingsAcross>
+        <dateGranularity>Month</dateGranularity>
+        <field>VIP_Card_Exchange__c$Visit__c.Visit_Date_Time__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsAcross>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>VIP_Card_Exchange__c$Visit__c.Partnership_Promotion__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>Bank of China</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>VIP_Card_Exchanges_for_Partnership_Promotions__c</reportType>
+    <scope>organization</scope>
+    <showDetails>false</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>VIP_Card_Exchange__c$CreatedDate</dateColumn>
+        <endDate>2016-12-31</endDate>
+        <interval>INTERVAL_CUSTOM</interval>
+        <startDate>2016-07-01</startDate>
+    </timeFrameFilter>
+</Report>

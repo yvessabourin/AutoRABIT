@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Fast_Track_Queuing__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Select if the Brand in village will be engaging in Fast Track Queuing</inlineHelpText>
+    <label>Fast Track Queuing</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Not for Now</fullName>
+                <default>false</default>
+                <label>Not for Now</label>
+            </value>
+            <value>
+                <fullName>In Discussion</fullName>
+                <default>false</default>
+                <label>In Discussion</label>
+            </value>
+            <value>
+                <fullName>Agreed</fullName>
+                <default>false</default>
+                <label>Agreed</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

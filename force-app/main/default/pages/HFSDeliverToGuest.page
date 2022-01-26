@@ -1,0 +1,126 @@
+<apex:page standardController="HFS_Job__c" extensions="HFSDeliverToGuestController" lightningStylesheets="true" action="{!updateBags}">
+    
+    <apex:includeScript value="{!URLFOR($Resource.HFS_qrv4, '/jquery.min.js')}"/>
+
+    <script>
+    
+     $j = jQuery.noConflict();
+    
+     $j(document).ready(function() {
+         
+         
+         if({!isBagDropJob}){            
+             alert('Quick Handover cannot be user for Bag Drop Jobs, you will now be redirected');  
+             if(  ('{!$User.UIThemeDisplayed}' == 'Theme4t' || '{!$User.UIThemeDisplayed}' == 'Theme4d' || '{!$User.UIThemeDisplayed}' == 'Theme4u') && (typeof sforce != 'undefined') && (sforce != null) ) {
+                 homeUrl = '/a1L/o';
+                 sforce.one.navigateToURL(homeUrl);
+             }
+             else{
+                 window.location.href = '/a1L/o';
+             }             
+         }else if({!allJobBagsSize} == 0){
+             alert('There are no bags available for this job, you will now be redirected');
+             if(  ('{!$User.UIThemeDisplayed}' == 'Theme4t' || '{!$User.UIThemeDisplayed}' == 'Theme4d' || '{!$User.UIThemeDisplayed}' == 'Theme4u') && (typeof sforce != 'undefined') && (sforce != null) ) {
+                 homeUrl = '/a1L/o';
+                 sforce.one.navigateToURL(homeUrl);
+             }else{
+                 window.location.href = '/a1L/o';
+             }                       
+         }    
+                     
+         
+        $j("#ConfPutaway").hide();
+         
+         $j("#checkHandoverButton").click(function() {
+
+              if({!allJobBagsSize} == {!currentScanCount} && {!currentScanCount} != 0){
+                
+                var theId = document.getElementById("result_c").value;
+                                
+                        HFSDeliverToGuestController.handOvertoGuest(theId, function(result, event) {  
+                                    // send the details to the server
+                                    console.log(result);
+                                    if (result.indexOf('ERROR') > -1){
+                                        alert('ERROR, please contact you Administrator ----- ' + result);                                                                    
+                                    } else {
+                                        
+                                        if(result.includes('Success')){
+                                            $j("#mainBlockDiv").hide();
+                                            $j("#ConfPutaway").show();
+                                            alert('The bag(s) assiciated with this job have been successfully handed over to the GSA');                                                
+                                            }
+                                        else{
+                                            alert(result);    
+                                            }                                         
+                                        console.log('trying to redirect' + result);                      
+                                        //window.location.href = '/apex/HFSDash';
+                            }
+                        });
+                
+                }
+            else if(({!allJobBagsSize} == {!currentScanCount} && {!currentScanCount} == 0)){
+                alert('There are no bags to scan for this job, please exit');
+                }
+            else{
+                alert('Please scan all the bags');
+                }        
+            }); 
+    });
+    
+    </script>
+    <apex:form >
+    <body style="font-family: sans-serif;font-size:9pt;">   
+    <div id="mainBlockDiv">
+    
+    <p><h3>Job number: {!HFS_Job__c.Name} </h3></p>
+    <p><h3>Pickup Location: {!HFS_Job__c.Pickup_Location__c}</h3></p>
+    <p><h3>Storage Point: {!HFS_Job__c.HFS_Guest_Collection_Point__c}</h3></p>
+    <p><h3>Guest: {!HFS_Job__c.Guest_ID_Code__c}</h3></p>
+    <apex:outputPanel id="pageMessages">
+        <apex:pageMessages escape="false" />
+    </apex:outputPanel>
+    <apex:pageBlock >
+        <apex:pageBlockTable value="{!allJobBags}" var="bag">
+            <apex:column value="{!bag.Barcode__c}" />
+            <apex:column value="{!bag.Scanned__c}" />
+            <apex:column value="{!bag.Scanned_for_Quick_Handover__c}" />
+        </apex:pageBlockTable>
+    </apex:pageBlock>
+    
+        <div align="center">
+            <apex:commandButton style="right:10px;position:relative;" value="Scan" action="{!scanBag}" rendered="{!assignedJob}"/>
+            <button type="button" id="checkHandoverButton">Handover</button>
+        </div>
+        <input id="result_c" value="{!HFS_Job__c.id}" type="hidden"></input>
+
+</div>
+
+</body>
+
+<!-- Confirm Putaway -->
+    <div id="ConfPutaway" name ="ConfPutaway" class ="modal fade" role ="dialog" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true" >
+        <br></br>
+        <br></br>
+        <br></br>
+
+        <div class="modal-dialog modal-sm"></div>
+            <!-- Modal content-->
+        
+        <div class="modal-content"></div>
+        <div class="modal-header" style="font-weight: bold; font-size:11pt;"> Bag(s) for this Job successfully put away to Location : {!HFS_Job__c.HFS_Guest_Collection_Point__c}
+        </div>
+      
+        <div class="modal-body" align="center">
+        <br/>
+        <br/>
+        <apex:commandButton style="right:20px;position:relative;" value="Current" action="{!CurrentJob}"/>
+        <apex:commandButton style="left:20px;position:relative;" value="Assigned" action="{!AssignedJob}"/>
+        <apex:commandButton style="left:50px;position:relative;" value="Available" action="{!AvailableJob}"/>
+            </div>
+        </div>
+ 
+<!-- Confirm Putaway end  -->
+
+    </apex:form>
+
+</apex:page>

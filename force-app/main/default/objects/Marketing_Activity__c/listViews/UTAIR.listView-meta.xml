@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>UTAIR</fullName>
+    <columns>NAME</columns>
+    <columns>Marketing_Campaign_Village__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Barcode__c</field>
+        <operation>equals</operation>
+        <value>0</value>
+    </filters>
+    <label>UTAIR</label>
+    <language>en_US</language>
+</ListView>

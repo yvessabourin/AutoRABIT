@@ -1,0 +1,1754 @@
+<apex:page standardController="Visit__c" extensions="VisitRedemptionsHelper" showHeader="false" standardStylesheets="false" sidebar="false" applyHtmlTag="false" applyBodyTag="false" docType="html-5.0">    
+
+   
+    <html xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >    
+    <head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>TIC Guest Checkin</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></link>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="{!URLFOR($Resource.NewTICStyles)}"></link>
+    <link href="https://cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/e8bddc60e73c1ec2475f827be36e1957af72e2ea/build/css/bootstrap-datetimepicker.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment-with-locales.js"></script>
+  <!--  <script src="//cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/e8bddc60e73c1ec2475f827be36e1957af72e2ea/src/js/bootstrap-datetimepicker.js"></script> -->
+
+    <apex:includeScript value="{!$Resource.Sorttable}"></apex:includeScript> 
+      <script src="{!URLFOR($Resource.NewTICScripts)}"></script>
+
+ <script src="{!URLFOR($Resource.DateTimePicker)}"></script>
+
+<style type="text/css">
+
+body{
+    background: url({!URLFOR($Resource.TICDashboard, 'BVWalk.jpg')}) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.input-group {
+    width: 100%;
+}
+
+.row {
+    margin-bottom: 20px;
+}
+
+.Thumbnail {
+    width: 40px;
+    height: 40px;
+    background: #2c3e50;
+    border-radius: 100px;
+}
+
+/*Business Card Css */
+.business-card {
+  border: 1px solid #cccccc;
+  background: #f8f8f8;
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+.profile-img {
+  height: 120px;
+  background: white;
+}
+
+  .validationfail {
+    border-color : #FF0000;
+    background-color : #f2dede;
+  }
+
+</style>
+
+        <script>
+            function isLightningRedirect(inUrl){
+                if ('{!$User.UITheme}' === 'Theme4d' || '{!$User.UITheme}' === 'Theme4t' || '{!$User.UITheme}' === 'Theme4u') {
+                    sforce.one.navigateToURL(inUrl);
+                } else {
+                    window.location = inUrl;
+                }
+            }
+        </script>
+
+        <script>
+ $j = jQuery.noConflict();
+
+            var homeUrl;
+            var headerText = '';
+            var country = '';
+            var loc = '';
+            var modeOfTransport = '';
+            var visitType = '';
+            var guestNumber = '';
+            var childNumber = '';
+            var visitId = '';
+            var visitDate = '';
+            var checkOut = '';
+            var vipCards = 0;
+            var promoNotes = '';
+
+            var assetsLoc = '{!URLFOR($Resource.SLDS0121)}';
+              
+            //ALJS Initialization   
+                   
+        /*    $j.aljsInit({            
+              assetsLocation: assetsLoc,
+              scoped: true
+            });*/
+              
+              // find out what menu item to highlight
+               //class="active"
+               //grouplistitem
+               //promolistitem
+
+            Number.prototype.padLeft = function(base,chr){
+               var  len = (String(base || 10).length - String(this).length)+1;
+               return len > 0? new Array(len).join(chr || '0')+this : this;
+            }
+                                
+            $j(document).ready(function() {
+                
+                $j(function () {
+                    $j('#datetimepicker1').datetimepicker({
+                        locale: 'en',
+                         format: 'DD/MM/YYYY HH:mm'
+                    });
+                $j('#datetimepicker2').datetimepicker({
+                        locale: 'en',
+                         format: 'DD/MM/YYYY HH:mm'
+                    });
+                /*
+                    $j('#datetimepicker1').datetimepicker();
+                     $j('#datetimepicker2').datetimepicker();*/
+
+                });
+
+
+
+          if({!isCheckedIn}){
+            // only show the re-send button, if the visit record is checked in.
+             $j('#btnReSendEmail').show();
+              $j('#btnPreScan').hide();
+                 // then, if the visit is checked in.... then it may also be checked out...
+                 if({!isCheckedOut}){
+                     $j('#SendCheckoutEmail').show();
+                 }
+                 else{
+                    $j('#SendCheckoutEmail').hide();
+                    
+                 }
+
+            }
+            else
+            {
+                $j('#btnReSendEmail').hide();
+                $j('#hfslistitem').hide();
+                // conversely, only show the pre-scan button.... if the guest is NOT yet checked in.
+                $j('#btnPreScan').show();
+                
+            }
+
+                // if the user submits codes in teh bulk popup
+                $j('#SubmitCodes').click(function() {
+                    try{
+
+                        // now we can read the content of the text area, and do a split on the semi colon, and dump the data into the codes box
+                        var array = $j('#txtBulkCodes').val().split(";");
+                        $j.each(array,function(i){     
+                            if(array[i]) {                      
+                             addCodeToList(array[i].trim());
+                            }
+                        });
+
+                    }
+                    catch(error){
+                    alert("Failed to add codes - " + error.message);
+                    }
+                });
+
+
+
+                $j('#saving').hide();
+
+                var email = "{!JSENCODE($CurrentPage.parameters.email)}";
+                var firstName = decodeURI("{!$CurrentPage.parameters.firstName}");
+                var lastName = decodeURI("{!$CurrentPage.parameters.lastName}");
+                country = "{!$CurrentPage.parameters.country}";
+                loc = "{!$CurrentPage.parameters.location}";
+                modeOfTransport = "{!$CurrentPage.parameters.modeOfTransport}";
+                visitType = "{!$CurrentPage.parameters.type}";
+                guestNumber = "{!$CurrentPage.parameters.guestNumber}";
+                childNumber = "{!$CurrentPage.parameters.childNumber}";
+                vipCards = "{!$CurrentPage.parameters.vipCards}";
+                visitId = "{!$CurrentPage.parameters.visitId}";
+                visitNotes = decodeURI("{!$CurrentPage.parameters.visitNotes}");       
+                vehiclereg = decodeURI("{!$CurrentPage.parameters.vehiclereg}");
+                visitDate =  "{!$CurrentPage.parameters.visitDate}";
+                checkOut = "{!$CurrentPage.parameters.checkOut}";
+                promoNotes = "{!JSENCODE($CurrentPage.parameters.promoNotes)}";
+
+                if (visitId){
+                    $j('#btnNoShow').prop('disabled', false);
+                    $j('#grouplistitem').addClass('active');
+                    $j('#promonameheading').html('Group Booking Name');
+                     $j('#promonotesheading').html('Notes and Additional Comments');                
+                } else {
+                    $j('#btnNoShow').prop('disabled', true); // not valid for a new record
+                    var promoId = '{!$CurrentPage.parameters.promoId}';
+                    if (promoId.substring(0, 3) == 'a0y'){
+                        visitType = 'Leisure';
+                        $j('#promolistitem').addClass('active');                        
+                        $j('#promonameheading').html('Promotion Name');
+                        $j('#promonotesheading').html('Promotion Notes');
+                    }
+                    else{
+                        $j('#grouplistitem').addClass('active');                      
+                        $j('#promonameheading').html('Group Booking Name');
+                        $j('#promonotesheading').html('Notes and Additional Comments');
+                    }
+                }
+                
+                                // if the user sends checkin email popup
+                $j('#SendCheckinEmail').click(function() {
+                    try{
+
+                        // now we can read the content of the text area, and do a split on the semi colon, and dump the data into the codes box
+                        var emailaddresstext = $j('#txtEmail').val();
+                       VisitRedemptionsHelper.resendCheckinEmail(emailaddresstext, visitId ,
+                                            function(result, event) {
+                                                if(result.includes("ERROR")){
+                                                alert(result);
+                                            }
+                                            else{
+                                                alert("Email sent");
+                                                 $j('#resendemailModal').modal('hide');
+                                            }
+                                            });
+
+                    }
+                    catch(error){
+                    alert("Failed to send Email - " + error.message);
+                    }
+                });
+                // if the user sends checkout email popup
+                $j('#SendCheckoutEmail').click(function() {
+                    try{
+
+                        // now we can read the content of the text area, and do a split on the semi colon, and dump the data into the codes box
+                        var emailaddresstext = $j('#txtEmail').val();
+                       VisitRedemptionsHelper.resendCheckoutEmail(emailaddresstext, visitId,
+                                              function(result, event) {
+                                                        if(result.includes("ERROR")){
+                                                alert(result);
+                                            }
+                                            else{
+                                                alert("Email sent");
+                                                 $j('#resendemailModal').modal('hide');
+                                            }
+                                            });
+                       
+
+                    }
+                    catch(error){
+                    alert("Failed to send Email - " + error.message);
+                    }
+                });
+
+                if (vipCards) {
+                    if (vipCards > 0){
+                 
+                        //getVIPCards(visitId);
+                        //$j('#cardsExchanged').html('&nbsp;  <p>' + vipCards + ' cards currently scanned for this visit.  <a target="_blank" href=/' + visitId + '> View Visit Record </a> </p><br/>');                      
+                         $j('#cardsExchanged').html('&nbsp;  <p>' + vipCards + ' cards currently scanned for this visit.  <a onclick="gotoVisit(visitId);"> View Visit Record </a> </p><br/>');
+                         $j('#cardsExchanged').css("display", "block");
+                    }
+                }
+                
+                headerText = firstName + ' ' + lastName;
+                if (email){
+                    email = decodeURIComponent(('{!$CurrentPage.parameters.email}' + '').replace(/\+/g, '%2B'));
+                    headerText += ' (' + email + ')';
+                }
+                 
+                var guestIdParam = '{!$CurrentPage.parameters.guestId}';
+                if( guestIdParam ) {
+                     $j('#GuestInfo').html('<br/><p>' + headerText + '</p>');                      
+                     $j('#GuestInfo').css("display", "block");
+                } else {
+                    $j('#GuestInfo').css("display", "none");
+                }
+
+                if(promoNotes) {
+                     $j('#promoNotes').html('<br/><p>' + promoNotes + '</p>');                      
+                     $j('#promoNotes').css("display", "block");
+                } else {
+                    $j('#promoNotes').css("display", "none");
+                }
+                                
+                getVisitDropdowns();   
+
+                if (guestNumber){
+                    $j('#numberOfGuests').val(guestNumber);
+                }
+                if(childNumber){
+                     $j('#numberOfChildren').val(childNumber);
+                }
+                
+                if (visitNotes){
+                    $j('#visitNotes').val(visitNotes);
+                }
+                 if (vehiclereg){
+                    $j('#vehicleregtxt').val(vehiclereg);
+                }
+                
+                
+                if (visitDate){
+                    $j('#dateOfVisit').val(visitDate);
+                } else {
+                    setDate($j("#dateOfVisit"), "Now");
+                }
+                
+                if(checkOut){
+                    $j('#checkOutTime').val(checkOut);
+                } 
+                        
+                if( (typeof sforce != 'undefined') && (sforce != null) ) {
+                 // running in mobile
+                    homeUrl = '/apex/Promotion_Search';
+                } else { //desktop
+                    homeUrl = '/apex/Promotion_Search';
+                }                 
+                $j('#home').attr('href', homeUrl);
+
+                $j('#promoNameD').html('{!HTMLENCODE($CurrentPage.parameters.promoName)}');
+                
+                /*
+                $j('#dateOfVisit').datepicker({
+                    onChange: function(datepicker) {
+                    var d;
+                    if (datepicker.selectedFullDate)
+                        d = datepicker.selectedFullDate._i.split('/');
+                    if (d){
+                        $j("#dateOfVisit").val('');
+                        var fd = d[1] + '/' + d[0] + '/' + d[2] + ' 12:00';
+                        $j("#dateOfVisit").val(fd);
+                    }     
+                   }
+                });
+                */
+                
+                /*             
+                $j('#checkOutTime').datepicker({
+                    onChange: function(datepicker) {
+                    var d;
+                    if (datepicker.selectedFullDate)
+                        d = datepicker.selectedFullDate._i.split('/');
+                    if (d){
+                        $j("#checkOutTime").val('');
+                        var fd = d[1] + '/' + d[0] + '/' + d[2] + ' 12:00';
+                        $j("#checkOutTime").val(fd);
+                    }     
+                   }
+                });
+                */
+                                               
+            });
+
+
+            function getVIPCards(visitId){
+                    
+                
+                VisitRedemptionsHelper.getVIPCards(visitId, function(result, event) {
+                                          
+
+                    if(event.status) {
+                    
+                        $j('#codes').val(result);
+
+                                               
+                          
+                    } else {
+                        console.log('ERROR  ' + result);
+     
+    
+                    }
+    
+                },{buffer: false, escape: false, timeout: 90000} );
+                    
+            }
+                        
+                        
+            function getVisitDropdowns(){
+    
+    
+                VisitRedemptionsHelper.getVisitDropdowns(function(result, event) {
+                    
+                    //console.log(result);                        
+                    
+    
+                    if(event.status) {
+                      
+                        var html = getDropdownValues(result, 'Location');
+                        $j( "#Location").append(function() {
+                           return html;
+                        });
+
+                        var html = getDropdownValues(result, 'TransportMode');
+                        $j( "#TransportMode").append(function() {
+                           return html;
+                        });
+                        
+                        var html = getDropdownValuesType(result, 'BusinessType');
+                        $j( "#BusinessType").append(function() {
+                           return html;
+                        });
+                        
+                        var html = getDropdownValues(result, 'Country');
+                        $j( "#Country").append(function() {
+                           return html;
+                        });                                                
+                        
+                        if (country){
+                            $j('#Country').val(country);
+                        }
+                        if (loc){
+                            $j('#Location').val(loc);
+                        }   
+                        if (modeOfTransport){
+                            $j('#TransportMode').val(modeOfTransport);
+                        }
+                        if (visitType){
+                            $j('#BusinessType').val(visitType);
+                        }
+                                               
+                          
+                    } else {
+                        console.log('ERROR  ' + result);
+     
+    
+                    }
+    
+                },{buffer: false, escape: false, timeout: 90000} );
+                    
+            }
+            
+            function getDropdownValuesType(values, key){
+                
+                var html = '';
+               // var ele=document.getElementById('{!$Component.frm.dummyType2}');
+
+                $j('.BusinessTypeVals option').each(function(i, selected){ 
+                    console.log("item == " + selected);
+                    if($j(selected).val() > ""){
+                        html += '<option>' +  $j(selected).val() + '</option>';
+                            
+                    }
+                });
+
+             /*   var idx=0;
+                var valText='';
+                console.log(ele);
+              //  html += '<select id="' + key + 'value" class="slds-select" value="" required="">';
+               // html +=  '<option></option>'  
+                for (idx=0; idx<ele.length; idx++)
+                {
+
+                     var item = ele.options[idx].text;
+                     console.log("item == " + item);
+                     if (item.indexOf("--None") < 0)                
+                         html += '<option>' + item + '</option>';
+                }
+             //   html += '</select>';
+              //  html += '<span id="' + key + 'Error" class="slds-form-element__help">This field is required</span>';
+                        */
+                return html; 
+            }
+            
+
+
+            function getDropdownValues(values, key){
+                
+                var html = '';
+                var obj = JSON.parse(values);
+                console.log(obj);
+                if (obj.hasOwnProperty(key)) {
+                    console.log(key + " -> " + obj[key]);
+                    var items = obj[key];
+                    var recCount = items.length;
+                    if (recCount > 0){
+                      //  html += '<select id="' + key + 'value" class="slds-select" value="" required="">';
+                      //  html +=  '<option></option>'                        
+                        
+                        for (var r=0; r < items.length; r++){
+                            var item = items[r];
+                            html += '<option>' + item + '</option>';
+                        }
+                      //  html += '</select>';
+                      //  html += '<span id="' + key + 'Error" class="slds-form-element__help">This field is required</span>';     
+                    } else {
+                        html = '';
+                    }
+                }
+                
+                return html;          
+            
+            }
+
+
+
+             //custom scripts functions to handle the ";" in the textbox -
+            var _timer = 0;
+            
+            function callMe() {
+                
+                var newCode =  $j('#codesinput').val() ;
+                addCodeToList(newCode);
+
+            }
+            function precallMe() {
+                
+                var newCode =  $j('#precodesinput').val() ;
+                preaddCodeToList(newCode);
+
+            }
+            function addCodeToList(code){
+                // first loop through the list to verify that the code isnt there already
+                if(code){
+                    var codeFound = false;
+                    $j('#codes option').each(function(i, selected){ 
+                        console.log(selected);
+                        if(code == $j(selected).val())
+                        {
+                            // then its already in the list
+                            codeFound = true;
+                        }                    
+                    });
+                    if(!codeFound)
+                    {
+                        $j('#codes').append(new Option(code, code, true, true));                    
+                    }
+                    
+                    $j('#codesinput').val("");
+                     $j('#cardcount').val("Cards scanned: " + $j('#codes option').length);
+                     //  $j('#numberOfGuests').val($j('#codes option').length);
+                }
+            }
+            function preaddCodeToList(code){
+                // first loop through the list to verify that the code isnt there already
+                if(code){
+                    var codeFound = false;
+                    $j('#precodes option').each(function(i, selected){ 
+                        console.log(selected);
+                        if(code == $j(selected).val())
+                        {
+                            // then its already in the list
+                            codeFound = true;
+                        }                    
+                    });
+                    if(!codeFound)
+                    {
+                        $j('#precodes').append(new Option(code, code, true, true));                    
+                    }
+                    
+                    $j('#precodesinput').val("");
+                     $j('#precardcount').val("Cards scanned: " + $j('#precodes option').length);
+                     //  $j('#numberOfGuests').val($j('#codes option').length);
+                }
+            }
+
+            function callRemove() {
+                
+                var newCode =  $j('#codesremove').val() ;
+                // first loop through the list to verify that the code isnt there already
+                var codeFound = false;
+                $j('#codes option').each(function(i, selected){ 
+                    console.log(selected);
+                    if(newCode == $j(selected).val())
+                    {
+                        // then its already in the list
+                        codeFound = true;
+                        $j(selected).remove();
+                    }                    
+                });
+            /*    if(codeFound)
+                {
+                    $j('#codes').find('option:selected').remove();
+                    $j('#codes').append(new Option(newCode, newCode, true, true));                    
+                }
+                */
+                $j('#codesremove').val("");
+                $j('#cardcount').val("Cards scanned: " + $j('#codes option').length);
+
+
+            }
+            
+            function precallRemove() {
+                
+                var newCode =  $j('#precodesremove').val() ;
+                // first loop through the list to verify that the code isnt there already
+                var codeFound = false;
+                $j('#precodes option').each(function(i, selected){ 
+                    console.log(selected);
+                    if(newCode == $j(selected).val())
+                    {
+                        // then its already in the list
+                        codeFound = true;
+                        $j(selected).remove();
+                    }                    
+                });
+            /*    if(codeFound)
+                {
+                    $j('#codes').find('option:selected').remove();
+                    $j('#codes').append(new Option(newCode, newCode, true, true));                    
+                }
+                */
+                $j('#precodesremove').val("");
+                $j('#precardcount').val("Cards scanned: " + $j('#precodes option').length);
+
+
+            }
+            
+            function DelayedCallMe(num) {
+                
+                if (_timer)
+                    window.clearTimeout(_timer);
+                    
+                _timer = window.setTimeout(function() { callMe(); }, 200);
+            }
+
+            function DelayedCallRemove(num) {
+                
+                if (_timer)
+                    window.clearTimeout(_timer);
+                    
+                _timer = window.setTimeout(function() { callRemove(); }, 200);
+            }
+               
+
+             function removeCodes() {
+                // remove the selected codes from the multi select
+
+                 $j('#codes').find('option:selected').remove();
+
+               // $j('#numberOfGuests').val($j('#codes option').length);
+                 $j('#cardcount').val("Cards scanned: " + $j('#codes option').length);
+            }
+
+            function bulkadd() {
+              
+                 $j('#bulkaddModal').modal('show');
+
+            }
+            // Pre scan section
+
+
+            function preDelayedCallMe(num) {
+                
+                if (_timer)
+                    window.clearTimeout(_timer);
+                    
+                _timer = window.setTimeout(function() { precallMe(); }, 200);
+            }
+
+            function preDelayedCallRemove(num) {
+                
+                if (_timer)
+                    window.clearTimeout(_timer);
+                    
+                _timer = window.setTimeout(function() { precallRemove(); }, 200);
+            }
+               
+
+             function preremoveCodes() {
+                // remove the selected codes from the multi select
+
+                 $j('#precodes').find('option:selected').remove();
+
+               // $j('#numberOfGuests').val($j('#codes option').length);
+                 $j('#precardcount').val("Cards scanned: " + $j('#precodes option').length);
+            }
+
+            function prebulkadd() {
+              // hmm, not sure if i want this....
+                 $j('#bulkaddModal').modal('show');
+
+            }
+            
+            function reSendEmail() {
+              
+                $j('#resendemailModal').modal('show');
+
+            }
+
+            function prescanCards() {
+              
+                $j('#prescanModal').modal('show');
+
+            }
+
+            //resendemailModal
+
+            //  END OF functions to handle the ";"  
+
+            function isValidDate(d) {
+
+                if ( Object.prototype.toString.call(d) !== "[object Date]" )
+                    return false;
+              return !isNaN(d.getTime());
+            }
+                        
+            function validateDates(){
+                
+                var b = true;
+                //var pattern = '[0-3][0-9]\/[0-1][0-9]\/[0-9]{4} [0-1][0-9]:[0-5][0-9]';
+                var pattern = '(([1-2]\\d)|(3[0-1]))\/((0\\d)|(1[0-2]))\/((1\\d{3})|(20\\d{2})) (([0-1]\\d)|(2[0-3])):([0-5]\\d):([0-5]\\d)';
+                var reg = new RegExp(pattern);
+                var chkIn =  $j('#dateOfVisit').val();
+                var chkOut =  $j('#checkOutTime').val();
+                var chkInDt = null;
+                var chkOutDt = null; 
+                
+                
+                if (chkIn){
+                    var d = chkIn.split(' ');
+                    if (d.length < 2){
+                        alert('Visit Date/Time must be in the format DD/MM/YYYY HH:MM === ' + chkIn);
+                        return b;                        
+                    }
+                    var t = d[1].split(':');
+                    console.log(d);
+                    console.log(t);
+                    var dt = d[0].split('/');
+                    var day =  parseInt(dt[0],10);
+                    var month = parseInt(dt[1] - 1,10);
+                    var year = parseInt(dt[2],10);
+                    var hrs = parseInt(t[0]);
+                    var min = parseInt(t[1]);
+                    console.log('check in .... '+ day + '/' + month + '/' + year + ' ' + hrs + ':' + min);                    
+                    chkInDt = new Date(year, month, day, hrs, min, 0, 0);                   
+                    console.log("Checkin Date = " + chkInDt);
+                    b = isValidDate(chkInDt);
+
+                    if (b){
+                        if (chkInDt.getFullYear() == year 
+                                    && chkInDt.getMonth()  == month 
+                                    && chkInDt.getDate() == day
+                                    && chkInDt.getHours() == hrs
+                                    && chkInDt.getMinutes() == min) {
+                            b = true;
+                            
+                        } else {
+                            b = false;
+                            //alert('An invalid entry has been made for the Visit Date/Time. The format must be DD/MM/YYYY HH:MM');
+                            $j('#FormatDateVisit').modal('show');
+                            return b;
+                        }
+                    } else {
+                        chkInDt = null;
+                        //alert('Visit Date/Time must be in the format DD/MM/YYYY HH:MM');
+                        $j('#FormatDatecheckIn').modal('show');
+                        return b;
+                    }
+                }
+
+                if (chkOut){
+                    var d = chkOut.split(' ');
+                    var t = d[1].split(':');
+                    console.log(d);
+                    console.log(t);
+                    var dt = d[0].split('/');
+                    var day =  parseInt(dt[0],10);
+                    var month = parseInt(dt[1] - 1,10);
+                    var year = parseInt(dt[2],10);
+                    var hrs = parseInt(t[0]);
+                    var min = parseInt(t[1]);
+                    console.log('check out .... '+ day + '/' + month + '/' + year + ' ' + hrs + ':' + min);                    
+                    chkOutDt = new Date(year, month, day, hrs, min, 0, 0);                   
+                    console.log(chkOutDt);
+                    b = isValidDate(chkOutDt);
+                    if (b){
+                        if (chkOutDt.getFullYear() == year 
+                                    && chkOutDt.getMonth()  == month 
+                                    && chkOutDt.getDate() == day
+                                    && chkOutDt.getHours() == hrs
+                                    && chkOutDt.getMinutes() == min) {
+                            b = true;
+                            
+                        } else {
+                            b = false;
+                            //alert('An invalid entry has been made for the Check out Date/Time. The format must be DD/MM/YYYY HH:MM');
+                            $j('#FormatDateCheckout').modal('show');
+                            return b;
+                        }
+                    } else {
+                        chkOutDt = null;
+                        //alert('Check out Date/Time must be in the format DD/MM/YYYY HH:MM');
+                        $j('#FormatDateCheckoutVisit').modal('show');
+                        return b;
+                    }
+                    if (chkOutDt){
+                        if (chkInDt == null) {
+                            b = false;
+                            //alert('Please enter a valid Visit Date/Time');
+                            $j('#ValidVisitDate').modal('show');
+                        } else {
+                            if (chkInDt > chkOutDt){
+                                b = false;
+                                //alert('The Check out Date/Time must be after the Visit Date/Time');
+                                $j('#dataTimeCheckOut').modal('show');
+                            }
+                        }
+                        
+                        
+                    }
+                }
+                
+                return b;                
+                                
+            }
+            
+              function savePreScanVisit(){
+                // saves only the pre-scanned cards to the visit
+                 $j('#saving').show();
+                 var codes =  '';
+                var codecount = 0;
+                  $j('#precodes option').each(function(i, selected){                    
+                        codecount ++;
+                         codes += $j(selected).val() + ';' ;
+
+                  });
+                  console.log("pre codes = " + codes);
+
+                VisitRedemptionsHelper.savePreScannedVisit(codes, visitId, function(result, event) {
+                        $j('#saving').hide();
+                        console.log(result);                        
+                        
+                        var err = result.indexOf("ERROR");
+                        var url = '';
+                        if(event.status && err < 0) {
+                            alert(result);
+                            isLightningRedirect('/apex/TIC_Dashboard');
+                                        
+                        } else {
+                            alert(result);                           
+                            console.log('ERROR  ' + result);
+        
+                        }                        
+
+                        },{buffer: false, escape: false, timeout: 90000} );
+
+
+              }
+
+            function saveVisit(addGuest, addBatch, button){
+                // before we validate the elements, lets see if the number of guests is set, and if not, lets copy the number of cards scanned as that value.
+                var codes =  '';
+                var codecount = 0;
+                  $j('#codes option').each(function(i, selected){                    
+                        codecount ++;
+                         codes += $j(selected).val() + ';' ;
+
+                  });
+                  console.log("codes = " + codes);
+
+               // if($j('#numberOfGuests').val() == ''){              
+               //     $j('#numberOfGuests').val(codecount);
+               // }
+                 if(ValidateElements()){
+                    $j('#saving').show();
+
+                var promoId = '{!$CurrentPage.parameters.promoId}';
+                var promoName = '{!JSENCODE($CurrentPage.parameters.promoName)}';
+                var guestId = '{!$CurrentPage.parameters.guestId}';
+
+              /*  if (codes){
+                    codes = codes.replace(/[\n\r]/g, '');
+                    if (codes.length < 14){
+                        codes = '';
+                    }    
+                }      */         
+                var location = $j('#Location').val();
+                var businessType= $j('#BusinessType').val();
+                var transport = $j('#TransportMode').val();
+                var country = $j('#Country').val();
+                var visitNotes =  $j('#visitNotes').val(); 
+                var vehiclereg = $j('#vehicleregtxt').val();
+                var checkIn =  $j('#dateOfVisit').val();
+                var checkOut =  $j('#checkOutTime').val();
+                var numberOfGuests =  $j('#numberOfGuests').val();
+                var numberOfChildren = $j('#numberOfChildren').val();
+                numberOfGuests = numberOfGuests.replace(/ /g, '');
+                numberOfChildren = numberOfChildren.replace(/ /g, '');
+                
+                button.prop('disabled',true);
+                
+                ValidateElements();
+
+                var b = validateDates();
+                if (!b){
+                    $j('#saving').hide();
+                    button.prop('disabled',false); 
+                    return;
+                }
+                
+                if (checkIn || promoId.substring(0, 3) == 'a0y'){
+                    if (!numberOfGuests && !codes){
+                        $j('#saving').hide();
+                        //alert('As no cards have been scanned, Please enter the number of adult guests checked-in with this visit');
+                        $j('#numberOfGuestsCardscanned').modal('show');
+                        $j('#numberOfGuestsH').addClass("slds-has-error");
+                        button.prop('disabled',false);
+                        return;
+                    }
+                
+                }
+                if (numberOfGuests){
+                    
+                    if (isNaN(numberOfGuests)){
+                        $j('#saving').hide();
+                        //alert('Number of adult guests entered is not a valid number.');
+                        $j('#openModalnumberOfGuests').modal('show');
+                        $j('#numberOfGuestsH').addClass("slds-has-error");
+                        button.prop('disabled',false);
+                        return;                    
+                    } 
+                }
+                if (numberOfChildren){
+                    
+                    if (numberOfGuests != '' && isNaN(numberOfChildren )){
+                        $j('#saving').hide();
+                        // alert('Number of children entered is not a valid number.');
+                        $j('#numberOfChildrenModal').modal('show');
+                        $j('#numberOfChildren').addClass("slds-has-error");
+                        button.prop('disabled',false);
+                        return;                    
+                    } 
+                }
+                
+                if (!codes && numberOfGuests == '0'){
+                    $j('#saving').hide();
+                    //alert('Number of adult guests entered is not valid.');
+                     $j('#openModalAdultGuest').modal('show');
+                    $j('#numberOfGuestsH').addClass("slds-has-error");
+                    button.prop('disabled',false);
+                    return;                           
+                }
+                    console.log('Guest Id ... ' + guestId);
+               
+                if ( !promoId){
+                    $j('#saving').hide();
+                    //alert ('Visit record must have associated Activity Promotion or Booking/Partnership record');
+                    $j('#BookingPartnership').modal('show');
+                    button.prop('disabled',false); 
+                
+                } else if (!location || !transport || !businessType || !country) {
+                    $j('#saving').hide();
+                    //alert('All visit information fields must be entered');
+                    $j('#InformationVisit').modal('show');
+                    button.prop('disabled',false); 
+                    if(!location){
+                        $j('#locationH').addClass("slds-has-error");
+                    } else {
+                        $j('#locationH').removeClass("slds-has-error");
+                    }
+                    if(!transport){
+                        $j('#transportH').addClass("slds-has-error");
+                    } else {
+                        $j('#transportH').removeClass("slds-has-error");
+                    }
+                    if(!businessType){
+                        $j('#BusinessTypeH').addClass("slds-has-error");
+                    } else {
+                        $j('#BusinessTypeH').removeClass("slds-has-error");
+                    }                
+                    if(!country){
+                        $j('#CountryH').addClass("slds-has-error");
+                    } else {
+                        $j('#CountryH').removeClass("slds-has-error");
+                    } 
+                } else {
+                    VisitRedemptionsHelper.saveVisit(codes, promoId, guestId, location, transport, businessType, country,visitId, visitNotes,vehiclereg, checkIn, checkOut, numberOfGuests ,numberOfChildren, function(result, event) {
+                        $j('#saving').hide();
+                        console.log(result);                        
+
+                        var err = result.indexOf("ERROR");
+                        var url = '';
+                        if(event.status && err < 0) {
+                            if (addBatch) {
+                                alert(result);
+                                $j('#codes').val('');
+                                $j('#GuestInfo').css("display", "none");
+                                isLightningRedirect(encodeURI('/apex/VisitVIPCardIssue?promoId=' + promoId + '&promoName=' + promoName));
+
+                            } else if(addGuest){                            
+                                alert(result);
+                                var recType = '{!guestRecType}';
+                                isLightningRedirect(encodeURI('/apex/VisitRedemptionGuest?promoId=' + promoId + '&promoName=' + promoName + '&recTypeId=' + recType + '&country=' + country + '&location=' + location + '&modeOfTransport=' + transport + '&visitType=' + businessType));
+
+                            } else {
+                                isLightningRedirect('/apex/TIC_Dashboard');
+                            } 
+                            
+                        } else {
+                            alert(result);
+                            button.prop('disabled',false);  
+                            console.log('ERROR  ' + result);
+         
+        
+                        }
+        
+                    },{buffer: false, escape: false, timeout: 90000} );
+                }  
+                } // end of if validate elements 
+            }
+
+            function cancelAction(){
+                isLightningRedirect(homeUrl);
+            }
+
+            function gotoVisit(vId){
+                isLightningRedirect('/' + vId);
+            }
+            
+            function setDate(x, t){
+                var d = new Date();
+
+                dformat =[ d.getDate().padLeft(),
+                           (d.getMonth()+1).padLeft(),                    
+                    d.getFullYear()].join('/')+
+                    ' ' +
+                  [ d.getHours().padLeft(),
+                    d.getMinutes().padLeft()].join(':');
+
+                if (t == 'AM'){
+                    var a = dformat.split(' ');
+                    dformat = a[0] + ' ' + '10:00'; 
+                }
+                if (t == 'PM'){
+                    var a = dformat.split(' ');
+                    dformat = a[0] + ' ' + '14:00'; 
+                }                
+                
+                x.val(dformat);
+            }
+
+
+            function noShow(){
+
+                var r = confirm("Are you sure you wish to mark the visit as a 'No Show'?\nThis will remove all scanned cards and mark the visit as a 'No Show'");
+                if (r == true) {
+                    
+                    // make call to set visit record as a no show
+                        VisitRedemptionsHelper.noShow(visitId, function(result, event) {
+                            $j('#saving').hide();
+                            console.log(result);                        
+                            
+                            var err = result.indexOf("ERROR");
+                            var url = '';
+                            if(event.status && err < 0) {
+                                //alert('Visit record has been marked as a No Show');
+                                $j('#VisitRecord').modal('show');
+                                cancelAction();
+                            } else {
+                                alert(result); 
+                                console.log('ERROR  ' + result);
+                            }                    
+                        },{buffer: false, escape: false, timeout: 90000} );
+                        
+                } else {
+                    $j('#saving').hide();
+                    return;
+                }                                                
+            
+            }
+                                       
+        </script>
+        </head>
+                
+        <body>
+      <!-- Main Navigation -->
+      <div class="my-nav">
+         <div class="site-navbar navbar navbar-fixed-top" role="navigation">
+            <div class="container">
+               <div class="navbar-header">
+                  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+                   <a class="navbar-brand" onclick="gotoPage('TIC_Dashboard');">Tourist Information Center</a> 
+               </div>
+               <div id="navbar" class="navbar-collapse collapse">
+                  <ul class="nav navbar-nav navbar-right">
+                     <li> <a  href="#group" name="grouplistitem" id="grouplistitem" onclick="gotoPage('GroupBooking_Search');" >Group Check In</a> </li>
+                     <li> <a  href="#guest" name="promolistitem" id="promolistitem" onclick="gotoPage('Promotion_Search');" >Guest Check In</a> </li>
+                     <li> <a  href="#search" onclick="gotoPage('GuestSearch');">Guest Search</a> </li>
+                     <li> <a  href="#card"  onclick="gotoPage('VIPCardSearch');">Card Search</a> </li>
+                     <li> <a  href="#clean"  onclick="gotoPage('VIPCardCleardown');">VIP Card Cleanup</a> </li>
+                      <li id="hfslistitem" name="hfslistitem"> <a  href="#hfs"  onclick="gotoPage('HFSDash');">Hands Free Shopping</a> </li>
+                     <li> <a  href="#exit" onclick="cancelAction();" >Exit</a> </li>
+                  </ul>
+               </div>
+               <!--/.nav-collapse -->
+            </div>
+         </div>
+      </div>
+      <!-- /.Main Navigation -->
+      <!-- Fullwidth Header -->
+      <!-- Intro Header -->
+
+      
+<div class="jumbotron text-center">
+  <h2>&nbsp;</h2>
+</div>
+
+
+
+<div class="container" ng-controller="GroupCtrl">  
+
+ <div id="saving" name="saving" class="modal" role="dialog">
+      <div class="modal-dialog">
+        <div id="loader">
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+        </div>
+      </div>
+    </div>
+
+<!-- Modal -->
+<div class="modal fade" id="bulkaddModal" tabindex="-1" role="dialog" aria-labelledby="bulkaddModal" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="bulkaddModalLabel">Bulk Add VIP Cards</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="float: right;">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" style="width: 100%; height: 80%; overflow-y: scroll;">      
+      <div id="termsdiv" style="margin-right: auto;margin-left: auto;">
+      Please paste your semi colon (;) separated list of QR codes here.
+      <br/>
+     <textarea name="txtBulkCodes" id="txtBulkCodes" cols="40" rows="5" style="width:100%;"></textarea>
+       <!-- put box content here -->
+           <br />
+       </div>
+       
+      </div>
+      <div class="modal-footer">
+       <a href="#" style="float: left;" class="submitbutton" id="SubmitCodes" data-dismiss="modal">Submit Codes</a>
+         <a href="#" style="float: right;" class="submitbutton" data-dismiss="modal">Close</a>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- resend email modal -->
+
+<!-- Modal -->
+<div class="modal fade" id="resendemailModal" tabindex="-1" role="dialog" aria-labelledby="resendemailModal" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="resendemailModalLabel">Resend Emails</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" style="width: 100%; height: 80%; overflow-y: scroll;">      
+      <div id="termsdiv" style="margin-right: auto;margin-left: auto;">
+      Please add a specific emails here. (separated by ; ) 
+      <br/>
+     <input type="text" name="txtEmail" id="txtEmail" style="width:100%;"></input>
+       <!-- put box content here -->
+           <br />
+       </div>
+       
+      </div>
+      <div class="modal-footer">
+       <button style="float: left;" role="button" class="btn btn-default" id="SendCheckinEmail" >Send Check-In Email</button>&nbsp;
+       <button href="#" style="float: left;" role="button" class="btn btn-default" id="SendCheckoutEmail">Send Check-Out Email</button>&nbsp;
+         <a href="#" style="float: right;" role="button" class="btn btn-default" data-dismiss="modal">Close</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- end of resend email modal -->
+
+<!-- PreScan Modal -->
+
+
+<div class="modal fade" id="prescanModal" tabindex="-1" role="dialog" aria-labelledby="prescanModal" aria-hidden="true">
+  <div class="modal-dialog" role="document" style="width:800px;">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="prescanModalLabel">Pre-Scan VIP Cards</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" style="width: 100%; height: 80%; overflow-y: scroll;">      
+     
+ <div  class="row" >  
+
+            <div class="col-md-4">
+                <div class="input-group"> 
+                    <span class="tooltiptext">Scan to add VIP Cards</span>
+                    <span class="input-group-addon"><i class="fa fa-qrcode"></i></span>  
+                    <input type="text" id="precodesinput" class="form-control" placeholder="Scan to add VIP cards here .." oninput="preDelayedCallMe(200);"></input>                          
+                </div>  
+                 <br/>
+                      
+             </div> 
+              <div class="col-md-4">
+                <div class="input-group"> 
+                    <select id="precodes" multiple="true" class="form-control" placeholder="Scanned VIP cards" ></select>                 
+                </div>  
+                 <div class="input-group"> 
+                    <span class="tooltiptext">Cards Scanned</span>
+                    <span class="input-group-addon"><i class="fa fa-tags"></i></span>  
+                    <input type="text" id="precardcount" class="form-control" placeholder="Cards Scanned: 0" disabled="disabled"></input>                   
+                </div>    
+             </div> 
+              <div class="col-md-4">
+               <div class="input-group"> 
+                    <span class="tooltiptext">Scan to REMOVE VIP Cards</span>
+                    <span class="input-group-addon"><i class="fa fa-qrcode"></i></span>  
+                    <input type="text" id="precodesremove" class="form-control" placeholder="Scan to remove VIP cards here .." oninput="preDelayedCallRemove(200);"></input>                   
+                </div>     
+                <br/>
+                <div class="input-group">                   
+                    <button id="removeCode" class="btn btn-default" role="button"  onclick="preremoveCodes();">Remove Selected Codes</button>               
+                </div> 
+             </div> 
+        </div>
+       
+      </div>
+      <div class="modal-footer">
+       <button style="float: left;" role="button" class="btn btn-default" id="SavePrescan" onclick="savePreScanVisit();" >Save Pre-scanned cards</button>&nbsp;
+         <a href="#" style="float: right;" role="button" class="btn btn-default" data-dismiss="modal">Close</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+   
+
+
+        <!-- end of prescan modal -->
+
+<div id="actions" name = "actions">
+<br/>
+  <div class="input-group">
+  <a onclick="cancelAction();" class="btn btn-default"><i class="glyphicon glyphicon-home"></i></a>
+  </div>
+<br/>
+</div>
+
+<div id="guestform" name="guestform" >
+<div class="panel panel-default disable" id="registerpanel" name="registerpanel">
+  <div class="panel-heading">Visit Details</div>
+  <div class="panel-body">
+
+<div class="panel panel-default">
+<div class="panel-body"  style="color:#FFF; background-color: rgba(10, 10, 10, 0.6);">
+<div class="row">
+<div class="col-sm-4"><b name="promonameheading" id="promonameheading">Promotion Name</b></div>
+<div class="col-sm-4"><b>Guest Info</b></div>
+<div class="col-sm-4"><b name="promonotesheading" id="promonotesheading">Promotion Notes</b></div>
+</div>
+<div class="row">
+<div class="col-sm-4"><p id="promoNameD">  </p></div>
+<div class="col-sm-4"><div id="GuestInfo" ></div></div>
+<div class="col-sm-4"><div id="promoNotes" ></div></div>
+</div>
+<div class="row">
+<div class="col-sm-4"></div>
+<div class="col-sm-4"></div>
+<div class="col-sm-4"><div id="visitActions" > <button id="btnReSendEmail" class="btn btn-default" role="button" onclick="reSendEmail();">Re-send Check-in/out email</button><br />
+<button id="btnPreScan" class="btn btn-default" role="button" onclick="prescanCards();">Pre-Scan VIP Cards</button> </div></div>
+</div>
+</div>
+</div>            
+            
+            <br/>
+     
+     <div  class="row" >  
+                 <div class="col-md-4">
+                <div class="input-group"> 
+                    <span class="tooltiptext">Location</span>
+                    <span class="input-group-addon"><i class="fa fa-map-marker"></i></span>
+                    <select class="form-control requiredfield" placeholder="Location" id="Location" name="Location">     
+                        <option value="placeholder" selected="selected" disabled="disabled">* Location</option>
+                    </select>     
+                </div>
+            </div>  
+
+            <div class="col-md-4">
+                <div class="input-group"> 
+                    <span class="tooltiptext">Mode Of Transport</span>
+                    <span class="input-group-addon"><i class="fa fa-bus"></i></span>
+                    <select class="form-control requiredfield" placeholder="Mode of Transport" id="TransportMode" name="TransportMode">     
+                        <option value="placeholder" selected="selected" disabled="disabled">* Mode of Transport</option>
+                    </select>  
+                </div>
+            </div>
+     
+           <div class="col-md-4">
+             <div class="input-group"> 
+                   <span class="tooltiptext">Vehicle Registration</span>
+                    <div class="input-group" id="vehicleregig">
+                          <span class="input-group-addon"><i class="fa fa-truck"></i></span>
+                          <input id="vehicleregtxt" type="text" class="form-control" name="vehicleregtxt" placeholder="Vehicle Registration" />
+                    </div>                    
+                </div>  
+            </div>
+
+    </div>
+          
+    <div  class="row" >       
+       
+            <div class="col-sm-4">
+                 <div class="input-group">                 
+                 <span class="tooltiptext">Check In Date</span>
+                 <div class='input-group date' id='datetimepicker1'>
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                    <input type='text' class="form-control datepickerInput "  id="dateOfVisit" placeholder="Check In Date"/>
+                </div>
+
+                 </div>
+            </div>
+
+            <div class="col-md-4">
+             <div class="input-group"> 
+                   <span class="tooltiptext">Number Of Adults</span>
+                    <div class="input-group" id="numberOfGuestsH">
+                          <span class="input-group-addon"><i class="glyphicon glyphicon-phone"></i></span>
+                          <input id="numberOfGuests" type="text" class="form-control requiredfield" name="hfsphone" placeholder="Number Of Adults" required="true" />
+                    </div>                    
+                </div>  
+            </div>
+
+            <div class="col-md-4">
+             <div class="input-group"> 
+                <span class="tooltiptext">Check Out Date</span>                
+                    <div class='input-group date' id='datetimepicker2'>
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span> 
+                    <input type='text' id="checkOutTime" class="form-control datepickerInput2" placeholder="Check Out Date"/>               
+                 </div>
+                 </div>
+            </div>
+        
+    </div>
+    <div  class="row" >       
+       
+            <div class="col-sm-4">
+                &nbsp;
+            </div>
+
+            <div class="col-md-4">
+             <div class="input-group"> 
+                   <span class="tooltiptext">Number Of Children</span>
+                    <div class="input-group" id="numberOfChildrenH">
+                          <span class="input-group-addon"><i class="glyphicon glyphicon-phone"></i></span>
+                          <input id="numberOfChildren" type="text" class="form-control" name="numberOfChildren" placeholder="Number Of Children" required="false" />
+                    </div>                    
+                </div>  
+            </div>
+
+            <div class="col-md-4">
+             &nbsp;
+            </div>
+        
+    </div>
+          
+    <div  class="row" >  
+
+            <div class="col-md-4">
+                <div class="input-group"> 
+                    <span class="tooltiptext">Country of Residence</span>
+                    <span class="input-group-addon"><i class="fa fa-globe"></i></span>
+                    <select class="form-control requiredfield" placeholder="Country of Residence" id="Country" name="Country">     
+                        <option value="placeholder" selected="selected" disabled="disabled">* Country of Residence</option>
+                    </select>  
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="input-group"> 
+                    <span class="tooltiptext">Visit Notes</span>
+                    <textarea id="visitNotes" class="form-control" placeholder="Visit Notes"></textarea>                   
+                </div>            
+            </div>
+            <div class="col-md-4">
+                <div class="input-group"> 
+                    <span class="tooltiptext">Visit Type</span>
+                    <span class="input-group-addon"><i class="fa fa-building-o"></i></span>
+                    <select class="form-control requiredfield" placeholder="Type" id="BusinessType" name="BusinessType">     
+                        <option value="placeholder" selected="selected" disabled="disabled">* Visit Type</option>
+                    </select> 
+                    <apex:form >
+                    <apex:inputField styleclass="slds-form-element__control BusinessTypeVals" id="dummyType2" value="{!dummyVisit.Type__c}" style="display:none;"  />
+                    </apex:form>
+                </div>
+            </div>
+    </div>
+
+<div class="clearfix"></div>
+<br />
+ <div  class="row" >  
+
+            <div class="col-md-4"  style="color:#FFF;">Cards In
+              </div> 
+              <div class="col-md-4"  style="color:#FFF;">Cards Scanned
+                </div> 
+              <div class="col-md-4" style="color:#FFF;">Remove Cards
+             </div>
+   </div>
+    <div  class="row" >  
+
+            <div class="col-md-4">
+                <div class="input-group"> 
+                    <span class="tooltiptext">Scan to add VIP Cards</span>
+                    <span class="input-group-addon"><i class="fa fa-qrcode"></i></span>  
+                    <input type="text" id="codesinput" class="form-control" placeholder="Scan to add VIP cards here .." oninput="DelayedCallMe(200);"></input>                          
+                </div>  
+                 <br/>
+                    <div class="input-group">                   
+                        <button id="removeCode" class="btn btn-default" role="button"  onclick="bulkadd();" >Bulk Add Codes</button>               
+                    </div>    
+             </div> 
+              <div class="col-md-4">
+                <div class="input-group"> 
+                    <select id="codes" multiple="true" class="form-control" placeholder="Scanned VIP cards" ></select>                 
+                </div>  
+                 <div class="input-group"> 
+                    <span class="tooltiptext">Cards Scanned</span>
+                    <span class="input-group-addon"><i class="fa fa-tags"></i></span>  
+                    <input type="text" id="cardcount" class="form-control" placeholder="Cards Scanned: 0" disabled="disabled"></input>                   
+                </div>    
+             </div> 
+              <div class="col-md-4">
+               <div class="input-group"> 
+                    <span class="tooltiptext">Scan to REMOVE VIP Cards</span>
+                    <span class="input-group-addon"><i class="fa fa-qrcode"></i></span>  
+                    <input type="text" id="codesremove" class="form-control" placeholder="Scan to remove VIP cards here .." oninput="DelayedCallRemove(200);"></input>                   
+                </div>     
+                <br/>
+                <div class="input-group">                   
+                    <button id="removeCode" class="btn btn-default" role="button"  onclick="removeCodes();">Remove Selected Codes</button>               
+                </div> 
+                <br/>
+                <div class="input-group">  
+                <div id="cardsExchanged" style="color:#FFF;"></div>   
+                </div> 
+             </div> 
+        </div>
+           </div>
+                    
+                            <!-- Buttons -->
+                    <div >
+                
+                      <div style="padding:10px; text-align: right;">
+                        
+                        <button class="btn btn-default" role="button" onclick="saveVisit(false, false, $j(this));">Save and  <br/> Exit</button>
+                      </div>
+                
+                    </div>
+
+    </div>    
+  </div>
+</div>
+  <!-- CLOSE PANEL -->
+ <!-- Modal Lightning migration -->
+<div class="modal fade" id="openModalAdultGuest" tabindex="-1" role="dialog" aria-labelledby="openModalAdultGuest" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="openModalAdultGuest"></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" style="width: 100%; height: 80%; overflow-y: scroll;">      
+      <div id="termsdiv" style="margin-right: auto;margin-left: auto;">
+          Number of adult guests entered is not valid.    
+       </div>       
+      </div>
+      <div class="modal-footer">
+         <a href="#" style="float: right;" role="button" class="btn btn-default" data-dismiss="modal">Close</a>
+      </div>
+    </div>
+  </div>
+</div>
+ <!-- Modal Lightning migration number Of Guests invalid-->
+<div class="modal fade" id="openModalnumberOfGuests" tabindex="-1" role="dialog" aria-labelledby="openModalnumberOfGuests" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="openModalnumberOfGuests"></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" style="width: 100%; height: 80%; overflow-y: scroll;">      
+      <div id="termsdiv" style="margin-right: auto;margin-left: auto;">
+          Number of adult guests entered is not a valid number.   
+       </div>       
+      </div>
+      <div class="modal-footer">
+         <a href="#" style="float: right;" role="button" class="btn btn-default" data-dismiss="modal">Close</a>
+      </div>
+    </div>
+  </div>
+</div>
+ <!-- Modal Lightning migration GuestCard-->
+<div class="modal fade" id="numberOfGuestsCardscanned" tabindex="-1" role="dialog" aria-labelledby="numberOfGuestsCardscanned" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="numberOfGuestsCardscanned"></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" style="width: 100%; height: 80%; overflow-y: scroll;">      
+      <div id="termsdiv" style="margin-right: auto;margin-left: auto;">
+          As no cards have been scanned, Please enter the number of adult guests checked-in with this visit.  
+       </div>       
+      </div>
+      <div class="modal-footer">
+         <a href="#" style="float: right;" role="button" class="btn btn-default" data-dismiss="modal">Close</a>
+      </div>
+    </div>
+  </div>
+</div>  
+ <!-- Modal Lightning migration number of children-->
+<div class="modal fade" id="numberOfChildrenModal" tabindex="-1" role="dialog" aria-labelledby="numberOfChildrenModal" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="numberOfChildrenModal"></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" style="width: 100%; height: 80%; overflow-y: scroll;">      
+      <div id="termsdiv" style="margin-right: auto;margin-left: auto;">
+         Number of children entered is not a valid number.  
+       </div>       
+      </div>
+      <div class="modal-footer">
+         <a href="#" style="float: right;" role="button" class="btn btn-default" data-dismiss="modal">Close</a>
+      </div>
+    </div>
+  </div>
+</div>
+ <!-- Modal Lightning migration Check out Date -->
+<div class="modal fade" id="dataTimeCheckOut" tabindex="-1" role="dialog" aria-labelledby="dataTimeCheckOut" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="dataTimeCheckOut"></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" style="width: 100%; height: 80%; overflow-y: scroll;">      
+      <div id="termsdiv" style="margin-right: auto;margin-left: auto;">
+        The Check out Date/Time must be after the Visit Date/Time. 
+       </div>       
+      </div>
+      <div class="modal-footer">
+         <a href="#" style="float: right;" role="button" class="btn btn-default" data-dismiss="modal">Close</a>
+      </div>
+    </div>
+  </div>
+</div>
+ <!-- Modal Lightning migration Format date Visit-->
+<div class="modal fade" id="FormatDateVisit" tabindex="-1" role="dialog" aria-labelledby="FormatDateVisit" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="FormatDateVisit"></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" style="width: 100%; height: 80%; overflow-y: scroll;">      
+      <div id="termsdiv" style="margin-right: auto;margin-left: auto;">
+        An invalid entry has been made for the Visit Date/Time. The format must be DD/MM/YYYY HH:MM.
+       </div>       
+      </div>
+      <div class="modal-footer">
+         <a href="#" style="float: right;" role="button" class="btn btn-default" data-dismiss="modal">Close</a>
+      </div>
+    </div>
+  </div>
+</div>
+ <!-- Modal Lightning migration format date check in visit-->
+<div class="modal fade" id="FormatDatecheckIn" tabindex="-1" role="dialog" aria-labelledby="FormatDatecheckIn" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="FormatDatecheckIn"></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" style="width: 100%; height: 80%; overflow-y: scroll;">      
+      <div id="termsdiv" style="margin-right: auto;margin-left: auto;">
+        Visit Date/Time must be in the format DD/MM/YYYY HH:MM.
+       </div>       
+      </div>
+      <div class="modal-footer">
+         <a href="#" style="float: right;" role="button" class="btn btn-default" data-dismiss="modal">Close</a>
+      </div>
+    </div>
+  </div>
+</div>
+ <!-- Modal Lightning migration format Checkout date -->
+<div class="modal fade" id="FormatDateCheckout" tabindex="-1" role="dialog" aria-labelledby="FormatDateCheckout" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="FormatDateCheckout"></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" style="width: 100%; height: 80%; overflow-y: scroll;">      
+      <div id="termsdiv" style="margin-right: auto;margin-left: auto;">
+        An invalid entry has been made for the Check out Date/Time. The format must be DD/MM/YYYY HH:MM.
+       </div>       
+      </div>
+      <div class="modal-footer">
+         <a href="#" style="float: right;" role="button" class="btn btn-default" data-dismiss="modal">Close</a>
+      </div>
+    </div>
+  </div>
+</div>
+ <!-- Modal Lightning migration checkOut date visit -->
+<div class="modal fade" id="FormatDateCheckoutVisit" tabindex="-1" role="dialog" aria-labelledby="FormatDateCheckoutVisit" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="FormatDateCheckoutVisit"></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" style="width: 100%; height: 80%; overflow-y: scroll;">      
+      <div id="termsdiv" style="margin-right: auto;margin-left: auto;">
+        Check out Date/Time must be in the format DD/MM/YYYY HH:MM.
+       </div>       
+      </div>
+      <div class="modal-footer">
+         <a href="#" style="float: right;" role="button" class="btn btn-default" data-dismiss="modal">Close</a>
+      </div>
+    </div>
+  </div>
+</div>
+ <!-- Modal Lightning migration valid visit date-->
+<div class="modal fade" id="ValidVisitDate" tabindex="-1" role="dialog" aria-labelledby="ValidVisitDate" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="ValidVisitDate"></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" style="width: 100%; height: 80%; overflow-y: scroll;">      
+      <div id="termsdiv" style="margin-right: auto;margin-left: auto;">
+        Please enter a valid Visit Date/Time.
+       </div>       
+      </div>
+      <div class="modal-footer">
+         <a href="#" style="float: right;" role="button" class="btn btn-default" data-dismiss="modal">Close</a>
+      </div>
+    </div>
+  </div>
+</div>
+ <!-- Modal Lightning migration Booking Partnership -->
+<div class="modal fade" id="BookingPartnership" tabindex="-1" role="dialog" aria-labelledby="BookingPartnership" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="BookingPartnership"></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" style="width: 100%; height: 80%; overflow-y: scroll;">      
+      <div id="termsdiv" style="margin-right: auto;margin-left: auto;">
+       Visit record must have associated Activity Promotion or Booking/Partnership record.
+       </div>       
+      </div>
+      <div class="modal-footer">
+         <a href="#" style="float: right;" role="button" class="btn btn-default" data-dismiss="modal">Close</a>
+      </div>
+    </div>
+  </div>
+</div>
+ <!-- Modal Lightning migration Information visit-->
+<div class="modal fade" id="InformationVisit" tabindex="-1" role="dialog" aria-labelledby="InformationVisit" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="InformationVisit"></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" style="width: 100%; height: 80%; overflow-y: scroll;">      
+      <div id="termsdiv" style="margin-right: auto;margin-left: auto;">
+       All visit information fields must be entered.
+       </div>       
+      </div>
+      <div class="modal-footer">
+         <a href="#" style="float: right;" role="button" class="btn btn-default" data-dismiss="modal">Close</a>
+      </div>
+    </div>
+  </div>
+</div>
+ <!-- Modal Lightning migration Visit Record-->
+<div class="modal fade" id="VisitRecord" tabindex="-1" role="dialog" aria-labelledby="VisitRecord" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="VisitRecord"></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" style="width: 100%; height: 80%; overflow-y: scroll;">      
+      <div id="termsdiv" style="margin-right: auto;margin-left: auto;">
+       Visit record has been marked as a No Show.
+       </div>       
+      </div>
+      <div class="modal-footer">
+         <a href="#" style="float: right;" role="button" class="btn btn-default" data-dismiss="modal">Close</a>
+      </div>
+    </div>
+  </div>
+</div>
+        </body>
+    
+    </html>
+
+</apex:page>

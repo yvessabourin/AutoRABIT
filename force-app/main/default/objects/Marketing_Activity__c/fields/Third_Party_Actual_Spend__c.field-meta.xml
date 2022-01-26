@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Third_Party_Actual_Spend__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>For the third party to fill in – the amount of money spent in the end on that activity for eg some adverts will</inlineHelpText>
+    <label>3rd Party actual Spend</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

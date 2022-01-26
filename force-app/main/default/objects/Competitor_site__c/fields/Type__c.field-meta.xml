@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Type__c</fullName>
+    <externalId>false</externalId>
+    <label>Type</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Developing Full Price</fullName>
+                <default>false</default>
+                <label>Developing Full Price</label>
+            </value>
+            <value>
+                <fullName>Developing Outlet</fullName>
+                <default>false</default>
+                <label>Developing Outlet</label>
+            </value>
+            <value>
+                <fullName>Existing Full Price</fullName>
+                <default>false</default>
+                <label>Existing Full Price</label>
+            </value>
+            <value>
+                <fullName>Existing Outlet</fullName>
+                <default>false</default>
+                <label>Existing Outlet</label>
+            </value>
+            <value>
+                <fullName>Closed Full Price</fullName>
+                <default>false</default>
+                <label>Closed Full Price</label>
+            </value>
+            <value>
+                <fullName>Closed Outlet</fullName>
+                <default>false</default>
+                <label>Closed Outlet</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

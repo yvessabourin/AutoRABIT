@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Immediate response</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>External_Chic</letterhead>
+    <name>Group Booking Lead Immediate Response</name>
+    <style>freeForm</style>
+    <subject>Your request for a group booking at {!Lead.Village_of_Visit_c__c} Village has been received</subject>
+    <textOnly>Dear Partner,
+
+Thank you for your interest in arranging a {!Lead.Group_Type__c} group visit to {!Lead.Village_of_Visit_c__c} Village. We will aim to respond to your enquiry within 24 hours.
+
+Please find below a summary of your booking.
+
+Name of Event: {!Lead.Name_of_Event__c}
+Organisation: {!Lead.Company}
+Contact: {!Lead.Name}
+Visitors Country of Residence: {!Lead.Visitors_Country_of_Origin__c}
+
+Number of Visitors Expected: {!Lead.Number_of_Visitors__c}
+Expected Arrival: {!Lead.Expected_Arrival__c}
+Expected Departure: {!Lead.Expected_Departure__c}
+
+{!If(Lead.Secondary_MICE_Org_or_Agency_name__c != &quot;&quot;,&quot;Secondary Org or Agency&quot;,&quot;&quot;)}
+{!If(Lead.Secondary_MICE_Org_or_Agency_name__c != &quot;&quot;,Lead.Secondary_MICE_Org_or_Agency_name__c,&quot;&quot;)}
+{!If(Lead.Secondary_MICE_Org_or_Agency_name__c != &quot;&quot;,Lead.Secondary_MICE_Contact_First_Name__c,&quot;&quot;)} {!If(Lead.Secondary_MICE_Org_or_Agency_name__c != &quot;&quot;,Lead.Secondary_MICE_Contact_Last_Name__c,&quot;&quot;)}
+{!If(Lead.Secondary_MICE_Org_or_Agency_name__c != &quot;&quot;,Lead.Secondary_MICE_Contact_Email__c,&quot;&quot;)}
+{!If(Lead.Secondary_MICE_Org_or_Agency_name__c != &quot;&quot;,Lead.Secondary_MICE_Contact_Position__c,&quot;&quot;)}
+{!If(Lead.Secondary_MICE_Org_or_Agency_name__c != &quot;&quot;,Lead.Secondary_MICE_Contact_Address_1__c,&quot;&quot;)}
+{!If(Lead.Secondary_MICE_Org_or_Agency_name__c != &quot;&quot;,Lead.Secondary_MICE_Contact_Address_2__c,&quot;&quot;)}
+{!If(Lead.Secondary_MICE_Org_or_Agency_name__c != &quot;&quot;,Lead.Secondary_MICE_Contact_Address_3__c,&quot;&quot;)}
+{!If(Lead.Secondary_MICE_Org_or_Agency_name__c != &quot;&quot;,Lead.Secondary_MICE_Contact_Town_City__c,&quot;&quot;)}
+{!If(Lead.Secondary_MICE_Org_or_Agency_name__c != &quot;&quot;,Lead.Secondary_MICE_Contact_ZIP_Postcode__c,&quot;&quot;)}
+{!If(Lead.Secondary_MICE_Org_or_Agency_name__c != &quot;&quot;,Lead.Secondary_MICE_Contact_Phone__c,&quot;&quot;)}
+
+
+With kind regards,
+The Bicester Village Shopping Collection team</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

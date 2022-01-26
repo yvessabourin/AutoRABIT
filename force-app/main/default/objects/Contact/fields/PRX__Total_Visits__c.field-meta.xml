@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PRX__Total_Visits__c</fullName>
+    <deprecated>false</deprecated>
+    <description>Total visits in range and recognized by Proximity Insight</description>
+    <externalId>false</externalId>
+    <label>Total Visits</label>
+    <summaryForeignKey>PRX__Visit__c.PRX__Contact__c</summaryForeignKey>
+    <summaryOperation>count</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <type>Summary</type>
+</CustomField>

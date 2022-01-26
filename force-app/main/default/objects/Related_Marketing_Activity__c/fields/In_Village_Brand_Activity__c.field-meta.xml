@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>In_Village_Brand_Activity__c</fullName>
+    <externalId>false</externalId>
+    <label>In Village Brand Activity</label>
+    <referenceTo>In_Village_Brand_Activity__c</referenceTo>
+    <relationshipLabel>Related Marketing Activities</relationshipLabel>
+    <relationshipName>Related_Marketing_Activities</relationshipName>
+    <relationshipOrder>1</relationshipOrder>
+    <reparentableMasterDetail>false</reparentableMasterDetail>
+    <trackTrending>false</trackTrending>
+    <type>MasterDetail</type>
+    <writeRequiresMasterRead>false</writeRequiresMasterRead>
+</CustomField>

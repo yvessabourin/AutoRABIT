@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Brand_Gender__c</fullName>
+    <description>The gender that the brand targets</description>
+    <externalId>false</externalId>
+    <inlineHelpText>The gender that the brand targets</inlineHelpText>
+    <label>Brand Gender</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Women’s</fullName>
+                <default>false</default>
+                <label>Women’s</label>
+            </value>
+            <value>
+                <fullName>Men’s</fullName>
+                <default>false</default>
+                <label>Men’s</label>
+            </value>
+            <value>
+                <fullName>Children’s</fullName>
+                <default>false</default>
+                <label>Children’s</label>
+            </value>
+            <value>
+                <fullName>Mixed</fullName>
+                <default>false</default>
+                <label>Mixed</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

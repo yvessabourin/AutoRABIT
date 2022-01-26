@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Friends_and_Family__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Indicate whether account is associated with pool of friend and family contacts.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Indicate whether account is associated with pool of friend and family contacts.</inlineHelpText>
+    <label>Friends and Family</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

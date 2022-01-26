@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>External_Personal_Shopping__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Does the Guest use Personal Shopping Elsewhere?</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Does the Guest use Personal Shopping Elsewhere?</inlineHelpText>
+    <label>External Personal Shopping</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

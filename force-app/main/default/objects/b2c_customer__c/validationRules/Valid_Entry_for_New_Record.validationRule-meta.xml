@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Valid_Entry_for_New_Record</fullName>
+    <active>true</active>
+    <errorConditionFormula>IF(
+   AND(
+       
+       NOT($Profile.Name = &apos;B2C ODS API&apos;), 
+       NOT(REGEX ( UPPER ( email__c ) ,&quot;^[A-Z0-9._%+-/!#$%&amp;&apos;*=?^_`{|}~]+@[A-Z0-9.-]+\\.[A-Z]{2,4}$&quot;) ) 
+      )  
+
+, 
+      TRUE, FALSE
+
+
+)</errorConditionFormula>
+    <errorDisplayField>email__c</errorDisplayField>
+    <errorMessage>Email address is not valid</errorMessage>
+</ValidationRule>

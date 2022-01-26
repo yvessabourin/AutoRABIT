@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Grace_Period_Days_Applied__c</fullName>
+    <description>The &apos;Reported Sales Grace Period&apos; value used to calculate the date.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>The number of Grace Period days that applied for this Daily Sales record</inlineHelpText>
+    <label>Grace Period Days Applied</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

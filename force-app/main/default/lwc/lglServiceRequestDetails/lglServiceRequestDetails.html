@@ -1,0 +1,126 @@
+<template>
+	<c-lgl-notifications-component></c-lgl-notifications-component>
+	<lightning-spinner
+		class="slds-is-fixed"
+		if:true={loading}
+		alternative-text="Loading"
+		size="large"
+	></lightning-spinner>
+
+	<section if:true={sectionVisibility.displayServiceRequestSection}>
+		<c-lgl-card title="Service Request Details">
+			<div slot="bodyContent">
+				<h2>
+					<lightning-icon
+						icon-name="standard:person_account"
+						alternative-text="Guest Icon"
+						title="Guest"
+						size="small"
+					>
+					</lightning-icon
+					><span class="slds-var-m-left_x-small">{serviceRequest.LGL_Name__c}</span>
+				</h2>
+
+				<div class="slds-var-m-top_medium lgl-output-form">
+					<div class="lgl-output-element">
+						<label>Email:</label>
+						<span>{serviceRequest.LGL_Email__c}</span>
+					</div>
+					<div class="lgl-output-element">
+						<label>Phone Number:</label>
+						<span>{serviceRequest.LGL_Phone__c}</span>
+					</div>
+					<div class="lgl-output-element">
+						<label>Service Location:</label>
+						<span>{locationName}</span>
+					</div>
+					<div class="lgl-output-element">
+						<label>Status:</label>
+						<span>{serviceRequest.LGL_Status__c}</span>
+					</div>
+					<div class="lgl-output-element">
+						<label>Service Date:</label>
+						<span>{serviceRequest.LGL_Service_Start_Date__c}</span>
+					</div>
+					<div class="lgl-output-element">
+						<label>Also has HFS?:</label>
+						<span if:true={hasHFS}><a href={caseUrl}>{hasHFSText}</a></span>
+						<span if:false={hasHFS}>{hasHFSText}</span>
+					</div>
+				</div>
+
+				<div class="slds-var-m-top_medium slds-var-p-top_medium lgl-action-panel">
+					<button
+						if:true={showCloseAllButton}
+						type="button"
+						onclick={handleCloseAllServices}
+					>
+						Close All Services
+					</button>
+					<button type="button" onclick={handleAddNewServices}>Add New Services</button>
+				</div>
+			</div>
+		</c-lgl-card>
+
+		<div class="slds-var-m-top_large">
+			<c-lgl-card title="Hired Services">
+				<div slot="bodyContent">
+					<c-lgl-table
+						slot="bodyContent"
+						columns={serviceItemsByTypeTableFields}
+						rows={serviceItemsByTypeList}
+						table-key="serviceName"
+						empty-table-text="No Service Items for this Service Request"
+						onrowselection={handleServiceTypeSelection}
+					>
+					</c-lgl-table>
+				</div>
+			</c-lgl-card>
+		</div>
+
+		<div class="slds-var-m-top_large slds-hide lgl-service-item-details">
+			<c-lgl-card title={selectedServiceItemType.serviceName}>
+				<div slot="bodyContent">
+					<c-lgl-table
+						columns={serviceItemsDetailTableFields}
+						rows={selectedServiceItemType.serviceItems}
+						table-key="Id"
+						empty-table-text="No Service Items for this Service Type"
+					>
+					</c-lgl-table>
+					<div
+						if:true={showCloseButton}
+						class="slds-var-m-top_medium slds-var-p-top_medium lgl-action-panel"
+					>
+						<button type="button" onclick={handleCloseService}>Close Service</button>
+					</div>
+				</div>
+			</c-lgl-card>
+		</div>
+	</section>
+
+	<section if:true={sectionVisibility.checkoutSection}>
+		<c-lgl-guest-checkout
+			checkout-items={checkoutItems}
+			service-request-id={serviceRequestId}
+			oncheckout={handleCheckout}
+			oncancel={handleCancelCheckout}
+		>
+		</c-lgl-guest-checkout>
+	</section>
+
+	<section if:true={sectionVisibility.addNewService}>
+		<c-lgl-card title="Add New Service for the Guest">
+			<c-lgl-add-service-items
+				slot="bodyContent"
+				active-service-items={activeServiceItems}
+				service-request={serviceRequest}
+				service-offerings={serviceOfferings}
+				onsave={handleSaveAddItems}
+				onerror={handleErrorAddItems}
+				oncancel={handleCancelAddItems}
+			>
+			</c-lgl-add-service-items>
+		</c-lgl-card>
+	</section>
+</template>

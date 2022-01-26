@@ -1,0 +1,251 @@
+<Enumeration Type="Countries">
+	<Item Key="AX" Language="en-gb">Aland Islands</Item>
+	<Item Key="AQ" Language="en-gb">Antarctica</Item>
+	<Item Key="AI" Language="en-gb">Anguilla</Item>
+	<Item Key="AM" Language="en-gb">Armenia</Item>
+	<Item Key="BY" Language="en-gb">Belarus</Item>
+	<Item Key="BH" Language="en-gb">Bahrain</Item>
+	<Item Key="BZ" Language="en-gb">Belize</Item>
+	<Item Key="AT" Language="en-gb">Austria</Item>
+	<Item Key="BE" Language="en-gb">Belgium</Item>
+	<Item Key="BQ" Language="en-gb">Bonaire, Saint Eustatius and Saba</Item>
+	<Item Key="AD" Language="en-gb">Andorra</Item>
+	<Item Key="AG" Language="en-gb">Antigua and Barbuda</Item>
+	<Item Key="AL" Language="en-gb">Albania</Item>
+	<Item Key="KH" Language="en-gb">Cambodia</Item>
+	<Item Key="BN" Language="en-gb">Brunei Darussalam</Item>
+	<Item Key="BO" Language="en-gb">Bolivia, Plurinational State of</Item>
+	<Item Key="BI" Language="en-gb">Burundi</Item>
+	<Item Key="KY" Language="en-gb">Cayman Islands</Item>
+	<Item Key="CF" Language="en-gb">Central African Republic</Item>
+	<Item Key="CA" Language="en-gb">Canada</Item>
+	<Item Key="CV" Language="en-gb">Cape Verde</Item>
+	<Item Key="PF" Language="en-gb">French Polynesia</Item>
+	<Item Key="EG" Language="en-gb">Egypt</Item>
+	<Item Key="CI" Language="en-gb">Cote DIvoire</Item>
+	<Item Key="GM" Language="en-gb">Gambia</Item>
+	<Item Key="ET" Language="en-gb">Ethiopia</Item>
+	<Item Key="TF" Language="en-gb">French Southern Territories</Item>
+	<Item Key="DJ" Language="en-gb">Djibouti</Item>
+	<Item Key="BW" Language="en-gb">Botswana</Item>
+	<Item Key="KM" Language="en-gb">Comoros</Item>
+	<Item Key="IO" Language="en-gb">British Indian Ocean Territory</Item>
+	<Item Key="AS" Language="en-gb">American Samoa</Item>
+	<Item Key="AZ" Language="en-gb">Azerbaijan</Item>
+	<Item Key="DO" Language="en-gb">Dominican Republic</Item>
+	<Item Key="FK" Language="en-gb">Falkland Islands (Malvinas)</Item>
+	<Item Key="HT" Language="en-gb">Haiti</Item>
+	<Item Key="CX" Language="en-gb">Christmas Island</Item>
+	<Item Key="CM" Language="en-gb">Cameroon</Item>
+	<Item Key="CR" Language="en-gb">Costa Rica</Item>
+	<Item Key="GQ" Language="en-gb">Equatorial Guinea</Item>
+	<Item Key="GA" Language="en-gb">Gabon</Item>
+	<Item Key="CL" Language="en-gb">Chile</Item>
+	<Item Key="CC" Language="en-gb">Cocos (Keeling) Islands</Item>
+	<Item Key="AU" Language="en-gb">Australia</Item>
+	<Item Key="BS" Language="en-gb">Bahamas</Item>
+	<Item Key="SV" Language="en-gb">El Salvador</Item>
+	<Item Key="DE" Language="en-gb">Germany</Item>
+	<Item Key="GE" Language="en-gb">Georgia</Item>
+	<Item Key="DM" Language="en-gb">Dominica</Item>
+	<Item Key="FI" Language="en-gb">Finland</Item>
+	<Item Key="GL" Language="en-gb">Greenland</Item>
+	<Item Key="HU" Language="en-gb">Hungary</Item>
+	<Item Key="KP" Language="en-gb">Korea, Democratic Peoples Republic of</Item>
+	<Item Key="IQ" Language="en-gb">Iraq</Item>
+	<Item Key="LR" Language="en-gb">Liberia</Item>
+	<Item Key="YT" Language="en-gb">Mayotte</Item>
+	<Item Key="JO" Language="en-gb">Jordan</Item>
+	<Item Key="LU" Language="en-gb">Luxembourg</Item>
+	<Item Key="MT" Language="en-gb">Malta</Item>
+	<Item Key="KR" Language="en-gb">Korea, Republic of</Item>
+	<Item Key="NI" Language="en-gb">Nicaragua</Item>
+	<Item Key="BM" Language="en-gb">Bermuda</Item>
+	<Item Key="KG" Language="en-gb">Kyrgyzstan</Item>
+	<Item Key="BT" Language="en-gb">Bhutan</Item>
+	<Item Key="GN" Language="en-gb">Guinea</Item>
+	<Item Key="HM" Language="en-gb">Heard Island and Mcdonald Islands</Item>
+	<Item Key="IL" Language="en-gb">Israel</Item>
+	<Item Key="GH" Language="en-gb">Ghana</Item>
+	<Item Key="ID" Language="en-gb">Indonesia</Item>
+	<Item Key="LA" Language="en-gb">Lao Peoples Democratic Republic</Item>
+	<Item Key="LT" Language="en-gb">Lithuania</Item>
+	<Item Key="MO" Language="en-gb">Macao</Item>
+	<Item Key="IS" Language="en-gb">Iceland</Item>
+	<Item Key="MQ" Language="en-gb">Martinique</Item>
+	<Item Key="MC" Language="en-gb">Monaco</Item>
+	<Item Key="NL" Language="en-gb">Netherlands</Item>
+	<Item Key="LY" Language="en-gb">Libyan Arab Jamahiriya</Item>
+	<Item Key="MV" Language="en-gb">Maldives</Item>
+	<Item Key="MY" Language="en-gb">Malaysia</Item>
+	<Item Key="GW" Language="en-gb">Guinea-Bissau</Item>
+	<Item Key="BB" Language="en-gb">Barbados</Item>
+	<Item Key="DZ" Language="en-gb">Algeria</Item>
+	<Item Key="PY" Language="en-gb">Paraguay</Item>
+	<Item Key="NR" Language="en-gb">Nauru</Item>
+	<Item Key="MA" Language="en-gb">Morocco</Item>
+	<Item Key="PS" Language="en-gb">Palestinian Territory, Occupied</Item>
+	<Item Key="MD" Language="en-gb">Moldova, Republic of</Item>
+	<Item Key="PW" Language="en-gb">Palau</Item>
+	<Item Key="TG" Language="en-gb">Togo</Item>
+	<Item Key="ES" Language="en-gb">Spain</Item>
+	<Item Key="AO" Language="en-gb">Angola</Item>
+	<Item Key="SL" Language="en-gb">Sierra Leone</Item>
+	<Item Key="MZ" Language="en-gb">Mozambique</Item>
+	<Item Key="SI" Language="en-gb">Slovenia</Item>
+	<Item Key="AF" Language="en-gb">Afghanistan</Item>
+	<Item Key="SK" Language="en-gb">Slovakia</Item>
+	<Item Key="NF" Language="en-gb">Norfolk Island</Item>
+	<Item Key="LC" Language="en-gb">Saint Lucia</Item>
+	<Item Key="KN" Language="en-gb">Saint Kitts and Nevis</Item>
+	<Item Key="PG" Language="en-gb">Papua New Guinea</Item>
+	<Item Key="LK" Language="en-gb">Sri Lanka</Item>
+	<Item Key="ME" Language="en-gb">Montenegro</Item>
+	<Item Key="MX" Language="en-gb">Mexico</Item>
+	<Item Key="MU" Language="en-gb">Mauritius</Item>
+	<Item Key="QA" Language="en-gb">Qatar</Item>
+	<Item Key="RS" Language="en-gb">Serbia</Item>
+	<Item Key="MN" Language="en-gb">Mongolia</Item>
+	<Item Key="RU" Language="en-gb">Russian Federation</Item>
+	<Item Key="SA" Language="en-gb">Saudi Arabia</Item>
+	<Item Key="SM" Language="en-gb">San Marino</Item>
+	<Item Key="ST" Language="en-gb">Sao Tome and Principe</Item>
+	<Item Key="ZA" Language="en-gb">South Africa</Item>
+	<Item Key="SB" Language="en-gb">Solomon Islands</Item>
+	<Item Key="TT" Language="en-gb">Trinidad and Tobago</Item>
+	<Item Key="TW" Language="en-gb">Taiwan</Item>
+	<Item Key="SR" Language="en-gb">Suriname</Item>
+	<Item Key="SN" Language="en-gb">Senegal</Item>
+	<Item Key="BD" Language="en-gb">Bangladesh</Item>
+	<Item Key="CD" Language="en-gb">Congo</Item>
+	<Item Key="CW" Language="en-gb">Curacao</Item>
+	<Item Key="FO" Language="en-gb">Faroe Islands</Item>
+	<Item Key="UA" Language="en-gb">Ukraine</Item>
+	<Item Key="GY" Language="en-gb">Guyana</Item>
+	<Item Key="CK" Language="en-gb">Cook Islands</Item>
+	<Item Key="BA" Language="en-gb">Bosnia and Herzegovina</Item>
+	<Item Key="SE" Language="en-gb">Sweden</Item>
+	<Item Key="BF" Language="en-gb">Burkina Faso</Item>
+	<Item Key="TL" Language="en-gb">Timor-Leste</Item>
+	<Item Key="CN" Language="en-gb">China</Item>
+	<Item Key="AR" Language="en-gb">Argentina</Item>
+	<Item Key="JM" Language="en-gb">Jamaica</Item>
+	<Item Key="SY" Language="en-gb">Syrian Arab Republic</Item>
+	<Item Key="TC" Language="en-gb">Turks and Caicos Islands</Item>
+	<Item Key="UG" Language="en-gb">Uganda</Item>
+	<Item Key="MK" Language="en-gb">Macedonia, the Former Yugoslav Republic of</Item>
+	<Item Key="SD" Language="en-gb">Sudan</Item>
+	<Item Key="TH" Language="en-gb">Thailand</Item>
+	<Item Key="MF" Language="en-gb">Saint Martin (French Part)</Item>
+	<Item Key="TM" Language="en-gb">Turkmenistan</Item>
+	<Item Key="PA" Language="en-gb">Panama</Item>
+	<Item Key="CH" Language="en-gb">Switzerland</Item>
+	<Item Key="GU" Language="en-gb">Guam</Item>
+	<Item Key="CU" Language="en-gb">Cuba</Item>
+	<Item Key="IR" Language="en-gb">Iran, Islamic Republic of</Item>
+	<Item Key="CG" Language="en-gb">Congo, the Democratic Republic of the</Item>
+	<Item Key="HK" Language="en-gb">Hong Kong</Item>
+	<Item Key="HN" Language="en-gb">Honduras</Item>
+	<Item Key="GD" Language="en-gb">Grenada</Item>
+	<Item Key="GP" Language="en-gb">Guadeloupe</Item>
+	<Item Key="BV" Language="en-gb">Bouvet Island</Item>
+	<Item Key="VC" Language="en-gb">Saint Vincent and the Grenadines</Item>
+	<Item Key="ZM" Language="en-gb">Zambia</Item>
+	<Item Key="TR" Language="en-gb">Turkey</Item>
+	<Item Key="GB" Language="en-gb">United Kingdom</Item>
+	<Item Key="CY" Language="en-gb">Cyprus</Item>
+	<Item Key="GG" Language="en-gb">Guernsey</Item>
+	<Item Key="UZ" Language="en-gb">Uzbekistan</Item>
+	<Item Key="IT" Language="en-gb">Italy</Item>
+	<Item Key="DK" Language="en-gb">Denmark</Item>
+	<Item Key="FR" Language="en-gb">France</Item>
+	<Item Key="GF" Language="en-gb">French Guiana</Item>
+	<Item Key="TV" Language="en-gb">Tuvalu</Item>
+	<Item Key="EE" Language="en-gb">Estonia</Item>
+	<Item Key="CZ" Language="en-gb">Czech Republic</Item>
+	<Item Key="GI" Language="en-gb">Gibraltar</Item>
+	<Item Key="HR" Language="en-gb">Croatia</Item>
+	<Item Key="VG" Language="en-gb">Virgin Islands, British</Item>
+	<Item Key="GR" Language="en-gb">Greece</Item>
+	<Item Key="UM" Language="en-gb">United States Minor Outlying Islands</Item>
+	<Item Key="GT" Language="en-gb">Guatemala</Item>
+	<Item Key="EC" Language="en-gb">Ecuador</Item>
+	<Item Key="FJ" Language="en-gb">Fiji</Item>
+	<Item Key="IN" Language="en-gb">India</Item>
+	<Item Key="VE" Language="en-gb">Venezuela, Bolivarian Republic of</Item>
+	<Item Key="MR" Language="en-gb">Mauritania</Item>
+	<Item Key="VAT" Language="en-gb">Vatican City State</Item>
+	<Item Key="PE" Language="en-gb">Peru</Item>
+	<Item Key="NC" Language="en-gb">New Caledonia</Item>
+	<Item Key="TN" Language="en-gb">Tunisia</Item>
+	<Item Key="VA" Language="en-gb">Holy See (Vatican City State)</Item>
+	<Item Key="MM" Language="en-gb">Myanmar</Item>
+	<Item Key="EH" Language="en-gb">Western Sahara</Item>
+	<Item Key="WF" Language="en-gb">Wallis and Futuna</Item>
+	<Item Key="IE" Language="en-gb">Ireland</Item>
+	<Item Key="NO" Language="en-gb">Norway</Item>
+	<Item Key="KW" Language="en-gb">Kuwait</Item>
+	<Item Key="NU" Language="en-gb">Niue</Item>
+	<Item Key="NE" Language="en-gb">Niger</Item>
+	<Item Key="MS" Language="en-gb">Montserrat</Item>
+	<Item Key="WS" Language="en-gb">Samoa</Item>
+	<Item Key="NG" Language="en-gb">Nigeria</Item>
+	<Item Key="JP" Language="en-gb">Japan</Item>
+	<Item Key="SX" Language="en-gb">Sint Maarten (Dutch Part)</Item>
+	<Item Key="SG" Language="en-gb">Singapore</Item>
+	<Item Key="KI" Language="en-gb">Kiribati</Item>
+	<Item Key="SO" Language="en-gb">Somalia</Item>
+	<Item Key="SJ" Language="en-gb">Svalbard and Jan Mayen</Item>
+	<Item Key="IM" Language="en-gb">Isle of Man</Item>
+	<Item Key="OM" Language="en-gb">Oman</Item>
+	<Item Key="PR" Language="en-gb">Puerto Rico</Item>
+	<Item Key="YE" Language="en-gb">Yemen</Item>
+	<Item Key="RE" Language="en-gb">Reunion</Item>
+	<Item Key="NA" Language="en-gb">Namibia</Item>
+	<Item Key="RO" Language="en-gb">Romania</Item>
+	<Item Key="KZ" Language="en-gb">Kazakhstan</Item>
+	<Item Key="SZ" Language="en-gb">Swaziland</Item>
+	<Item Key="JE" Language="en-gb">Jersey</Item>
+	<Item Key="PH" Language="en-gb">Philippines</Item>
+	<Item Key="SC" Language="en-gb">Seychelles</Item>
+	<Item Key="BJ" Language="en-gb">Benin</Item>
+	<Item Key="BG" Language="en-gb">Bulgaria</Item>
+	<Item Key="VU" Language="en-gb">Vanuatu</Item>
+	<Item Key="BR" Language="en-gb">Brazil</Item>
+	<Item Key="TD" Language="en-gb">Chad</Item>
+	<Item Key="LB" Language="en-gb">Lebanon</Item>
+	<Item Key="ER" Language="en-gb">Eritrea</Item>
+	<Item Key="CO" Language="en-gb">Colombia</Item>
+	<Item Key="PM" Language="en-gb">Saint Pierre and Miquelon</Item>
+	<Item Key="GS" Language="en-gb">South Georgia and the South Sandwich Islands</Item>
+	<Item Key="TZ" Language="en-gb">Tanzania, United Republic of</Item>
+	<Item Key="LS" Language="en-gb">Lesotho</Item>
+	<Item Key="LV" Language="en-gb">Latvia</Item>
+	<Item Key="TO" Language="en-gb">Tonga</Item>
+	<Item Key="KE" Language="en-gb">Kenya</Item>
+	<Item Key="ML" Language="en-gb">Mali</Item>
+	<Item Key="TJ" Language="en-gb">Tajikistan</Item>
+	<Item Key="MW" Language="en-gb">Malawi</Item>
+	<Item Key="AW" Language="en-gb">Aruba</Item>
+	<Item Key="PL" Language="en-gb">Poland</Item>
+	<Item Key="LI" Language="en-gb">Liechtenstein</Item>
+	<Item Key="PK" Language="en-gb">Pakistan</Item>
+	<Item Key="PN" Language="en-gb">Pitcairn</Item>
+	<Item Key="PT" Language="en-gb">Portugal</Item>
+	<Item Key="MG" Language="en-gb">Madagascar</Item>
+	<Item Key="RW" Language="en-gb">Rwanda</Item>
+	<Item Key="MH" Language="en-gb">Marshall Islands</Item>
+	<Item Key="SH" Language="en-gb">Saint Helena, Ascension and Tristan Da Cunha</Item>
+	<Item Key="BL" Language="en-gb">Saint Barthelemy</Item>
+	<Item Key="FM" Language="en-gb">Micronesia, Federated States of</Item>
+	<Item Key="MP" Language="en-gb">Northern Mariana Islands</Item>
+	<Item Key="VN" Language="en-gb">Vietnam</Item>
+	<Item Key="ZW" Language="en-gb">Zimbabwe</Item>
+	<Item Key="TK" Language="en-gb">Tokelau</Item>
+	<Item Key="NZ" Language="en-gb">New Zealand</Item>
+	<Item Key="AE" Language="en-gb">United Arab Emirates</Item>
+	<Item Key="VI" Language="en-gb">Virgin Islands, U.S.</Item>
+	<Item Key="US" Language="en-gb">United States</Item>
+	<Item Key="NP" Language="en-gb">Nepal</Item>
+	<Item Key="UY" Language="en-gb">Uruguay</Item>
+</Enumeration>

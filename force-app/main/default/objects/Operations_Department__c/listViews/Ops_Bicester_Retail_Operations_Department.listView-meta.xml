@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Ops_Bicester_Retail_Operations_Department</fullName>
+    <filterScope>Queue</filterScope>
+    <label>Ops Bicester Retail</label>
+    <queue>Ops_Bicester_Retail</queue>
+    <sharedTo>
+        <allInternalUsers></allInternalUsers>
+    </sharedTo>
+</ListView>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VIP_Black_Book_BV</fullName>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>Permission_to_hold_data__c</columns>
+    <columns>CORE.USERS.FIRST_NAME</columns>
+    <columns>CORE.USERS.LAST_NAME</columns>
+    <columns>Marketing_Consent_Given__c</columns>
+    <columns>Marketing_Consent_Email__c</columns>
+    <columns>Marketing_Consent_Phone__c</columns>
+    <columns>ACCOUNT.CREATED_DATE</columns>
+    <columns>ACCOUNT.PHONE1</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>ACCOUNT.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>PersonAccount.VIP_Guest</value>
+    </filters>
+    <filters>
+        <field>Primary_Village_of_Interest__pc</field>
+        <operation>equals</operation>
+        <value>Bicester</value>
+    </filters>
+    <label>VIP Black Book Bicester</label>
+    <language>en_US</language>
+    <sharedTo>
+        <group>VIP_Bicester</group>
+    </sharedTo>
+</ListView>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Anticipated_LOI_Date__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>If a letter of intent is being used to progress this deal then the anticipated date when this needs to be signed should be entered here</inlineHelpText>
+    <label>Anticipated LOI Date</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Date</type>
+</CustomField>

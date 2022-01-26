@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Enforce_Item_Sequence</fullName>
+    <active>true</active>
+    <errorConditionFormula>ISCHANGED(Status_Step__c) &amp;&amp;
+PRIORVALUE(Status_Step__c) + 1 &lt;&gt; Status_Step__c</errorConditionFormula>
+    <errorMessage>The SCS Item must be actioned in the correct order, 
+
+1. Requested
+2. Runner On Way
+3. With Runner
+4. In Storage
+5. With TIC
+6. Customer Collected</errorMessage>
+</ValidationRule>

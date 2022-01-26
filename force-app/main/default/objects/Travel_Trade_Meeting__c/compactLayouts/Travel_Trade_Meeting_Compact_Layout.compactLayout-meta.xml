@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Travel_Trade_Meeting_Compact_Layout</fullName>
+    <fields>Tourism_Account__c</fields>
+    <fields>Date_of_Meeting__c</fields>
+    <fields>Meeting_Location__c</fields>
+    <fields>VR_Representative__c</fields>
+    <label>Travel Trade Meeting Compact Layout</label>
+</CompactLayout>

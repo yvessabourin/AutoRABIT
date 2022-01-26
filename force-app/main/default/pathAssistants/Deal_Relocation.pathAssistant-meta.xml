@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PathAssistant xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>true</active>
+    <entityName>Opportunity</entityName>
+    <fieldName>StageName</fieldName>
+    <masterLabel>Deal Relocation</masterLabel>
+    <pathAssistantSteps>
+        <fieldNames>Unit__c</fieldNames>
+        <fieldNames>Access_Date_Expected__c</fieldNames>
+        <fieldNames>Expected_Open_Date__c</fieldNames>
+        <fieldNames>Village__c</fieldNames>
+        <fieldNames>Next_Step_Update_Description__c</fieldNames>
+        <info>&lt;ul&gt;&lt;li&gt;Solicitors have been instructed&lt;/li&gt;&lt;/ul&gt;</info>
+        <picklistValueName>Advanced Negotiation</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>Tier_Level_Rationale__c</fieldNames>
+        <fieldNames>Term_Years__c</fieldNames>
+        <fieldNames>Base_Rent_Figure__c</fieldNames>
+        <fieldNames>TOR_Schedule_Description__c</fieldNames>
+        <fieldNames>Next_Step_Update_Description__c</fieldNames>
+        <info>&lt;ul&gt;&lt;li&gt;Most of the contract’s clauses have been agreed between VR and the brand; VR is finalising the contract to be submitted soon to the brand&lt;/li&gt;&lt;/ul&gt;</info>
+        <picklistValueName>Agreed in Principle</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>Tier_Level_Rationale__c</fieldNames>
+        <fieldNames>Term_Years__c</fieldNames>
+        <fieldNames>Base_Rent_Figure__c</fieldNames>
+        <fieldNames>TOR_Schedule_Description__c</fieldNames>
+        <fieldNames>Next_Step_Update_Description__c</fieldNames>
+        <info>&lt;ul&gt;&lt;li&gt;Heads of Terms have been signed&lt;/li&gt;&lt;/ul&gt;</info>
+        <picklistValueName>Heads of Terms Signed</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>Projected_Sales_Yield_Local__c</fieldNames>
+        <fieldNames>Position_Rating__c</fieldNames>
+        <fieldNames>Deliverability__c</fieldNames>
+        <fieldNames>Priority__c</fieldNames>
+        <fieldNames>Next_Step_Update_Description__c</fieldNames>
+        <info>&lt;ul&gt;&lt;li&gt;We have offered a unit to the Brand&lt;/li&gt;&lt;/ul&gt;</info>
+        <picklistValueName>In discussion</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>Signed_Date__c</fieldNames>
+        <fieldNames>Access_Date_Expected__c</fieldNames>
+        <fieldNames>Expected_Open_Date__c</fieldNames>
+        <fieldNames>Standard_Terms__c</fieldNames>
+        <fieldNames>Next_Step_Update_Description__c</fieldNames>
+        <info>&lt;ul&gt;&lt;li&gt;The contract has been signed by both VR and the brand. Brand is waiting to take possession of the unit.&lt;/li&gt;&lt;/ul&gt;</info>
+        <picklistValueName>Lease Signed Awaiting Unit</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>Access_Date_Expected__c</fieldNames>
+        <fieldNames>Expected_Open_Date__c</fieldNames>
+        <fieldNames>Strategy__c</fieldNames>
+        <fieldNames>Next_Step_Update_Description__c</fieldNames>
+        <info>&lt;ul&gt;&lt;li&gt;We have issued heads of terms&lt;/li&gt;&lt;/ul&gt;</info>
+        <picklistValueName>Negotiations</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>Strategy__c</fieldNames>
+        <fieldNames>Next_Step_Update_Description__c</fieldNames>
+        <info>&lt;ul&gt;&lt;li&gt;The deal has been put on hold from either VR or the Brand perspective or from a mutual agreement. However there is still mutual interest and conversation will resume at a mor opportunistic time. (On hold can happen at any stage after the discussion stage has started).&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;</info>
+        <picklistValueName>On hold</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>Tier_Level_Rationale__c</fieldNames>
+        <fieldNames>Term_Years__c</fieldNames>
+        <fieldNames>Base_Rent_Figure__c</fieldNames>
+        <fieldNames>TOR_Schedule_Description__c</fieldNames>
+        <fieldNames>Next_Step_Update_Description__c</fieldNames>
+        <info>&lt;ul&gt;&lt;li&gt;The contract is with the brand for signature&lt;/li&gt;&lt;/ul&gt;</info>
+        <picklistValueName>Out for Signature</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>Ideal_Size__c</fieldNames>
+        <fieldNames>Position_Rating__c</fieldNames>
+        <fieldNames>Deliverability__c</fieldNames>
+        <fieldNames>Priority__c</fieldNames>
+        <fieldNames>Next_Step_Update_Description__c</fieldNames>
+        <info>&lt;ul&gt;&lt;li&gt;Any brand which is not in the budget&lt;/li&gt;&lt;li&gt;We have not allocated a unit&lt;/li&gt;&lt;li&gt;The Village has the ambition to bring the Brand to the village or&lt;/li&gt;&lt;li&gt;The brand has the ambition for the Village&lt;/li&gt;&lt;/ul&gt;</info>
+        <picklistValueName>Pipeline</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>Signed_Date__c</fieldNames>
+        <fieldNames>Access_Date__c</fieldNames>
+        <fieldNames>Primary_Deal__c</fieldNames>
+        <fieldNames>Lease_ID__c</fieldNames>
+        <fieldNames>Next_Step_Update_Description__c</fieldNames>
+        <info>&lt;ul&gt;&lt;li&gt;The unit is being shop fitted.&lt;/li&gt;&lt;/ul&gt;</info>
+        <picklistValueName>Shopfitting</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>Strategy__c</fieldNames>
+        <fieldNames>Next_Step_Update_Description__c</fieldNames>
+        <info>&lt;ul&gt;&lt;li&gt;The deal does not get approval from a VR or from the Brand perspective to progress. Can be multiple factors influencing this (market priorities, operational and financial issues…). (Stuck can happen at any stage after the discussion stage has started).&lt;/li&gt;&lt;/ul&gt;</info>
+        <picklistValueName>Stuck</picklistValueName>
+    </pathAssistantSteps>
+    <recordTypeName>Relocation</recordTypeName>
+</PathAssistant>

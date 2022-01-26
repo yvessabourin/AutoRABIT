@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Receive_Retail_LIVE__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Indicates whether contact should receive Retail LIVE updates created against this Village Presence.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Indicates whether contact should receive Retail LIVE updates created against this Village Presence.</inlineHelpText>
+    <label>Receive Retail LIVE</label>
+    <trackFeedHistory>true</trackFeedHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

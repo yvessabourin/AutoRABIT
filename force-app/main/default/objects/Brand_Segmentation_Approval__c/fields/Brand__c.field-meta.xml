@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Brand__c</fullName>
+    <description>The brand that the segmentation approval belongs to.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>The brand that the segmentation approval belongs to</inlineHelpText>
+    <label>Brand</label>
+    <lookupFilter>
+        <active>true</active>
+        <errorMessage>Only a Brand can be linked to a segmentation approval record</errorMessage>
+        <filterItems>
+            <field>Account.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Brand</value>
+        </filterItems>
+        <infoMessage>Please select a Brand account</infoMessage>
+        <isOptional>false</isOptional>
+    </lookupFilter>
+    <referenceTo>Account</referenceTo>
+    <relationshipLabel>Brand Segmentation Approvals</relationshipLabel>
+    <relationshipName>Brand_Segmentation_Approvals</relationshipName>
+    <relationshipOrder>0</relationshipOrder>
+    <reparentableMasterDetail>false</reparentableMasterDetail>
+    <trackTrending>false</trackTrending>
+    <type>MasterDetail</type>
+    <writeRequiresMasterRead>false</writeRequiresMasterRead>
+</CustomField>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>No_of_VIPs_gtr_than_no_of_units_sold</fullName>
+    <active>true</active>
+    <description>Number of VIP cards should not be greater than the number of units sold.</description>
+    <errorConditionFormula>$Setup.Global_Object_Validation__c.Daily_Sales_Validations_Active__c 
+
+&amp;&amp; NOT(ISBLANK(  Units_Sold__c ))
+&amp;&amp; NOT(ISBLANK(  VIP_Cards__c ))
+
+&amp;&amp; VIP_Cards__c &gt;  Units_Sold__c
+
+&amp;&amp; NOT( Ignore_Validations__c )</errorConditionFormula>
+    <errorDisplayField>VIP_Cards__c</errorDisplayField>
+    <errorMessage>Number of VIP cards should not be greater than the number of units sold. Please set the &apos;Ignore Validations&apos; flag and add a note to this record if you believe the values are correct</errorMessage>
+</ValidationRule>

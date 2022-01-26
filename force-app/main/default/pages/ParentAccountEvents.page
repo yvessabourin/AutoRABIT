@@ -1,0 +1,24 @@
+<apex:page standardcontroller="Account" extensions="ParentAccountEventsController" tabStyle="Event" lightningStylesheets="true">
+    <style>
+        .body .bPageTitle .pageType, .slds-vf-scope .bPageTitle .pageType{
+        font-size: 1.2rem;      
+        }
+        tr.headerRow th:first-child div{
+        width:225px;
+        }
+    </style>
+    <apex:sectionHeader title="B2B Meetings at {!Account.parent.name}" subtitle="These meetings may not discuss the {!Account.name} Brand" rendered="{!IF(CONTAINS($User.UIThemeDisplayed, 'Theme4') && displayresults,TRUE,FALSE)}" />
+    <apex:sectionHeader subtitle="B2B Meetings at {!Account.parent.name}" title="These meetings may not discuss the {!Account.name} Brand" rendered="{!IF(NOT(CONTAINS($User.UIThemeDisplayed, 'Theme4')) && displayresults,TRUE,FALSE)}" />
+    
+    <apex:pageBlock rendered="{!displayresults}"> 
+        <apex:pageBlockTable value="{!ParentEvents}" var="event">    
+            <apex:column headervalue="Subject" headerClass="headerStyle"><apex:outputLink value="/{!event.id}" target="_top">{!event.Subject}</apex:outputLink></apex:column>
+            <apex:column value="{!event.Reason__c}"/>
+            <apex:column value="{!event.Location}"/>
+            <apex:column value="{!event.Villages_Discussed__c}"/>
+            <apex:column value="{!event.StartDateTime}"/>
+            <apex:column headervalue="Assigned to" value="{!event.owner.name}"/>
+            <apex:column headervalue="Primary Contact" value="{!event.who.name}"/>   
+        </apex:pageBlockTable> 
+    </apex:pageBlock>  
+</apex:page>

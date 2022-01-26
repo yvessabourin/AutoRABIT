@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>GRS_Category__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Select the relevant value if this is a GRS or Acting GRS brand otherwise leave blank or set to other</inlineHelpText>
+    <label>GRS Category</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>GRS Volume Brands</fullName>
+                <default>false</default>
+                <label>GRS Volume Brands</label>
+            </value>
+            <value>
+                <fullName>GRS Italian Brands</fullName>
+                <default>false</default>
+                <label>GRS Italian Brands</label>
+            </value>
+            <value>
+                <fullName>GRS French Brands</fullName>
+                <default>false</default>
+                <label>GRS French Brands</label>
+            </value>
+            <value>
+                <fullName>GRS Development Brands</fullName>
+                <default>false</default>
+                <label>GRS Development Brands</label>
+            </value>
+            <value>
+                <fullName>Acting GRS</fullName>
+                <default>false</default>
+                <label>Acting GRS</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

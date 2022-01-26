@@ -1,0 +1,5 @@
+<apex:page standardController="Marketing_Activity__c" extensions="CloneActivityLightningMigrationFlow" recordSetVar="ActivityClone" lightningStylesheets="true" showQuickActionVfHeader="false" showHeader="false" title="Clone">
+   <flow:interview name="Clone_List_Button_Marketing_Activity" finishLocation="{!URLFOR($Action.Marketing_Activity__c.List, $ObjectType.Marketing_Activity__c)}" buttonLocation="bottom">
+        <apex:param name="selectRecordsSelect" value="{!selectedActivity}" />
+    </flow:interview>
+</apex:page>

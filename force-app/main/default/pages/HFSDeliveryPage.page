@@ -1,0 +1,85 @@
+<apex:page standardController="HFS_Job__c" extensions="HFSDeliveryPageController" lightningStylesheets="true" action="{!updateRecords}">
+<script>
+
+    window.onload = function() {
+            checkLocation();
+    };
+    function checkLocation() {
+      var difLocation = '{!differentLocations}';
+      var storagePoint ='{!currentStoragePoint}';
+      var collectionPoint ='{!guestCollectionPoint}';
+      if(difLocation == 'true'){
+          if (confirm('The scanned storage location is in ' + storagePoint + ' but this Guest has requested collection from ' + collectionPoint + '. Are you sure you have scanned the correct storage location?')) {
+          } else {
+            myJavascriptFunc();
+          }
+        }
+    }
+
+    function myJavascriptFunc(){
+        resetValues();
+    }
+
+    function ConfirmPutaway(){
+      $j('#ConfPutaway').modal("show");
+ }
+
+
+</script>
+<body style="font-family: sans-serif;font-size:9pt;">
+<p><h3>Job number: {!HFS_Job__c.Name} </h3></p>
+<p><h3>Storage Point: {!HFS_Job__c.HFS_Guest_Collection_Point__c}</h3></p>
+<p><h3>Guest: {!HFS_Job__c.Guest_ID_Code__c}</h3></p>
+<p><h4>Existing Guest Storage Locations:</h4></p>
+<apex:outputPanel rendered="{!NOT(VarConfPutaway)}">
+    <apex:pageBlock html-width="100%">
+        <apex:pageBlockTable value="{!allBagStorage}" var="key" rendered="{!NOT(VarConfPutaway)}">
+            <apex:column headerValue="Storage Location"> {!key} </apex:column>
+            <apex:column headerValue="Number Of Bags"> {!allBagStorage[key]} </apex:column>
+        </apex:pageBlockTable>
+    </apex:pageBlock>
+</apex:outputPanel>
+<apex:outputPanel id="pageMessages" rendered="{!NOT(VarConfPutaway)}">
+    <apex:pageMessages escape="false" />
+</apex:outputPanel>
+<br />
+<apex:pageBlock html-width="100%">
+    <apex:pageBlockTable value="{!allJobBags}" var="bag" rendered="{!NOT(VarConfPutaway)}">
+        <apex:column value="{!bag.Barcode__c}" />
+        <apex:column value="{!bag.In_Storage_Point__c}" style="text-align:center;" />
+    </apex:pageBlockTable>
+</apex:pageBlock>
+<apex:form >
+<apex:actionFunction name="resetValues" action="{!resetLocation}"/>
+    <div align="center">
+        <apex:commandButton style="right:10px;position:relative;" value="Scan Storage Location" action="{!scanLocationCode}" rendered="{!NOT(VarConfPutaway)}"/>
+        <apex:commandButton style="left:10px;position:relative;" value="Scan Bags" action="{!scanBagsCode}" rendered="{!NOT(VarConfPutaway)}"/>
+    </div>
+<br />
+<apex:outputPanel rendered="{!VarConfPutaway}" >
+
+<!-- Confirm Putaway -->
+    <div id="ConfPutaway" name ="ConfPutaway" class ="modal fade" role ="dialog" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true" >
+        <div class="modal-dialog modal-sm">
+            <!-- Modal content-->
+        <div class="modal-content" >
+        <div class="modal-header" style="font-weight: bold; font-size: medium;"> Bag(s) for this Job successfully put away to Location : {!HFS_Job__c.HFS_Guest_Collection_Point__c}
+        </div>
+        <div class="modal-body" align="center">
+        <br/>
+        <br/>
+        <apex:commandButton style="right:20px;position:relative;" value="Current" action="{!CurrentJob}"/>
+        <apex:commandButton style="left:20px;position:relative;" value="Assigned" action="{!AssignedJob}"/>
+        <apex:commandButton style="left:50px;position:relative;" value="Available" action="{!AvailableJob}"/>
+  
+<!-- Confirm Putaway end  -->
+
+        </div>
+      </div>
+    </div>
+  </div>
+    
+ </apex:outputPanel> 
+</apex:form>
+</body>
+</apex:page>

@@ -1,0 +1,532 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>Deal_Unit_Close</fullName>
+        <description>Deal Unit Close</description>
+        <protected>false</protected>
+        <recipients>
+            <type>creator</type>
+        </recipients>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <recipients>
+            <recipient>jkete@valueretail.com</recipient>
+            <type>user</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>ValueRetailTemplates/LeaseFlow_Unit_Closing_Reminder</template>
+    </alerts>
+    <fieldUpdates>
+        <fullName>Annual_Base_Rent_calc</fullName>
+        <field>Annual_Base_Rent_for_calc__c</field>
+        <formula>Base_Rent__c * Effective_Size_for_Charges__c</formula>
+        <name>Annual Base Rent calc</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Annual_Service_Charge_calc</fullName>
+        <field>Annual_Service_Charge_for_calc__c</field>
+        <formula>Service_Charge__c * Effective_Size_for_Charges__c</formula>
+        <name>Annual Service Charge calc</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Calc_Income_Yield</fullName>
+        <description>Calculate the Projected Income Yield from the Effective Size and the Porjected Income in Village Currency and Village Size Metric</description>
+        <field>Projected_Income_Yield_Local_v1__c</field>
+        <formula>Projected_Income_Annualized__c  /  (  Effective_Size__c  *  SF__c  )</formula>
+        <name>Calc Income Yield</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Calc_Income_from_Return</fullName>
+        <description>Calculate the Projected Income in Local Currency from the Projected Sales and the Return</description>
+        <field>Projected_Income_Local_v1__c</field>
+        <formula>Projected_Sales_Local_v1__c  *  Projected_Return_Local__c</formula>
+        <name>Calc Income from Return</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Calc_Income_from_Yield</fullName>
+        <description>Calculate the Projected Income from the Income Yield using Village metrics</description>
+        <field>Projected_Income_Local_v1__c</field>
+        <formula>Projected_Income_Yield_Local_v1__c  *  (  Effective_Size__c  *  SF__c  )</formula>
+        <name>Calc Income from Yield</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Calc_Return</fullName>
+        <description>Calculate the Return based on the Projected Sales and Income in Village Currency</description>
+        <field>Projected_Return_Local__c</field>
+        <formula>Projected_Income_Annualized__c / Projected_Sales_Annualized__c</formula>
+        <name>Calc Return</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Calc_Sales_Yield</fullName>
+        <field>Projected_Sales_Yield_Local__c</field>
+        <formula>Projected_Sales_Annualized__c  /   ( Effective_Size__c *  SF__c  )</formula>
+        <name>Calc Sales Yield</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Calc_Sales_from_Return</fullName>
+        <field>Projected_Sales_Local_v1__c</field>
+        <formula>Projected_Income_Local_v1__c  /  Projected_Return_Local__c</formula>
+        <name>Calc Sales from Return</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Calc_Sales_from_Yield</fullName>
+        <description>Calculate the Projected Sales Value using the Effective Size and the Projected Sales Yield expressed in the Currency of the Village</description>
+        <field>Projected_Sales_Local_v1__c</field>
+        <formula>Projected_Sales_Yield_Local__c * (  Effective_Size__c  *  SF__c  )</formula>
+        <name>Calc Sales from Yield</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Init_BR</fullName>
+        <field>Base_Rent__c</field>
+        <formula>Village__r.Std_Base_Rent__c</formula>
+        <name>Init BR</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Init_SC</fullName>
+        <field>Service_Charge__c</field>
+        <formula>Village__r.Std_Management_Fee__c</formula>
+        <name>Init SC</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Init_ToR</fullName>
+        <field>TOR__c</field>
+        <formula>Village__r.Std_Required_ToR__c</formula>
+        <name>Init ToR</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Populate_Deal_Close_date</fullName>
+        <field>CloseDate</field>
+        <formula>Expected_Open_Date__c</formula>
+        <name>Populate Deal Close date</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Populate_Deal_Close_date_Contract_Chg</fullName>
+        <field>CloseDate</field>
+        <formula>IF( ISBLANK(Signed_Date__c),  Expected_Signature_Date__c , Signed_Date__c)</formula>
+        <name>Populate Deal Close date (Contract Chg)</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Populate_Deal_Close_date_Exit_Deal</fullName>
+        <field>CloseDate</field>
+        <formula>Expected_Exit_Date__c</formula>
+        <name>Populate Deal Close date (Exit Deal)</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Populate_Original_Expected_Open_Date</fullName>
+        <field>Original_Expected_Open_Date__c</field>
+        <formula>Expected_Open_Date__c</formula>
+        <name>Populate Original Expected Open Date</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Synchronize_Next_Step</fullName>
+        <field>NextStep</field>
+        <formula>Next_Step_Update__c</formula>
+        <name>Synchronize Next Step</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Last_Stage</fullName>
+        <field>Previous_Stage__c</field>
+        <formula>text(PRIORVALUE( StageName ))</formula>
+        <name>Update Last Stage</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Last_StageChange_Date</fullName>
+        <field>Last_StageChange_Date__c</field>
+        <formula>TODAY()</formula>
+        <name>Update Last StageChange Date</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <flowActions>
+        <fullName>Set_Current_Brand_in_Unit</fullName>
+        <flow>Set_Current_Brand_on_Deal</flow>
+        <flowInputs>
+            <name>DealID</name>
+            <value>{!Id}</value>
+        </flowInputs>
+        <flowInputs>
+            <name>UnitID</name>
+            <value>{!Unit__c}</value>
+        </flowInputs>
+        <label>Set Current Brand in Unit</label>
+        <language>en_US</language>
+        <protected>false</protected>
+    </flowActions>
+    <rules>
+        <fullName>Annual Base Rent calc</fullName>
+        <actions>
+            <name>Annual_Base_Rent_calc</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Opportunity.UID__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <description>Field used in formula fields requiring the Annual Base Rent  to overcome formula maximum length issues.</description>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Annual Service Charge calc</fullName>
+        <actions>
+            <name>Annual_Service_Charge_calc</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Opportunity.UID__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <description>Field used in formula fields requiring the Annual service Charge to overcome formula maximum length issues.</description>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Calc Income Yield</fullName>
+        <actions>
+            <name>Calc_Income_Yield</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>false</active>
+        <criteriaItems>
+            <field>Opportunity.Effective_Size__c</field>
+            <operation>greaterThan</operation>
+            <value>0</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Opportunity.Projected_Income_Annualized__c</field>
+            <operation>greaterThan</operation>
+            <value>0</value>
+        </criteriaItems>
+        <description>Calculate the Income Yield from the Annualized Projected Income and Effective size in Village metrics</description>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Calc Income from Return</fullName>
+        <actions>
+            <name>Calc_Income_from_Return</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>false</active>
+        <criteriaItems>
+            <field>Opportunity.Projected_Sales_Local_v1__c</field>
+            <operation>greaterThan</operation>
+            <value>0</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Opportunity.Projected_Return_Local__c</field>
+            <operation>greaterThan</operation>
+            <value>0</value>
+        </criteriaItems>
+        <description>Calculate the Projected Income from the Projected Sales and the Return</description>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Calc Income from Yield</fullName>
+        <actions>
+            <name>Calc_Income_from_Yield</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>false</active>
+        <criteriaItems>
+            <field>Opportunity.Effective_Size__c</field>
+            <operation>greaterThan</operation>
+            <value>0</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Opportunity.Projected_Income_Yield_Local_v1__c</field>
+            <operation>greaterThan</operation>
+            <value>0</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Opportunity.Projected_Income_Local_v1__c</field>
+            <operation>equals</operation>
+        </criteriaItems>
+        <description>Calculate the Projected Income from the Yield in VIllage metrics</description>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Calc Return</fullName>
+        <actions>
+            <name>Calc_Return</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>false</active>
+        <criteriaItems>
+            <field>Opportunity.Projected_Sales_Annualized__c</field>
+            <operation>greaterThan</operation>
+            <value>0</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Opportunity.Projected_Income_Annualized__c</field>
+            <operation>greaterThan</operation>
+            <value>0</value>
+        </criteriaItems>
+        <description>Calculate the Return based on the Annualized Projected Sales and Income</description>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Calc Sales Yield</fullName>
+        <actions>
+            <name>Calc_Sales_Yield</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>false</active>
+        <criteriaItems>
+            <field>Opportunity.Effective_Size__c</field>
+            <operation>greaterThan</operation>
+            <value>0</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Opportunity.Projected_Sales_Annualized__c</field>
+            <operation>greaterThan</operation>
+            <value>0</value>
+        </criteriaItems>
+        <description>Calculate the Sales Yield from the Effective Size and the Annualized Projected Sales Value expressed in the size metric of the VIllage</description>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Calc Sales from Return</fullName>
+        <actions>
+            <name>Calc_Sales_from_Return</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>false</active>
+        <criteriaItems>
+            <field>Opportunity.Projected_Income_Local_v1__c</field>
+            <operation>greaterThan</operation>
+            <value>0</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Opportunity.Projected_Return_Local__c</field>
+            <operation>greaterThan</operation>
+            <value>0</value>
+        </criteriaItems>
+        <description>Calculate the Sales Projection using the Projected Income and the Return</description>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Calc Sales from Yield</fullName>
+        <actions>
+            <name>Calc_Sales_from_Yield</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>false</active>
+        <criteriaItems>
+            <field>Opportunity.Effective_Size__c</field>
+            <operation>greaterThan</operation>
+            <value>0</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Opportunity.Projected_Sales_Yield_Local__c</field>
+            <operation>greaterThan</operation>
+            <value>0</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Opportunity.Projected_Sales_Local_v1__c</field>
+            <operation>equals</operation>
+        </criteriaItems>
+        <description>Calculate the Sales Projection from the Effective Size and the Projected Sales Yield in Local Currency</description>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Init SBM Fields</fullName>
+        <actions>
+            <name>Init_BR</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Init_SC</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Init_ToR</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Opportunity.Base_Rent__c</field>
+            <operation>equals</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Opportunity.Service_Charge__c</field>
+            <operation>equals</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Opportunity.TOR__c</field>
+            <operation>equals</operation>
+        </criteriaItems>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Populate Deal Close date %28Exit Deal%29</fullName>
+        <actions>
+            <name>Populate_Deal_Close_date_Exit_Deal</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>fire when Expected Exit Date changed</description>
+        <formula>NOT( ISBLANK( Expected_Exit_Date__c ) ) 
+&amp;&amp; RecordTypeName__c = &quot;Exit&quot;</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Populate Deal Close date %28Open Deal%29</fullName>
+        <actions>
+            <name>Populate_Deal_Close_date</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>fire when Expected Open Date changed</description>
+        <formula>NOT( ISBLANK(Expected_Open_Date__c ) ) 
+&amp;&amp; RecordTypeName__c &lt;&gt; &quot;Exit&quot;</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Populate Deal Close date %28chg Deal%29</fullName>
+        <actions>
+            <name>Populate_Deal_Close_date_Contract_Chg</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>OR( NOT(ISBLANK(Signed_Date__c )), NOT(ISBLANK( Expected_Signature_Date__c  )) )  &amp;&amp; RecordTypeName__c = &quot;Contract Change&quot;</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Populate Original Expected Open Date</fullName>
+        <actions>
+            <name>Populate_Original_Expected_Open_Date</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>fire when Expected Open Date is first entered</description>
+        <formula>NOT(ISBLANK(Expected_Open_Date__c )) &amp;&amp; ISBLANK( Original_Expected_Open_Date__c )</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Send Brand close alert_v2</fullName>
+        <active>true</active>
+        <formula>OR(RecordTypeName__c = &quot;Relocation&quot;, RecordTypeName__c = &quot;Refit&quot;) &amp;&amp;  IsClosed = false &amp;&amp;  NOT(ISBLANK( Current_Unit_Move_Out_Date__c ))</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Deal_Unit_Close</name>
+                <type>Alert</type>
+            </actions>
+            <offsetFromField>Opportunity.Current_Unit_Move_Out_Date__c</offsetFromField>
+            <timeLength>9</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Set current Brand in Unit</fullName>
+        <actions>
+            <name>Set_Current_Brand_in_Unit</name>
+            <type>FlowAction</type>
+        </actions>
+        <active>true</active>
+        <formula>ISCHANGED( Unit__c )</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Synchronize Next Step</fullName>
+        <actions>
+            <name>Synchronize_Next_Step</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Opportunity.Next_Step_Update__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Update Last StageChange Date on Change of Stage</fullName>
+        <actions>
+            <name>Update_Last_Stage</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Update_Last_StageChange_Date</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>ISCHANGED(StageName )</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+</Workflow>

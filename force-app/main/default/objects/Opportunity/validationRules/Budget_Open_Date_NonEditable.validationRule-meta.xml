@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Budget_Open_Date_NonEditable</fullName>
+    <active>true</active>
+    <description>Budget Open Date field on deal types (New Brand, ShopRefit, Contract Change, Relocation) to be non-editable to all Leasing Profile users</description>
+    <errorConditionFormula>AND(OR(RecordType.DeveloperName=&quot;New_Brand&quot;,RecordType.DeveloperName=&quot;ShopRefit&quot;,
+RecordType.DeveloperName=&quot;Contract_Change&quot;, RecordType.DeveloperName=&quot;Relocation&quot;
+),
+ISCHANGED(Budget_Open_Date__c),
+$Profile.Name = &quot;Leasing&quot;,
+$Permission.Deal_Budget_Editing = false
+)</errorConditionFormula>
+    <errorMessage>Budget Open Date field cannot be edited please contact the Group Remerchandising Analyst if a change is needed.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Total_Bags__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF( ISPICKVAL(Job_Type__c,&apos;Bag Transfer&apos;),  HFS_Purchase__r.Case__r.Total_Bags_of_the_Guest__c,HFS_Purchase__r.Total_Bags__c)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Total Bags</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

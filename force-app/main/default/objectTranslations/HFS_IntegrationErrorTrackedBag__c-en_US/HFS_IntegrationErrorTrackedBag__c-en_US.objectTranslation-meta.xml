@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>HFS IntegrationError TrackedBag</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>HFS IntegrationError TrackedBags</value>
+    </caseValues>
+    <startsWith>Consonant</startsWith>
+    <webLinks>
+        <label></label>
+        <name>Delete</name>
+    </webLinks>
+    <webLinks>
+        <label></label>
+        <name>Resubmit</name>
+    </webLinks>
+</CustomObjectTranslation>

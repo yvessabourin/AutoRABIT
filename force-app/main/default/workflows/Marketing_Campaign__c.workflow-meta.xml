@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fieldUpdates>
+        <fullName>Error_Message_Update</fullName>
+        <field>Error_Message__c</field>
+        <name>Error Message Update</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Null</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>ReSendToOracleStop</fullName>
+        <field>Re_send_to_Oracle__c</field>
+        <literalValue>0</literalValue>
+        <name>ReSendToOracleStop</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <rules>
+        <fullName>MC-ReSendOracleStopRule</fullName>
+        <actions>
+            <name>Error_Message_Update</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>ReSendToOracleStop</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>OR(Oracle_Project_Number__c != NULL, Oracle_Secondary_Project_Number__c != NULL)</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+</Workflow>

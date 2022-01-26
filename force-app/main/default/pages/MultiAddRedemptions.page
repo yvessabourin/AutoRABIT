@@ -1,0 +1,235 @@
+<apex:page controller="MultiAddRedemptionsController" sidebar="false" id="CExPage" showheader="false" tabstyle="Promotion_Redemption__c" title="Redemption Wizard" action="{!saveNow}" lightningStylesheets="true">
+
+
+
+<script language="JavaScript" type="text/javascript">
+
+    function test(val){
+        alert(val);
+        alert(transportMode.value);
+
+    }
+
+function CloseAndRefresh(){
+window.parent.location.href="/{!$CurrentPage.parameters.id}"; 
+//self.close(); 
+}
+
+
+
+            function callMe(ms, component)
+    {
+        var myText = document.getElementById(component);
+        
+        //alert(myText.value+ " :: " + myText + " - I've been called after timeout"); //for testing purposes
+        
+        myText.value = (myText.value+ ';');
+    }
+
+    var _timer = 0;
+        function DelayedCallMe(num, component) {
+            if (_timer)
+                window.clearTimeout(_timer);
+            _timer = window.setTimeout(function() { callMe(num, component); }, 200);
+                }
+
+
+</script>
+  
+
+<apex:form id="frmMain">
+<!-- "Loading" or "Processing" popup  -->
+<apex:actionStatus id="processingStatus" stopText=""  >
+    <apex:facet name="start">
+        <div>
+            <div class="popupBackground" />
+            <div class="popupPanel">
+                <table border="0" width="100%" height="100%">
+                    <tr>
+                        <td align="center" style="font-family: Calibri; font-size: 13px; font-weight: normal;"><b>Processing... Please Wait</b></td>
+                    </tr>
+                    <tr>
+                        <td align="center"><img src="/img/loading.gif"/></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </apex:facet>
+</apex:actionStatus>
+
+<!-- <p><a href="https://valueretail.my.salesforce.com">Back to VR1</a>  </P> -->
+<apex:outputLink value="{!IF($User.UITheme == 'Theme4d' || $User.UITheme == 'Theme4u', '/lightning/page/home', LEFT(URLFOR($CurrentPage.URL),(FIND('/apex', URLFOR($CurrentPage.URL)))))}" id="theLink">Back to VR1</apex:outputLink>
+
+  <p style="text-align:center"><apex:image url="{!$Resource.VR1WhiteLogo}" style="position:centre" width="100"/>
+  <br/>
+ 
+  <font size="7" face="Palatino Linotype" color="Black">Promotion Redemption</font>
+  <br/>
+  <font size="4" face="Book Antiqua" color="Black"><strong>{!RedeemableCampaign.Name}</strong></font>
+  
+  
+  
+</p>
+    <apex:actionRegion >  
+        <apex:pageBlock >
+            <apex:actionRegion >
+                <apex:actionFunction name="validate"  reRender="btns" action="{!validate}"  >
+                    <apex:param name="visitValue1" value=""  />
+                </apex:actionFunction>          
+            </apex:actionRegion>
+            <apex:pageBlockSection title="Visit Details (will be applied to all redemptions scanned in this page)" columns="2">
+                <apex:inputField value="{!dummyRedemption.Location__c}" required="true"  id="location"/>                                
+                <apex:inputField value="{!dummyRedemption.Visit_Type__c}"  required="true" id="visitType" onchange="validate(this.value);"/>
+                <apex:inputField value="{!dummyRedemption.Mode_of_Transport__c}"  required="true" id="transportMode" onchange="validate(this.value);"/>
+                <apex:inputField value="{!dummyRedemption.Country_of_Origin__c}"  required="true" id="country" onchange="validate(this.value);"/>                        
+            </apex:pageBlockSection>
+
+            
+        </apex:pageBlock>
+    </apex:actionRegion>
+        
+  <apex:pageBlock title="Scan the VIP cards into this box using a laser scanner" rendered="{!IF(pageerror == false, true, false)}">
+        
+        <apex:pageBlockButtons location="bottom">
+        <apex:outputPanel id="btns">
+            <!--<apex:pagemessages rendered="true" id="msg2" />-->
+                <apex:commandButton value="Manually Add VIP Card" action="{!add}" rerender="rows, counter, messages, btns" status="processingStatus"/>
+                <apex:commandButton value="Cancel" action="{!cancel}" immediate="true"/>
+                <apex:commandButton value="Reset" action="{!Reset}" status="processingStatus" rerender="frmMain"/>
+                <apex:commandButton action="{!quicksave}" value="Verify"  rerender="rows,messages,counter" status="processingStatus"/>
+
+                <apex:commandButton action="{!save}" value="Submit Redemptions"  rerender="rows,messages" status="processingStatus" disabled="{!disableSubmit}" title="Submit all redemption details" />
+        </apex:outputPanel>
+        </apex:pageBlockButtons>
+        
+
+       
+
+       <p style="text-align:center">
+       
+       <apex:actionRegion >        
+           <apex:inputTextarea id="multivoucherstextbox" rows="10" cols="100" value="{!multiVouchers}" onkeyup="DelayedCallMe(200, '{!$Component.multivoucherstextbox}');"   />     
+       </apex:actionRegion>        
+       
+       <br/>
+       <apex:commandButton value="Process VIP Cards" action="{!MultiAdd}" rerender="rows,multivoucherstextbox,messages,counter, btns" immediate="false" status="processingStatus" title="Create redemptions list"/>
+        </p>
+        <br/>
+         <br/>
+   <apex:pageMessages id="messages" escape="false" />
+    
+    
+
+         
+   </apex:pageblock>    
+
+    
+    <apex:pageBlock title="Redemptions List" rendered="{!IF(pageerror == false, true, false)}">  
+          
+        <apex:variable var="rowNum" value="{!0}" id="counter"  />    
+        
+        <apex:pageBlockTable width="80%" align="center" value="{!TORs}" var="c" id="rows" >
+   
+            <apex:column headerValue="No." style="width:20px; text-align:center;" headerClass="centertext">
+                <apex:outputText value="{0,number, ###}" style="text-align:center;">   
+                    <apex:param value="{!rowNum+1}" />   
+                </apex:outputText>
+             </apex:column> 
+             
+            <apex:column width="20%" headerValue="Voucher Code"><apex:inputText maxlength="16" tabindex="0" value="{!c.Voucher_Code__c}" required="false" /></apex:column>
+              
+             <apex:column headervalue="Guest"> 
+                  
+                <apex:actionRegion >   
+                    <!-- <apex:inputField id="guest" value="{!c.Guest2__c}"  >   -->
+                    <apex:inputField id="guest" value="{!c.customer__c}"  > 
+                        <apex:actionSupport event="onchange" action="{!updateContactFields}" reRender="contactEmail, contactFirstName, contactLastName, EmailOptIn, messages, counter" status="processingStatus">
+                             <apex:param name="rowIndex" assignTo="{!rowIndex}" value="{!rowNum}"  />    
+                        </apex:actionSupport>
+                        
+                     </apex:inputField>
+               </apex:actionRegion> 
+    
+             </apex:column>
+            
+            <apex:column headervalue="Guest Email" > 
+                <apex:outputPanel id="contactEmail"> 
+                    <apex:inputField value="{!c.Guest_Email__c}" required="{!ContactDetailsRequired}" id="emailInput" />
+                     <script>document.getElementById('{!$Component.emailInput}').disabled = {!disableInput[rowNum]}; </script>  
+                </apex:outputPanel>
+            </apex:column>              
+            
+            <apex:column headervalue="Email opt In"> 
+                <apex:outputPanel id="EmailOptIn">
+                    <apex:inputField value="{!c.Email_opt_in__c}" required="false" id="optinInput" />
+                    <script>document.getElementById('{!$Component.optinInput}').disabled = {!disableInput[rowNum]}; </script>  
+                </apex:outputPanel>        
+            </apex:column>
+            
+            <apex:column headervalue="First Name"> 
+                <apex:outputPanel id="contactFirstName">
+                    <apex:inputField value="{!c.Guest_First_Name__c}" required="false" id="firstnameInput"  />
+                     <script>document.getElementById('{!$Component.firstnameInput}').disabled = {!disableInput[rowNum]}; </script>  
+                </apex:outputPanel>        
+            </apex:column>
+             
+            <apex:column headervalue="Last Name"> 
+                <apex:outputPanel id="contactLastName"> 
+                    <apex:inputField value="{!c.Guest_Last_Name__c}" required="false" id="lastnameInput" />
+                     <script>document.getElementById('{!$Component.lastnameInput}').disabled = {!disableInput[rowNum]}; </script>  
+                </apex:outputPanel>        
+            </apex:column>
+            
+            <apex:column headervalue="Date"> 
+                <apex:inputField value="{!c.Redeem_Date__c}" />  
+                <apex:variable var="rowNum" value="{!rowNum+1}"/>
+            </apex:column>
+            
+        </apex:pageBlockTable>
+
+    </apex:pageblock>
+
+
+</apex:form>
+
+    <!-- Adding styles required for loading or processing popup  -->
+ <style>
+     .popupBackground {
+         background-color:black;
+         opacity: 0.20;
+         filter: alpha(opacity = 20);
+         width: 100%;
+         height: 100%;
+         top: 0;
+         left: 0;
+         z-index: 998;
+         position: absolute;
+     }
+     .popupPanel {
+         border: solid 1px;
+         background-color: white;
+         left: 50%;
+         width: 200px;
+         margin-left: -100px;
+         top: 50%;
+         height: 50px;
+         margin-top: -25px;
+         z-index: 999;
+         position: fixed;
+     }
+ 
+     div.pbSubheader{
+         font color:black;
+     }
+             
+     .odd{
+         background-color: #FCF7F7;
+     }
+ 
+     .even{
+         background-color: #E3DCDB;
+     }
+ 
+ </style>
+
+</apex:page>

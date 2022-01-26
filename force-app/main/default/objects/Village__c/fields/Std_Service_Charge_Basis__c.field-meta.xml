@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Std_Service_Charge_Basis__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Set the standard size metric for calculating Service Charge or Management Fee</inlineHelpText>
+    <label>Std Service Charge Basis</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>GEA</fullName>
+                <default>false</default>
+                <label>GEA</label>
+            </value>
+            <value>
+                <fullName>GIA</fullName>
+                <default>false</default>
+                <label>GIA</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

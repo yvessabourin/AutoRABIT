@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Approve</fullName>
+    <availability>online</availability>
+    <description>Approves the record, and sends the values to the brand</description>
+    <displayType>button</displayType>
+    <linkType>page</linkType>
+    <masterLabel>Approve</masterLabel>
+    <openType>replace</openType>
+    <page>ApproveSingleSegmentation</page>
+    <protected>false</protected>
+</WebLink>

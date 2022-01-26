@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Suzhou_Units</fullName>
+    <columns>NAME</columns>
+    <columns>Size_GEA__c</columns>
+    <columns>Unit_Designation__c</columns>
+    <columns>Phase_ID__c</columns>
+    <columns>Omit_from_Village_GEA__c</columns>
+    <columns>Unit_Status__c</columns>
+    <columns>Master_Unit__c</columns>
+    <columns>Composite__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Village__c</field>
+        <operation>equals</operation>
+        <value>Suzhou</value>
+    </filters>
+    <label>Suzhou Units</label>
+</ListView>

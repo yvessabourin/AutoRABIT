@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>SALUTATION</field>
+    </columns>
+    <columns>
+        <field>FIRST_NAME</field>
+    </columns>
+    <columns>
+        <field>LAST_NAME</field>
+    </columns>
+    <columns>
+        <field>TITLE</field>
+    </columns>
+    <columns>
+        <field>ADDRESS2_COUNTRY</field>
+    </columns>
+    <columns>
+        <field>PHONE3</field>
+    </columns>
+    <columns>
+        <field>EMAIL</field>
+    </columns>
+    <columns>
+        <field>OWNER_FULL_NAME</field>
+    </columns>
+    <columns>
+        <field>CONTACT_OWNER</field>
+    </columns>
+    <description>List of contacts filtered by account owner</description>
+    <filter>
+        <criteriaItems>
+            <column>ACCOUNT.NAME</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>,Agatha,Agnès b.,Alain Figaret,American Vintage,Angelina,Anne de Solène,Anne Fontaine,Annick Goutal,Antik Batik,Apostrophe,Azzaro,Ba&amp;Sh,Barbara Bui,Berenice,Bodum,Caron,Carvel,Chantelle,Claudie Pierlot,Dalloyau,Eric Bompard,Fauchon,Fragonard,Garel,Garella Gallery,Gerard Darel,Harryland,Jacadi,Jerome Dreyfuss,La Maison du Chocolat,Laduree,Lagostina,Lamarthe,L&apos;Artisan Parfumeur,Laurence Tavernier,Lenotre,Les Petites,Maje,Maje Sandro,Manfield,Marithé &amp; François Girbaud,Marithé+François Girbaud,Maubossin,Natalie&apos;s Cafe,Nitya,Paul &amp; Joe,Paule Ka,Pierre Clarence,Pierre Herme,Pom d&apos;Api,Robert Clergerie,Rouge Restaurant,Sandro,Six Pieds Trois Pouces,Sonia Rykiel,Tara Jarmon,Tissot,Vanessa Bruno,Ventilo,Vicomte A,Yves Salomon</value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>ACCOUNT.NAME</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>Contacts for specific brands</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>ContactList</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>CREATED_DATE</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

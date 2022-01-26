@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Village Closed Period</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Village Closed Periods</value>
+    </caseValues>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>From_and_To_must_be_the_same_year</name>
+    </validationRules>
+    <webLinks>
+        <label></label>
+        <name>Mass_Create_Sundays</name>
+    </webLinks>
+</CustomObjectTranslation>

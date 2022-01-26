@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Daily Sales Certification Batch</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Daily Sales Certification Batches</value>
+    </caseValues>
+    <recordTypes>
+        <label></label>
+        <name>Finish</name>
+    </recordTypes>
+    <recordTypes>
+        <label></label>
+        <name>POST_Submit</name>
+    </recordTypes>
+    <recordTypes>
+        <label></label>
+        <name>PRE_Submit</name>
+    </recordTypes>
+    <sharingReasons>
+        <label></label>
+        <name>Status_managed_changes</name>
+    </sharingReasons>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

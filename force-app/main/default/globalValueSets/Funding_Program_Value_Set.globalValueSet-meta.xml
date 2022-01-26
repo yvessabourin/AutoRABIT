@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>China Funding Program</fullName>
+        <default>false</default>
+        <label>China Funding Program</label>
+    </customValue>
+    <customValue>
+        <fullName>Global Funding Program</fullName>
+        <default>false</default>
+        <label>Global Funding Program</label>
+    </customValue>
+    <customValue>
+        <fullName>Hong Kong Funding Program</fullName>
+        <default>false</default>
+        <label>Hong Kong Funding Program</label>
+    </customValue>
+    <customValue>
+        <fullName>Local Funding Program</fullName>
+        <default>false</default>
+        <label>Local Funding Program</label>
+    </customValue>
+    <customValue>
+        <fullName>Taiwan Funding Program</fullName>
+        <default>false</default>
+        <label>Taiwan Funding Program</label>
+    </customValue>
+    <customValue>
+        <fullName>Korea Funding Program</fullName>
+        <default>false</default>
+        <label>Korea Funding Program</label>
+    </customValue>
+    <customValue>
+        <fullName>Singapore Funding Program</fullName>
+        <default>false</default>
+        <label>Singapore Funding Program</label>
+    </customValue>
+    <customValue>
+        <fullName>Malaysia Funding Program</fullName>
+        <default>false</default>
+        <label>Malaysia Funding Program</label>
+    </customValue>
+    <customValue>
+        <fullName>Indonesia Funding Program</fullName>
+        <default>false</default>
+        <label>Indonesia Funding Program</label>
+    </customValue>
+    <customValue>
+        <fullName>Thailand Funding Program</fullName>
+        <default>false</default>
+        <label>Thailand Funding Program</label>
+    </customValue>
+    <description>Used by Funding Program Picklist
+Global</description>
+    <masterLabel>Funding Program Value Set</masterLabel>
+    <sorted>true</sorted>
+</GlobalValueSet>

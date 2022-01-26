@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AuraDefinitionBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>51.0</apiVersion>
+    <description>Replace VFP with same name to provide better business process where user is able to select a couple of brand records from list, apply desired discount and other values, save this selection and then repeat process for other brands without reopening page.</description>
+</AuraDefinitionBundle>

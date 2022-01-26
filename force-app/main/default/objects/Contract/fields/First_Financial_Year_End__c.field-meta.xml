@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>First_Financial_Year_End__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Enter the 1st financial year end date of the brand during the life time of this contract</inlineHelpText>
+    <label>First Financial Year End</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Date</type>
+</CustomField>

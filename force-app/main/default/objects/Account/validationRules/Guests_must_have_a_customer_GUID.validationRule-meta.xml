@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Guests_must_have_a_customer_GUID</fullName>
+    <active>true</active>
+    <description>You cannot create guest records from the Accounts Tab. Please use the TIC screens.</description>
+    <errorConditionFormula>RecordType.DeveloperName = &apos;Guest&apos; 
+&amp;&amp; ISBLANK(Customer_GUID__c )</errorConditionFormula>
+    <errorMessage>You cannot create guest records from the Accounts Tab. Please use the TIC screens.</errorMessage>
+</ValidationRule>

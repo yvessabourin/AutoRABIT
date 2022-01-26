@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>CUST_NAME</field>
+    </columns>
+    <columns>
+        <field>Competitor_site__c.Competitor_to_Village__c</field>
+    </columns>
+    <columns>
+        <field>Competitor_site__c.Country__c</field>
+    </columns>
+    <columns>
+        <field>Competitor_site__c.Distance_From_Village__c</field>
+    </columns>
+    <description>All Competitor Sites Grouped by Operator whether one exists or not.</description>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Competitor_site__c.Operator_Company__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>All Competitor Sites Grouped By Operator</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CustomEntity$Competitor_site__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>Competitor_site__c.Last_Site_Visit__c</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

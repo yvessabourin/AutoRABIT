@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MRI_Unit_ID__c</fullName>
+    <caseSensitive>false</caseSensitive>
+    <description>Populated by a workflow 
+Phase_ID__c &amp; Suite_ID__c
+which makes up the uniqueness of MRI, and is a unique field</description>
+    <externalId>true</externalId>
+    <inlineHelpText>Set automatically</inlineHelpText>
+    <label>MRI Unit ID</label>
+    <length>10</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>true</unique>
+</CustomField>

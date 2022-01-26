@@ -1,0 +1,11 @@
+<html>
+<p>Dear Finance,</p>
+
+<p>There is a Sales Certification Batch certificationBatchName for period certificationPeriodFrom to certificationPeriodTo in Salesforce ready for you to review.</p>
+
+<p>Please click here to review the Sales Certification record <a href="website_here">website_here</a></p>
+
+<p>Many thanks</p>
+
+<p>Salesforce Team</p>
+</html>

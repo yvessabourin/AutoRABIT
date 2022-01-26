@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Competitor Site</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Competitor Sites</value>
+    </caseValues>
+    <startsWith>Consonant</startsWith>
+    <webLinks>
+        <label></label>
+        <name>Geo_Locate</name>
+    </webLinks>
+    <webLinks>
+        <label></label>
+        <name>Map_View</name>
+    </webLinks>
+    <webLinks>
+        <label></label>
+        <name>Record_Competitor_Visit</name>
+    </webLinks>
+</CustomObjectTranslation>

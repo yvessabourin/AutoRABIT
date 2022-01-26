@@ -1,0 +1,79 @@
+<messaging:emailTemplate subject="Group Booking Confirmation" recipientType="Contact" relatedToType="Group_Booking__c">
+<messaging:htmlEmailBody >
+
+<p align="center" style='text-align:center'><apex:image id="theImage" 
+value="{!LEFT($Api.Partner_Server_URL_140, FIND('.com/',$Api.Partner_Server_URL_140)+3)}/servlet/servlet.ImageServer?id=015b0000003CczW&oid={!$Organization.Id}" /></p>
+<br/>
+<p align="center" style='text-align:center;background:white; font-family:Arial,sans-serif'>Dear Partner,</p> 
+
+<p align="center" style='text-align:center;background:white; font-family:Arial,sans-serif'>Thank you for your interest in arranging a {!relatedTo.Group_Type__c} group visit to {!relatedTo.Village__r.Name} Village.</p> 
+<p align="center" style='text-align:center;background:white; font-family:Arial,sans-serif'>Your booking is now confirmed and your booking reference is <b>{!relatedTo.Name}.</b> </p>
+<p align="center" style='text-align:center;background:white; font-family:Arial,sans-serif'>Please present a copy of this email when you check in at Tourist Information.</p>
+
+
+<center><img src="https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl={!relatedTo.Id}" /></center> <br/>
+
+<p align="center" style='text-align:center;background:white; font-family:Arial,sans-serif'><b><u><span style='font-family:Arial,sans-serif'>Group Booking Summary</span></u></b><br/>
+<b>{!If(relatedTo.Name_of_Event__c != "", "Name of Event: ", "")} &nbsp; </b> {!If(relatedTo.Name_of_Event__c != "", relatedTo.Name_of_Event__c, "")} <br/>
+<b>Organisation: &nbsp; </b>{!relatedTo.Organisation__r.Name}<br/> 
+<b>Contact: &nbsp; </b>{!relatedTo.Contact__r.Name}  <br/>
+<b>Visitors Country of Residence: &nbsp; </b>{!relatedTo.Visitors_Country_of_Origin__c} <br/> 
+<br/>
+<b>Number of Guests Expected: &nbsp; </b> {!FLOOR(relatedTo.Number_of_Visitors_Expected__c)} <br/> 
+<b>Expected Arrival: &nbsp; </b> <apex:outputText value=" {!relatedTo.Expected_Arrival__c}"> </apex:outputText> <br/>  
+<b>Expected Departure: &nbsp; </b> <apex:outputText value=" {!relatedTo.Expected_Departure__c}"> </apex:outputText> 
+<br/> 
+<b><i>{!If(relatedTo.Secondary_MICE_Org_or_Agency_name__c != "","Secondary Org or Agency","")}</i></b><br/> 
+{!If(relatedTo.Secondary_MICE_Org_or_Agency_name__c != "",relatedTo.Secondary_MICE_Org_or_Agency_name__c,"")} <br/>
+</p>  
+
+<span align="center" style='text-align:center;background:white; font-family:Arial,sans-serif'>
+<apex:outputPanel rendered="{!CONTAINS(relatedTo.Group_Type__c,'MICE') || CONTAINS(relatedTo.Group_Booking_Source__c,'MICE')}" layout="block">
+<p align="center" style='text-align:center;background:white; font-family:Arial,sans-serif'><b><i>Additional Services Requested</i></b> <br/>
+<b>Transport Required:  &nbsp; </b> {!If(relatedTo.Transport_Required__c, "Yes", "No")} <br/>
+<b>Mode of Transport:  &nbsp; </b> {!relatedTo.Mode_of_Transport__c} <br/>
+<b>Food &amp; Beverage:  &nbsp; </b> {!If(relatedTo.Food_Beverage__c, "Yes", "No")} <br/>
+<b>Boutique Private Viewing:  &nbsp; </b> {!If(relatedTo.Boutique_Private_Viewing__c, "Yes", "No")}<br/>
+<b>Gift:  &nbsp; </b> {!if(relatedTo.Gift__c, "Yes", "No")} <br/>
+<b>Gift Card:  &nbsp; </b> {!if(relatedTo.Gift_Card__c, "Yes", "No")} <br/>
+<b>VIP Lounge Access:  &nbsp; </b> {!if(relatedTo.VIP_Lounge_Access__c, "Yes", "No")} <br/>
+<b>Welcome Pack:  &nbsp; </b> {!if(relatedTo.Welcome_Pack__c, "Yes", "No")} </p>
+</apex:outputPanel>
+</span>
+<span align="center" style='text-align:center;background:white; font-family:Arial,sans-serif'>
+<p align="center" style='text-align:center;background:white; font-family:Arial,sans-serif'>
+{!If(relatedTo.Secondary_MICE_Org_or_Agency_name__c != "",relatedTo.Secondary_MICE_Contact_First_Name__c,"")} {!If(relatedTo.Secondary_MICE_Org_or_Agency_name__c != "",relatedTo.Secondary_MICE_Contact_Last_Name__c,"")} <br/>
+{!If(relatedTo.Secondary_MICE_Org_or_Agency_name__c != "",relatedTo.Secondary_MICE_Contact_Email__c,"")} <apex:outputPanel rendered="{!NOT ISBLANK(relatedTo.Secondary_MICE_Contact_Email__c)}"> <br/> </apex:outputPanel>
+{!If(relatedTo.Secondary_MICE_Org_or_Agency_name__c != "",relatedTo.Secondary_MICE_Contact_Position__c  ,"")} <apex:outputPanel rendered="{!NOT ISBLANK(relatedTo.Secondary_MICE_Contact_Position__c  )}"> <br/> </apex:outputPanel>
+{!If(relatedTo.Secondary_MICE_Org_or_Agency_name__c != "",relatedTo.Secondary_MICE_Contact_Address_1__c  ,"")} <apex:outputPanel rendered="{!NOT ISBLANK(relatedTo.Secondary_MICE_Contact_Address_1__c  )}"> <br/> </apex:outputPanel>
+{!If(relatedTo.Secondary_MICE_Org_or_Agency_name__c != "",relatedTo.Secondary_MICE_Contact_Address_2__c,"")} <apex:outputPanel rendered="{!NOT ISBLANK(relatedTo.Secondary_MICE_Contact_Address_2__c  )}"> <br/> </apex:outputPanel>
+{!If(relatedTo.Secondary_MICE_Org_or_Agency_name__c != "",relatedTo.Secondary_MICE_Contact_Address_3__c,"")} <apex:outputPanel rendered="{!NOT ISBLANK(relatedTo.Secondary_MICE_Contact_Address_3__c  )}"> <br/> </apex:outputPanel>
+{!If(relatedTo.Secondary_MICE_Org_or_Agency_name__c != "",relatedTo.Secondary_MICE_Contact_Town_City__c,"")} <apex:outputPanel rendered="{!NOT ISBLANK(relatedTo.Secondary_MICE_Contact_Town_City__c)}"> <br/> </apex:outputPanel>
+{!If(relatedTo.Secondary_MICE_Org_or_Agency_name__c != "",relatedTo.Secondary_MICE_Contact_ZIP_Postcode__c,"")} <apex:outputPanel rendered="{!NOT ISBLANK(relatedTo.Secondary_MICE_Contact_ZIP_Postcode__c)}"> <br/> </apex:outputPanel>
+{!If(relatedTo.Secondary_MICE_Org_or_Agency_name__c != "",relatedTo.Secondary_MICE_Contact_Phone__c,"")} <apex:outputPanel rendered="{!NOT ISBLANK(relatedTo.Secondary_MICE_Contact_Phone__c)}"> <br/><br/> </apex:outputPanel>
+</p>
+</span>
+
+<p align="center" style='text-align:center;background:white; font-family:Arial,sans-serif'>When registering a group booking online for {!relatedTo.Organisation__r.Name} please enter the following Account ID in the relevant field:
+<br />
+<br />
+<strong>{!relatedTo.Organisation__r.Account_Reference_Number__c}</strong>
+</p>
+
+<p align="center" style='text-align:center;background:white; font-family:Arial,sans-serif'><b>Please note: </b>To make amendments to your booking, please forward this email, <br/>
+along with details of the updates required, to the following email address: <a href="mailto:Events@thebicestervillageshoppingcollection.com"><span style='color:windowtext'>Events@thebicestervillageshoppingcollection.com</span>
+</a> </p>
+<br/>
+<p align="center" style='text-align:center;background:white; font-family:Arial,sans-serif'>We look forward to welcoming you to {!relatedTo.Village__r.Name} Village soon.</p>
+
+<p align="center" style='text-align:center;background:white; font-family:Arial,sans-serif'>With kind regards, </p>
+
+<p align="center" style='text-align:center;background:white; font-family:Arial,sans-serif'>The Bicester Village Shopping Collection team</p><br/>
+
+<p align="center" style='text-align:center;background:white; font-family:Arial,sans-serif;color:#999999'>ref: {!relatedTo.Name} </p>
+
+<p align="center" style='text-align:center;background:white; font-family:Arial,sans-serif;color:#999999'>This confirmation email is only valid for one group booking. Please make additional bookings for further group visits.</p>
+<p>
+</p>
+</messaging:htmlEmailBody>
+</messaging:emailTemplate>

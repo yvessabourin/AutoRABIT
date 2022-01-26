@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Shelf_Allocations</fullName>
+    <columns>Shelf__c</columns>
+    <columns>Bags_in_Storage__c</columns>
+    <columns>NAME</columns>
+    <columns>Experience_Date_Time__c</columns>
+    <columns>Customer_Name__c</columns>
+    <columns>Pickup_Location__c</columns>
+    <columns>Status__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Shelf__c</field>
+        <operation>notEqual</operation>
+    </filters>
+    <filters>
+        <field>My_Village_Experience__c</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <label>Shelf Allocations</label>
+    <language>en_US</language>
+</ListView>

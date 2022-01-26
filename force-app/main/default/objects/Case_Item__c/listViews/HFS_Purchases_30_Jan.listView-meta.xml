@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>HFS_Purchases_30_Jan</fullName>
+    <columns>NAME</columns>
+    <columns>Case__c</columns>
+    <columns>Village_Presence__c</columns>
+    <columns>Status__c</columns>
+    <columns>Total_Bags__c</columns>
+    <columns>CURRENCY_ISO_CODE</columns>
+    <columns>Estimated_Spend__c</columns>
+    <columns>Pickup_Location__c</columns>
+    <columns>CREATEDBY_USER</columns>
+    <columns>CREATED_DATE</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CREATED_DATE</field>
+        <operation>equals</operation>
+        <value>1/30/2019 12:00 AM</value>
+    </filters>
+    <label>HFS Purchases 30 Jan</label>
+    <language>en_US</language>
+</ListView>

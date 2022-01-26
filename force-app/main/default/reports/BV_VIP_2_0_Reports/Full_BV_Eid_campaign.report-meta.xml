@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>VIP_Card_Exchange__c$Name</field>
+    </columns>
+    <filter>
+        <booleanFilter>((((1 OR 2) OR 3) OR 4) OR 5)</booleanFilter>
+        <criteriaItems>
+            <column>VIP_Card_Exchange__c$Visit__c.Partnership_Promotion__c.Name</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>false</isUnlocked>
+            <operator>startsWith</operator>
+            <value>BV-HOTELS-VVIP</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>VIP_Card_Exchange__c$Visit__c.Partnership_Promotion__c.Name</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>false</isUnlocked>
+            <operator>contains</operator>
+            <value>BV-PARTNERS-EID-2016</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>VIP_Card_Exchange__c$Visit__c.Partnership_Promotion__c.Name</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>VR16 - Hertz summer campaign Middle East</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>VIP_Card_Exchange__c$Visit__c.Partnership_Promotion__c.Name</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>Mastercard Premium Cards Summer Eid - ME/RUS</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>VIP_Card_Exchange__c$Visit__c.Partnership_Promotion__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>VR16 - Mastercard - Eid Campaign</value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
+    <format>Matrix</format>
+    <groupingsAcross>
+        <dateGranularity>Day</dateGranularity>
+        <field>VIP_Card_Exchange__c$Visit__c.Visit_Date_Time__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsAcross>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>VIP_Card_Exchange__c$Visit__c.Partnership_Promotion__c.Name</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>Full BV Eid campaign</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>VIP_Card_Exchanges_for_Partnership_Promotions__c</reportType>
+    <scope>organization</scope>
+    <showDetails>false</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>VIP_Card_Exchange__c$Visit__c.Visit_Date_Time__c</dateColumn>
+        <interval>INTERVAL_CURY</interval>
+    </timeFrameFilter>
+</Report>

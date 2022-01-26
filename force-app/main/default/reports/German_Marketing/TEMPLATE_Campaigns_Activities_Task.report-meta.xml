@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Marketing_Campaign__c.Marketing_Activities__r.Activities$Subject</field>
+    </columns>
+    <columns>
+        <field>Marketing_Campaign__c.Marketing_Activities__r.Activities$Owner</field>
+    </columns>
+    <crossFilters>
+        <operation>with</operation>
+        <primaryTableColumn>Marketing_Campaign__c$Id</primaryTableColumn>
+        <relatedTable>Marketing_Activity__c</relatedTable>
+        <relatedTableJoinColumn>Marketing_Campaign__c</relatedTableJoinColumn>
+    </crossFilters>
+    <currency>EUR</currency>
+    <description>Template for Task Reporting</description>
+    <filter>
+        <criteriaItems>
+            <column>Marketing_Campaign__c$Village__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>contains</operator>
+            <value>Wertheim,Ingolstadt</value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Marketing_Campaign__c$Name</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Marketing_Campaign__c.Marketing_Activities__r$Name</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>TEMPLATE Campaigns Activities Task</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Marketing_Cmps_Marketing_Acs_Activities__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>Marketing_Campaign__c.Marketing_Activities__r.Activities$ActivityDate</dateColumn>
+        <endDate>2017-12-31</endDate>
+        <interval>INTERVAL_CUSTOM</interval>
+        <startDate>2017-06-01</startDate>
+    </timeFrameFilter>
+</Report>

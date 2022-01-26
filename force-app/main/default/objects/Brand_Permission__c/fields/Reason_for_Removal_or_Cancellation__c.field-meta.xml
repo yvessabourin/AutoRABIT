@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Reason_for_Removal_or_Cancellation__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>If this record was created in error (Removed) or if there was a plan to attain a permission but the plan was changed BEFORE the Brand was asked, please add a reason explaining what happened.</inlineHelpText>
+    <label>Reason for Removal or Cancellation</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>TextArea</type>
+</CustomField>

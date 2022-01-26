@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Customer_Read_GUID__c</fullName>
+    <description>The URL suffix for the Customer Read using GUID service</description>
+    <externalId>false</externalId>
+    <inlineHelpText>The URL suffix for the Customer Read using GUID service</inlineHelpText>
+    <label>Customer Read GUID</label>
+    <length>50</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

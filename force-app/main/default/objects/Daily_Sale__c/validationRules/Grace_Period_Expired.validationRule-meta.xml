@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Grace_Period_Expired</fullName>
+    <active>true</active>
+    <description>When the Grace Period has expired then the Daily Sales records associated to the certification batch will only be visible in the View History tab in the Brand Portal and the record will no longer be editable</description>
+    <errorConditionFormula>($Setup.DailySales_Validation_Override__c.DailySales_Override__c = false )&amp;&amp;NOT(ISBLANK(Grace_Period_Days_Applied__c))&amp;&amp;NOT(ISBLANK(Grace_Period_Expired_On_Date__c)) &amp;&amp;(Certification_Batch__r.BP_Validation_Context_Override__c = false)</errorConditionFormula>
+    <errorMessage>Grace Period Expired</errorMessage>
+</ValidationRule>

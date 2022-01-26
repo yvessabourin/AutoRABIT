@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Cannot_Edit_Closed_Deals</fullName>
+    <active>true</active>
+    <errorConditionFormula>NOT($Setup.Global_Object_Validation__c.Edit_Closed_Deals__c) &amp;&amp; PRIORVALUE(IsWon) = true 
+&amp;&amp; ISNEW() = false</errorConditionFormula>
+    <errorMessage>You cannot edit closed deals.</errorMessage>
+</ValidationRule>

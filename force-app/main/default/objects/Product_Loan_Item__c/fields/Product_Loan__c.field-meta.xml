@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Product_Loan__c</fullName>
+    <description>The product loan that the item belongs to</description>
+    <externalId>false</externalId>
+    <inlineHelpText>The product loan that the item belongs to</inlineHelpText>
+    <label>Product Loan</label>
+    <referenceTo>Product_Loan__c</referenceTo>
+    <relationshipLabel>Product Loan Items</relationshipLabel>
+    <relationshipName>Product_Loan_Items</relationshipName>
+    <relationshipOrder>0</relationshipOrder>
+    <reparentableMasterDetail>false</reparentableMasterDetail>
+    <trackTrending>false</trackTrending>
+    <type>MasterDetail</type>
+    <writeRequiresMasterRead>false</writeRequiresMasterRead>
+</CustomField>

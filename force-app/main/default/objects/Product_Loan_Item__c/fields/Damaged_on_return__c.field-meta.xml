@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Damaged_on_return__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>was the product damaged on return?</description>
+    <externalId>false</externalId>
+    <inlineHelpText>was the product damaged on return?</inlineHelpText>
+    <label>Damaged on return</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

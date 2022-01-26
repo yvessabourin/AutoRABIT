@@ -1,0 +1,23 @@
+<apex:page standardController="Opportunity" recordSetVar="Deals" extensions="addtoCommitmentsController" >
+  <apex:form >
+  <apex:message id="errormsgs"/>
+  
+  <apex:pageBlock title="Add Deals to Commitment">
+  <apex:commandButton value="Create New Commitment" onclick="window.open('{!returl}','MsgWindow','width=50','height=50')"/>
+
+
+  <apex:pageBlockSection columns="1">
+  <apex:inputfield value="{!opp.Commitment_Letter__c}" id="commitment" required="true" />
+  </apex:pageBlockSection>
+  
+  <apex:pageblockSection columns="1" title="Deals to be added" collapsible="false">
+  <apex:repeat value="{!deals}" var="deal"  >
+  {!deal.Name}
+  <br/>
+  </apex:repeat>
+  </apex:pageblockSection>
+  <apex:commandButton action="{!Save}" value="Save"/>
+  <apex:commandButton action="{!Cancel}" value="Cancel"/>
+  </apex:pageBlock>
+  </apex:form>
+</apex:page>

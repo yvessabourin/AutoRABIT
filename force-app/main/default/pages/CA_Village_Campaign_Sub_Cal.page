@@ -1,0 +1,26 @@
+<apex:page showHeader="false" showChat="false" standardController="Marketing_Campaign__c">
+<apex:includeScript value="{!URLFOR($Resource.SLCA2__ca3)}/plugin/jquery-1.8.0.min.js" />
+<script>
+jQuery(document).on('ready', function(){
+    console.log('a');
+    jQuery.ajaxSetup({"crossDomain" : true});
+});
+</script>
+<!--
+<apex:outputText >{!Marketing_Activity__c.Central_Campaign__r.id}</apex:outputText>
+
+<apex:outputText >calendars: {!IF(Marketing_Activity__c.Sub_Type__c='Tactical','Tactical_Campaigns,','')}</apex:outputText>
+
+<SLCA2:calendar namespace="SLCA2" calendar="{!IF(Marketing_Activity__c.Sub_Type__c!='Tactical','Tactical_Campaigns,','')}vill" settings="['r_d','r_y','r_c','r_s']" urlparams="sb=0&v=g&pv2={!id}">
+-->
+
+
+<SLCA2:calendar namespace="SLCA2" calendar="All_Village_Marketing_Activities" settings="['r_d','r_y','r_c','r_s']" urlparams="g_p=12&sb=1&v=g&pv1={!id}&date={!month(Marketing_Campaign__c.Start_Date__c)}-{!day(Marketing_Campaign__c.Start_Date__c)}-{!year(Marketing_Campaign__c.Start_Date__c)}">
+
+</SLCA2:calendar>
+
+
+ 
+ 
+ 
+</apex:page>

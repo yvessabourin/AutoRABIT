@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Convert_Lead_and_Create_Group_Booking</fullName>
+    <availability>online</availability>
+    <description>Converts The MICE Lead with opportunity defaulted OFF</description>
+    <displayType>button</displayType>
+    <linkType>javascript</linkType>
+    <masterLabel>Convert Lead and Create Group Booking</masterLabel>
+    <openType>onClickJavaScript</openType>
+    <protected>false</protected>
+    <url>{!REQUIRESCRIPT(&quot;/soap/ajax/39.0/connection.js&quot;)} 
+{!REQUIRESCRIPT(&quot;/soap/ajax/39.0/apex.js&quot;)} 
+
+if({!Lead.Create_Group_Booking__c} == false){ 
+
+alert(&quot;The Create Group Booking check box IS NOT checked, Click OK to return and edit the record.&quot;); 
+
+//var check= confirm(&quot;The Create Group Booking check box IS NOT checked, if you convert //this lead no Group Booking will be created. Click Cancel! to retrun and edit the //record.&quot;); 
+//if (check == true){ 
+
+} 
+
+else{ 
+window.location = &apos;/lead/leadconvert.jsp?retURL=%2F{!Lead.Id}&amp;id={!Lead.Id}&amp;nooppti=1&apos;; 
+}
+
+
+//&quot;/lead/leadconvert.jsp?retURL=%2F{!Lead.Id}&amp;id={!Lead.Id}&amp;nooppti=1&quot;</url>
+</WebLink>

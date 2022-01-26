@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Village_Accumulated_Budget__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>The total budget sum of the related Marketing Activities</inlineHelpText>
+    <label>Village Accumulated Budget</label>
+    <summarizedField>Marketing_Activity__c.Budget__c</summarizedField>
+    <summaryFilterItems>
+        <field>Marketing_Activity__c.Group_or_Village_Activity_for_filter__c</field>
+        <operation>equals</operation>
+        <value>Village Activity</value>
+    </summaryFilterItems>
+    <summaryForeignKey>Marketing_Activity__c.Marketing_Campaign__c</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

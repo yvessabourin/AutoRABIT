@@ -1,0 +1,403 @@
+<apex:page showHeader="false" standardStylesheets="false" sidebar="false" applyHtmlTag="false" applyBodyTag="false" docType="html-5.0" controller="VisitRedemtionGuestController" >
+
+    <html xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">    
+
+        <!-- Remote Objects declaration -->
+        <apex:remoteObjects jsNamespace="RemoteObjectModel">
+            <apex:remoteObjectModel name="Account" jsShorthand="Guest" fields="Id,Name">
+                <apex:remoteObjectField name="FirstName" jsShorthand="firstName"/>
+                <apex:remoteObjectField name="LastName" jsShorthand="lastName"/>
+                <apex:remoteObjectField name="PersonMailingCountry" jsShorthand="country"/>
+                <apex:remoteObjectField name="PersonEmail" jsShorthand="email"/>
+                <apex:remoteObjectField name="Primary_Village__c" jsShorthand="primaryVillage"/>
+                <apex:remoteObjectField name="PersonMobilePhone" jsShorthand="mobilePhone"/>
+                <apex:remoteObjectField name="RecordTypeId" jsShorthand="recordtypeid"/>
+            </apex:remoteObjectModel>
+        </apex:remoteObjects>
+        
+   
+            
+        <head>           
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></link>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+            <link rel="stylesheet" href="{!URLFOR($Resource.NewTICStyles)}"></link>
+
+    <script src="{!URLFOR($Resource.NewTICScripts)}"></script>
+            <style type="text/css">
+
+                body{
+                    background: url({!URLFOR($Resource.TICDashboard, 'BVWalk.jpg')}) no-repeat center center fixed; 
+                    -webkit-background-size: cover;
+                    -moz-background-size: cover;
+                    -o-background-size: cover;
+                    background-size: cover;
+                }
+
+
+            </style>
+        </head>    
+        
+<body>
+      <!-- Main Navigation -->
+      <div class="my-nav">
+         <div class="site-navbar navbar navbar-fixed-top" role="navigation">
+            <div class="container">
+               <div class="navbar-header">
+                  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+                  <a class="navbar-brand" href="#"><i class="fa fa-long-arrow-up"></i> Tourist Information Center <i class="fa fa-long-arrow-down"></i></a> 
+               </div>
+               <div id="navbar" class="navbar-collapse collapse">
+                  <ul class="nav navbar-nav navbar-right">
+                   <li> <a  href="#group"  onclick="gotoPage('GroupBooking_Search');" >Group Check In</a> </li>
+                     <li> <a  href="#guest"  onclick="gotoPage('Promotion_Search');" >Guest Check In</a> </li>
+                     <li> <a  href="#search"  onclick="gotoPage('GuestSearch');">Guest Search</a> </li>
+                     <li> <a  href="#card"  onclick="gotoPage('VIPCardSearch');">Card Search</a> </li>
+                     <li> <a  href="#clean"  onclick="gotoPage('VIPCardCleardown');">VIP Card Cleanup</a> </li>
+                     <li id="hfslistitem" name="hfslistitem"> <a  href="#hfs"  onclick="gotoPage('HFSDash');">Hands Free Shopping</a> </li>
+                     <li> <a  href="#exit" onclick="cancelAction();" >Exit</a> </li>
+                  </ul>
+               </div>
+               <!--/.nav-collapse -->
+            </div>
+         </div>
+      </div>
+      <!-- /.Main Navigation -->
+      <!-- Fullwidth Header -->
+      <!-- Intro Header -->
+
+      
+<div class="jumbotron text-center">
+  <h2>&nbsp;</h2>
+</div>
+<!-- main content -->
+<div class="container">  
+
+ <div id="loadingmodal" name="loadingmodal" class="modal" role="dialog">
+      <div class="modal-dialog">
+        <div id="loader">
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="input-group">
+        <a onclick="gotoPage('Promotion_Search');" class="btn btn-default"><i class="glyphicon glyphicon-home"></i></a>&nbsp;&nbsp;&nbsp;<button class="btn btn-default" onclick="skip();">Skip ></button> 
+    </div>
+
+        <br/><br/>
+<div class="panel panel-default">        
+  <div class="panel-heading">Guest Information</div>
+  <div class="panel-body">
+
+    <div class="panel panel-default">
+    <div class="panel-body"  style="color:#FFF; background-color: rgba(10, 10, 10, 0.6);">
+        <div class="row">
+            <div class="col-sm-6"><b>Promotion Name</b></div>
+            <div class="col-sm-6"><b>Promotion Notes</b></div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6"><div id="promoName" ></div></div>
+            <div class="col-sm-6"><div id="promoNotes" style="text-align: left;"></div></div>
+        </div>
+    </div>
+    </div> 
+
+    <div class="row">
+        <div class="col-sm-12">
+            <b style="color:#fff;">Search for Guest</b>
+            <br />
+        </div>
+    </div>
+ 
+
+    <div class="row">
+        <div class="col-lg-3">
+        <div class="input-group"> 
+         <span class="tooltiptext">Email Address</span>
+           <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>       
+                <input id="email" class="form-control"  type="email" placeholder="Email Address" />           
+        </div>
+        </div>
+        <div class="col-lg-3">
+             <div class="input-group"> 
+         <span class="tooltiptext">First Name</span>
+           <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>  
+                <input id="fstName" class="form-control" type="text" placeholder="First Name" />
+            </div>
+        </div>
+        <div class="col-lg-3">
+          <div class="input-group"> 
+         <span class="tooltiptext">Last Name</span>
+           <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>  
+                <input id="lstName" class="form-control" type="text" placeholder="Last Name" />
+            </div>
+        </div>
+        <div class="col-lg-3">
+            <div class="input-group"> 
+            <span class="tooltiptext">Mobile Number</span>
+           <span class="input-group-addon"><i class="glyphicon glyphicon-phone"></i></span>  
+                <input id="phone" class="form-control" type="text" placeholder="Mobile Number" />
+            </div>
+        </div>
+    </div>
+    <div class="row justify-content-between">
+     <div class="col-sm-6">
+     &nbsp;
+     </div>
+        <div class="col-sm-6">
+        <br/>
+ <button id="searchBtn" class="btn btn-default" style="float:right;"  onclick=" $j('#searching').show();searchCustomer()">Search</button> 
+        </div>
+    </div>
+    <br />
+            <div id="searchResults" class="slds-p-vertical--medium slds-cell-wrap"></div>
+</div>
+</div>  <!-- END OF MAIN PANEL -->
+  
+      </div> <!-- END OF MAIN CONTENT -->
+
+        <!-- <apex:includeScript value="https://code.jquery.com/jquery-1.9.1.min.js"/> -->
+        <apex:includeScript value="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"/>
+        <!-- custom scripts -->
+
+      <script>
+            function isLightningRedirect(inUrl){
+                if ('{!$User.UITheme}' === 'Theme4d' || '{!$User.UITheme}' === 'Theme4t' || '{!$User.UITheme}' === 'Theme4u') {
+                    sforce.one.navigateToURL(inUrl);
+                } else {
+                    window.location = inUrl;
+                }
+            }
+        </script>
+
+        <script>
+            
+            $j = jQuery.noConflict();
+            var homeUrl;
+            var bookingTransport = '';
+            var bookingLocation = '';
+            var bookingCountry = '';
+            var bookingType = '';
+            
+            $j(document).ready(function() {
+                $j('#searching').hide();
+
+                $j(".clickable-row").click(function() {
+                    alert("click!");
+                    window.location = $j(this).data("href");
+
+                });
+
+                if( (typeof sforce != 'undefined') && (sforce != null) ) {
+                 // running in mobile
+                    homeUrl = '/apex/Promotion_Search';
+                } else { //desktop
+                    homeUrl = '/apex/Promotion_Search';
+                }                 
+                $j('#home').attr('href', homeUrl);
+                
+               
+                var promoName = '{!JSENCODE($CurrentPage.parameters.promoName)}';
+               
+                if( promoName ) {
+                     //$j('#promoName').html('<br/><p>' + '{!$CurrentPage.parameters.promoName}' + '</p>');
+                     $j('#promoName').html('<br/><p>' + promoName + '</p>');                                            
+                     $j('#promoName').css("display", "block");
+                } else {
+                    $j('#promoName').css("display", "none");
+                }
+                
+                bookingTransport = '{!$CurrentPage.parameters.modeOfTransport}';
+                bookingLocation = '{!$CurrentPage.parameters.location}';
+                bookingType = '{!$CurrentPage.parameters.type}';
+                bookingCountry = '{!$CurrentPage.parameters.country}';
+                
+                // we are going to have to get the promo notes from the backend
+
+                promoNotes = "{!JSENCODE(promotionNotes)}"; 
+
+               
+             //   promoNotes = '{!JSENCODE($CurrentPage.parameters.notes)}';
+                if( promoNotes ) {
+                     $j('#promoNotes').html('<br/><p>' + promoNotes + '</p>');                      
+                     $j('#promoNotes').css("display", "block");
+                } else {
+                    $j('#promoNotes').css("display", "none");
+                }                                        
+
+                $j("#email").keypress(function(e) {
+                    if(e.which == 13) {
+                        $j("#searchBtn").click();
+                    }
+                });
+                                 
+                $j("#fstName").keypress(function(e) {
+                    if(e.which == 13) {
+                        $j("#searchBtn").click();
+                    }
+                });
+                 
+                $j("#lstName").keypress(function(e) {
+                    if(e.which == 13) {
+                        $j("#searchBtn").click();
+                    }
+                });
+                 
+                $j("#phone").keypress(function(e) {
+                    if(e.which == 13) {
+                        $j("#searchBtn").click();
+                    }                
+                });
+
+
+            })       
+                        
+            var outputDiv = document.getElementById("searchResults"); 
+            var email = document.getElementById("email");
+            var fstName = document.getElementById("fstName");
+            var lstName =  document.getElementById("lstName");
+            var phone =  document.getElementById("phone");
+            
+            var promoId = '{!$CurrentPage.parameters.promoId}';
+            var promoName = '{!JSENCODE($CurrentPage.parameters.promoName)}';
+             
+            function searchCustomer() {
+                // Create a new Remote Object
+
+                var emailAddress = email.value;
+                var firstName = fstName.value;
+                var lastName = lstName.value;
+                var mobilePhone = phone.value;
+                
+                var cst = new RemoteObjectModel.Guest();
+                
+                var query = '{ "where": { ';
+                if(emailAddress) {
+                    if (emailAddress.indexOf('%') > -1 || emailAddress.indexOf('*') > -1) {
+                        emailAddress = emailAddress.replace('*', '%');
+                        query += '"email": {"like": ' + '"' + emailAddress + '"' + '},';
+                    } else { 
+                        query +=  '"email": {"eq": ' + '"' + emailAddress + '"' + '},';
+                    }
+                }
+                
+                if(firstName) {
+                    if (firstName.indexOf('%') > -1 || firstName.indexOf('*') > -1) {                        
+                        firstName = firstName.replace('*', '%');
+                        query +=  '"firstName": {"like": ' + '"' + firstName + '"' + '},';
+                    } else {
+                    
+                        query +=  '"firstName": {"eq": ' + '"' + firstName + '"' + '},';
+                    }
+                }
+                if(lastName) {
+                    if (lastName.indexOf('%') > -1 || lastName.indexOf('*') > -1) {                        
+                        lastName = lastName.replace('*', '%');
+                        query +=  '"lastName": {"like": ' + '"' + lastName + '"' + '},';
+                    } else {
+                    
+                        query +=  '"lastName": {"eq": ' + '"' + lastName + '"' + '},';
+                    }
+                }
+                
+                if(mobilePhone ) 
+                    query +=  '"mobilePhone": {"like": ' + '"%' + mobilePhone+ '%"' + '},';                    
+                query += '"recordtypeid": {"eq": "{!$CurrentPage.parameters.recTypeId}"}';
+                query +=  ' },';
+                query += '"orderby": [ {"lastName": "ASC"}, {"firstName": "ASC"} ],';
+                query += '"limit": 20 }';
+                var qryObj = JSON.parse(query);                      
+                console.log(query);
+                console.log(qryObj);                        
+                         
+                // Use the Remote Object to query for 20 guest records
+                cst.retrieve(qryObj,                         
+                function(err, records, event){
+                    if(err) {
+                        alert(err.message);
+                    }
+                    else {
+                        var html = '<div class="table-responsive"> <table class="table table-hover sortable">';    
+    
+                        html += '<thead>';
+                        html += '<tr class="active"><th scope="col">Email Address</th>';
+                        html += '<th scope="col">Customer Name</th>';
+                        html += '<th scope="col">Country of Residence</th>';
+                        html += '<th scope="col">Primary Village</th>';
+                        html += '<th scope="col">Mobile Phone</th>';
+                        html += '</tr>';
+                        html += '</thead><tbody>';    
+                        if (records.length > 0) {    
+                            records.forEach(function(record) {
+                                var eml = record.get("email");
+                                if (eml)
+                                    eml = eml.replace(/\+/g, '%2B');
+                                var fname = record.get("firstName");
+                                var lname = record.get("lastName");
+                                var country =  record.get("country");
+                                var phone = record.get("mobilePhone");
+                                var recId = record.get("Id");
+                                var link = encodeURI('/apex/VisitVIPCardIssue?promoId=' + promoId + '&promoName=' + promoName + '&promoNotes=&location=' + bookingLocation + '&modeOfTransport=' + bookingTransport + '&country=' + bookingCountry  + '&type=' + bookingType + '&email=' + eml + '&firstName=' + fname + '&lastName=' + lname + '&mobile=' + phone + '&guestId=' + recId);
+                                html += '<tr class="active clickable-row" onclick="isLightningRedirect(\'' + link + '\');"><td>' + eml + '</td>';
+                                html += '<td>' + record.get("Name") + '</td>';
+                                html += '<td>' + record.get("country") + '</td>';
+                                html += '<td>' + record.get("primaryVillage") + '</td>';
+                                html += '<td>' + record.get("mobilePhone") + '</td>';
+                                                                                                                    
+                                html += '</tr>';
+                            });
+                            html = html + '</tbody></table>';
+                            html = html + '</br> <button  class="btn btn-default" onclick="newCustomer();">New Guest</button></div>'; 
+                            outputDiv.innerHTML = html;
+                        } else {
+                            html += ' <tr class="info" ><td colspan="6">No Guests found</td></tr></tbody></table>';
+                            html = html + '</br> <button  class="btn btn-default" onclick="newCustomer();">New Guest</button></div>'; 
+                            outputDiv.innerHTML = html;
+                        }
+                    }
+                });
+                $j('#searching').hide();
+            };            
+            
+
+            function cancelAction(){
+                isLightningRedirect(homeUrl);
+            }
+
+            function skip(){
+                var promoId = '{!$CurrentPage.parameters.promoId}';
+                var promoName = '{!JSENCODE($CurrentPage.parameters.promoName)}';
+                isLightningRedirect(encodeURI('/apex/VisitVIPCardIssue?promoId=' + promoId + '&promoName=' + promoName + '&promoNotes=' + promoNotes + '&location=' + bookingLocation + '&modeOfTransport=' + bookingTransport + '&country=' + bookingCountry  + '&type=' + bookingType));
+            }
+                                    
+            function newCustomer(){
+                
+                var promoId= '{!$CurrentPage.parameters.promoId}';
+                var promoName = '{!JSENCODE($CurrentPage.parameters.promoName)}';
+                var emailAddress = email.value;
+                var firstName = fstName.value;
+                var lastName = lstName.value;
+                
+                if (emailAddress){
+                    emailAddress = emailAddress.replace('+', '%2B');
+                }
+
+                isLightningRedirect(encodeURI('/apex/apiQuickNewGuest?promoId=' + promoId + '&promoName=' + promoName + '&promoNotes=' + promoNotes + '&location=' + bookingLocation + '&modeOfTransport=' + bookingTransport + '&country=' + bookingCountry  + '&type=' + bookingType + '&email=' + emailAddress + '&firstName=' + firstName + '&lastName=' + lastName));
+            }
+            
+        </script> 
+
+
+    </body>
+    </html>
+
+</apex:page>

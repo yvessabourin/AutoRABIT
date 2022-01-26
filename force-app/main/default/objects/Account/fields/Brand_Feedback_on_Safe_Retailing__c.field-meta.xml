@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Brand_Feedback_on_Safe_Retailing__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Enter any feedback you may have from the brand in relation to Safe Retailing</inlineHelpText>
+    <label>Brand Feedback on Safe Retailing</label>
+    <length>2000</length>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>LongTextArea</type>
+    <visibleLines>2</visibleLines>
+</CustomField>

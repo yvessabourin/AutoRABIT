@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>TIC_Visit_View</fullName>
+    <availability>online</availability>
+    <description>Visit screen as viewed by TIC</description>
+    <displayType>link</displayType>
+    <linkType>javascript</linkType>
+    <masterLabel>TIC Visit View</masterLabel>
+    <openType>onClickJavaScript</openType>
+    <protected>false</protected>
+    <url>var pId;
+            var pName;
+            var visitDate;
+            var checkOut;
+
+
+            pId = &apos;{!Visit__c.Parent_Id__c}&apos;;
+
+
+            pName = &apos;{!Visit__c.Booking_Partnership_Name__c}&apos;;
+
+
+            var url = &apos;/apex/VisitVIPCardIssue?visitId={!trim(Visit__c.Id)}&amp;visitDate={!Visit__c.Visit_Date_Time__c}&amp;checkOut={!Visit__c.Check_Out_Date_Time__c}&amp;promoId=&apos;+pId+ &apos;&amp;promoName=&apos;+pName+&apos;&amp;location={!trim(text(Visit__c.Location__c))}&amp;modeOfTransport={!trim(text(Visit__c.Mode_of_Transport__c))}&amp;country={!trim(text(Visit__c.Country_of_Origin__c))}&amp;type={!trim(text(Visit__c.Type__c))}&amp;guestNumber={!Visit__c.Number_of_Guests__c}&amp;visitNotes={!urlencode(trim(Visit__c.Visit_Notes__c))}&amp;vipCards={!Visit__c.VIP_Cards_Exchanged__c}&apos;;
+
+
+
+            window.open(url);</url>
+</WebLink>

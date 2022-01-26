@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MMV_Ratings</fullName>
+    <columns>NAME</columns>
+    <columns>Village__c</columns>
+    <columns>Year__c</columns>
+    <columns>Yield_Classification__c</columns>
+    <columns>Rating__c</columns>
+    <columns>Range_Minimum__c</columns>
+    <columns>Range_Maximum__c</columns>
+    <columns>Yield_Type__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Year__c</field>
+        <operation>equals</operation>
+        <value>2018</value>
+    </filters>
+    <filters>
+        <field>Village__c</field>
+        <operation>equals</operation>
+        <value>Maasmechelen</value>
+    </filters>
+    <label>MMV Ratings</label>
+    <language>en_US</language>
+</ListView>

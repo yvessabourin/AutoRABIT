@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help>Este es el total de ventas de día. Incluye todo tipo de venta (también la venta de productos de temporada).</help>
+    <label>Ventas NETAS totales</label>
+    <name>Total_NET_SALES__c</name>
+</CustomFieldTranslation>

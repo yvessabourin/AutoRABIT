@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Reachable__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(  
+
+NOT(ISBLANK(email__c)) 
+&amp;&amp;   NOT(ISPICKVAL(optInEmail__c  , &quot;False&quot;))
+&amp;&amp;  LEN( mobile__c ) &gt; 8
+&amp;&amp;  NOT(ISPICKVAL(optInMobile__c  , &quot;False&quot;))
+&amp;&amp; NOT(ISBLANK( address1__c ))
+&amp;&amp; NOT(ISPICKVAL( optInPostal__c , &quot;False&quot;))
+&amp;&amp;  isRetiredDuplicate__c = false
+
+
+
+
+,&quot;Postal and Email and Mobile Reachable&quot;, 
+
+
+IF(NOT(ISBLANK(email__c)) 
+&amp;&amp;   NOT(ISPICKVAL(optInEmail__c  , &quot;False&quot;))
+&amp;&amp;  LEN( mobile__c ) &gt; 8
+&amp;&amp;  NOT(ISPICKVAL(optInMobile__c  , &quot;False&quot;))
+&amp;&amp;  isRetiredDuplicate__c = false
+
+,&quot;Email and Mobile Reachable&quot;,
+
+
+
+IF(NOT(ISBLANK(email__c)) 
+&amp;&amp;   NOT(ISPICKVAL(optInEmail__c  , &quot;False&quot;))
+&amp;&amp; NOT(ISBLANK( address1__c ))
+&amp;&amp; NOT(ISPICKVAL( optInPostal__c , &quot;False&quot;))
+&amp;&amp;  isRetiredDuplicate__c = false
+,&quot;Postal and Email Reachable&quot;,
+
+
+IF(
+LEN( mobile__c ) &gt; 8
+&amp;&amp;  NOT(ISPICKVAL(optInMobile__c  , &quot;False&quot;))
+&amp;&amp; NOT(ISBLANK( address1__c ))
+&amp;&amp; NOT(ISPICKVAL( optInPostal__c , &quot;False&quot;))
+&amp;&amp;  isRetiredDuplicate__c = false
+
+,&quot;Postal and Mobile Reachable&quot;,
+
+IF(LEN( mobile__c ) &gt; 8
+&amp;&amp;  NOT(ISPICKVAL(optInMobile__c  , &quot;False&quot;))
+&amp;&amp;  isRetiredDuplicate__c = false
+
+,&quot;Mobile Reachable&quot;,
+
+IF(NOT(ISBLANK( address1__c ))
+&amp;&amp; NOT(ISPICKVAL( optInPostal__c , &quot;False&quot;))
+&amp;&amp;  isRetiredDuplicate__c = false
+
+,&quot;Postal Reachable&quot;,
+
+IF(NOT(ISBLANK(email__c)) 
+&amp;&amp;   NOT(ISPICKVAL(optInEmail__c  , &quot;False&quot;))
+&amp;&amp;  isRetiredDuplicate__c = false
+
+,&quot;Email Reachable&quot;,&quot;NOT Reachable&quot;)
+
+)
+)
+)
+)
+)
+)</formula>
+    <label>Reachable</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

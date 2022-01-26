@@ -1,0 +1,6 @@
+Id,Name,LGL_Service_Id__c,LGL_Type__c
+lLugg,Left Luggage,lLugg,luggage
+wChair,Wheelchairs,wChair,loan
+pChair,Push Chairs,pChair,loan
+mScoot,Mobility Scooters,mScoot,loan
+dStrol,Dog Strollers,dStrol,loan

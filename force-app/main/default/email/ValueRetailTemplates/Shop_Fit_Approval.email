@@ -1,0 +1,44 @@
+<table height="400" width="550" cellpadding="5" border="0" cellspacing="5" >
+<tr height="400" valign="top" >
+<td style=" color:#000000; font-size:12pt; background-color:#FFFFFF; font-family:arial; bLabel:main; bEditID:r3st1;" tEditID="c1r1" locked="0" aEditID="c1r1" >
+<![CDATA[<P align=center><STRONG><FONT color=#3333ff face=Verdana,Helvetica,Sans-Serif>Shop Fit Approval&nbsp;Request</FONT></STRONG></P>
+<P align=center><STRONG><FONT color=#3333ff face=Verdana></FONT></STRONG>&nbsp;</P>
+<P align=left><STRONG><FONT color=#3333ff size=2 face=Verdana,Helvetica,Sans-Serif>To approve, please&nbsp;reply to this email and include any one of the following in line 1, <FONT color=#009900>Approve, Approved or&nbsp;Yes </FONT>followed by an appropriate comment.</FONT></STRONG></P>
+<P align=left><STRONG><FONT color=#3333ff size=2 face=Verdana,Helvetica,Sans-Serif>To reject do as above but use any one of <FONT color=#990000>Reject, Rejected or No</FONT>.</FONT></STRONG></P>
+<P align=left><STRONG><FONT color=#3333ff size=2 face=Verdana,Helvetica,Sans-Serif>Or use the link below to approve from within Salesforce</FONT></STRONG></P>
+<P align=center><STRONG><FONT face=Verdana></FONT></STRONG>&nbsp;</P>
+<P align=center><STRONG><FONT color=#3333ff>{!Shop_Fit_Visuals__c.Name}</FONT></STRONG></P>
+<P align=center>&nbsp;</P>
+<P align=left><FONT face=Verdana,Helvetica,Sans-Serif><FONT size=2><STRONG>Unit:</STRONG>&nbsp;&nbsp;{!Shop_Fit_Visuals__c.Unit__c}</FONT></FONT></P>
+<P align=left><FONT size=2 face=Verdana></FONT>&nbsp;</P>
+<P align=left><FONT size=2 face=Verdana><STRONG>Size:</STRONG> {!Shop_Fit_Visuals__c.GEA__c} sq.m {!Shop_Fit_Visuals__c.GEA_sqft__c} sq.ft</FONT></P>
+<P align=left><STRONG></STRONG><FONT size=2 face=Verdana,Helvetica,Sans-Serif>&nbsp;</FONT></P>
+<P align=left><FONT face=Verdana,Helvetica,Sans-Serif><FONT size=2><STRONG>Brand:</STRONG>&nbsp;&nbsp;{!Shop_Fit_Visuals__c.Brand__c}</FONT></FONT></P>
+<P align=left><FONT size=2 face=Verdana,Helvetica,Sans-Serif>&nbsp;</FONT></P>
+<P align=left><FONT face=Verdana,Helvetica,Sans-Serif><FONT size=2><STRONG>Tier:</STRONG> {!Shop_Fit_Visuals__c.Tier__c}</FONT></FONT></P>
+<P align=left><FONT size=2 face=Verdana,Helvetica,Sans-Serif>&nbsp;</FONT></P>
+<P align=left><FONT face=Verdana,Helvetica,Sans-Serif><FONT size=2><STRONG>Specifics:</STRONG>&nbsp;&nbsp;{!Shop_Fit_Visuals__c.Complex_Issues__c}</FONT></FONT></P>
+<P align=left><FONT size=2 face=Verdana></FONT>&nbsp;</P>
+<P align=left><FONT size=2 face=Verdana><STRONG>TI:</STRONG> {!Shop_Fit_Visuals__c.TI__c} {!Shop_Fit_Visuals__c.TI_Currency__c}</FONT></P>
+<P align=left><FONT size=2 face=Verdana></FONT>&nbsp;</P>
+<P align=left><FONT size=2 face=Verdana,Helvetica,Sans-Serif><FONT size=1 face=Arial,Sans-Serif>{!Shop_Fit_Visuals__c.Image_1__c}</FONT></FONT></P>
+<P align=left><FONT size=1 face=Arial,Sans-Serif>{!Shop_Fit_Visuals__c.Notes_on_Image_1__c}</FONT></P>
+<P align=left><FONT size=1 face=Arial,Sans-Serif>{!Shop_Fit_Visuals__c.Image_2__c}</FONT></P>
+<P align=left><FONT size=1 face=Arial,Sans-Serif>{!Shop_Fit_Visuals__c.Notes_on_Image_2__c}</FONT></P>
+<P align=left><FONT size=1 face=Arial,Sans-Serif>{!Shop_Fit_Visuals__c.Image_3__c}</FONT></P>
+<P align=left><FONT size=1 face=Arial,Sans-Serif>{!Shop_Fit_Visuals__c.Notes_on_Image_3__c}</FONT></P>
+<P align=left><FONT size=1 face=Arial,Sans-Serif>{!Shop_Fit_Visuals__c.Image_4__c}</FONT></P>
+<P align=left><FONT size=1 face=Arial,Sans-Serif>{!Shop_Fit_Visuals__c.Notes_on_Image_4__c}</FONT></P>
+<P align=left><FONT size=1 face=Arial,Sans-Serif>{!Shop_Fit_Visuals__c.Image_5__c}</FONT></P>
+<P align=left><FONT size=1 face=Arial,Sans-Serif>{!Shop_Fit_Visuals__c.Notes_on_Image_5__c}</FONT></P>
+<P align=left><FONT size=1 face=Arial,Sans-Serif>{!Shop_Fit_Visuals__c.Image_6__c}</FONT></P>
+<P align=left><FONT size=1 face=Arial,Sans-Serif>{!Shop_Fit_Visuals__c.Notes_on_Image_6__c}</FONT></P>
+<P align=left>&nbsp;</P>
+<P align=left>&nbsp;<FONT size=1 face=Verdana,Helvetica,Sans-Serif>click here to see the full details:&nbsp;</FONT><FONT color=#33cc00></FONT><FONT size=1>&nbsp;{!Shop_Fit_Visuals__c.Link}</FONT></P>
+<P align=left>&nbsp;</P>
+<P align=left>&nbsp;</P>
+<P align=left>&nbsp;</P>
+<P align=center><FONT size=4 face=Verdana></FONT>&nbsp;</P>
+<P align=left>&nbsp;</P>]]></td>
+</tr>
+</table>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Marketing_Activity__c$Marketing_Campaign_Village__c</field>
+    </columns>
+    <columns>
+        <field>Marketing_Activity__c$Name</field>
+    </columns>
+    <columns>
+        <field>Marketing_Activity__c$Partner__c</field>
+    </columns>
+    <currency>GBP</currency>
+    <description>Sarah &amp; Craig</description>
+    <filter>
+        <criteriaItems>
+            <column>Marketing_Activity__c$RecordType</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Marketing_Activity__c.Partnership_Promotion</value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
+    <format>Tabular</format>
+    <name>2020 &amp; 2021 Marketing Activity Partners</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Marketing_Activities__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>Marketing_Activity__c$Start_Date__c</dateColumn>
+        <endDate>2021-12-31</endDate>
+        <interval>INTERVAL_CUSTOM</interval>
+        <startDate>2020-01-01</startDate>
+    </timeFrameFilter>
+</Report>

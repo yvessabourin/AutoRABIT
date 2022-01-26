@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Current_Brand_in_Unit_2__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>If the</description>
+    <externalId>false</externalId>
+    <inlineHelpText>If the Brand will move into 2 units, enter the secondary unit here.</inlineHelpText>
+    <label>Current Brand in Unit 2</label>
+    <referenceTo>Village_Presence__c</referenceTo>
+    <relationshipLabel>Opportunities (Current Brand in Unit 2)</relationshipLabel>
+    <relationshipName>Brands_in_Contention2</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

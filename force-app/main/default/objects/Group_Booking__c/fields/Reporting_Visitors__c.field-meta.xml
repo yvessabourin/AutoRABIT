@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Reporting_Visitors__c</fullName>
+    <description>returns ACTUAL number of Visitors for COMPLETED bookings, and EXPECTED number of visitors for everything else</description>
+    <externalId>false</externalId>
+    <formula>IF( ISPICKVAL(Status__c, &quot;Completed&quot;) , Number_of_Visitors__c , 
+
+IF( OR(ISPICKVAL(Status__c, &quot;Proposed&quot;),ISPICKVAL(Status__c, &quot;Confirmed&quot;)) , Number_of_Visitors_Expected__c , 
+
+0) )</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Reporting Visitors</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

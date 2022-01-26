@@ -1,0 +1,55 @@
+<apex:page standardController="Opportunity" extensions="ProgressDealController" >
+
+        <apex:pageMessages id="pgMsgs"/>        
+        <c:ProcessSpinner MessageText="Processing ..." ></c:ProcessSpinner>
+            
+        <apex:pageBlock title="Deal Details">
+            <apex:pageBlockSection columns="1">
+                <apex:outputField value="{!deal.Name}" />
+                <apex:outputField value="{!deal.Lease_Type__c}" />
+            </apex:pageBlockSection>
+
+            <apex:pageBlockSection columns="1" title="Field Values to be Synched on Village Presence Remerchandise Plan">
+                <apex:repeat value="{!$ObjectType.Opportunity.FieldSets.Auto_Synch_Fields}"  var="f">            
+                    <apex:outputField value="{!deal[f.fieldPath]}" />
+                </apex:repeat>
+            </apex:pageBlockSection>
+        
+        </apex:pageBlock> 
+        
+        <apex:form >
+            <apex:actionFunction action="{!showWarning}" name="showWarning" reRender="warningMsg"  status="processingStatus"/>
+            <apex:actionFunction action="{!stageUpdate}" name="stageUpdate" reRender="dealFlds,btns,warningMsg" status="processingStatus"  />
+            <apex:pageBlock title="Stage and Synch Details">
+                
+                    <apex:pageBlockButtons location="bottom">
+                        <apex:outputPanel id="btns">
+                            <apex:commandButton action="{!SaveRecord}" value="{!IF(disableAutoSynch, 'Next', 'Save')}"   />
+                            <apex:commandButton action="{!Cancel}" value="Cancel"/>
+                        </apex:outputPanel>
+                    </apex:pageBlockButtons>
+                
+                <apex:outputPanel id="dealFlds">
+                    <apex:pageBlockSection columns="1">
+                        
+                        <apex:inputField value="{!deal.StageName}" onchange="stageUpdate();"/>
+                        <apex:inputField value="{!deal.Auto_Sync__c}" 
+                            label="Indicate whether deal data from this record should be shown on village presence record" onclick="showWarning();"
+                            rendered="{!NOT(hideAutoSynch)}"/>            
+                    
+                    </apex:pageBlockSection>
+                </apex:outputPanel>
+                
+                <apex:pageBlockSection rendered="{!dealSynched}" title="Deal currently synched with Village Presence" columns="1">
+                    <apex:outputLink value="/{!synchedDeal.Id}" >{!synchedDeal.Name}</apex:outputLink>
+                    <apex:outputPanel id="warningMsg" style="font-style:italic; color:red">
+                        <apex:pageBlockSectionItem rendered="{!deal.Auto_Sync__c}" >
+                            <apex:outputText >Clicking Save will remove the currently synched deal ({!synchedDeal.Name}) from the Village Presence and replace it with this deal ({!deal.Name})</apex:outputText>
+                        </apex:pageBlockSectionItem>
+                    </apex:outputPanel>
+                </apex:pageblockSection>
+            
+            </apex:pageBlock>
+        </apex:form>
+        
+</apex:page>

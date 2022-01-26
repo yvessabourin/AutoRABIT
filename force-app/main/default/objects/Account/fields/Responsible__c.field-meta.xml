@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Responsible__c</fullName>
+    <description>...</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Which village is responsible for the relationship with this partner?</inlineHelpText>
+    <label>Responsible</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Central</fullName>
+                <default>false</default>
+                <label>Central</label>
+            </value>
+            <value>
+                <fullName>Bicester</fullName>
+                <default>false</default>
+                <label>Bicester</label>
+            </value>
+            <value>
+                <fullName>Fidenza</fullName>
+                <default>false</default>
+                <label>Fidenza</label>
+            </value>
+            <value>
+                <fullName>Ingolstadt</fullName>
+                <default>false</default>
+                <label>Ingolstadt</label>
+            </value>
+            <value>
+                <fullName>Kildare</fullName>
+                <default>false</default>
+                <label>Kildare</label>
+            </value>
+            <value>
+                <fullName>Las Rozas</fullName>
+                <default>false</default>
+                <label>Las Rozas</label>
+            </value>
+            <value>
+                <fullName>La Vallée</fullName>
+                <default>false</default>
+                <label>La Vallée</label>
+            </value>
+            <value>
+                <fullName>La Roca</fullName>
+                <default>false</default>
+                <label>La Roca</label>
+            </value>
+            <value>
+                <fullName>Maasmechelen</fullName>
+                <default>false</default>
+                <label>Maasmechelen</label>
+            </value>
+            <value>
+                <fullName>Wertheim</fullName>
+                <default>false</default>
+                <label>Wertheim</label>
+            </value>
+            <value>
+                <fullName>Suzhou</fullName>
+                <default>false</default>
+                <label>Suzhou</label>
+            </value>
+            <value>
+                <fullName>Shanghai</fullName>
+                <default>false</default>
+                <label>Shanghai</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

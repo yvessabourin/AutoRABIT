@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ReportType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <baseObject></baseObject>
+    <category>other</category>
+    <deployed>false</deployed>
+    <description>Represents standard pages Users viewed most frequently in Lightning Experience.</description>
+    <label>Lightning Usage By Page Metrics</label>
+    <sections>
+        <masterLabel>LightningUsageByPageMetrics</masterLabel>
+    </sections>
+    <sections>
+        <masterLabel>User</masterLabel>
+    </sections>
+</ReportType>

@@ -1,0 +1,108 @@
+<apex:page standardController="Competitor_site__c" 
+extensions="CompetitorSiteExtension" sidebar="false" showHeader="true"  id="thepage" docType="html-5.0" >
+
+<style>
+ 
+   #spinner{
+display: none;
+width:200px; 
+    height: 50px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    text-align:center;
+    padding:10px;
+    font:normal 16px Tahoma, Geneva, sans-serif;
+    margin-left: -100px;
+    margin-top: -100px;
+    z-index:2;
+    overflow: auto;
+    border:1px solid #CCC;
+    background-color:white;
+    z-index:100;
+    padding:5px;
+    line-height:20px;
+     }
+     #opaque {
+         position: fixed;
+         top: 0px;
+         left: 0px;
+         width: 100%;
+         height: 100%;
+         z-index: 1;
+         display: none;
+         background-color: gray;
+         filter: alpha(opacity=30);
+         opacity: 0.3;
+         -moz-opacity:0.3;
+         -khtml-opacity:0.3
+     }
+     * html #opaque {
+         position: absolute;
+     }
+  
+</style> 
+  <div id="opaque"/>
+  <div id="spinner">
+  <p align="center" style='{font-family:"Arial", Helvetica, sans-serif; font-size:20px;}'>
+  <apex:image value="/img/loading32.gif"/>&nbsp;Please wait</p>
+  </div>
+<script>
+  
+  function showSpinner()
+  {
+       document.getElementById('opaque').style.display='block';
+     
+       var popUp = document.getElementById('spinner');
+      
+       popUp.style.display = 'block';
+  
+  } 
+   
+</script>
+
+<apex:pageMessages />
+
+    <p><b>Please now upload all image and data files now. <p></p>
+    You can add additional files later, these will not be shared in the email notification but will 
+    be available for viewing immediately in both the mobile and standard interface </b></p>
+    
+    <apex:pageBlock title="Attachments for this post" id="eventbanner"  >
+        <apex:pageblockSection >
+        </apex:pageblockSection>
+   
+    <apex:dataTable value="{!myattachments}" var="ma" >
+        <apex:column value="{!ma.title}"/>
+        
+        <apex:column value="{!ma.description}"/>
+    </apex:dataTable>
+    <br></br>
+     
+    <apex:form enctype="multipart/form-data">
+        <apex:pageBlock title="Upload Attachments" rendered="true" >
+      
+                 <br></br>
+                  <apex:outputLabel value="Title"/>
+                  <br></br>
+                  <apex:inputText value="{!contentversion.title}" label="Title"  size="30"  id="title" required="false" />
+                  <p></p>
+                  <apex:outputLabel value="Description"/> 
+                  <br></br>
+                  <apex:inputText value="{!contentversion.description}" label="Description"  size="30"  id="descriptipon" required="false"  />
+                  <p></p>
+                  <br></br>
+                  <apex:inputFile value="{!file}" fileName="{!fn}"  />
+                  <br></br>
+                  <br></br>
+                  <apex:commandbutton action="{!go}" value="Upload"  status="pageStatus" onclick="showSpinner()" />
+                  <br></br>
+                  <br></br>
+                  <apex:commandButton value="Finish & share now" action="{!share}" onclick="showSpinner()" /> &nbsp; &nbsp;  <apex:commandButton value="Finish & share later" action="{!finish}" onclick="showSpinner()" />
+       
+        </apex:pageBlock>
+                 
+    </apex:form>
+   
+    </apex:pageBlock>
+    
+</apex:page>

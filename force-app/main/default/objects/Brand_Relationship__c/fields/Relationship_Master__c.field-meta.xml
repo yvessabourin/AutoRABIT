@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Relationship_Master__c</fullName>
+    <deleteConstraint>Restrict</deleteConstraint>
+    <externalId>false</externalId>
+    <inlineHelpText>Enter the Account that represents the Master Brand in the Relationship</inlineHelpText>
+    <label>Relationship Master</label>
+    <referenceTo>Account</referenceTo>
+    <relationshipLabel>Brand Relationships (Details)</relationshipLabel>
+    <relationshipName>Brand_Relationships</relationshipName>
+    <required>true</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>50.0</apiVersion>
+    <available>true</available>
+    <description>Email Template sent after a new HFS Click &amp; Collect registration is created</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>HFS Call And Collect Registration</name>
+    <style>none</style>
+    <subject>New Call &amp; Collect Registration</subject>
+    <type>visualforce</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

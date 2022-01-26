@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Type_of_Business__c</fullName>
+    <externalId>false</externalId>
+    <label>Type of Business</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Airline</fullName>
+                <default>false</default>
+                <label>Airline</label>
+            </value>
+            <value>
+                <fullName>Airport</fullName>
+                <default>false</default>
+                <label>Airport</label>
+            </value>
+            <value>
+                <fullName>Attraction park</fullName>
+                <default>false</default>
+                <label>Attraction park</label>
+            </value>
+            <value>
+                <fullName>Automobile Association</fullName>
+                <default>false</default>
+                <label>Automobile Association</label>
+            </value>
+            <value>
+                <fullName>Brochure Distribution</fullName>
+                <default>false</default>
+                <label>Brochure Distribution</label>
+            </value>
+            <value>
+                <fullName>Business Travel arranger</fullName>
+                <default>false</default>
+                <label>Business Travel arranger</label>
+            </value>
+            <value>
+                <fullName>Camping</fullName>
+                <default>false</default>
+                <label>Camping</label>
+            </value>
+            <value>
+                <fullName>Car rental</fullName>
+                <default>false</default>
+                <label>Car rental</label>
+            </value>
+            <value>
+                <fullName>Coach operator</fullName>
+                <default>false</default>
+                <label>Coach operator</label>
+            </value>
+            <value>
+                <fullName>Consultant</fullName>
+                <default>false</default>
+                <label>Consultant</label>
+            </value>
+            <value>
+                <fullName>Credit Card</fullName>
+                <default>false</default>
+                <label>Credit Card</label>
+            </value>
+            <value>
+                <fullName>Cruise company</fullName>
+                <default>false</default>
+                <label>Cruise company</label>
+            </value>
+            <value>
+                <fullName>DMO</fullName>
+                <default>false</default>
+                <label>DMO</label>
+            </value>
+            <value>
+                <fullName>Event Agency</fullName>
+                <default>false</default>
+                <label>Event Agency</label>
+            </value>
+            <value>
+                <fullName>Excursionist</fullName>
+                <default>false</default>
+                <label>Excursionist</label>
+            </value>
+            <value>
+                <fullName>Gay travel specialists</fullName>
+                <default>false</default>
+                <label>Gay travel specialists</label>
+            </value>
+            <value>
+                <fullName>General Sales Agent</fullName>
+                <default>false</default>
+                <label>General Sales Agent</label>
+            </value>
+            <value>
+                <fullName>Golf &amp; Country Club</fullName>
+                <default>false</default>
+                <label>Golf &amp; Country Club</label>
+            </value>
+            <value>
+                <fullName>Government body</fullName>
+                <default>false</default>
+                <label>Government body</label>
+            </value>
+            <value>
+                <fullName>Hotel/Hotel Chain</fullName>
+                <default>false</default>
+                <label>Hotel/Hotel Chain</label>
+            </value>
+            <value>
+                <fullName>Hotel Association</fullName>
+                <default>false</default>
+                <label>Hotel Association</label>
+            </value>
+            <value>
+                <fullName>Incentive Travel Organiser</fullName>
+                <default>false</default>
+                <label>Incentive Travel Organiser</label>
+            </value>
+            <value>
+                <fullName>Incoming Agency</fullName>
+                <default>false</default>
+                <label>Incoming Agency</label>
+            </value>
+            <value>
+                <fullName>Incoming Operator</fullName>
+                <default>false</default>
+                <label>Incoming Operator</label>
+            </value>
+            <value>
+                <fullName>Incoming specialist</fullName>
+                <default>false</default>
+                <label>Incoming specialist</label>
+            </value>
+            <value>
+                <fullName>Limousine Cie</fullName>
+                <default>false</default>
+                <label>Limousine Cie</label>
+            </value>
+            <value>
+                <fullName>MICE location</fullName>
+                <default>false</default>
+                <label>MICE location</label>
+            </value>
+            <value>
+                <fullName>MICE specialists</fullName>
+                <default>false</default>
+                <label>MICE specialists</label>
+            </value>
+            <value>
+                <fullName>National Tourist Board</fullName>
+                <default>false</default>
+                <label>National Tourist Board</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+            <value>
+                <fullName>Outbound Tour Operator</fullName>
+                <default>false</default>
+                <label>Outbound Tour Operator</label>
+            </value>
+            <value>
+                <fullName>Press</fullName>
+                <default>false</default>
+                <label>Press</label>
+            </value>
+            <value>
+                <fullName>Private Travel arranger</fullName>
+                <default>false</default>
+                <label>Private Travel arranger</label>
+            </value>
+            <value>
+                <fullName>Railway company</fullName>
+                <default>false</default>
+                <label>Railway company</label>
+            </value>
+            <value>
+                <fullName>Real State</fullName>
+                <default>false</default>
+                <label>Real State</label>
+            </value>
+            <value>
+                <fullName>Retail Travel Agency</fullName>
+                <default>false</default>
+                <label>Retail Travel Agency</label>
+            </value>
+            <value>
+                <fullName>Season</fullName>
+                <default>false</default>
+                <label>Season</label>
+            </value>
+            <value>
+                <fullName>Shipping company</fullName>
+                <default>false</default>
+                <label>Shipping company</label>
+            </value>
+            <value>
+                <fullName>Spa</fullName>
+                <default>false</default>
+                <label>Spa</label>
+            </value>
+            <value>
+                <fullName>Tax Refund Company</fullName>
+                <default>false</default>
+                <label>Tax Refund Company</label>
+            </value>
+            <value>
+                <fullName>Theme park</fullName>
+                <default>false</default>
+                <label>Theme park</label>
+            </value>
+            <value>
+                <fullName>Tour guide</fullName>
+                <default>false</default>
+                <label>Tour guide</label>
+            </value>
+            <value>
+                <fullName>Tourism consultant</fullName>
+                <default>false</default>
+                <label>Tourism consultant</label>
+            </value>
+            <value>
+                <fullName>Tourism Office</fullName>
+                <default>false</default>
+                <label>Tourism Office</label>
+            </value>
+            <value>
+                <fullName>Tourism site</fullName>
+                <default>false</default>
+                <label>Tourism site</label>
+            </value>
+            <value>
+                <fullName>Tourism Trade Association</fullName>
+                <default>false</default>
+                <label>Tourism Trade Association</label>
+            </value>
+            <value>
+                <fullName>Tour operator</fullName>
+                <default>false</default>
+                <label>Tour operator</label>
+            </value>
+            <value>
+                <fullName>Trade Fair Organiser</fullName>
+                <default>false</default>
+                <label>Trade Fair Organiser</label>
+            </value>
+            <value>
+                <fullName>Translator</fullName>
+                <default>false</default>
+                <label>Translator</label>
+            </value>
+            <value>
+                <fullName>Travel agency</fullName>
+                <default>false</default>
+                <label>Travel agency</label>
+            </value>
+            <value>
+                <fullName>Travel press</fullName>
+                <default>false</default>
+                <label>Travel press</label>
+            </value>
+            <value>
+                <fullName>Wholesale</fullName>
+                <default>false</default>
+                <label>Wholesale</label>
+            </value>
+            <value>
+                <fullName>Youth travel specialists</fullName>
+                <default>false</default>
+                <label>Youth travel specialists</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

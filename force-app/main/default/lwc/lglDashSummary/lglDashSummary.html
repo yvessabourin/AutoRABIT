@@ -1,0 +1,57 @@
+<template>
+	<c-lgl-notifications-component></c-lgl-notifications-component>
+
+	<div>
+		<table class="lgl-table">
+			<thead>
+				<tr>
+					<th>Luggage &amp; Loans Location</th>
+					<template for:each={dashColumns} for:item="column">
+						<th key={column.fieldId} class="lgl-limited-cell">{column.fieldName}</th>
+					</template>
+				</tr>
+			</thead>
+			<tbody>
+				<template for:each={rows} for:item="row">
+					<tr key={row.location}>
+						<td>{row.location}</td>
+						<template for:each={row.cells} for:item="cell">
+							<td key={cell.serviceTypeIdentifier}>
+								<c-lgl-dash-summary-item
+									cell={cell}
+									onlocktoggle={handleLockToggle}
+									onerror={handleLockError}
+								>
+								</c-lgl-dash-summary-item>
+							</td>
+						</template>
+					</tr>
+				</template>
+				<tr class="lgl-limits">
+					<td style="font-weight: bold">Limit Reached</td>
+					<template for:each={serviceTotals.limits} for:item="limit">
+						<td key={limit.serviceId}>
+							<div class={limit.css_class}>{limit.limitReached}</div>
+						</td>
+					</template>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="slds-var-m-top_medium">
+		<c-lgl-collapsable-section
+			title="Totals For The Day"
+			section-max-height="150px"
+			initially-collapsed
+		>
+			<div slot="bodyContent" class="slds-grid">
+				<div class="slds-size_1-of-2">
+					<c-lgl-totals-table totals-list={serviceTotals.loan}></c-lgl-totals-table>
+				</div>
+				<div class="slds-size_1-of-2 slds-var-p-left_medium">
+					<c-lgl-totals-table totals-list={serviceTotals.luggage}></c-lgl-totals-table>
+				</div>
+			</div>
+		</c-lgl-collapsable-section>
+	</div>
+</template>

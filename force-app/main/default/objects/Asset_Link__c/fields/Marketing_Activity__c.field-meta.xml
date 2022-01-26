@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Marketing_Activity__c</fullName>
+    <description>The marketing activity that this Asset belongs to</description>
+    <externalId>false</externalId>
+    <inlineHelpText>The marketing activity that this Asset belongs to</inlineHelpText>
+    <label>Marketing Activity</label>
+    <lookupFilter>
+        <active>true</active>
+        <errorMessage>Only General Activities can be linked to Asset links</errorMessage>
+        <filterItems>
+            <field>Marketing_Activity__c.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>General Activity</value>
+        </filterItems>
+        <infoMessage>Please select a general activity</infoMessage>
+        <isOptional>false</isOptional>
+    </lookupFilter>
+    <referenceTo>Marketing_Activity__c</referenceTo>
+    <relationshipLabel>Activity Asset Links and Reports</relationshipLabel>
+    <relationshipName>Asset_Links</relationshipName>
+    <relationshipOrder>0</relationshipOrder>
+    <reparentableMasterDetail>true</reparentableMasterDetail>
+    <trackTrending>false</trackTrending>
+    <type>MasterDetail</type>
+    <writeRequiresMasterRead>false</writeRequiresMasterRead>
+</CustomField>

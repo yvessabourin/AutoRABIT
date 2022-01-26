@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Test</fullName>
+    <columns>NAME</columns>
+    <columns>CREATEDBY_USER.ALIAS</columns>
+    <columns>Marketing_Campaign_Village__c</columns>
+    <columns>Expected_Footfall__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Marketing_Activity__c.General_Activity</value>
+    </filters>
+    <label>Test</label>
+    <language>en_US</language>
+</ListView>

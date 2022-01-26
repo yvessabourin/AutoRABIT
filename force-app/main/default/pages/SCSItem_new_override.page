@@ -1,0 +1,3 @@
+<apex:page standardcontroller="HFS_Item__c">
+  <b>SCS Items can only be created from an <apex:outputLink value="/a1j/o"> Experience record</apex:outputLink>.</b>
+</apex:page>

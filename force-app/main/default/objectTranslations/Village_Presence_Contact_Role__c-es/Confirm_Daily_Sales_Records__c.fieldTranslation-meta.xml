@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help>Seleccionar esta casilla si quieres que este usuario sea capaz de confirmar las ventas diarias (enviará las ventas diarias automáticamente a Value Retail)</help>
+    <label>Confirmar datos de Ventas diarias</label>
+    <name>Confirm_Daily_Sales_Records__c</name>
+</CustomFieldTranslation>

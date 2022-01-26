@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Edit_Village_Presence</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <linkType>url</linkType>
+    <masterLabel>Edit Village Presence</masterLabel>
+    <openType>replace</openType>
+    <protected>false</protected>
+    <url>&quot;/&quot;{!Opportunity.Village_PresenceId__c}&quot;/e?retURL=%2F{!Opportunity.Id}&quot;</url>
+</WebLink>

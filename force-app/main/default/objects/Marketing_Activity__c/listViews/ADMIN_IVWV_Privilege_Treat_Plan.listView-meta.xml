@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ADMIN_IVWV_Privilege_Treat_Plan</fullName>
+    <columns>Status__c</columns>
+    <columns>Marketing_Campaign_Village__c</columns>
+    <columns>NAME</columns>
+    <columns>Start_Date__c</columns>
+    <columns>Responsible_Person__c</columns>
+    <columns>Communication_Plan__c</columns>
+    <columns>Reach__c</columns>
+    <columns>Expected_Footfall__c</columns>
+    <columns>Expected_Sales__c</columns>
+    <columns>Expected_New_Members__c</columns>
+    <columns>Expected_Average_Spend__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Sub_Channel_Type__c</field>
+        <operation>equals</operation>
+        <value>Privilege</value>
+    </filters>
+    <filters>
+        <field>Channel__c</field>
+        <operation>equals</operation>
+        <value>Village Online</value>
+    </filters>
+    <filters>
+        <field>Source_Market__c</field>
+        <operation>equals</operation>
+        <value>Germany</value>
+    </filters>
+    <label>ADMIN IVWV Privilege Treat Plan</label>
+    <language>en_US</language>
+    <sharedTo>
+        <role>German_Marketing</role>
+        <role>German_TICs</role>
+        <role>German_Tourism</role>
+    </sharedTo>
+</ListView>

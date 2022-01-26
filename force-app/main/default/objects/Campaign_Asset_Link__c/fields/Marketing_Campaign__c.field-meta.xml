@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Marketing_Campaign__c</fullName>
+    <description>Link to Marketing Campaign</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Link to Marketing Campaign</inlineHelpText>
+    <label>Marketing Campaign</label>
+    <referenceTo>Marketing_Campaign__c</referenceTo>
+    <relationshipLabel>Campaign Asset Links and Reports</relationshipLabel>
+    <relationshipName>Campaign_Asset_Links</relationshipName>
+    <relationshipOrder>0</relationshipOrder>
+    <reparentableMasterDetail>false</reparentableMasterDetail>
+    <trackTrending>false</trackTrending>
+    <type>MasterDetail</type>
+    <writeRequiresMasterRead>false</writeRequiresMasterRead>
+</CustomField>

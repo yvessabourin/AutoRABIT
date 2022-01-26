@@ -1,0 +1,12 @@
+<Enumeration Type="Languages">
+	<Item Key="en-gb" Language="en-gb">English</Item>
+	<Item Key="fr-fr" Language="en-gb">French</Item>
+	<Item Key="es-es" Language="en-gb">Spanish</Item>
+	<Item Key="ca-es" Language="en-gb">Catalan</Item>
+	<Item Key="it-it" Language="en-gb">Italian</Item>
+	<Item Key="de-de" Language="en-gb">German</Item>
+	<Item Key="nl-nl" Language="en-gb">Dutch</Item>
+	<Item Key="ru-ru" Language="en-gb">Russian</Item>
+	<Item Key="zh-cn" Language="en-gb">Chinese</Item>
+	<Item Key="ar-ae" Language="en-gb">Arabic</Item>
+</Enumeration>

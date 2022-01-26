@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Registration_Location__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Controls if the Registration Location field should be shown in the Registration page</description>
+    <externalId>false</externalId>
+    <fieldManageability>SubscriberControlled</fieldManageability>
+    <label>Registration Location</label>
+    <type>Checkbox</type>
+</CustomField>

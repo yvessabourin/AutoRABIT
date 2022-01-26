@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomApplication xmlns="http://soap.sforce.com/2006/04/metadata">
+    <defaultLandingTab>standard-home</defaultLandingTab>
+    <isNavAutoTempTabsDisabled>false</isNavAutoTempTabsDisabled>
+    <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
+    <label>LeaseFlow</label>
+    <tabs>standard-Account</tabs>
+    <tabs>standard-Opportunity</tabs>
+    <tabs>Village_Presence__c</tabs>
+    <tabs>Competitor_site__c</tabs>
+    <tabs>Village__c</tabs>
+    <tabs>Unit__c</tabs>
+    <tabs>Village_Rating__c</tabs>
+    <tabs>Initiative__c</tabs>
+    <tabs>standard-report</tabs>
+    <tabs>Village_RatingV2__c</tabs>
+    <tabs>Room__c</tabs>
+    <tabs>PRX__Outreach_Automation__c</tabs>
+</CustomApplication>

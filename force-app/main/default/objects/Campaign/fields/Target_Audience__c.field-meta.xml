@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Target_Audience__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Please enter the target audience of your campaign</inlineHelpText>
+    <label>Target Audience</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Trade Partnerships</fullName>
+                <default>false</default>
+                <label>Trade Partnerships</label>
+            </value>
+            <value>
+                <fullName>Corporate</fullName>
+                <default>false</default>
+                <label>Corporate</label>
+            </value>
+            <value>
+                <fullName>Hotels</fullName>
+                <default>false</default>
+                <label>Hotels</label>
+            </value>
+            <value>
+                <fullName>Shopping Express</fullName>
+                <default>false</default>
+                <label>Shopping Express</label>
+            </value>
+            <value>
+                <fullName>Airlines</fullName>
+                <default>false</default>
+                <label>Airlines</label>
+            </value>
+            <value>
+                <fullName>Car Rental</fullName>
+                <default>false</default>
+                <label>Car Rental</label>
+            </value>
+            <value>
+                <fullName>VIP Customer</fullName>
+                <default>false</default>
+                <label>VIP Customer</label>
+            </value>
+            <value>
+                <fullName>Database Customer</fullName>
+                <default>false</default>
+                <label>Database Customer</label>
+            </value>
+            <value>
+                <fullName>Prospective Customer</fullName>
+                <default>false</default>
+                <label>Prospective Customer</label>
+            </value>
+            <value>
+                <fullName>Parent Campaign</fullName>
+                <default>false</default>
+                <label>Parent Campaign</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

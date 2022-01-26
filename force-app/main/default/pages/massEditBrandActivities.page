@@ -1,0 +1,80 @@
+<apex:page sidebar="false" showHeader="true"  standardController="Brand_Activity__c" extensions="massEditBrandActivitiesController" recordSetVar="BrandActs" docType="html-5.0" lightningStylesheets="true">
+    <div>
+        <apex:form id="theform" >
+
+            <apex:outputLabel value="Set all Status'" for="invitestatus" />
+            <br/>
+            <apex:selectList id="invitestatus" value="{!selectedStatus}" size="1">
+                <!--<apex:selectOption itemValue="To Be Confirmed" itemLabel="To Be Confirmed"/>-->
+                <apex:selectOption itemValue="To Be Approved" itemLabel="To Be Approved"/>
+                <!--<apex:selectOption itemValue="Confirmed" itemLabel="Confirmed"/>-->
+                <apex:selectOption itemValue="Approved" itemLabel="Approved"/>
+                <apex:selectOption itemValue="Cancelled" itemLabel="Cancelled"/>
+                <!--<apex:selectOption itemValue="Removed" itemLabel="Removed"/>-->
+                <!--apex:selectOption itemValue="Completed" itemLabel="Completed"/-->
+            </apex:selectList>
+
+            <apex:commandButton action="{!setAllStatus2}" value="Update"/>
+
+            <br/><br/>
+
+            <apex:pageBlock id="thepageblock" >
+                <apex:pageBlockTable value="{!wBAstoEdit}" var="select" id="thepageblocktable" columns="10" >
+                    <apex:column >
+                        <apex:facet name="header">
+                            Selected Records<br/>to update
+                        </apex:facet>
+                        <apex:inputCheckbox value="{!select.selected}"  id="selectBox" styleClass="selectBox"/>
+                    </apex:column>
+
+                    <apex:column headerValue="Name" >
+                        <apex:outputField value="{!select.theBA.name}" />
+                    </apex:column>
+
+                    <apex:column headerValue="Status" >
+                        <apex:inputField value="{!select.theBA.Status__c}" id="theStatus" onchange="jsUpdateCheckboxInvite(this)"/>
+                    </apex:column>
+
+                    <apex:column headerValue="Expected Avg Spend" >
+                        <apex:inputField value="{!select.theBA.Expected_Average_Spend__c}" id="theAvgSpend" onchange="jsUpdateCheckboxInvite(this)"/>
+                    </apex:column>
+
+                    <apex:column headerValue="Expected Sales" >
+                        <apex:inputField value="{!select.theBA.Expected_Sales__c}" id="theExpectedSales" onchange="jsUpdateCheckboxInvite(this)"/>
+                    </apex:column>
+
+                    <apex:column headerValue="Marketing Activity Cost" >
+                        <apex:inputField value="{!select.theBA.Marketing_Activity_Cost__c}" id="theMarActivityCost" onchange="jsUpdateCheckboxInvite(this)"/>
+                    </apex:column>
+
+                    <apex:column headerValue="New Members" >
+                        <apex:inputField value="{!select.theBA.Expected_New_Members__c}" id="theNewMembers" onchange="jsUpdateCheckboxInvite(this)"/>
+                    </apex:column>
+
+                    <apex:column headerValue="Approved Villages" >
+                        <apex:inputField value="{!select.theBA.Approved_Villages__c}" id="Approved_Villages" onchange="jsUpdateCheckboxInvite(this)"/>
+                    </apex:column>
+
+                    <apex:column headerValue="Reach" >
+                        <apex:inputField value="{!select.theBA.Reach__c}" id="thereach" onchange="jsUpdateCheckboxInvite(this)"/>
+                    </apex:column>
+
+                    <apex:column headerValue="MA Budget" >
+                        <apex:inputField value="{!select.theBA.Marketing_Activity_Budget__c}" id="theMABudget" onchange="jsUpdateCheckboxInvite(this)"/>
+                    </apex:column>
+                </apex:pageBlockTable>
+    
+                <!-- test -->
+                <apex:commandButton action="{!selectAll}" value="Select All"/>
+                <apex:commandButton action="{!deselectAll}" value="Deselect All"/>
+
+            </apex:pageBlock>
+
+            <apex:pageBlock >
+                <apex:commandButton action="{!Cancel}" value="Cancel"/>
+                <apex:commandButton action="{!saveSelected}" value="Save Selected Records"/>
+            </apex:pageBlock>
+
+        </apex:form>
+    </div>
+</apex:page>

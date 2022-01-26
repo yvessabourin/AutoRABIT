@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>JIRA_Project_Code__c</fullName>
+    <description>Only Applicable if the Release relates to 1 JIRA Project</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Enter the JIRA project Code e.g. &quot;SFP&quot;</inlineHelpText>
+    <label>JIRA Project Code</label>
+    <length>15</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

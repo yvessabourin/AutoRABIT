@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Marketing_Activity__c$Name</field>
+    </columns>
+    <columns>
+        <field>Marketing_Activity__c$Channel__c</field>
+    </columns>
+    <columns>
+        <field>Marketing_Activity__c$Sub_Channel__c</field>
+    </columns>
+    <columns>
+        <field>Marketing_Activity__c$Sub_Channel_Type__c</field>
+    </columns>
+    <columns>
+        <field>Marketing_Activity__c$Start_Date__c</field>
+    </columns>
+    <columns>
+        <field>Marketing_Activity__c$End_Date__c</field>
+    </columns>
+    <columns>
+        <field>Marketing_Activity__c$Reach__c</field>
+    </columns>
+    <columns>
+        <field>Marketing_Activity__c$Expected_Footfall__c</field>
+    </columns>
+    <columns>
+        <field>Marketing_Activity__c$Expected_Sales__c</field>
+    </columns>
+    <columns>
+        <field>Marketing_Activity__c$Objective__c</field>
+    </columns>
+    <columns>
+        <field>Marketing_Activity__c$Responsible_Person__c</field>
+    </columns>
+    <currency>EUR</currency>
+    <description>Monitors holistic partnership with Klassik Radio</description>
+    <filter>
+        <criteriaItems>
+            <column>Marketing_Activity__c$Name</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>contains</operator>
+            <value>Klassik Radio</value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
+    <format>Tabular</format>
+    <name>Klassik Radio Summer 2017</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Marketing_Activities__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>Marketing_Activity__c$Start_Date__c</dateColumn>
+        <endDate>2017-09-30</endDate>
+        <interval>INTERVAL_CUSTOM</interval>
+        <startDate>2017-06-01</startDate>
+    </timeFrameFilter>
+</Report>

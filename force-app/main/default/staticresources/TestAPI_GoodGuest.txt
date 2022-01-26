@@ -1,0 +1,12 @@
+<Customer CustomerId="123456-7890-1234-1234-123456789012" VersionId="123456-7890-1234-1234-123456789012" DateCreated="2016-03-09T17:37:39Z" Language="en-gb" Gender="1" VillagePrimary="BV" DateOfBirth="1984-04-04" Source="Sales">
+  <Properties>
+    <item type="PHONENUMBER">04444444444</item>
+    <item type="NATIONALITY">British</item>
+    <item type="BARCODENUMBER"></item>
+  </Properties>
+  <References>
+    <item type="EMAIL">Jay@tee.com</item>
+  </References>
+  <name Title="Mr" Given="Jay" Family="Tee" />
+  <address AddressLine1="44 High Street" AddressLine2="" County="" City="Brighton" PostCode="BR4 4DD" Country="GB" />
+</Customer>

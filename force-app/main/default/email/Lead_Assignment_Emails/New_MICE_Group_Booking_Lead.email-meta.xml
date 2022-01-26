@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Email sent out when a Group Booking Lead is assigned to a queue (using assignment rules)</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Group_Booking_Letterhead</letterhead>
+    <name>New Group Booking Lead</name>
+    <style>freeForm</style>
+    <subject>A new {!Lead.Group_Type__c} Lead has been created for {!Lead.Village_of_Visit_c__c} Village</subject>
+    <textOnly>Dear {!Lead.Village_of_Visit_c__c} Group booking team,
+
+A {!Lead.Group_Type__c} booking enquiry has been entered into VR1 for {!Lead.FirstName} {!Lead.LastName} at {!Lead.Company}.
+
+Name of Event: {!Lead.Name_of_Event__c}
+Group Type: {!Lead.Group_Type__c}
+Expected Arrival: {!Lead.Expected_Arrival__c}
+Village: {!Lead.Village_of_Visit_c__c}
+Expected number of Visitors: {!Lead.Number_of_Visitors__c}
+
+Mode of Transport: {!Lead.Mode_of_Transport__c}
+Region: {!Lead.Region__c}
+Visitors Country of Origin: {!Lead.Visitors_Country_of_Origin__c}
+
+Secondary Contact Information
+Org Name: {!Lead.Secondary_MICE_Org_or_Agency_name__c}
+Name: {!Lead.Secondary_MICE_Contact_First_Name__c} {!Lead.Secondary_MICE_Contact_Last_Name__c}
+Country: {!Lead.Secondary_MICE_Contact_Country__c}
+
+
+Notes/Comments: {!Lead.Notes_and_Additional_Comments__c}
+
+
+You can view the full details of the lead here:
+
+http://valueretail.my.salesforce.com/{!Lead.Id}
+
+From there you can convert the lead into an account, contact and group booking.
+
+Regards,
+The Bicester Village Shopping Collection team
+
+Date: {!Lead.CreatedDate}</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

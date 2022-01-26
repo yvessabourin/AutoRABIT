@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Year_Equal_to_Activity_Year</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(TEXT(Year__c) &lt;&gt;  TEXT(YEAR(Marketing_Activity__r.Start_Date__c)), TEXT(Year__c) &lt;&gt;  TEXT(YEAR(Marketing_Activity__r.End_Date__c )))</errorConditionFormula>
+    <errorDisplayField>Year__c</errorDisplayField>
+    <errorMessage>Year must be equal to Activity&apos;s year</errorMessage>
+</ValidationRule>

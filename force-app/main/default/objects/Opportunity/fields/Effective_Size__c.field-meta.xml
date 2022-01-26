@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Effective_Size__c</fullName>
+    <description>This is the value that feeds into the calculations, it will be the GEA of the Unit if know or the Budget Unit otherwise it will be the value entered for ideal size. This value is always in sq.m</description>
+    <externalId>false</externalId>
+    <formula>IF( Unit__r.Size_GEA__c &gt; 0, Unit__r.Size_GEA__c, Ideal_Size__c  / SF__c  )</formula>
+    <inlineHelpText>This is, effectively, the GEA of the unit or the budget unit (if the unit is unknown). Otherwise, it will be the ideal size. This value is always measured in sq.m.</inlineHelpText>
+    <label>Effective Size</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

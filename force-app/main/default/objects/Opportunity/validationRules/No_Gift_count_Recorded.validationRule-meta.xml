@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>No_Gift_count_Recorded</fullName>
+    <active>false</active>
+    <description>Blocks the closure of the Deal if the gift status field has not been comlpeted
+
+- IN TEST (applies to IW only)</description>
+    <errorConditionFormula>$Setup.Global_Object_Validation__c.Deal_Validations_Active__c 
+&amp;&amp;
+OR(
+(ISPICKVAL(Gift_Status__c, &quot;No Gift Given&quot;) &amp;&amp; Gifts_Recorded__c &gt; 0)
+,
+(ISPICKVAL(Gift_Status__c, &quot;Gift Recorded&quot;) &amp;&amp; Gifts_Recorded__c = 0)
+)
+&amp;&amp; CreateGift__c = true
+&amp;&amp;  PRIORVALUE(CreateGift__c) = true</errorConditionFormula>
+    <errorDisplayField>Gift_Status__c</errorDisplayField>
+    <errorMessage>Deals marked as &quot;Gift Recorded&quot; must have gifts records entered.
+ 
+No Gifts should be recorded against Deals marked as &quot;No Gift Given&quot;</errorMessage>
+</ValidationRule>

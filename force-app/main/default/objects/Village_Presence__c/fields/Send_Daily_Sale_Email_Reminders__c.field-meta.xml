@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Send_Daily_Sale_Email_Reminders__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(ISPICKVAL(Village__r.Daily_Sale_Email_Reminders__c, &apos;No&apos;), false, 
+IF (NOT(ISBLANK( TEXT(Daily_Sale_Email_Reminders__c))), IF (ISPICKVAL(Daily_Sale_Email_Reminders__c ,&apos;Yes&apos;), true, false),true 
+))</formula>
+    <inlineHelpText>Calculated override value determining whether this Village presence should automatically receive a Daily Sale email reminder based on Village and Village presence entries.</inlineHelpText>
+    <label>Send Daily Sale Email Reminders</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

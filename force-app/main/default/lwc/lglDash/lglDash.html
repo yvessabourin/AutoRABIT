@@ -1,0 +1,164 @@
+<template>
+	<lightning-spinner
+		class="slds-is-fixed"
+		if:true={loading}
+		alternative-text="Loading"
+		size="large"
+	></lightning-spinner>
+
+	<c-lgl-notifications-component></c-lgl-notifications-component>
+
+	<main class="lgl-container">
+		<!-- Global Buttons Section BEGINNING -->
+
+		<section class="lgl-action-panel">
+			<!-- Home Button -->
+			<button
+				if:false={sectionVisibility.dashSummary}
+				type="button"
+				value="dash"
+				onclick={changeSectionFromButton}
+			>
+				<lightning-icon
+					icon-name="utility:home"
+					alternative-text="Home"
+					title="Home"
+					size="xx-small"
+				></lightning-icon>
+			</button>
+
+			<!-- Main Buttons Section for the Dash Component BEGINNING -->
+			<template if:true={sectionVisibility.dashSummary}>
+				<button type="button" value="newService" onclick={changeSectionFromButton}>
+					New Luggage or Loan
+				</button>
+				<button type="button" value="manageItems" onclick={changeSectionFromButton}>
+					Manage Loan Items
+				</button>
+				<button type="button" value="unfulfilled" onclick={changeSectionFromButton}>
+					Add Unfulfilled Request
+				</button>
+			</template>
+			<!-- Main Buttons Section for the Dash Component END -->
+
+			<!-- Main Buttons Section for the Manage Items Section BEGINNING -->
+			<template if:true={sectionVisibility.manageItems}>
+				<button type="button" onclick={saveMatrixValues}>Save Changes</button>
+				<button type="button" onclick={resetMatrixValues}>Reset Values</button>
+			</template>
+			<!-- Main Buttons Section for the Manage Items Section END -->
+
+			<!-- Main Buttons Section for the Unfulfilled Request Section BEGINNING -->
+			<template if:true={sectionVisibility.unfulfilled}>
+				<button type="button" onclick={saveUnfulfilledRequest}>
+					Save Unfulfilled Request
+				</button>
+			</template>
+			<!-- Main Buttons Section for the Unfulfilled Request Section END -->
+		</section>
+		<!-- Global Buttons Section END -->
+
+		<!-- Dash Summary Section BEGGINING -->
+		<section if:true={sectionVisibility.dashSummary}>
+			<c-lgl-card title="Service Summary:">
+				<c-lgl-dash-summary
+					slot="bodyContent"
+					dash-columns={dashColumns}
+					dash-rows={dashRows.data}
+					onlocktoggle={handleLockToggle}
+				>
+				</c-lgl-dash-summary>
+			</c-lgl-card>
+		</section>
+		<!-- Dash Summary Section END -->
+
+		<!-- Records Table Section BEGGINING -->
+		<section if:true={sectionVisibility.recordsTable}>
+			<c-lgl-card title={recordsCardTitle}>
+				<div slot="bodyContent">
+					<c-lgl-table
+						columns={servicesListFields}
+						rows={openServices}
+						table-key="serviceId"
+						empty-table-text="No services for today"
+						onrowselection={handleServiceRequestSelect}
+						onurlclick={handleUrlClick}
+					>
+					</c-lgl-table>
+
+					<div class="slds-var-m-top_small">
+						<c-lgl-collapsable-section
+							title="Closed Service Requests"
+							section-max-height="auto"
+							initially-collapsed
+						>
+							<div
+								class="slds-var-p-top_small lgl-contrast-background"
+								slot="bodyContent"
+							>
+								<c-lgl-table
+									columns={servicesListFields}
+									rows={closedServices}
+									table-key="serviceId"
+									empty-table-text="No closed services for today"
+									onrowselection={handleServiceRequestSelect}
+									onurlclick={handleUrlClick}
+								>
+								</c-lgl-table>
+							</div>
+						</c-lgl-collapsable-section>
+					</div>
+				</div>
+			</c-lgl-card>
+		</section>
+		<!-- Records Table Section END -->
+
+		<!-- Manage Items Section BEGINNING -->
+		<section if:true={sectionVisibility.manageItems}>
+			<div>
+				<c-lgl-card title="Manage Luggage &amp; Loan Items">
+					<c-lgl-manage-items
+						slot="bodyContent"
+						onsave={handleManageItemsSave}
+						user-village={userVillage}
+					>
+					</c-lgl-manage-items>
+				</c-lgl-card>
+			</div>
+		</section>
+		<!-- Manage Items Section END -->
+
+		<!-- Unfulfilled Requests Section BEGINNING -->
+		<section if:true={sectionVisibility.unfulfilled}>
+			<c-lgl-card title="Add New Unfulfilled Request">
+				<c-lgl-unfulfilled-request
+					slot="bodyContent"
+					service-types={offeredServices.data}
+					service-locations={serviceLocations.data}
+					onsave={handleUnfulfilledRequestSave}
+					onerror={handleUnfulfilledRequestError}
+				>
+				</c-lgl-unfulfilled-request>
+			</c-lgl-card>
+		</section>
+		<!-- Unfulfilled Requests Section END -->
+
+		<!-- Unfulfilled Requests Section BEGINNING -->
+		<section if:true={sectionVisibility.newService}>
+			<c-lgl-new-service user-village={userVillage} service-offerings={serviceOfferings} onsave={handleNewServiceSave}>
+			</c-lgl-new-service>
+		</section>
+		<!-- Unfulfilled Requests Section END -->
+
+		<!-- Guest Details Section BEGINNING -->
+		<section if:true={sectionVisibility.guestDetails}>
+			<c-lgl-service-request-details
+				service-request-id={selectedServiceRequestId}
+				service-offerings={serviceOfferings}
+				oncheckout={handleCheckout}
+			>
+			</c-lgl-service-request-details>
+		</section>
+		<!-- Guest Details Section END -->
+	</main>
+</template>

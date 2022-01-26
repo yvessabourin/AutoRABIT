@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Late_Share__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>This field is checked (by a workflow) if the B2B meeting is not shared within 48 hours of the meeting start date. Once checked, a process builder flow is fired to &quot;chatter&quot; to the assigned to &amp; created by users to tell them to delete or share the meeting.</description>
+    <externalId>false</externalId>
+    <label>Late Share</label>
+    <type>Checkbox</type>
+</CustomField>

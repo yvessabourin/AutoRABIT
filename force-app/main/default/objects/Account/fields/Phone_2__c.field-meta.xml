@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Phone_2__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>This is a secondary phone number for the company. Please use standard format 
+[+][country code][subscriber number including area code] 
+e.g. +44 20 7183 8750</inlineHelpText>
+    <label>Phone (2)</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Phone</type>
+</CustomField>

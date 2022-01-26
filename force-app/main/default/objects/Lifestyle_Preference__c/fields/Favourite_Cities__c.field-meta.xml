@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Favourite_Cities__c</fullName>
+    <description>Guest&apos;s favourite cities.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Guest&apos;s favourite cities.</inlineHelpText>
+    <label>Favourite Cities</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>TextArea</type>
+</CustomField>

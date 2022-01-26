@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Name_and_Brand_Not_Editable</fullName>
+    <active>true</active>
+    <description>Brand lookup field is not possible to change after set upped of the Village Presence.</description>
+    <errorConditionFormula>ISCHANGED(Brand__c)&amp;&amp; $Profile.Name == &apos;Finance Sales Certification&apos;</errorConditionFormula>
+    <errorMessage>Brand isn&apos;t editable</errorMessage>
+</ValidationRule>

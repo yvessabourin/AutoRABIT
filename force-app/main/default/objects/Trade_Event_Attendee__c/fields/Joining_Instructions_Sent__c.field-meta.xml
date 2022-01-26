@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Joining_Instructions_Sent__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>have the joining instructions been sent?</description>
+    <externalId>false</externalId>
+    <inlineHelpText>have the joining instructions been sent?</inlineHelpText>
+    <label>Joining Instructions Sent</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

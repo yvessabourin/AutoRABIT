@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All_Today_CC</fullName>
+    <columns>CREATED_DATE</columns>
+    <columns>email__c</columns>
+    <columns>CREATEDBY_USER</columns>
+    <columns>NAME</columns>
+    <columns>leadSource__c</columns>
+    <columns>customerID__c</columns>
+    <columns>primaryVillage__c</columns>
+    <columns>leadSourceText__c</columns>
+    <columns>firstName__c</columns>
+    <columns>lastName__c</columns>
+    <columns>mobile__c</columns>
+    <columns>dateOfBirth__c</columns>
+    <columns>preferredLanguage__c</columns>
+    <columns>gender__c</columns>
+    <columns>country__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CREATED_DATE</field>
+        <operation>equals</operation>
+        <value>TODAY</value>
+    </filters>
+    <label>All Today CC</label>
+    <language>en_US</language>
+    <sharedTo>
+        <group>Admins_group</group>
+        <roleAndSubordinates>Global_API_Access</roleAndSubordinates>
+    </sharedTo>
+</ListView>

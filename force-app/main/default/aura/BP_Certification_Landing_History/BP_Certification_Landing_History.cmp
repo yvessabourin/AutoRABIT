@@ -1,0 +1,40 @@
+<aura:component controller="BP_Certification_Landing_History_Ct" implements="force:appHostable,flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes" access="global" >
+        
+    <aura:attribute name="History" type="List" />
+    
+    <aura:handler name="init" value="{!this}" action="{!c.init}"/>  
+
+	<table class="slds-table slds-table_cell-buffer slds-table_bordered">
+      <thead>
+        <tr class="slds-line-height_reset slds-cell-wrap">
+          <th class="slds-text-title_caps slds-cell-wrap" scope="col">
+            <div class="slds-truncate" title="{!$Label.c.BP_Brand_in_Village}">{!$Label.c.BP_Brand_in_Village}</div>
+          </th>
+          <th class="slds-text-title_caps slds-cell-wrap" scope="col">
+            <div class="slds-truncate" title="{!$Label.c.BP_Certification_Open_Period}">{!$Label.c.BP_Certification_Open_Period}</div>
+          </th>
+          <th class="slds-text-title_caps slds-cell-wrap" scope="col">
+            <div class="slds-truncate" title="{!$Label.c.BP_Certification_Close_Period}">{!$Label.c.BP_Certification_Close_Period}</div>
+          </th>        
+        </tr>
+      </thead>
+      <tbody>
+      
+           <aura:iteration items="{!v.History}" var="Cert"> 
+                <tr scope="row" class="slds-cell-wrap">
+                    <td class="slds-cell-buffer_right slds-size_1-of-3">
+                        <div>
+                        	<a data-id="{!Cert.Id}"  onclick="{!c.handleExportClick}" default="{!Cert.Name}">{!Cert.Name}</a>
+              			</div>
+                    </td>                       
+                    <td> <lightning:formattedDateTime value="{!Cert.Period_Start_Date__c}"  year="numeric" month="numeric" day="numeric"/> </td> 
+                    <td> <lightning:formattedDateTime value="{!Cert.Period_End_Date__c}"  year="numeric" month="numeric" day="numeric"/> </td>                     
+                </tr>
+            </aura:iteration>
+    
+      
+  </tbody>
+</table>
+    
+    
+</aura:component>

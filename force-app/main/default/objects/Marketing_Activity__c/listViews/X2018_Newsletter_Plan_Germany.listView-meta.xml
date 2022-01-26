@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>X2018_Newsletter_Plan_Germany</fullName>
+    <columns>Business_Function__c</columns>
+    <columns>Budget__c</columns>
+    <columns>Status__c</columns>
+    <columns>Marketing_Campaign_Village__c</columns>
+    <columns>NAME</columns>
+    <columns>Marketing_Campaign__c</columns>
+    <columns>Start_Date__c</columns>
+    <columns>Communication_Plan__c</columns>
+    <columns>Details_Comments__c</columns>
+    <columns>Audience__c</columns>
+    <columns>Reach__c</columns>
+    <columns>Expected_Footfall__c</columns>
+    <columns>Expected_New_Members__c</columns>
+    <columns>Expected_Sales__c</columns>
+    <columns>Parent_Group_Marketing_Campaign__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Sub_Channel__c</field>
+        <operation>equals</operation>
+        <value>Email</value>
+    </filters>
+    <filters>
+        <field>Start_Date__c</field>
+        <operation>greaterThan</operation>
+        <value>1/1/2018</value>
+    </filters>
+    <filters>
+        <field>RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Marketing_Activity__c.General_Activity</value>
+    </filters>
+    <filters>
+        <field>Status__c</field>
+        <operation>contains</operation>
+        <value>To Be Confirmed,Confirmed</value>
+    </filters>
+    <filters>
+        <field>Marketing_Campaign_Village__c</field>
+        <operation>contains</operation>
+        <value>Wertheim,Ingolstadt</value>
+    </filters>
+    <label>2018 Newsletter Plan Germany</label>
+    <language>en_US</language>
+    <sharedTo>
+        <roleAndSubordinatesInternal>German_Marketing</roleAndSubordinatesInternal>
+    </sharedTo>
+</ListView>

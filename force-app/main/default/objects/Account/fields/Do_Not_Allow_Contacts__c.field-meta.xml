@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Do_Not_Allow_Contacts__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>(B2B use only) If this is TRUE then do not allow the Account to be looked up in the contact&apos;s account filter. Hopefully this will block the creation of contacts below these accounts</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Set to true if you do not want to allow contacts to be linked to this account</inlineHelpText>
+    <label>Do Not Allow Contacts</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

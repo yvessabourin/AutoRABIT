@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LGL_Likely_To_Recommend__c</fullName>
+    <description>Indicator of guest satisfaction with the service. We don&apos;t use the Gues Survey Feedback data because:
+
+-Exists a Master-Detail relationship with the Case object and we don&apos;t always have a Case
+-It&apos;s easier to use the information if it&apos;s at Service Item level. Because there is no 1-N relation, is just 1-1, there is no need for a separate object</description>
+    <externalId>false</externalId>
+    <label>Likely To Recommend</label>
+    <precision>2</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

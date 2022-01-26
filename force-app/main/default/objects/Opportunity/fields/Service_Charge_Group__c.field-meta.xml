@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Service_Charge_Group__c</fullName>
+    <externalId>false</externalId>
+    <formula>CASE( Village__r.Village_Code__c , &apos;BV&apos;, ( Service_Charge__c  * FX_Rate__c * SF__c) / 12 , &apos;FV&apos;, Service_Charge__c / 12,Service_Charge__c)</formula>
+    <inlineHelpText>Group Service Charge</inlineHelpText>
+    <label>Service Charge</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

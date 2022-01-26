@@ -1,0 +1,410 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fieldUpdates>
+        <fullName>DailySales_RT_Change_Full_Price_NE</fullName>
+        <field>RecordTypeId</field>
+        <lookupValue>Historical</lookupValue>
+        <lookupValueType>RecordType</lookupValueType>
+        <name>DailySales RT Change Full Price NE</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>DailySales_RecordType_Change_DD</fullName>
+        <field>RecordTypeId</field>
+        <lookupValue>Historical</lookupValue>
+        <lookupValueType>RecordType</lookupValueType>
+        <name>DailySales RecordType Change DD</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>DailySales_RecordType_Change_FP_DD</fullName>
+        <field>RecordTypeId</field>
+        <lookupValue>Historical</lookupValue>
+        <lookupValueType>RecordType</lookupValueType>
+        <name>DailySales RecordType Change FP&amp;DD</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>DailySales_RecordType_Change_F_B</fullName>
+        <field>RecordTypeId</field>
+        <lookupValue>Historical</lookupValue>
+        <lookupValueType>RecordType</lookupValueType>
+        <name>DailySales RecordType Change F&amp;B</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>DailySales_RecordType_Change_Gross</fullName>
+        <field>RecordTypeId</field>
+        <lookupValue>Gross_NOT_Editable</lookupValue>
+        <lookupValueType>RecordType</lookupValueType>
+        <name>DailySales RecordType Change Gross</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>DailySales_RecordType_Change_NET</fullName>
+        <field>RecordTypeId</field>
+        <lookupValue>Historical</lookupValue>
+        <lookupValueType>RecordType</lookupValueType>
+        <name>DailySales RecordType Change NET</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Time_Stamp_Last_Modified_Time</fullName>
+        <field>Last_Modified_Time__c</field>
+        <formula>TEXT(HOUR(TIMENOW()+ $User.UserTimezoneOffset__c )  ) &amp;&quot;:&quot;&amp; 
+IF(LEN(TEXT(MINUTE(TIMENOW()) )) = 1, &quot;0&quot;&amp;TEXT(MINUTE(TIMENOW())),TEXT(MINUTE(TIMENOW()))
+)</formula>
+        <name>Time Stamp Last Modified Time</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <rules>
+        <fullName>DailySales DD RecordType Change</fullName>
+        <actions>
+            <name>DailySales_RecordType_Change_DD</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <booleanFilter>(1 AND 9) AND ( 2 OR 3 OR 4 OR 5 OR 6 OR 7 OR  8)</booleanFilter>
+        <criteriaItems>
+            <field>Daily_Sale__c.Special_Curated_Selection_Active__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Daily_Sale__c.Grace_Period_Days_Applied__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Daily_Sale__c.Grace_Period_Expired_On_Date__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Daily_Sale__c.Status__c</field>
+            <operation>equals</operation>
+            <value>TOR</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Daily_Sale__c.Status__c</field>
+            <operation>equals</operation>
+            <value>Certified Pending</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Daily_Sale__c.Status__c</field>
+            <operation>equals</operation>
+            <value>Certified Approved</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Daily_Sale__c.Status__c</field>
+            <operation>equals</operation>
+            <value>Certified Complete</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Daily_Sale__c.Status__c</field>
+            <operation>equals</operation>
+            <value>Certified Re-opened</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Daily_Sale__c.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Current</value>
+        </criteriaItems>
+        <description>When records are moved to the View History in DailySales Entry, this workflow will trigger an action to change the record type from DD to DD Not editable. By changing the record type, we are removing the quick actions and any edit functionalities. </description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>DailySales F%26B RecordType Change</fullName>
+        <actions>
+            <name>DailySales_RecordType_Change_F_B</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <booleanFilter>(1 AND 9) AND ( 2 OR 3 OR 4 OR 5 OR 6 OR 7 OR  8)</booleanFilter>
+        <criteriaItems>
+            <field>Daily_Sale__c.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Current</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Daily_Sale__c.Grace_Period_Days_Applied__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Daily_Sale__c.Grace_Period_Expired_On_Date__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Daily_Sale__c.Status__c</field>
+            <operation>equals</operation>
+            <value>TOR</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Daily_Sale__c.Status__c</field>
+            <operation>equals</operation>
+            <value>Certified Pending</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Daily_Sale__c.Status__c</field>
+            <operation>equals</operation>
+            <value>Certified Approved</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Daily_Sale__c.Status__c</field>
+            <operation>equals</operation>
+            <value>Certified Complete</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Daily_Sale__c.Status__c</field>
+            <operation>equals</operation>
+            <value>Certified Re-opened</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Daily_Sale__c.F_B_Covers_Active__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <description>When records are moved to the View History in DailySales Entry, this workflow will trigger an action to change the record type from F&amp;B to F&amp;B Not editable. By changing the record type, we are removing the quick actions and any edit functionalities. </description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>DailySales FP%26DD RecordType Change</fullName>
+        <actions>
+            <name>DailySales_RecordType_Change_FP_DD</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <booleanFilter>(1 AND 9 AND 10) AND ( 2 OR 3 OR 4 OR 5 OR 6 OR 7 OR  8)</booleanFilter>
+        <criteriaItems>
+            <field>Daily_Sale__c.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Current</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Daily_Sale__c.Grace_Period_Days_Applied__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Daily_Sale__c.Grace_Period_Expired_On_Date__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Daily_Sale__c.Status__c</field>
+            <operation>equals</operation>
+            <value>TOR</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Daily_Sale__c.Status__c</field>
+            <operation>equals</operation>
+            <value>Certified Pending</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Daily_Sale__c.Status__c</field>
+            <operation>equals</operation>
+            <value>Certified Approved</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Daily_Sale__c.Status__c</field>
+            <operation>equals</operation>
+            <value>Certified Complete</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Daily_Sale__c.Status__c</field>
+            <operation>equals</operation>
+            <value>Certified Re-opened</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Daily_Sale__c.Current_Season_Bestsellers_Active__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Daily_Sale__c.Special_Curated_Selection_Active__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <description>When records are moved to the View History in DailySales Entry, this workflow will trigger an action to change the record type from FP&amp;DD to FP&amp;DD Not editable. By changing the record type, we are removing the quick actions and any edit functionalities. </description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>DailySales Full Price RecordType Change</fullName>
+        <actions>
+            <name>DailySales_RT_Change_Full_Price_NE</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <booleanFilter>(1 AND 9) AND ( 2 OR 3 OR 4 OR 5 OR 6 OR  7 OR 8)</booleanFilter>
+        <criteriaItems>
+            <field>Daily_Sale__c.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Current</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Daily_Sale__c.Grace_Period_Days_Applied__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Daily_Sale__c.Grace_Period_Expired_On_Date__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Daily_Sale__c.Status__c</field>
+            <operation>equals</operation>
+            <value>TOR</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Daily_Sale__c.Status__c</field>
+            <operation>equals</operation>
+            <value>Certified Pending</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Daily_Sale__c.Status__c</field>
+            <operation>equals</operation>
+            <value>Certified Approved</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Daily_Sale__c.Status__c</field>
+            <operation>equals</operation>
+            <value>Certified Complete</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Daily_Sale__c.Status__c</field>
+            <operation>equals</operation>
+            <value>Certified Re-opened</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Daily_Sale__c.Current_Season_Bestsellers_Active__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <description>When records are moved to the View History in DailySales Entry, this workflow will trigger an action to change the record type from Full Price to Full Price Not editable. By changing the record type, we are removing the quick actions and any edit function</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>DailySales Gross RecordType Change</fullName>
+        <actions>
+            <name>DailySales_RecordType_Change_Gross</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <booleanFilter>1 AND ( 2 OR 3 OR 4 OR 5 OR 6 OR 7 OR  8)</booleanFilter>
+        <criteriaItems>
+            <field>Daily_Sale__c.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Gross</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Daily_Sale__c.Grace_Period_Days_Applied__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Daily_Sale__c.Grace_Period_Expired_On_Date__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Daily_Sale__c.Status__c</field>
+            <operation>equals</operation>
+            <value>TOR</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Daily_Sale__c.Status__c</field>
+            <operation>equals</operation>
+            <value>Certified Pending</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Daily_Sale__c.Status__c</field>
+            <operation>equals</operation>
+            <value>Certified Approved</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Daily_Sale__c.Status__c</field>
+            <operation>equals</operation>
+            <value>Certified Complete</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Daily_Sale__c.Status__c</field>
+            <operation>equals</operation>
+            <value>Certified Re-opened</value>
+        </criteriaItems>
+        <description>When records are moved to the View History in DailySales Entry, this workflow will trigger an action to change the record type from Gross to Gross Not editable. By changing the record type, we are removing the quick actions and any edit functionalities</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>DailySales NET RecordType Change</fullName>
+        <actions>
+            <name>DailySales_RecordType_Change_NET</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <booleanFilter>1 AND ( 2 OR 3 OR 4 OR 5 OR 6 OR 7 OR  8)</booleanFilter>
+        <criteriaItems>
+            <field>Daily_Sale__c.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Net</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Daily_Sale__c.Grace_Period_Days_Applied__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Daily_Sale__c.Grace_Period_Expired_On_Date__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Daily_Sale__c.Status__c</field>
+            <operation>equals</operation>
+            <value>TOR</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Daily_Sale__c.Status__c</field>
+            <operation>equals</operation>
+            <value>Certified Pending</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Daily_Sale__c.Status__c</field>
+            <operation>equals</operation>
+            <value>Certified Approved</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Daily_Sale__c.Status__c</field>
+            <operation>equals</operation>
+            <value>Certified Complete</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Daily_Sale__c.Status__c</field>
+            <operation>equals</operation>
+            <value>Certified Re-opened</value>
+        </criteriaItems>
+        <description>When records are moved to the View History in DailySales Entry, this workflow will trigger an action to change the record type from Net to Net Not editable. By changing the record type, we are removing the quick actions and any edit functionalities.</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Time Stamp Last Modified</fullName>
+        <actions>
+            <name>Time_Stamp_Last_Modified_Time</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>false</active>
+        <formula>OR(ISNEW(),NOT(ISNEW()))</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+</Workflow>

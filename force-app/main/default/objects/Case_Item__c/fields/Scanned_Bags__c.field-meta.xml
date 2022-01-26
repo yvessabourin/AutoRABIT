@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Scanned_Bags__c</fullName>
+    <description>Roll up summary that get all Bags for this Purchases that already had been scanned.</description>
+    <externalId>false</externalId>
+    <label>Scanned Bags</label>
+    <summaryFilterItems>
+        <field>HFS_Bag__c.Scanned__c</field>
+        <operation>equals</operation>
+        <value>True</value>
+    </summaryFilterItems>
+    <summaryForeignKey>HFS_Bag__c.HFS_Purchase__c</summaryForeignKey>
+    <summaryOperation>count</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

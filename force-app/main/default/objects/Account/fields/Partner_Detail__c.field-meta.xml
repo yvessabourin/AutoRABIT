@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Partner_Detail__c</fullName>
+    <externalId>false</externalId>
+    <label>Partner Detail</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Partner_Sub_Category__c</controllingField>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>4_5</fullName>
+                <default>false</default>
+                <label>4* &amp; 5*</label>
+            </value>
+            <value>
+                <fullName>Car Hire</fullName>
+                <default>false</default>
+                <label>Car Hire</label>
+            </value>
+            <value>
+                <fullName>Chauffeur Services</fullName>
+                <default>false</default>
+                <label>Chauffeur Services</label>
+            </value>
+            <value>
+                <fullName>College</fullName>
+                <default>false</default>
+                <label>College</label>
+            </value>
+            <value>
+                <fullName>Corporate Travel</fullName>
+                <default>false</default>
+                <label>Corporate Travel</label>
+            </value>
+            <value>
+                <fullName>Cultural</fullName>
+                <default>false</default>
+                <label>Cultural</label>
+            </value>
+            <value>
+                <fullName>Direct Agent Sales</fullName>
+                <default>false</default>
+                <label>Direct Agent Sales</label>
+            </value>
+            <value>
+                <fullName>Embassy/ Diplomatic</fullName>
+                <default>false</default>
+                <label>Embassy/ Diplomatic</label>
+            </value>
+            <value>
+                <fullName>Employee Benefits</fullName>
+                <default>false</default>
+                <label>Employee Benefits</label>
+            </value>
+            <value>
+                <fullName>Global</fullName>
+                <default>false</default>
+                <label>Global</label>
+            </value>
+            <value>
+                <fullName>HNW</fullName>
+                <default>false</default>
+                <label>HNW</label>
+            </value>
+            <value>
+                <fullName>HNW (Orient Express)</fullName>
+                <default>false</default>
+                <label>HNW (Orient Express)</label>
+            </value>
+            <value>
+                <fullName>Leisure</fullName>
+                <default>false</default>
+                <label>Leisure</label>
+            </value>
+            <value>
+                <fullName>Local</fullName>
+                <default>false</default>
+                <label>Local</label>
+            </value>
+            <value>
+                <fullName>Mass: More than 500K</fullName>
+                <default>false</default>
+                <label>Mass: More than 500K</label>
+            </value>
+            <value>
+                <fullName>Mice/ Corporate</fullName>
+                <default>false</default>
+                <label>Mice/ Corporate</label>
+            </value>
+            <value>
+                <fullName>Micro: Under 50K</fullName>
+                <default>false</default>
+                <label>Micro: Under 50K</label>
+            </value>
+            <value>
+                <fullName>Mid: 100K to 500K</fullName>
+                <default>false</default>
+                <label>Mid: 100K to 500K</label>
+            </value>
+            <value>
+                <fullName>Ministeries</fullName>
+                <default>false</default>
+                <label>Ministeries</label>
+            </value>
+            <value>
+                <fullName>N/A</fullName>
+                <default>false</default>
+                <label>N/A</label>
+            </value>
+            <value>
+                <fullName>OTA</fullName>
+                <default>false</default>
+                <label>OTA</label>
+            </value>
+            <value>
+                <fullName>Other (3*, 2* &amp; 1*)</fullName>
+                <default>false</default>
+                <label>Other (3*, 2* &amp; 1*)</label>
+            </value>
+            <value>
+                <fullName>Regular</fullName>
+                <default>false</default>
+                <label>Regular</label>
+            </value>
+            <value>
+                <fullName>Social/sports</fullName>
+                <default>false</default>
+                <label>Social/sports</label>
+            </value>
+            <value>
+                <fullName>University</fullName>
+                <default>false</default>
+                <label>University</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+            <value>
+                <fullName>4* &amp; 5*</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>4* &amp; 5* (deprecated)</label>
+            </value>
+            <value>
+                <fullName>PR</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>PR</label>
+            </value>
+            <value>
+                <fullName>Publisher</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Publisher</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Influencer/Blogger</controllingFieldValue>
+            <valueName>Mass: More than 500K</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Influencer/Blogger</controllingFieldValue>
+            <valueName>Micro: Under 50K</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Influencer/Blogger</controllingFieldValue>
+            <valueName>Mid: 100K to 500K</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>International</controllingFieldValue>
+            <controllingFieldValue>Offline Travel Agent</controllingFieldValue>
+            <controllingFieldValue>Press</controllingFieldValue>
+            <controllingFieldValue>Attractions</controllingFieldValue>
+            <controllingFieldValue>Memberships</controllingFieldValue>
+            <controllingFieldValue>Buyers</controllingFieldValue>
+            <controllingFieldValue>Paid Media</controllingFieldValue>
+            <controllingFieldValue>Education</controllingFieldValue>
+            <controllingFieldValue>Associations</controllingFieldValue>
+            <controllingFieldValue>Leisure Offline Travel Agent</controllingFieldValue>
+            <controllingFieldValue>Automotive</controllingFieldValue>
+            <controllingFieldValue>Funding Program</controllingFieldValue>
+            <controllingFieldValue>Telecomm</controllingFieldValue>
+            <controllingFieldValue>Entertainment</controllingFieldValue>
+            <controllingFieldValue>PCO - Professional Conference Organiser</controllingFieldValue>
+            <controllingFieldValue>Technology</controllingFieldValue>
+            <controllingFieldValue>DMC - Destination Mangement Company</controllingFieldValue>
+            <controllingFieldValue>Supermarket &amp; Fuel</controllingFieldValue>
+            <controllingFieldValue>Concierge</controllingFieldValue>
+            <controllingFieldValue>Government</controllingFieldValue>
+            <controllingFieldValue>Hostel</controllingFieldValue>
+            <controllingFieldValue>Apartment/ Self-Catering</controllingFieldValue>
+            <controllingFieldValue>B&amp;B</controllingFieldValue>
+            <controllingFieldValue>Employee Benefits Platform</controllingFieldValue>
+            <controllingFieldValue>Consulting</controllingFieldValue>
+            <controllingFieldValue>Law</controllingFieldValue>
+            <controllingFieldValue>Property</controllingFieldValue>
+            <controllingFieldValue>Pharma</controllingFieldValue>
+            <controllingFieldValue>Other</controllingFieldValue>
+            <controllingFieldValue>Natural</controllingFieldValue>
+            <controllingFieldValue>Heritage</controllingFieldValue>
+            <controllingFieldValue>Purpose Built</controllingFieldValue>
+            <controllingFieldValue>Language school</controllingFieldValue>
+            <controllingFieldValue>Tourism Board</controllingFieldValue>
+            <controllingFieldValue>Chamber of Commerce</controllingFieldValue>
+            <controllingFieldValue>Professional</controllingFieldValue>
+            <controllingFieldValue>Leisure</controllingFieldValue>
+            <controllingFieldValue>Corporate Offline Travel Agent</controllingFieldValue>
+            <controllingFieldValue>MICE Offline Travel Agent</controllingFieldValue>
+            <controllingFieldValue>Diplomatic</controllingFieldValue>
+            <controllingFieldValue>Agency</controllingFieldValue>
+            <controllingFieldValue>European</controllingFieldValue>
+            <valueName>N/A</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Specialist Expat</controllingFieldValue>
+            <controllingFieldValue>Tour Operator</controllingFieldValue>
+            <controllingFieldValue>Sea Operators</controllingFieldValue>
+            <controllingFieldValue>Road Operators</controllingFieldValue>
+            <controllingFieldValue>Concierge/ HNW</controllingFieldValue>
+            <valueName>HNW</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Specialist Expat</controllingFieldValue>
+            <controllingFieldValue>Tour Operator</controllingFieldValue>
+            <controllingFieldValue>Rail Operators</controllingFieldValue>
+            <controllingFieldValue>Sea Operators</controllingFieldValue>
+            <controllingFieldValue>Road Operators</controllingFieldValue>
+            <controllingFieldValue>Concierge/ HNW</controllingFieldValue>
+            <valueName>Regular</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Car Services</controllingFieldValue>
+            <valueName>Car Hire</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Car Services</controllingFieldValue>
+            <valueName>Chauffeur Services</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Car Services</controllingFieldValue>
+            <valueName>Other</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Digital Travel Platform</controllingFieldValue>
+            <valueName>Direct Agent Sales</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Digital Travel Platform</controllingFieldValue>
+            <valueName>OTA</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Hotel</controllingFieldValue>
+            <valueName>4_5</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Hotel</controllingFieldValue>
+            <valueName>Other (3*, 2* &amp; 1*)</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Rail Operators</controllingFieldValue>
+            <valueName>HNW (Orient Express)</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Payment</controllingFieldValue>
+            <controllingFieldValue>Banks</controllingFieldValue>
+            <controllingFieldValue>Insurance</controllingFieldValue>
+            <controllingFieldValue>Airline</controllingFieldValue>
+            <valueName>Global</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Payment</controllingFieldValue>
+            <controllingFieldValue>Banks</controllingFieldValue>
+            <controllingFieldValue>Insurance</controllingFieldValue>
+            <controllingFieldValue>Airline</controllingFieldValue>
+            <valueName>Local</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>University/College</controllingFieldValue>
+            <valueName>College</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>University/College</controllingFieldValue>
+            <valueName>University</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Leisure</controllingFieldValue>
+            <valueName>Cultural</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Leisure</controllingFieldValue>
+            <valueName>Social/sports</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

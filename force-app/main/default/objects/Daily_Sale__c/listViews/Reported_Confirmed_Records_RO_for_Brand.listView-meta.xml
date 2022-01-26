@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Reported_Confirmed_Records_RO_for_Brand</fullName>
+    <columns>NAME</columns>
+    <columns>Store_Formula__c</columns>
+    <columns>Store__c</columns>
+    <columns>Brand_Status__c</columns>
+    <columns>Brand_Reported_Amount__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Status__c</field>
+        <operation>equals</operation>
+        <value>Reported Confirmed</value>
+    </filters>
+    <label>Reported Confirmed Records (RO for Brand</label>
+    <language>en_US</language>
+</ListView>

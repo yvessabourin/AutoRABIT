@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Gifts_Recorded__c</fullName>
+    <description>number of gifts recorded (used for validation)</description>
+    <externalId>false</externalId>
+    <label>Gifts Recorded</label>
+    <summaryForeignKey>Gift__c.Deal__c</summaryForeignKey>
+    <summaryOperation>count</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

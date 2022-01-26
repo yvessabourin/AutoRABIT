@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LGL_Service_Request__c</fullName>
+    <externalId>false</externalId>
+    <label>Service Request</label>
+    <referenceTo>LGL_Service__c</referenceTo>
+    <relationshipLabel>Service Items</relationshipLabel>
+    <relationshipName>Service_Items</relationshipName>
+    <relationshipOrder>0</relationshipOrder>
+    <reparentableMasterDetail>false</reparentableMasterDetail>
+    <trackTrending>false</trackTrending>
+    <type>MasterDetail</type>
+    <writeRequiresMasterRead>false</writeRequiresMasterRead>
+</CustomField>

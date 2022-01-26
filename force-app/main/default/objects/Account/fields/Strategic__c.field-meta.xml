@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Strategic__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>marks the account as a strategic which means that only certain people (Cinzia) can edit the account</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Setting the account as Strategic means that it can be a parent in a hierarchy and can only be edited by super users</inlineHelpText>
+    <label>Strategic</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

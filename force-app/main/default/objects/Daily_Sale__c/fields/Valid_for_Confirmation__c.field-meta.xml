@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Valid_for_Confirmation__c</fullName>
+    <description>Flag to indicate record is in a state which can be confirmed.</description>
+    <externalId>false</externalId>
+    <formula>IF(
+OR( AND(Store_Closed__c = True, ISPICKVAL(Brand_Status__c, &apos;Not Confirmed&apos;)),
+AND(
+ISPICKVAL(Brand_Status__c, &apos;Not Confirmed&apos;),
+NOT(ISPICKVAL(Status__c, &apos;TOR&apos;)),
+IF( OR(RecordType.DeveloperName = &apos;Current&apos;, RecordType.DeveloperName = &apos;Net&apos;, RecordType.DeveloperName = &apos;F_B_Covers&apos;, RecordType.DeveloperName = &apos;Full_Price&apos;, RecordType.DeveloperName = &apos;Discretionary_Discount&apos;, RecordType.DeveloperName = &apos;Full_Price_Discretionary_Discount&apos;), NOT( ISNULL ( Total_NET_SALES__c )), NOT( ISNULL ( Total_GROSS_SALES__c ))),
+IF( OR(RecordType.DeveloperName = &apos;Current&apos;, RecordType.DeveloperName = &apos;Net&apos;, RecordType.DeveloperName = &apos;F_B_Covers&apos;, RecordType.DeveloperName = &apos;Full_Price&apos;, RecordType.DeveloperName = &apos;Discretionary_Discount&apos;, RecordType.DeveloperName = &apos;Full_Price_Discretionary_Discount&apos;), NOT( ISNULL ( NET_Value_of_Discounts__c )), NOT( ISNULL ( GROSS_Value_of_Discounts__c))),
+NOT( ISNULL( Brand_Reported_Amount__c ) ),
+NOT ( ISNULL ( Number_of_Transactions__c )),
+NOT ( ISNULL ( Units_Sold__c )),
+NOT ( ISNULL ( VIP_Cards__c )),
+IF( OR(RecordType.DeveloperName = &apos;Current&apos;, RecordType.DeveloperName = &apos;Net&apos;, RecordType.DeveloperName = &apos;Gross&apos;, RecordType.DeveloperName = &apos;Full_Price&apos;, RecordType.DeveloperName = &apos;Discretionary_Discount&apos;, RecordType.DeveloperName = &apos;Full_Price_Discretionary_Discount&apos;), NOT ( ISNULL ( Tax_Free_Sales_Amount__c )), NOT (ISNULL (Covers__c))),
+IF( OR(RecordType.DeveloperName = &apos;Current&apos;, RecordType.DeveloperName = &apos;Net&apos;, RecordType.DeveloperName = &apos;Gross&apos;, RecordType.DeveloperName = &apos;Full_Price&apos;, RecordType.DeveloperName = &apos;Discretionary_Discount&apos;, RecordType.DeveloperName = &apos;Full_Price_Discretionary_Discount&apos;), NOT ( ISNULL ( Tax_Free_Transactions__c )), NOT (ISNULL (Covers__c))),
+ISNULL( VR_Override_Reported_Amount__c )
+
+
+
+
+),
+AND(F_B_Covers_Active__c = True, RecordType.DeveloperName = &apos;Current&apos;, NOT (ISNULL(Number_of_Transactions__c)), NOT (ISNULL(Covers__c)), NOT (ISNULL(Units_Sold__c)), NOT (ISNULL(VIP_Cards__c)), NOT (ISNULL(NET_Value_of_Discounts__c)), NOT (ISNULL(Total_NET_SALES__c)), ISPICKVAL(Brand_Status__c, &apos;Not Confirmed&apos;),
+NOT(ISPICKVAL(Status__c, &apos;TOR&apos;))
+) )
+
+
+
+
+
+, true, false)</formula>
+    <inlineHelpText>Before a record can be confirmed it must have sales data completed and cannot be overridden by Value Retail.</inlineHelpText>
+    <label>Valid for Confirmation</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

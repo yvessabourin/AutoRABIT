@@ -1,0 +1,21 @@
+<table height="400" width="550" cellpadding="5" border="0" cellspacing="5" >
+<tr height="400" valign="top" >
+<td style=" color:#000000; font-size:12pt; background-color:#FFFFFF; font-family:arial; bLabel:main; bEditID:r3st1;" tEditID="c1r1" locked="0" aEditID="c1r1" >
+<![CDATA[<P><FONT size=2 face=Verdana,Helvetica,Sans-Serif><STRONG>This is a notification that a complex shop fit has been&nbsp;submitted for approval</STRONG></FONT></P>
+<P><FONT size=2 face=Verdana,Helvetica,Sans-Serif>&nbsp;</FONT></P>
+<P><FONT size=2 face=Verdana,Helvetica,Sans-Serif><STRONG>Name:</STRONG> {!Shop_Fit_Log__c.Name}</FONT></P>
+<P><FONT size=2 face=Verdana,Helvetica,Sans-Serif>&nbsp;</FONT></P>
+<P><FONT size=2 face=Verdana,Helvetica,Sans-Serif><STRONG>Brand:</STRONG> {!Shop_Fit_Log__c.Account_Brand__c}</FONT></P>
+<P><FONT size=2 face=Verdana,Helvetica,Sans-Serif></FONT>&nbsp;</P>
+<P><FONT size=2 face=Verdana,Helvetica,Sans-Serif><STRONG>Unit:</STRONG> &nbsp;{!Shop_Fit_Log__c.Unit__c}&nbsp;</FONT></P>
+<P><FONT size=2 face=Verdana,Helvetica,Sans-Serif></FONT>&nbsp;</P>
+<P><FONT size=2 face=Verdana,Helvetica,Sans-Serif><STRONG>Complexities:</STRONG> {!Shop_Fit_Log__c.Specific_Issues__c}</FONT></P>
+<P><FONT size=2 face=Verdana,Helvetica,Sans-Serif></FONT>&nbsp;</P>
+<P><FONT size=2 face=Verdana,Helvetica,Sans-Serif><STRONG>TI:</STRONG> {!Shop_Fit_Log__c.TI__c}&nbsp; {!Shop_Fit_Log__c.Currency__c} {!Shop_Fit_Log__c.TI_Category__c}</FONT></P>
+<P><FONT size=2 face=Verdana,Helvetica,Sans-Serif></FONT>&nbsp;</P>
+<P><FONT size=2 face=Verdana,Helvetica,Sans-Serif><STRONG>Date Required:</STRONG> {!Shop_Fit_Log__c.Required_Date__c}</FONT></P>
+<P><FONT size=2 face=Verdana></FONT>&nbsp;</P>
+<P><FONT size=2 face=Verdana><FONT color=#33cc00><STRONG>Click here to see full details:</STRONG> {!Shop_Fit_Log__c.Link}</FONT></FONT></P>
+<P><FONT color=#33cc00>&nbsp;</FONT></P>]]></td>
+</tr>
+</table>

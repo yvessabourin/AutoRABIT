@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LGL_Full_Luggage__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Indicates, in case of a luggage, that it&apos;s a full Luggage</description>
+    <externalId>false</externalId>
+    <label>Full Luggage?</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

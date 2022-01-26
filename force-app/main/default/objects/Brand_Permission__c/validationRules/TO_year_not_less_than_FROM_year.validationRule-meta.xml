@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>TO_year_not_less_than_FROM_year</fullName>
+    <active>true</active>
+    <errorConditionFormula>Active_To_Date__c &lt; Active_From_Date__c</errorConditionFormula>
+    <errorDisplayField>Active_To_Date__c</errorDisplayField>
+    <errorMessage>The &quot;Active To Date&quot; cannot be less than the &quot;Active From Date&quot;</errorMessage>
+</ValidationRule>

@@ -1,0 +1,131 @@
+<apex:page standardController="Daily_Sales_Certification_Batch__c" extensions="DSCBDashboardFinanceController" lightningStyleSheets="true">
+    <apex:form >
+        <div align="center">
+            <apex:commandButton value="Cancel" action="{!cancelAction}" rendered="{!IF(rejectReason,false,true)}"/>
+        </div>
+        <apex:pageBlock title="Daily Sales Certification Information">
+            <apex:pageBlockSection >
+                <apex:outputField value="{!Daily_Sales_Certification_Batch__c.Village_Presence__r.Name}"/><br/>
+                <apex:outputField value="{!Daily_Sales_Certification_Batch__c.Name}"/><br/>
+                <apex:outputField value="{!Daily_Sales_Certification_Batch__c.Certification_Period_Type__c}"/>
+                <apex:outputField value="{!Daily_Sales_Certification_Batch__c.Status__c}"/>
+                <apex:outputField value="{!Daily_Sales_Certification_Batch__c.Period_Start_Date__c}"/>
+                <apex:outputField value="{!Daily_Sales_Certification_Batch__c.Period_End_Date__c}"/>
+                <apex:outputField value="{!Daily_Sales_Certification_Batch__c.Certified_by__c}"/>
+                <apex:outputField value="{!Daily_Sales_Certification_Batch__c.Certified_Date_Time__c}"/>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+        <apex:pageBlock title="Daily Sales Certification Dashboard">
+            <apex:pageMessages rendered="{!errorOnApprove}">
+            </apex:pageMessages>
+            <div align="center">
+                <apex:commandButton value="Save" action="{!saveLeaseIDPhaseIDUnit}" rendered="{!appearButtons}"/>
+            </div>
+            <br/>
+            <apex:pageBlockTable value="{!certificationDailySales}" var="certDS" rowClasses="odd,even" styleClass="tableClass">
+                <apex:column value="{!certDS.Trading_Date__c}">
+                    <apex:facet name="header">
+                        <apex:commandLink action="{!getSortedValues}" value="Trading Date {!IF(sortExpression=='Trading_Date__c',IF(sortDirection='ASC','▼','▲'),'-')}">
+                            <apex:param value="Trading_Date__c" name="column" assignTo="{!sortExpression}" />
+                        </apex:commandLink>
+                    </apex:facet>
+                </apex:column>
+                <apex:column headerValue="Unit">
+                    <apex:outputField value="{!certDS.MRI_Suite_Id__c}" rendered="{!If(certDS.MRI_Suite_Id__c != null,true,false)}"/>
+                    <apex:inputField value="{!certDS.MRI_Suite_Id__c}" rendered="{!If(certDS.MRI_Suite_Id__c == null,appearButtons,false)}"/>
+                    <apex:facet name="header">
+                        <apex:commandLink action="{!getSortedValues}" value="Unit {!IF(sortExpression=='MRI_Suite_Id__c',IF(sortDirection='ASC','▼','▲'),'-')}">
+                            <apex:param value="MRI_Suite_Id__c" name="column" assignTo="{!sortExpression}"/>
+                        </apex:commandLink>
+                    </apex:facet>
+                </apex:column>
+                <apex:column value="{!certDS.Store_Closed__c}"/>
+                <apex:column value="{!certDS.Total_NET_SALES__c}"/>
+                <apex:column value="{!certDS.Certified_Amount_NetTotal_Input__c}"/>
+                <apex:column value="{!certDS.NET_Value_of_Discounts__c}"/>
+                <apex:column value="{!certDS.Certified_Amount_Discount_Input__c}"/>
+                <apex:column value="{!certDS.Brand_Reported_Amount__c}"/> 
+                <apex:column value="{!certDS.Certified_Amount__c}"/>
+                <apex:column value="{!certDS.Variance_Amount__c}">
+                    <apex:facet name="header">
+                        <apex:commandLink action="{!getSortedValues}" value="Variance {!IF(sortExpression=='Variance_Amount__c',IF(sortDirection='ASC','▼','▲'),'-')}">
+                            <apex:param value="Variance_Amount__c" name="column" assignTo="{!sortExpression}"/>
+                        </apex:commandLink>
+                    </apex:facet>
+                </apex:column>
+                <apex:column value="{!certDS.Certification_Comment__c}"/>
+                <apex:column headerValue="Lease ID">
+                    <apex:outputField value="{!certDS.Lease_ID__c}" rendered="{!If(certDS.Lease_ID__c != null,true,false)}"/>
+                    <apex:inputField value="{!certDS.Lease_ID__c}" rendered="{!If((certDS.Lease_ID__c == null),appearButtons,false)}"/>
+                </apex:column>
+                <apex:column headerValue="Phase ID">
+                    <apex:outputField value="{!certDS.MRI_Phase_Id__c}" rendered="{!If(certDS.MRI_Phase_Id__c != null,true,false)}"/>
+                    <apex:inputField value="{!certDS.MRI_Phase_Id__c}" rendered="{!If(certDS.MRI_Phase_Id__c == null,appearButtons,false)}"/>
+                </apex:column>
+            </apex:pageBlockTable>
+            <apex:pageMessages rendered="{!youHaventDS}">
+            </apex:pageMessages>
+            <br/>
+            <div align="center">
+                <apex:commandButton value="Save" action="{!saveLeaseIDPhaseIDUnit}" rendered="{!appearButtons}"/>
+            </div>
+        </apex:pageBlock>
+        <apex:pageBlock title="Daily Sales Certification Information">
+            <apex:pageBlockSection >
+                <apex:outputField value="{!Daily_Sales_Certification_Batch__c.Total_Brand_Reported_Amount__c}"/>
+                <apex:outputField value="{!Daily_Sales_Certification_Batch__c.Total_Certified_Net_Sales_Amount__c}"/>
+                <apex:outputField value="{!Daily_Sales_Certification_Batch__c.Total_Certified_Amount__c}"/>
+                <apex:outputField value="{!Daily_Sales_Certification_Batch__c.Total_Certified_Discount_Amount__c}"/>
+                <apex:outputField value="{!Daily_Sales_Certification_Batch__c.Total_Variance_Amount__c}"/>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+        <apex:repeat value="{!calculationValues}" var="decimal" rendered="{!showRepeat}">
+            <apex:pageBlock title="Daily Sales Certification Information - {!decimal}">
+                <apex:pageBlockSection >
+                    <apex:outputText value="{!Daily_Sales_Certification_Batch__c.CurrencyIsoCode} {0, number, ##0.00}" label="{!$ObjectType.Daily_Sales_Certification_Batch__c.fields.Total_Brand_Reported_Amount__c.Label}">
+                        <apex:param value="{!calculationValues[decimal]['totalBRA']}" />
+                    </apex:outputText>
+                    <apex:outputText value="{!Daily_Sales_Certification_Batch__c.CurrencyIsoCode} {0, number, ##0.00}" label="{!$ObjectType.Daily_Sales_Certification_Batch__c.fields.Total_Certified_Net_Sales_Amount__c.Label}">
+                        <apex:param value="{!calculationValues[decimal]['totalCNSA']}" />
+                    </apex:outputText>
+                    <apex:outputText value="{!Daily_Sales_Certification_Batch__c.CurrencyIsoCode} {0, number, ##0.00}" label="{!$ObjectType.Daily_Sales_Certification_Batch__c.fields.Total_Certified_Amount__c.Label}">
+                        <apex:param value="{!calculationValues[decimal]['totalCA']}" />
+                    </apex:outputText>
+                    <apex:outputText value="{!Daily_Sales_Certification_Batch__c.CurrencyIsoCode} {0, number, ##0.00}" label="{!$ObjectType.Daily_Sales_Certification_Batch__c.fields.Total_Certified_Discount_Amount__c.Label}">
+                        <apex:param value="{!calculationValues[decimal]['totalCDA']}" />
+                    </apex:outputText>
+                    <apex:outputText value="{!Daily_Sales_Certification_Batch__c.CurrencyIsoCode} {0, number, ##0.00}" label="{!$ObjectType.Daily_Sales_Certification_Batch__c.fields.Total_Variance_Amount__c.Label}">
+                        <apex:param value="{!calculationValues[decimal]['totalVA']}" />
+                    </apex:outputText>
+                </apex:pageBlockSection>
+            </apex:pageBlock>
+        </apex:repeat>
+        <apex:pageBlock title="Daily Sales Certification Considerations">
+            <apex:pageBlockSection >
+                <apex:outputField value="{!Daily_Sales_Certification_Batch__c.Total_Variance_Percentage__c}"/>
+                <apex:outputField value="{!Daily_Sales_Certification_Batch__c.Reject_Reason__c}"/>
+                <apex:outputField value="{!Daily_Sales_Certification_Batch__c.Overall_Comment__c}"/>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+        <apex:pageBlock title="Introduce a Reject Reason" rendered="{!rejectReason}">
+            <apex:pageMessages rendered="{!errorOnReject}">
+            </apex:pageMessages>
+            <apex:pageBlockSection >
+                <apex:inputTextarea label="Introduce a Reject Reason  (This will only be displayed for internal Salesforce use and will not be displayed to the Brands through the Brand Portal)" value="{!inputReasonReject}" cols="60" rows="5"/><br/>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+        <div align="center">
+            <apex:commandlink action="{!exportPDF}" target="_blank" rendered="{!appearPDFButton}">
+                <apex:commandButton value="Export PDF" rendered="{!appearPDFButton}"/>
+            </apex:commandLink> 
+            <apex:commandButton value="Export" action="{!exportToCSV}" rendered="{!IF(rejectReason,false,true)}"/>
+            <apex:commandButton value="Approve" action="{!approveAction}" rendered="{!appearButtons}"/>
+            <apex:commandButton value="Reject"  action="{!rejectAction}" rendered="{!appearButtons}"/>
+            <apex:commandButton value="Re-open"  action="{!reopenAction}" rendered="{!reopenButton}"/>
+            <!-- <apex:commandButton value="Send Email" action="{!sendEmail}" rendered="{!appearSendEmailButton}" /> -->
+            <apex:commandButton value="Confirm Reject" action="{!saveRejection}" rendered="{!rejectReason}"/>
+            <apex:commandButton value="Cancel" action="{!cancelActionReject}" rendered="{!rejectReason}"/>
+            <apex:commandButton value="Cancel" action="{!cancelAction}" rendered="{!IF(rejectReason,false,true)}"/>
+        </div>
+    </apex:form>
+</apex:page>

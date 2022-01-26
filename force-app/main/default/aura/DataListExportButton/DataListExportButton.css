@@ -1,0 +1,9 @@
+.THIS .exportbutton {
+	width: 64px;
+	height: 64px;
+
+}
+
+.THIS.hide {
+    display: none;
+}

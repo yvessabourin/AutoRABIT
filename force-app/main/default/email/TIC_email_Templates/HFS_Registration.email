@@ -1,0 +1,253 @@
+<messaging:emailTemplate subject="{!if(relatedTo.Language_on_Registration__c == 'it','Registrazione Hands Free Shopping',if(relatedTo.Language_on_Registration__c == 'fr','Votre Inscription au service Shopping Mains-Libres',if(relatedTo.Language_on_Registration__c == 'de','Hands-Free Shopping Registrierung E-Mail','Hands Free Shopping Registration' )))}" recipientType="Contact" relatedToType="Case">
+<messaging:htmlEmailBody >
+
+<!--  Generic Header  -->
+<p align="center" style='text-align:center;'>
+        <apex:outputpanel rendered="{!BEGINS(relatedTo.Service_Guest_ID__c, 'BV')}">
+            <apex:image id="theImage" width="100%"
+                value="{!LEFT($Api.Partner_Server_URL_140, FIND('.com/',$Api.Partner_Server_URL_140)+3)}/servlet/servlet.ImageServer?id=015b0000003CczW&oid={!$Organization.Id}" />
+        </apex:outputpanel>
+        <apex:outputpanel rendered="{!BEGINS(relatedTo.Service_Guest_ID__c, 'LV')}">
+            <apex:image value="{!LEFT($Api.Partner_Server_URL_140, FIND('.com/',$Api.Partner_Server_URL_140)+3)}/servlet/servlet.ImageServer?id=0150X000009EB3B&oid={!$Organization.Id}" />
+        </apex:outputpanel>
+        <apex:outputpanel rendered="{!BEGINS(relatedTo.Service_Guest_ID__c, 'FV')}">
+            <apex:image value="{!LEFT($Api.Partner_Server_URL_140, FIND('.com/',$Api.Partner_Server_URL_140)+3)}/servlet/servlet.ImageServer?id=0150X000009EErn&oid={!$Organization.Id}" />
+        </apex:outputpanel>
+        <apex:outputpanel rendered="{!BEGINS(relatedTo.Service_Guest_ID__c, 'KV')}">
+            <apex:image value="{!LEFT($Api.Partner_Server_URL_140, FIND('.com/',$Api.Partner_Server_URL_140)+3)}/servlet/servlet.ImageServer?id=0150X000009Q6lB&oid={!$Organization.Id}" />
+        </apex:outputpanel>
+        <apex:outputpanel rendered="{!BEGINS(relatedTo.Service_Guest_ID__c, 'WV')}">
+            <apex:image value="{!LEFT($Api.Partner_Server_URL_140, FIND('.com/',$Api.Partner_Server_URL_140)+3)}/servlet/servlet.ImageServer?id=01567000008EEQm&oid={!$Organization.Id}" />
+        </apex:outputpanel>
+        <apex:outputpanel rendered="{!BEGINS(relatedTo.Service_Guest_ID__c, 'IV')}">
+            <apex:image value="{!LEFT($Api.Partner_Server_URL_140, FIND('.com/',$Api.Partner_Server_URL_140)+3)}/servlet/servlet.ImageServer?id=01567000008EEQl&oid={!$Organization.Id}" />
+        </apex:outputpanel>
+    </p>
+<!--  Generic Header ends  -->
+
+<!--  ENGLISH MESSAGE  -->
+<apex:outputpanel rendered="{!if(relatedTo.Language_on_Registration__c == '' || relatedTo.Language_on_Registration__c == 'en', true, false)}">
+    
+    <div>
+        <p style="font-size: 16px;">
+            <div align="center" style='text-align:center;background:white; font-family:Arial,sans-serif'>Dear {!relatedTo.SuppliedName},</div>
+            
+            <p align="center" style='text-align:center;background:white; font-family:Arial,sans-serif'>Thank you for registering for our Hands Free Shopping service.</p> 
+            <p align="center" style='text-align:center;background:white; font-family:Arial,sans-serif'>Your <b>Guest ID</b> for the Day is:</p>
+            
+            <center>
+                <p style="font-size: 70px;font-weight:bold;margin: 0.8rem 0.8rem">{!relatedTo.Service_Guest_Number__c}</p>
+                <c:HFS_Code_Generator codeAttr="{!relatedTo.Client_QR_Code__c}" imageWidth="150"/>
+            </center> 
+            <div>
+                <div style="font-family:Arial,sans-serif;">
+                    <h2 style="text-align:center;">HANDS-FREE SHOPPING INSTRUCTIONS</h2>
+                    <ol>
+                        <li>Present this email to the boutique assitant when making your purchases.</li>
+                        <li>Check that all your purchases have been sealed in a security shopping bag.</li>
+                        <li>Please telephone 
+                            <apex:outputText value="{!if(BEGINS(relatedTo.Service_Guest_ID__c, 'LV'),' +33 (0)1 60 42 54 01',if(BEGINS(relatedTo.Service_Guest_ID__c, 'FV'),' +39
+                            392 09 99 164',if(BEGINS(relatedTo.Service_Guest_ID__c, 'KV'),' +353 87 147 4302' , if(BEGINS(relatedTo.Service_Guest_ID__c, 'WV'), ' +49 (0) 9342 91 99 100', if(BEGINS(relatedTo.Service_Guest_ID__c, 'IV'), ' +49 9342 9199100',' 44 (0)7717 811 211')))))}" />, at
+                            least
+                            <apex:outputText value="{!if(or(BEGINS(relatedTo.Service_Guest_ID__c, 'BV'), BEGINS(relatedTo.Service_Guest_ID__c, 'WV'), BEGINS(relatedTo.Service_Guest_ID__c, 'IV')),' 30',' 20')}" /> minutes before you leave the Village, so that we can ensure your
+                            shopping is ready at your chosen
+                            location.
+                        </li>
+                    </ol>
+                    
+                    <apex:outputpanel rendered="{!BEGINS(relatedTo.Service_Guest_ID__c, 'BV')}">
+                        <p>If you require assistance please call <br/> +44 (0)1869 366266</p>
+                    </apex:outputpanel>
+                </div>
+                <apex:outputpanel rendered="{!NOT(BEGINS(relatedTo.Service_Guest_ID__c, 'LV'))}">
+                    <p style="font-weight: bold;font-family:Arial,sans-serif;text-align: center;">
+                        Boutique purchases eligible for Hands-free Shopping can be made up to one hour before the closing time.
+                    </p>
+                </apex:outputpanel>
+                
+                <apex:outputpanel rendered="{!BEGINS(relatedTo.Service_Guest_ID__c, 'WV')}">
+                    <p style="font-weight: bold;font-family:Arial,sans-serif;text-align: center;">
+                        We wish you a successful shopping day in Wertheim Village! 
+                    </p>
+                </apex:outputpanel>
+
+                <apex:outputpanel rendered="{!BEGINS(relatedTo.Service_Guest_ID__c, 'IV')}">
+                    <p style="font-weight: bold;font-family:Arial,sans-serif;text-align: center;">
+                        We wish you a successful shopping day in Ingolstadt Village! 
+                    </p>
+                </apex:outputpanel>
+            </div>
+            <p align="center" style='text-align:center;background:white; font-family:Arial,sans-serif'>Regards <br />The Hands Free Shopping Team.</p>
+        </p>
+    </div>
+</apex:outputpanel>
+<!--  ENGLISH MESSAGE END  -->
+
+<!--  ITALIAN MESSAGE -->
+<apex:outputpanel rendered="{!if(relatedTo.Language_on_Registration__c == 'it', true, false)}"> 
+    <div>
+        <p style="font-size: 16px;">
+            <div align="center" style='text-align:center;background:white; font-family:Arial,sans-serif'>Gentile {!relatedTo.SuppliedName},</div>
+            
+            <p align="center" style='text-align:center;background:white; font-family:Arial,sans-serif'>Grazie di essersi registrata al nostro servizio di Hands Free Shopping.</p> 
+            <p align="center" style='text-align:center;background:white; font-family:Arial,sans-serif'>Il suo codice per oggi sarà:</p>
+            
+            <center>
+                <p style="font-size: 70px;font-weight:bold;margin: 0.8rem 0.8rem">{!relatedTo.Service_Guest_Number__c}</p>
+                <c:HFS_Code_Generator codeAttr="{!relatedTo.Client_QR_Code__c}" imageWidth="150"/>
+            </center> 
+            <div>
+                <div style="font-family:Arial,sans-serif;">
+                    <h2 style="text-align:center;">HANDS-FREE SHOPPING INSTRUCTIONS</h2>
+                    <ol>
+                        <li>Durante il tuo acquisto, presenta questo email al personale della boutique</li>
+                        <li>Verifica che tutti i tuoi acquisti siano correttamente confezionati e sigillati all'interno della shopping bag.</li>
+                        <li>Ti invitiamo a contattare telefonicamente il numero
+                            <apex:outputText value="{!if(BEGINS(relatedTo.Service_Guest_ID__c, 'LV'),' +33 (0)1 60 42 54 01',if(BEGINS(relatedTo.Service_Guest_ID__c, 'FV'),' +39
+                            392 09 99 164',if(BEGINS(relatedTo.Service_Guest_ID__c, 'KV'),' +353 87 147 4302' , if(BEGINS(relatedTo.Service_Guest_ID__c, 'WV'), ' +49 (0) 9342 91 99 100', if(BEGINS(relatedTo.Service_Guest_ID__c, 'IV'), ' +49 9342 9199100',' 44 (0)7717 811 211')))))}" /> circa
+                            <apex:outputText value="{!if(or(BEGINS(relatedTo.Service_Guest_ID__c, 'BV'), BEGINS(relatedTo.Service_Guest_ID__c, 'WV'), BEGINS(relatedTo.Service_Guest_ID__c, 'IV')),' 30',' 20')}" /> minuti prima dell'ora
+                                in cui desideri ritirare i tuoi
+                            acquisti.</li>
+                    </ol>
+
+                    <apex:outputpanel rendered="{!BEGINS(relatedTo.Service_Guest_ID__c, 'BV')}">
+                        <p>Se hai bisogno di assistenza, chiama <br/> +44 (0)1869 366266</p>
+                    </apex:outputpanel>
+                </div>
+                <apex:outputpanel rendered="{!NOT(BEGINS(relatedTo.Service_Guest_ID__c, 'LV'))}">
+                    <p style="font-weight: bold;font-family:Arial,sans-serif;text-align: center;">
+                        Gli acquisti destinati al servizio Hands-free-Shopping possono eseere effettuati fino a un'ora prima dell'orario di chiusura.
+                    </p>
+                </apex:outputpanel>
+            </div>
+            <p align="center" style='text-align:center;background:white; font-family:Arial,sans-serif'>Le auguriamo una buona giornata <br />Il Team Hands Free Shopping.</p>
+        </p>
+    </div>
+    </apex:outputpanel>
+<!--  ITALIAN MESSAGE END-->
+
+<!--  FRENCH MESSAGE -->
+<apex:outputpanel rendered="{!if(relatedTo.Language_on_Registration__c == 'fr', true, false)}"> 
+    <div>
+        <p style="font-size: 16px;">
+            <div align="center" style='text-align:center;background:white; font-family:Arial,sans-serif'>Bonjour {!relatedTo.SuppliedName},</div>
+            
+            <p align="center" style='text-align:center;background:white; font-family:Arial,sans-serif'>Nous vous remercions de votre inscription au service Shopping Mains-Libres.</p> 
+            <p align="center" style='text-align:center;background:white; font-family:Arial,sans-serif'>Votre référence shopping pour la journée est:</p>
+            
+            <center>
+                <p style="font-size: 70px;font-weight:bold;margin: 0.8rem 0.8rem">{!relatedTo.Service_Guest_Number__c}</p>
+                <c:HFS_Code_Generator codeAttr="{!relatedTo.Client_QR_Code__c}" imageWidth="150"/>
+            </center> 
+            <div>
+                <div style="margin-top: 0.3rem 0.3rem; font-family:Arial,sans-serif;">
+                    <h2 style="text-align:center;">Service Shopping Mains-Libres</h2>
+                    <ol>
+                        <li>Présentez cet email en boutique au moment de votre passage en caisse.</li>
+                        <li>Vérifiez que vos achats aient bien été scellés dans un sac de shopping sécurisé.</li>
+                        <li>Contactez-nous au  
+                            <apex:outputText value="{!if(BEGINS(relatedTo.Service_Guest_ID__c, 'LV'),' +33 (0)1 60 42 54 01',if(BEGINS(relatedTo.Service_Guest_ID__c, 'FV'),' +39
+                            392 09 99 164',if(BEGINS(relatedTo.Service_Guest_ID__c, 'KV'),' +353 87 147 4302' , if(BEGINS(relatedTo.Service_Guest_ID__c, 'WV'), ' +49 (0) 9342 91 99 100', if(BEGINS(relatedTo.Service_Guest_ID__c, 'IV'), ' +49 9342 9199100',' 44 (0)7717 811 211')))))}" />,
+                            <apex:outputText value="{!if(or(BEGINS(relatedTo.Service_Guest_ID__c, 'BV'), BEGINS(relatedTo.Service_Guest_ID__c, 'WV'), BEGINS(relatedTo.Service_Guest_ID__c, 'IV')),' 30',' 20')}" /> minutes avant l'heure
+                                souhaitée de votre départ de La Vallée Village, pour que nous puissions organiser la restitution de vos achats à
+                                l'emplacement de votre choix.
+                        </li>
+                    </ol>
+
+                    <apex:outputpanel rendered="{!BEGINS(relatedTo.Service_Guest_ID__c, 'BV')}">
+                        <p>Si vous avez besoin d'aide, veuillez appeler <br/> +44 (0)1869 366266</p>
+                    </apex:outputpanel>
+                </div>
+                <apex:outputpanel rendered="{!NOT(BEGINS(relatedTo.Service_Guest_ID__c, 'LV'))}">
+                    <p style="font-weight: bold;font-family:Arial,sans-serif;text-align: center;">
+                        Les achats destinés au service Shopping mains libres peuvent être effectués jusqu'à une heure avant la fermeture.
+                    </p>
+                </apex:outputpanel>
+                
+                <apex:outputpanel rendered="{!BEGINS(relatedTo.Service_Guest_ID__c, 'WV')}">
+                    <p style="font-weight: bold;font-family:Arial,sans-serif;text-align: center;">
+                        Nous vous souhaitons une journée de shopping réussie à Wertheim Village!
+                    </p>
+                </apex:outputpanel>
+
+                <apex:outputpanel rendered="{!BEGINS(relatedTo.Service_Guest_ID__c, 'IV')}">
+                    <p style="font-weight: bold;font-family:Arial,sans-serif;text-align: center;">
+                        Nous vous souhaitons une journée de shopping réussie à Ingolstadt Village!
+                    </p>
+                </apex:outputpanel>
+            </div>
+            
+            <p align="center" style='text-align:center;background:white; font-family:Arial,sans-serif'>Bien à vous, <br />L’Equipe Shopping Mains-Libres.</p>
+        </p>
+    </div>
+</apex:outputpanel>
+<!--  FRENCH MESSAGE END-->
+
+<!--  GERMAN MESSAGE -->
+<apex:outputpanel rendered="{!if(relatedTo.Language_on_Registration__c == 'de', true, false)}">
+    
+    <div>
+        <p style="font-size: 16px;">
+            <div align="center" style='text-align:center;background:white; font-family:Arial,sans-serif'>Guten Tag {!relatedTo.SuppliedName},</div>
+            
+            <p align="center" style='text-align:center;background:white; font-family:Arial,sans-serif'>herzlichen Dank für Ihre Registrierung zum Hands-Free Shopping Service.</p> 
+            <p align="center" style='text-align:center;background:white; font-family:Arial,sans-serif'>Ihre <b>Gast ID</b> für heute ist wie folgt:</p>
+            
+            <center>
+                <p style="font-size: 70px;font-weight:bold;margin: 0.8rem 0.8rem">{!relatedTo.Service_Guest_Number__c}</p>
+                <c:HFS_Code_Generator codeAttr="{!relatedTo.Client_QR_Code__c}" imageWidth="150"/>
+            </center> 
+            <div>
+                <div style="font-family:Arial,sans-serif;">
+                    <h2 style="text-align:center;">HANDS-FREE SHOPPING – ANLEITUNG</h2>
+                    <ol>
+                        <li>Zeigen Sie bitte diese E-Mail in den Boutiquen während Ihres Einkaufs vor.</li>
+                        <li>Bitte prüfen Sie, dass all Ihre Einkäufe in versiegelte Sicherheitseinkaufstaschen umgepackt wurden.</li>
+                        <li>
+                            Bevor Sie das Village verlassen möchten, melden Sie sich bitte mindestens
+                            <apex:outputText value="{!if(or(BEGINS(relatedTo.Service_Guest_ID__c, 'BV'), BEGINS(relatedTo.Service_Guest_ID__c, 'WV'), BEGINS(relatedTo.Service_Guest_ID__c, 'IV')),' 30',' 20')}" />
+                            Minuten vorher telefonisch unter der Nummer
+                            <apex:outputText value="{!if(BEGINS(relatedTo.Service_Guest_ID__c, 'LV'),' +33 (0)1 60 42 54 01',if(BEGINS(relatedTo.Service_Guest_ID__c, 'FV'),' +39
+                            392 09 99 164',if(BEGINS(relatedTo.Service_Guest_ID__c, 'KV'),' +353 87 147 4302' , if(BEGINS(relatedTo.Service_Guest_ID__c, 'WV'), ' +49 (0) 9342 91 99 100', if(BEGINS(relatedTo.Service_Guest_ID__c, 'IV'), ' +49 841 8863100',' 44 (0)7717 811 211')))))}" />,
+                            damit wir sicherstellen können, dass sich Ihre Einkäufe an der von Ihnen gewünschten 
+                            Abholstation befinden.
+                        </li>
+                    </ol>
+                    
+                    <apex:outputpanel rendered="{!BEGINS(relatedTo.Service_Guest_ID__c, 'BV')}">
+                        <p>Wenn Sie Hilfe benötigen, rufen Sie bitte an <br/> +44 (0)1869 366266</p>
+                    </apex:outputpanel>
+                </div>
+                <apex:outputpanel rendered="{!NOT(BEGINS(relatedTo.Service_Guest_ID__c, 'LV'))}">
+                    <p style="font-weight: bold;font-family:Arial,sans-serif;text-align: center;">
+                        Bitte beachten Sie: Einkäufe in Boutiquen, die für Hands-Free Shopping in Frage kommen, können bis zu einer Stunde vor Ladenschluss getätigt werden.
+                    </p>
+                </apex:outputpanel>
+
+                <apex:outputpanel rendered="{!BEGINS(relatedTo.Service_Guest_ID__c, 'WV')}">
+                    <p style="font-weight: bold;font-family:Arial,sans-serif;text-align: center;">
+                        Wir wünschen Ihnen einen erfolgreichen Shopping Tag in Wertheim Village! 
+                    </p>
+                </apex:outputpanel>
+
+                <apex:outputpanel rendered="{!BEGINS(relatedTo.Service_Guest_ID__c, 'IV')}">
+                    <p style="font-weight: bold;font-family:Arial,sans-serif;text-align: center;">
+                        Wir wünschen Ihnen einen erfolgreichen Shopping Tag in Ingolstadt Village! 
+                    </p>
+                </apex:outputpanel>
+            </div>
+            <p align="center" style='text-align:center;background:white; font-family:Arial,sans-serif'>Ihr Hands-Free Shopping Team</p>
+        </p>
+    </div>
+</apex:outputpanel>
+<!-- GERMAN MESSAGE END -->
+
+<!--  generic T&C and Village Privacy Notice -->
+      <c:HFSRegistrationURLSetting theCaseId="{!relatedTo.Id}" />
+<!--  generic T&C and Village Privacy Notice ENDS -->
+
+
+
+
+</messaging:htmlEmailBody>
+</messaging:emailTemplate>

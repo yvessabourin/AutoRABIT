@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Site_Visit</fullName>
+    <active>true</active>
+    <description>Physical visits to competitor sites.</description>
+    <label>Site Visit</label>
+    <picklistValues>
+        <picklist>Customer_Service__c</picklist>
+        <values>
+            <fullName>Accessible</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Efficient</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Encouraged To Purchase</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Helpful</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Resolved My Concerns</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Spoke Various Languages</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Understood My Concerns</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Welcoming</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Extra_Services__c</picklist>
+        <values>
+            <fullName>Charging Stations</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Hands-free Shopping</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Information Hub %28TIC%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Loyalty Program</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Shipping</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tailoring</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tax Free</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Valet Parking</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>bag Storage Area</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>personalization</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Food_Beverage_Options__c</picklist>
+        <values>
+            <fullName>1 - 5</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>10 %2B</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>6 - 10</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>None</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>General_Presentation__c</picklist>
+        <values>
+            <fullName>Brochures</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Clean Floors</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Clean Windows</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Directory%2FMap</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Free Parking</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Good Acoustic</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Good Lighting</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Landscape Outside</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Music</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Navigational Signage</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Parking Availability</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Promotional Marketing</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Overall_Experience__c</picklist>
+        <values>
+            <fullName>Extraordinary</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Good</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Poor</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Satisfactory</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Retail_Discount__c</picklist>
+        <values>
+            <fullName>%3C5%25</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>%3E75%25</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>10 - 20%25</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>20 -30%25</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>30 - 40%25</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>40 - 50%25</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>5 - 10%25</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>50 - 75%25</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

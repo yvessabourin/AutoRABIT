@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Segment__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Segment for this deal</inlineHelpText>
+    <label>Segment</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Activewear</fullName>
+                <default>false</default>
+                <label>Activewear</label>
+            </value>
+            <value>
+                <fullName>Beauty</fullName>
+                <default>false</default>
+                <label>Beauty</label>
+            </value>
+            <value>
+                <fullName>Bed and Bath</fullName>
+                <default>false</default>
+                <label>Bed and Bath</label>
+            </value>
+            <value>
+                <fullName>Books and Stationery</fullName>
+                <default>false</default>
+                <label>Books and Stationery</label>
+            </value>
+            <value>
+                <fullName>Casualwear</fullName>
+                <default>false</default>
+                <label>Casualwear</label>
+            </value>
+            <value>
+                <fullName>China and Glass</fullName>
+                <default>false</default>
+                <label>China and Glass</label>
+            </value>
+            <value>
+                <fullName>Chocolatier</fullName>
+                <default>false</default>
+                <label>Chocolatier</label>
+            </value>
+            <value>
+                <fullName>Cookware</fullName>
+                <default>false</default>
+                <label>Cookware</label>
+            </value>
+            <value>
+                <fullName>Denim and Streetwear</fullName>
+                <default>false</default>
+                <label>Denim and Streetwear</label>
+            </value>
+            <value>
+                <fullName>Electronics</fullName>
+                <default>false</default>
+                <label>Electronics</label>
+            </value>
+            <value>
+                <fullName>Evening Wear</fullName>
+                <default>false</default>
+                <label>Evening Wear</label>
+            </value>
+            <value>
+                <fullName>Eyewear</fullName>
+                <default>false</default>
+                <label>Eyewear</label>
+            </value>
+            <value>
+                <fullName>Formal and Eveningwear</fullName>
+                <default>false</default>
+                <label>Formal and Eveningwear</label>
+            </value>
+            <value>
+                <fullName>General Fashion</fullName>
+                <default>false</default>
+                <label>General Fashion</label>
+            </value>
+            <value>
+                <fullName>Handbags and Accessories</fullName>
+                <default>false</default>
+                <label>Handbags and Accessories</label>
+            </value>
+            <value>
+                <fullName>Headwear</fullName>
+                <default>false</default>
+                <label>Headwear</label>
+            </value>
+            <value>
+                <fullName>Home and Gifts</fullName>
+                <default>false</default>
+                <label>Home and Gifts</label>
+            </value>
+            <value>
+                <fullName>Intimates and Hosiery</fullName>
+                <default>false</default>
+                <label>Intimates and Hosiery</label>
+            </value>
+            <value>
+                <fullName>Jewellery and Watches</fullName>
+                <default>false</default>
+                <label>Jewellery and Watches</label>
+            </value>
+            <value>
+                <fullName>Kids</fullName>
+                <default>false</default>
+                <label>Kids</label>
+            </value>
+            <value>
+                <fullName>Restaurants</fullName>
+                <default>false</default>
+                <label>Restaurants</label>
+            </value>
+            <value>
+                <fullName>Shirting</fullName>
+                <default>false</default>
+                <label>Shirting</label>
+            </value>
+            <value>
+                <fullName>Shoes</fullName>
+                <default>false</default>
+                <label>Shoes</label>
+            </value>
+            <value>
+                <fullName>Snack Bar</fullName>
+                <default>false</default>
+                <label>Snack Bar</label>
+            </value>
+            <value>
+                <fullName>Sports Shoes</fullName>
+                <default>false</default>
+                <label>Sports Shoes</label>
+            </value>
+            <value>
+                <fullName>Sportswear</fullName>
+                <default>false</default>
+                <label>Sportswear</label>
+            </value>
+            <value>
+                <fullName>Suiting</fullName>
+                <default>false</default>
+                <label>Suiting</label>
+            </value>
+            <value>
+                <fullName>Swimwear</fullName>
+                <default>false</default>
+                <label>Swimwear</label>
+            </value>
+            <value>
+                <fullName>Toys</fullName>
+                <default>false</default>
+                <label>Toys</label>
+            </value>
+            <value>
+                <fullName>Travel</fullName>
+                <default>false</default>
+                <label>Travel</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

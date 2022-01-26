@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Trade_Events_Attended__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>No of Trade Events with Status Attended</inlineHelpText>
+    <label>Trade Events Attended</label>
+    <summaryFilterItems>
+        <field>Trade_Event_Attendee__c.Invite_Status__c</field>
+        <operation>equals</operation>
+        <value>Attended</value>
+    </summaryFilterItems>
+    <summaryForeignKey>Trade_Event_Attendee__c.Contact__c</summaryForeignKey>
+    <summaryOperation>count</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <type>Summary</type>
+</CustomField>

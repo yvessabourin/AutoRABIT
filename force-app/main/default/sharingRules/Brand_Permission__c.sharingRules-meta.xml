@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sharingCriteriaRules>
+        <fullName>Basic_Access_for_All_marketeers</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Lease-Led, Ad-hoc write access</description>
+        <label>Basic Access for All marketeers</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>Group_Marketing</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Lease-led Annual,Ad-hoc</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Edit_Access_for_Group_Marketing</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Edit Access for Group Marketing</label>
+        <sharedTo>
+            <role>Group_Marketing</role>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Group-led Annual</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+</SharingRules>

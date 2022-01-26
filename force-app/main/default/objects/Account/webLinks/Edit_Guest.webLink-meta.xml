@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Edit_Guest</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <linkType>javascript</linkType>
+    <masterLabel>Edit Guest</masterLabel>
+    <openType>onClickJavaScript</openType>
+    <protected>false</protected>
+    <url>//alert (&apos;The ability to amend guest data is currently not available&apos;); 
+ 
+if (&apos;{!Account.PersonEmail}&apos;) { 
+window.location.href = &quot;/apex/apiCustomerMobile?Id={!Account.Id}&amp;recId={!Account.Id}&amp;mode=classic&amp;emailReadOnly=true&amp;retURL=%2F{!Account.Id}&quot;; 
+} else { 
+window.location.href = &quot;/apex/apiCustomerMobile?Id={!Account.Id}&amp;recId={!Account.Id}&amp;mode=classic&amp;emailReadOnly=false&amp;retURL=%2F{!Account.Id}&quot;; 
+}</url>
+</WebLink>

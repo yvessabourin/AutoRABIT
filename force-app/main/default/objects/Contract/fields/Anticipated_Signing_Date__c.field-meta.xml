@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Anticipated_Signing_Date__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Enter the date when it is anticipated that the deal will be signed</inlineHelpText>
+    <label>Anticipated Signing Date</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>Date</type>
+</CustomField>

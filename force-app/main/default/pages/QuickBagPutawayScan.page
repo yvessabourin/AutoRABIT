@@ -1,0 +1,51 @@
+<apex:page standardController="HFS_Job__c" lightningStylesheets="true">
+	<script type="text/javascript" src="{!URLFOR($Resource.HFS_quaggaJS_master, 'quaggaJS-master/example/vendor/jquery-1.9.0.min.js')}"></script>
+	<script type="text/javascript" src="//webrtc.github.io/adapter/adapter-latest.js"></script>
+	<script type="text/javascript" src="{!URLFOR($Resource.HFS_quaggaJS_master, 'quaggaJS-master/dist/quagga.js')}"></script>
+
+	<script>
+		function isLightningRedirect(inUrl){
+			if ('{!$User.UITheme}' === 'Theme4d' || '{!$User.UITheme}' === 'Theme4t' || '{!$User.UITheme}' === 'Theme4u') {
+				sforce.one.navigateToURL(inUrl);
+			} else {
+				window.location = inUrl;
+			}
+		}
+	</script>
+
+	<script type="text/javascript">
+
+		document.addEventListener('DOMContentLoaded', function () {
+			document.getElementById("result_c").focus();
+		});
+
+		function PlaySound() {
+			var sound = document.getElementById("audio");
+			sound.play()
+		}
+
+		function getManuallyBarcode() {
+			var bagId = document.getElementById('result_c').value;
+
+			if (bagId) {
+				var url_string = window.location.href;
+				var url = new URL(url_string);
+				var record_id = url.searchParams.get("id");
+				isLightningRedirect ('/apex/QuickBagPutaway?bagId=' + bagId);
+			}
+			else {
+				alert('Please enter a barcode');
+			}
+		}
+	</script>
+
+	<br/>
+	<p>
+		<b>Scan Bag Barcode:</b> (For manual entry ensure all digits are entered)</p>
+	<input id="result_c" type="number"></input>
+	<button onclick="getManuallyBarcode();">Confirm</button>
+	<br/>
+	<br/>
+	<div id="preview"></div>
+	<audio id="audio" src="{!URLFOR($Resource.HFS_beep, '/beep-06.wav')}" autostart="false"></audio>
+</apex:page>

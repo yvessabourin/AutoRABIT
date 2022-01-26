@@ -1,0 +1,56 @@
+<apex:page showHeader="false" sidebar="false" standardController="Marketing_Campaign__c" extensions="CampaignExcelReportControllerJS" lightningStylesheets="true">
+
+    <html xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+        <head>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+            <style>
+                table, tr, th, td  {
+                    border: 1px solid black;
+                    padding: 3px;
+                }
+                th, tr, td {
+                    text-align: center;
+                    vertical-align: middle;
+                }
+            </style>
+
+            <script type="text/javascript">
+                function ExportToExcel(){
+                    var htmltable= document.getElementById('my-table-id');
+                    var html = htmltable.outerHTML;
+                    window.open('data:application/vnd.ms-excel,' + encodeURIComponent(html));
+                }
+
+                jQuery(function($j) {
+                    $j = jQuery.noConflict();
+
+                    $j(document).ready(function() {
+                        var recId = '{!$CurrentPage.parameters.Id}';
+
+                        CampaignExcelReportControllerJS.readCampaigns(recId, function(result, event) {
+                            if(event.status) {
+                                var decoded = $("<div/>").html(result).text();
+                                $j('#thediv').html(decoded);
+                            }
+                        });
+                    });
+                });
+            </script>
+        </head>
+
+        <body>
+            <apex:form >
+                <center>
+                    <apex:commandButton value="Export to Excel" onclick="ExportToExcel();"/>
+                    <br/><br/>
+
+                    <div id="thediv" />
+                </center>
+            </apex:form>
+        </body>
+
+    </html>
+</apex:page>

@@ -1,0 +1,61 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes" access="global">
+
+	<aura:attribute name="jsonData" type="Object[]" description="JSON Object representing data to export" />
+	<aura:attribute name="dataId" type="String" description="aura id of component on page representing data to export" />
+	<aura:attribute name="filterOptions" type="String[]" description="" />
+	<aura:attribute name="desktop" type="Boolean" description="" />
+	<aura:attribute name="callerComponent" type="Aura.Component" />
+	
+	<aura:registerEvent name="dataListExport" type="c:DataListExportRequest" description="" />
+	<aura:registerEvent name="dataListEmail" type="c:DataListEmailRequest" description="" />
+	
+	<aura:handler event="c:DataListExportInit"
+		action="{!c.doFilters}" />	
+	
+	<aura:handler name="init" action="{!c.doInit}" value="{!this}" />
+	
+	<aura:method name="Export" 
+		action="{!c.doExport}"
+		access="public"
+		description="Performs data export of supplied JSON"> 
+		<aura:attribute name="jsonData" type="Object" />
+		<aura:attribute name="reportTitle" type="string" />
+		<aura:attribute name="showLabel" type="boolean" />
+		
+	</aura:method>
+
+	<aura:method name="Email" 
+		action="{!c.doEmail}"
+		access="public"
+		description="Opens email client"> 
+		<aura:attribute name="jsonData" type="Object" />
+		<aura:attribute name="reportTitle" type="string" />
+		<aura:attribute name="showLabel" type="boolean" />
+		
+	</aura:method>
+	
+	<aura:method name="doFilters" 
+		action="{!c.doFilters}"
+		access="public"
+		description="Dynamically created filter dropdown"> 
+		<aura:attribute name="filterOptions" type="string[]" />
+		<aura:attribute name="label" type="string" />
+	</aura:method>
+	
+	<aura:if isTrue="{!v.desktop}">				
+    	<lightning:button onclick="{!c.handleExportClick}" variant="brand" label="{!$Label.c.DAILY_SALE_EXPORT}"  aura:id="exportBtn">
+    	</lightning:button>
+     </aura:if>
+     
+    <!--    
+    <lightning:button onclick="{!c.handleEmailClick}" variant="brand" label="Test Email (WIP)" aura:id="emailBtn">
+    </lightning:button>
+    -->
+     
+     
+	<br/><div style="width:30%">
+	{!v.body}
+	</div>
+	
+		
+</aura:component>

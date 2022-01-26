@@ -1,0 +1,16 @@
+<template>
+	<div class="lgl-heading" onclick={toggleSection}>
+		<lightning-icon
+			class={initialClasses.icon}
+			icon-name="utility:right"
+			alternative-text="Toggle Section"
+			title="Toggle Section"
+			size="small"
+		>
+		</lightning-icon>
+		{title}
+	</div>
+	<div class={initialClasses.section}>
+		<slot name="bodyContent"></slot>
+	</div>
+</template>

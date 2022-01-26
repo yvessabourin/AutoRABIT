@@ -1,0 +1,12 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,force:hasRecordId,forceCommunity:availableForAllPageTypes" access="global" >
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+    <aura:attribute name="greeting" type="String" />    
+    <aura:attribute name="recordId" type="String" access="global"></aura:attribute>
+	
+    <div aura:id="theButton">
+		<ui:button class="slds-button slds-button--brand slds-button--small " press="{!c.doEdit}">{!$Label.c.DAILY_SALE_EDIT}</ui:button>
+    </div>
+    
+</aura:component>

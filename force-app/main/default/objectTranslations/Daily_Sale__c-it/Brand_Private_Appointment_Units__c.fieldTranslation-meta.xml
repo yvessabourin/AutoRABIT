@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help>Inserisci la quantità di unità vendute di Brand Private Appointment, se non ci sono state unità vendute per il giorno inserisci 0.</help>
+    <label>Unità Brand Private Appointment</label>
+    <name>Brand_Private_Appointment_Units__c</name>
+</CustomFieldTranslation>

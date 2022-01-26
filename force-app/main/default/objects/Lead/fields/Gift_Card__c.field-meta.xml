@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Gift_Card__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>(B2T) MICE Capture Field</description>
+    <externalId>false</externalId>
+    <label>Gift Card</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

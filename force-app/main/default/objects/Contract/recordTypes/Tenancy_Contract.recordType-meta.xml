@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Tenancy_Contract</fullName>
+    <active>true</active>
+    <description>Village Tenancy Contract</description>
+    <label>Tenancy Contract</label>
+    <picklistValues>
+        <picklist>Billing_Frequency__c</picklist>
+        <values>
+            <fullName>Annual</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Monthly</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Quarterly</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Charge_Basis__c</picklist>
+        <values>
+            <fullName>Annual</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Monthly</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Quarterly</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Contract_Type__c</picklist>
+        <values>
+            <fullName>Lease</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Licence</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>MSC</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Currency__c</picklist>
+        <values>
+            <fullName>EUR</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>GBP</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>RMB</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>USD</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Department_Responsible__c</picklist>
+        <values>
+            <fullName>Brand In-house Legal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Brand Law Firm</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Brand Leasing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Brand Leasing Agent</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>VR China Lease</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>VR China Legal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>VR Law Firm-Hogan Lovells</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>VR Law Firm-ZhongLun</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>VR Leasing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>VR Leasing Agent-C%26W</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>VR Leasing Agent-HRC</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>VR Legal</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Deposit_Status__c</picklist>
+        <values>
+            <fullName>1st Deposit received</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>1st Deposit requested</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>2nd Deposit received</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>2nd Deposit requested</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Direct_Debit__c</picklist>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Offer_Status__c</picklist>
+        <values>
+            <fullName>Awaiting Instruction</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Contract Negotiation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Contract Signed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Contract out for Signature</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Drafting</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Expired</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>HoT Signed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>On hold</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Out for Brand Comment</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pending</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Rejected</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Suggested %2F Planned</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Terminated</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Terms Proposed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Unit Offered</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Unit Reserved</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Service_Charge_Fee_Basis__c</picklist>
+        <values>
+            <fullName>GEA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>GIA</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Size_Metric__c</picklist>
+        <values>
+            <fullName>sq%2Eft</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>sq%2Em</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Status</picklist>
+        <values>
+            <fullName>Activated</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Draft</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>In Approval Process</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>TI_Status__c</picklist>
+        <values>
+            <fullName>Committed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Contracted</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Intended</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Paid</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Predicted</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Terms__c</picklist>
+        <values>
+            <fullName>Non Standard</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Standard</fullName>
+            <default>true</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>ToR_Calculation_Method__c</picklist>
+        <values>
+            <fullName>On Increment</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>On Total</fullName>
+            <default>true</default>
+        </values>
+    </picklistValues>
+</RecordType>

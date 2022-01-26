@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Marketing_Approval_Start_Date__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Enter the date when the Brand in the village sign off the Marketing approvals</inlineHelpText>
+    <label>Marketing Approval Start Date</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+</CustomField>

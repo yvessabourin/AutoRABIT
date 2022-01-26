@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Village_Presence__c$Name</field>
+    </columns>
+    <columns>
+        <field>Village_Presence__c$Daily_Sales_Active__c</field>
+    </columns>
+    <columns>
+        <field>Village_Presence__c$Daily_Sale_Record_Type_Override__c</field>
+    </columns>
+    <currency>EUR</currency>
+    <description>This is a report that supports the Daily Sales Dashboard and provides a count of Village Presences that are Daily Sales Active.</description>
+    <filter>
+        <criteriaItems>
+            <column>Village_Presence__c$Daily_Sales_Active__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>1</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Village_Presence__c$Village__c.Name</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>La Roca</value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Village_Presence__c$Village__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Village_Presence__c$Retail_Manager__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>LR VPs Daily Sales Active_DB</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Village_Presences__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>Village_Presence__c$CreatedDate</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

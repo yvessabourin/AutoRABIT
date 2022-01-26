@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Conditions__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Enter the condition(s) that would trigger the change in terms if applicable or leave it blank if the change is unconditional</inlineHelpText>
+    <label>Conditions</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>TextArea</type>
+</CustomField>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Queue xmlns="http://soap.sforce.com/2006/04/metadata">
+    <doesSendEmailToMembers>true</doesSendEmailToMembers>
+    <email>bookings.lasrozas@valueretail.com</email>
+    <name>LEISURE Lead Queue - Las Rozas</name>
+    <queueMembers>
+        <users>
+            <user>cizquierdo@valueretail.com</user>
+            <user>grengifo@valueretail.com</user>
+            <user>ticteamlzv@valueretail.com</user>
+            <user>mmacias@valueretail.com</user>
+            <user>mirella@valueretail.com</user>
+            <user>nsegura@valueretail.com</user>
+        </users>
+    </queueMembers>
+    <queueSobject>
+        <sobjectType>Lead</sobjectType>
+    </queueSobject>
+</Queue>

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>Synchronise_Deal_Roles</name>
+        <label>Synchronise Deal Roles</label>
+        <locationX>738</locationX>
+        <locationY>173</locationY>
+        <actionName>OpportunityTeamMemberSyncButtonFlow</actionName>
+        <actionType>apex</actionType>
+        <connector>
+            <targetReference>Return_value</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>accIdList</name>
+            <value>
+                <elementReference>recordId</elementReference>
+            </value>
+        </inputParameters>
+        <outputParameters>
+            <assignToReference>returnValue</assignToReference>
+            <name>output</name>
+        </outputParameters>
+    </actionCalls>
+    <apiVersion>49.0</apiVersion>
+    <description>Button  Synchronise Deal Roles on the account object</description>
+    <interviewLabel>Synchronise Deal Roles {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Synchronise Deal Roles</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>Flow</processType>
+    <recordLookups>
+        <description>Get the current Record Account</description>
+        <name>Get_Current_Record</name>
+        <label>Get Current Record</label>
+        <locationX>578</locationX>
+        <locationY>101</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Synchronise_Deal_Roles</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>recordId</elementReference>
+            </value>
+        </filters>
+        <object>Account</object>
+    </recordLookups>
+    <screens>
+        <name>Return_value</name>
+        <label>Return value</label>
+        <locationX>915</locationX>
+        <locationY>173</locationY>
+        <allowBack>false</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <fields>
+            <name>Screen_return_value</name>
+            <fieldText>&lt;p style=&quot;text-align: center;&quot;&gt;{!returnValue}&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>false</showHeader>
+    </screens>
+    <startElementReference>Get_Current_Record</startElementReference>
+    <status>Active</status>
+    <variables>
+        <description>Id for record</description>
+        <name>recordId</name>
+        <dataType>Number</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+        <scale>2</scale>
+    </variables>
+    <variables>
+        <description>the return value from apex class</description>
+        <name>returnValue</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Food_and_Drink_Check_1</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(ISPICKVAL ( Account.Department__c,&quot;Food and Drink&quot;),    ( Region__c = &quot;China&quot; ) ,ISBLANK( TEXT( Sub_Category__c )))</errorConditionFormula>
+    <errorDisplayField>Sub_Category__c</errorDisplayField>
+    <errorMessage>Cannot be blank for a Food &amp; Drink Brand</errorMessage>
+</ValidationRule>

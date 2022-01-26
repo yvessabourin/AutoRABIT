@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Repayment_Terms__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Enter the repayment terms to be applied to this lease/contract in the event of early termination by the landlord, specifically in the first 3 years</inlineHelpText>
+    <label>Repayment Terms</label>
+    <length>4096</length>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>LongTextArea</type>
+    <visibleLines>3</visibleLines>
+</CustomField>

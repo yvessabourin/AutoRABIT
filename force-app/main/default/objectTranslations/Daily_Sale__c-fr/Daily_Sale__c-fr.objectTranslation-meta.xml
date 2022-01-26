@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Déclaration journalière</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Déclaration journalière</value>
+    </caseValues>
+    <fieldSets>
+        <label></label>
+        <name>Community_Confirm_List</name>
+    </fieldSets>
+    <fieldSets>
+        <label></label>
+        <name>Community_Entry_Screen</name>
+    </fieldSets>
+    <fieldSets>
+        <label></label>
+        <name>Data_Extract_View</name>
+    </fieldSets>
+    <fieldSets>
+        <label></label>
+        <name>History_List_View</name>
+    </fieldSets>
+    <fieldSets>
+        <label></label>
+        <name>In_Progress_Fields</name>
+    </fieldSets>
+    <fieldSets>
+        <label></label>
+        <name>Reminder_Email</name>
+    </fieldSets>
+    <gender>Feminine</gender>
+    <nameFieldLabel></nameFieldLabel>
+    <recordTypes>
+        <description></description>
+        <label></label>
+        <name>Current</name>
+    </recordTypes>
+    <recordTypes>
+        <label></label>
+        <name>Discretionary_Discount</name>
+    </recordTypes>
+    <recordTypes>
+        <label></label>
+        <name>Discretionary_Discount_NOT_Editable</name>
+    </recordTypes>
+    <recordTypes>
+        <description></description>
+        <label></label>
+        <name>F_B_Covers</name>
+    </recordTypes>
+    <recordTypes>
+        <label></label>
+        <name>F_B_Covers_NOT_Editable</name>
+    </recordTypes>
+    <recordTypes>
+        <label></label>
+        <name>Full_Price</name>
+    </recordTypes>
+    <recordTypes>
+        <label></label>
+        <name>Full_Price_Discretionary_Discount</name>
+    </recordTypes>
+    <recordTypes>
+        <label></label>
+        <name>Full_Price_Discretionary_Discount_NOT_Editable</name>
+    </recordTypes>
+    <recordTypes>
+        <description></description>
+        <label></label>
+        <name>Full_Price_NOT_Editable</name>
+    </recordTypes>
+    <recordTypes>
+        <description></description>
+        <label></label>
+        <name>Gross</name>
+    </recordTypes>
+    <recordTypes>
+        <label></label>
+        <name>Gross_NOT_Editable</name>
+    </recordTypes>
+    <recordTypes>
+        <description></description>
+        <label></label>
+        <name>Historical</name>
+    </recordTypes>
+    <recordTypes>
+        <description></description>
+        <label></label>
+        <name>Net</name>
+    </recordTypes>
+    <recordTypes>
+        <label></label>
+        <name>Net_NOT_Editable</name>
+    </recordTypes>
+    <sharingReasons>
+        <label></label>
+        <name>Status_managed_changes</name>
+    </sharingReasons>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Cannot_update_Confirmed_records</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Discr_Disco_Sales_Higher_Total_Net_Sales</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>Le champ obligatoire suivant doit être rempli</errorMessage>
+        <name>Discr_Disco_Sales_Mandatory</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Discr_Disco_Units_Higher_Total_Units</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>Le champ obligatoire suivant doit être rempli</errorMessage>
+        <name>Discr_Disco_Units_Mandatory</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>Vous avez tappé zéro footfall. Si le chiffre de footfall est inconnu, laissez ce champ vide, sinon saisir la valeur connue. Veuillez vérifier vos chiffres. Cochez la case &quot;Ignorer les Validations&quot; et ajoutez une annotation à ce document si vous pensez que les valeurs sont correctes</errorMessage>
+        <name>Footfall_is_Zero</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>Le montant des ventes de produits la collection actuelle déclaré par la boutique ne peut pas excéder le montant total des ventes. Ce montant doit être inclus dans le montant total des ventes de la journée.</errorMessage>
+        <name>Full_Price_Sales_Higher_Total_Net_Sales</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>Le champ obligatoire suivant doit être rempli</errorMessage>
+        <name>Full_Price_Sales_Mandatory</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>Le nombre de produits de la collection actuelle vendus ne peut être supérieur au nombre total de produits vendus la même journée.</errorMessage>
+        <name>Full_Price_Units_Higher_Total_Units</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>Le champ obligatoire suivant doit être rempli</errorMessage>
+        <name>Full_Price_Units_Mandatory</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Grace_Period_Expired</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>Veuillez saisir un commentaire dans le champ &quot;Commentaires&quot; si vous souhaitez ignorer les erreurs.</errorMessage>
+        <name>Ignore_Validations_must_have_brand_note</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>Valeur des réductions H.T ne peut pas être supérieur à Total Ventes H.T.</errorMessage>
+        <name>Net_Val_of_Discounts_greater_than_Sales</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>Le nombre de coupons VIP ne doit pas être supérieur au nombre de transactions.</errorMessage>
+        <name>No_of_VIPs_gtr_than_no_of_transactions</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>Le nombre de Coupons VIP ne doit pas être supérieur au nombre d&apos;unités vendues</errorMessage>
+        <name>No_of_VIPs_gtr_than_no_of_units_sold</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>Le nombre de transactions ne doit pas être supérieur au montant total des ventes HT. Cocher la case &quot;&quot;Ignorer les erreurs&quot;&quot; et ajouter un commentaire à cette déclaration si vous pensez que les valeurs sont correctes.</errorMessage>
+        <name>No_of_transactions_not_gtr_NET_Sales</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>Le nombre de couverts ne peut pas être inférieur au nombre de transactions. Cocher la case &quot;Ignorer les erreurs&quot; et ajouter un commentaire à cette déclaration si vous pensez que les valeurs sont correctes.</errorMessage>
+        <name>Number_of_covers_less_than_transactions</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>Le nombre de transactions ne peut pas être supérieur aux unités vendues. Cocher la case &quot;Ignorer les erreurs&quot; et ajouter un commentaire à cette déclaration si vous pensez que les valeurs sont correctes.</errorMessage>
+        <name>Number_of_units_must_be_gtr_than_transac</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>Le montant des ventes des rdv privés en boutique ne peut excéder le montant total des ventes HT. Ce montant doit être inclus dans le montant total des ventes de la journée.</errorMessage>
+        <name>Priv_App_Sales_Higher_Total_Net_Sales</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>Le nombre de produits vendus en rdv privés en boutique ne peut excéder le nombre total de produits vendus de la journée.</errorMessage>
+        <name>Priv_App_Sales_Higher_Total_Units</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>Le nombre de transactions en rdv privés en boutique ne peut excéder le nombre total de transactions de la journée.</errorMessage>
+        <name>Priv_App_Sales_Higher_Transactions</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>Le montant des ventes détaxées ne peut pas dépasser montant total des ventes HT. Merci de vérifier les données. Si toutefois vous pensez que les valeurs sont correctes, cocher la case &apos;Ignorer les erreurs&apos; et ajouter un commentaire à cette déclaration.</errorMessage>
+        <name>Reported_amount_gtr_than_tax_amt_GROSS</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>Le montant des ventes détaxées ne peut pas dépasser montant total des ventes HT. Merci de vérifier les données. Si toutefois vous pensez que les valeurs sont correctes, cocher la case &apos;Ignorer les erreurs&apos; et ajouter un commentaire à cette déclaration.</errorMessage>
+        <name>Reported_amount_gtr_than_tax_amt_NET</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>Le nombre de transactions détaxées ne peut pas dépasser nombre total de transactions. Merci de vérifier les données. Si toutefois vous pensez que les valeurs sont correctes, cocher la case &apos;Ignorer les erreurs&apos; et ajouter un commentaire à cette déclaration.</errorMessage>
+        <name>Reported_transactions_gtr_than_tax_trans</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Sales_Certification_Submission</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>La boutique est marqué fermée ce jour là, vérifier que aucun chiffre n’a été entré. Si la boutique est marqué fermée par erreur, décocher la case ‘Boutique Fermée’.</errorMessage>
+        <name>Store_Closed_with_Sales</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Store_Not_Editable</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>Si la Boutique était fermée, le montant déclaré doit être de 0</errorMessage>
+        <name>Store_shut_must_be_a_clear_record</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>TOR_Process_Completion</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>Vous avez saisi un Chiffre d&apos;Affaires très élevé. Merci de vérifier les données. Cocher la case &quot;Ignorer les erreurs&quot; et ajouter un commentaire à cette déclaration si vous pensez que les valeurs sont correctes.</errorMessage>
+        <name>Total_net_sales_too_high</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>VLR_TOR_Exception_Certification</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>Le montant des ventes à distance ne peut excéder le montant total des ventes HT. Ce montant doit être inclus dans le montant total des ventes de la journée.</errorMessage>
+        <name>Virtual_Sales_Higher_Total_Net_Sales</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>Le nombre de produits vendus à distance ne peut excéder le nombre total de produits vendus de la journée.</errorMessage>
+        <name>Virtual_Sales_Higher_Total_Units</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>Le nombre de transactions à distance ne peut excéder le nombre total de transactions de la journée.</errorMessage>
+        <name>Virtual_Sales_Higher_Transactions</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>Le nombre de transactions ne doit pas être supérieur au nombre de visiteurs. Cocher la case &quot;&quot;Ignorer les erreurs&quot;&quot; et ajouter un commentaire à cette déclaration si vous pensez que les valeurs sont correctes.</errorMessage>
+        <name>footfall_must_be_gtr_than_transactions</name>
+    </validationRules>
+    <webLinks>
+        <label></label>
+        <name>Confirm_all</name>
+    </webLinks>
+    <webLinks>
+        <label></label>
+        <name>Go_Back</name>
+    </webLinks>
+</CustomObjectTranslation>

@@ -1,0 +1,88 @@
+<template>
+	<lightning-spinner
+		class="slds-is-fixed"
+		if:true={loading}
+		alternative-text="Loading"
+		size="large"
+	></lightning-spinner>
+	<form>
+		<lightning-combobox
+			name="LGL_Title__c"
+			value={guestAccount.Salutation}
+			label="Salutation"
+			placeholder="Select a Salutation"
+			options={salutationsList}
+			disabled={readOnly}
+			required
+			onchange={handleFieldChange}
+		>
+		</lightning-combobox>
+
+		<lightning-input
+			name="LGL_First_Name__c"
+			value={guestAccount.FirstName}
+			label="First Name"
+			disabled={readOnly}
+			required
+			oncommit={handleFieldChange}
+			max-length={namesMaxLength}
+		>
+		</lightning-input>
+
+		<lightning-input
+			name="LGL_Last_Name__c"
+			value={guestAccount.LastName}
+			label="Last Name"
+			disabled={readOnly}
+			required
+			oncommit={handleFieldChange}
+			max-length={namesMaxLength}
+		>
+		</lightning-input>
+
+		<lightning-input
+			type="email"
+			value={guestAccount.PersonEmail}
+			name="LGL_Email__c"
+			label="Email"
+			disabled={readOnly}
+			required
+			oncommit={handleFieldChange}
+		>
+		</lightning-input>
+
+		<lightning-input
+			type="tel"
+			value={guestAccount.PersonMobilePhone}
+			name="LGL_Phone__c"
+			label="Mobile Number"
+			disabled={readOnly}
+			required
+			oncommit={handleFieldChange}
+		>
+		</lightning-input>
+
+		<lightning-combobox
+			name="LGL_Country_Residence__c"
+			value={guestsCountryCode}
+			label="Country of Residence"
+			placeholder="Select your country of residence"
+			options={countriesList}
+			disabled={readOnly}
+			required
+			onchange={handleFieldChange}
+		>
+		</lightning-combobox>
+
+		<lightning-combobox
+			name="LGL_Method_Transport__c"
+			label="Method of transport"
+			placeholder="Select your method of transport"
+			options={methodTransportList}
+			disabled={readOnly}
+			required
+			onchange={handleFieldChange}
+		>
+		</lightning-combobox>
+	</form>
+</template>

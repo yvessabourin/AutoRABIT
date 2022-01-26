@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fieldUpdates>
+        <fullName>Activity_Type</fullName>
+        <field>Activity_Type__c</field>
+        <formula>TEXT(Type)</formula>
+        <name>Activity Type</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Headline</fullName>
+        <description>will update the Headline with the Meeting Reason</description>
+        <field>Event_Headline__c</field>
+        <formula>TEXT(Reason__c)</formula>
+        <name>Update Headline</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Late_Share_Flag</fullName>
+        <description>Set the Late Share flag on event which, in turn, fires a V.W.F. to post a chatter message to the users</description>
+        <field>Late_Share__c</field>
+        <literalValue>1</literalValue>
+        <name>Update Late Share Flag</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>timestamp_B2B_Share_Date_Time</fullName>
+        <field>Date_Time_B2B_Posted__c</field>
+        <formula>NOW()</formula>
+        <name>timestamp B2B Share Date/Time</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <rules>
+        <fullName>Activity Type</fullName>
+        <actions>
+            <name>Activity_Type</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Event.Type</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Populate Headline</fullName>
+        <actions>
+            <name>Update_Headline</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Event.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>B2B meeting</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Event.Reason__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <description>Populates the &quot;meeting Headline&quot; field with the Meeting Reason.</description>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Set Late Share Flag</fullName>
+        <active>true</active>
+        <criteriaItems>
+            <field>Event.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>B2B meeting</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Event.Share__c</field>
+            <operation>equals</operation>
+            <value>False</value>
+        </criteriaItems>
+        <description>This workflow sets the Late Share flag on an Event 48 hours after the start date. This in turn fires a process builder flow to post a chatter message (the time based flow on process builder doesn&apos;t cancel the time based action once shared :-(.</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Update_Late_Share_Flag</name>
+                <type>FieldUpdate</type>
+            </actions>
+            <offsetFromField>Event.StartDateTime</offsetFromField>
+            <timeLength>48</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>timestamp B2B Share Date%2FTime</fullName>
+        <actions>
+            <name>timestamp_B2B_Share_Date_Time</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Event.Share__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Event.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>B2B meeting</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+</Workflow>

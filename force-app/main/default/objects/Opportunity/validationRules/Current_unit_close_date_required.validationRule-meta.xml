@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Current_unit_close_date_required</fullName>
+    <active>true</active>
+    <description>On a relocation and shop refit record type the &apos;current unit close date&apos; should be populated from &apos;Advanced negotiation&apos; stage and all subsequent stages</description>
+    <errorConditionFormula>$Setup.Global_Object_Validation__c.Deal_Validations_Active__c 
+&amp;&amp; Stage_Value__c &gt; 2
+&amp;&amp;  ISBLANK(    Current_Unit_Move_Out_Date__c  ) 
+&amp;&amp;  OR(RecordTypeName__c = &quot;Relocation&quot; , RecordTypeName__c = &quot;ShopRefit&quot; )</errorConditionFormula>
+    <errorDisplayField>Current_Unit_Move_Out_Date__c</errorDisplayField>
+    <errorMessage>You must enter a &apos;Current Unit Close Date&apos; before the deal can progress to the &apos;Advanced negotiation&apos; or subsequent stages</errorMessage>
+</ValidationRule>

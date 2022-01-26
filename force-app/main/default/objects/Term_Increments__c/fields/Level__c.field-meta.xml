@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Level__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Enter the level or threshold for these terms values, each year of the lease must have 1 and only 1 Level 0, Levels 1 to 5 are used when threshholds for invoking different turnover rent percentages</inlineHelpText>
+    <label>Level</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>L0</fullName>
+                <default>true</default>
+                <label>L0</label>
+            </value>
+            <value>
+                <fullName>L1</fullName>
+                <default>false</default>
+                <label>L1</label>
+            </value>
+            <value>
+                <fullName>L2</fullName>
+                <default>false</default>
+                <label>L2</label>
+            </value>
+            <value>
+                <fullName>L3</fullName>
+                <default>false</default>
+                <label>L3</label>
+            </value>
+            <value>
+                <fullName>L4</fullName>
+                <default>false</default>
+                <label>L4</label>
+            </value>
+            <value>
+                <fullName>L5</fullName>
+                <default>false</default>
+                <label>L5</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

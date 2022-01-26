@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>My_Village_Activity__c</fullName>
+    <externalId>false</externalId>
+    <formula>OR(Marketing_Campaign_Village__c =  TEXT($User.Village__c ), $User.Central_Initiative__c = true)</formula>
+    <label>My Village Activity</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

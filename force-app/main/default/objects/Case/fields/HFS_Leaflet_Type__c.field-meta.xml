@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>HFS_Leaflet_Type__c</fullName>
+    <externalId>false</externalId>
+    <label>HFS Leaflet Type</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Non-Privilege Guest</fullName>
+                <default>false</default>
+                <label>Non-Privilege Guest</label>
+            </value>
+            <value>
+                <fullName>Privilege Guest</fullName>
+                <default>false</default>
+                <label>Privilege Guest</label>
+            </value>
+            <value>
+                <fullName>leafletCode</fullName>
+                <default>true</default>
+                <label>Leaflet with DM Code</label>
+            </value>
+            <value>
+                <fullName>privilegeCode</fullName>
+                <default>false</default>
+                <label>Privilege QR Code Scan</label>
+            </value>
+            <value>
+                <fullName>qrCode</fullName>
+                <default>false</default>
+                <label>Leaflet QR Code Scan</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,16 @@
+<template>
+	<div class="lgl-lock-screen slds-hide">
+		<div>
+			<label for="passwordInput">Introduce Your Code</label>
+			<lightning-input
+				id="passwordInput"
+				type="password"
+				label="Introduce Your Code"
+				onkeyup={handleKeyUp}
+				variant="label-hidden"
+				max-length="4"
+			>
+			</lightning-input>
+		</div>
+	</div>
+</template>

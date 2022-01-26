@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Send_Email</fullName>
+    <availability>online</availability>
+    <description>Sends email to assignee to let them know that they have segmentation approvals to manage</description>
+    <displayType>button</displayType>
+    <height>600</height>
+    <linkType>page</linkType>
+    <masterLabel>Send Email</masterLabel>
+    <openType>sidebar</openType>
+    <page>EmailSingleSegmentation</page>
+    <protected>false</protected>
+</WebLink>

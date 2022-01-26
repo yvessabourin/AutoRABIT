@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>My_Village_Presences</fullName>
+    <columns>NAME</columns>
+    <columns>Status__c</columns>
+    <columns>Unit__c</columns>
+    <columns>Retail_Manager__c</columns>
+    <columns>Marketing_Manager__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>My_Village_Presence__c</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <label>My Village Presences</label>
+    <language>en_US</language>
+</ListView>

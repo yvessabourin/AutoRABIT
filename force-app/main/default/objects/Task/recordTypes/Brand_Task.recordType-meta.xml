@@ -1,0 +1,903 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Brand_Task</fullName>
+    <active>true</active>
+    <description>Tasks related to Brand activities</description>
+    <label>Brand Task</label>
+    <picklistValues>
+        <picklist>Event_Department__c</picklist>
+        <values>
+            <fullName>Combined Retail %26 Leasing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Leasing%2FCommercialisation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Marketing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Retail</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Event_Status__c</picklist>
+        <values>
+            <fullName>Meeting Completed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Meeting Confirmed</fullName>
+            <default>true</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>PI_Type__c</picklist>
+        <values>
+            <fullName>Call</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Consultation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Email</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Meeting</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SMS</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Priority</picklist>
+        <values>
+            <fullName>High</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Low</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Normal</fullName>
+            <default>true</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Reason__c</picklist>
+        <values>
+            <fullName>30%2F60%2F90 Day Plan</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Introduction to VR</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Marketing meeting</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Performance Review - Group</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Performance Review - Village</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Remerchandising - Group</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Remerchandising - Village</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Remerchandising_Activity__c</picklist>
+        <values>
+            <fullName>Amendment</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Downsize</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Follow Up Action</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>New Contract</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pop Up</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Rebrand</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Relocation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Renewal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Shop Refit</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Termination</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Upsize</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Status</picklist>
+        <values>
+            <fullName>Completed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Deferred</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>In Progress</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Not Started</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Waiting on someone else</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Subject</picklist>
+        <values>
+            <fullName>Call</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Finalise Audience List</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Follow up on new Lead</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Review Contract for Account</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Send Letter</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>VIP invite Request for%2E%2E%2E%2E</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Type</picklist>
+        <values>
+            <fullName>Call</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Contract Review</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Follow up Call</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Meeting</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Set a new meeting</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>VIP Invite Request</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>VR_Materials_Given_To_Brand__c</picklist>
+        <values>
+            <fullName>Brand Presentation - Bicester</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Brand Presentation - Fidenza</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Brand Presentation - GRS</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Brand Presentation - Group</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Brand Presentation - Ingolstadt</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Brand Presentation - Kildare</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Brand Presentation - La Roca</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Brand Presentation - La Vallée</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Brand Presentation - Las Rozas</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Brand Presentation - Maasmechelen</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Brand Presentation - Suzhou</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Brand Presentation - Wertheim</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Chic Buzz Magazine</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Chic Guide to Europe</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Commercialisation Brochure</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Concepts in store Design</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Convincing Evidence</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Lease Book</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Marketing Campaign Presentation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Press Articles</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>VR China Pricing Arguments</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Village One Pager - Bicester</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Village One Pager - Fidenza</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Village One Pager - Ingolstadt</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Village One Pager - Kildare</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Village One Pager - La Roca</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Village One Pager - La Vallée</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Village One Pager - Las Rozas</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Village One Pager - Maasmechelen</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Village One Pager - Suzhou</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Village One Pager - Wertheim</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Village_Activities__c</picklist>
+        <values>
+            <fullName>Bicester - Amendment</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Bicester - Downsize</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Bicester - Follow Up Action</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Bicester - New Contract</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Bicester - Pop Up</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Bicester - Rebrand</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Bicester - Relocation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Bicester - Renewal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Bicester - Shop Refit</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Bicester - Termination</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Bicester - Upsize</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fidenza - Amendment</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fidenza - Downsize</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fidenza - Follow Up Action</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fidenza - New Contract</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fidenza - Pop Up</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fidenza - Rebrand</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fidenza - Relocation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fidenza - Renewal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fidenza - Shop Refit</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fidenza - Termination</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fidenza - Upsize</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Ingolstadt - Amendment</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Ingolstadt - Downsize</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Ingolstadt - Follow Up Action</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Ingolstadt - New Contract</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Ingolstadt - Pop Up</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Ingolstadt - Rebrand</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Ingolstadt - Relocation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Ingolstadt - Renewal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Ingolstadt - Shop Refit</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Ingolstadt - Termination</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Ingolstadt - Upsize</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Kildare - Amendment</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Kildare - Downsize</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Kildare - Follow Up Action</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Kildare - New Contract</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Kildare - Pop Up</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Kildare - Rebrand</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Kildare - Relocation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Kildare - Renewal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Kildare - Shop Refit</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Kildare - Termination</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Kildare - Upsize</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>La Roca - Amendment</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>La Roca - Downsize</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>La Roca - Follow Up Action</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>La Roca - New Contract</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>La Roca - Pop Up</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>La Roca - Rebrand</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>La Roca - Relocation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>La Roca - Renewal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>La Roca - Shop Refit</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>La Roca - Termination</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>La Roca - Upsize</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>La Vallée - Amendment</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>La Vallée - Downsize</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>La Vallée - Follow Up Action</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>La Vallée - New Contract</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>La Vallée - Pop Up</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>La Vallée - Rebrand</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>La Vallée - Relocation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>La Vallée - Renewal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>La Vallée - Shop Refit</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>La Vallée - Termination</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>La Vallée - Upsize</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Las Rozas - Amendment</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Las Rozas - Downsize</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Las Rozas - Follow Up Action</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Las Rozas - New Contract</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Las Rozas - Pop Up</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Las Rozas - Rebrand</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Las Rozas - Relocation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Las Rozas - Renewal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Las Rozas - Shop Refit</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Las Rozas - Termination</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Las Rozas - Upsize</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Maasmechelen - Amendment</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Maasmechelen - Downsize</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Maasmechelen - Follow Up Action</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Maasmechelen - New Contract</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Maasmechelen - Pop Up</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Maasmechelen - Rebrand</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Maasmechelen - Relocation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Maasmechelen - Renewal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Maasmechelen - Shop Refit</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Maasmechelen - Termination</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Maasmechelen - Upsize</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Shanghai - Amendment</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Shanghai - Downsize</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Shanghai - Follow Up Action</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Shanghai - New Contract</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Shanghai - Pop Up</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Shanghai - Rebrand</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Shanghai - Relocation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Shanghai - Renewal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Shanghai - Shop Refit</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Shanghai - Termination</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Shanghai - Upsize</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Suzhou - Amendment</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Suzhou - Downsize</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Suzhou - Follow Up Action</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Suzhou - New Contract</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Suzhou - Pop Up</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Suzhou - Rebrand</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Suzhou - Relocation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Suzhou - Renewal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Suzhou - Shop Refit</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Suzhou - Termination</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Suzhou - Upsize</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Wertheim - Amendment</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Wertheim - Downsize</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Wertheim - Follow Up Action</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Wertheim - New Contract</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Wertheim - Pop Up</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Wertheim - Rebrand</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Wertheim - Relocation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Wertheim - Renewal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Wertheim - Shop Refit</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Wertheim - Termination</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Wertheim - Upsize</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Villages_Discussed__c</picklist>
+        <values>
+            <fullName>Bicester</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fidenza</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Ingolstadt</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Kildare</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>La Roca</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>La Vallée</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Las Rozas</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Maasmechelen</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Shanghai</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Suzhou</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Wertheim</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

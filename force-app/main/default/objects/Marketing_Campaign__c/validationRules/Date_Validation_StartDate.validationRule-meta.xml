@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Date_Validation_StartDate</fullName>
+    <active>true</active>
+    <description>Date_Validation_StartDate</description>
+    <errorConditionFormula>Start_Date__c &lt;
+
+ ADDMONTHS(Parent_Marketing_Campaign__r.Start_Date__c,-6)</errorConditionFormula>
+    <errorMessage>The Start Date can be only 6 MONTHS LESS than the associated Parent Marketing Campaign Start Date.</errorMessage>
+</ValidationRule>

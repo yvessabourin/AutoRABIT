@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help>Questa è la somma delle vendite nette totali e del valore netto totale degli sconti per il giorno</help>
+    <label>Importo riportato dalla boutique</label>
+    <name>Brand_Reported_Amount__c</name>
+</CustomFieldTranslation>

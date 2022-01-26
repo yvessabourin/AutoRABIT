@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Remerch_Tier_4__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Tick to identify Tier 4* Brands</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Tick to identify Tier 4* Brands</inlineHelpText>
+    <label>Remerch Tier 4*</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

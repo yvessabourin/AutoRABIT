@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Cannot_set_Daily_Sales_if_Not_Trading</fullName>
+    <active>true</active>
+    <description>Daily Sales flag can only be set for Brands that are trading</description>
+    <errorConditionFormula>AND( NOT(ISPICKVAL(Status__c, &apos;Trading&apos;)),  Daily_Sales_Active__c = True,  PRIORVALUE(Daily_Sales_Active__c) = False )</errorConditionFormula>
+    <errorDisplayField>Daily_Sales_Active__c</errorDisplayField>
+    <errorMessage>Daily Sales can only be activated for Village presence with a Trading status.</errorMessage>
+</ValidationRule>

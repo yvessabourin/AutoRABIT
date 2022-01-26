@@ -1,0 +1,28 @@
+:host {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+	color: #333;
+}
+
+label {
+	color: rgb(107, 109, 112);
+}
+
+select {
+	display: block;
+	width: 100%;
+	padding: 5px 5px;
+	outline: none;
+	border-radius: 3px;
+}
+
+option:first-child {
+	font-weight: bold;
+}
+
+.slds-has-error>select {
+	border-color: rgb(194, 57, 52);
+}
+
+.slds-form-element__help {
+	font-size: 12px;
+}

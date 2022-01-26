@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Reset_to_Brand_Settings</fullName>
+    <availability>online</availability>
+    <description>Overwrites the Deal segmentation data with values from the parent Brand record.</description>
+    <displayType>button</displayType>
+    <linkType>javascript</linkType>
+    <masterLabel>Reset Segmentation to Brand Settings</masterLabel>
+    <openType>onClickJavaScript</openType>
+    <protected>false</protected>
+    <url>{!REQUIRESCRIPT(&quot;/soap/ajax/10.0/connection.js&quot;)}
+{!REQUIRESCRIPT(&quot;/soap/ajax/10.0/apex.js&quot;)}
+
+var result = sforce.connection.query(&quot;Select Id from Opportunity Where Id = &apos;{!Opportunity.Id}&apos;&quot;);
+var records = result.getArray(&quot;records&quot;);
+var idList = [];
+
+// Put Id into a list so can reuse same Apex class used by Opportunity trigger
+for (var i=0; i&lt;records.length; i++){
+    idList.push(records[i].Id);
+}
+
+var returnVal = sforce.apex.execute(
+&quot;OpportunitySegmentSynch&quot;, //class name 
+&quot;syncSegmentationData&quot;, //method name 
+{oppIdList:idList, overwriteIfNotBlank:&apos;true&apos;}); //parameters
+
+if (returnVal.length &gt; 1){
+    alert(returnVal);
+}
+window.location.reload();</url>
+</WebLink>

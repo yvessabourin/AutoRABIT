@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Customer_Service__c</fullName>
+    <externalId>false</externalId>
+    <label>Customer Service</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Efficient</fullName>
+                <default>false</default>
+                <label>Efficient</label>
+            </value>
+            <value>
+                <fullName>Spoke Various Languages</fullName>
+                <default>false</default>
+                <label>Spoke Various Languages</label>
+            </value>
+            <value>
+                <fullName>Understood My Concerns</fullName>
+                <default>false</default>
+                <label>Understood My Concerns</label>
+            </value>
+            <value>
+                <fullName>Resolved My Concerns</fullName>
+                <default>false</default>
+                <label>Resolved My Concerns</label>
+            </value>
+            <value>
+                <fullName>Accessible</fullName>
+                <default>false</default>
+                <label>Accessible</label>
+            </value>
+            <value>
+                <fullName>Welcoming</fullName>
+                <default>false</default>
+                <label>Welcoming</label>
+            </value>
+            <value>
+                <fullName>Helpful</fullName>
+                <default>false</default>
+                <label>Helpful</label>
+            </value>
+            <value>
+                <fullName>Encouraged To Purchase</fullName>
+                <default>false</default>
+                <label>Encouraged To Purchase</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>5</visibleLines>
+</CustomField>

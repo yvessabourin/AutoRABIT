@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help>Inserire l&apos;importo delle vendite dei Current Season Bestseller. Questo è un prodotto full price della collezione della stagione in corso. Se non ci sono state vendite full price durante il giorno inserire 0.</help>
+    <label>Vendite Current Season Bestsellers</label>
+    <name>Full_Price_Sales__c</name>
+</CustomFieldTranslation>

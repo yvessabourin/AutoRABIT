@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Platform Event to get interaction with CONIQ in way to track all purchase and bags from the Brand.</description>
+    <eventType>StandardVolume</eventType>
+    <label>Tracked Bag</label>
+    <pluralLabel>Tracked Bags</pluralLabel>
+    <publishBehavior>PublishImmediately</publishBehavior>
+</CustomObject>

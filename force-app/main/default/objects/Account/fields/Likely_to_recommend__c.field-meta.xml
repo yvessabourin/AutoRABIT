@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Likely_to_recommend__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Is the guest likely to recommend the village to others</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Is the guest likely to recommend the village to others?</inlineHelpText>
+    <label>Likely to recommend</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

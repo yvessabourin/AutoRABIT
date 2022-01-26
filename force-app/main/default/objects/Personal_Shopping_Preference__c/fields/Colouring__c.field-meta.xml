@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Colouring__c</fullName>
+    <description>The guests colouring</description>
+    <externalId>false</externalId>
+    <inlineHelpText>The guests colouring</inlineHelpText>
+    <label>Colouring</label>
+    <length>255</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Associated_Deal__c</fullName>
+    <description>Returns true if any of the specified fields match the current user</description>
+    <externalId>false</externalId>
+    <formula>OR(
+   Lead_Negotiator_for_VR__c = $User.Id, 
+   OwnerId = $User.Id, 
+   Account.EU_Brand_Captain__c= $User.Id, 
+   Account.China_Brand_Captain__c= $User.Id, 
+   Account.GRS_Captain__c= $User.Id, 
+   Account.Brand_Advocate__c= $User.Id
+)</formula>
+    <label>Associated Deal</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

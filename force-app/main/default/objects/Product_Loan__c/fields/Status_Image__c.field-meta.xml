@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Status_Image__c</fullName>
+    <externalId>false</externalId>
+    <formula>CASE(Status__c, 
+&quot;Request for collection&quot;, IMAGE(&quot;/resource/RedTrafficLight&quot;, &quot;red&quot;, 30, 15), 
+&quot;Collected and signed for&quot;, IMAGE(&quot;/resource/YellowTrafficLight&quot;, &quot;yellow&quot;, 30, 15), 
+&quot;Returned but damaged&quot;, IMAGE(&quot;/resource/YellowTrafficLight&quot;, &quot;yellow&quot;, 30, 15), 
+&quot;Returned and signed&quot;, IMAGE(&quot;/resource/YellowTrafficLight&quot;, &quot;yellow&quot;, 30, 15), 
+&quot;Complete&quot;, IMAGE(&quot;/resource/GreenTrafficLight&quot;, &quot;green&quot;, 30, 15),IMAGE(&quot;/resource/GreenTrafficLight&quot;, &quot;green&quot;, 30, 15))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Status Image</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

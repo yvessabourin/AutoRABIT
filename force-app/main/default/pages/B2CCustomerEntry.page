@@ -1,0 +1,48 @@
+<apex:page standardController="b2c_customer__c" extensions="B2CCustomerEntryController" showHeader="true" sidebar="true" >
+<apex:pageMessages id="pgMsgs" escape="false" />   
+    <apex:form >
+        <apex:pageBlock title="New Customer" mode="edit">
+            <apex:pageBlockButtons >
+                <apex:commandButton action="{!saveRecord}" value="Save" reRender="pgMsgs"/>
+                <apex:commandButton action="{!cancel}" value="Cancel" immediate="true"/>
+            </apex:pageBlockButtons>
+            <apex:pageBlockSection title="Contact Details" columns="1">
+                <apex:inputField value="{!b2c_customer__c.salutation__c}"/>
+                <apex:inputField value="{!b2c_customer__c.firstName__c}"/>
+                <apex:inputField value="{!b2c_customer__c.lastName__c}"/>
+                <apex:inputField value="{!b2c_customer__c.email__c}" required="true"/>
+                <apex:inputField value="{!b2c_customer__c.dateOfBirth__c}"/>
+                <apex:inputField value="{!b2c_customer__c.gender__c}"/>
+                <apex:inputField value="{!b2c_customer__c.mobile__c}"/>
+                <apex:inputField value="{!b2c_customer__c.nationality__c}"/>
+                <apex:inputField value="{!b2c_customer__c.preferredLanguage__c}" required="true"/>
+                <apex:inputField value="{!b2c_customer__c.primaryVillage__c}" required="true"/>
+                <apex:inputhidden value="{!b2c_customer__c.name}"/>
+                
+            </apex:pageBlockSection>
+            <apex:pageBlockSection title="Address" columns="1">
+                <apex:inputField value="{!b2c_customer__c.address1__c}"/>
+                <apex:inputField value="{!b2c_customer__c.address2__c}"/>
+                <apex:inputField value="{!b2c_customer__c.city__c}"/>
+                <apex:inputField value="{!b2c_customer__c.county__c}"/>
+                <apex:inputField value="{!b2c_customer__c.postcode__c}"/>                
+                <apex:inputField value="{!b2c_customer__c.country__c}"/>
+                <apex:inputField value="{!b2c_customer__c.countryInEnglish__c}"/>
+
+            </apex:pageBlockSection>
+            <apex:pageBlockSection title="Preferences" columns="1">
+                <apex:inputField value="{!b2c_customer__c.optInEmail__c}"/>
+                <apex:inputField value="{!b2c_customer__c.optInMobile__c}"/>
+                <apex:inputField value="{!b2c_customer__c.optInPostal__c}"/>
+               <!-- <apex:inputField value="{!b2c_customer__c.optInPrivacyAgreement__c}"/> -->
+                <apex:inputField value="{!b2c_customer__c.optInProfiling__c}"/>                
+                <apex:inputField value="{!b2c_customer__c.optInThirdParty__c}"/>
+                
+                <apex:inputField value="{!b2c_customer__c.villagesOfInterest__c}"/>
+            </apex:pageBlockSection>            
+        </apex:pageBlock>
+ 
+    
+    </apex:form>
+    
+</apex:page>

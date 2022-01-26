@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Email used to warn VR Finance that a certification had been submitted</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Submit Certification Template</name>
+    <style>none</style>
+    <subject>certificationBatchName Ready for Review</subject>
+    <textOnly>Dear Finance,
+
+There is a Sales Certification Batch CertificationBatchName for period certificationPeriodFrom to certificationPeriodTo in Salesforce ready for you to review.
+
+Please click here to review the Sales Certification record website_here
+
+Many thanks
+
+Salesforce Team</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

@@ -1,0 +1,42 @@
+<aura:component controller="MultipleParticipatingBrandsController" implements="flexipage:availableForAllPageTypes,force:lightningQuickAction,lightning:isUrlAddressable,force:hasRecordId" access="global" >
+    
+    <aura:attribute name="marketingActivityName" type="String" />
+    <aura:attribute name="recId" type="String" />
+    
+    <aura:attribute name="isLoading" type="Boolean" default="false"/>
+    <aura:attribute name="isSaving" type="Boolean" default="false"/>
+
+    <aura:attribute name="data" type="Object" />
+    <aura:attribute name="columns" type="List" />
+    <aura:attribute name="selectedRows" type="List" default="[]"/>
+    <aura:attribute name="selectedRowsId" type="List" default="[]"/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    
+    <div style="background: #fff;">
+        <div class="slds-theme_shade slds-text-heading_small slds-p-around_medium">
+            <h2 class="">Bulk add/remove Brands to <strong>{!v.marketingActivityName}</strong></h2>
+        </div>
+        <lightning:card>
+            <aura:if isTrue="{!v.isLoading}">
+                <lightning:spinner alternativeText="Loading.." variant="brand"/>
+                
+                <aura:set attribute="else">
+                    <div class="slds-p-around_medium">
+                        <aura:if isTrue="{!v.data.length > 0}">
+                            <div style="height: 66vh" id="datatable_container">
+                                <lightning:datatable keyField="vpId" aura:id="partBrandsTable" hideCheckboxColumn="false" wrapTextMaxLines="2"
+                                                     data="{! v.data }" columns="{! v.columns }" selectedRows="{! v.selectedRowsId }" onrowselection="{! c.handleSelected }" />
+                            </div>
+                        </aura:if>
+                    </div>
+                </aura:set>
+            </aura:if>
+            <div class="slds-modal__footer" style="padding-right: 50px; font-size: 14px;" >
+                <lightning:button variant="base" label="Cancel" title="Cancel" onclick="{! c.handleCancel }"/>
+                <lightning:button variant="brand" label="Save" title="Save" onclick="{! c.handleSave }" disabled="{!v.isSaving}"/>
+            </div>
+        </lightning:card>
+    </div>
+    
+</aura:component>

@@ -1,0 +1,15 @@
+<apex:page standardController="opportunity" sidebar="true" standardStylesheets="true" showHeader="true" docType="html-5.0" >
+
+
+
+<center>
+<p>
+<center>
+<flow:interview name="Add_Gift_to_Deal" finishLocation="{!URLFOR('/006/o')}" buttonLocation="bottom">
+ <apex:param name="Dealid" value="{!opportunity.id}"/>
+</flow:interview>
+</center>
+</p>
+</center>
+
+</apex:page>

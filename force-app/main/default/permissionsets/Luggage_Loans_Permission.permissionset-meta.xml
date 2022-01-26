@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <classAccesses>
+        <apexClass>LGL_DashController</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <customPermissions>
+        <enabled>true</enabled>
+        <name>LGL_Permission</name>
+    </customPermissions>
+    <description>Allows for the use of the Luggage &amp; Loans Application. Provides the needed Custom Permission and the access for the right Visualforces / Apex Classes</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>Luggage &amp; Loans Permission</label>
+    <pageAccesses>
+        <apexPage>LGL_Dash</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+</PermissionSet>

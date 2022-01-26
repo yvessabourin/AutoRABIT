@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CertS_Brand_Turnover_Cert_Decl_Statement__c</fullName>
+    <description>The declaration statement that is displayed on the Sales Certification PDF Report for this village</description>
+    <externalId>false</externalId>
+    <inlineHelpText>The declaration statement that is displayed on the Sales Certification PDF Report for this village</inlineHelpText>
+    <label>CertS Brand Turnover Cert Decl Statement</label>
+    <length>5000</length>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>LongTextArea</type>
+    <visibleLines>3</visibleLines>
+</CustomField>

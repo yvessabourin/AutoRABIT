@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Block_sharing_of_Empty_B2B_Meetings</fullName>
+    <active>true</active>
+    <description>Checks the content of the meeting notes before allowing a user to share and post</description>
+    <errorConditionFormula>ISBLANK( Description )
+&amp;&amp;  Share__c = true</errorConditionFormula>
+    <errorDisplayField>Share__c</errorDisplayField>
+    <errorMessage>Your “Meeting Notes and Action” section must be completed to “Share &amp; Post” this B2B meeting. Thank you</errorMessage>
+</ValidationRule>

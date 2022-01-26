@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Standard_Terms__c</fullName>
+    <description>Lease terms reach standard terms after a period time (matures), or on a threshold.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Lease terms reach standard terms after a period time (matures), or on a threshold.</inlineHelpText>
+    <label>Standard Terms</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Yes</fullName>
+                <default>false</default>
+                <label>Yes</label>
+            </value>
+            <value>
+                <fullName>No</fullName>
+                <default>false</default>
+                <label>No</label>
+            </value>
+            <value>
+                <fullName>Matures</fullName>
+                <default>false</default>
+                <label>Matures</label>
+            </value>
+            <value>
+                <fullName>Threshold</fullName>
+                <default>false</default>
+                <label>Threshold</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

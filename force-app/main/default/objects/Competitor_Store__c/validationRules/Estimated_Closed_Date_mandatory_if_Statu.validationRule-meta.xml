@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Estimated_Closed_Date_mandatory_if_Statu</fullName>
+    <active>true</active>
+    <description>Estimated_Closed_Date_mandatory_if_Store Status is Closed</description>
+    <errorConditionFormula>AND(ISPICKVAL(Store_Status__c,&quot;Closed&quot;), ISBLANK(Estimated_Closed_Date__c))</errorConditionFormula>
+    <errorMessage>If “Store Status” is closed then it&apos;s mandatory to select Estimated Closed Date.</errorMessage>
+</ValidationRule>

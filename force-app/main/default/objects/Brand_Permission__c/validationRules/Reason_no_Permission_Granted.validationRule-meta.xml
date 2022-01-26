@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Reason_no_Permission_Granted</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND( ISPICKVAL(Status__c, &apos;No Permissions Granted&apos;) ,  ISBLANK( Reason_no_Permission_Granted__c )  )</errorConditionFormula>
+    <errorDisplayField>Reason_no_Permission_Granted__c</errorDisplayField>
+    <errorMessage>Please enter a reason why no Permission has been granted.</errorMessage>
+</ValidationRule>

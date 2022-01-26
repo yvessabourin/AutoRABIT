@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Synchronise_Deal_Roles_List</fullName>
+    <availability>online</availability>
+    <displayType>massActionButton</displayType>
+    <linkType>javascript</linkType>
+    <masterLabel>Synchronise Deal Roles</masterLabel>
+    <openType>onClickJavaScript</openType>
+    <protected>false</protected>
+    <requireRowSelection>true</requireRowSelection>
+    <url>{!REQUIRESCRIPT(&quot;/soap/ajax/10.0/connection.js&quot;)} 
+{!REQUIRESCRIPT(&quot;/soap/ajax/10.0/apex.js&quot;)} 
+
+var selectedRecords = {!GETRECORDIDS( $ObjectType.Account )};
+    if(selectedRecords.length&lt;1)
+        alert(&apos;Please Select at least one Brand Record !&apos;);
+    else
+    {
+        userConsent = confirm(
+        &apos;This will synchronise the Brand Team with all associated deals for all selected Brands. Continue ? &apos;
+        );
+        if(userConsent == true)
+        {
+
+            var returnVal = sforce.apex.execute( 
+           &quot;OpportunityTeamMemberSync&quot;, //class name 
+           &quot;syncAccountRecordListPersonnel&quot;, //method name 
+           {accIdList:selectedRecords}); //parameter 
+
+           alert(returnVal); 
+           window.location.reload();
+        }
+    }</url>
+</WebLink>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Auto_Create_Tasks__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Flag to indicate whether tasks should be created automatically as a result of recording a Remerchandise Activity against a B2B Event.</description>
+    <externalId>false</externalId>
+    <label>Auto Create Tasks</label>
+    <type>Checkbox</type>
+</CustomField>

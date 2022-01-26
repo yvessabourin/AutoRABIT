@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Voucher_Code__c</fullName>
+    <caseSensitive>false</caseSensitive>
+    <description>This is the &quot;scan out&quot; code of the voucher (VIP card)</description>
+    <externalId>true</externalId>
+    <inlineHelpText>Enter the VIP card code</inlineHelpText>
+    <label>Voucher Code</label>
+    <length>55</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>true</unique>
+</CustomField>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Email used to new user with the profile Brand Marketing SP</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Brand Marketing SP Email</name>
+    <style>none</style>
+    <subject>Brand Marketing SP</subject>
+    <textOnly>Welcome to Salesforce!
+
+
+You are now set up as a Brand marketing SP user in Salesforce.
+
+
+Sarah Fellows is your key marketing support and monthly Salesforce induction sessions and also weekly Salesforce marketing training sessions on a Tuesday at 3pm.
+
+
+The marketing salesforce user guide is your first point of contact and can be found here - click here
+
+
+We hope you enjoy using Salesforce.</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

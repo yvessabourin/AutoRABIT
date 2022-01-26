@@ -1,0 +1,28 @@
+.THIS.hide {
+    display: none;
+}
+
+.THIS.show {
+    display: block;
+}
+
+/*toggleCss.css*/
+.THIS .toggle {
+   display: none;
+}
+
+.THIS tr.TOR{
+	background-color: #d6d6d6;	
+}
+
+/*this contemplates all the certifies*/
+.THIS tr.Certified{
+	background-color: #d6d6d6;	
+}
+
+.THIS .lock{
+	background-color: #d6d6d6;	
+}
+.THIS.tableWrapper{
+    overflow-x: auto;
+}

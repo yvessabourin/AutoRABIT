@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help>Introducir los datos del contador de Footfall. Si no hay contador, introducir 0.</help>
+    <label></label>
+    <name>Footfall__c</name>
+</CustomFieldTranslation>

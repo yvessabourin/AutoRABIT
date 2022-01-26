@@ -1,0 +1,931 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Product_Brand__c</fullName>
+    <externalId>false</externalId>
+    <label>Product Brand</label>
+    <required>true</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>true</sorted>
+            <value>
+                <fullName>Acne Studios</fullName>
+                <default>false</default>
+                <label>Acne Studios</label>
+            </value>
+            <value>
+                <fullName>Agent Provocateur</fullName>
+                <default>false</default>
+                <label>Agent Provocateur</label>
+            </value>
+            <value>
+                <fullName>Alexander McQueen</fullName>
+                <default>false</default>
+                <label>Alexander McQueen</label>
+            </value>
+            <value>
+                <fullName>AllSaints</fullName>
+                <default>false</default>
+                <label>AllSaints</label>
+            </value>
+            <value>
+                <fullName>Ammoura Lebanese Kitchen</fullName>
+                <default>false</default>
+                <label>Ammoura Lebanese Kitchen</label>
+            </value>
+            <value>
+                <fullName>Anastasia Beverly Hills</fullName>
+                <default>false</default>
+                <label>Anastasia Beverly Hills</label>
+            </value>
+            <value>
+                <fullName>Anne Fontaine</fullName>
+                <default>false</default>
+                <label>Anne Fontaine</label>
+            </value>
+            <value>
+                <fullName>Annoushka</fullName>
+                <default>false</default>
+                <label>Annoushka</label>
+            </value>
+            <value>
+                <fullName>Anya Hindmarch</fullName>
+                <default>false</default>
+                <label>Anya Hindmarch</label>
+            </value>
+            <value>
+                <fullName>Aquazzura</fullName>
+                <default>false</default>
+                <label>Aquazzura</label>
+            </value>
+            <value>
+                <fullName>Armani</fullName>
+                <default>false</default>
+                <label>Armani</label>
+            </value>
+            <value>
+                <fullName>ASICS</fullName>
+                <default>false</default>
+                <label>ASICS</label>
+            </value>
+            <value>
+                <fullName>Ba&amp;sh</fullName>
+                <default>false</default>
+                <label>Ba&amp;sh</label>
+            </value>
+            <value>
+                <fullName>Balenciaga</fullName>
+                <default>false</default>
+                <label>Balenciaga</label>
+            </value>
+            <value>
+                <fullName>Bally</fullName>
+                <default>false</default>
+                <label>Bally</label>
+            </value>
+            <value>
+                <fullName>Balmain</fullName>
+                <default>false</default>
+                <label>Balmain</label>
+            </value>
+            <value>
+                <fullName>Bamford</fullName>
+                <default>false</default>
+                <label>Bamford</label>
+            </value>
+            <value>
+                <fullName>Barbour</fullName>
+                <default>false</default>
+                <label>Barbour</label>
+            </value>
+            <value>
+                <fullName>Belstaff</fullName>
+                <default>false</default>
+                <label>Belstaff</label>
+            </value>
+            <value>
+                <fullName>Bonpoint</fullName>
+                <default>false</default>
+                <label>Bonpoint</label>
+            </value>
+            <value>
+                <fullName>BOSS</fullName>
+                <default>false</default>
+                <label>BOSS</label>
+            </value>
+            <value>
+                <fullName>Bottega Veneta</fullName>
+                <default>false</default>
+                <label>Bottega Veneta</label>
+            </value>
+            <value>
+                <fullName>Boucheron</fullName>
+                <default>false</default>
+                <label>Boucheron</label>
+            </value>
+            <value>
+                <fullName>Brioni</fullName>
+                <default>false</default>
+                <label>Brioni</label>
+            </value>
+            <value>
+                <fullName>Brooks Brothers</fullName>
+                <default>false</default>
+                <label>Brooks Brothers</label>
+            </value>
+            <value>
+                <fullName>Brunello Cucinelli</fullName>
+                <default>false</default>
+                <label>Brunello Cucinelli</label>
+            </value>
+            <value>
+                <fullName>Burberry</fullName>
+                <default>false</default>
+                <label>Burberry</label>
+            </value>
+            <value>
+                <fullName>Café Wolseley</fullName>
+                <default>false</default>
+                <label>Café Wolseley</label>
+            </value>
+            <value>
+                <fullName>Calvin Klein Jeans</fullName>
+                <default>false</default>
+                <label>Calvin Klein Jeans</label>
+            </value>
+            <value>
+                <fullName>Calvin Klein Underwear</fullName>
+                <default>false</default>
+                <label>Calvin Klein Underwear</label>
+            </value>
+            <value>
+                <fullName>Calvin Klein Watch + Jewelry</fullName>
+                <default>false</default>
+                <label>Calvin Klein Watch + Jewelry</label>
+            </value>
+            <value>
+                <fullName>Cashmirino</fullName>
+                <default>false</default>
+                <label>Cashmirino</label>
+            </value>
+            <value>
+                <fullName>Cath Kidston</fullName>
+                <default>false</default>
+                <label>Cath Kidston</label>
+            </value>
+            <value>
+                <fullName>Céline</fullName>
+                <default>false</default>
+                <label>Céline</label>
+            </value>
+            <value>
+                <fullName>Certina</fullName>
+                <default>false</default>
+                <label>Certina</label>
+            </value>
+            <value>
+                <fullName>Charles Tyrwhitt</fullName>
+                <default>false</default>
+                <label>Charles Tyrwhitt</label>
+            </value>
+            <value>
+                <fullName>CH Carolina Herrera</fullName>
+                <default>false</default>
+                <label>CH Carolina Herrera</label>
+            </value>
+            <value>
+                <fullName>Chloé</fullName>
+                <default>false</default>
+                <label>Chloé</label>
+            </value>
+            <value>
+                <fullName>Church&apos;s</fullName>
+                <default>false</default>
+                <label>Church&apos;s</label>
+            </value>
+            <value>
+                <fullName>Clarks</fullName>
+                <default>false</default>
+                <label>Clarks</label>
+            </value>
+            <value>
+                <fullName>Clive Christian Perfume</fullName>
+                <default>false</default>
+                <label>Clive Christian Perfume</label>
+            </value>
+            <value>
+                <fullName>Coach</fullName>
+                <default>false</default>
+                <label>Coach</label>
+            </value>
+            <value>
+                <fullName>Coccinelle</fullName>
+                <default>false</default>
+                <label>Coccinelle</label>
+            </value>
+            <value>
+                <fullName>COS</fullName>
+                <default>false</default>
+                <label>COS</label>
+            </value>
+            <value>
+                <fullName>Crêperie Angélie</fullName>
+                <default>false</default>
+                <label>Crêperie Angélie</label>
+            </value>
+            <value>
+                <fullName>Curry Leaf Cafe</fullName>
+                <default>false</default>
+                <label>Curry Leaf Cafe</label>
+            </value>
+            <value>
+                <fullName>David Clulow Sunglasses</fullName>
+                <default>false</default>
+                <label>David Clulow Sunglasses</label>
+            </value>
+            <value>
+                <fullName>DELPOZO</fullName>
+                <default>false</default>
+                <label>DELPOZO</label>
+            </value>
+            <value>
+                <fullName>Diane von Furstenberg</fullName>
+                <default>false</default>
+                <label>Diane von Furstenberg</label>
+            </value>
+            <value>
+                <fullName>DIESEL</fullName>
+                <default>false</default>
+                <label>DIESEL</label>
+            </value>
+            <value>
+                <fullName>Dior</fullName>
+                <default>false</default>
+                <label>Dior</label>
+            </value>
+            <value>
+                <fullName>DKNY</fullName>
+                <default>false</default>
+                <label>DKNY</label>
+            </value>
+            <value>
+                <fullName>Dodo Jewellery</fullName>
+                <default>false</default>
+                <label>Dodo Jewellery</label>
+            </value>
+            <value>
+                <fullName>Dolce &amp; Gabbana</fullName>
+                <default>false</default>
+                <label>Dolce &amp; Gabbana</label>
+            </value>
+            <value>
+                <fullName>Dsquared2</fullName>
+                <default>false</default>
+                <label>Dsquared2</label>
+            </value>
+            <value>
+                <fullName>dunhill</fullName>
+                <default>false</default>
+                <label>dunhill</label>
+            </value>
+            <value>
+                <fullName>Emma Bridgewater</fullName>
+                <default>false</default>
+                <label>Emma Bridgewater</label>
+            </value>
+            <value>
+                <fullName>Ermenegildo Zegna</fullName>
+                <default>false</default>
+                <label>Ermenegildo Zegna</label>
+            </value>
+            <value>
+                <fullName>Escada</fullName>
+                <default>false</default>
+                <label>Escada</label>
+            </value>
+            <value>
+                <fullName>farmshop restaurant &amp; cafe</fullName>
+                <default>false</default>
+                <label>farmshop restaurant &amp; cafe</label>
+            </value>
+            <value>
+                <fullName>Fendi</fullName>
+                <default>false</default>
+                <label>Fendi</label>
+            </value>
+            <value>
+                <fullName>Fossil</fullName>
+                <default>false</default>
+                <label>Fossil</label>
+            </value>
+            <value>
+                <fullName>Furla</fullName>
+                <default>false</default>
+                <label>Furla</label>
+            </value>
+            <value>
+                <fullName>Gina</fullName>
+                <default>false</default>
+                <label>Gina</label>
+            </value>
+            <value>
+                <fullName>Girard-Perregaux</fullName>
+                <default>false</default>
+                <label>Girard-Perregaux</label>
+            </value>
+            <value>
+                <fullName>Giuseppe Zanotti</fullName>
+                <default>false</default>
+                <label>Giuseppe Zanotti</label>
+            </value>
+            <value>
+                <fullName>Givenchy</fullName>
+                <default>false</default>
+                <label>Givenchy</label>
+            </value>
+            <value>
+                <fullName>Golden Goose Deluxe Brand</fullName>
+                <default>false</default>
+                <label>Golden Goose Deluxe Brand</label>
+            </value>
+            <value>
+                <fullName>Gucci</fullName>
+                <default>false</default>
+                <label>Gucci</label>
+            </value>
+            <value>
+                <fullName>Gucci Timepieces</fullName>
+                <default>false</default>
+                <label>Gucci Timepieces</label>
+            </value>
+            <value>
+                <fullName>Hackett</fullName>
+                <default>false</default>
+                <label>Hackett</label>
+            </value>
+            <value>
+                <fullName>Halcyon Days</fullName>
+                <default>false</default>
+                <label>Halcyon Days</label>
+            </value>
+            <value>
+                <fullName>Hamilton</fullName>
+                <default>false</default>
+                <label>Hamilton</label>
+            </value>
+            <value>
+                <fullName>Holland Cooper</fullName>
+                <default>false</default>
+                <label>Holland Cooper</label>
+            </value>
+            <value>
+                <fullName>Hour Passion</fullName>
+                <default>false</default>
+                <label>Hour Passion</label>
+            </value>
+            <value>
+                <fullName>HUGO</fullName>
+                <default>false</default>
+                <label>HUGO</label>
+            </value>
+            <value>
+                <fullName>Hunter</fullName>
+                <default>false</default>
+                <label>Hunter</label>
+            </value>
+            <value>
+                <fullName>itsu</fullName>
+                <default>false</default>
+                <label>itsu</label>
+            </value>
+            <value>
+                <fullName>Jack Wills</fullName>
+                <default>false</default>
+                <label>Jack Wills</label>
+            </value>
+            <value>
+                <fullName>Jimmy Choo</fullName>
+                <default>false</default>
+                <label>Jimmy Choo</label>
+            </value>
+            <value>
+                <fullName>Juicy Couture</fullName>
+                <default>false</default>
+                <label>Juicy Couture</label>
+            </value>
+            <value>
+                <fullName>Karen Millen</fullName>
+                <default>false</default>
+                <label>Karen Millen</label>
+            </value>
+            <value>
+                <fullName>Kate Spade New York</fullName>
+                <default>false</default>
+                <label>Kate Spade New York</label>
+            </value>
+            <value>
+                <fullName>KENZO</fullName>
+                <default>false</default>
+                <label>KENZO</label>
+            </value>
+            <value>
+                <fullName>L.K.Bennett</fullName>
+                <default>false</default>
+                <label>L.K.Bennett</label>
+            </value>
+            <value>
+                <fullName>L&apos;Occitane en Provence</fullName>
+                <default>false</default>
+                <label>L&apos;Occitane en Provence</label>
+            </value>
+            <value>
+                <fullName>Lacoste</fullName>
+                <default>false</default>
+                <label>Lacoste</label>
+            </value>
+            <value>
+                <fullName>Lalique</fullName>
+                <default>false</default>
+                <label>Lalique</label>
+            </value>
+            <value>
+                <fullName>Le Creuset</fullName>
+                <default>false</default>
+                <label>Le Creuset</label>
+            </value>
+            <value>
+                <fullName>Le Pain Quotidien</fullName>
+                <default>false</default>
+                <label>Le Pain Quotidien</label>
+            </value>
+            <value>
+                <fullName>Levi&apos;s®</fullName>
+                <default>false</default>
+                <label>Levi&apos;s®</label>
+            </value>
+            <value>
+                <fullName>Linda Farrow</fullName>
+                <default>false</default>
+                <label>Linda Farrow</label>
+            </value>
+            <value>
+                <fullName>Links of London</fullName>
+                <default>false</default>
+                <label>Links of London</label>
+            </value>
+            <value>
+                <fullName>Loewe</fullName>
+                <default>false</default>
+                <label>Loewe</label>
+            </value>
+            <value>
+                <fullName>Longchamp</fullName>
+                <default>false</default>
+                <label>Longchamp</label>
+            </value>
+            <value>
+                <fullName>Longines</fullName>
+                <default>false</default>
+                <label>Longines</label>
+            </value>
+            <value>
+                <fullName>Loro Piana</fullName>
+                <default>false</default>
+                <label>Loro Piana</label>
+            </value>
+            <value>
+                <fullName>Lululemon</fullName>
+                <default>false</default>
+                <label>Lululemon</label>
+            </value>
+            <value>
+                <fullName>Maitre Choux</fullName>
+                <default>false</default>
+                <label>Maitre Choux</label>
+            </value>
+            <value>
+                <fullName>Maje</fullName>
+                <default>false</default>
+                <label>Maje</label>
+            </value>
+            <value>
+                <fullName>Marni</fullName>
+                <default>false</default>
+                <label>Marni</label>
+            </value>
+            <value>
+                <fullName>Max Mara</fullName>
+                <default>false</default>
+                <label>Max Mara</label>
+            </value>
+            <value>
+                <fullName>MCM</fullName>
+                <default>false</default>
+                <label>MCM</label>
+            </value>
+            <value>
+                <fullName>Michael Kors</fullName>
+                <default>false</default>
+                <label>Michael Kors</label>
+            </value>
+            <value>
+                <fullName>Mido</fullName>
+                <default>false</default>
+                <label>Mido</label>
+            </value>
+            <value>
+                <fullName>Missoni</fullName>
+                <default>false</default>
+                <label>Missoni</label>
+            </value>
+            <value>
+                <fullName>Molton Brown</fullName>
+                <default>false</default>
+                <label>Molton Brown</label>
+            </value>
+            <value>
+                <fullName>Moncler</fullName>
+                <default>false</default>
+                <label>Moncler</label>
+            </value>
+            <value>
+                <fullName>Monica Vinader</fullName>
+                <default>false</default>
+                <label>Monica Vinader</label>
+            </value>
+            <value>
+                <fullName>Monnalisa</fullName>
+                <default>false</default>
+                <label>Monnalisa</label>
+            </value>
+            <value>
+                <fullName>Montblanc</fullName>
+                <default>false</default>
+                <label>Montblanc</label>
+            </value>
+            <value>
+                <fullName>Mulberry</fullName>
+                <default>false</default>
+                <label>Mulberry</label>
+            </value>
+            <value>
+                <fullName>N.Peal</fullName>
+                <default>false</default>
+                <label>N.Peal</label>
+            </value>
+            <value>
+                <fullName>New Balance</fullName>
+                <default>false</default>
+                <label>New Balance</label>
+            </value>
+            <value>
+                <fullName>Oliphant&apos;s</fullName>
+                <default>false</default>
+                <label>Oliphant&apos;s</label>
+            </value>
+            <value>
+                <fullName>Orlebar Brown</fullName>
+                <default>false</default>
+                <label>Orlebar Brown</label>
+            </value>
+            <value>
+                <fullName>Oscar de la Renta</fullName>
+                <default>false</default>
+                <label>Oscar de la Renta</label>
+            </value>
+            <value>
+                <fullName>Pandora</fullName>
+                <default>false</default>
+                <label>Pandora</label>
+            </value>
+            <value>
+                <fullName>Pan-n-ice</fullName>
+                <default>false</default>
+                <label>Pan-n-ice</label>
+            </value>
+            <value>
+                <fullName>Paul Smith</fullName>
+                <default>false</default>
+                <label>Paul Smith</label>
+            </value>
+            <value>
+                <fullName>Penhaligon&apos;s</fullName>
+                <default>false</default>
+                <label>Penhaligon&apos;s</label>
+            </value>
+            <value>
+                <fullName>Philipp Plein</fullName>
+                <default>false</default>
+                <label>Philipp Plein</label>
+            </value>
+            <value>
+                <fullName>Pierre Marcolini</fullName>
+                <default>false</default>
+                <label>Pierre Marcolini</label>
+            </value>
+            <value>
+                <fullName>Polo Ralph Lauren Children</fullName>
+                <default>false</default>
+                <label>Polo Ralph Lauren Children</label>
+            </value>
+            <value>
+                <fullName>Polo Ralph Lauren Men and Women</fullName>
+                <default>false</default>
+                <label>Polo Ralph Lauren Men and Women</label>
+            </value>
+            <value>
+                <fullName>Pomellato</fullName>
+                <default>false</default>
+                <label>Pomellato</label>
+            </value>
+            <value>
+                <fullName>POPS</fullName>
+                <default>false</default>
+                <label>POPS</label>
+            </value>
+            <value>
+                <fullName>Prada</fullName>
+                <default>false</default>
+                <label>Prada</label>
+            </value>
+            <value>
+                <fullName>Pret a Manger</fullName>
+                <default>false</default>
+                <label>Pret a Manger</label>
+            </value>
+            <value>
+                <fullName>Qeelin</fullName>
+                <default>false</default>
+                <label>Qeelin</label>
+            </value>
+            <value>
+                <fullName>Radley</fullName>
+                <default>false</default>
+                <label>Radley</label>
+            </value>
+            <value>
+                <fullName>Rado</fullName>
+                <default>false</default>
+                <label>Rado</label>
+            </value>
+            <value>
+                <fullName>Rapha</fullName>
+                <default>false</default>
+                <label>Rapha</label>
+            </value>
+            <value>
+                <fullName>Rapha&apos;s café</fullName>
+                <default>false</default>
+                <label>Rapha&apos;s café</label>
+            </value>
+            <value>
+                <fullName>Reiss</fullName>
+                <default>false</default>
+                <label>Reiss</label>
+            </value>
+            <value>
+                <fullName>Rituals</fullName>
+                <default>false</default>
+                <label>Rituals</label>
+            </value>
+            <value>
+                <fullName>Roger Vivier</fullName>
+                <default>false</default>
+                <label>Roger Vivier</label>
+            </value>
+            <value>
+                <fullName>Rupert Sanderson</fullName>
+                <default>false</default>
+                <label>Rupert Sanderson</label>
+            </value>
+            <value>
+                <fullName>Saint Laurent</fullName>
+                <default>false</default>
+                <label>Saint Laurent</label>
+            </value>
+            <value>
+                <fullName>Salvatore Ferragamo</fullName>
+                <default>false</default>
+                <label>Salvatore Ferragamo</label>
+            </value>
+            <value>
+                <fullName>Samsonite</fullName>
+                <default>false</default>
+                <label>Samsonite</label>
+            </value>
+            <value>
+                <fullName>Sandro</fullName>
+                <default>false</default>
+                <label>Sandro</label>
+            </value>
+            <value>
+                <fullName>Savoy Taylors Guild</fullName>
+                <default>false</default>
+                <label>Savoy Taylors Guild</label>
+            </value>
+            <value>
+                <fullName>Sergio Rossi</fullName>
+                <default>false</default>
+                <label>Sergio Rossi</label>
+            </value>
+            <value>
+                <fullName>Shan Shui</fullName>
+                <default>false</default>
+                <label>Shan Shui</label>
+            </value>
+            <value>
+                <fullName>Simply Noodles</fullName>
+                <default>false</default>
+                <label>Simply Noodles</label>
+            </value>
+            <value>
+                <fullName>Smythson</fullName>
+                <default>false</default>
+                <label>Smythson</label>
+            </value>
+            <value>
+                <fullName>Stella McCartney</fullName>
+                <default>false</default>
+                <label>Stella McCartney</label>
+            </value>
+            <value>
+                <fullName>Stuart Weitzman</fullName>
+                <default>false</default>
+                <label>Stuart Weitzman</label>
+            </value>
+            <value>
+                <fullName>Superdry</fullName>
+                <default>false</default>
+                <label>Superdry</label>
+            </value>
+            <value>
+                <fullName>Swarovski</fullName>
+                <default>false</default>
+                <label>Swarovski</label>
+            </value>
+            <value>
+                <fullName>Swatch</fullName>
+                <default>false</default>
+                <label>Swatch</label>
+            </value>
+            <value>
+                <fullName>TAG Heuer</fullName>
+                <default>false</default>
+                <label>TAG Heuer</label>
+            </value>
+            <value>
+                <fullName>Ted Baker</fullName>
+                <default>false</default>
+                <label>Ted Baker</label>
+            </value>
+            <value>
+                <fullName>Temperley London</fullName>
+                <default>false</default>
+                <label>Temperley London</label>
+            </value>
+            <value>
+                <fullName>The Cambridge Satchel Company</fullName>
+                <default>false</default>
+                <label>The Cambridge Satchel Company</label>
+            </value>
+            <value>
+                <fullName>The Cosmetics Company Store</fullName>
+                <default>false</default>
+                <label>The Cosmetics Company Store</label>
+            </value>
+            <value>
+                <fullName>The Kooples</fullName>
+                <default>false</default>
+                <label>The Kooples</label>
+            </value>
+            <value>
+                <fullName>The North Face®</fullName>
+                <default>false</default>
+                <label>The North Face®</label>
+            </value>
+            <value>
+                <fullName>The White Company</fullName>
+                <default>false</default>
+                <label>The White Company</label>
+            </value>
+            <value>
+                <fullName>The Wolseley Shop</fullName>
+                <default>false</default>
+                <label>The Wolseley Shop</label>
+            </value>
+            <value>
+                <fullName>Timberland</fullName>
+                <default>false</default>
+                <label>Timberland</label>
+            </value>
+            <value>
+                <fullName>Time &amp; Gems</fullName>
+                <default>false</default>
+                <label>Time &amp; Gems</label>
+            </value>
+            <value>
+                <fullName>Tissot</fullName>
+                <default>false</default>
+                <label>Tissot</label>
+            </value>
+            <value>
+                <fullName>Tod&apos;s</fullName>
+                <default>false</default>
+                <label>Tod&apos;s</label>
+            </value>
+            <value>
+                <fullName>Tom Dixon</fullName>
+                <default>false</default>
+                <label>Tom Dixon</label>
+            </value>
+            <value>
+                <fullName>Tommy Hilfiger</fullName>
+                <default>false</default>
+                <label>Tommy Hilfiger</label>
+            </value>
+            <value>
+                <fullName>Tory Burch</fullName>
+                <default>false</default>
+                <label>Tory Burch</label>
+            </value>
+            <value>
+                <fullName>True Religion</fullName>
+                <default>false</default>
+                <label>True Religion</label>
+            </value>
+            <value>
+                <fullName>Tumi</fullName>
+                <default>false</default>
+                <label>Tumi</label>
+            </value>
+            <value>
+                <fullName>UGG</fullName>
+                <default>false</default>
+                <label>UGG</label>
+            </value>
+            <value>
+                <fullName>Ulysse Nardin</fullName>
+                <default>false</default>
+                <label>Ulysse Nardin</label>
+            </value>
+            <value>
+                <fullName>Under Armour</fullName>
+                <default>false</default>
+                <label>Under Armour</label>
+            </value>
+            <value>
+                <fullName>Valentino</fullName>
+                <default>false</default>
+                <label>Valentino</label>
+            </value>
+            <value>
+                <fullName>Versace</fullName>
+                <default>false</default>
+                <label>Versace</label>
+            </value>
+            <value>
+                <fullName>Vilebrequin</fullName>
+                <default>false</default>
+                <label>Vilebrequin</label>
+            </value>
+            <value>
+                <fullName>Villeroy &amp; Boch</fullName>
+                <default>false</default>
+                <label>Villeroy &amp; Boch</label>
+            </value>
+            <value>
+                <fullName>Vivienne Westwood</fullName>
+                <default>false</default>
+                <label>Vivienne Westwood</label>
+            </value>
+            <value>
+                <fullName>Wolford</fullName>
+                <default>false</default>
+                <label>Wolford</label>
+            </value>
+            <value>
+                <fullName>YiFang Taiwan Fruit Tea</fullName>
+                <default>false</default>
+                <label>YiFang Taiwan Fruit Tea</label>
+            </value>
+            <value>
+                <fullName>Yves Salomon</fullName>
+                <default>false</default>
+                <label>Yves Salomon</label>
+            </value>
+            <value>
+                <fullName>Zadig&amp;Voltaire</fullName>
+                <default>false</default>
+                <label>Zadig&amp;Voltaire</label>
+            </value>
+            <value>
+                <fullName>Zwilling J.A. Henckels</fullName>
+                <default>false</default>
+                <label>Zwilling J.A. Henckels</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

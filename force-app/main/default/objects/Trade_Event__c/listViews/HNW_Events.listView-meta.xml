@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>HNW_Events</fullName>
+    <columns>NAME</columns>
+    <columns>Description__c</columns>
+    <columns>Event_Date__c</columns>
+    <columns>Location__c</columns>
+    <columns>Registered_Attendees__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Trade_Event__c.HNW_Event</value>
+    </filters>
+    <label>HNW Events</label>
+    <language>en_US</language>
+</ListView>

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Status__c</fullName>
+    <externalId>false</externalId>
+    <label>Status</label>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Created</fullName>
+                <color>#FF0000</color>
+                <default>true</default>
+                <label>Created</label>
+            </value>
+            <value>
+                <fullName>Reported Incomplete</fullName>
+                <color>#FF9900</color>
+                <default>false</default>
+                <label>Reported Incomplete</label>
+            </value>
+            <value>
+                <fullName>Reported Confirmed</fullName>
+                <color>#33CC00</color>
+                <default>false</default>
+                <label>Reported Confirmed</label>
+            </value>
+            <value>
+                <fullName>TOR</fullName>
+                <default>false</default>
+                <label>TOR</label>
+            </value>
+            <value>
+                <fullName>Certified Pending</fullName>
+                <default>false</default>
+                <label>Certified Pending</label>
+            </value>
+            <value>
+                <fullName>Certified Approved</fullName>
+                <default>false</default>
+                <label>Certified Approved</label>
+            </value>
+            <value>
+                <fullName>Certified Complete</fullName>
+                <default>false</default>
+                <label>Certified Complete</label>
+            </value>
+            <value>
+                <fullName>Certified Re-opened</fullName>
+                <default>false</default>
+                <label>Certified Re-opened</label>
+            </value>
+            <value>
+                <fullName>Audited</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Audited</label>
+            </value>
+            <value>
+                <fullName>Certified</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Certified</label>
+            </value>
+            <value>
+                <fullName>Confirmed</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Confirmed</label>
+            </value>
+            <value>
+                <fullName>Draft</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Draft</label>
+            </value>
+            <value>
+                <fullName>Not Confirmed</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Not Confirmed</label>
+            </value>
+            <value>
+                <fullName>Reported Complete</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Reported Complete</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

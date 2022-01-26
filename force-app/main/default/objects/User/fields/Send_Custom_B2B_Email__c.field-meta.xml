@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Send_Custom_B2B_Email__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Flag to indicate user would prefer a custom (old style) B2B email rather than a Chatter post generated version.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Flag to indicate user would prefer a custom (old style) B2B email rather than a Chatter post generated version.</inlineHelpText>
+    <label>Receive Old Style B2B Email Alerts</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Checkbox</type>
+</CustomField>

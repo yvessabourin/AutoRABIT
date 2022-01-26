@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>This email is used as part of a group booking workflow, when a VR Rep is assigned</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Tourism_Letterhead</letterhead>
+    <name>MICE booking assignment to Rep</name>
+    <style>freeForm</style>
+    <subject>A {!Group_Booking__c.Group_Type__c} Group Booking has attributed to {!Group_Booking__c.VR_Representative__c}</subject>
+    <textOnly>Dear {!Group_Booking__c.VR_Representative__c},
+
+Your {!Group_Booking__c.Group_Type__c} group booking has been confirmed in the system and attributed to you.
+
+Name of Event: {!Group_Booking__c.Name_of_Event__c}
+Village: {!Group_Booking__c.00Nb0000007pfg0}
+Expected number of Visitors: {!Group_Booking__c.Number_of_Visitors_Expected__c}
+
+Expected Arrival: {!Group_Booking__c.Expected_Arrival__c}
+
+Link to booking
+
+
+Thanks for the booking!
+
+Regards,
+The VR MICE Team</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

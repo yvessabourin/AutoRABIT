@@ -1,0 +1,14 @@
+<apex:page standardController="Competitor_Visit__c" sidebar="false" standardStylesheets="false" showHeader="false" >
+    <apex:includeLightning />
+    <div id="lightning" />
+    <script>
+        $Lightning.use("c:shareCompVisitApp", function() {
+          $Lightning.createComponent("c:shareCompVisit",
+              { "recordId" : "{!$CurrentPage.parameters.id}" },
+              "lightning",
+              function(cmp) {
+              }
+          );
+        });
+    </script>
+</apex:page>

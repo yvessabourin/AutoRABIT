@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Year_1_10_Blended_TOR__c</fullName>
+    <externalId>false</externalId>
+    <formula>Year_1_10_Total_TOR__c  /  Year_1_10_Increment_Count__c</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>The blended turnover rent for years 1 - 10</inlineHelpText>
+    <label>Year 1 - 10 Blended TOR</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <type>Percent</type>
+</CustomField>

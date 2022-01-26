@@ -1,0 +1,109 @@
+<template>
+	<lightning-spinner
+		class="slds-is-fixed"
+		if:true={isSaving}
+		alternative-text="Loading"
+		size="large"
+	></lightning-spinner>
+
+	<c-lgl-lock-screen></c-lgl-lock-screen>
+
+	<section>
+		<c-lgl-card title="Guest Details">
+			<div slot="bodyContent">
+				<div data-region="guestDetailsRegion">
+					<c-lgl-guest-details-form guest-id={guestId}></c-lgl-guest-details-form>
+				</div>
+
+				<div data-region="guestServicesRegion" class="slds-var-m-top_small slds-grid">
+					<div class="slds-col">
+						<c-lgl-services-selector></c-lgl-services-selector>
+
+						<div class="slds-var-m-top_small slds-grid lgl-small-text">
+							<lightning-input
+								class="lgl-terms"
+								type="checkbox"
+								label="Terms &amp; Conditions"
+								name="termsConditions"
+								variant="label-hidden"
+							></lightning-input>
+							<span
+								>I agree with the&nbsp;
+								<a target="_blank" href={villageUrls.LGL_Terms_And_Conditions__c}
+									>Terms &amp; Conditions</a
+								></span
+							>
+						</div>
+
+						<p class="slds-var-m-top_small lgl-small-text">
+							Your privacy is important to us and we promise to respect your personal
+							data and comply with all applicable data protection laws. Please, read
+							through the&nbsp;
+							<a target="_blank" href={villageUrls.Village_Privacy_Notice_Link__c}
+								>Village Privacy Notice</a
+							>
+							&nbsp;to fully understand the basis upon which we process your personal data
+						</p>
+
+						<div
+							if:true={showMarketing}
+							class="slds-var-m-top_small slds-grid lgl-small-text"
+						>
+							<lightning-input
+								class="lgl-privilege"
+								type="checkbox"
+								label="Create Privilege Checkbox"
+								variant="label-hidden"
+							>
+							</lightning-input>
+							<span
+								>Optionally, select the checkbox to receive an invitation to join
+								our villages' exciting Treats and Rewards Privilege Program</span
+							>
+						</div>
+					</div>
+					<div class="slds-var-m-left_x-small">
+						<c-lgl-signature-canvas></c-lgl-signature-canvas>
+					</div>
+				</div>
+
+				<footer
+					data-region="guestDetailsButtons"
+					class="slds-var-m-top_medium slds-var-p-top_small"
+				>
+					<div>
+						<button type="button" onclick={handleSaveGuestDetails}>Save Details</button>
+						<button type="button" onclick={handleCancelRegistration}>
+							Cancel Registration
+						</button>
+					</div>
+				</footer>
+			</div>
+		</c-lgl-card>
+	</section>
+
+	<section data-region="serviceSettingsRegion">
+		<c-lgl-card title="Service Details">
+			<div slot="bodyContent">
+				<c-lgl-new-service-form-service-details
+					selected-services={selectedServices}
+					service-offerings={serviceOfferings}
+				></c-lgl-new-service-form-service-details>
+
+				<footer
+					data-region="serviceSettingsButtons"
+					class="slds-var-m-top_medium slds-var-p-top_small"
+				>
+					<div>
+						<button type="button" onclick={handleCreateServiceRequest}>
+							Create Service Request
+						</button>
+						<button type="button" onclick={handleCancelRegistration}>
+							Cancel Registration
+						</button>
+					</div>
+				</footer>
+			</div>
+		</c-lgl-card>
+	</section>
+</template>

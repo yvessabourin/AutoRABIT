@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MRI_Updated_On__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Enter the date that contract detail was entered on MRI</inlineHelpText>
+    <label>MRI Updated On</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Date</type>
+</CustomField>

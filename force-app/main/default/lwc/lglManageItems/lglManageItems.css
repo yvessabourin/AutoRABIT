@@ -1,0 +1,40 @@
+:host {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+	color: #333;
+}
+
+section {
+	margin-top: 1.5rem;
+}
+
+section:first-child {
+	margin-top: 0;
+}
+
+.lgl-action-panel > * {
+	margin-right: 0.4em;
+}
+
+button {
+	padding: 0.3em 0.8em;
+	border-color: #ccc;
+	border-radius: 4px;
+	border-width: 1px;
+	transition: all 0.3s;
+	background-color: #fff;
+}
+
+th {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+	padding: 8px;
+}
+
+td {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+	border-top: 1px solid rgb(221, 221, 221);
+	padding: 8px;
+}
+
+td:first-child {
+	font-weight: bold;
+}

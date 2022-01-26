@@ -1,0 +1,25 @@
+<apex:page showHeader="true" sidebar="true" standardController="Brand_Segmentation_Approval__c" extensions="SegmentationApprovalExtension" action="{!approveSegmentationRecord}" lightningStylesheets="true">
+	
+	<apex:form >
+		<apex:inputHidden value="{!Id}"/>
+		<apex:outputText value="{!Brand_Segmentation_Approval__c.Approval_Date__c}  {!Brand_Segmentation_Approval__c.Assigned_To__c}  {!Brand_Segmentation_Approval__c.Brand__c}  {!Brand_Segmentation_Approval__c.Brand_Gender__c}  {!Brand_Segmentation_Approval__c.Brand_Guest_Relevance__c}  {!Brand_Segmentation_Approval__c.Brand_Segment__c}  {!Brand_Segmentation_Approval__c.Brand_Subsegment__c}  {!Brand_Segmentation_Approval__c.Brand_VR_Positioning__c}  {!Brand_Segmentation_Approval__c.Email_Notification_Date__c}  {!Brand_Segmentation_Approval__c.Status__c}" rendered="false"/>
+
+  		<apex:pageMessages />
+
+		<br />
+		<br />
+
+		<button onclick="goBack();return false;">Go Back</button>
+
+		<script type="text/javascript">
+			function goBack() {
+				if ('{!$User.UITheme}' === 'Theme4d' || '{!$User.UITheme}' === 'Theme4u') {
+                    sforce.one.navigateToSObject('{!Id}', 'Brand_Segmentation_Approval__c');
+                } else {
+                    window.history.back();
+                }
+			}
+		</script>
+	</apex:form>
+
+</apex:page>

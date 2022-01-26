@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sorted>false</sorted>
+    <standardValue>
+        <fullName>New Brand</fullName>
+        <color>#0B6FCE</color>
+        <default>true</default>
+        <label>New Brand</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Renewal</fullName>
+        <color>#78C953</color>
+        <default>false</default>
+        <label>Renewal</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Upsize</fullName>
+        <color>#E27001</color>
+        <default>false</default>
+        <label>Upsize</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Downsize</fullName>
+        <color>#A845DC</color>
+        <default>false</default>
+        <label>Downsize</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Relocation</fullName>
+        <color>#F3D904</color>
+        <default>false</default>
+        <label>Same Size</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Shop Refit</fullName>
+        <color>#A53711</color>
+        <default>false</default>
+        <label>Shop Refit</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Amendment</fullName>
+        <color>#66E9BD</color>
+        <default>false</default>
+        <label>Amendment</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Rebrand</fullName>
+        <color>#0B24BE</color>
+        <default>false</default>
+        <label>Rebrand</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Termination</fullName>
+        <color>#419249</color>
+        <default>false</default>
+        <label>Termination</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Expiry</fullName>
+        <color>#B6E32E</color>
+        <default>false</default>
+        <label>Expiry</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Temp to Perm</fullName>
+        <color>#641CCF</color>
+        <default>false</default>
+        <label>Temp to Perm</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Non-Renewal</fullName>
+        <color>#F96FB7</color>
+        <default>false</default>
+        <label>Non-Renewal</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Perm to Temp</fullName>
+        <color>#2F5D85</color>
+        <default>false</default>
+        <label>Perm to Temp</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Extension</fullName>
+        <color>#AFCADF</color>
+        <default>false</default>
+        <label>Extension</label>
+    </standardValue>
+</StandardValueSet>

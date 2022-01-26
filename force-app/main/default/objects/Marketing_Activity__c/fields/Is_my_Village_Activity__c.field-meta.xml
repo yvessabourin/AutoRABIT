@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Is_my_Village_Activity__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF( 
+AND( ISPICKVAL( $User.Village__c , &quot;Bicester&quot;) ) ,  
+OR( INCLUDES( Picklist_Multi_Select__c , &quot;Bicester&quot;)) || $User.Central_Initiative__c = true, false) || 
+IF( 
+AND( ISPICKVAL( $User.Village__c , &quot;Fidenza&quot;) ) ,  
+OR( INCLUDES( Picklist_Multi_Select__c , &quot;Fidenza&quot;)) || $User.Central_Initiative__c = true, false) || 
+IF( 
+AND( ISPICKVAL( $User.Village__c , &quot;Inglostadt&quot;) ) ,  
+OR( INCLUDES( Picklist_Multi_Select__c , &quot;Inglostadt&quot;)) || $User.Central_Initiative__c = true, false) || 
+IF( 
+AND( ISPICKVAL( $User.Village__c , &quot;Kildare&quot;) ) ,  
+OR( INCLUDES( Picklist_Multi_Select__c , &quot;Kildare&quot;)) || $User.Central_Initiative__c = true, false) || 
+IF( 
+AND( ISPICKVAL( $User.Village__c , &quot;La Roca&quot;) ) ,  
+OR( INCLUDES( Picklist_Multi_Select__c , &quot;La Roca&quot;)) || $User.Central_Initiative__c = true, false) || 
+IF( 
+AND( ISPICKVAL( $User.Village__c , &quot;Las Rozas&quot;) ) ,  
+OR( INCLUDES( Picklist_Multi_Select__c , &quot;Las Rozas&quot;)) || $User.Central_Initiative__c = true, false) || 
+IF( 
+AND( ISPICKVAL( $User.Village__c , &quot;La Vallee&quot;) ) ,  
+OR( INCLUDES( Picklist_Multi_Select__c , &quot;La Vallee&quot;)) || $User.Central_Initiative__c = true, false) || 
+IF( 
+AND( ISPICKVAL( $User.Village__c , &quot;Maasmechelen&quot;) ) ,  
+OR( INCLUDES( Picklist_Multi_Select__c , &quot;Maasmechelen&quot;)) || $User.Central_Initiative__c = true, false) || 
+IF( 
+AND( ISPICKVAL( $User.Village__c , &quot;Suzhou&quot;) ) ,  
+OR( INCLUDES( Picklist_Multi_Select__c , &quot;Suzhou&quot;)) || $User.Central_Initiative__c = true, false) || 
+IF( 
+AND( ISPICKVAL( $User.Village__c , &quot;Wertheim&quot;) ) ,  
+OR( INCLUDES( Picklist_Multi_Select__c , &quot;Wertheim&quot;)) || $User.Central_Initiative__c = true, false)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Is my Village Activity</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

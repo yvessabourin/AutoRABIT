@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Integration_Language_Name__c</fullName>
+    <description>Default language for the village used by integration layer when language has not been specified on guest creation</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Default language for the village used by integration layer when language has not been specified on guest creation</inlineHelpText>
+    <label>Integration Language Name</label>
+    <length>50</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

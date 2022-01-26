@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Queue xmlns="http://soap.sforce.com/2006/04/metadata">
+    <doesSendEmailToMembers>true</doesSendEmailToMembers>
+    <email>lvvbookings@valueretail.com</email>
+    <name>LEISURE Lead Queue - La Vallée</name>
+    <queueMembers>
+        <users>
+            <user>cnaulet@valueretail.com</user>
+            <user>cledu@valueretail.com</user>
+            <user>lvtic@valueretail.com</user>
+            <user>sdunand@valueretail.com</user>
+        </users>
+    </queueMembers>
+    <queueSobject>
+        <sobjectType>Lead</sobjectType>
+    </queueSobject>
+</Queue>

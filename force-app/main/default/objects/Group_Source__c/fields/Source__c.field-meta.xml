@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Source__c</fullName>
+    <externalId>false</externalId>
+    <label>Source</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Domestic Group</fullName>
+                <default>false</default>
+                <label>Domestic Group</label>
+            </value>
+            <value>
+                <fullName>European Cross Border Group</fullName>
+                <default>false</default>
+                <label>European Cross Border Group</label>
+            </value>
+            <value>
+                <fullName>Long Haul</fullName>
+                <default>false</default>
+                <label>Long Haul</label>
+            </value>
+            <value>
+                <fullName>Meetings</fullName>
+                <default>false</default>
+                <label>Meetings</label>
+            </value>
+            <value>
+                <fullName>Special Events</fullName>
+                <default>false</default>
+                <label>Special Events</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

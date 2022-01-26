@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MICE_Redeemable_Campaign</fullName>
+    <active>true</active>
+    <compactLayoutAssignment>MICE_Redeemable_Campaign_C_Layout</compactLayoutAssignment>
+    <label>MICE Redeemable Campaign</label>
+    <picklistValues>
+        <picklist>Campaign_Category__c</picklist>
+        <values>
+            <fullName>CRM System Campaign</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Competition</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Competition%2FMGM%2FExisting Customer Survey</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Direct Marketing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Mono Contact</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>New Customer Survey</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Parent Campaign</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Partner Loyalty Program</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Survey</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Communication_Channel__c</picklist>
+        <values>
+            <fullName>Email</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Face-to-face</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Leaflet%2FCoupon</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other Media %28TV%2FRadio%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Postal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Publication</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SMS</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Social Media</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Telephone</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Website</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Incentive__c</picklist>
+        <values>
+            <fullName>%25 Value Off %28Brand%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>%25 Value Off %28Village%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cash Back %28Brand%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cash Back %28Village%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Free Gift%2FFood%2FDrink %28Brand%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Free Gift%2FFood%2FDrink %28Village%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Free Services</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Money Off %28Brand%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Money Off %28Village%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>None%2FInformational</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Parent Campaign</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Partner Miles%2FPoints</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Status</picklist>
+        <values>
+            <fullName>Aborted</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Completed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>In Progress</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Planned</fullName>
+            <default>true</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Target_Audience__c</picklist>
+        <values>
+            <fullName>Airlines</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Car Rental</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Corporate</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Database Customer</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Hotels</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Parent Campaign</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Prospective Customer</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Shopping Express</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Trade Partnerships</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>VIP Customer</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Type</picklist>
+        <values>
+            <fullName>Email</fullName>
+            <default>true</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Villages__c</picklist>
+        <values>
+            <fullName>Bicester</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fidenza</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Ingolstadt</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Kildare</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>La Roca</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>La Vallée</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Las Rozas</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Maasmechelen</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Shanghai</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Suzhou</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Wertheim</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>conference360__Event_Auto_Sync__c</picklist>
+        <values>
+            <fullName>No</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

@@ -1,0 +1,14 @@
+<apex:page showHeader="false" showChat="false" standardController="Marketing_Campaign__c">
+<apex:includeScript value="{!URLFOR($Resource.SLCA2__ca3)}/plugin/jquery-1.8.0.min.js" />
+<script>
+jQuery(document).on('ready', function(){
+    console.log('a');
+    jQuery.ajaxSetup({"crossDomain" : true});
+});
+</script>
+
+<SLCA2:calendar namespace="SLCA2" calendar="{! If(Marketing_Campaign__c.Campaign_Level__c =='Theme' , 'All_Village_Campaigns' , 'All_Central_Marketing_Activities') }" settings="['r_d','r_y','r_c','r_s']" 
+                urlparams="g_p=12&sb=1&v=g&pv2={!id}&date={!month(Marketing_Campaign__c.Start_Date__c)}-{!day(Marketing_Campaign__c.Start_Date__c)}-{!year(Marketing_Campaign__c.Start_Date__c)}"/>
+
+ 
+</apex:page>

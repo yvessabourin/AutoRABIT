@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Variance_percentage_out_of_limits__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF( OR(Total_Variance_Percentage__c &gt;  Village_Presence__r.Village__r.CertSales_Tot_Variance_Max_Percent__c, (Total_Variance_Percentage__c * -1) &gt;  Village_Presence__r.Village__r.CertSales_Tot_Variance_Max_Percent__c), true, false)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>This will be ticked if the variance percentage for this Certification Batch is out of the max percentage limits for the specific village</inlineHelpText>
+    <label>Variance percentage out of limits</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Trade Event Attendee</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Trade Event Attendees</value>
+    </caseValues>
+    <recordTypes>
+        <description></description>
+        <label></label>
+        <name>HNW_Event_Attendee</name>
+    </recordTypes>
+    <recordTypes>
+        <label></label>
+        <name>Leasing_Contact</name>
+    </recordTypes>
+    <recordTypes>
+        <label></label>
+        <name>Tourism_Contact</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

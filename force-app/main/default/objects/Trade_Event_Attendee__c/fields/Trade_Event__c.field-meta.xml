@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Trade_Event__c</fullName>
+    <externalId>false</externalId>
+    <label>Trade Event</label>
+    <referenceTo>Trade_Event__c</referenceTo>
+    <relationshipLabel>Trade Event Attendees</relationshipLabel>
+    <relationshipName>Trade_Event_Attendees</relationshipName>
+    <relationshipOrder>1</relationshipOrder>
+    <reparentableMasterDetail>true</reparentableMasterDetail>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackTrending>false</trackTrending>
+    <type>MasterDetail</type>
+    <writeRequiresMasterRead>true</writeRequiresMasterRead>
+</CustomField>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Brand_Event_Validation_Rule</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+ISBLANK(  Brand_Event__c  ),
+TEXT(  Guest_Source__c  )==&apos;Brand_Event&apos;
+)</errorConditionFormula>
+    <errorDisplayField>Brand_Event__c</errorDisplayField>
+    <errorMessage>If Guest Source is Brand Event then Brand Event Field is Mandatory.</errorMessage>
+</ValidationRule>

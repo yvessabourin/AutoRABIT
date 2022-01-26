@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Total_GIA__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Sum of all the Units GIA not omitted from the totals</inlineHelpText>
+    <label>Total GIA</label>
+    <summarizedField>Unit__c.Size_GIA__c</summarizedField>
+    <summaryFilterItems>
+        <field>Unit__c.Omit_from_Village_GEA__c</field>
+        <operation>equals</operation>
+        <value>False</value>
+    </summaryFilterItems>
+    <summaryForeignKey>Unit__c.Village__c</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

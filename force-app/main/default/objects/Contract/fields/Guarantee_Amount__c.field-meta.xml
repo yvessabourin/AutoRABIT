@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Guarantee_Amount__c</fullName>
+    <defaultValue>0.00</defaultValue>
+    <externalId>false</externalId>
+    <inlineHelpText>Enter the amount the tenant guarantor is putting up as a guarantee for this deal</inlineHelpText>
+    <label>Guarantee Amount</label>
+    <precision>13</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

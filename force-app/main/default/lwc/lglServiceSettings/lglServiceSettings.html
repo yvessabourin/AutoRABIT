@@ -1,0 +1,144 @@
+<template>
+	<lightning-input
+		class="lgl-max-size_small"
+		type="number"
+		min="1"
+		label="Number of Items"
+		value="1"
+		required
+		oncommit={handleQtyChange}
+	></lightning-input>
+	<div if:true={hasExceedingItems} class="lgl-error-text">{exceedingItemsMessage}</div>
+
+	<lightning-combobox
+		label="Deposit Status"
+		placeholder="Select the status of the deposit"
+		options={depositStatusList}
+		required
+		onchange={handleDepositStatusChange}
+	>
+	</lightning-combobox>
+
+	<template if:true={visibility.lLugg}>
+		<div class="lgl-service-items-list">
+			<template for:each={serviceItemsList} for:item="serviceItem" for:index="index">
+				<div class="slds-grid slds-grid_vertical-align-start" key={serviceItem}>
+					<div class="slds-var-m-right_small">
+						<lightning-combobox
+							name="LGL_Type__c"
+							label="Luggage Type"
+							placeholder="Select the Luggage Type"
+							options={lugaggeTypeOptionsList}
+							required
+							onchange={handleFieldChange}
+							data-index={index}
+						>
+						</lightning-combobox>
+					</div>
+					<div class="slds-col">
+						<lightning-combobox
+							data-index={index}
+							name="LGL_Service_Item_Identifier__c"
+							label="Key Number"
+							placeholder="Select the Key Number"
+							options={serviceOfferingItemsOptionsList}
+							onchange={handleFieldChange}
+							required
+						>
+						</lightning-combobox>
+					</div>
+				</div>
+			</template>
+		</div>
+	</template>
+
+	<template if:true={visibility.wChair}>
+		<div class="lgl-service-items-list">
+			<template for:each={serviceItemsList} for:item="serviceItem" for:index="index">
+				<lightning-combobox
+					key={serviceItem}
+					data-index={index}
+					name="LGL_Service_Item_Identifier__c"
+					label="Equipment Asset Number"
+					placeholder="Select the Equipment Asset Number"
+					options={serviceOfferingItemsOptionsList}
+					onchange={handleFieldChange}
+					required
+				>
+				</lightning-combobox>
+			</template>
+		</div>
+	</template>
+	
+	<template if:true={visibility.kennel}>
+		<div class="lgl-service-items-list">
+			<template for:each={serviceItemsList} for:item="serviceItem" for:index="index">
+				<lightning-combobox
+					key={serviceItem}
+					data-index={index}
+					name="LGL_Service_Item_Identifier__c"
+					label="Kennel Bag Number"
+					placeholder="Select the Kennel Bag Number"
+					options={serviceOfferingItemsOptionsList}
+					onchange={handleFieldChange}
+					required
+				>
+				</lightning-combobox>
+			</template>
+		</div>
+	</template>
+
+	<template if:true={visibility.pChair}>
+		<div class="lgl-service-items-list">
+			<template for:each={serviceItemsList} for:item="serviceItem" for:index="index">
+				<lightning-combobox
+					key={serviceItem}
+					data-index={index}
+					name="LGL_Service_Item_Identifier__c"
+					label="Equipment Asset Number"
+					placeholder="Select the Equipment Asset Number"
+					options={serviceOfferingItemsOptionsList}
+					onchange={handleFieldChange}
+					required
+				>
+				</lightning-combobox>
+			</template>
+		</div>
+	</template>
+
+	<template if:true={visibility.mScoot}>
+		<div class="lgl-service-items-list">
+			<template for:each={serviceItemsList} for:item="serviceItem" for:index="index">
+				<lightning-combobox
+					key={serviceItem}
+					data-index={index}
+					name="LGL_Service_Item_Identifier__c"
+					label="Equipment Asset Number"
+					placeholder="Select the Equipment Asset Number"
+					options={serviceOfferingItemsOptionsList}
+					onchange={handleFieldChange}
+					required
+				>
+				</lightning-combobox>
+			</template>
+		</div>
+	</template>
+
+	<template if:true={visibility.dStrol}>
+		<div class="lgl-service-items-list">
+			<template for:each={serviceItemsList} for:item="serviceItem" for:index="index">
+				<lightning-combobox
+					key={serviceItem}
+					data-index={index}
+					name="LGL_Service_Item_Identifier__c"
+					label="Dog Stroller Number"
+					placeholder="Select the Dog Stroller Number"
+					options={serviceOfferingItemsOptionsList}
+					onchange={handleFieldChange}
+					required
+				>
+				</lightning-combobox>
+			</template>
+		</div>
+	</template>
+</template>

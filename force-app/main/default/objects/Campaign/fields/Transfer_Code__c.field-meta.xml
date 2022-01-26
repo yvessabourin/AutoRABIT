@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Transfer_Code__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF( Multi_Village_Campaign__c = true &amp;&amp; RecordType.DeveloperName = &apos;Group_Campaign&apos; &amp;&amp; NOT(ISBLANK(X18_digit_id__c)) , X18_digit_id__c, 
+
+IF( Parent.Multi_Village_Campaign__c = false &amp;&amp; RecordType.DeveloperName = &apos;Redeemable_Campaign&apos; &amp;&amp; NOT(ISBLANK(X18_digit_id__c)), X18_digit_id__c , 
+
+IF (RecordType.DeveloperName = &apos;Group_Campaign&apos; &amp;&amp; NOT(ISBLANK(X18_digit_id__c)), &quot;&quot;, Parent.X18_digit_id__c )))</formula>
+    <label>Transfer Code</label>
+    <required>false</required>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

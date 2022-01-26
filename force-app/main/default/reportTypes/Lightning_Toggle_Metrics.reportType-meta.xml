@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ReportType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <baseObject></baseObject>
+    <category>other</category>
+    <deployed>false</deployed>
+    <description>Represents Users who switched between Lightning Experience and Salesforce Classic.</description>
+    <label>Lightning Toggle Metrics</label>
+    <sections>
+        <masterLabel>LightningToggleMetrics</masterLabel>
+    </sections>
+    <sections>
+        <masterLabel>User</masterLabel>
+    </sections>
+</ReportType>

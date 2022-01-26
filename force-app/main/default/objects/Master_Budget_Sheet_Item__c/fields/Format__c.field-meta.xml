@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Format__c</fullName>
+    <externalId>false</externalId>
+    <label>Format</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Image Link Ad</fullName>
+                <default>false</default>
+                <label>Image Link Ad</label>
+            </value>
+            <value>
+                <fullName>Video Link Ad</fullName>
+                <default>false</default>
+                <label>Video Link Ad</label>
+            </value>
+            <value>
+                <fullName>Carousel</fullName>
+                <default>false</default>
+                <label>Carousel</label>
+            </value>
+            <value>
+                <fullName>Canvas</fullName>
+                <default>false</default>
+                <label>Canvas</label>
+            </value>
+            <value>
+                <fullName>Instagram Story - Image</fullName>
+                <default>false</default>
+                <label>Instagram Story - Image</label>
+            </value>
+            <value>
+                <fullName>Video Page Post</fullName>
+                <default>false</default>
+                <label>Video Page Post</label>
+            </value>
+            <value>
+                <fullName>Image Page Post</fullName>
+                <default>false</default>
+                <label>Image Page Post</label>
+            </value>
+            <value>
+                <fullName>Boost</fullName>
+                <default>false</default>
+                <label>Boost</label>
+            </value>
+            <value>
+                <fullName>Instagram Story - Video</fullName>
+                <default>false</default>
+                <label>Instagram Story - Video</label>
+            </value>
+            <value>
+                <fullName>TrueView Ad</fullName>
+                <default>false</default>
+                <label>TrueView Ad</label>
+            </value>
+            <value>
+                <fullName>Bumper Ad</fullName>
+                <default>false</default>
+                <label>Bumper Ad</label>
+            </value>
+            <value>
+                <fullName>Slideshow Ad</fullName>
+                <default>false</default>
+                <label>Slideshow Ad</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

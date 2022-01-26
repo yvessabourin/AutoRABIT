@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Marketing_Campaign_Village__c</fullName>
+    <externalId>false</externalId>
+    <formula>Marketing_Campaign__r.Village__r.Name</formula>
+    <label>Marketing Campaign Village</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

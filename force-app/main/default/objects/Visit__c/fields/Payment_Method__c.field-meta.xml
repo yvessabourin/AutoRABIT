@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Payment_Method__c</fullName>
+    <externalId>false</externalId>
+    <label>Payment Method</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Gift card,</fullName>
+                <default>false</default>
+                <label>Gift card,</label>
+            </value>
+            <value>
+                <fullName>Through brand,</fullName>
+                <default>false</default>
+                <label>Through brand,</label>
+            </value>
+            <value>
+                <fullName>PS credit card,</fullName>
+                <default>false</default>
+                <label>PS credit card,</label>
+            </value>
+            <value>
+                <fullName>Stripe</fullName>
+                <default>false</default>
+                <label>Stripe</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

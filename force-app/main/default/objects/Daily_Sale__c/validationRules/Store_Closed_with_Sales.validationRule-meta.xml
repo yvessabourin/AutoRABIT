@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Store_Closed_with_Sales</fullName>
+    <active>true</active>
+    <description>A store recorded as closed should not have any sales figures entered.</description>
+    <errorConditionFormula>IF( $Setup.DailySales_Validation_Override__c.DailySales_Override__c = false &amp;&amp; $Setup.Global_Object_Validation__c.Daily_Sales_Validations_Active__c &amp;&amp; Store_Closed__c = true &amp;&amp;  (Certification_Batch__r.BP_Validation_Context_Override__c  = false || ISBLANK(Certification_Batch__c) || ISNULL(Certification_Batch__c)) &amp;&amp; ( Total_NET_SALES__c &gt; 0  ||  NET_Value_of_Discounts__c &gt; 0  ||  Covers__c &gt; 0 ||  Footfall__c &gt; 0 ||  Tax_Free_Transactions__c &gt; 0 || Tax_Free_Sales_Amount__c &gt; 0 ||  Units_Sold__c &gt; 0 ||  VIP_Cards__c  &gt; 0 ||  Number_of_Transactions__c &gt;0), true, false)</errorConditionFormula>
+    <errorMessage>Store has been recorded as closed and therefore cannot have any sales figures entered. If the Store has been wrongly marked as closed, please remove the Store closed flag. If the store is closed, please ensure no sales figures have been entered.</errorMessage>
+</ValidationRule>

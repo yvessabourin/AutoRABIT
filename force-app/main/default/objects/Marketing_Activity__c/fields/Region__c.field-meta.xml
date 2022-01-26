@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Region__c</fullName>
+    <externalId>false</externalId>
+    <label>Region</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Audience_Category__c</controllingField>
+        <restricted>true</restricted>
+        <valueSetName>Region</valueSetName>
+        <valueSettings>
+            <controllingFieldValue>Domestic Expat Student</controllingFieldValue>
+            <controllingFieldValue>Domestic Expat Other</controllingFieldValue>
+            <controllingFieldValue>Non-Domestic - Virtual Shopping</controllingFieldValue>
+            <controllingFieldValue>Non-Domestic - Tourist</controllingFieldValue>
+            <valueName>Africa</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Domestic Expat Student</controllingFieldValue>
+            <controllingFieldValue>Domestic Expat Other</controllingFieldValue>
+            <controllingFieldValue>Domestic - Tourist</controllingFieldValue>
+            <controllingFieldValue>Domestic - Virtual Shopping</controllingFieldValue>
+            <controllingFieldValue>Non-Domestic - Virtual Shopping</controllingFieldValue>
+            <controllingFieldValue>Domestic Local</controllingFieldValue>
+            <controllingFieldValue>Non-Domestic - Tourist</controllingFieldValue>
+            <valueName>Europe</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Domestic Expat Student</controllingFieldValue>
+            <controllingFieldValue>Domestic Expat Other</controllingFieldValue>
+            <controllingFieldValue>Non-Domestic - Virtual Shopping</controllingFieldValue>
+            <controllingFieldValue>Non-Domestic - Tourist</controllingFieldValue>
+            <valueName>Greater China</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Domestic Expat Student</controllingFieldValue>
+            <controllingFieldValue>Domestic Expat Other</controllingFieldValue>
+            <controllingFieldValue>Non-Domestic - Virtual Shopping</controllingFieldValue>
+            <controllingFieldValue>Non-Domestic - Tourist</controllingFieldValue>
+            <valueName>India</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Domestic Expat Student</controllingFieldValue>
+            <controllingFieldValue>Domestic Expat Other</controllingFieldValue>
+            <controllingFieldValue>Non-Domestic - Virtual Shopping</controllingFieldValue>
+            <controllingFieldValue>Non-Domestic - Tourist</controllingFieldValue>
+            <valueName>Japan</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Domestic Expat Student</controllingFieldValue>
+            <controllingFieldValue>Domestic Expat Other</controllingFieldValue>
+            <controllingFieldValue>Non-Domestic - Virtual Shopping</controllingFieldValue>
+            <controllingFieldValue>Non-Domestic - Tourist</controllingFieldValue>
+            <valueName>Korea</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Domestic Expat Student</controllingFieldValue>
+            <controllingFieldValue>Domestic Expat Other</controllingFieldValue>
+            <controllingFieldValue>Non-Domestic - Virtual Shopping</controllingFieldValue>
+            <controllingFieldValue>Non-Domestic - Tourist</controllingFieldValue>
+            <valueName>LATAM</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Domestic Expat Student</controllingFieldValue>
+            <controllingFieldValue>Domestic Expat Other</controllingFieldValue>
+            <controllingFieldValue>Non-Domestic - Virtual Shopping</controllingFieldValue>
+            <controllingFieldValue>Non-Domestic - Tourist</controllingFieldValue>
+            <valueName>Middle East</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Domestic Expat Student</controllingFieldValue>
+            <controllingFieldValue>Domestic Expat Other</controllingFieldValue>
+            <controllingFieldValue>Non-Domestic - Virtual Shopping</controllingFieldValue>
+            <controllingFieldValue>Non-Domestic - Tourist</controllingFieldValue>
+            <valueName>Oceania</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Domestic Expat Student</controllingFieldValue>
+            <controllingFieldValue>Domestic Expat Other</controllingFieldValue>
+            <controllingFieldValue>Non-Domestic - Virtual Shopping</controllingFieldValue>
+            <controllingFieldValue>Non-Domestic - Tourist</controllingFieldValue>
+            <valueName>Rest of World</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Domestic Expat Student</controllingFieldValue>
+            <controllingFieldValue>Domestic Expat Other</controllingFieldValue>
+            <controllingFieldValue>Non-Domestic - Virtual Shopping</controllingFieldValue>
+            <controllingFieldValue>Non-Domestic - Tourist</controllingFieldValue>
+            <valueName>Russia &amp; CIS</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Domestic Expat Student</controllingFieldValue>
+            <controllingFieldValue>Domestic Expat Other</controllingFieldValue>
+            <controllingFieldValue>Non-Domestic - Virtual Shopping</controllingFieldValue>
+            <controllingFieldValue>Non-Domestic - Tourist</controllingFieldValue>
+            <valueName>South East Asia</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Domestic Expat Student</controllingFieldValue>
+            <controllingFieldValue>Domestic Expat Other</controllingFieldValue>
+            <controllingFieldValue>Non-Domestic - Virtual Shopping</controllingFieldValue>
+            <controllingFieldValue>Non-Domestic - Tourist</controllingFieldValue>
+            <valueName>US</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Tourist - Not Specified</controllingFieldValue>
+            <controllingFieldValue>Not Applicable</controllingFieldValue>
+            <valueName>Not Applicable</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

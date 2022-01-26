@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Projected_Sales_Yield_Local_Converted__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF( TEXT(Village__r.Village_Size_Metric__c) = &apos;sq.ft&apos;, Projected_Sales_Yield_Local__c / 0.09290304, Projected_Sales_Yield_Local__c )</formula>
+    <label>Projected Sales Yield (Local) Converted</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

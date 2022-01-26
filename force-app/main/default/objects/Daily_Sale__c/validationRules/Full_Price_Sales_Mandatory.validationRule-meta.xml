@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Full_Price_Sales_Mandatory</fullName>
+    <active>false</active>
+    <description>The Full Price Sales is mandatory.</description>
+    <errorConditionFormula>$Setup.Global_Object_Validation__c.Daily_Sales_Validations_Active__c 
+&amp;&amp; ISNULL(Full_Price_Sales__c) 
+&amp;&amp; NOT( Ignore_Validations__c ) 
+&amp;&amp; NOT( Store_Closed__c )
+&amp;&amp; ( OR (RecordType.DeveloperName = &apos;Full_Price&apos;,RecordType.DeveloperName = &apos;Full_Price_Discretionary_Discount&apos;) )
+&amp;&amp; NOT(ISBLANK(CreatedDate))</errorConditionFormula>
+    <errorDisplayField>Full_Price_Sales__c</errorDisplayField>
+    <errorMessage>The following mandatory field must be completed</errorMessage>
+</ValidationRule>

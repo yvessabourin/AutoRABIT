@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Tweet_Department__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>If the user will be sending Tweets, select a value to categorise it</inlineHelpText>
+    <label>Tweet Department</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Retail</fullName>
+                <default>false</default>
+                <label>Retail</label>
+            </value>
+            <value>
+                <fullName>Visual Merchandising</fullName>
+                <default>false</default>
+                <label>Visual Merchandising</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

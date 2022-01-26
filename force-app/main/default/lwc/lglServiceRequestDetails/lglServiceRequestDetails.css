@@ -1,0 +1,43 @@
+h2 {
+	font-weight: bold;
+	font-size: 1.25rem;
+}
+
+.lgl-output-form .lgl-output-element {
+	margin-top: 0.15rem;
+}
+
+.lgl-output-form .lgl-output-element label {
+	font-weight: bold;
+	margin-bottom: 0px;
+}
+
+.lgl-output-form .lgl-output-element span {
+	margin-left: 0.15rem;
+}
+
+button {
+	padding: 0.3em 0.8em;
+	border-color: #ccc;
+	border-radius: 4px;
+	border-width: 1px;
+	transition: all 0.3s;
+	background-color: #fff;
+}
+
+button:hover {
+	background-color: #e6e6e6;
+	border-color: #adadad;
+}
+
+button:focus {
+	outline: none;
+}
+
+.lgl-action-panel {
+	border-top: 1px solid rgb(221, 221, 221);
+}
+
+.lgl-action-panel > * {
+	margin-right: 0.4em;
+}

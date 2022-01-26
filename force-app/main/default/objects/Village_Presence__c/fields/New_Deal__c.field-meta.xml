@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>New_Deal__c</fullName>
+    <deleteConstraint>Restrict</deleteConstraint>
+    <externalId>false</externalId>
+    <inlineHelpText>The initial deal that brought the Brand to the Village</inlineHelpText>
+    <label>New Deal</label>
+    <referenceTo>Opportunity</referenceTo>
+    <relationshipLabel>Village Presences (New Deal)</relationshipLabel>
+    <relationshipName>Village_Presences</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

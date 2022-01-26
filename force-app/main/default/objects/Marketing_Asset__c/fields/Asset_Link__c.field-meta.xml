@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Asset_Link__c</fullName>
+    <externalId>false</externalId>
+    <formula>HYPERLINK(&quot;http://apollo.valueretail.com/splash/common/mediaLibrary/main/Fram.jsp?ReloadPrefix=parent.Cont&amp;ModuleID=1893&amp;ID=&quot; &amp;  TEXT(Asset_ID__c), &quot;Order in Apollo&quot;, &quot;_new&quot;)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Asset Link</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

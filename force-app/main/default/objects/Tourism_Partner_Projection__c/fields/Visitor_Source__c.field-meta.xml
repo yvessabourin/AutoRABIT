@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Visitor_Source__c</fullName>
+    <deleteConstraint>Restrict</deleteConstraint>
+    <description>The source of the visitors. defines the value of the average spend that each person is expected to spend</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Select the source of the visitor. This defines how much on average each visitor might spend.</inlineHelpText>
+    <label>Visitor Source</label>
+    <lookupFilter>
+        <active>true</active>
+        <filterItems>
+            <field>Group_Source__c.Archived__c</field>
+            <operation>notEqual</operation>
+            <value>True</value>
+        </filterItems>
+        <isOptional>false</isOptional>
+    </lookupFilter>
+    <referenceTo>Group_Source__c</referenceTo>
+    <relationshipLabel>Tourism Partner Projections</relationshipLabel>
+    <relationshipName>Tourism_Partner_Projections</relationshipName>
+    <required>true</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>QR_Code__c</fullName>
+    <externalId>false</externalId>
+    <formula>IMAGE(&apos;https://barcode.valueretail.com/gensvg?type=DataMatrix&amp;fmt=gif&amp;qz=disable&amp;msg=&apos;+ BarcodeNumber__c , &apos;Bar Code&apos;  , 100, 100)
+
+
+
+
+/*&quot;/apex/TwoDBarcodePrint?cmid=Account.BarcodeNumber__c&quot;*/
+ 
+/*IMAGE(&apos;https://chart.googleapis.com/chart?chs=150x150&amp;cht=qr&amp;chl=&apos;+ x18_digit_ID__c , &apos;QR Code&apos; )*/</formula>
+    <label>DM Code</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

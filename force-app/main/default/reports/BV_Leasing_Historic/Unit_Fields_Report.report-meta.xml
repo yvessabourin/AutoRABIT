@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Opportunity$Unit__c.Name</field>
+    </columns>
+    <columns>
+        <field>Opportunity$Unit__c.Buidling_ID__c</field>
+    </columns>
+    <columns>
+        <field>Opportunity$Village__c.Village_GeoLocation__Latitude__s</field>
+    </columns>
+    <columns>
+        <field>Opportunity$Village__c.Village_GeoLocation__Longitude__s</field>
+    </columns>
+    <columns>
+        <field>Opportunity$Unit__c.Unit_Designation__c</field>
+    </columns>
+    <columns>
+        <field>Opportunity$Unit__c.Co_located__c</field>
+    </columns>
+    <columns>
+        <field>Opportunity$Unit__c.Composite__c</field>
+    </columns>
+    <currency>EUR</currency>
+    <description>Report showing un-used fields on SF</description>
+    <filter>
+        <criteriaItems>
+            <column>Opportunity$Village__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>bicester</value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
+    <format>Tabular</format>
+    <name>Unit Fields Report</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Deals__c</reportType>
+    <roleHierarchyFilter>CEO</roleHierarchyFilter>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <sortColumn>Opportunity$Unit__c.Name</sortColumn>
+    <sortOrder>Desc</sortOrder>
+    <timeFrameFilter>
+        <dateColumn>Opportunity$X30_60_90_Day_Plan_Date_Initiated__c</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

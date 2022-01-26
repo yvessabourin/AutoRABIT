@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>GRP_Leaseflow_Header</letterhead>
+    <name>LeaseFlow Unit Closing Reminder</name>
+    <style>freeForm</style>
+    <subject>Your Deal - {!Opportunity.Name} - is about to enter a shopfit period</subject>
+    <textOnly>Hi {!Opportunity.OwnerFirstName},
+
+{!Opportunity.Village_Presence__c} is due to close temporarily on {!Opportunity.Current_Unit_Move_Out_Date__c}, reopening in {!Opportunity.Unit__c} on the {!Opportunity.Expected_Open_Date__c}.
+
+The purpose of this relocation is a {!Opportunity.Type}
+
+{!Opportunity.Business_Analyst__c} please can you update the Village Presence to reflect the current trading status.
+
+Thanks!
+Leaseflow.
+
+Deal Link
+{!Opportunity.Link}
+
+VP link
+{!Village_Presence__c.Link}</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

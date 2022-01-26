@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help>Questo è il totale delle vendite della giornata che include tutti i tipi di vendite (es. Vendite Special Curated Selection, Vendite Current Season Bestsellers)</help>
+    <label>Vendite nette totali</label>
+    <name>Total_NET_SALES__c</name>
+</CustomFieldTranslation>

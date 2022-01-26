@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Competitor_Key_Questions_Bicester</fullName>
+    <columns>NAME</columns>
+    <columns>Development_Location__c</columns>
+    <columns>Development_Type__c</columns>
+    <columns>IP_Infringements__c</columns>
+    <columns>Brand_Overlap__c</columns>
+    <columns>Investor_Crossover__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Competitor_to_Village__c</field>
+        <operation>equals</operation>
+        <value>Bicester</value>
+    </filters>
+    <label>Competitor Key Questions - Bicester</label>
+</ListView>

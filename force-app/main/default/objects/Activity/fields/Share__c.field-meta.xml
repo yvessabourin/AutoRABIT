@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Share__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>This field will controls the triggering of the chatter posts and task creations</description>
+    <externalId>false</externalId>
+    <inlineHelpText>When checked, the meeting is shared and any Brand Actions (tasks) are created</inlineHelpText>
+    <label>Share &amp; Post</label>
+    <type>Checkbox</type>
+</CustomField>

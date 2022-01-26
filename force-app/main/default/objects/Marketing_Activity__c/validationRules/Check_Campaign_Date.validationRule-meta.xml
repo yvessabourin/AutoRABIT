@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Check_Campaign_Date</fullName>
+    <active>true</active>
+    <errorConditionFormula>IF($Setup.Global_Object_Validation__c.Marketing_Activity_Validations_Active__c,
+Start_Date__c  &gt;  Marketing_Campaign__r.End_Date__c &amp;&amp;  Continue_with_Date_error__c  = false,
+false)</errorConditionFormula>
+    <errorDisplayField>Marketing_Campaign__c</errorDisplayField>
+    <errorMessage>You have selected a campaign which has expired, are you sure this is correct?</errorMessage>
+</ValidationRule>

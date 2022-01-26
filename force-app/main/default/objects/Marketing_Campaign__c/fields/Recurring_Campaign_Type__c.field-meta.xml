@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Recurring_Campaign_Type__c</fullName>
+    <description>Used by Power BI to pick out certain campaign date ranges.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Please select an option only if the campaign is a Private Sale</inlineHelpText>
+    <label>Recurring Campaign Type</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Private Sale</fullName>
+                <default>false</default>
+                <label>Private Sale</label>
+            </value>
+            <value>
+                <fullName>CNY</fullName>
+                <default>false</default>
+                <label>CNY</label>
+            </value>
+            <value>
+                <fullName>Eid</fullName>
+                <default>false</default>
+                <label>Eid</label>
+            </value>
+            <value>
+                <fullName>Russian New Year</fullName>
+                <default>false</default>
+                <label>Russian New Year</label>
+            </value>
+            <value>
+                <fullName>SE Asia</fullName>
+                <default>false</default>
+                <label>SE Asia</label>
+            </value>
+            <value>
+                <fullName>Golden Week</fullName>
+                <default>false</default>
+                <label>Golden Week</label>
+            </value>
+            <value>
+                <fullName>Chapter 1</fullName>
+                <default>false</default>
+                <label>Chapter 1</label>
+            </value>
+            <value>
+                <fullName>Chapter 2</fullName>
+                <default>false</default>
+                <label>Chapter 2</label>
+            </value>
+            <value>
+                <fullName>Chapter 3</fullName>
+                <default>false</default>
+                <label>Chapter 3</label>
+            </value>
+            <value>
+                <fullName>Chapter 4</fullName>
+                <default>false</default>
+                <label>Chapter 4</label>
+            </value>
+            <value>
+                <fullName>The Extraordinary Sale</fullName>
+                <default>false</default>
+                <label>The Extraordinary Sale</label>
+            </value>
+            <value>
+                <fullName>BAU Campaigns</fullName>
+                <default>false</default>
+                <label>BAU Campaigns</label>
+            </value>
+            <value>
+                <fullName>Non-Campaigns</fullName>
+                <default>false</default>
+                <label>Non-Campaigns</label>
+            </value>
+            <value>
+                <fullName>Christmas</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Christmas</label>
+            </value>
+            <value>
+                <fullName>Fall</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Fall</label>
+            </value>
+            <value>
+                <fullName>Further Reductions</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Further Reductions</label>
+            </value>
+            <value>
+                <fullName>Spring</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Spring</label>
+            </value>
+            <value>
+                <fullName>Summer</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Summer</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

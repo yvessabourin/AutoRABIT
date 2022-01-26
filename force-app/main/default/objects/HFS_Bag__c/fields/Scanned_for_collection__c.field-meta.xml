@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Scanned_for_collection__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Auxiliar field to know when the Bag was scanned for collection. If the process is canceled this field will go to unchecked, if the process continues the Deliver to Guest field will be checked ( As final deliver )</description>
+    <externalId>false</externalId>
+    <label>Scanned for collection</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

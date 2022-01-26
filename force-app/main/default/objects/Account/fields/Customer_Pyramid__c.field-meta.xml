@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Customer_Pyramid__c</fullName>
+    <externalId>false</externalId>
+    <label>Customer Pyramid</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Style Connoisseurs</fullName>
+                <default>false</default>
+                <label>Style Connoisseurs</label>
+            </value>
+            <value>
+                <fullName>Style Chic</fullName>
+                <default>false</default>
+                <label>Style Chic</label>
+            </value>
+            <value>
+                <fullName>Style Addicts</fullName>
+                <default>false</default>
+                <label>Style Addicts</label>
+            </value>
+            <value>
+                <fullName>Value Seekers (Indifferent)</fullName>
+                <default>false</default>
+                <label>Value Seekers (Indifferent)</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

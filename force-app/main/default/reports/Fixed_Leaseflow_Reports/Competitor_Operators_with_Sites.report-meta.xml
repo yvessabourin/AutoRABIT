@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Account.Competitor_Sites__r$Name</field>
+    </columns>
+    <columns>
+        <field>Account.Competitor_Sites__r$Competitor_to_Village__c</field>
+    </columns>
+    <columns>
+        <field>Account.Competitor_Sites__r$Country__c</field>
+    </columns>
+    <columns>
+        <field>Account.Competitor_Sites__r$Distance_From_Village__c</field>
+    </columns>
+    <description>Competitor Sites grouped by parent Competitor Operator where one exists.</description>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Account$Name</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>Competitor Operators with Sites</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Competitor_Operators__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>Account$CreatedDate</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

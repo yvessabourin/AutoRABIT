@@ -1,0 +1,568 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Sub_Category__c</fullName>
+    <externalId>false</externalId>
+    <label>Sub Category</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <controllingField>Category__c</controllingField>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Aboards</fullName>
+                <default>false</default>
+                <label>Aboards</label>
+            </value>
+            <value>
+                <fullName>Art gallery</fullName>
+                <default>false</default>
+                <label>Art gallery</label>
+            </value>
+            <value>
+                <fullName>Billboards/posters</fullName>
+                <default>false</default>
+                <label>Billboards/posters</label>
+            </value>
+            <value>
+                <fullName>Brochure</fullName>
+                <default>false</default>
+                <label>Brochure</label>
+            </value>
+            <value>
+                <fullName>Brochure/magazine</fullName>
+                <default>false</default>
+                <label>Brochure/magazine</label>
+            </value>
+            <value>
+                <fullName>Brochures</fullName>
+                <default>false</default>
+                <label>Brochures</label>
+            </value>
+            <value>
+                <fullName>Bus cover</fullName>
+                <default>false</default>
+                <label>Bus cover</label>
+            </value>
+            <value>
+                <fullName>Digital media</fullName>
+                <default>false</default>
+                <label>Digital media</label>
+            </value>
+            <value>
+                <fullName>Emailing</fullName>
+                <default>false</default>
+                <label>Emailing</label>
+            </value>
+            <value>
+                <fullName>Empty units vinyls</fullName>
+                <default>false</default>
+                <label>Empty units vinyls</label>
+            </value>
+            <value>
+                <fullName>Enewsletter</fullName>
+                <default>false</default>
+                <label>Enewsletter</label>
+            </value>
+            <value>
+                <fullName>E-newsletter/database</fullName>
+                <default>false</default>
+                <label>E-newsletter/database</label>
+            </value>
+            <value>
+                <fullName>Event</fullName>
+                <default>false</default>
+                <label>Event</label>
+            </value>
+            <value>
+                <fullName>Facebook</fullName>
+                <default>false</default>
+                <label>Facebook</label>
+            </value>
+            <value>
+                <fullName>Facebook ads</fullName>
+                <default>false</default>
+                <label>Facebook ads</label>
+            </value>
+            <value>
+                <fullName>Fam trips</fullName>
+                <default>false</default>
+                <label>Fam trips</label>
+            </value>
+            <value>
+                <fullName>Foursquare</fullName>
+                <default>false</default>
+                <label>Foursquare</label>
+            </value>
+            <value>
+                <fullName>Google ads</fullName>
+                <default>false</default>
+                <label>Google ads</label>
+            </value>
+            <value>
+                <fullName>HFS</fullName>
+                <default>false</default>
+                <label>HFS</label>
+            </value>
+            <value>
+                <fullName>Home delivery</fullName>
+                <default>false</default>
+                <label>Home delivery</label>
+            </value>
+            <value>
+                <fullName>Hotel invites</fullName>
+                <default>false</default>
+                <label>Hotel invites</label>
+            </value>
+            <value>
+                <fullName>Influencers communication</fullName>
+                <default>false</default>
+                <label>Influencers communication</label>
+            </value>
+            <value>
+                <fullName>Instagram</fullName>
+                <default>false</default>
+                <label>Instagram</label>
+            </value>
+            <value>
+                <fullName>In store signage</fullName>
+                <default>false</default>
+                <label>In store signage</label>
+            </value>
+            <value>
+                <fullName>Ipad</fullName>
+                <default>false</default>
+                <label>Ipad</label>
+            </value>
+            <value>
+                <fullName>Mobile app</fullName>
+                <default>false</default>
+                <label>Mobile app</label>
+            </value>
+            <value>
+                <fullName>Mobile display</fullName>
+                <default>false</default>
+                <label>Mobile display</label>
+            </value>
+            <value>
+                <fullName>Newsletter</fullName>
+                <default>false</default>
+                <label>Newsletter</label>
+            </value>
+            <value>
+                <fullName>Olapic</fullName>
+                <default>false</default>
+                <label>Olapic</label>
+            </value>
+            <value>
+                <fullName>On board brochures</fullName>
+                <default>false</default>
+                <label>On board brochures</label>
+            </value>
+            <value>
+                <fullName>On board video</fullName>
+                <default>false</default>
+                <label>On board video</label>
+            </value>
+            <value>
+                <fullName>Online registration form</fullName>
+                <default>false</default>
+                <label>Online registration form</label>
+            </value>
+            <value>
+                <fullName>Paid search</fullName>
+                <default>false</default>
+                <label>Paid search</label>
+            </value>
+            <value>
+                <fullName>Personal Shopper</fullName>
+                <default>false</default>
+                <label>Personal Shopper</label>
+            </value>
+            <value>
+                <fullName>Pinterest</fullName>
+                <default>false</default>
+                <label>Pinterest</label>
+            </value>
+            <value>
+                <fullName>Postal mailing</fullName>
+                <default>false</default>
+                <label>Postal mailing</label>
+            </value>
+            <value>
+                <fullName>Press event</fullName>
+                <default>false</default>
+                <label>Press event</label>
+            </value>
+            <value>
+                <fullName>Press release</fullName>
+                <default>false</default>
+                <label>Press release</label>
+            </value>
+            <value>
+                <fullName>Press visit</fullName>
+                <default>false</default>
+                <label>Press visit</label>
+            </value>
+            <value>
+                <fullName>Print</fullName>
+                <default>false</default>
+                <label>Print</label>
+            </value>
+            <value>
+                <fullName>Print media</fullName>
+                <default>false</default>
+                <label>Print media</label>
+            </value>
+            <value>
+                <fullName>Print registration form/competition</fullName>
+                <default>false</default>
+                <label>Print registration form/competition</label>
+            </value>
+            <value>
+                <fullName>Radio</fullName>
+                <default>false</default>
+                <label>Radio</label>
+            </value>
+            <value>
+                <fullName>Sales mission</fullName>
+                <default>false</default>
+                <label>Sales mission</label>
+            </value>
+            <value>
+                <fullName>Segmentation</fullName>
+                <default>false</default>
+                <label>Segmentation</label>
+            </value>
+            <value>
+                <fullName>Shuttle drop off area</fullName>
+                <default>false</default>
+                <label>Shuttle drop off area</label>
+            </value>
+            <value>
+                <fullName>Sina Weibo</fullName>
+                <default>false</default>
+                <label>Sina Weibo</label>
+            </value>
+            <value>
+                <fullName>Social media</fullName>
+                <default>false</default>
+                <label>Social media</label>
+            </value>
+            <value>
+                <fullName>Store vinyls</fullName>
+                <default>false</default>
+                <label>Store vinyls</label>
+            </value>
+            <value>
+                <fullName>TIC</fullName>
+                <default>false</default>
+                <label>TIC</label>
+            </value>
+            <value>
+                <fullName>TV</fullName>
+                <default>false</default>
+                <label>TV</label>
+            </value>
+            <value>
+                <fullName>Twitter</fullName>
+                <default>false</default>
+                <label>Twitter</label>
+            </value>
+            <value>
+                <fullName>Twitter ads</fullName>
+                <default>false</default>
+                <label>Twitter ads</label>
+            </value>
+            <value>
+                <fullName>Valet parking</fullName>
+                <default>false</default>
+                <label>Valet parking</label>
+            </value>
+            <value>
+                <fullName>Video</fullName>
+                <default>false</default>
+                <label>Video</label>
+            </value>
+            <value>
+                <fullName>VIP lounge</fullName>
+                <default>false</default>
+                <label>VIP lounge</label>
+            </value>
+            <value>
+                <fullName>Web display</fullName>
+                <default>false</default>
+                <label>Web display</label>
+            </value>
+            <value>
+                <fullName>Website</fullName>
+                <default>false</default>
+                <label>Website</label>
+            </value>
+            <value>
+                <fullName>Youtube</fullName>
+                <default>false</default>
+                <label>Youtube</label>
+            </value>
+            <value>
+                <fullName>Welcome emailing</fullName>
+                <default>false</default>
+                <label>Welcome emailing</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Partnership</controllingFieldValue>
+            <valueName>Brochure/magazine</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Partnership</controllingFieldValue>
+            <valueName>E-newsletter/database</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Partnership</controllingFieldValue>
+            <controllingFieldValue>In Village</controllingFieldValue>
+            <valueName>Event</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Partnership</controllingFieldValue>
+            <controllingFieldValue>Media</controllingFieldValue>
+            <valueName>Influencers communication</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Partnership</controllingFieldValue>
+            <valueName>Ipad</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Partnership</controllingFieldValue>
+            <controllingFieldValue>Village online</controllingFieldValue>
+            <valueName>Mobile app</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Partnership</controllingFieldValue>
+            <controllingFieldValue>Travel Trade</controllingFieldValue>
+            <valueName>Newsletter</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Partnership</controllingFieldValue>
+            <controllingFieldValue>Hotel</controllingFieldValue>
+            <valueName>Social media</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Partnership</controllingFieldValue>
+            <controllingFieldValue>Media</controllingFieldValue>
+            <valueName>TV</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Partnership</controllingFieldValue>
+            <controllingFieldValue>Hotel</controllingFieldValue>
+            <controllingFieldValue>Village online</controllingFieldValue>
+            <valueName>Website</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>In Village</controllingFieldValue>
+            <valueName>Aboards</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>In Village</controllingFieldValue>
+            <valueName>Art gallery</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>In Village</controllingFieldValue>
+            <valueName>Empty units vinyls</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>In Village</controllingFieldValue>
+            <valueName>In store signage</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>In Village</controllingFieldValue>
+            <valueName>Shuttle drop off area</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>In Village</controllingFieldValue>
+            <valueName>Store vinyls</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>In Village</controllingFieldValue>
+            <valueName>TIC</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>In Village</controllingFieldValue>
+            <controllingFieldValue>Hospitality</controllingFieldValue>
+            <valueName>VIP lounge</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Shuttles</controllingFieldValue>
+            <valueName>Bus cover</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Shuttles</controllingFieldValue>
+            <valueName>On board brochures</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Shuttles</controllingFieldValue>
+            <valueName>On board video</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Hotel</controllingFieldValue>
+            <valueName>Brochures</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Hotel</controllingFieldValue>
+            <valueName>Hotel invites</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Hotel</controllingFieldValue>
+            <controllingFieldValue>Travel Trade</controllingFieldValue>
+            <valueName>Print media</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Travel Trade</controllingFieldValue>
+            <valueName>Brochure</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Travel Trade</controllingFieldValue>
+            <valueName>Digital media</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Travel Trade</controllingFieldValue>
+            <valueName>Enewsletter</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Travel Trade</controllingFieldValue>
+            <valueName>Fam trips</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Travel Trade</controllingFieldValue>
+            <valueName>Sales mission</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Travel Trade</controllingFieldValue>
+            <valueName>Video</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Hospitality</controllingFieldValue>
+            <valueName>HFS</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Hospitality</controllingFieldValue>
+            <valueName>Home delivery</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Hospitality</controllingFieldValue>
+            <valueName>Personal Shopper</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Hospitality</controllingFieldValue>
+            <valueName>Valet parking</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Social Media</controllingFieldValue>
+            <valueName>Facebook</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Social Media</controllingFieldValue>
+            <valueName>Foursquare</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Social Media</controllingFieldValue>
+            <valueName>Instagram</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Social Media</controllingFieldValue>
+            <valueName>Olapic</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Social Media</controllingFieldValue>
+            <valueName>Pinterest</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Social Media</controllingFieldValue>
+            <valueName>Sina Weibo</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Social Media</controllingFieldValue>
+            <valueName>Twitter</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>PR</controllingFieldValue>
+            <valueName>Press event</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>PR</controllingFieldValue>
+            <valueName>Press release</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>PR</controllingFieldValue>
+            <valueName>Press visit</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>CRM</controllingFieldValue>
+            <valueName>Emailing</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>CRM</controllingFieldValue>
+            <valueName>Online registration form</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>CRM</controllingFieldValue>
+            <valueName>Postal mailing</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>CRM</controllingFieldValue>
+            <valueName>Print registration form/competition</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>CRM</controllingFieldValue>
+            <valueName>Segmentation</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>CRM</controllingFieldValue>
+            <valueName>Welcome emailing</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Media</controllingFieldValue>
+            <valueName>Billboards/posters</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Media</controllingFieldValue>
+            <valueName>Facebook ads</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Media</controllingFieldValue>
+            <valueName>Google ads</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Media</controllingFieldValue>
+            <valueName>Mobile display</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Media</controllingFieldValue>
+            <valueName>Paid search</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Media</controllingFieldValue>
+            <valueName>Print</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Media</controllingFieldValue>
+            <valueName>Radio</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Media</controllingFieldValue>
+            <valueName>Twitter ads</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Media</controllingFieldValue>
+            <valueName>Web display</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Media</controllingFieldValue>
+            <valueName>Youtube</valueName>
+        </valueSettings>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

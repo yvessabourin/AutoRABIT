@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Size_sq_ft__c</fullName>
+    <externalId>false</externalId>
+    <formula>Size_GEA__c  * 10.7639</formula>
+    <inlineHelpText>GEA in sq.ft converted @ 1 sqm = 10.7639 sq.ft</inlineHelpText>
+    <label>GEA (sq.ft)</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>4</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

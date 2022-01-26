@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help>Tragen Sie hier Ihre Virtual Shopping Gesamtzahl der Transaktionen ein. Sollte an diesem Tag kein Umsatz erzielt worden sein, geben Sie eine &quot;0&quot; ein.</help>
+    <label>Brand Virtual Shopping Transaktionen</label>
+    <name>Brand_Remote_Transactions__c</name>
+</CustomFieldTranslation>

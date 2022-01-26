@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Guest_Source_Membership_required_field</fullName>
+    <active>true</active>
+    <description>If Guest Source value is &apos;Membership&apos; then the Village Specific field has to be populated.</description>
+    <errorConditionFormula>AND(
+   ISPICKVAL(  Guest_Source__c, &apos;Village_Specific&apos;) , 
+   ISBLANK(  TEXT(Village_Specific__c))
+)</errorConditionFormula>
+    <errorDisplayField>Village_Specific__c</errorDisplayField>
+    <errorMessage>This field must be populated</errorMessage>
+</ValidationRule>

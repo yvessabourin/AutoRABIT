@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All_Bicester_HFS_Yesterday</fullName>
+    <columns>CASES.CASE_NUMBER</columns>
+    <columns>Service_Guest_ID__c</columns>
+    <columns>Service_Guest_Number__c</columns>
+    <columns>HFS_Collection_Location__c</columns>
+    <columns>CASES.NAME</columns>
+    <columns>CASES.STATUS</columns>
+    <columns>Payment_Status__c</columns>
+    <columns>CASES.CREATED_DATE</columns>
+    <columns>HFS_Collection_Count__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CASES.CREATED_DATE</field>
+        <operation>equals</operation>
+        <value>YESTERDAY</value>
+    </filters>
+    <filters>
+        <field>Village__c</field>
+        <operation>equals</operation>
+        <value>Bicester</value>
+    </filters>
+    <label>All Bicester HFS Yesterday</label>
+    <language>en_US</language>
+    <sharedTo>
+        <group>All_BV_HFS</group>
+        <group>HFS_Owners_Bicester</group>
+    </sharedTo>
+</ListView>

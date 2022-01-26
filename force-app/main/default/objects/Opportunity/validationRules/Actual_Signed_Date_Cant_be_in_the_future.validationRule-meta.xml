@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Actual_Signed_Date_Cant_be_in_the_future</fullName>
+    <active>true</active>
+    <description>You can&apos;t have a deal &apos;actual signed date&apos; that is in the future of todays date</description>
+    <errorConditionFormula>$Setup.Global_Object_Validation__c.Deal_Validations_Active__c 
+&amp;&amp; NOT(ISBLANK(Signed_Date__c))
+&amp;&amp; Signed_Date__c &gt;  TODAY()</errorConditionFormula>
+    <errorDisplayField>Signed_Date__c</errorDisplayField>
+    <errorMessage>The &apos;Actual Signed Date&apos; cannot be set to the future</errorMessage>
+</ValidationRule>

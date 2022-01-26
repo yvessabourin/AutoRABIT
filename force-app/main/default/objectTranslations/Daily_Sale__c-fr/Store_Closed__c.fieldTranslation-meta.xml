@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help>Cocher cette case si la boutique était fermée cette journée</help>
+    <label>Boutique fermée</label>
+    <name>Store_Closed__c</name>
+</CustomFieldTranslation>

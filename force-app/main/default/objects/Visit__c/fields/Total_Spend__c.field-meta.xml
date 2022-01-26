@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Total_Spend__c</fullName>
+    <description>Calculated from HFS OR VIP Card Spend PLUS Total Brands Purchased Spend OR Estimated Total Visit Spend.</description>
+    <externalId>false</externalId>
+    <formula>IF( OR(ISBLANK(Total_Visit_Spend_HFS__c), Total_Visit_Spend_HFS__c == 0),
+	IF(OR(ISBLANK(Total_Visit_Spend__c), Total_Visit_Spend__c == 0),
+   Estimated_Total_Visit_Spend__c  + Total_Visit_Spend_VIP_Card__c, Total_Visit_Spend__c  + Total_Visit_Spend_VIP_Card__c),
+	IF(OR(ISBLANK(Total_Visit_Spend__c), Total_Visit_Spend__c == 0),	
+			 Estimated_Total_Visit_Spend__c  + Total_Visit_Spend_HFS__c, Total_Visit_Spend__c  + Total_Visit_Spend_HFS__c))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Calculated from HFS OR VIP Card Spend PLUS Total Brands Purchased Spend OR Estimated Total Visit Spend.</inlineHelpText>
+    <label>Total Visit Spend</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

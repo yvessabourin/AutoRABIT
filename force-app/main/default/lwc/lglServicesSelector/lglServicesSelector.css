@@ -1,0 +1,16 @@
+h2 {
+	font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+	font-size: 14px;
+	font-weight: bold;
+	background-color: #afafaf;
+	border: 1px solid #707070;
+	padding: 6px;
+	color: black;
+	display: block;
+	border-top-left-radius: 2px;
+	border-top-right-radius: 2px;
+}
+
+.lgl-pill {
+	padding: 3px;
+}

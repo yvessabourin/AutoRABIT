@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>No_Show_Status_Check__c</fullName>
+    <description>Checks in case it has been 5 days past the expected arrival date.</description>
+    <externalId>false</externalId>
+    <formula>IF(  AND( NOT(ISBLANK( Arrival_Date__c )),   TODAY()  &gt;=  Arrival_Date__c + 5), True, False)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>No Show Status Check</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>TTM_can_only_be_shared_once</fullName>
+    <active>false</active>
+    <description>Travel Trade Meeting Should only be allowed to be shared once</description>
+    <errorConditionFormula>PRIORVALUE(Share__c) = true
+&amp;&amp; Share__c != false</errorConditionFormula>
+    <errorMessage>This meeting has already been shared.
+You can only share the meeting once</errorMessage>
+</ValidationRule>

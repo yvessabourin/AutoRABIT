@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All_Available_Jobs</fullName>
+    <columns>NAME</columns>
+    <columns>Guest_ID_Code__c</columns>
+    <columns>Oversized__c</columns>
+    <columns>Pickup_Location__c</columns>
+    <columns>Job_Status__c</columns>
+    <columns>HFS_Guest_Collection_Point__c</columns>
+    <columns>Bags_to_collect__c</columns>
+    <columns>Priority_flag__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Job_Status__c</field>
+        <operation>equals</operation>
+        <value>New,Rejected</value>
+    </filters>
+    <filters>
+        <field>Creation__c</field>
+        <operation>equals</operation>
+        <value>TODAY</value>
+    </filters>
+    <filters>
+        <field>Is_Click_Collect__c</field>
+        <operation>equals</operation>
+        <value>0</value>
+    </filters>
+    <label>Available Jobs</label>
+    <language>en_US</language>
+    <sharedTo>
+        <group>Admins_group</group>
+        <group>Co_ordinator</group>
+        <group>FV_HFS_Co_ordinators</group>
+        <group>IV_HFS_Co_ordinators</group>
+        <group>KV_HFS_Co_ordinators</group>
+        <group>LV_HFS_Co_ordinators</group>
+        <group>Runners</group>
+        <group>WV_HFS_Co_ordinators</group>
+    </sharedTo>
+</ListView>

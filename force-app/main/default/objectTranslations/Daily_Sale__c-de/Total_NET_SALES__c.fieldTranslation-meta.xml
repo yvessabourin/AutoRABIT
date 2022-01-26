@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help>Dies ist der Gesamtumsatz des Tages einschließlich aller Arten von Verkäufen (z. B. Special Curated Selection Verkäufe)</help>
+    <label>Gesamtnetto-einnahmen</label>
+    <name>Total_NET_SALES__c</name>
+</CustomFieldTranslation>

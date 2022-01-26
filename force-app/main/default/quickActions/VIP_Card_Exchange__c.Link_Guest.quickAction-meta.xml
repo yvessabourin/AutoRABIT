@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QuickAction xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Retrospectively associates a guest with VIP card.</description>
+    <height>320</height>
+    <label>Link Guest</label>
+    <optionsCreateFeedItem>false</optionsCreateFeedItem>
+    <page>apiQuickLinkGuest</page>
+    <type>VisualforcePage</type>
+    <width>-100</width>
+</QuickAction>

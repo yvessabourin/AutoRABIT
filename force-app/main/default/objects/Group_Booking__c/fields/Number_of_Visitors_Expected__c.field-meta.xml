@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Number_of_Visitors_Expected__c</fullName>
+    <description>Maps from lead, the number of visitors</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Per Arrival (Visit)</inlineHelpText>
+    <label>Number of Visitors Expected</label>
+    <precision>5</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CertSales_Tot_Variance_Max_Percent__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>The max % variation (+ or -) between the Brand Reported Amount and the Certified Amount that will cause the validation message to display in the Brand Portal.  The user is required to either change the data or to add an overall comment.</inlineHelpText>
+    <label>CertSales Tot Variance Max Percent</label>
+    <precision>5</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Percent</type>
+</CustomField>

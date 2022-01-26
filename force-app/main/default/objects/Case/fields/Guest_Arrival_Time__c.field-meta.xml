@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Guest_Arrival_Time__c</fullName>
+    <description>Used to show time only on &quot;priority flag&quot; field on the job...</description>
+    <externalId>false</externalId>
+    <formula>TIMEVALUE(Guest_Arrive_at_Collection_Point__c) +  $User.UserTimezoneOffset__c * 3600000</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Guest Arrival Time</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Time</type>
+</CustomField>

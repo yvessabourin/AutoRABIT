@@ -1,0 +1,620 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Remerchandising_Activity__c</fullName>
+    <description>This list should mirror the &quot;Village Activities&quot; multi pick-list on Activity</description>
+    <externalId>false</externalId>
+    <label>Remerchandising Activity</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Bicester - Amendment</fullName>
+                <default>false</default>
+                <label>Bicester - Amendment</label>
+            </value>
+            <value>
+                <fullName>Bicester - Downsize</fullName>
+                <default>false</default>
+                <label>Bicester - Downsize</label>
+            </value>
+            <value>
+                <fullName>Bicester - Follow Up Action</fullName>
+                <default>false</default>
+                <label>Bicester - Follow Up Action</label>
+            </value>
+            <value>
+                <fullName>Bicester - New Contract</fullName>
+                <default>false</default>
+                <label>Bicester - New Contract</label>
+            </value>
+            <value>
+                <fullName>Bicester - Pop Up</fullName>
+                <default>false</default>
+                <label>Bicester - Pop Up</label>
+            </value>
+            <value>
+                <fullName>Bicester - Rebrand</fullName>
+                <default>false</default>
+                <label>Bicester - Rebrand</label>
+            </value>
+            <value>
+                <fullName>Bicester - Relocation</fullName>
+                <default>false</default>
+                <label>Bicester - Relocation</label>
+            </value>
+            <value>
+                <fullName>Bicester - Renewal</fullName>
+                <default>false</default>
+                <label>Bicester - Renewal</label>
+            </value>
+            <value>
+                <fullName>Bicester - Shop Refit</fullName>
+                <default>false</default>
+                <label>Bicester - Shop Refit</label>
+            </value>
+            <value>
+                <fullName>Bicester - Termination</fullName>
+                <default>false</default>
+                <label>Bicester - Termination</label>
+            </value>
+            <value>
+                <fullName>Bicester - Upsize</fullName>
+                <default>false</default>
+                <label>Bicester - Upsize</label>
+            </value>
+            <value>
+                <fullName>Fidenza - Amendment</fullName>
+                <default>false</default>
+                <label>Fidenza - Amendment</label>
+            </value>
+            <value>
+                <fullName>Fidenza - Downsize</fullName>
+                <default>false</default>
+                <label>Fidenza - Downsize</label>
+            </value>
+            <value>
+                <fullName>Fidenza - Follow Up Action</fullName>
+                <default>false</default>
+                <label>Fidenza - Follow Up Action</label>
+            </value>
+            <value>
+                <fullName>Fidenza - New Contract</fullName>
+                <default>false</default>
+                <label>Fidenza - New Contract</label>
+            </value>
+            <value>
+                <fullName>Fidenza - Pop Up</fullName>
+                <default>false</default>
+                <label>Fidenza - Pop Up</label>
+            </value>
+            <value>
+                <fullName>Fidenza - Rebrand</fullName>
+                <default>false</default>
+                <label>Fidenza - Rebrand</label>
+            </value>
+            <value>
+                <fullName>Fidenza - Relocation</fullName>
+                <default>false</default>
+                <label>Fidenza - Relocation</label>
+            </value>
+            <value>
+                <fullName>Fidenza - Renewal</fullName>
+                <default>false</default>
+                <label>Fidenza - Renewal</label>
+            </value>
+            <value>
+                <fullName>Fidenza - Shop Refit</fullName>
+                <default>false</default>
+                <label>Fidenza - Shop Refit</label>
+            </value>
+            <value>
+                <fullName>Fidenza - Termination</fullName>
+                <default>false</default>
+                <label>Fidenza - Termination</label>
+            </value>
+            <value>
+                <fullName>Fidenza - Upsize</fullName>
+                <default>false</default>
+                <label>Fidenza - Upsize</label>
+            </value>
+            <value>
+                <fullName>Ingolstadt - Amendment</fullName>
+                <default>false</default>
+                <label>Ingolstadt - Amendment</label>
+            </value>
+            <value>
+                <fullName>Ingolstadt - Downsize</fullName>
+                <default>false</default>
+                <label>Ingolstadt - Downsize</label>
+            </value>
+            <value>
+                <fullName>Ingolstadt - Follow Up Action</fullName>
+                <default>false</default>
+                <label>Ingolstadt - Follow Up Action</label>
+            </value>
+            <value>
+                <fullName>Ingolstadt - New Contract</fullName>
+                <default>false</default>
+                <label>Ingolstadt - New Contract</label>
+            </value>
+            <value>
+                <fullName>Ingolstadt - Pop Up</fullName>
+                <default>false</default>
+                <label>Ingolstadt - Pop Up</label>
+            </value>
+            <value>
+                <fullName>Ingolstadt - Rebrand</fullName>
+                <default>false</default>
+                <label>Ingolstadt - Rebrand</label>
+            </value>
+            <value>
+                <fullName>Ingolstadt - Relocation</fullName>
+                <default>false</default>
+                <label>Ingolstadt - Relocation</label>
+            </value>
+            <value>
+                <fullName>Ingolstadt - Renewal</fullName>
+                <default>false</default>
+                <label>Ingolstadt - Renewal</label>
+            </value>
+            <value>
+                <fullName>Ingolstadt - Shop Refit</fullName>
+                <default>false</default>
+                <label>Ingolstadt - Shop Refit</label>
+            </value>
+            <value>
+                <fullName>Ingolstadt - Termination</fullName>
+                <default>false</default>
+                <label>Ingolstadt - Termination</label>
+            </value>
+            <value>
+                <fullName>Ingolstadt - Upsize</fullName>
+                <default>false</default>
+                <label>Ingolstadt - Upsize</label>
+            </value>
+            <value>
+                <fullName>Kildare - Amendment</fullName>
+                <default>false</default>
+                <label>Kildare - Amendment</label>
+            </value>
+            <value>
+                <fullName>Kildare - Downsize</fullName>
+                <default>false</default>
+                <label>Kildare - Downsize</label>
+            </value>
+            <value>
+                <fullName>Kildare - Follow Up Action</fullName>
+                <default>false</default>
+                <label>Kildare - Follow Up Action</label>
+            </value>
+            <value>
+                <fullName>Kildare - New Contract</fullName>
+                <default>false</default>
+                <label>Kildare - New Contract</label>
+            </value>
+            <value>
+                <fullName>Kildare - Pop Up</fullName>
+                <default>false</default>
+                <label>Kildare - Pop Up</label>
+            </value>
+            <value>
+                <fullName>Kildare - Rebrand</fullName>
+                <default>false</default>
+                <label>Kildare - Rebrand</label>
+            </value>
+            <value>
+                <fullName>Kildare - Relocation</fullName>
+                <default>false</default>
+                <label>Kildare - Relocation</label>
+            </value>
+            <value>
+                <fullName>Kildare - Renewal</fullName>
+                <default>false</default>
+                <label>Kildare - Renewal</label>
+            </value>
+            <value>
+                <fullName>Kildare - Shop Refit</fullName>
+                <default>false</default>
+                <label>Kildare - Shop Refit</label>
+            </value>
+            <value>
+                <fullName>Kildare - Termination</fullName>
+                <default>false</default>
+                <label>Kildare - Termination</label>
+            </value>
+            <value>
+                <fullName>Kildare - Upsize</fullName>
+                <default>false</default>
+                <label>Kildare - Upsize</label>
+            </value>
+            <value>
+                <fullName>La Roca - Amendment</fullName>
+                <default>false</default>
+                <label>La Roca - Amendment</label>
+            </value>
+            <value>
+                <fullName>La Roca - Downsize</fullName>
+                <default>false</default>
+                <label>La Roca - Downsize</label>
+            </value>
+            <value>
+                <fullName>La Roca - Follow Up Action</fullName>
+                <default>false</default>
+                <label>La Roca - Follow Up Action</label>
+            </value>
+            <value>
+                <fullName>La Roca - New Contract</fullName>
+                <default>false</default>
+                <label>La Roca - New Contract</label>
+            </value>
+            <value>
+                <fullName>La Roca - Pop Up</fullName>
+                <default>false</default>
+                <label>La Roca - Pop Up</label>
+            </value>
+            <value>
+                <fullName>La Roca - Rebrand</fullName>
+                <default>false</default>
+                <label>La Roca - Rebrand</label>
+            </value>
+            <value>
+                <fullName>La Roca - Relocation</fullName>
+                <default>false</default>
+                <label>La Roca - Relocation</label>
+            </value>
+            <value>
+                <fullName>La Roca - Renewal</fullName>
+                <default>false</default>
+                <label>La Roca - Renewal</label>
+            </value>
+            <value>
+                <fullName>La Roca - Shop Refit</fullName>
+                <default>false</default>
+                <label>La Roca - Shop Refit</label>
+            </value>
+            <value>
+                <fullName>La Roca - Termination</fullName>
+                <default>false</default>
+                <label>La Roca - Termination</label>
+            </value>
+            <value>
+                <fullName>La Roca - Upsize</fullName>
+                <default>false</default>
+                <label>La Roca - Upsize</label>
+            </value>
+            <value>
+                <fullName>Las Rozas - Amendment</fullName>
+                <default>false</default>
+                <label>Las Rozas - Amendment</label>
+            </value>
+            <value>
+                <fullName>Las Rozas - Downsize</fullName>
+                <default>false</default>
+                <label>Las Rozas - Downsize</label>
+            </value>
+            <value>
+                <fullName>Las Rozas - Follow Up Action</fullName>
+                <default>false</default>
+                <label>Las Rozas - Follow Up Action</label>
+            </value>
+            <value>
+                <fullName>Las Rozas - New Contract</fullName>
+                <default>false</default>
+                <label>Las Rozas - New Contract</label>
+            </value>
+            <value>
+                <fullName>Las Rozas - Pop Up</fullName>
+                <default>false</default>
+                <label>Las Rozas - Pop Up</label>
+            </value>
+            <value>
+                <fullName>Las Rozas - Rebrand</fullName>
+                <default>false</default>
+                <label>Las Rozas - Rebrand</label>
+            </value>
+            <value>
+                <fullName>Las Rozas - Relocation</fullName>
+                <default>false</default>
+                <label>Las Rozas - Relocation</label>
+            </value>
+            <value>
+                <fullName>Las Rozas - Renewal</fullName>
+                <default>false</default>
+                <label>Las Rozas - Renewal</label>
+            </value>
+            <value>
+                <fullName>Las Rozas - Shop Refit</fullName>
+                <default>false</default>
+                <label>Las Rozas - Shop Refit</label>
+            </value>
+            <value>
+                <fullName>Las Rozas - Termination</fullName>
+                <default>false</default>
+                <label>Las Rozas - Termination</label>
+            </value>
+            <value>
+                <fullName>Las Rozas - Upsize</fullName>
+                <default>false</default>
+                <label>Las Rozas - Upsize</label>
+            </value>
+            <value>
+                <fullName>La Vallée - Amendment</fullName>
+                <default>false</default>
+                <label>La Vallée - Amendment</label>
+            </value>
+            <value>
+                <fullName>La Vallée - Downsize</fullName>
+                <default>false</default>
+                <label>La Vallée - Downsize</label>
+            </value>
+            <value>
+                <fullName>La Vallée - Follow Up Action</fullName>
+                <default>false</default>
+                <label>La Vallée - Follow Up Action</label>
+            </value>
+            <value>
+                <fullName>La Vallée - New Contract</fullName>
+                <default>false</default>
+                <label>La Vallée - New Contract</label>
+            </value>
+            <value>
+                <fullName>La Vallée - Pop Up</fullName>
+                <default>false</default>
+                <label>La Vallée - Pop Up</label>
+            </value>
+            <value>
+                <fullName>La Vallée - Rebrand</fullName>
+                <default>false</default>
+                <label>La Vallée - Rebrand</label>
+            </value>
+            <value>
+                <fullName>La Vallée - Relocation</fullName>
+                <default>false</default>
+                <label>La Vallée - Relocation</label>
+            </value>
+            <value>
+                <fullName>La Vallée - Renewal</fullName>
+                <default>false</default>
+                <label>La Vallée - Renewal</label>
+            </value>
+            <value>
+                <fullName>La Vallée - Shop Refit</fullName>
+                <default>false</default>
+                <label>La Vallée - Shop Refit</label>
+            </value>
+            <value>
+                <fullName>La Vallée - Termination</fullName>
+                <default>false</default>
+                <label>La Vallée - Termination</label>
+            </value>
+            <value>
+                <fullName>La Vallée - Upsize</fullName>
+                <default>false</default>
+                <label>La Vallée - Upsize</label>
+            </value>
+            <value>
+                <fullName>Maasmechelen - Amendment</fullName>
+                <default>false</default>
+                <label>Maasmechelen - Amendment</label>
+            </value>
+            <value>
+                <fullName>Maasmechelen - Downsize</fullName>
+                <default>false</default>
+                <label>Maasmechelen - Downsize</label>
+            </value>
+            <value>
+                <fullName>Maasmechelen - Follow Up Action</fullName>
+                <default>false</default>
+                <label>Maasmechelen - Follow Up Action</label>
+            </value>
+            <value>
+                <fullName>Maasmechelen - New Contract</fullName>
+                <default>false</default>
+                <label>Maasmechelen - New Contract</label>
+            </value>
+            <value>
+                <fullName>Maasmechelen - Pop Up</fullName>
+                <default>false</default>
+                <label>Maasmechelen - Pop Up</label>
+            </value>
+            <value>
+                <fullName>Maasmechelen - Rebrand</fullName>
+                <default>false</default>
+                <label>Maasmechelen - Rebrand</label>
+            </value>
+            <value>
+                <fullName>Maasmechelen - Relocation</fullName>
+                <default>false</default>
+                <label>Maasmechelen - Relocation</label>
+            </value>
+            <value>
+                <fullName>Maasmechelen - Renewal</fullName>
+                <default>false</default>
+                <label>Maasmechelen - Renewal</label>
+            </value>
+            <value>
+                <fullName>Maasmechelen - Shop Refit</fullName>
+                <default>false</default>
+                <label>Maasmechelen - Shop Refit</label>
+            </value>
+            <value>
+                <fullName>Maasmechelen - Termination</fullName>
+                <default>false</default>
+                <label>Maasmechelen - Termination</label>
+            </value>
+            <value>
+                <fullName>Maasmechelen - Upsize</fullName>
+                <default>false</default>
+                <label>Maasmechelen - Upsize</label>
+            </value>
+            <value>
+                <fullName>Shanghai - Amendment</fullName>
+                <default>false</default>
+                <label>Shanghai - Amendment</label>
+            </value>
+            <value>
+                <fullName>Shanghai - Downsize</fullName>
+                <default>false</default>
+                <label>Shanghai - Downsize</label>
+            </value>
+            <value>
+                <fullName>Shanghai - Follow Up Action</fullName>
+                <default>false</default>
+                <label>Shanghai - Follow Up Action</label>
+            </value>
+            <value>
+                <fullName>Shanghai - New Contract</fullName>
+                <default>false</default>
+                <label>Shanghai - New Contract</label>
+            </value>
+            <value>
+                <fullName>Shanghai - Pop Up</fullName>
+                <default>false</default>
+                <label>Shanghai - Pop Up</label>
+            </value>
+            <value>
+                <fullName>Shanghai - Rebrand</fullName>
+                <default>false</default>
+                <label>Shanghai - Rebrand</label>
+            </value>
+            <value>
+                <fullName>Shanghai - Relocation</fullName>
+                <default>false</default>
+                <label>Shanghai - Relocation</label>
+            </value>
+            <value>
+                <fullName>Shanghai - Renewal</fullName>
+                <default>false</default>
+                <label>Shanghai - Renewal</label>
+            </value>
+            <value>
+                <fullName>Shanghai - Shop Refit</fullName>
+                <default>false</default>
+                <label>Shanghai - Shop Refit</label>
+            </value>
+            <value>
+                <fullName>Shanghai - Termination</fullName>
+                <default>false</default>
+                <label>Shanghai - Termination</label>
+            </value>
+            <value>
+                <fullName>Shanghai - Upsize</fullName>
+                <default>false</default>
+                <label>Shanghai - Upsize</label>
+            </value>
+            <value>
+                <fullName>Suzhou - Amendment</fullName>
+                <default>false</default>
+                <label>Suzhou - Amendment</label>
+            </value>
+            <value>
+                <fullName>Suzhou - Downsize</fullName>
+                <default>false</default>
+                <label>Suzhou - Downsize</label>
+            </value>
+            <value>
+                <fullName>Suzhou - Follow Up Action</fullName>
+                <default>false</default>
+                <label>Suzhou - Follow Up Action</label>
+            </value>
+            <value>
+                <fullName>Suzhou - New Contract</fullName>
+                <default>false</default>
+                <label>Suzhou - New Contract</label>
+            </value>
+            <value>
+                <fullName>Suzhou - Pop Up</fullName>
+                <default>false</default>
+                <label>Suzhou - Pop Up</label>
+            </value>
+            <value>
+                <fullName>Suzhou - Rebrand</fullName>
+                <default>false</default>
+                <label>Suzhou - Rebrand</label>
+            </value>
+            <value>
+                <fullName>Suzhou - Relocation</fullName>
+                <default>false</default>
+                <label>Suzhou - Relocation</label>
+            </value>
+            <value>
+                <fullName>Suzhou - Renewal</fullName>
+                <default>false</default>
+                <label>Suzhou - Renewal</label>
+            </value>
+            <value>
+                <fullName>Suzhou - Shop Refit</fullName>
+                <default>false</default>
+                <label>Suzhou - Shop Refit</label>
+            </value>
+            <value>
+                <fullName>Suzhou - Termination</fullName>
+                <default>false</default>
+                <label>Suzhou - Termination</label>
+            </value>
+            <value>
+                <fullName>Suzhou - Upsize</fullName>
+                <default>false</default>
+                <label>Suzhou - Upsize</label>
+            </value>
+            <value>
+                <fullName>Wertheim - Amendment</fullName>
+                <default>false</default>
+                <label>Wertheim - Amendment</label>
+            </value>
+            <value>
+                <fullName>Wertheim - Downsize</fullName>
+                <default>false</default>
+                <label>Wertheim - Downsize</label>
+            </value>
+            <value>
+                <fullName>Wertheim - Follow Up Action</fullName>
+                <default>false</default>
+                <label>Wertheim - Follow Up Action</label>
+            </value>
+            <value>
+                <fullName>Wertheim - New Contract</fullName>
+                <default>false</default>
+                <label>Wertheim - New Contract</label>
+            </value>
+            <value>
+                <fullName>Wertheim - Pop Up</fullName>
+                <default>false</default>
+                <label>Wertheim - Pop Up</label>
+            </value>
+            <value>
+                <fullName>Wertheim - Rebrand</fullName>
+                <default>false</default>
+                <label>Wertheim - Rebrand</label>
+            </value>
+            <value>
+                <fullName>Wertheim - Relocation</fullName>
+                <default>false</default>
+                <label>Wertheim - Relocation</label>
+            </value>
+            <value>
+                <fullName>Wertheim - Renewal</fullName>
+                <default>false</default>
+                <label>Wertheim - Renewal</label>
+            </value>
+            <value>
+                <fullName>Wertheim - Shop Refit</fullName>
+                <default>false</default>
+                <label>Wertheim - Shop Refit</label>
+            </value>
+            <value>
+                <fullName>Wertheim - Termination</fullName>
+                <default>false</default>
+                <label>Wertheim - Termination</label>
+            </value>
+            <value>
+                <fullName>Wertheim - Upsize</fullName>
+                <default>false</default>
+                <label>Wertheim - Upsize</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

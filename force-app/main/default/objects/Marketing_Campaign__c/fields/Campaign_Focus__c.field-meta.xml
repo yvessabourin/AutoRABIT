@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Campaign_Focus__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>...</inlineHelpText>
+    <label>Campaign Focus</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Theme</fullName>
+                <default>false</default>
+                <label>Theme</label>
+            </value>
+            <value>
+                <fullName>Awareness and Positioning</fullName>
+                <default>false</default>
+                <label>Awareness and Positioning</label>
+            </value>
+            <value>
+                <fullName>Promotional Moments</fullName>
+                <default>false</default>
+                <label>Promotional Moments</label>
+            </value>
+            <value>
+                <fullName>Tactical Product Focus</fullName>
+                <default>false</default>
+                <label>Tactical Product Focus</label>
+            </value>
+            <value>
+                <fullName>International Moments</fullName>
+                <default>false</default>
+                <label>International Moments</label>
+            </value>
+            <value>
+                <fullName>Retail Brand Moments</fullName>
+                <default>false</default>
+                <label>Retail Brand Moments</label>
+            </value>
+            <value>
+                <fullName>Local Moments</fullName>
+                <default>false</default>
+                <label>Local Moments</label>
+            </value>
+            <value>
+                <fullName>Destination Marketing Moments</fullName>
+                <default>false</default>
+                <label>Destination Marketing Moments</label>
+            </value>
+            <value>
+                <fullName>International Always On</fullName>
+                <default>false</default>
+                <label>International Always On</label>
+            </value>
+            <value>
+                <fullName>Non-Campaigns</fullName>
+                <default>false</default>
+                <label>Non-Campaigns</label>
+            </value>
+            <value>
+                <fullName>BAU</fullName>
+                <default>false</default>
+                <label>BAU</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

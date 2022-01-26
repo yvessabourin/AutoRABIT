@@ -1,0 +1,178 @@
+<apex:page id="Clienteling" StandardController="Account" extensions="PI_PersonalPrefController" showHeader="false" standardStylesheets="false" docType="html-5.0">
+    
+    <apex:stylesheet value="{!URLFOR($Resource.PRXC__Clienteling, 'css.css')}"/>
+    
+    <style type="text/css">
+        .formPicklist {border-width: 0px;}
+        .formCheckbox input {
+            display: none;
+            height:0;
+            width:0;
+            position:absolute;
+            overflow:hidden;
+        }
+        .formCheckbox span { 
+            display: inline-block;
+            width: 26px;
+            height: 26px;
+            background-image: url("{!URLFOR($Resource.PRXC__Clienteling, 'images/elements/checkbox.svg')}");
+            position: relative;
+            background-size: cover;
+        }
+        .formCheckbox input:checked + span { 
+            background: url("{!URLFOR($Resource.PRXC__Clienteling, 'images/elements/checkbox_check.svg')}"), url("{!URLFOR($Resource.PRXC__Clienteling, 'images/elements/checkbox.svg')}");
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+        .width100 {
+            width: 100%;
+        }
+    </style>
+
+    <div class="container">
+        <div class="row">
+            <div class="page-section col-sm-12">
+                <apex:form >
+                    <div class="row v-padding">
+                        <div class="form-group col-sm-6">
+                            <apex:outputPanel id="LeadSourcePanel">
+                                <label>{!$ObjectType.Personal_Shopping_Preference__c.fields.Lead_Source__c.label}</label>
+                                <div class="form-control auto-form-height">
+                                    <apex:inputField value="{!personalPref.Lead_Source__c}" id="leadsource" styleClass="formPicklist width100"/>
+                                </div>
+                            </apex:outputPanel>
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <label>{!$ObjectType.Personal_Shopping_Preference__c.fields.Lead_Source_Details__c.label}</label>
+                            <div class="form-control auto-form-height">
+                                <apex:inputField value="{!personalPref.Lead_Source_Details__c}" id="leadsourcedetails" type="text"/>
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <label>{!$ObjectType.Personal_Shopping_Preference__c.fields.External_Personal_Shopping_Details__c.label}</label>
+                            <div class="form-control auto-form-height">
+                                <apex:inputField value="{!personalPref.External_Personal_Shopping_Details__c}" id="ExternalPersonalShoppingDetails" type="text"/>
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <label>{!$ObjectType.Personal_Shopping_Preference__c.fields.External_Personal_Shopping__c.label}</label><br/>
+                            <apex:selectList styleClass="btn btn-default dropdown-toggle overflow-hidden full-width" value="{!personalPref.External_Personal_Shopping__c}" size="1">
+                                <apex:selectOption itemValue="true" itemLabel="Yes"/>
+                                <apex:selectOption itemValue="false" itemLabel="No"/>
+                            </apex:selectList>
+                        </div>                   
+                        <div class="form-group col-sm-6">
+                            <label>{!$ObjectType.Personal_Shopping_Preference__c.fields.Lifestyle__c.label}</label>
+                            <div class="form-control auto-form-height">
+                                <apex:inputField value="{!personalPref.Lifestyle__c}" id="lifestyle" type="text"/>
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <label>{!$ObjectType.Personal_Shopping_Preference__c.fields.Colouring__c.label}</label>
+                            <div class="form-control auto-form-height">
+                                <apex:inputField value="{!personalPref.Colouring__c}" id="colouring" type="text"/>
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <label>{!$ObjectType.Personal_Shopping_Preference__c.fields.Body_Shape__c.label}</label>
+                            <div class="form-control auto-form-height">
+                                <apex:inputField value="{!personalPref.Body_Shape__c}" id="bodyshape" type="text"/>
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <label>{!$ObjectType.Personal_Shopping_Preference__c.fields.Body_Size__c.label}</label>
+                            <div class="form-control auto-form-height">
+                                <apex:inputField value="{!personalPref.Body_Size__c}" id="bodysize" type="text"/>
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <label>{!$ObjectType.Personal_Shopping_Preference__c.fields.Shoe_Size__c.label}</label>
+                            <div class="form-control auto-form-height">
+                                <apex:inputField value="{!personalPref.Shoe_Size__c}" id="shoesize" type="text"/>
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <label>{!$ObjectType.Personal_Shopping_Preference__c.fields.Style__c.label}</label>
+                            <div class="form-control auto-form-height">
+                                <apex:inputField value="{!personalPref.Style__c}" id="style" type="text"/>
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <label>{!$ObjectType.Personal_Shopping_Preference__c.fields.Colours__c.label}</label>
+                            <div class="form-control auto-form-height">
+                                <apex:inputField value="{!personalPref.Colours__c}" id="colours" type="text"/>
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <label>{!$ObjectType.Personal_Shopping_Preference__c.fields.Fabrics__c.label}</label>
+                            <div class="form-control auto-form-height">
+                                <apex:inputField value="{!personalPref.Fabrics__c}" id="fabrics" type="text"/>
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <apex:outputPanel id="SizePanel">
+                                <label>{!$ObjectType.Personal_Shopping_Preference__c.fields.Size_Type__c.label}</label>
+                                <div class="form-control auto-form-height">
+                                    <apex:inputField value="{!personalPref.Size_Type__c}" id="sizetype" styleClass="formPicklist width100"/>
+                                </div>
+                            </apex:outputPanel>
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <label>{!$ObjectType.Personal_Shopping_Preference__c.fields.Dos__c.label}</label>
+                            <div class="form-control auto-form-height">
+                                <apex:inputField value="{!personalPref.Dos__c}" id="Dos" type="text"/>
+                            </div>
+                        </div>                                                         
+                        <div class="form-group col-sm-6">
+                            <label>{!$ObjectType.Personal_Shopping_Preference__c.fields.Donts__c.label}</label>
+                            <div class="form-control auto-form-height">
+                                <apex:inputField value="{!personalPref.Donts__c}" id="donts" type="text"/>
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <label>{!$ObjectType.Personal_Shopping_Preference__c.fields.Notes__c.label}</label>
+                            <div class="form-control auto-form-height">
+                                <apex:inputField value="{!personalPref.Notes__c}" id="notes" type="text"/>
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <label>{!$ObjectType.Personal_Shopping_Preference__c.fields.Budget__c.label}</label>
+                            <div class="form-control auto-form-height">
+                                <apex:inputField value="{!personalPref.Budget__c}" id="budget" type="text"/>
+                            </div>
+                        </div>           
+                        <div class="form-group col-sm-6">
+                            <apex:outputPanel id="ExpectedPanel">
+                                <label>{!$ObjectType.Personal_Shopping_Preference__c.fields.Expected_Frequency__c.label}</label>
+                                <div class="form-control auto-form-height">
+                                    <apex:inputField value="{!personalPref.Expected_Frequency__c}" id="expectedfreq" styleClass="formPicklist width100"/>
+                                </div>
+                            </apex:outputPanel>
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <label>{!$ObjectType.Personal_Shopping_Preference__c.fields.Expected_Frequency_Details__c.label}</label>
+                            <div class="form-control auto-form-height">
+                                <apex:inputField value="{!personalPref.Expected_Frequency_Details__c}" id="expectedfreqdetails" type="text"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row v-padding">
+                        <div class="col-sm-6 col-xs-9">
+                            <apex:outputText id="messageSection" value="{!HTMLENCODE(message)}" escape="false" styleClass="inline-block text-bold"/>
+                        </div>
+                        <div class="col-sm-2 col-xs-3 text-right">
+                            <apex:actionStatus id="saveStatus">
+                                <apex:facet name="stop">
+                                    <apex:commandButton styleClass="btn btn-primary" status="saveStatus" value="Save" action="{!save}" id="formSave" rerender="messageSection"/>
+                                </apex:facet>
+                                <apex:facet name="start">
+                                    <apex:commandButton styleClass="btn btn-primary" status="saveStatus" value="Saving.." disabled="true"/>
+                                </apex:facet>
+                            </apex:actionStatus>
+                        </div>
+                    </div>
+                </apex:form>
+            </div>
+        </div>
+    </div>
+</apex:page>

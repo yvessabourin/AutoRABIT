@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Interested_in_Full_Price__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Would the brand like to sell product at full price/0% discount in the Village?</inlineHelpText>
+    <label>Interested in Full Price</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>In Discussion</fullName>
+                <default>false</default>
+                <label>In Discussion</label>
+            </value>
+            <value>
+                <fullName>Agree</fullName>
+                <default>false</default>
+                <label>Agree</label>
+            </value>
+            <value>
+                <fullName>Not For Now</fullName>
+                <default>false</default>
+                <label>Not For Now</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Linked_to_object__c</fullName>
+    <description>Created specifically for Mobile listings page to overcome limitation of query syntax using Remote Objects.</description>
+    <externalId>false</externalId>
+    <formula>IF( ISBLANK( WhatId ) , false, true)</formula>
+    <label>Linked to object</label>
+    <type>Checkbox</type>
+</CustomField>

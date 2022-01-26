@@ -1,0 +1,18 @@
+<apex:page standardController="HFS_Bag__c" lightningStylesheets="true" recordSetVar="Bag" extensions="HFSAddNewBagController">
+    <apex:form >
+        <apex:pageBlock title="Add new Bag">
+        <apex:pageMessages ></apex:pageMessages>
+            <apex:pageBlockSection title="Bag Details" columns="1">
+                <apex:outputtext value="{!idName}" label="Purchase Number"/>
+                <apex:outputtext value="{!guestId}" label="Guest ID"/>
+                <apex:inputField value="{!aBag.HFS_Add_Reason__c}" required="true"/>
+                <apex:inputField value="{!aBag.Barcode__c}" required="true" /> 
+                <apex:inputField value="{!aBag.Oversized__c}"/>
+            </apex:pageBlockSection>
+            <apex:pageBlockButtons location="bottom" >
+                <apex:commandButton action="{!saveNewBag}" value="Save New Bag"/>
+                <apex:commandButton action="{!cancel}" value="Cancel"/>
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

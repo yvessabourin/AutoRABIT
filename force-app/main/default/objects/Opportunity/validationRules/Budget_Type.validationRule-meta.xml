@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Budget_Type</fullName>
+    <active>true</active>
+    <description>All Budget fields should be completed when there is a Budget Type.</description>
+    <errorConditionFormula>$Setup.Global_Object_Validation__c.Deal_Validations_Active__c &amp;&amp; NOT(ISBLANK(TEXT( Budget_Type__c ))) &amp;&amp;  OR ( ISBLANK( TEXT(In_Budget__c) ), ISBLANK(  Budget_Unit__c ) , AND (ISNULL ( Budget_Open_Date__c ), ISNULL( Budget_Exit_Date__c )), ISNULL( Budget_Effective_Size_sq_m__c ))&amp;&amp; NOT( RecordTypeName__c = &quot;Exit&quot; )</errorConditionFormula>
+    <errorMessage>All Budget fields should be completed when there is a Budget Type. Please review data.</errorMessage>
+</ValidationRule>

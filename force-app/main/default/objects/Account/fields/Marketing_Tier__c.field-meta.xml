@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Marketing_Tier__c</fullName>
+    <externalId>false</externalId>
+    <label>Tier</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Micro (under 50k)</fullName>
+                <default>false</default>
+                <label>Micro (under 50k)</label>
+            </value>
+            <value>
+                <fullName>Mid (100-500k)</fullName>
+                <default>false</default>
+                <label>Mid (100-500k)</label>
+            </value>
+            <value>
+                <fullName>Mass (500k+)</fullName>
+                <default>false</default>
+                <label>Mass (500k+)</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>
