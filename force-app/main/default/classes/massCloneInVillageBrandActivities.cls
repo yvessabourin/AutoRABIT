@@ -6,7 +6,7 @@ public with sharing class massCloneInVillageBrandActivities{
     public map<In_Village_Brand_Activity__c,In_Village_Brand_Activity__c> BAMap {get;set;}
     public string returl {get;set;}
 
-    // system.debug('AutoRABIT test');
+    // system.debug('AutoRABIT test1');
     
     public massCloneInVillageBrandActivities(ApexPages.StandardSetController controller) {
         setCon = controller;
